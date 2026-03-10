@@ -1,15 +1,15 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-03-10T23:48:22Z",
+  "generated_at": "2026-03-10T23:49:11Z",
   "repository": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills",
-  "total_skills": 698,
+  "total_skills": 702,
   "total_domains": 1,
-  "total_subdomains": 33,
+  "total_subdomains": 34,
   "domain_stats": {
-    "cybersecurity": 698
+    "cybersecurity": 702
   },
   "subdomain_stats": {
-    "digital-forensics": 36,
+    "digital-forensics": 37,
     "malware-analysis": 38,
     "security-operations": 34,
     "threat-intelligence": 49,
@@ -25,7 +25,7 @@
     "devsecops": 16,
     "identity-access-management": 34,
     "vulnerability-management": 25,
-    "threat-hunting": 46,
+    "threat-hunting": 47,
     "web-application-security": 42,
     "penetration-testing": 23,
     "zero-trust-architecture": 13,
@@ -33,13 +33,14 @@
     "endpoint-security": 16,
     "ot-ics-security": 28,
     "api-security": 28,
-    "threat-detection": 4,
+    "threat-detection": 5,
     "identity-security": 1,
     "ransomware-defense": 5,
     "deception-technology": 2,
     "application-security": 2,
     "compliance-governance": 5,
     "identity-and-access-management": 1,
+    "zero-trust": 1,
     "red-team": 2,
     "offensive-security": 1
   },
@@ -50,7 +51,7 @@
     },
     {
       "tag": "threat-hunting",
-      "count": 54
+      "count": 55
     },
     {
       "tag": "penetration-testing",
@@ -77,12 +78,12 @@
       "count": 35
     },
     {
-      "tag": "soc",
+      "tag": "forensics",
       "count": 33
     },
     {
-      "tag": "forensics",
-      "count": 32
+      "tag": "soc",
+      "count": 33
     },
     {
       "tag": "web-security",
@@ -122,7 +123,7 @@
     },
     {
       "tag": "zero-trust",
-      "count": 23
+      "count": 24
     }
   ],
   "skills": [
@@ -596,6 +597,26 @@
       "author": "mukul975",
       "license": "Apache-2.0",
       "path": "skills/analyzing-linux-elf-malware"
+    },
+    {
+      "name": "analyzing-linux-kernel-rootkits",
+      "description": "Detect kernel-level rootkits in Linux memory dumps using Volatility3 linux plugins (check_syscall, lsmod, hidden_modules), rkhunter system scanning, and /proc vs /sys discrepancy analysis to identify hooked syscalls, hidden kernel modules, and tampered system structures.",
+      "domain": "cybersecurity",
+      "subdomain": "digital-forensics",
+      "tags": [
+        "rootkit",
+        "linux",
+        "kernel",
+        "volatility3",
+        "memory-forensics",
+        "malware-analysis",
+        "rkhunter",
+        "forensics"
+      ],
+      "version": "1.0",
+      "author": "mukul975",
+      "license": "Apache-2.0",
+      "path": "skills/analyzing-linux-kernel-rootkits"
     },
     {
       "name": "analyzing-linux-system-artifacts",
@@ -3866,6 +3887,25 @@
       "path": "skills/detecting-insider-threat-behaviors"
     },
     {
+      "name": "detecting-insider-threat-with-ueba",
+      "description": "Implement User and Entity Behavior Analytics using Elasticsearch/OpenSearch to build behavioral baselines, calculate anomaly scores, perform peer group analysis, and detect insider threat indicators such as data exfiltration, privilege abuse, and unauthorized access patterns.",
+      "domain": "cybersecurity",
+      "subdomain": "threat-detection",
+      "tags": [
+        "ueba",
+        "insider-threat",
+        "anomaly-detection",
+        "elasticsearch",
+        "behavior-analytics",
+        "machine-learning",
+        "siem"
+      ],
+      "version": "1.0",
+      "author": "mukul975",
+      "license": "Apache-2.0",
+      "path": "skills/detecting-insider-threat-with-ueba"
+    },
+    {
       "name": "detecting-kerberoasting-attacks",
       "description": "Detect Kerberoasting attacks by monitoring for anomalous Kerberos TGS requests targeting service accounts with SPNs for offline password cracking.",
       "domain": "cybersecurity",
@@ -5539,6 +5579,27 @@
       "author": "mukul975",
       "license": "Apache-2.0",
       "path": "skills/hunting-for-beaconing-with-frequency-analysis"
+    },
+    {
+      "name": "hunting-for-cobalt-strike-beacons",
+      "description": "Detect Cobalt Strike beacon network activity using default TLS certificate signatures (serial 8BB00EE), JA3/JA3S/JARM fingerprints, HTTP C2 profile pattern matching, beacon jitter analysis, and named pipe detection via Zeek, Suricata, and Python PCAP analysis.",
+      "domain": "cybersecurity",
+      "subdomain": "threat-hunting",
+      "tags": [
+        "cobalt-strike",
+        "beacon",
+        "threat-hunting",
+        "c2",
+        "zeek",
+        "suricata",
+        "ja3",
+        "jarm",
+        "network-forensics"
+      ],
+      "version": "1.0",
+      "author": "mukul975",
+      "license": "Apache-2.0",
+      "path": "skills/hunting-for-cobalt-strike-beacons"
     },
     {
       "name": "hunting-for-command-and-control-beaconing",
@@ -8764,6 +8825,25 @@
       "author": "mukul975",
       "license": "Apache-2.0",
       "path": "skills/implementing-zero-trust-network-access-with-zscaler"
+    },
+    {
+      "name": "implementing-zero-trust-with-beyondcorp",
+      "description": "Deploy Google BeyondCorp Enterprise zero trust access controls using Identity-Aware Proxy (IAP), context-aware access policies, device trust validation, and Access Context Manager to enforce identity and posture-based access to GCP resources and internal applications.",
+      "domain": "cybersecurity",
+      "subdomain": "zero-trust",
+      "tags": [
+        "zero-trust",
+        "beyondcorp",
+        "google-cloud",
+        "iap",
+        "context-aware-access",
+        "device-trust",
+        "identity"
+      ],
+      "version": "1.0",
+      "author": "mukul975",
+      "license": "Apache-2.0",
+      "path": "skills/implementing-zero-trust-with-beyondcorp"
     },
     {
       "name": "implementing-zero-trust-with-hashicorp-boundary",
