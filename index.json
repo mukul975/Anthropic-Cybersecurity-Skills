@@ -1,17 +1,18 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-03-10T23:52:39Z",
+  "generated_at": "2026-03-11T00:22:05Z",
   "repository": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills",
-  "total_skills": 712,
+  "total_skills": 717,
   "total_domains": 1,
-  "total_subdomains": 34,
+  "total_subdomains": 35,
   "domain_stats": {
-    "cybersecurity": 712
+    "cybersecurity": 717
   },
   "subdomain_stats": {
     "digital-forensics": 37,
+    "identity-security": 2,
     "malware-analysis": 39,
-    "security-operations": 34,
+    "security-operations": 35,
     "threat-intelligence": 50,
     "cloud-security": 57,
     "soc-operations": 33,
@@ -19,11 +20,11 @@
     "container-security": 29,
     "log-analysis": 1,
     "phishing-defense": 16,
-    "network-security": 38,
+    "network-security": 39,
     "incident-response": 25,
     "threat-hunting": 50,
     "red-teaming": 24,
-    "devsecops": 16,
+    "devsecops": 17,
     "identity-access-management": 35,
     "vulnerability-management": 25,
     "web-application-security": 42,
@@ -34,7 +35,6 @@
     "ot-ics-security": 28,
     "api-security": 28,
     "threat-detection": 6,
-    "identity-security": 1,
     "ransomware-defense": 5,
     "deception-technology": 2,
     "application-security": 3,
@@ -42,7 +42,8 @@
     "identity-and-access-management": 1,
     "zero-trust": 1,
     "red-team": 2,
-    "offensive-security": 1
+    "offensive-security": 1,
+    "wireless-security": 1
   },
   "top_tags": [
     {
@@ -51,7 +52,7 @@
     },
     {
       "tag": "threat-hunting",
-      "count": 56
+      "count": 57
     },
     {
       "tag": "penetration-testing",
@@ -70,12 +71,12 @@
       "count": 37
     },
     {
-      "tag": "network-security",
+      "tag": "incident-response",
       "count": 36
     },
     {
-      "tag": "incident-response",
-      "count": 35
+      "tag": "network-security",
+      "count": 36
     },
     {
       "tag": "forensics",
@@ -102,6 +103,10 @@
       "count": 28
     },
     {
+      "tag": "phishing",
+      "count": 25
+    },
+    {
       "tag": "red-team",
       "count": 25
     },
@@ -112,10 +117,6 @@
     {
       "tag": "zero-trust",
       "count": 25
-    },
-    {
-      "tag": "phishing",
-      "count": 24
     },
     {
       "tag": "kubernetes",
@@ -144,6 +145,22 @@
       "author": "mukul975",
       "license": "Apache-2.0",
       "path": "skills/acquiring-disk-image-with-dd-and-dcfldd"
+    },
+    {
+      "name": "analyzing-active-directory-acl-abuse",
+      "description": "Detect dangerous ACL misconfigurations in Active Directory using ldap3 to identify GenericAll, WriteDACL, and WriteOwner abuse paths",
+      "domain": "cybersecurity",
+      "subdomain": "identity-security",
+      "tags": [
+        "active-directory",
+        "acl-abuse",
+        "ldap",
+        "privilege-escalation"
+      ],
+      "version": "1.0",
+      "author": "mukul975",
+      "license": "Apache-2.0",
+      "path": "skills/analyzing-active-directory-acl-abuse"
     },
     {
       "name": "analyzing-android-malware-with-apktool",
@@ -3836,6 +3853,22 @@
       "author": "mukul975",
       "license": "Apache-2.0",
       "path": "skills/detecting-evasion-techniques-in-endpoint-logs"
+    },
+    {
+      "name": "detecting-exfiltration-over-dns-with-zeek",
+      "description": "Detect DNS-based data exfiltration by analyzing Zeek dns.log for high-entropy subdomains and anomalous query patterns",
+      "domain": "cybersecurity",
+      "subdomain": "network-security",
+      "tags": [
+        "dns-exfiltration",
+        "zeek",
+        "entropy-analysis",
+        "threat-hunting"
+      ],
+      "version": "1.0",
+      "author": "mukul975",
+      "license": "Apache-2.0",
+      "path": "skills/detecting-exfiltration-over-dns-with-zeek"
     },
     {
       "name": "detecting-fileless-attacks-on-endpoints",
@@ -8414,6 +8447,22 @@
       "path": "skills/implementing-secrets-management-with-vault"
     },
     {
+      "name": "implementing-secrets-scanning-in-ci-cd",
+      "description": "Integrate gitleaks and trufflehog into CI/CD pipelines to detect leaked secrets before deployment",
+      "domain": "cybersecurity",
+      "subdomain": "devsecops",
+      "tags": [
+        "secrets-scanning",
+        "gitleaks",
+        "trufflehog",
+        "ci-cd"
+      ],
+      "version": "1.0",
+      "author": "mukul975",
+      "license": "Apache-2.0",
+      "path": "skills/implementing-secrets-scanning-in-ci-cd"
+    },
+    {
       "name": "implementing-security-chaos-engineering",
       "description": ">",
       "domain": "cybersecurity",
@@ -8546,6 +8595,22 @@
       "author": "mukul975",
       "license": "Apache-2.0",
       "path": "skills/implementing-soar-automation-with-phantom"
+    },
+    {
+      "name": "implementing-soar-playbook-for-phishing",
+      "description": "Automate phishing incident response using Splunk SOAR REST API to create containers, add artifacts, and trigger playbooks",
+      "domain": "cybersecurity",
+      "subdomain": "security-operations",
+      "tags": [
+        "soar",
+        "splunk-phantom",
+        "phishing",
+        "incident-response"
+      ],
+      "version": "1.0",
+      "author": "mukul975",
+      "license": "Apache-2.0",
+      "path": "skills/implementing-soar-playbook-for-phishing"
     },
     {
       "name": "implementing-soar-playbook-with-palo-alto-xsoar",
@@ -9642,6 +9707,22 @@
       "author": "mukul975",
       "license": "Apache-2.0",
       "path": "skills/performing-blind-ssrf-exploitation"
+    },
+    {
+      "name": "performing-bluetooth-security-assessment",
+      "description": "Assess Bluetooth Low Energy device security by scanning, enumerating GATT services, and detecting vulnerabilities",
+      "domain": "cybersecurity",
+      "subdomain": "wireless-security",
+      "tags": [
+        "bluetooth",
+        "ble",
+        "gatt",
+        "wireless-security"
+      ],
+      "version": "1.0",
+      "author": "mukul975",
+      "license": "Apache-2.0",
+      "path": "skills/performing-bluetooth-security-assessment"
     },
     {
       "name": "performing-brand-monitoring-for-impersonation",
