@@ -4,6 +4,7 @@ on:
   push:
     branches: [main]
     paths:
+      - '.agents/skills/**'
       - 'skills/**'
 
 jobs:
@@ -23,7 +24,7 @@ jobs:
           from datetime import datetime, timezone
           from collections import Counter
 
-          skills_dir = "skills"
+          skills_dir = ".agents/skills"
           skills = []
           subdomain_counts = Counter()
           tag_counter = Counter()
@@ -60,7 +61,7 @@ jobs:
                   "version": get_field("version", fm) or "1.0",
                   "author": "mukul975",
                   "license": "Apache-2.0",
-                  "path": f"skills/{skill_name}"
+                  "path": f".agents/skills/{skill_name}"
               })
 
           top_tags = sorted(tag_counter.items(), key=lambda x: -x[1])[:20]

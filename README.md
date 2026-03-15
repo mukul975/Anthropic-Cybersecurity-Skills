@@ -22,6 +22,8 @@
 
 The largest open-source collection of cybersecurity skills for AI agents. Every skill follows the [agentskills.io](https://agentskills.io) open standard and works instantly with Claude Code, GitHub Copilot, OpenAI Codex CLI, Cursor, Gemini CLI, and 20+ other platforms.
 
+The canonical in-repo skill catalog now lives under `.agents/skills/`. A repo-root `skills/` symlink is kept for compatibility with older links and tooling.
+
 ## Quick Start
 
 **Method 1: npx skills**
@@ -91,8 +93,8 @@ These skills work with any tool that supports the agentskills.io standard or can
 | Platform | Integration |
 |----------|------------|
 | **Claude Code** | Native skill loading via `/plugin` |
-| **GitHub Copilot** | Workspace context via `.skills/` directory |
-| **OpenAI Codex CLI** | File-based context injection |
+| **GitHub Copilot** | Workspace context via the compatibility `skills/` symlink or canonical `.agents/skills/` catalog |
+| **OpenAI Codex CLI** | Canonical skill catalog in `.agents/skills/` |
 | **Cursor** | Project rules and docs integration |
 | **Gemini CLI** | Context file loading |
 | **Amp** | Skill directory mounting |
@@ -107,7 +109,7 @@ These skills work with any tool that supports the agentskills.io standard or can
 Every skill follows a consistent directory structure:
 
 ```
-skills/{skill-name}/
+.agents/skills/{skill-name}/
 ├── SKILL.md            # Skill definition with YAML frontmatter
 │   ├── Frontmatter     # name, description, domain, subdomain, tags
 │   ├── When to Use     # Trigger conditions for AI agents

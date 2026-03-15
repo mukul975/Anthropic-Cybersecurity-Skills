@@ -3,9 +3,11 @@ name: Validate SKILL.md files
 on:
   push:
     paths:
+      - '.agents/skills/**'
       - 'skills/**'
   pull_request:
     paths:
+      - '.agents/skills/**'
       - 'skills/**'
 
 jobs:
@@ -15,84 +17,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Validate SKILL.md frontmatter with Python
-        run: |
-          python3 << 'EOF'
-          import os
-          import re
-          import sys
-
-          REQUIRED_FIELDS = ['name', 'description', 'domain', 'subdomain', 'tags', 'version', 'author', 'license']
-          errors = []
-          checked = 0
-
-          for root, dirs, files in os.walk('skills'):
-              for file in files:
-                  if file == 'SKILL.md':
-                      path = os.path.join(root, file)
-                      checked += 1
-                      with open(path, 'r', encoding='utf-8') as f:
-                          content = f.read()
-
-                      # Check frontmatter exists
-                      fm_match = re.match(r'^---\n(.*?)\n---', content, re.DOTALL)
-                      if not fm_match:
-                          errors.append(f"{path}: Missing YAML frontmatter")
-                          continue
-
-                      fm = fm_match.group(1)
-
-                      # Check required fields
-                      for field in REQUIRED_FIELDS:
-                          if not re.search(rf'^{field}:', fm, re.MULTILINE):
-                              errors.append(f"{path}: Missing required field '{field}'")
-
-                      # Check name format (kebab-case)
-                      name_match = re.search(r'^name:\s*(.+)$', fm, re.MULTILINE)
-                      if name_match:
-                          name = name_match.group(1).strip().strip('"')
-                          if not re.match(r'^[a-z0-9-]+$', name):
-                              errors.append(f"{path}: Name '{name}' must be kebab-case")
-                          if len(name) > 64:
-                              errors.append(f"{path}: Name '{name}' exceeds 64 characters")
-
-          print(f"Checked {checked} SKILL.md files")
-
-          if errors:
-              print(f"\n{len(errors)} validation error(s):")
-              for e in errors:
-                  print(f"  ❌ {e}")
-              sys.exit(1)
-          else:
-              print(f"✅ All {checked} skills valid")
-          EOF
-
-      - name: Check for duplicate skill names
-        run: |
-          python3 << 'EOF'
-          import os
-          import re
-          from collections import Counter
-
-          names = []
-          for root, dirs, files in os.walk('skills'):
-              for file in files:
-                  if file == 'SKILL.md':
-                      path = os.path.join(root, file)
-                      with open(path, 'r', encoding='utf-8') as f:
-                          content = f.read()
-                      fm_match = re.match(r'^---\n(.*?)\n---', content, re.DOTALL)
-                      if fm_match:
-                          name_match = re.search(r'^name:\s*(.+)$', fm_match.group(1), re.MULTILINE)
-                          if name_match:
-                              names.append(name_match.group(1).strip().strip('"'))
-
-          duplicates = [name for name, count in Counter(names).items() if count > 1]
-          if duplicates:
-              print(f"❌ Duplicate skill names found: {duplicates}")
-              exit(1)
-          print(f"✅ No duplicate names in {len(names)} skills")
-          EOF
+      - name: Validate skill catalog
+        run: ruby scripts/validate_skill_catalog.rb
 
       - name: Report skill counts
         if: always()
@@ -106,7 +32,7 @@ jobs:
 
           subdomain_counts = Counter()
           total = 0
-          for root, dirs, files in os.walk('skills'):
+          for root, dirs, files in os.walk('.agents/skills'):
               for file in files:
                   if file == 'SKILL.md':
                       total += 1

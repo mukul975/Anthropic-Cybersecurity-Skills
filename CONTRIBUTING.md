@@ -2,7 +2,7 @@
 
 ## How to add a new skill
 
-1. Create a new directory: `skills/your-skill-name/`
+1. Create a new directory: `.agents/skills/your-skill-name/`
 2. Add a `SKILL.md` file with required YAML frontmatter:
    ```yaml
    ---
@@ -32,6 +32,8 @@
    - `scripts/process.py` — Real working helper script
    - `assets/template.md` — Real filled-in checklist/template
 5. Submit a PR with title: `Add skill: your-skill-name`
+
+The repo-root `skills/` path is compatibility-only. Add new skills under `.agents/skills/`.
 
 ## Skill quality checklist
 - [ ] Name is lowercase with hyphens (kebab-case), 1–64 characters
