@@ -1,42 +1,41 @@
 <p align="center">
-  <img src="assets/banner.png" alt="Anthropic Cybersecurity Skills" width="600">
+  <img src="assets/banner.png" alt="HRD Security Skills" width="600">
 </p>
 
 <p align="center">
-  <strong>611+ cybersecurity skills for AI agents &middot; agentskills.io open standard</strong>
+  <strong>730+ cybersecurity skills for AI agents &middot; agentskills.io open standard</strong>
 </p>
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache_2.0-blue.svg?style=flat" alt="License"></a>
-  <img src="https://img.shields.io/badge/skills-611%2B-brightgreen?style=flat" alt="Skills Count">
-  <img src="https://img.shields.io/github/stars/mukul975/Anthropic-Cybersecurity-Skills?style=flat" alt="Stars">
-  <img src="https://img.shields.io/github/last-commit/mukul975/Anthropic-Cybersecurity-Skills?style=flat" alt="Last Commit">
+  <img src="https://img.shields.io/badge/skills-730%2B-brightgreen?style=flat" alt="Skills Count">
+  <img src="https://img.shields.io/github/stars/HRD-Security/skills?style=flat" alt="Stars">
+  <img src="https://img.shields.io/github/last-commit/HRD-Security/skills?style=flat" alt="Last Commit">
   <a href="https://agentskills.io"><img src="https://img.shields.io/badge/standard-agentskills.io-purple?style=flat" alt="Agent Skills"></a>
   <img src="https://img.shields.io/badge/platforms-26%2B-orange?style=flat" alt="Platforms">
 </p>
 
 ---
 
-> **Warning: Community Project -- Not affiliated with Anthropic PBC.**
-> This is an independent, community-created collection. "Anthropic" in the repository name refers to the agentskills.io standard compatibility, not official Anthropic affiliation.
+> **Fork Notice**: This repository is a fork of [mukul975/Anthropic-Cybersecurity-Skills](https://github.com/mukul975/Anthropic-Cybersecurity-Skills), extended with security governance, compliance, and architecture skills aligned with enterprise security management systems.
 
-The largest open-source collection of cybersecurity skills for AI agents. Every skill follows the [agentskills.io](https://agentskills.io) open standard and works instantly with Claude Code, GitHub Copilot, OpenAI Codex CLI, Cursor, Gemini CLI, and 20+ other platforms.
+An open-source collection of cybersecurity skills for AI agents. Every skill follows the [agentskills.io](https://agentskills.io) open standard and works with Claude Code, GitHub Copilot, OpenAI Codex CLI, Cursor, Gemini CLI, and 20+ other platforms.
 
 ## Quick Start
 
 **Method 1: npx skills**
 ```bash
-npx skills add mukul975/Anthropic-Cybersecurity-Skills
+npx skills add HRD-Security/skills
 ```
 
 **Method 2: Claude Code plugin**
 ```
-/plugin marketplace add mukul975/Anthropic-Cybersecurity-Skills
+/plugin marketplace add HRD-Security/skills
 ```
 
 **Method 3: Manual clone**
 ```bash
-git clone https://github.com/mukul975/Anthropic-Cybersecurity-Skills.git
+git clone https://github.com/HRD-Security/skills.git
 ```
 
 ## Skill Categories
@@ -67,6 +66,9 @@ git clone https://github.com/mukul975/Anthropic-Cybersecurity-Skills.git
 | Mobile Security | 12 | iOS App Analysis with Objection, Android Malware Reverse Engineering, Frida Hooking |
 | Ransomware Defense | 5 | Ransomware Precursor Detection, Backup Strategy, Honeypot Detection |
 | Compliance & Governance | 5 | GDPR Data Protection, ISO 27001 ISMS, PCI DSS Controls |
+| Security Governance | 12 | Policy Authoring, Executive Reporting, AI Governance, Compliance Validation |
+| Security Architecture | 6 | Zero Trust Review, Identity Architecture, Network Segmentation, Data Protection |
+| Detection & Response | 6 | Detection Engineering, Threat Intelligence, Threat Modeling, Purple Team |
 
 ## How It Works
 
@@ -129,7 +131,7 @@ We welcome contributions from the cybersecurity community. See [CONTRIBUTING.md]
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=mukul975/Anthropic-Cybersecurity-Skills&type=Date)](https://star-history.com/#mukul975/Anthropic-Cybersecurity-Skills&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=HRD-Security/skills&type=Date)](https://star-history.com/#HRD-Security/skills&Date)
 
 ## License
 

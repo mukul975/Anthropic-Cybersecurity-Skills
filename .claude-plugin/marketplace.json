@@ -1,21 +1,21 @@
 {
-  "name": "anthropic-cybersecurity-skills",
+  "name": "hrd-security-skills",
   "owner": {
-    "name": "mukul975",
-    "email": "mukul975@users.noreply.github.com"
+    "name": "HRD-Security",
+    "email": "security@hardrockdigital.com"
   },
   "metadata": {
-    "description": "607+ cybersecurity skills for AI agents and security practitioners covering web security, pentesting, forensics, threat intelligence, cloud security, and more.",
-    "version": "1.0.0"
+    "description": "730+ cybersecurity skills for AI agents and security practitioners covering web security, pentesting, forensics, threat intelligence, cloud security, security governance, compliance, and more.",
+    "version": "1.1.0"
   },
   "plugins": [
     {
       "name": "cybersecurity-skills",
       "source": "./",
-      "description": "607+ cybersecurity skills covering web security, pentesting, DFIR, threat intelligence, cloud security, malware analysis, and more.",
-      "version": "1.0.0",
+      "description": "730+ cybersecurity skills covering web security, pentesting, DFIR, threat intelligence, cloud security, malware analysis, security governance, and more.",
+      "version": "1.1.0",
       "author": {
-        "name": "mukul975"
+        "name": "HRD-Security"
       },
       "license": "Apache-2.0",
       "keywords": [
@@ -27,11 +27,14 @@
         "malware-analysis",
         "incident-response",
         "zero-trust",
-        "devsecops"
+        "devsecops",
+        "security-governance",
+        "compliance",
+        "detection-engineering"
       ],
       "category": "security",
-      "homepage": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills",
-      "repository": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills"
+      "homepage": "https://github.com/HRD-Security/skills",
+      "repository": "https://github.com/HRD-Security/skills"
     }
   ]
 }
