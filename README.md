@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <strong>611+ cybersecurity skills for AI agents &middot; agentskills.io open standard</strong>
+  <strong>734+ cybersecurity skills for AI agents &middot; agentskills.io open standard</strong>
 </p>
 
 <p align="center">
