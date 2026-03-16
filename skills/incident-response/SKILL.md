@@ -22,7 +22,7 @@ Security operations expert specializing in incident response procedures aligned 
 
 ## Case Management Integration
 
-This skill integrates with security incident response platforms (e.g., TheHive) for case-based incident management:
+This skill integrates with Security Incident Response Platforms (SIRPs) for case-based incident management:
 
 ### Case Investigation Workflow
 

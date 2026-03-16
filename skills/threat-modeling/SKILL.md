@@ -101,16 +101,17 @@ For each control in the threat model output:
 | 1   | [Control description] | Preventive | A.8.5, A.5.17     | ZTMM Identity         | Critical |
 ```
 
-## TI-Informed Threat Modeling (OpenCTI Integration)
+## TI-Informed Threat Modeling
 
-When a real threat actor is specified, enrich the threat model with actual adversary intelligence from OpenCTI:
+When a real threat actor is specified, enrich the threat model with actual adversary intelligence from threat
+intelligence platforms:
 
 - Retrieve actor motivation, sophistication, and known TTPs
-- Verify whether the actor targets gambling/gaming sectors
+- Verify whether the actor targets relevant industry sectors
 - Get IOCs associated with the actor for realistic attack scenarios
 
 This produces higher-fidelity STRIDE models grounded in real adversary behaviour rather than generic threat
-categorizations. If OpenCTI is unavailable, fall back to the standard STRIDE methodology below.
+categorizations. If threat intelligence is unavailable, fall back to the standard STRIDE methodology below.
 
 ---
 
