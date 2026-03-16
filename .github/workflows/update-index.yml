@@ -67,7 +67,7 @@ jobs:
           index = {
               "version": "1.0.0",
               "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-              "repository": "https://github.com/HRD-Security/Anthropic-Cybersecurity-Skills",
+              "repository": "https://github.com/HRD-Security/skills",
               "total_skills": len(skills),
               "total_domains": 1,
               "total_subdomains": len(subdomain_counts),

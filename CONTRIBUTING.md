@@ -1,4 +1,4 @@
-# Contributing to Anthropic-Cybersecurity-Skills
+# Contributing to HRD-Security Skills
 
 ## How to add a new skill
 
