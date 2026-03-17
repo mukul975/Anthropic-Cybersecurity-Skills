@@ -1,214 +1,168 @@
 #!/usr/bin/env python3
-"""Skill metadata validation script for Anthropic-Cybersecurity-Skills.
-
-Validates SKILL.md YAML frontmatter against the repository schema.
+"""Validate SKILL.md metadata for the Anthropic-Cybersecurity-Skills repository.
 
 Usage:
-    python tools/validate-skill.py skills/my-skill/      # validate one skill
-    python tools/validate-skill.py --all                  # validate all skills
+    python tools/validate-skill.py skills/my-skill/
+    python tools/validate-skill.py --all
 """
-
 import os
 import re
 import sys
-
-# ── Constants ──────────────────────────────────────────────────────────────
+import glob
 
 REQUIRED_FIELDS = ["name", "description", "domain", "subdomain", "tags"]
 
-KEBAB_CASE_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
-
 ALLOWED_SUBDOMAINS = {
-    "web-application-security",
-    "network-security",
-    "penetration-testing",
-    "red-teaming",
-    "digital-forensics",
-    "malware-analysis",
-    "threat-intelligence",
-    "cloud-security",
-    "container-security",
-    "identity-access-management",
-    "cryptography",
-    "vulnerability-management",
-    "compliance-governance",
-    "zero-trust-architecture",
-    "ot-ics-security",
-    "devsecops",
-    "threat-hunting",
-    "soc-operations",
-    "incident-response",
-    "endpoint-security",
-    "phishing-defense",
-    "api-security",
-    "mobile-security",
-    "ransomware-defense",
+    "web-application-security", "network-security", "penetration-testing",
+    "red-teaming", "digital-forensics", "malware-analysis", "threat-intelligence",
+    "cloud-security", "container-security", "identity-access-management",
+    "cryptography", "vulnerability-management", "compliance-governance",
+    "zero-trust-architecture", "ot-ics-security", "devsecops", "threat-hunting",
+    "soc-operations", "incident-response", "endpoint-security", "phishing-defense",
+    "api-security", "mobile-security", "ransomware-defense",
 }
 
-# ── ANSI colours ───────────────────────────────────────────────────────────
+KEBAB_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 
-GREEN = "\033[92m"
 RED = "\033[91m"
+GREEN = "\033[92m"
 YELLOW = "\033[93m"
-BOLD = "\033[1m"
 RESET = "\033[0m"
 
 
-def pass_msg(skill: str) -> str:
-    return f"  {GREEN}✔ PASS{RESET}  {skill}"
-
-
-def fail_msg(skill: str, reason: str) -> str:
-    return f"  {RED}✘ FAIL{RESET}  {skill}: {reason}"
-
-
-# ── Minimal YAML frontmatter parser (stdlib only) ─────────────────────────
-
-def parse_frontmatter(text: str) -> dict | None:
-    """Extract YAML frontmatter between --- markers and parse key-value pairs.
-
-    Handles scalar values and simple inline lists like [a, b, c].
-    Returns None if no valid frontmatter found.
-    """
-    lines = text.split("\n")
-    if not lines or lines[0].strip() != "---":
+def parse_frontmatter(text):
+    """Extract YAML frontmatter as a dict (simple parser, stdlib only)."""
+    if not text.startswith("---"):
         return None
-
-    end = None
-    for i, line in enumerate(lines[1:], start=1):
-        if line.strip() == "---":
-            end = i
-            break
-    if end is None:
+    end = text.find("---", 3)
+    if end == -1:
         return None
-
-    data: dict = {}
-    for line in lines[1:end]:
-        line = line.strip()
-        if not line or line.startswith("#"):
+    block = text[3:end].strip()
+    data = {}
+    current_key = None
+    list_values = []
+    for line in block.split("\n"):
+        stripped = line.strip()
+        if not stripped or stripped.startswith("#"):
             continue
-        if ":" not in line:
+        # Handle list items
+        if stripped.startswith("- ") and current_key:
+            list_values.append(stripped[2:].strip().strip('"').strip("'"))
+            data[current_key] = list_values
             continue
-        key, _, value = line.partition(":")
-        key = key.strip()
-        value = value.strip()
-
-        # Inline list: [item1, item2, ...]
-        if value.startswith("[") and value.endswith("]"):
-            inner = value[1:-1]
-            items = [v.strip().strip('"').strip("'") for v in inner.split(",") if v.strip()]
-            data[key] = items
-        else:
-            # Strip surrounding quotes
-            if (value.startswith('"') and value.endswith('"')) or \
-               (value.startswith("'") and value.endswith("'")):
-                value = value[1:-1]
-            data[key] = value
-
+        # Handle inline list: tags: [a, b, c]
+        match = re.match(r"^(\w[\w_-]*):\s*\[(.+)\]\s*$", stripped)
+        if match:
+            current_key = match.group(1)
+            items = [i.strip().strip('"').strip("'") for i in match.group(2).split(",")]
+            data[current_key] = items
+            list_values = items
+            continue
+        # Handle key: value
+        match = re.match(r'^(\w[\w_-]*):\s*(.*)$', stripped)
+        if match:
+            current_key = match.group(1)
+            val = match.group(2).strip().strip('"').strip("'")
+            if val:
+                data[current_key] = val
+                list_values = []
+            else:
+                list_values = []
+            continue
     return data
 
 
-# ── Validation ─────────────────────────────────────────────────────────────
-
-def validate_skill(skill_dir: str) -> list[str]:
-    """Validate a single skill directory. Returns list of error strings (empty = pass)."""
-    errors: list[str] = []
+def validate_skill(skill_dir):
+    """Validate a single skill directory. Returns list of errors."""
+    errors = []
     skill_md = os.path.join(skill_dir, "SKILL.md")
 
     if not os.path.isfile(skill_md):
-        errors.append("SKILL.md not found")
-        return errors
+        return [f"SKILL.md not found in {skill_dir}"]
 
-    with open(skill_md, "r", encoding="utf-8") as f:
+    with open(skill_md, encoding="utf-8") as f:
         content = f.read()
 
-    meta = parse_frontmatter(content)
-    if meta is None:
-        errors.append("No valid YAML frontmatter (missing --- markers)")
-        return errors
+    fm = parse_frontmatter(content)
+    if fm is None:
+        return [f"No valid YAML frontmatter found (must start with ---)"]
 
-    # Required fields
+    # Check required fields
     for field in REQUIRED_FIELDS:
-        if field not in meta:
+        if field not in fm:
             errors.append(f"Missing required field: {field}")
 
-    # If missing fields, remaining checks may not apply
-    if errors:
-        return errors
+    # Validate name
+    name = fm.get("name", "")
+    if name:
+        if not KEBAB_RE.match(name):
+            errors.append(f"Name '{name}' is not valid kebab-case (lowercase, hyphens only)")
+        if len(name) > 64:
+            errors.append(f"Name too long ({len(name)} chars, max 64)")
 
-    # name: kebab-case, 1-64 chars
-    name = meta["name"]
-    if not isinstance(name, str) or not KEBAB_CASE_RE.match(name) or len(name) > 64:
-        errors.append(
-            f"name '{name}' must be kebab-case (a-z0-9 and hyphens), 1-64 chars"
-        )
+    # Validate description
+    desc = fm.get("description", "")
+    if isinstance(desc, str):
+        if len(desc) < 20:
+            errors.append(f"Description too short ({len(desc)} chars, min 20)")
+        if len(desc) > 500:
+            errors.append(f"Description too long ({len(desc)} chars, max 500)")
 
-    # description: 20-500 chars
-    desc = meta["description"]
-    if not isinstance(desc, str) or not (20 <= len(desc) <= 500):
-        length = len(desc) if isinstance(desc, str) else 0
-        errors.append(f"description length {length} not in 20-500 range")
+    # Validate domain
+    domain = fm.get("domain", "")
+    if domain and domain != "cybersecurity":
+        errors.append(f"Domain must be 'cybersecurity', got '{domain}'")
 
-    # domain == cybersecurity
-    domain = meta["domain"]
-    if domain != "cybersecurity":
-        errors.append(f"domain must be 'cybersecurity', got '{domain}'")
+    # Validate subdomain
+    subdomain = fm.get("subdomain", "")
+    if subdomain and subdomain not in ALLOWED_SUBDOMAINS:
+        errors.append(f"Unknown subdomain '{subdomain}'. Allowed: {', '.join(sorted(ALLOWED_SUBDOMAINS))}")
 
-    # subdomain in allowed list
-    subdomain = meta["subdomain"]
-    if subdomain not in ALLOWED_SUBDOMAINS:
-        errors.append(f"subdomain '{subdomain}' not in allowed list")
-
-    # tags: list with >= 2 items
-    tags = meta["tags"]
-    if not isinstance(tags, list) or len(tags) < 2:
-        count = len(tags) if isinstance(tags, list) else 0
-        errors.append(f"tags must be a list with >= 2 items (got {count})")
+    # Validate tags
+    tags = fm.get("tags", [])
+    if isinstance(tags, str):
+        tags = [tags]
+    if len(tags) < 2:
+        errors.append(f"Need at least 2 tags, got {len(tags)}")
 
     return errors
 
 
-# ── CLI ────────────────────────────────────────────────────────────────────
-
-def main() -> None:
+def main():
     if len(sys.argv) < 2:
         print(f"Usage: {sys.argv[0]} <skill-dir> | --all")
-        sys.exit(2)
-
-    # Determine repo root (for --all)
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    repo_root = os.path.dirname(script_dir)
-    skills_root = os.path.join(repo_root, "skills")
+        sys.exit(1)
 
     if sys.argv[1] == "--all":
-        if not os.path.isdir(skills_root):
-            print(f"{RED}skills/ directory not found at {skills_root}{RESET}")
-            sys.exit(2)
-        skill_dirs = sorted(
-            os.path.join(skills_root, d)
-            for d in os.listdir(skills_root)
-            if os.path.isdir(os.path.join(skills_root, d))
-        )
+        skill_dirs = sorted(glob.glob("skills/*/"))
     else:
-        skill_dirs = [sys.argv[1].rstrip("/")]
+        skill_dirs = [sys.argv[1].rstrip("/") + "/"]
 
+    total = 0
     passed = 0
     failed = 0
 
-    print(f"\n{BOLD}Validating {len(skill_dirs)} skill(s)…{RESET}\n")
-
     for skill_dir in skill_dirs:
-        skill_name = os.path.basename(skill_dir)
-        errors = validate_skill(skill_dir)
-        if not errors:
-            print(pass_msg(skill_name))
-            passed += 1
-        else:
-            for err in errors:
-                print(fail_msg(skill_name, err))
-            failed += 1
+        if not os.path.isdir(skill_dir.rstrip("/")):
+            print(f"{RED}SKIP{RESET} {skill_dir} — not a directory")
+            continue
 
-    print(f"\n{BOLD}Summary:{RESET} {GREEN}{passed} passed{RESET}, {RED}{failed} failed{RESET} out of {passed + failed} skill(s).\n")
+        total += 1
+        errors = validate_skill(skill_dir.rstrip("/"))
+
+        name = os.path.basename(skill_dir.rstrip("/"))
+        if errors:
+            failed += 1
+            print(f"{RED}FAIL{RESET} {name}")
+            for e in errors:
+                print(f"      {YELLOW}→ {e}{RESET}")
+        else:
+            passed += 1
+            print(f"{GREEN}PASS{RESET} {name}")
+
+    print(f"\n{'='*50}")
+    print(f"Total: {total}  {GREEN}Passed: {passed}{RESET}  {RED}Failed: {failed}{RESET}")
+
     sys.exit(0 if failed == 0 else 1)
 
 
