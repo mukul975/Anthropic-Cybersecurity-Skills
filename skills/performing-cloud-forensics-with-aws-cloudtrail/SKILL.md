@@ -1,6 +1,7 @@
 ---
 name: performing-cloud-forensics-with-aws-cloudtrail
-description: Perform forensic investigation of AWS environments using CloudTrail logs to reconstruct attacker activity, identify compromised credentials, and analyze API call patterns.
+description: >-
+  Perform forensic investigation of AWS environments using CloudTrail logs to reconstruct attacker activity, identify compromised credentials, and analyze API call patterns. Keywords: aws cloud forensics, cloudtrail forensic analysis, aws incident investigation, api call reconstruction, aws breach investigation, cloud forensics methodology, cloudtrail timeline analysis.
 domain: cybersecurity
 subdomain: cloud-security
 tags: [cloud-security, aws, cloudtrail, forensics, incident-response, dfir, boto3, s3]
