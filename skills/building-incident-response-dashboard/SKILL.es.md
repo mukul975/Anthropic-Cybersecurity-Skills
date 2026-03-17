@@ -264,7 +264,7 @@ earliest=-1h
 
 ## Formato de Salida
 
-```
+```text
 DASHBOARD DE RESPUESTA A INCIDENTES — IR-2024-0450
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 

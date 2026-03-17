@@ -29,7 +29,7 @@ Suricata es un motor IDS/IPS de alto rendimiento de código abierto capaz de ins
 3. Habilitar fuentes de reglas con `suricata-update`
 4. Desarrollar reglas personalizadas para la organización
 5. Configurar umbrales para reducir falsos positivos
-6. Validar con `suricata -T` y monitorear via `eve.json`
+6. Validar con `suricata -T` y monitorear vía `eve.json`
 
 ## Resultado Esperado
 

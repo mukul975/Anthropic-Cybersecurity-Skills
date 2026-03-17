@@ -252,7 +252,7 @@ gcloud resource-manager org-policies set-policy policy.yaml --organization=ORG_I
 
 ## Formato de Salida
 
-```
+```text
 Dashboard de Gestión de Postura de Seguridad en la Nube
 ========================================================
 Organización: Acme Corp
