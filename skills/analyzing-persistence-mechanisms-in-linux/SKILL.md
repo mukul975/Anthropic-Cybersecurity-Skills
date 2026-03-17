@@ -4,6 +4,7 @@ description: Detect and analyze Linux persistence mechanisms including crontab e
 domain: cybersecurity
 subdomain: threat-hunting
 tags: [linux-persistence, crontab, systemd, ld-preload, auditd, threat-hunting, incident-response]
+mitre_attack: ["T1190", "T1059", "T1078"]
 version: "1.0"
 author: mahipal
 license: Apache-2.0

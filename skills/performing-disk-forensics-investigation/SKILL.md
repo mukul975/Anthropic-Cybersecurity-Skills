@@ -10,6 +10,7 @@ description: >
 domain: cybersecurity
 subdomain: incident-response
 tags: [disk-forensics, forensic-imaging, evidence-acquisition, file-recovery, chain-of-custody]
+mitre_attack: ["T1070", "T1027", "T1036", "T1564"]
 version: 1.0.0
 author: mahipal
 license: Apache-2.0

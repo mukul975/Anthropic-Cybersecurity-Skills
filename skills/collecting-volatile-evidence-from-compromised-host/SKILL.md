@@ -4,6 +4,7 @@ description: Collect volatile forensic evidence from a compromised system follow
 domain: cybersecurity
 subdomain: incident-response
 tags: [incident-response, dfir, forensics, volatile-evidence, memory-forensics, chain-of-custody]
+mitre_attack: ["T1003", "T1055", "T1059", "T1547"]
 version: "1.0"
 author: mahipal
 license: Apache-2.0

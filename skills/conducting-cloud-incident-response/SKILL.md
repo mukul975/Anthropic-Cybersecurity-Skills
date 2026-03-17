@@ -9,6 +9,7 @@ description: >
 domain: cybersecurity
 subdomain: incident-response
 tags: [cloud-IR, AWS-forensics, Azure-incident-response, GCP-security, identity-containment]
+mitre_attack: ["T1078", "T1537", "T1580", "T1525"]
 version: 1.0.0
 author: mahipal
 license: Apache-2.0

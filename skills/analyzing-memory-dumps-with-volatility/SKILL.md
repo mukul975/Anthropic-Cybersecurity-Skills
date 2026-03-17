@@ -9,6 +9,7 @@ description: >
 domain: cybersecurity
 subdomain: malware-analysis
 tags: [malware, memory-forensics, Volatility, RAM-analysis, incident-response]
+mitre_attack: ["T1190", "T1059", "T1078"]
 version: 1.0.0
 author: mahipal
 license: Apache-2.0

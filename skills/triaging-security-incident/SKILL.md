@@ -10,6 +10,7 @@ description: >
 domain: cybersecurity
 subdomain: incident-response
 tags: [incident-triage, NIST-800-61, SANS-PICERL, severity-classification, SOC-operations]
+mitre_attack: ["T1190", "T1566", "T1078", "T1059"]
 version: 1.0.0
 author: mahipal
 license: Apache-2.0

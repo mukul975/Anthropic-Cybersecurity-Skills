@@ -4,6 +4,7 @@ description: Facilitate structured post-incident reviews to identify root causes
 domain: cybersecurity
 subdomain: incident-response
 tags: [incident-response, lessons-learned, post-incident, after-action-review, process-improvement]
+mitre_attack: ["T1190", "T1566", "T1078"]
 version: "1.0"
 author: mahipal
 license: Apache-2.0
