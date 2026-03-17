@@ -44,7 +44,20 @@ license: Apache-2.0
 
 ## Workflow
 
+### Legal & Ethical Requirements
+
+- Obtain documented written authorization before any investigation
+- Establish lawful basis for data processing (law enforcement, corporate policy, etc.)
+- Define PII retention limits and data handling procedures
+- Comply with local privacy regulations (GDPR, CCPA, etc.)
+
 ### Phase 1 — Multi-Source OSINT Collection
+
+0. **Create the working directory for all OSINT outputs:**
+
+   ```bash
+   mkdir -p /tmp/osint
+   ```
 
 1. **Enumerate usernames across platforms with Sherlock:**
 
@@ -78,6 +91,7 @@ license: Apache-2.0
 
    ```bash
    curl -s -H "hibp-api-key: ${HIBP_KEY}" \
+     -H "User-Agent: OSINT-Correlation-Skill" \
      "https://haveibeenpwned.com/api/v3/breachedaccount/target@example.com" \
      -o /tmp/osint/breach-results.json
    ```
@@ -94,7 +108,7 @@ license: Apache-2.0
    findings = []
 
    # Normalize Sherlock CSV results
-   sherlock_path = "/tmp/osint/sherlock-results.csv"
+   sherlock_path = "/tmp/osint/sherlock-results.txt"
    if os.path.exists(sherlock_path):
        with open(sherlock_path) as f:
            for row in csv.DictReader(f):
