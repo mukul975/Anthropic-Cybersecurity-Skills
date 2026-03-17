@@ -1,9 +1,7 @@
 ---
 name: detecting-cloud-cryptomining-activity
-description: >
-  Detecting unauthorized cryptocurrency mining activity in cloud environments by analyzing
-  compute usage anomalies, network traffic to mining pools, GuardDuty findings, and
-  container workload behavior using AWS, Azure, and GCP native security services.
+description: >-
+  Detect unauthorized cryptocurrency mining in cloud environments by analyzing compute usage anomalies, network traffic to mining pools, GuardDuty findings, and container workload behavior. Keywords: cloud cryptomining detection, cryptocurrency mining alert, compute anomaly detection, mining pool traffic, cloud resource abuse, cryptojacking detection, unauthorized compute usage.
 domain: cybersecurity
 subdomain: cloud-security
 tags: [cloud-security, cryptomining, threat-detection, guardduty, cost-anomaly, incident-response]
