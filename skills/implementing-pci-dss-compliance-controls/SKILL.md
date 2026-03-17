@@ -4,6 +4,7 @@ description: PCI DSS 4.0.1 establishes 12 requirements across 6 control objectiv
 domain: cybersecurity
 subdomain: compliance-governance
 tags: [compliance, governance, pci-dss, payment-security, cardholder-data]
+nist_csf: [GV.PO, ID.RA, PR.AA, PR.DS, PR.PS, DE.CM, DE.AE]
 version: "1.0"
 author: mahipal
 license: Apache-2.0

@@ -4,6 +4,7 @@ description: The NIST Cybersecurity Framework (CSF) 2.0, released in February 20
 domain: cybersecurity
 subdomain: compliance-governance
 tags: [compliance, governance, nist, csf, maturity-assessment, risk-management]
+nist_csf: [GV.OC, GV.RM, GV.RR, GV.PO, GV.OV, GV.SC, ID.AM, ID.RA, ID.IM, PR.AA, PR.DS, PR.PS, PR.IR, DE.CM, DE.AE, RS.MA, RS.AN, RS.CO, RS.MI, RC.RP]
 version: "1.0"
 author: mahipal
 license: Apache-2.0

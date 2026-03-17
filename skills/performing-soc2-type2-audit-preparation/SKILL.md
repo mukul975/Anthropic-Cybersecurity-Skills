@@ -4,6 +4,7 @@ description: SOC 2 Type II audit preparation involves designing, implementing, a
 domain: cybersecurity
 subdomain: compliance-governance
 tags: [compliance, governance, soc2, audit, trust-services-criteria, aicpa]
+nist_csf: [GV.OC, GV.RM, GV.RR, GV.PO, GV.OV, ID.RA, PR.AA, PR.DS, DE.CM, DE.AE, RS.MA]
 version: "1.0"
 author: mahipal
 license: Apache-2.0

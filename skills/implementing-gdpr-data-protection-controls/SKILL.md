@@ -4,6 +4,7 @@ description: The General Data Protection Regulation (EU) 2016/679 (GDPR) is the 
 domain: cybersecurity
 subdomain: compliance-governance
 tags: [compliance, governance, gdpr, privacy, data-protection, eu-regulation]
+nist_csf: [GV.OC, GV.PO, GV.RR, ID.AM, PR.AA, PR.DS, RS.CO, RS.MA]
 version: "1.0"
 author: mahipal
 license: Apache-2.0
