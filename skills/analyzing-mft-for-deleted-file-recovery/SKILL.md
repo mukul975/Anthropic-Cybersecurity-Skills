@@ -186,3 +186,46 @@ vssadmin list shadows
 - MFT Slack Space Forensic Value: https://www.sygnia.co/blog/the-forensic-value-of-mft-slack-space/
 - MFTECmd Documentation: https://ericzimmerman.github.io/
 - SANS FOR500: Windows Forensic Analysis
+
+## Example Output
+
+```
+$ MFTECmd.exe -f "C:\Evidence\$MFT" --csv /analysis/mft_output
+
+MFTECmd v1.2.2 - MFT Parser
+==============================
+Input: C:\Evidence\$MFT (Size: 384 MB)
+Total MFT Entries: 395,264
+
+Parsing MFT entries... Done (12.4 seconds)
+
+--- Deleted File Recovery Summary ---
+Total Entries:          395,264
+Active Files:           245,832
+Deleted Files:          149,432
+  Recoverable:          87,234 (resident data or clusters not reallocated)
+  Partially Recoverable: 31,456 (some clusters overwritten)
+  Unrecoverable:        30,742 (all clusters reallocated)
+
+--- Recently Deleted Files (Incident Window: 2024-01-15 to 2024-01-18) ---
+MFT Entry | Filename                          | Path                               | Size      | Deleted (UTC)         | Recoverable
+----------|-----------------------------------|------------------------------------|-----------|-----------------------|------------
+148923    | exfil_tool.exe                    | C:\ProgramData\Updates\            | 1,258,496 | 2024-01-17 02:45:12   | YES
+148924    | exfil_tool.log                    | C:\ProgramData\Updates\            | 45,312    | 2024-01-17 02:45:14   | YES
+149001    | passwords.txt                     | C:\Users\jsmith\Desktop\           | 2,048     | 2024-01-17 02:50:33   | YES
+149150    | scan_results.csv                  | C:\Users\jsmith\AppData\Local\Temp | 892,416   | 2024-01-17 03:00:01   | PARTIAL
+149200    | mimikatz.exe                      | C:\Windows\Temp\                   | 1,250,816 | 2024-01-18 01:15:22   | YES
+149201    | sekurlsa.log                      | C:\Windows\Temp\                   | 32,768    | 2024-01-18 01:15:25   | YES
+149302    | .bash_history                     | C:\Users\jsmith\                   | 4,096     | 2024-01-18 03:00:00   | NO
+149400    | ClearEventLogs.ps1                | C:\Windows\Temp\                   | 1,536     | 2024-01-18 03:01:12   | YES
+
+--- $STANDARD_INFORMATION vs $FILE_NAME Timestamp Analysis (Timestomping Detection) ---
+MFT Entry | Filename            | $SI Created          | $FN Created          | Delta     | Verdict
+----------|---------------------|----------------------|----------------------|-----------|----------
+148923    | exfil_tool.exe      | 2023-06-15 10:00:00  | 2024-01-15 14:34:02  | -214 days | TIMESTOMPED
+149200    | mimikatz.exe        | 2022-01-01 00:00:00  | 2024-01-16 02:30:15  | -745 days | TIMESTOMPED
+
+Recovered files exported to: /analysis/mft_output/recovered/
+Full CSV report: /analysis/mft_output/mft_analysis.csv (395,264 rows)
+Timeline CSV: /analysis/mft_output/mft_timeline.csv
+```

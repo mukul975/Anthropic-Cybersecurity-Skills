@@ -239,3 +239,86 @@ Key headers for forensic investigation:
 - libpff Documentation: https://github.com/libyal/libpff
 - PST File Format Specification: https://docs.microsoft.com/en-us/openspecs/office_file_formats/ms-pst/
 - SANS Email Forensics: https://www.sans.org/blog/email-forensics/
+
+## Example Output
+
+```
+$ pffexport /evidence/jsmith_archive.pst -t /analysis/pst_output
+
+pffexport 20231205 - libpff PST/OST Export Tool
+=================================================
+Input: /evidence/jsmith_archive.pst (2.3 GB)
+
+Exporting PST contents...
+  Folders:       45
+  Messages:      12,456
+  Attachments:   3,234
+  Contacts:      567
+  Calendar:      234
+  Tasks:         89
+
+Export completed in 3m 42s.
+
+$ python3 pst_analyzer.py --input /analysis/pst_output --report /analysis/email_report
+
+PST Forensic Analysis Report
+==============================
+Source: jsmith_archive.pst (john.smith@corporate.com)
+Date Range: 2023-06-01 to 2024-01-18
+
+--- Mailbox Statistics ---
+  Total Emails:       12,456
+  Sent:               4,567
+  Received:           7,889
+  With Attachments:   3,234
+  Deleted (recovered): 234
+
+--- Phishing / Suspicious Emails ---
+Email #8923
+  Date:        2024-01-15 14:30:22 UTC
+  From:        "IT Support" <it-support@c0rporate-help.com>
+  To:          john.smith@corporate.com
+  Subject:     Urgent: Password Reset Required
+  Headers:
+    Return-Path:    bounce@mail-relay.c0rporate-help.com
+    X-Originating-IP: 203.0.113.55
+    Received:       from mail-relay.c0rporate-help.com (203.0.113.55)
+    SPF:            FAIL (domain c0rporate-help.com)
+    DKIM:           NONE
+    DMARC:          FAIL
+  Attachments:
+    - Password_Reset_Form.xlsm (245 KB) SHA-256: 7a3b8c9d...e1f2a3b4
+  Body Preview:  "Dear Employee, Your password will expire in 24 hours.
+                  Please open the attached form to reset your credentials..."
+
+--- Data Exfiltration Indicators ---
+Email #9102
+  Date:        2024-01-16 03:15:45 UTC
+  From:        john.smith@corporate.com
+  To:          j.smith.personal8842@protonmail.com
+  Subject:     (no subject)
+  Attachments:
+    - archive_part1.7z (24.5 MB) - encrypted
+    - archive_part2.7z (24.5 MB) - encrypted
+
+Email #9103
+  Date:        2024-01-16 03:18:22 UTC
+  From:        john.smith@corporate.com
+  To:          j.smith.personal8842@protonmail.com
+  Subject:     Re:
+  Attachments:
+    - archive_part3.7z (18.2 MB) - encrypted
+
+--- Keyword Hits ---
+  "confidential":     45 emails
+  "password":         23 emails
+  "transfer":         12 emails
+  "resign":           3 emails
+  "delete evidence":  1 email (Email #9200, 2024-01-17 22:30:00 UTC)
+
+Summary:
+  Phishing emails detected:    1 (initial compromise vector)
+  Suspicious sent emails:      5 (to personal accounts with attachments)
+  Encrypted attachments:       3 (67.2 MB total - possible exfiltration)
+  Report: /analysis/email_report/pst_forensics_report.html
+```

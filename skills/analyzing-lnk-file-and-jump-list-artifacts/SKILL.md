@@ -189,3 +189,74 @@ Recent research (IEEE 2025) shows that Windows 11 produces different LNK and Jum
 - Magnet Forensics LNK Analysis: https://www.magnetforensics.com/blog/forensic-analysis-of-lnk-files/
 - Jump Lists Forensics 2025: https://www.cybertriage.com/blog/jump-list-forensics-2025/
 - Eric Zimmerman's LECmd/JLECmd: https://ericzimmerman.github.io/
+
+## Example Output
+
+```
+$ LECmd.exe -d "C:\Evidence\Users\jsmith\AppData\Roaming\Microsoft\Windows\Recent" --csv /analysis/lnk_output
+
+LECmd v1.11.0 - LNK File Parser
+================================
+
+Processing 47 LNK files...
+
+--- LNK File: Q4_Report.xlsx.lnk ---
+  Source:           C:\Evidence\Users\jsmith\Recent\Q4_Report.xlsx.lnk
+  Target Path:      C:\Users\jsmith\Downloads\Q4_Report.xlsm
+  Target Created:   2024-01-15 14:33:45 UTC
+  Target Modified:  2024-01-15 14:33:45 UTC
+  Target Accessed:  2024-01-15 14:35:12 UTC
+  File Size:        251,904 bytes
+  Drive Type:       Fixed (C:)
+  Volume Serial:    A4E7-3F21
+  Machine ID:       DESKTOP-J5M1TH
+  MAC Address:      48:2A:E3:5C:9B:01
+
+--- LNK File: update_client.exe.lnk ---
+  Source:           C:\Evidence\Users\jsmith\Recent\update_client.exe.lnk
+  Target Path:      C:\ProgramData\Updates\update_client.exe
+  Target Created:   2024-01-15 14:34:02 UTC
+  Target Modified:  2024-01-15 14:34:02 UTC
+  Target Accessed:  2024-01-15 14:36:30 UTC
+  File Size:        1,258,496 bytes
+  Drive Type:       Fixed (C:)
+  Volume Serial:    A4E7-3F21
+  Machine ID:       DESKTOP-J5M1TH
+  Working Dir:      C:\ProgramData\Updates
+  Arguments:        --silent --no-update-check
+  Run Window:       Hidden
+
+======================================================================
+
+$ JLECmd.exe -d "C:\Evidence\Users\jsmith\AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations" --csv /analysis/jumplist_output
+
+JLECmd v1.5.0 - Jump List Parser
+==================================
+
+Processing 23 AutomaticDestinations files...
+
+--- Application: Microsoft Excel (AppID: 12dc1ea8e34b5a6) ---
+  Entries: 15
+  Most Recent:
+    Entry 0:  C:\Users\jsmith\Downloads\Q4_Report.xlsm         (2024-01-15 14:35:12 UTC)
+    Entry 1:  \\FILESERV01\Finance\Budget_2024.xlsx             (2024-01-14 09:22:30 UTC)
+    Entry 2:  C:\Users\jsmith\Documents\Expenses\Dec2023.xlsx   (2024-01-10 16:45:00 UTC)
+
+--- Application: Windows Explorer (AppID: f01b4d95cf55d32a) ---
+  Entries: 28
+  Most Recent:
+    Entry 0:  C:\ProgramData\Updates\                           (2024-01-15 14:36:25 UTC)
+    Entry 1:  E:\Backup\                                        (2024-01-15 15:30:00 UTC)
+    Entry 2:  \\FILESERV01\HR\Employees\                        (2024-01-15 16:12:45 UTC)
+
+--- Application: cmd.exe (AppID: 9b9cdc69c1c24e2b) ---
+  Entries: 5
+  Most Recent:
+    Entry 0:  C:\Windows\System32\cmd.exe                       (2024-01-15 14:36:00 UTC)
+
+Summary:
+  Total LNK files processed:    47
+  Total Jump List entries:       156
+  Suspicious artifacts:          3 (hidden window execution, USB drive access, network shares)
+  CSV exported to:               /analysis/lnk_output/ and /analysis/jumplist_output/
+```

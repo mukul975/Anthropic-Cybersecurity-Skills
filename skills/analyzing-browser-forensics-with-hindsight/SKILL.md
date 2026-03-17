@@ -213,3 +213,60 @@ if __name__ == "__main__":
 - Chrome Forensics Guide: https://allenace.medium.com/hindsight-chrome-forensics-made-simple-425db99fa5ed
 - Browser Forensics Tools: https://www.cyberforensicacademy.com/blog/browser-forensics-tools-how-to-extract-user-activity
 - Chromium Source (History): https://source.chromium.org/chromium/chromium/src/+/main:components/history/
+
+## Example Output
+
+```
+$ python hindsight.py -i /evidence/chrome-profile -o /analysis/hindsight_output
+
+Hindsight v2024.01 - Chrome/Chromium Browser Forensic Analysis
+================================================================
+
+Profile: /evidence/chrome-profile (Chrome 120.0.6099.130)
+OS: Windows 10
+
+[+] Parsing History database...
+    URL records:          12,456
+    Download records:     234
+    Search terms:         567
+
+[+] Parsing Cookies database...
+    Cookie records:       8,923
+    Encrypted cookies:    6,712
+
+[+] Parsing Web Data (Autofill)...
+    Autofill entries:     1,234
+    Credit card entries:  2 (encrypted)
+
+[+] Parsing Login Data...
+    Saved credentials:    45 (encrypted)
+
+[+] Parsing Bookmarks...
+    Bookmark entries:     189
+
+--- Browsing History (Last 10 Entries) ---
+Timestamp (UTC)          | URL                                          | Title                        | Visit Count
+2024-01-15 14:32:05.123  | https://mail.corporate.com/inbox             | Corporate Mail                | 45
+2024-01-15 14:33:12.456  | https://drive.google.com/file/d/1aBcDe...    | Q4_Financial_Report.xlsx     | 1
+2024-01-15 14:35:44.789  | https://mega.nz/folder/xYz123               | MEGA - Secure Cloud          | 3
+2024-01-15 14:36:01.234  | https://mega.nz/folder/xYz123#upload        | MEGA - Upload                | 8
+2024-01-15 14:42:15.567  | https://pastebin.com/raw/kL9mN2pQ           | Pastebin (raw)               | 1
+2024-01-15 15:01:33.890  | https://192.168.1.50:8443/admin              | Admin Panel                  | 12
+2024-01-15 15:15:22.111  | https://transfer.sh/upload                  | transfer.sh                  | 2
+2024-01-15 15:30:45.222  | https://vpn-gateway.corporate.com            | VPN Login                    | 5
+2024-01-15 16:00:00.333  | https://whatismyipaddress.com                 | What Is My IP                | 1
+2024-01-15 16:05:12.444  | https://protonmail.com/inbox                 | ProtonMail                   | 3
+
+--- Downloads (Suspicious) ---
+Timestamp (UTC)          | Filename                    | URL Source                               | Size
+2024-01-15 14:33:15.000  | Q4_Financial_Report.xlsm   | https://phish-domain.com/docs/report     | 245 KB
+2024-01-15 14:34:02.000  | update_client.exe          | https://cdn.evil-updates.com/client.exe  | 1.2 MB
+
+--- Cookies (Session Tokens) ---
+Domain                   | Name              | Expires            | Secure | HttpOnly
+.corporate.com           | SESSION_ID        | 2024-01-16 14:32   | Yes    | Yes
+.mega.nz                 | session           | Session            | Yes    | Yes
+.protonmail.com          | AUTH-TOKEN        | 2024-02-15 00:00   | Yes    | Yes
+
+Report saved to: /analysis/hindsight_output/Hindsight_Report.xlsx
+```

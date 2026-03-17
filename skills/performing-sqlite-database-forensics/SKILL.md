@@ -265,3 +265,76 @@ def decode_mozilla_timestamp(moz_ts: int) -> datetime:
 - Belkasoft SQLite Analysis: https://belkasoft.com/sqlite-analysis
 - Spyder Forensics SQLite Training: https://www.spyderforensics.com/sqlite-forensic-fundamentals-2025/
 - Forensic Analysis of Damaged SQLite Databases: https://www.forensicfocus.com/articles/forensic-analysis-of-damaged-sqlite-databases/
+
+## Example Output
+
+```
+$ python3 sqlite_forensics.py --db /evidence/chrome/Default/History \
+    --wal /evidence/chrome/Default/History-wal \
+    --journal /evidence/chrome/Default/History-journal \
+    --output /analysis/sqlite_report
+
+SQLite Database Forensic Analyzer v2.0
+========================================
+Database:    /evidence/chrome/Default/History
+Size:        48.2 MB
+SQLite Ver:  3.39.5
+Page Size:   4096 bytes
+Total Pages: 12,345
+Encoding:    UTF-8
+
+[+] Analyzing WAL (Write-Ahead Log)...
+    WAL file:       History-wal (2.1 MB)
+    WAL frames:     512
+    Checkpointed:   No (contains uncommitted data)
+    Recoverable rows from WAL: 234
+
+[+] Analyzing journal file...
+    Journal file:   History-journal (0 bytes - rolled back)
+
+[+] Scanning for deleted records (freelist pages)...
+    Freelist pages:     456
+    Deleted records recovered: 1,892
+
+[+] Analyzing table: urls
+    Active rows:     12,456
+    Deleted rows:    1,234 (recovered from freelist)
+    WAL-only rows:   89
+
+--- Recovered Deleted URLs (Last 10) ---
+Row ID | URL                                              | Title                    | Visit Count | Last Visit (UTC)
+-------|--------------------------------------------------|--------------------------|-------------|---------------------
+89234  | https://mega.nz/folder/xYz123#key=AbCdEf        | MEGA                     | 5           | 2024-01-16 03:20:00
+89235  | https://transfer.sh/abc123/data.7z               | transfer.sh              | 1           | 2024-01-16 03:25:00
+89240  | https://temp-mail.org/en/                        | Temp Mail                | 3           | 2024-01-15 13:00:00
+89241  | https://browserleaks.com/ip                      | IP Leak Test             | 1           | 2024-01-15 12:55:00
+89245  | https://www.virustotal.com/gui/file/a1b2c3...    | VirusTotal               | 2           | 2024-01-15 14:30:00
+89250  | https://github.com/gentilkiwi/mimikatz/releases  | Mimikatz Releases        | 1           | 2024-01-15 16:00:00
+89260  | https://raw.githubusercontent.com/.../payload.ps1| GitHub Raw               | 1           | 2024-01-15 14:34:00
+89270  | https://pastebin.com/edit/kL9mN2pQ               | Pastebin - Edit          | 2           | 2024-01-15 14:42:00
+89280  | https://duckduckgo.com/?q=clear+browser+history  | DuckDuckGo               | 1           | 2024-01-17 22:00:00
+89285  | https://duckduckgo.com/?q=anti+forensics+tools   | DuckDuckGo               | 1           | 2024-01-17 22:05:00
+
+[+] Analyzing table: downloads
+    Active rows:     234
+    Deleted rows:    12 (recovered)
+
+--- Recovered Deleted Downloads ---
+Row ID | Filename               | URL                                    | Size      | Start Time (UTC)
+-------|------------------------|----------------------------------------|-----------|---------------------
+5012   | payload.ps1            | https://raw.githubusercontent.com/...  | 4,096     | 2024-01-15 14:34:00
+5015   | mimikatz_trunk.zip     | https://github.com/.../releases/...    | 1,892,352 | 2024-01-15 16:00:00
+5018   | netscan_portable.zip   | https://www.softperfect.com/...        | 5,242,880 | 2024-01-15 15:05:00
+
+[+] Slack space analysis...
+    Pages with slack space data: 234
+    Partial strings recovered:   67 fragments
+
+Summary:
+  Total records analyzed:  14,578 (active) + 3,126 (deleted/WAL)
+  Evidence-relevant URLs:  23 (flagged)
+  Deleted downloads:       12 (3 tool-related)
+  Anti-forensics evidence: Browser history deletion detected
+  Report: /analysis/sqlite_report/sqlite_forensics.json
+  Recovered DB: /analysis/sqlite_report/History_recovered.db
+```
