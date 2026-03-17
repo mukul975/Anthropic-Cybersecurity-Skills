@@ -2,7 +2,7 @@
 name: detecting-lateral-movement-with-zeek
 description: Detect lateral movement techniques including SMB/RDP pivoting, PsExec execution, pass-the-hash attacks, and lateral tool transfer by analyzing Zeek network logs for anomalous internal east-west traffic patterns.
 domain: cybersecurity
-subdomain: threat-hunting
+subdomain: threat-detection
 tags: [zeek, lateral-movement, smb, rdp, network-analysis, threat-hunting, psexec, pass-the-hash, ntlm, dce-rpc]
 version: "1.0"
 author: juliosuas
