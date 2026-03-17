@@ -7,7 +7,7 @@ description: >
 domain: cybersecurity
 subdomain: cloud-security
 tags: [cloud-security, cryptomining, threat-detection, guardduty, cost-anomaly, incident-response]
-mitre_attack: ["T1190", "T1059", "T1078"]
+mitre_attack: ["T1496", "T1078", "T1580"]
 version: "1.0"
 author: mahipal
 license: Apache-2.0

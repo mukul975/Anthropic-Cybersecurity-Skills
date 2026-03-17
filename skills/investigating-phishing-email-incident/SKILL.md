@@ -8,7 +8,7 @@ description: >
 domain: cybersecurity
 subdomain: soc-operations
 tags: [soc, phishing, incident-response, email-security, splunk, defender, sandbox]
-mitre_attack: ["T1190", "T1059", "T1078"]
+mitre_attack: ["T1566", "T1204", "T1534", "T1598"]
 version: "1.0"
 author: mahipal
 license: Apache-2.0

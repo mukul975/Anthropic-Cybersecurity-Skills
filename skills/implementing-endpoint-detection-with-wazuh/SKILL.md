@@ -4,7 +4,7 @@ description: Deploy and configure Wazuh SIEM/XDR for endpoint detection includin
 domain: cybersecurity
 subdomain: security-operations
 tags: [siem, xdr, wazuh, endpoint-detection, custom-rules, incident-response]
-mitre_attack: ["T1190", "T1059", "T1078"]
+mitre_attack: ["T1547", "T1053", "T1059", "T1078"]
 version: "1.0"
 author: mahipal
 license: Apache-2.0

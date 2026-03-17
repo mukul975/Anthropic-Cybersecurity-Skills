@@ -4,7 +4,6 @@ description: Perform comprehensive Windows forensic artifact analysis using Eric
 domain: cybersecurity
 subdomain: digital-forensics
 tags: [eric-zimmerman, ez-tools, kape, mftecmd, pecmd, lecmd, jlecmd, registry-forensics, windows-forensics, timeline-explorer, dfir, artifact-analysis]
-mitre_attack: ["T1190", "T1059", "T1078"]
 version: "1.0"
 author: mahipal
 license: Apache-2.0

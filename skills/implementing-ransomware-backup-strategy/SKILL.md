@@ -11,7 +11,7 @@ description: >
 domain: cybersecurity
 subdomain: ransomware-defense
 tags: [ransomware, backup, incident-response, defense, recovery, immutable-storage]
-mitre_attack: ["T1486", "T1490", "T1489", "T1021", "T1570"]
+mitre_attack: ["T1486", "T1490", "T1489"]
 version: 1.0.0
 author: mahipal
 license: Apache-2.0

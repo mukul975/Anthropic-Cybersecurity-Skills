@@ -8,7 +8,7 @@ description: >
 domain: cybersecurity
 subdomain: soc-operations
 tags: [soc, dashboard, incident-response, splunk, visualization, situational-awareness, metrics]
-mitre_attack: ["T1190", "T1059", "T1078"]
+mitre_attack: ["T1190", "T1566", "T1486"]
 version: "1.0"
 author: mahipal
 license: Apache-2.0

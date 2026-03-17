@@ -8,7 +8,7 @@ description: >
 domain: cybersecurity
 subdomain: soc-operations
 tags: [soc, soar, phantom, splunk-soar, automation, playbook, orchestration, incident-response]
-mitre_attack: ["T1190", "T1059", "T1078"]
+mitre_attack: ["T1566", "T1059", "T1078"]
 version: "1.0"
 author: mahipal
 license: Apache-2.0

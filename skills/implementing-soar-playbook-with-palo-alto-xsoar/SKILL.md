@@ -4,7 +4,7 @@ description: Implement automated incident response playbooks in Cortex XSOAR to 
 domain: cybersecurity
 subdomain: soc-operations
 tags: [xsoar, soar, palo-alto, playbook, automation, incident-response, orchestration, cortex]
-mitre_attack: ["T1190", "T1566", "T1078"]
+mitre_attack: ["T1566", "T1204", "T1078"]
 version: "1.0"
 author: mahipal
 license: Apache-2.0
