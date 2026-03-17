@@ -4,7 +4,7 @@ description: Identify, collect, and analyze ransomware attack artifacts to deter
 domain: cybersecurity
 subdomain: digital-forensics
 tags: [forensics, ransomware, malware-analysis, incident-response, encryption-recovery, evidence-collection]
-mitre_attack: ["T1486", "T1490", "T1489", "T1021", "T1570"]
+mitre_attack: ["T1486", "T1490", "T1489", "T1570"]
 version: "1.0"
 author: mahipal
 license: Apache-2.0

@@ -4,7 +4,7 @@ description: Automate phishing incident response using Splunk SOAR REST API to c
 domain: cybersecurity
 subdomain: security-operations
 tags: [soar, splunk-phantom, phishing, incident-response]
-mitre_attack: ["T1190", "T1566", "T1078"]
+mitre_attack: ["T1566", "T1204", "T1534", "T1598"]
 version: "1.0"
 author: mahipal
 license: Apache-2.0

@@ -8,7 +8,7 @@ description: >
 domain: cybersecurity
 subdomain: soc-operations
 tags: [soc, ransomware, incident-response, playbook, nist, mitre-attack, containment]
-mitre_attack: ["T1190", "T1566", "T1078"]
+mitre_attack: ["T1486", "T1490", "T1489", "T1570"]
 version: "1.0"
 author: mahipal
 license: Apache-2.0

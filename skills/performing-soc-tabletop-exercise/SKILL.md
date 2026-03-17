@@ -8,7 +8,7 @@ description: >
 domain: cybersecurity
 subdomain: soc-operations
 tags: [soc, tabletop, exercise, incident-response, training, nist, playbook-validation]
-mitre_attack: ["T1190", "T1059", "T1078"]
+mitre_attack: ["T1566", "T1486", "T1078"]
 version: "1.0"
 author: mahipal
 license: Apache-2.0

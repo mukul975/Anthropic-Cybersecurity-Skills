@@ -4,7 +4,7 @@ description: Analyze memory dumps using Volatility3 plugins to detect injected c
 domain: cybersecurity
 subdomain: malware-analysis
 tags: [memory-forensics, volatility3, malware-analysis, incident-response, process-injection, rootkit-detection, dfir]
-mitre_attack: ["T1003", "T1055", "T1620", "T1574"]
+mitre_attack: ["T1003", "T1055", "T1620"]
 version: "1.0"
 author: mahipal
 license: Apache-2.0

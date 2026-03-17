@@ -8,7 +8,6 @@ description: >
 domain: cybersecurity
 subdomain: ot-ics-security
 tags: [ot-security, ics, incident-response, playbook, sans, iec62443, nist, safety-critical]
-mitre_attack: ["T1190", "T1566", "T1078"]
 version: "1.0"
 author: mahipal
 license: Apache-2.0

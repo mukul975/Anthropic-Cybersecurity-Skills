@@ -4,7 +4,7 @@ description: Extract, parse, and analyze Windows Event Logs (EVTX) using Chainsa
 domain: cybersecurity
 subdomain: digital-forensics
 tags: [forensics, windows-event-logs, evtx, chainsaw, hayabusa, sigma-rules, incident-response]
-mitre_attack: ["T1190", "T1059", "T1078"]
+mitre_attack: ["T1070", "T1059", "T1547"]
 version: "1.0"
 author: mahipal
 license: Apache-2.0
