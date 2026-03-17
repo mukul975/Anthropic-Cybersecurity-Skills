@@ -7,6 +7,7 @@ tags: [incident-response, lessons-learned, post-incident, after-action-review, p
 version: "1.0"
 author: mahipal
 license: Apache-2.0
+mitre_attack: [T1078, T1059, T1070]
 ---
 
 # Conducting Post-Incident Lessons Learned

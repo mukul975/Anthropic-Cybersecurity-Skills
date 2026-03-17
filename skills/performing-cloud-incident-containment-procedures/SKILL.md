@@ -7,6 +7,7 @@ tags: [cloud-security, incident-containment, aws, azure, gcp, cloud-forensics, c
 version: "1.0"
 author: mahipal
 license: Apache-2.0
+mitre_attack: [T1078, T1537, T1098, T1580, T1530]
 ---
 
 # Performing Cloud Incident Containment Procedures

@@ -13,6 +13,7 @@ tags: [network-forensics, PCAP-analysis, Wireshark, Zeek, traffic-analysis]
 version: 1.0.0
 author: mahipal
 license: Apache-2.0
+mitre_attack: [T1071, T1095, T1041, T1573, T1572]
 ---
 
 # Analyzing Network Traffic for Incidents

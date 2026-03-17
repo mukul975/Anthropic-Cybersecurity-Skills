@@ -11,6 +11,7 @@ tags: [soc, dashboard, incident-response, splunk, visualization, situational-awa
 version: "1.0"
 author: mahipal
 license: Apache-2.0
+mitre_attack: [T1078, T1110, T1190]
 ---
 # Building Incident Response Dashboard
 

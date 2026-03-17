@@ -13,6 +13,7 @@ tags: [ransomware, encryption-recovery, backup-restoration, ransom-negotiation, 
 version: 1.0.0
 author: mahipal
 license: Apache-2.0
+mitre_attack: [T1486, T1490, T1489, T1491, T1562]
 ---
 
 # Performing Ransomware Response

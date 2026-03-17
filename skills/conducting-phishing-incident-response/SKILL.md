@@ -13,6 +13,7 @@ tags: [phishing-response, email-security, credential-compromise, email-header-an
 version: 1.0.0
 author: mahipal
 license: Apache-2.0
+mitre_attack: [T1566, T1598, T1204, T1078, T1534]
 ---
 
 # Conducting Phishing Incident Response

@@ -7,6 +7,7 @@ tags: [threat-intelligence, cti, ioc, mitre-attack, stix, attribution, campaign-
 version: "1.0"
 author: mahipal
 license: Apache-2.0
+mitre_attack: [T1583, T1584, T1588, T1591]
 ---
 # Analyzing Campaign Attribution Evidence
 

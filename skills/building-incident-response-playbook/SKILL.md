@@ -13,6 +13,7 @@ tags: [IR-playbook, runbook, NIST-800-61, SOAR-integration, response-procedures]
 version: 1.0.0
 author: mahipal
 license: Apache-2.0
+mitre_attack: [T1059, T1078, T1566, T1486]
 ---
 
 # Building Incident Response Playbooks

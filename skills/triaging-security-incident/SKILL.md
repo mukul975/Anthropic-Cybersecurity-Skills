@@ -13,6 +13,7 @@ tags: [incident-triage, NIST-800-61, SANS-PICERL, severity-classification, SOC-o
 version: 1.0.0
 author: mahipal
 license: Apache-2.0
+mitre_attack: [T1078, T1059, T1566, T1190, T1486]
 ---
 
 # Triaging Security Incidents

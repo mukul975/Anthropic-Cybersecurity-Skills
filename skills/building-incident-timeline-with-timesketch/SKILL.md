@@ -7,6 +7,7 @@ tags: [timesketch, timeline-analysis, forensic-timeline, plaso, dfir, incident-i
 version: "1.0"
 author: mahipal
 license: Apache-2.0
+mitre_attack: [T1070, T1036, T1078, T1059]
 ---
 
 # Building Incident Timeline with Timesketch

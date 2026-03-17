@@ -7,6 +7,7 @@ tags: [patch-management, patch-tuesday, microsoft, wsus, sccm, vulnerability-rem
 version: "1.0"
 author: mahipal
 license: Apache-2.0
+mitre_attack: [T1190, T1203, T1210, T1068]
 ---
 # Building Patch Tuesday Response Process
 

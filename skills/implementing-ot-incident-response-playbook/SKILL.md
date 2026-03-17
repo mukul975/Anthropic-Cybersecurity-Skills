@@ -11,6 +11,7 @@ tags: [ot-security, ics, incident-response, playbook, sans, iec62443, nist, safe
 version: "1.0"
 author: mahipal
 license: Apache-2.0
+mitre_attack: [T0831, T0857, T0816, T0826, T0813]
 ---
 
 # Implementing OT Incident Response Playbook

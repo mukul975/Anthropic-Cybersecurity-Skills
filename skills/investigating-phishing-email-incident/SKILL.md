@@ -11,6 +11,7 @@ tags: [soc, phishing, incident-response, email-security, splunk, defender, sandb
 version: "1.0"
 author: mahipal
 license: Apache-2.0
+mitre_attack: [T1566, T1204, T1534, T1598, T1114]
 ---
 # Investigating Phishing Email Incident
 

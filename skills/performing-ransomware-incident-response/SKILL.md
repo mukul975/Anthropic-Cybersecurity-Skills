@@ -7,6 +7,7 @@ tags: [incident-response, ransomware, dfir, recovery, eradication, encryption]
 version: "1.0"
 author: mahipal
 license: Apache-2.0
+mitre_attack: [T1486, T1490, T1489, T1547, T1070]
 ---
 
 # Performing Ransomware Incident Response

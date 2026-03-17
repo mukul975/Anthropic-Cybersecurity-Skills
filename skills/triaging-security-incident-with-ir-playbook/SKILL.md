@@ -7,6 +7,7 @@ tags: [incident-response, triage, playbook, severity-classification, soc]
 version: "1.0"
 author: mahipal
 license: Apache-2.0
+mitre_attack: [T1078, T1059, T1566, T1190, T1486]
 ---
 
 # Triaging Security Incidents with IR Playbooks

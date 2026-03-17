@@ -11,6 +11,7 @@ tags: [soc, ticketing, servicenow, jira, thehive, incident-management, sla, work
 version: "1.0"
 author: mahipal
 license: Apache-2.0
+mitre_attack: [T1078, T1190, T1566]
 ---
 # Implementing Ticketing System for Incidents
 

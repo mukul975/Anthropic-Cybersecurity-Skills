@@ -7,6 +7,7 @@ tags: [elastic, siem, alert-triage, soc, elastic-security, detection, esql, kiba
 version: "1.0"
 author: mahipal
 license: Apache-2.0
+mitre_attack: [T1078, T1110, T1059, T1053]
 ---
 
 # Performing Alert Triage with Elastic SIEM

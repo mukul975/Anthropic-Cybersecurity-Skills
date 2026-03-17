@@ -7,6 +7,7 @@ tags: [incident-response, dfir, forensics, volatile-evidence, memory-forensics, 
 version: "1.0"
 author: mahipal
 license: Apache-2.0
+mitre_attack: [T1003, T1059, T1055, T1070, T1057]
 ---
 
 # Collecting Volatile Evidence from Compromised Hosts

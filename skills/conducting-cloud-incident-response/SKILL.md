@@ -12,6 +12,7 @@ tags: [cloud-IR, AWS-forensics, Azure-incident-response, GCP-security, identity-
 version: 1.0.0
 author: mahipal
 license: Apache-2.0
+mitre_attack: [T1078, T1537, T1580, T1098, T1530]
 ---
 
 # Conducting Cloud Incident Response
