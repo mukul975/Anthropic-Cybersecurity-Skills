@@ -10,6 +10,7 @@ description: >
 domain: cybersecurity
 subdomain: incident-response
 tags: [ransomware, encryption-recovery, backup-restoration, ransom-negotiation, CISA-guidance]
+mitre_attack: ["T1486", "T1490", "T1489", "T1021", "T1570"]
 version: 1.0.0
 author: mahipal
 license: Apache-2.0

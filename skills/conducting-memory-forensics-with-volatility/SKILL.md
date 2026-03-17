@@ -10,6 +10,7 @@ description: >
 domain: cybersecurity
 subdomain: incident-response
 tags: [memory-forensics, volatility, RAM-analysis, process-injection, DFIR]
+mitre_attack: ["T1003", "T1055", "T1620", "T1574"]
 version: 1.0.0
 author: mahipal
 license: Apache-2.0

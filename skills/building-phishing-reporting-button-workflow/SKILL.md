@@ -4,6 +4,7 @@ description: Implement a phishing report button in email clients with automated 
 domain: cybersecurity
 subdomain: phishing-defense
 tags: [phishing-reporting, email-security, incident-response, security-awareness, outlook, microsoft-365, soar]
+mitre_attack: ["T1190", "T1059", "T1078"]
 version: "1.0"
 author: mahipal
 license: Apache-2.0

@@ -10,6 +10,7 @@ description: >
 domain: cybersecurity
 subdomain: incident-response
 tags: [phishing-response, email-security, credential-compromise, email-header-analysis, mailbox-remediation]
+mitre_attack: ["T1566", "T1204", "T1534", "T1598"]
 version: 1.0.0
 author: mahipal
 license: Apache-2.0

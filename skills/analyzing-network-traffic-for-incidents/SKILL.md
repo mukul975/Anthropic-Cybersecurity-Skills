@@ -10,6 +10,7 @@ description: >
 domain: cybersecurity
 subdomain: incident-response
 tags: [network-forensics, PCAP-analysis, Wireshark, Zeek, traffic-analysis]
+mitre_attack: ["T1071", "T1095", "T1573", "T1572"]
 version: 1.0.0
 author: mahipal
 license: Apache-2.0

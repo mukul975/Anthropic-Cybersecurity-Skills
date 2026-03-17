@@ -10,6 +10,7 @@ description: >
 domain: cybersecurity
 subdomain: incident-response
 tags: [IOC-collection, threat-indicators, STIX-TAXII, MISP, threat-intelligence-sharing]
+mitre_attack: ["T1071", "T1059", "T1547", "T1053"]
 version: 1.0.0
 author: mahipal
 license: Apache-2.0

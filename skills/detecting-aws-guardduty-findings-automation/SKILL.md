@@ -4,6 +4,7 @@ description: Automate AWS GuardDuty threat detection findings processing using E
 domain: cybersecurity
 subdomain: cloud-security
 tags: [aws, guardduty, eventbridge, lambda, threat-detection, automation, incident-response, siem]
+mitre_attack: ["T1190", "T1059", "T1078"]
 version: "1.0"
 author: mahipal
 license: Apache-2.0

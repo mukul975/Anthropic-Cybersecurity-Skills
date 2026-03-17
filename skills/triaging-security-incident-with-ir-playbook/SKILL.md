@@ -4,6 +4,7 @@ description: Classify and prioritize security incidents using structured IR play
 domain: cybersecurity
 subdomain: incident-response
 tags: [incident-response, triage, playbook, severity-classification, soc]
+mitre_attack: ["T1190", "T1566", "T1078"]
 version: "1.0"
 author: mahipal
 license: Apache-2.0

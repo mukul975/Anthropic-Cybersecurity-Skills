@@ -4,6 +4,7 @@ description: Build collaborative forensic incident timelines using Timesketch to
 domain: cybersecurity
 subdomain: incident-response
 tags: [timesketch, timeline-analysis, forensic-timeline, plaso, dfir, incident-investigation, collaborative-forensics]
+mitre_attack: ["T1070", "T1059", "T1053"]
 version: "1.0"
 author: mahipal
 license: Apache-2.0

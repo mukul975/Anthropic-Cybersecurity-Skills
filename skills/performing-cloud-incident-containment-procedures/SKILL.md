@@ -4,6 +4,7 @@ description: Execute cloud-native incident containment across AWS, Azure, and GC
 domain: cybersecurity
 subdomain: incident-response
 tags: [cloud-security, incident-containment, aws, azure, gcp, cloud-forensics, credential-revocation, network-isolation]
+mitre_attack: ["T1078", "T1537", "T1580", "T1525", "T1098"]
 version: "1.0"
 author: mahipal
 license: Apache-2.0

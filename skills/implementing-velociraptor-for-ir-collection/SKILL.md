@@ -4,6 +4,7 @@ description: Deploy and configure Velociraptor for scalable endpoint forensic ar
 domain: cybersecurity
 subdomain: incident-response
 tags: [velociraptor, dfir, endpoint-collection, vql, forensic-artifacts, rapid7, threat-hunting, incident-response]
+mitre_attack: ["T1059", "T1003", "T1070", "T1547"]
 version: "1.0"
 author: mahipal
 license: Apache-2.0

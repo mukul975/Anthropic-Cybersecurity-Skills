@@ -10,6 +10,7 @@ description: >
 domain: cybersecurity
 subdomain: incident-response
 tags: [IR-playbook, runbook, NIST-800-61, SOAR-integration, response-procedures]
+mitre_attack: ["T1190", "T1566", "T1078"]
 version: 1.0.0
 author: mahipal
 license: Apache-2.0

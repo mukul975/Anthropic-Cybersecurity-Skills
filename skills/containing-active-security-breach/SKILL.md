@@ -4,6 +4,7 @@ description: Rapidly contain an active security breach by isolating compromised 
 domain: cybersecurity
 subdomain: incident-response
 tags: [incident-response, containment, breach-response, network-isolation, dfir]
+mitre_attack: ["T1021", "T1570", "T1210", "T1072"]
 version: "1.0"
 author: mahipal
 license: Apache-2.0
