@@ -192,7 +192,7 @@ Recent research (IEEE 2025) shows that Windows 11 produces different LNK and Jum
 
 ## Example Output
 
-```
+```text
 $ LECmd.exe -d "C:\Evidence\Users\jsmith\AppData\Roaming\Microsoft\Windows\Recent" --csv /analysis/lnk_output
 
 LECmd v1.11.0 - LNK File Parser

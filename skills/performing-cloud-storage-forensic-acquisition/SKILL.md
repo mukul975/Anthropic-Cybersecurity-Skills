@@ -256,7 +256,7 @@ def analyze_onedrive_sync_engine(db_path: str) -> list:
 
 ## Example Output
 
-```
+```text
 $ python3 cloud_forensic_acquire.py --provider google-drive --auth /tokens/gdrive_token.json \
     --user jsmith@corporate.com --output /acquisition/gdrive
 

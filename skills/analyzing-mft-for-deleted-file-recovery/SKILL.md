@@ -189,7 +189,7 @@ vssadmin list shadows
 
 ## Example Output
 
-```
+```text
 $ MFTECmd.exe -f "C:\Evidence\$MFT" --csv /analysis/mft_output
 
 MFTECmd v1.2.2 - MFT Parser

@@ -216,7 +216,7 @@ if __name__ == "__main__":
 
 ## Example Output
 
-```
+```text
 $ python hindsight.py -i /evidence/chrome-profile -o /analysis/hindsight_output
 
 Hindsight v2024.01 - Chrome/Chromium Browser Forensic Analysis

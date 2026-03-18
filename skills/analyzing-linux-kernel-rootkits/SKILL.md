@@ -43,7 +43,7 @@ JSON report containing detected syscall hooks, hidden kernel modules, modified I
 
 ## Example Output
 
-```
+```text
 $ sudo python3 rootkit_analyzer.py --memory /evidence/linux-mem.lime --profile Ubuntu2204
 
 Linux Kernel Rootkit Analysis Report

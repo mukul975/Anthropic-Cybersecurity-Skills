@@ -19,7 +19,7 @@ SHA-1 hashes, timestamps, and publisher metadata for DFIR investigations.
 
 ## Example Output
 
-```
+```text
 $ AmcacheParser.exe -f "C:\Evidence\Amcache.hve" --csv /analysis/amcache_output
 
 AmcacheParser v1.5.1 - Amcache.hve Parser

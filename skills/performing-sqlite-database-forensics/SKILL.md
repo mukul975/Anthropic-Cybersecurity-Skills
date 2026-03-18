@@ -268,7 +268,7 @@ def decode_mozilla_timestamp(moz_ts: int) -> datetime:
 
 ## Example Output
 
-```
+```text
 $ python3 sqlite_forensics.py --db /evidence/chrome/Default/History \
     --wal /evidence/chrome/Default/History-wal \
     --journal /evidence/chrome/Default/History-journal \

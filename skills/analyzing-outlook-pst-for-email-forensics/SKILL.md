@@ -242,7 +242,7 @@ Key headers for forensic investigation:
 
 ## Example Output
 
-```
+```text
 $ pffexport /evidence/jsmith_archive.pst -t /analysis/pst_output
 
 pffexport 20231205 - libpff PST/OST Export Tool
@@ -259,7 +259,7 @@ Exporting PST contents...
 
 Export completed in 3m 42s.
 
-$ python3 pst_analyzer.py --input /analysis/pst_output --report /analysis/email_report
+$ python3 pst_analyzer.py /analysis/pst_output /analysis/email_report
 
 PST Forensic Analysis Report
 ==============================
@@ -320,5 +320,5 @@ Summary:
   Phishing emails detected:    1 (initial compromise vector)
   Suspicious sent emails:      5 (to personal accounts with attachments)
   Encrypted attachments:       3 (67.2 MB total - possible exfiltration)
-  Report: /analysis/email_report/pst_forensics_report.html
+  Report: /analysis/email_report/pst_forensic_report.json
 ```

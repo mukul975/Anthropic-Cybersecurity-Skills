@@ -40,7 +40,7 @@ JSON report with execution history, suspicious executables, renamed binary indic
 
 ## Example Output
 
-```
+```text
 $ python3 prefetch_analyzer.py --dir /evidence/Windows/Prefetch --output /analysis/prefetch_report
 
 Windows Prefetch Analyzer v2.1

@@ -77,7 +77,7 @@ ShellBagsExplorer.exe
 
 ### Proving USB Device Browsing
 
-```
+```text
 Shellbag Path: My Computer\E:\Confidential\Project_Files
 ShellType: Directory (on removable volume)
 CreatedOn: 2025-03-15 09:30:00 UTC
@@ -90,7 +90,7 @@ with USBSTOR and MountPoints2 registry entries.
 
 ### Detecting Network Share Access
 
-```
+```text
 Shellbag Path: \\FileServer01\Finance\Q4_Reports
 ShellType: Network Location
 AccessedOn: 2025-02-20 14:15:00 UTC
@@ -101,7 +101,7 @@ the share has been decommissioned or access revoked.
 
 ### Identifying Deleted Folder Knowledge
 
-```
+```text
 Shellbag Path: C:\Users\suspect\Documents\Exfiltration_Staging
 ShellType: Directory
 CreatedOn: 2025-01-10 08:00:00 UTC
@@ -129,7 +129,7 @@ created and navigated to this folder.
 
 ## Example Output
 
-```
+```text
 $ SBECmd.exe -d "C:\Evidence\Users\jsmith" --csv /analysis/shellbag_output
 
 SBECmd v2.1.0 - ShellBags Explorer (Command Line)
