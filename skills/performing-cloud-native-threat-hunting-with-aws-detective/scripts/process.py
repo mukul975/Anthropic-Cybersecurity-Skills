@@ -228,7 +228,7 @@ def run_full_investigation(
     print(f"  State: {state} | Severity: {severity}")
 
     # Step 4: Collect indicators
-    print(f"\n[4/4] Collecting indicators of compromise")
+    print("\n[4/4] Collecting indicators of compromise")
     indicators = list_indicators(client, graph_arn, investigation_id)
     results["indicators"] = indicators
     results["indicator_count"] = len(indicators)
