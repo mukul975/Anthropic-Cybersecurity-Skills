@@ -77,7 +77,7 @@ event dce_rpc_request(c: connection, fid: count, opnum: count, stub_len: count) 
                 $conn=c]);
     }
 }
-```text
+```
 
 ### Step 3: Detect Pass-the-Hash via NTLM
 
@@ -85,7 +85,7 @@ event dce_rpc_request(c: connection, fid: count, opnum: count, stub_len: count) 
 # Analyze ntlm.log for same NTLM hash used across multiple destinations
 zeek-cut ts id.orig_h id.resp_h username server_nb_computer_name < ntlm.log | \
   awk '{print $3, $4, $5}' | sort | uniq -c | sort -rn | head -20
-```text
+```
 
 ### Step 4: Identify RDP Pivot Chains
 
@@ -100,7 +100,7 @@ zeek-cut ts id.orig_h id.resp_h id.resp_p duration < conn.log | \
     }
     prev_src = $2; prev_dst = $3
   }'
-```text
+```
 
 ### Step 5: Detect Lateral Tool Transfer
 
@@ -109,7 +109,7 @@ zeek-cut ts id.orig_h id.resp_h id.resp_p duration < conn.log | \
 zeek-cut ts id.orig_h id.resp_h name size < smb_files.log | \
   grep -iE '\.(exe|dll|ps1|bat|vbs|scr|com)$' | \
   sort -k5 -rn
-```text
+```
 
 ## Expected Output
 
@@ -129,7 +129,7 @@ PIVOT: 10.0.1.50 -> 10.0.1.100 -> 10.0.2.20 (via RDP chain)
 # Lateral Tool Transfer
 2026-03-15T14:32:00  10.0.1.50  10.0.1.100  payload.exe  245760
 2026-03-15T14:33:12  10.0.1.50  10.0.1.101  mimikatz.exe  1310720
-```text
+```
 
 ## Verification
 
