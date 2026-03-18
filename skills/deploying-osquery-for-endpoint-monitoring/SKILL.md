@@ -9,6 +9,7 @@ description: >
 domain: cybersecurity
 subdomain: endpoint-security
 tags: [endpoint, osquery, endpoint-monitoring, threat-hunting, fleet-management]
+mitre_attack: ["T1547", "T1049", "T1620", "T1053.003", "T1548.001", "T1552"]
 version: 1.0.0
 author: mahipal
 license: Apache-2.0
