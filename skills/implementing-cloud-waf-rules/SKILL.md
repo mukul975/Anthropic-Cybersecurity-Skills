@@ -8,7 +8,7 @@ description: >
   false positives through rule tuning and logging analysis.
 domain: cybersecurity
 subdomain: cloud-security
-tags: [cloud-waf, aws-waf, azure-waf, owasp-protection, rate-limiting]
+tags: [cloud-waf, aws-waf, owasp-protection, rate-limiting]
 version: 1.0.0
 author: mahipal
 license: Apache-2.0
