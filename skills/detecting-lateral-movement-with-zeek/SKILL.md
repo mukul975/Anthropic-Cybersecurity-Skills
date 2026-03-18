@@ -60,7 +60,7 @@ event smb2_tree_connect_request(c: connection, hdr: SMB2::Header, path: string) 
                 $conn=c]);
     }
 }
-```text
+```
 
 ### Step 2: Detect PsExec-Style Execution
 

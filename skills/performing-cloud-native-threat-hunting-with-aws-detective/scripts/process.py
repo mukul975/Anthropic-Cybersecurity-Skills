@@ -33,7 +33,7 @@ except ImportError:
     sys.exit(1)
 
 
-def get_detective_client(region: str = None) -> boto3.client:
+def get_detective_client(region: str | None = None) -> boto3.client:
     """Create an AWS Detective client."""
     kwargs = {}
     if region:
@@ -44,9 +44,7 @@ def get_detective_client(region: str = None) -> boto3.client:
 def list_graphs(client) -> list:
     """List all behavior graphs in the account."""
     graphs = []
-    paginator = client.get_paginator("list-graphs" if hasattr(client.get_paginator, "list_graphs") else "list_graphs")
     try:
-        # list_graphs doesn't have a paginator; use direct call
         response = client.list_graphs()
         graphs = response.get("GraphList", [])
     except ClientError as e:
@@ -54,7 +52,7 @@ def list_graphs(client) -> list:
     return graphs
 
 
-def get_graph_arn(client, graph_arn: str = None) -> str:
+def get_graph_arn(client, graph_arn: str | None = None) -> str:
     """Get or auto-detect the behavior graph ARN."""
     if graph_arn:
         return graph_arn
@@ -155,7 +153,7 @@ def list_indicators(client, graph_arn: str, investigation_id: str) -> list:
     return indicators
 
 
-def list_finding_groups(client, graph_arn: str, severity: str = None) -> list:
+def list_finding_groups(client, graph_arn: str, severity: str | None = None) -> list:
     """List finding groups, optionally filtered by severity."""
     try:
         kwargs = {"GraphArn": graph_arn}
