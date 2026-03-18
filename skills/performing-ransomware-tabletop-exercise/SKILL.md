@@ -11,7 +11,6 @@ description: >
 domain: cybersecurity
 subdomain: ransomware-defense
 tags: [ransomware, incident-response, tabletop-exercise, defense, preparedness]
-mitre_attack: ["T1486", "T1490", "T1489", "T1021", "T1570"]
 version: 1.0.0
 author: mahipal
 license: Apache-2.0

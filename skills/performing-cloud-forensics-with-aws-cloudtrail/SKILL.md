@@ -4,7 +4,6 @@ description: Perform forensic investigation of AWS environments using CloudTrail
 domain: cybersecurity
 subdomain: cloud-security
 tags: [cloud-security, aws, cloudtrail, forensics, incident-response, dfir, boto3, s3]
-mitre_attack: ["T1078", "T1098", "T1537", "T1562"]
 version: "1.0"
 author: mahipal
 license: Apache-2.0
