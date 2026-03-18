@@ -314,7 +314,7 @@ Acquisition Summary:
   Trashed items:        89 (234 MB)
   Revisions:            8,912
   Chain of custody hash (full archive):
-    SHA-256: 4f8a2b6c9d3e7f1a5b8c2d6e0f3a7b4c8d1e5f9a2b6c0d3e7f1a4b8c2d5e9f
+    SHA-256: a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2
   Output directory:     /acquisition/gdrive/
   Acquisition log:      /acquisition/gdrive/acquisition_log.csv
   Completion Time:      2024-01-19 08:18:47 UTC

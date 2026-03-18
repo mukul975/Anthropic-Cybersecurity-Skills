@@ -1,7 +1,9 @@
 ---
 name: auditing-gcp-iam-permissions
-description: >-
-  Audit Google Cloud Platform IAM permissions to identify overly permissive bindings, primitive role usage, service account key proliferation, and cross-project access risks using gcloud CLI, Policy Analyzer, and IAM Recommender. Keywords: google cloud iam audit, gcp role bindings, service account keys, gcp least privilege, iam recommender, gcp permission analysis, cloud iam security review.
+description: >
+  Auditing Google Cloud Platform IAM permissions to identify overly permissive bindings,
+  primitive role usage, service account key proliferation, and cross-project access risks
+  using gcloud CLI, Policy Analyzer, and IAM Recommender.
 domain: cybersecurity
 subdomain: cloud-security
 tags: [cloud-security, gcp, iam, permissions-audit, service-accounts, policy-analyzer]

@@ -1,7 +1,10 @@
 ---
 name: detecting-compromised-cloud-credentials
-description: >-
-  Detect compromised cloud credentials across AWS, Azure, and GCP by analyzing anomalous API activity, impossible travel patterns, unauthorized resource provisioning, and credential abuse indicators. Keywords: compromised credential detection, cloud credential theft, impossible travel alert, stolen access keys, unauthorized api activity, cloud identity compromise, multi-cloud credential monitoring.
+description: >
+  Detecting compromised cloud credentials across AWS, Azure, and GCP by analyzing
+  anomalous API activity, impossible travel patterns, unauthorized resource provisioning,
+  and credential abuse indicators using GuardDuty, Defender for Identity, and SCC
+  Event Threat Detection.
 domain: cybersecurity
 subdomain: cloud-security
 tags: [cloud-security, credential-compromise, threat-detection, guardduty, incident-response, anomaly-detection]

@@ -1,7 +1,9 @@
 ---
 name: performing-cloud-penetration-testing-with-pacu
-description: >-
-  Perform authorized AWS penetration testing using Pacu to enumerate IAM configurations, discover privilege escalation paths, test credential harvesting, and validate security controls. Keywords: pacu aws pentest, aws exploitation framework, pacu iam enumeration, aws attack simulation, pacu privilege escalation, aws red team tool, aws security validation.
+description: >
+  Performing authorized AWS penetration testing using Pacu, the open-source AWS exploitation
+  framework, to enumerate IAM configurations, discover privilege escalation paths, test
+  credential harvesting, and validate security controls through systematic attack simulation.
 domain: cybersecurity
 subdomain: cloud-security
 tags: [cloud-security, aws, pacu, penetration-testing, offensive-security, iam-exploitation]

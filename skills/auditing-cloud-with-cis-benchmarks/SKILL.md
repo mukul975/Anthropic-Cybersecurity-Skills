@@ -1,7 +1,11 @@
 ---
 name: auditing-cloud-with-cis-benchmarks
-description: >-
-  Conduct cloud security audits using CIS Foundations Benchmarks for AWS, Azure, and GCP with automated assessment tools like Prowler and ScoutSuite. Keywords: cis benchmark compliance, cloud security audit, prowler scan, scoutsuite assessment, aws cis foundations, azure cis benchmark, gcp cis benchmark, cloud compliance monitoring, security baseline assessment.
+description: >
+  This skill details how to conduct cloud security audits using Center for Internet
+  Security benchmarks for AWS, Azure, and GCP. It covers interpreting CIS Foundations
+  Benchmark controls, running automated assessments with tools like Prowler and
+  ScoutSuite, remediating failed controls, and maintaining continuous compliance
+  monitoring against CIS v5 for AWS, v4 for Azure, and v4 for GCP.
 domain: cybersecurity
 subdomain: cloud-security
 tags: [cis-benchmarks, cloud-audit, compliance-assessment, prowler, security-hardening]

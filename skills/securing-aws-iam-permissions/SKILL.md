@@ -1,7 +1,10 @@
 ---
 name: securing-aws-iam-permissions
-description: >-
-  Harden AWS IAM configurations to enforce least privilege access including IAM policy scoping, permission boundaries, Access Analyzer integration, and credential rotation strategies. Keywords: aws iam hardening, iam least privilege, permission boundaries, iam access analyzer, aws credential rotation, iam policy scoping, aws identity security, iam blast radius reduction.
+description: >
+  This skill guides practitioners through hardening AWS Identity and Access Management
+  configurations to enforce least privilege access across cloud accounts. It covers IAM
+  policy scoping, permission boundaries, Access Analyzer integration, and credential
+  rotation strategies to reduce the blast radius of compromised identities.
 domain: cybersecurity
 subdomain: cloud-security
 tags: [aws-iam, least-privilege, permission-boundaries, access-analyzer, cloud-identity]
