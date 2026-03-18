@@ -27,11 +27,11 @@ The NIST Cybersecurity Framework (CSF) 2.0, released in February 2024, provides 
 | Function | Code | Categories | Purpose |
 |----------|------|-----------|---------|
 | **Govern** | GV | 6 | Establish and monitor cybersecurity risk management strategy |
-| **Identify** | ID | 4 | Determine current cybersecurity risk to the organization |
+| **Identify** | ID | 3 | Determine current cybersecurity risk to the organization |
 | **Protect** | PR | 5 | Implement safeguards to prevent or reduce risk |
 | **Detect** | DE | 2 | Find and analyze possible cybersecurity attacks |
 | **Respond** | RS | 4 | Take action regarding detected cybersecurity incidents |
-| **Recover** | RC | 1 | Restore capabilities impaired by cybersecurity incidents |
+| **Recover** | RC | 2 | Restore capabilities impaired by cybersecurity incidents |
 
 ### Govern Function (New in CSF 2.0)
 - GV.OC: Organizational Context
