@@ -1,8 +1,7 @@
 ---
 name: implementing-zero-trust-in-cloud
 description: >-
-  Implement zero trust architecture in cloud environments following NIST SP 800-207 and BeyondCorp principles with identity-centric access, micro-segmentation, and Identity-Aware Proxy. Keywords: zero trust cloud, nist 800-207 implementation, beyondcorp architecture, identity aware proxy, cloud micro-segmentation, zero trust network, continuous verification cloud, ztna cloud deployment.
-domain: cybersecurity
+  Implement zero trust architecture in cloud environments following NIST SP 800-207 and BeyondCorp principles with identity-centric access, micro-segmentation, and Identity-Aware Proxy.: cybersecurity
 subdomain: cloud-security
 tags: [zero-trust, beyondcorp, identity-aware-proxy, micro-segmentation, continuous-verification]
 version: 1.0.0

@@ -1,8 +1,7 @@
 ---
 name: securing-aws-lambda-execution-roles
 description: >-
-  Secure AWS Lambda execution roles with least-privilege IAM policies, permission boundaries, resource-based policy restrictions, IAM Access Analyzer validation, and SCP enforcement. Keywords: lambda security hardening, lambda iam roles, lambda least privilege, lambda permission boundary, lambda execution role audit, serverless iam security, lambda scp enforcement.
-domain: cybersecurity
+  Secure AWS Lambda execution roles with least-privilege IAM policies, permission boundaries, resource-based policy restrictions, IAM Access Analyzer validation, and SCP enforcement.: cybersecurity
 subdomain: cloud-security
 tags: [cloud-security, aws, lambda, iam, least-privilege, execution-roles]
 version: "1.0"

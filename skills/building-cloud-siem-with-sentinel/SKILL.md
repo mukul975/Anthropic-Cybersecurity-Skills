@@ -1,8 +1,7 @@
 ---
 name: building-cloud-siem-with-sentinel
 description: >-
-  Deploy Microsoft Sentinel as a cloud-native SIEM and SOAR platform for centralized security operations with multi-cloud log ingestion, KQL detection queries, and automated response playbooks. Keywords: microsoft sentinel deployment, azure sentinel siem, kql detection rules, cloud siem setup, sentinel data connectors, logic apps playbook, cloud security monitoring, sentinel threat hunting.
-domain: cybersecurity
+  Deploy Microsoft Sentinel as a cloud-native SIEM and SOAR platform for centralized security operations with multi-cloud log ingestion, KQL detection queries, and automated response playbooks.: cybersecurity
 subdomain: cloud-security
 tags: [microsoft-sentinel, cloud-siem, kql-queries, soar-automation, threat-detection]
 version: 1.0.0

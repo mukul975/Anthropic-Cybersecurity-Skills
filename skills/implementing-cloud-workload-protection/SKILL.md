@@ -1,8 +1,7 @@
 ---
 name: implementing-cloud-workload-protection
 description: >-
-  Implement cloud workload protection using boto3 and google-cloud APIs for runtime security monitoring, process anomaly detection, and file integrity checking on EC2/GCE instances. Keywords: cloud workload protection, cwpp implementation, runtime security monitoring, ec2 security monitoring, gce workload protection, process anomaly detection, file integrity cloud, cloud compute security.
-domain: cybersecurity
+  Implement cloud workload protection using boto3 and google-cloud APIs for runtime security monitoring, process anomaly detection, and file integrity checking on EC2/GCE instances.: cybersecurity
 subdomain: cloud-security
 tags: [implementing, cloud, workload, protection]
 version: "1.0"

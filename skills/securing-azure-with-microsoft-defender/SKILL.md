@@ -1,8 +1,7 @@
 ---
 name: securing-azure-with-microsoft-defender
 description: >-
-  Deploy Microsoft Defender for Cloud as a cloud-native application protection platform for Azure, multi-cloud, and hybrid environments with Defender plans, Secure Score, and unified threat management. Keywords: microsoft defender for cloud, azure cnapp, defender plans deployment, azure secure score, defender for servers containers, azure threat management, defender portal integration.
-domain: cybersecurity
+  Deploy Microsoft Defender for Cloud as a cloud-native application protection platform for Azure, multi-cloud, and hybrid environments with Defender plans, Secure Score, and unified threat management.: cybersecurity
 subdomain: cloud-security
 tags: [microsoft-defender, azure-security, cnapp, secure-score, cloud-workload-protection]
 version: 1.0.0

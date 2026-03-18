@@ -1,8 +1,7 @@
 ---
 name: implementing-aws-config-rules-for-compliance
 description: >-
-  Implement AWS Config rules for continuous compliance monitoring, deploying managed and custom rules aligned to CIS and PCI DSS frameworks with automatic remediation via SSM Automation. Keywords: aws config compliance, config rules deployment, aws compliance monitoring, pci dss aws, cis aws config, ssm remediation, aws config aggregator, continuous compliance aws.
-domain: cybersecurity
+  Implement AWS Config rules for continuous compliance monitoring, deploying managed and custom rules aligned to CIS and PCI DSS frameworks with automatic remediation via SSM Automation.: cybersecurity
 subdomain: cloud-security
 tags: [cloud-security, aws, config-rules, compliance, automation, remediation]
 version: "1.0"

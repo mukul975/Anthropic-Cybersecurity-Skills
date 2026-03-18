@@ -1,8 +1,7 @@
 ---
 name: detecting-shadow-it-cloud-usage
 description: >-
-  Detect unauthorized SaaS and cloud service usage (shadow IT) by analyzing proxy logs, DNS query logs, and netflow data for traffic pattern analysis and domain classification. Keywords: shadow it discovery, unauthorized saas detection, cloud app visibility, unsanctioned cloud services, shadow it monitoring, casb alternative, unapproved cloud usage detection.
-domain: cybersecurity
+  Detect unauthorized SaaS and cloud service usage (shadow IT) by analyzing proxy logs, DNS query logs, and netflow data for traffic pattern analysis and domain classification.: cybersecurity
 subdomain: cloud-security
 tags: [shadow-IT, SaaS-discovery, proxy-logs, DNS-analysis, netflow, cloud-security, pandas]
 version: "1.0"

@@ -1,7 +1,7 @@
 ---
 name: securing-container-registry-images
 description: >-
-  Secure container registry images with vulnerability scanning using Trivy and Grype, image signing with Cosign and Sigstore, registry access controls, and CI/CD pipeline enforcement. Keywords: container image scanning, trivy vulnerability scan, grype scanner, cosign image signing, sigstore verification, container registry security, ci/cd image validation, container supply chain security.
+  Secure container registry images with vulnerability scanning using Trivy and Grype, image signing with Cosign and Sigstore, registry access controls, and CI/CD pipeline enforcement./cd image validation, container supply chain security.
 domain: cybersecurity
 subdomain: cloud-security
 tags: [cloud-security, containers, registry, image-scanning, trivy, cosign, supply-chain]

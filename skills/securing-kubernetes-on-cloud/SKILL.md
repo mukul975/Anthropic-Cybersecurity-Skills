@@ -1,8 +1,7 @@
 ---
 name: securing-kubernetes-on-cloud
 description: >-
-  Harden managed Kubernetes clusters on EKS, AKS, and GKE with Pod Security Standards, network policies, workload identity, RBAC scoping, and runtime security monitoring. Keywords: eks aks gke hardening, kubernetes security, pod security standards, k8s network policy, workload identity, irsa eks, gke workload identity, aks managed identity, kubernetes runtime security.
-domain: cybersecurity
+  Harden managed Kubernetes clusters on EKS, AKS, and GKE with Pod Security Standards, network policies, workload identity, RBAC scoping, and runtime security monitoring.: cybersecurity
 subdomain: cloud-security
 tags: [kubernetes-security, eks, aks, gke, pod-security-standards, container-runtime]
 version: 1.0.0

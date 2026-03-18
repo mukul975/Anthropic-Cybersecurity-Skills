@@ -1,8 +1,7 @@
 ---
 name: performing-aws-account-enumeration-with-scout-suite
 description: >-
-  Perform comprehensive AWS security posture assessment using ScoutSuite to enumerate resources, identify misconfigurations, and generate actionable security reports. Keywords: scoutsuite aws scan, aws security enumeration, aws posture assessment, scoutsuite report, aws misconfiguration discovery, cloud security assessment tool, aws resource audit.
-domain: cybersecurity
+  Perform comprehensive AWS security posture assessment using ScoutSuite to enumerate resources, identify misconfigurations, and generate actionable security reports.: cybersecurity
 subdomain: cloud-security
 tags: [aws, scoutsuite, cloud-security, enumeration, misconfiguration, security-audit, cspm, nccgroup]
 version: "1.0"

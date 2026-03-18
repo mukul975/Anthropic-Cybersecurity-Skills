@@ -1,8 +1,7 @@
 ---
 name: implementing-aws-security-hub
 description: >-
-  Deploy AWS Security Hub as a centralized cloud security posture management platform aggregating findings from GuardDuty, Inspector, Macie, and third-party tools with CIS benchmark compliance tracking. Keywords: aws security hub deployment, security hub integration, guardduty inspector macie, aws cspm, security hub standards, security hub dashboard, multi-account security management.
-domain: cybersecurity
+  Deploy AWS Security Hub as a centralized cloud security posture management platform aggregating findings from GuardDuty, Inspector, Macie, and third-party tools with CIS benchmark compliance tracking.: cybersecurity
 subdomain: cloud-security
 tags: [aws-security-hub, cspm, compliance-automation, security-standards, finding-aggregation]
 version: 1.0.0
