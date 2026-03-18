@@ -265,7 +265,7 @@ After 7-14 days of Count mode with acceptable false positive rates, switch manag
 
 ## Output Format
 
-```
+```text
 Cloud WAF Configuration Report
 ================================
 Web ACL: production-waf
