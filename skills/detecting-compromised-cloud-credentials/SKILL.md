@@ -8,7 +8,6 @@ description: >
 domain: cybersecurity
 subdomain: cloud-security
 tags: [cloud-security, credential-compromise, threat-detection, guardduty, incident-response, anomaly-detection]
-mitre_attack: ["T1078", "T1528", "T1550"]
 version: "1.0"
 author: mahipal
 license: Apache-2.0

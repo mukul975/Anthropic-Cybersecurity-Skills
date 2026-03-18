@@ -4,7 +4,6 @@ description: Analyze volatile memory dumps using Volatility 3 to extract running
 domain: cybersecurity
 subdomain: digital-forensics
 tags: [forensics, memory-forensics, volatility, ram-analysis, malware-detection, incident-response]
-mitre_attack: ["T1003", "T1055", "T1620", "T1574"]
 version: "1.0"
 author: mahipal
 license: Apache-2.0
