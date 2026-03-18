@@ -4,6 +4,7 @@ description: Parse Windows Prefetch files using the windowsprefetch Python libra
 domain: cybersecurity
 subdomain: digital-forensics
 tags: [digital-forensics, windows, prefetch, execution-history, incident-response, malware-analysis]
+mitre_attack: ["T1059", "T1204", "T1036"]
 version: "1.0"
 author: mahipal
 license: Apache-2.0
