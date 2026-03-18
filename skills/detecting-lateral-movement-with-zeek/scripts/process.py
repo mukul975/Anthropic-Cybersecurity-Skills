@@ -16,6 +16,8 @@ Usage:
     python3 process.py --log-dir /opt/zeek/logs/current --verbose
 """
 
+from __future__ import annotations
+
 import argparse
 import csv
 import ipaddress
