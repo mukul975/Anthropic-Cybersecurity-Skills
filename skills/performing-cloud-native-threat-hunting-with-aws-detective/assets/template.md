@@ -27,8 +27,8 @@
 - [ ] Initial access vector identified
 
 ## Response Actions
+- [ ] Evidence preserved (or capture rationale if immediate containment required)
 - [ ] Compromised credentials disabled
 - [ ] Active sessions revoked
 - [ ] Affected resources isolated
-- [ ] Evidence preserved
 - [ ] Stakeholders notified
