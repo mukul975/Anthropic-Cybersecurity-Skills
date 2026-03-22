@@ -2,6 +2,7 @@
 name: implementing-secrets-management-with-vault
 description: >-
   Deploy HashiCorp Vault for centralized secrets management across cloud environments including dynamic secret generation, transit encryption, PKI management, and Kubernetes integration.: cybersecurity
+domain: cybersecurity
 subdomain: cloud-security
 tags: [hashicorp-vault, secrets-management, dynamic-secrets, credential-rotation, zero-trust]
 version: 1.0.0

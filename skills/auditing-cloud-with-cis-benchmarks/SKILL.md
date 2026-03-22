@@ -2,6 +2,7 @@
 name: auditing-cloud-with-cis-benchmarks
 description: >-
   Conduct cloud security audits using CIS Foundations Benchmarks for AWS, Azure, and GCP with automated assessment tools like Prowler and ScoutSuite.: cybersecurity
+domain: cybersecurity
 subdomain: cloud-security
 tags: [cis-benchmarks, cloud-audit, compliance-assessment, prowler, security-hardening]
 version: 1.0.0

@@ -2,6 +2,7 @@
 name: managing-cloud-identity-with-okta
 description: >-
   Implement Okta as a centralized identity provider for cloud environments with SSO integration for AWS, Azure, and GCP, phishing-resistant MFA, lifecycle automation, and adaptive access policies.: cybersecurity
+domain: cybersecurity
 subdomain: cloud-security
 tags: [okta, cloud-identity, single-sign-on, phishing-resistant-mfa, identity-lifecycle]
 version: 1.0.0

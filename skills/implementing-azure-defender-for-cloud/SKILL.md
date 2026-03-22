@@ -2,6 +2,7 @@
 name: implementing-azure-defender-for-cloud
 description: >-
   Implement Microsoft Defender for Cloud for cloud security posture management, workload protection across VMs, containers, databases, and storage with automated remediation.: cybersecurity
+domain: cybersecurity
 subdomain: cloud-security
 tags: [cloud-security, azure, defender-for-cloud, cspm, cwpp, security-recommendations]
 version: "1.0"

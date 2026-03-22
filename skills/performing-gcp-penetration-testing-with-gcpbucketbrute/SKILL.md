@@ -2,6 +2,7 @@
 name: performing-gcp-penetration-testing-with-gcpbucketbrute
 description: >-
   Perform GCP security testing using GCPBucketBrute for storage bucket enumeration, gcloud IAM privilege escalation path analysis, and service account permission auditing.
+domain: cybersecurity
 subdomain: cloud-security
 tags: [gcp, cloud-pentesting, bucket-enumeration, iam-audit, privilege-escalation, gcpbucketbrute]
 version: "1.0"

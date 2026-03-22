@@ -2,6 +2,7 @@
 name: securing-serverless-functions
 description: >-
   Harden serverless compute on AWS Lambda, Azure Functions, and Google Cloud Functions addressing IAM roles, dependency scanning, secrets management, input validation, and runtime monitoring.: cybersecurity
+domain: cybersecurity
 subdomain: cloud-security
 tags: [serverless-security, aws-lambda, azure-functions, function-hardening, supply-chain]
 version: 1.0.0

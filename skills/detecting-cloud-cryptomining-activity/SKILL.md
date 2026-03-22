@@ -2,6 +2,7 @@
 name: detecting-cloud-cryptomining-activity
 description: >-
   Detect unauthorized cryptocurrency mining in cloud environments by analyzing compute usage anomalies, network traffic to mining pools, GuardDuty findings, and container workload behavior.: cybersecurity
+domain: cybersecurity
 subdomain: cloud-security
 tags: [cloud-security, cryptomining, threat-detection, guardduty, cost-anomaly, incident-response]
 version: "1.0"

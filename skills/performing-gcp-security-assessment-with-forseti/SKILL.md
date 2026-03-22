@@ -2,6 +2,7 @@
 name: performing-gcp-security-assessment-with-forseti
 description: >-
   Perform GCP security assessments using Forseti Security, Security Command Center, and gcloud CLI to audit IAM policies, firewall rules, storage permissions, and CIS GCP compliance.: cybersecurity
+domain: cybersecurity
 subdomain: cloud-security
 tags: [cloud-security, gcp, forseti, security-command-center, iam-audit, cis-benchmark]
 version: "1.0"

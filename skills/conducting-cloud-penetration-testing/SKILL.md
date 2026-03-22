@@ -2,6 +2,7 @@
 name: conducting-cloud-penetration-testing
 description: >-
   Perform authorized penetration testing against AWS, Azure, and GCP cloud environments using tools like Pacu and ScoutSuite, exploiting IAM misconfigurations and SSRF to cloud metadata services.: cybersecurity
+domain: cybersecurity
 subdomain: cloud-security
 tags: [cloud-pentesting, offensive-security, aws-exploitation, shared-responsibility, mitre-attack-cloud]
 version: 1.0.0

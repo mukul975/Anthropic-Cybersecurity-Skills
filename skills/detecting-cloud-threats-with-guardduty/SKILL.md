@@ -2,6 +2,7 @@
 name: detecting-cloud-threats-with-guardduty
 description: >-
   Deploy and operationalize Amazon GuardDuty for continuous threat detection across AWS accounts including S3, EKS, EC2 runtime monitoring, and Lambda protection plans.: cybersecurity
+domain: cybersecurity
 subdomain: cloud-security
 tags: [amazon-guardduty, threat-detection, aws-security, runtime-monitoring, cloud-soc]
 version: 1.0.0

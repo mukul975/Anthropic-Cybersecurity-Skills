@@ -2,6 +2,7 @@
 name: securing-aws-iam-permissions
 description: >-
   Harden AWS IAM configurations to enforce least privilege access including IAM policy scoping, permission boundaries, Access Analyzer integration, and credential rotation strategies.: cybersecurity
+domain: cybersecurity
 subdomain: cloud-security
 tags: [aws-iam, least-privilege, permission-boundaries, access-analyzer, cloud-identity]
 version: 1.0.0

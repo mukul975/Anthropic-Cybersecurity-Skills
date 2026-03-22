@@ -2,6 +2,7 @@
 name: implementing-gcp-vpc-firewall-rules
 description: >-
   Implement and audit GCP VPC firewall rules to enforce network segmentation, restrict ingress/egress traffic, apply hierarchical firewall policies, and monitor effectiveness with VPC Flow Logs.: cybersecurity
+domain: cybersecurity
 subdomain: cloud-security
 tags: [cloud-security, gcp, vpc, firewall-rules, network-security, segmentation]
 version: "1.0"

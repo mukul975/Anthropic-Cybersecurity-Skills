@@ -2,6 +2,7 @@
 name: performing-serverless-function-security-review
 description: >-
   Review serverless function security across AWS Lambda, Azure Functions, and GCP Cloud Functions for overly permissive execution roles, insecure environment variables, and injection vulnerabilities.: cybersecurity
+domain: cybersecurity
 subdomain: cloud-security
 tags: [cloud-security, serverless, lambda, azure-functions, cloud-functions, security-review]
 version: "1.0"
