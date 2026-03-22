@@ -13,11 +13,23 @@ import os
 from datetime import datetime, timedelta
 
 
+def _collect_all_pages(client_method, result_key, **kwargs):
+    """Paginate through all pages of an AWS Detective API call."""
+    all_items = []
+    while True:
+        response = client_method(**kwargs)
+        all_items.extend(response.get(result_key, []))
+        next_token = response.get('NextToken')
+        if not next_token:
+            break
+        kwargs['NextToken'] = next_token
+    return all_items
+
+
 def list_behavior_graphs(session):
     """List all Detective behavior graphs in the account."""
     client = session.client('detective')
-    response = client.list_graphs()
-    graphs = response.get('GraphList', [])
+    graphs = _collect_all_pages(client.list_graphs, 'GraphList')
 
     if not graphs:
         print("[!] No behavior graphs found. Enable Detective first.")
@@ -33,13 +45,13 @@ def list_behavior_graphs(session):
     return graphs
 
 
-def list_investigations(session, graph_arn, severities=None, max_results=20):
+def list_investigations(session, graph_arn, severity=None, max_results=20):
     """List investigations filtered by severity."""
     client = session.client('detective')
 
     filter_criteria = {}
-    if severities:
-        filter_criteria['Severities'] = severities
+    if severity:
+        filter_criteria['Severity'] = {'Value': severity}
 
     kwargs = {
         'GraphArn': graph_arn,
@@ -48,8 +60,9 @@ def list_investigations(session, graph_arn, severities=None, max_results=20):
     if filter_criteria:
         kwargs['FilterCriteria'] = filter_criteria
 
-    response = client.list_investigations(**kwargs)
-    investigations = response.get('InvestigationDetails', [])
+    investigations = _collect_all_pages(
+        client.list_investigations, 'InvestigationDetails', **kwargs
+    )
 
     if not investigations:
         print("[+] No investigations found matching criteria")
@@ -96,13 +109,12 @@ def list_indicators(session, graph_arn, investigation_id, max_results=50):
     """List indicators for a specific investigation."""
     client = session.client('detective')
 
-    response = client.list_indicators(
+    indicators = _collect_all_pages(
+        client.list_indicators, 'Indicators',
         GraphArn=graph_arn,
         InvestigationId=investigation_id,
         MaxResults=max_results,
     )
-
-    indicators = response.get('Indicators', [])
     if not indicators:
         print("[+] No indicators found for this investigation")
         return []
@@ -150,17 +162,22 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--severity",
-        nargs="+",
+        type=str,
         default=None,
-        help="Severity filter (e.g. HIGH CRITICAL)",
+        choices=["INFORMATIONAL", "LOW", "MEDIUM", "HIGH", "CRITICAL"],
+        help="Severity filter (e.g. HIGH)",
     )
-    parser.add_argument("--max-results", type=int, default=20)
+    parser.add_argument("--max-results", type=int, default=20,
+                        help="Max results per API call (1-100)")
     parser.add_argument("--region", default="us-east-1")
     parser.add_argument("--profile", type=str, help="AWS profile name")
     parser.add_argument(
         "--output", type=str, help="Output directory for JSON export"
     )
     args = parser.parse_args()
+
+    if args.max_results < 1 or args.max_results > 100:
+        parser.error("--max-results must be between 1 and 100")
 
     kwargs = {"region_name": args.region}
     if args.profile:
