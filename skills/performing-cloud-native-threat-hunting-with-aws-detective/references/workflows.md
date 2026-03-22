@@ -24,7 +24,8 @@
 4. Document indicators of compromise (IOCs)
 
 ## Phase 5: Response
-1. Disable compromised credentials
-2. Revoke active sessions
-3. Isolate affected resources
-4. Preserve evidence (CloudTrail logs, flow logs)
+1. Preserve evidence (CloudTrail logs, flow logs, snapshots) when safe
+2. Disable compromised credentials
+3. Revoke active sessions
+4. Isolate affected resources
+5. If active impact is ongoing, contain first and document evidence trade-offs

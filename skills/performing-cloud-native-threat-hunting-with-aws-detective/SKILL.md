@@ -46,7 +46,7 @@ aws detective list-graphs --output table
 # Get entity profile for an IAM user
 aws detective get-investigation \
   --graph-arn arn:aws:detective:us-east-1:123456789012:graph:a1b2c3d4 \
-  --investigation-id inv-1234567890
+  --investigation-id 000000000000000000001
 ```
 
 ### Step 3: Search Entities Programmatically
@@ -65,29 +65,26 @@ def list_behavior_graphs():
     response = detective.list_graphs()
     return response.get('GraphList', [])
 
-def get_entity_history(graph_arn, entity_arn, hours=24):
-    """Get API call history for an entity."""
-    end_time = datetime.utcnow()
-    start_time = end_time - timedelta(hours=hours)
-    
+def get_investigation_indicators(graph_arn, investigation_id, max_results=50):
+    """Get indicators for a specific investigation."""
     response = detective.list_indicators(
         GraphArn=graph_arn,
-        InvestigationId=entity_arn,
-        MaxResults=50
+        InvestigationId=investigation_id,
+        MaxResults=max_results
     )
     return response.get('Indicators', [])
 
 def investigate_guardduty_findings(graph_arn):
-    """List finding groups correlated by Detective."""
+    """List high-severity investigations correlated by Detective."""
     response = detective.list_investigations(
         GraphArn=graph_arn,
         FilterCriteria={
-            'Statuses': ['RUNNING', 'FAILED'],
-            'Severities': ['HIGH', 'CRITICAL']
+            'Severity': {'Value': 'CRITICAL'},
+            'Status': {'Value': 'RUNNING'}
         },
         MaxResults=20
     )
-    
+
     for investigation in response.get('InvestigationDetails', []):
         print(f"Investigation: {investigation['InvestigationId']}")
         print(f"  Entity: {investigation['EntityArn']}")
@@ -109,7 +106,7 @@ if __name__ == "__main__":
 # List investigations with high severity
 aws detective list-investigations \
   --graph-arn arn:aws:detective:us-east-1:123456789012:graph:a1b2c3d4 \
-  --filter-criteria '{"Severities":["HIGH","CRITICAL"]}' \
+  --filter-criteria '{"Severity":{"Value":"HIGH"}}' \
   --max-results 10
 ```
 
@@ -119,32 +116,31 @@ aws detective list-investigations \
 # Get indicators for a specific investigation
 aws detective list-indicators \
   --graph-arn arn:aws:detective:us-east-1:123456789012:graph:a1b2c3d4 \
-  --investigation-id inv-1234567890 \
+  --investigation-id 000000000000000000001 \
   --max-results 50
 ```
 
 ## Expected Output
 
+The `list-investigations` command returns investigation metadata:
+
 ```json
 {
   "InvestigationDetails": [
     {
-      "InvestigationId": "inv-0a1b2c3d4e5f",
+      "InvestigationId": "000000000000000000001",
       "Severity": "CRITICAL",
       "Status": "RUNNING",
+      "State": "ACTIVE",
       "EntityArn": "arn:aws:iam::123456789012:user/suspicious-user",
       "EntityType": "IAM_USER",
-      "CreatedTime": "2026-03-15T14:30:00Z",
-      "Indicators": {
-        "ImpossibleTravel": true,
-        "NewGeoLocation": "ru-central-1",
-        "UnusualApiCalls": ["CreateAccessKey", "AttachUserPolicy", "PutBucketPolicy"],
-        "RelatedFindings": 7
-      }
+      "CreatedTime": "2026-03-15T14:30:00Z"
     }
   ]
 }
 ```
+
+Indicators are retrieved separately via `list-indicators` and include types such as `TTP_OBSERVED`, `IMPOSSIBLE_TRAVEL`, `FLAGGED_IP_ADDRESS`, `NEW_GEOLOCATION`, `NEW_ASO`, `NEW_USER_AGENT`, `RELATED_FINDING`, and `RELATED_FINDING_GROUP`.
 
 ## Verification
 
