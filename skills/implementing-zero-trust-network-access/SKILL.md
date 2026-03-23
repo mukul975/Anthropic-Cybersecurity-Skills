@@ -1,10 +1,10 @@
 ---
 name: implementing-zero-trust-network-access
 description: >
-  Implementing Zero Trust Network Access (ZTNA) in cloud environments by deploying
-  GCP Identity-Aware Proxy, AWS Verified Access, and Azure Conditional Access with
-  Private Link. Covers micro-segmentation with security groups and Kubernetes network
-  policies, and replacing traditional VPN-based access with identity-based controls.
+  Implementing Zero Trust Network Access (ZTNA) in cloud environments by configuring
+  identity-aware proxies, micro-segmentation, continuous verification with conditional
+  access policies, and replacing traditional VPN-based access with BeyondCorp-style
+  architectures across AWS, Azure, and GCP.
 domain: cybersecurity
 subdomain: cloud-security
 tags: [cloud-security, zero-trust, ztna, beyondcorp, identity-aware-proxy, micro-segmentation]

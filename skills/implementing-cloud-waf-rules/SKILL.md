@@ -8,7 +8,7 @@ description: >
   false positives through rule tuning and logging analysis.
 domain: cybersecurity
 subdomain: cloud-security
-tags: [cloud-waf, aws-waf, owasp-protection, rate-limiting, geo-blocking]
+tags: [cloud-waf, aws-waf, azure-waf, cloudflare-waf, owasp-protection, rate-limiting]
 version: 1.0.0
 author: mahipal
 license: Apache-2.0
@@ -265,7 +265,7 @@ After 7-14 days of Count mode with acceptable false positive rates, switch manag
 
 ## Output Format
 
-```
+```text
 Cloud WAF Configuration Report
 ================================
 Web ACL: production-waf
