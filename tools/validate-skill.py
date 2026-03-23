@@ -15,11 +15,11 @@ REQUIRED_FIELDS = ["name", "description", "domain", "subdomain", "tags"]
 ALLOWED_SUBDOMAINS = {
     "web-application-security", "network-security", "penetration-testing",
     "red-teaming", "digital-forensics", "malware-analysis", "threat-intelligence",
-    "cloud-security", "container-security", "identity-access-management",
+    "cloud-security", "container-security", "identity-security",
     "cryptography", "vulnerability-management", "compliance-governance",
     "zero-trust-architecture", "ot-ics-security", "devsecops", "threat-hunting",
     "soc-operations", "incident-response", "endpoint-security", "phishing-defense",
-    "api-security", "mobile-security", "ransomware-defense",
+    "api-security", "mobile-security", "ransomware-defense", "threat-detection",
 }
 
 KEBAB_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
