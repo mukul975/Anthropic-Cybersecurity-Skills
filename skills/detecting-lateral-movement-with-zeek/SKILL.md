@@ -3,11 +3,11 @@ name: detecting-lateral-movement-with-zeek
 description: >
   Detect lateral movement in network traffic using Zeek (formerly Bro) log
   analysis. Parses conn.log, smb_mapping.log, smb_files.log, dce_rpc.log,
-  kerberos.log, and ntlm.log to identify SMB file transfers, Pass-the-Hash
-  activity, remote service execution, and anomalous internal connections.
+  kerberos.log, and ntlm.log to identify SMB file transfers, NTLM account
+  spray activity, remote service execution, and anomalous internal connections.
 domain: cybersecurity
 subdomain: network-security
-tags: [zeek, lateral-movement, smb, dce-rpc, pass-the-hash, network-forensics]
+tags: [zeek, lateral-movement, smb, dce-rpc, ntlm-spray, network-forensics]
 version: "1.0"
 author: mahipal
 license: Apache-2.0
@@ -16,14 +16,14 @@ license: Apache-2.0
 # Detecting Lateral Movement with Zeek
 
 Analyze Zeek network logs to identify lateral movement techniques including
-SMB admin share access, DCE/RPC remote service creation, Pass-the-Hash via
-NTLM, Kerberos ticket anomalies, and large internal data transfers indicative
+SMB admin share access, DCE/RPC remote service creation, NTLM account spray,
+Kerberos ticket anomalies, and large internal data transfers indicative
 of staging or exfiltration between hosts.
 
 ## When to Use
 
 - Hunting for lateral movement after an initial compromise indicator is found on one endpoint
-- Investigating suspected Pass-the-Hash or Pass-the-Ticket attacks across the internal network
+- Investigating suspected NTLM account spray or Pass-the-Ticket attacks across the internal network
 - Monitoring SMB traffic for unauthorized file transfers to admin shares (C$, ADMIN$, IPC$)
 - Detecting remote service execution via DCE/RPC (PsExec, schtasks, WMI lateral patterns)
 - Building alerting rules for internal network anomalies in a Zeek-based NSMP deployment
@@ -37,7 +37,7 @@ of staging or exfiltration between hosts.
 - Zeek SMB analyzer enabled (loaded by default: `@load base/protocols/smb`)
 - Zeek DCE/RPC analyzer enabled (`@load base/protocols/dce-rpc`)
 - Zeek Kerberos analyzer enabled (`@load base/protocols/krb`)
-- Python 3.8+ with `pandas` for log analysis
+- Python 3.8+ (standard library only)
 - Access to Zeek log directory (default: `/opt/zeek/logs/current/`)
 - Familiarity with Zeek TSV log format (fields separated by `\t`, header lines prefixed with `#`)
 
@@ -97,6 +97,24 @@ zeek-cut ts id.orig_h id.resp_h action path name size \
   | grep -i 'SMB::FILE_WRITE'
 ```
 
+Deploy the following Zeek script to generate `notice.log` alerts on admin share access:
+
+```zeek
+@load base/protocols/smb
+@load base/frameworks/notice
+
+redef enum Notice::Type += {
+    Admin_Share_Access
+};
+
+event smb1_tree_connect_andx_request(c: connection, hdr: SMB1::Header, path: string, service: string) {
+    if ( /\$/ in path )
+        NOTICE([$note=Admin_Share_Access,
+                $msg=fmt("Admin share access: %s -> %s (%s)", c$id$orig_h, c$id$resp_h, path),
+                $conn=c]);
+}
+```
+
 ### Step 4: Detect DCE/RPC Remote Service Operations
 
 Monitor for remote service creation and scheduled task registration via DCE/RPC:
@@ -108,9 +126,12 @@ zeek-cut ts id.orig_h id.resp_h endpoint operation \
   | grep -iE '(svcctl|atsvc|ITaskSchedulerService)'
 ```
 
-### Step 5: Detect Pass-the-Hash via NTLM
+### Step 5: Detect NTLM Account Spray
 
-Analyze ntlm.log for authentication anomalies indicating credential reuse:
+Analyze ntlm.log for authentication anomalies indicating credential reuse.
+Zeek's ntlm.log does not expose password hashes, so this detection identifies
+a single account authenticating to many hosts in a short window — the network
+signature of credential spraying tools like CrackMapExec:
 
 ```bash
 # Extract NTLM authentications
@@ -121,6 +142,39 @@ zeek-cut ts id.orig_h id.resp_h username domainname server_nb_computer_name succ
 zeek-cut ts id.orig_h id.resp_h username success \
   < /opt/zeek/logs/current/ntlm.log \
   | awk '$5 == "F"'
+
+# Sort by timestamp for timeline analysis
+zeek-cut ts id.orig_h id.resp_h username success \
+  < /opt/zeek/logs/current/ntlm.log \
+  | sort -k1,1
+```
+
+Deploy the following Zeek script to generate `notice.log` alerts when a single
+account touches more hosts than the threshold in a rolling window:
+
+```zeek
+@load base/protocols/ntlm
+@load base/frameworks/notice
+
+redef enum Notice::Type += {
+    NTLM_Account_Spray
+};
+
+global ntlm_tracker: table[string] of set[addr] &create_expire=5min;
+const spray_threshold = 3 &redef;
+
+event ntlm_log(rec: NTLM::Info) {
+    if ( ! rec?$username || rec$username == "-" )
+        return;
+    if ( rec$username !in ntlm_tracker )
+        ntlm_tracker[rec$username] = set();
+    add ntlm_tracker[rec$username][rec$id$resp_h];
+    if ( |ntlm_tracker[rec$username]| >= spray_threshold )
+        NOTICE([$note=NTLM_Account_Spray,
+                $msg=fmt("NTLM account spray: %s -> %d hosts", rec$username, |ntlm_tracker[rec$username]|),
+                $sub=rec$username,
+                $conn=rec$id]);
+}
 ```
 
 ### Step 6: Run the Automated Analysis Agent
@@ -137,6 +191,6 @@ python3 agent.py /opt/zeek/logs/2026-03-18/  # Analyze a specific date
 - Confirm conn.log captures internal SMB (port 445) and DCE/RPC (port 135) connections with correct field parsing
 - Verify smb_mapping.log correctly logs admin share paths (C$, ADMIN$, IPC$)
 - Test with a known PsExec execution in a lab: expect to see SMB FILE_WRITE of the service binary followed by DCE/RPC svcctl CreateService
-- Validate NTLM log parsing by performing a test authentication and confirming username, domain, and success fields are captured
+- Validate NTLM log parsing by performing a test authentication and confirming username, domain, and success fields are captured; verify the NTLM Account Spray Zeek script generates a `notice.log` entry when the spray threshold is exceeded
 - Cross-reference Zeek alerts with Sysmon Event ID 1 (Process Creation) on the target host to confirm end-to-end detection
 - Verify the agent correctly handles both TSV and JSON Zeek log formats
