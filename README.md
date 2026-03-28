@@ -10,7 +10,6 @@
   <a href="https://github.com/mukul975/Anthropic-Cybersecurity-Skills"><img src="https://img.shields.io/badge/Skills-753-blueviolet?style=for-the-badge&logo=bookstack&logoColor=white" alt="753 Skills" /></a>
   <a href="https://attack.mitre.org/"><img src="https://img.shields.io/badge/MITRE_ATT%26CK-Mapped-red?style=for-the-badge&logo=shield&logoColor=white" alt="MITRE ATT&CK Mapped" /></a>
   <a href="https://github.com/mukul975/Anthropic-Cybersecurity-Skills/graphs/contributors"><img src="https://img.shields.io/github/contributors/mukul975/Anthropic-Cybersecurity-Skills?style=for-the-badge&logo=github" alt="Contributors" /></a>
-  <a href="https://www.producthunt.com/products/anthropic-cybersecurity-skills?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-anthropic-cybersecurity-skills" target="_blank" rel="noopener noreferrer"><img alt="Anthropic Cybersecurity Skills - 753 cyber skills for AI agents via MITRE-mapped YAML. | Product Hunt" width="250" height="54" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1109979&amp;theme=dark&amp;t=1774714951174"></a>
 </p>
 
 <p align="center">
