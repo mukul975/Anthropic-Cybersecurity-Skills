@@ -6,14 +6,14 @@
   },
   "metadata": {
     "description": "753 cybersecurity skills for AI agents and security practitioners covering web security, pentesting, forensics, threat intelligence, cloud security, and more.",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   "plugins": [
     {
       "name": "cybersecurity-skills",
       "source": "./",
-      "description": "753 cybersecurity skills covering web security, pentesting, DFIR, threat intelligence, cloud security, malware analysis, and more.",
-      "version": "1.0.0",
+      "descripyion": "753 cybersecurity skills covering web security, pentesting, DFIR, threat intelligence, cloud security, malware analysis, and more.",
+      "version": "1.1.0",
       "author": {
         "name": "mukul975"
       },
