@@ -1,0 +1,41 @@
+name: Sync Marketplace Version on Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  sync-version:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract version from tag
+        id: version
+        run: |
+          VERSION=${GITHUB_REF_NAME#v}
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "tag=$GITHUB_REF_NAME" >> $GITHUB_OUTPUT
+
+      - name: Update marketplace.json version
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          jq --arg v "$VERSION" 
+            '.metadata.version = $v | .plugins[].version = $v' 
+            .claude-plugin/marketplace.json > tmp.json
+          mv tmp.json .claude-plugin/marketplace.json
+          echo "Updated marketplace.json to version $VERSION"
+
+      - name: Commit and push
+        run: |
+          git config user.name "mukul975"
+          git config user.email "mukuljangra5@gmail.com"
+          git add .claude-plugin/marketplace.json
+          git diff --staged --quiet || git commit -m "chore: bump marketplace version to ${{ steps.version.outputs.tag }}"
+          git push
