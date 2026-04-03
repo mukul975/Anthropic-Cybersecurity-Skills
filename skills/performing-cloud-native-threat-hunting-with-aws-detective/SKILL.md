@@ -1,6 +1,11 @@
 ---
 name: performing-cloud-native-threat-hunting-with-aws-detective
-description: Hunt for threats in AWS environments using Detective behavior graphs, entity investigation timelines, GuardDuty finding correlation, and automated entity profiling across IAM users, EC2 instances, and IP addresses.
+description: >-
+  Hunt for threats in AWS environments using Detective behavior graphs, entity
+  investigation timelines, GuardDuty finding correlation, and automated entity
+  profiling across IAM users, EC2 instances, and IP addresses. Use when the user
+  asks about investigating suspicious AWS activity, correlating GuardDuty alerts,
+  analyzing Detective findings, or hunting threats across AWS accounts.
 domain: cybersecurity
 subdomain: cloud-security
 tags: [aws-detective, threat-hunting, cloud-security, guardduty, behavior-graph, aws, iam, ec2, incident-investigation]
@@ -11,26 +16,11 @@ license: Apache-2.0
 
 # Performing Cloud-Native Threat Hunting with AWS Detective
 
-## Overview
-
-AWS Detective automatically collects and analyzes log data from AWS CloudTrail, VPC Flow Logs, GuardDuty findings, and EKS audit logs to build interactive behavior graphs. These graphs enable security analysts to investigate entities (IAM users, roles, IP addresses, EC2 instances) across time, identify anomalous API calls, detect lateral movement between accounts, and correlate GuardDuty findings into coherent attack narratives — all without manual log parsing.
-
 ## Prerequisites
 
 - AWS account with Detective enabled (requires GuardDuty active for 48+ hours)
-- AWS CLI v2 configured with appropriate IAM permissions (`detective:*`, `guardduty:List*`)
+- AWS CLI v2 with IAM permissions: `detective:ListGraphs`, `detective:ListInvestigations`, `detective:GetInvestigation`, `detective:ListIndicators`, `guardduty:List*`
 - Python 3.9+ with boto3
-- IAM policy: `AmazonDetectiveFullAccess` or custom policy with `detective:SearchGraph`, `detective:GetInvestigation`, `detective:ListIndicators`
-
-## Key Concepts
-
-| Concept | Description |
-|---------|-------------|
-| **Behavior Graph** | Data structure linking CloudTrail, VPC Flow, GuardDuty, and EKS logs for an account/region |
-| **Entity** | Investigable object: IAM user, IAM role, EC2 instance, IP address, S3 bucket, EKS cluster |
-| **Finding Group** | Correlated set of GuardDuty findings linked to the same attack campaign |
-| **Entity Profile** | Timeline of API calls, network connections, and resource access for a specific entity |
-| **Scope Time** | Investigation window (default 24h, max 1 year) for behavioral analysis |
 
 ## Steps
 
@@ -39,6 +29,10 @@ AWS Detective automatically collects and analyzes log data from AWS CloudTrail, 
 ```bash
 aws detective list-graphs --output table
 ```
+
+If no graphs are returned, Detective is not enabled. Enable it via the Console or `aws detective create-graph`. Graphs need 48+ hours of data before investigations produce meaningful results.
+
+**Checkpoint:** Confirm at least one graph ARN is returned before proceeding.
 
 ### Step 2: Investigate a Suspicious IAM User
 
@@ -100,6 +94,8 @@ if __name__ == "__main__":
         investigate_guardduty_findings(graph['Arn'])
 ```
 
+**Checkpoint:** Verify the script returns investigations with valid `EntityArn` and `Severity` fields before proceeding to triage.
+
 ### Step 4: Analyze Finding Groups for Attack Campaigns
 
 ```bash
@@ -120,32 +116,24 @@ aws detective list-indicators \
   --max-results 50
 ```
 
-## Expected Output
+### Step 6: Interpret Indicators and Decide Next Actions
 
-The `list-investigations` command returns investigation metadata:
+Triage based on indicator type returned by `list-indicators`:
 
-```json
-{
-  "InvestigationDetails": [
-    {
-      "InvestigationId": "000000000000000000001",
-      "Severity": "CRITICAL",
-      "Status": "RUNNING",
-      "State": "ACTIVE",
-      "EntityArn": "arn:aws:iam::123456789012:user/suspicious-user",
-      "EntityType": "IAM_USER",
-      "CreatedTime": "2026-03-15T14:30:00Z"
-    }
-  ]
-}
-```
-
-Indicators are retrieved separately via `list-indicators` and include types such as `TTP_OBSERVED`, `IMPOSSIBLE_TRAVEL`, `FLAGGED_IP_ADDRESS`, `NEW_GEOLOCATION`, `NEW_ASO`, `NEW_USER_AGENT`, `RELATED_FINDING`, and `RELATED_FINDING_GROUP`.
+| Indicator Type | Meaning | Next Action |
+|---------------|---------|-------------|
+| `TTP_OBSERVED` | Known MITRE ATT&CK technique detected | Map to ATT&CK matrix, check for lateral movement |
+| `IMPOSSIBLE_TRAVEL` | Entity authenticated from geographically distant locations | Verify with user, likely credential compromise |
+| `FLAGGED_IP_ADDRESS` | Communication with known-malicious IP | Block IP in security groups/NACLs, check other entities contacting same IP |
+| `NEW_GEOLOCATION` / `NEW_ASO` | Activity from unusual location or network | Compare against baseline, escalate if unexpected |
+| `NEW_USER_AGENT` | Unfamiliar tooling used by entity | Check if legitimate tooling change or adversary tool |
+| `RELATED_FINDING` | Linked GuardDuty finding | Pull full finding via `aws guardduty get-findings` for detail |
+| `RELATED_FINDING_GROUP` | Part of correlated attack campaign | Investigate all entities in the group as a single incident |
 
 ## Verification
 
-1. Confirm behavior graph has data: `aws detective list-graphs` returns non-empty list
-2. Validate investigation results contain entity timelines with API call sequences
-3. Cross-reference Detective findings with raw CloudTrail logs for accuracy
-4. Verify finding group correlations match manual investigation conclusions
-5. Confirm automated alerts trigger for HIGH/CRITICAL severity investigations
+1. `aws detective list-graphs` returns at least one graph with an active ARN
+2. Investigation queries return results with valid `EntityArn` and `Severity` fields
+3. Indicator types match expected categories from the triage table above
+4. For `RELATED_FINDING` indicators, cross-reference the linked GuardDuty finding ID via `aws guardduty get-findings` to confirm accuracy
+5. For `IMPOSSIBLE_TRAVEL`, verify the geographic distance is genuine (not VPN/proxy) before escalating
