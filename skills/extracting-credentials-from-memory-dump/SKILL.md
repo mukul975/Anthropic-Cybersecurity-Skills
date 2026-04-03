@@ -4,6 +4,7 @@ description: Extract cached credentials, password hashes, Kerberos tickets, and 
 domain: cybersecurity
 subdomain: digital-forensics
 tags: [forensics, credential-extraction, memory-forensics, volatility, mimikatz, password-hashes, incident-response]
+mitre_attack: ["T1003", "T1558", "T1552"]
 version: "1.0"
 author: mahipal
 license: Apache-2.0

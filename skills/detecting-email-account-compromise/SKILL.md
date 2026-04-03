@@ -4,6 +4,7 @@ description: Detect compromised O365 and Google Workspace email accounts by anal
 domain: cybersecurity
 subdomain: incident-response
 tags: [email-compromise, office365, microsoft-graph, bec, inbox-rules, sign-in-analysis, account-takeover]
+mitre_attack: ["T1114", "T1566", "T1078", "T1534"]
 version: "1.0"
 author: mahipal
 license: Apache-2.0

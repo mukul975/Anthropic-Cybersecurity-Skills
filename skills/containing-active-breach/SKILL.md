@@ -10,6 +10,7 @@ description: >
 domain: cybersecurity
 subdomain: incident-response
 tags: [breach-containment, lateral-movement, network-isolation, credential-revocation, live-response]
+mitre_attack: ["T1021", "T1570", "T1210", "T1072"]
 version: 1.0.0
 author: mahipal
 license: Apache-2.0

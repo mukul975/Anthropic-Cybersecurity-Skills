@@ -10,6 +10,7 @@ description: >
 domain: cybersecurity
 subdomain: incident-response
 tags: [splunk, SPL, SIEM, log-analysis, security-monitoring]
+mitre_attack: ["T1070", "T1562", "T1059"]
 version: 1.0.0
 author: mahipal
 license: Apache-2.0

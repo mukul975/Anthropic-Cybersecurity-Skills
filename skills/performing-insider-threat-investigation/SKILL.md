@@ -10,6 +10,7 @@ description: >
 domain: cybersecurity
 subdomain: incident-response
 tags: [insider-threat, user-behavior-analytics, data-exfiltration, privilege-misuse, DFIR]
+mitre_attack: ["T1078", "T1048", "T1567", "T1114"]
 version: 1.0.0
 author: mahipal
 license: Apache-2.0

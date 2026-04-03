@@ -4,6 +4,7 @@ description: Investigate Active Directory compromise by analyzing authentication
 domain: cybersecurity
 subdomain: incident-response
 tags: [active-directory, compromise-investigation, identity-forensics, kerberos, lateral-movement, dfir, ntds-dit, golden-ticket]
+mitre_attack: ["T1003", "T1558", "T1021", "T1078", "T1484"]
 version: "1.0"
 author: mahipal
 license: Apache-2.0
