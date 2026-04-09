@@ -22,6 +22,16 @@
 > ⚠️ **Community Project** — This is an independent, community-created project. Not affiliated with Anthropic PBC.
 
 ---
+<p align="center">
+  <strong>🚀 Learn Claude Cybersecurity Skills (Hands-On)</strong><br>
+  Turn these skills into real AI workflows, agents, and SOC execution
+</p>
+
+<p align="center">
+  👉 <a href="https://casky.ai/?utm_source=github&utm_medium=readme&utm_campaign=cohort_launch#waitlist">Join Casky.AI Cohort</a>  
+  📥 <a href="https://casky.ai/resources/top-10-skills?utm_source=github&utm_medium=readme&utm_campaign=top10_skills&utm_content=lead_magnet">Free Download: Top Ten Claude Cybersecurity Skills</a>
+</p>
+
 
 ## Why this exists
 
@@ -308,4 +318,13 @@ Apache License 2.0 — free for commercial and personal use. See [LICENSE](LICEN
 
 <p align="center">
   <strong>If these skills help your AI agent defend better, consider giving this repo a ⭐</strong>
+</p>
+
+---
+
+<p align="center">
+  <strong>🚀 Ready to run these as real AI security workflows?</strong><br><br>
+
+  👉 <a href="https://www.casky.ai?utm_source=github&utm_medium=readme&utm_campaign=bottom_cta">Join Casky.AI</a><br>
+  📥 <a href="https://www.casky.ai/top-10-skills?utm_source=github&utm_medium=readme&utm_campaign=bottom_lead">Get the Free Skill Pack</a>
 </p>
