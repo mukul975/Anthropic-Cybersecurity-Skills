@@ -1,10 +1,7 @@
 ---
 name: performing-cloud-native-forensics-with-falco
-description: >
-  Uses Falco YAML rules for runtime threat detection in containers and Kubernetes,
-  monitoring syscalls for shell spawns, file tampering, network anomalies, and privilege
-  escalation. Manages Falco rules via the Falco gRPC API and parses Falco alert output.
-  Use when building container runtime security or investigating k8s cluster compromises.
+description: >-
+  Use Falco YAML rules for runtime threat detection in containers and Kubernetes, monitoring syscalls for shell spawns, file tampering, network anomalies, and privilege escalation.
 domain: cybersecurity
 subdomain: cloud-security
 tags: [performing, cloud, native, forensics]
