@@ -117,6 +117,7 @@ Use the `scripts/process.py` to parse DMARC aggregate XML reports and identify a
 - **Google Postmaster Tools**: https://postmaster.google.com/
 - **Valimail DMARC Monitor**: https://www.valimail.com/
 - **DMARC Report Analyzer**: https://dmarc.postmarkapp.com/
+- **DMARC Analytics and MCP Server**: https://dmarcdkim.com/
 
 ## Validation
 - SPF record passes validation at mxtoolbox.com
