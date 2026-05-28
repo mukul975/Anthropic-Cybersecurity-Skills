@@ -9,12 +9,16 @@
 <body>
   <header class="topbar">
     <h1>Cybersecurity Skills</h1>
-    <input
-      id="search"
-      type="search"
-      placeholder="Search 754 skills (name, description, tag, technique ID)…"
-      autocomplete="off"
-      autofocus>
+    <div class="search-wrap">
+      <input
+        id="search"
+        type="search"
+        placeholder="Search 754 skills (name, description, tag, technique ID)…"
+        autocomplete="off"
+        autofocus
+        aria-label="Search skills">
+      <button id="search-clear" type="button" class="search-clear" aria-label="Clear search" hidden>×</button>
+    </div>
     <span id="count" class="count">Loading…</span>
   </header>
 
@@ -22,6 +26,12 @@
     <aside class="sidebar" aria-label="Filters">
       <section>
         <h2>Subdomain</h2>
+        <input
+          type="search"
+          class="filter-within"
+          data-target="subdomain-filters"
+          placeholder="Filter subdomains…"
+          aria-label="Filter subdomains">
         <ul id="subdomain-filters" class="filter-list"></ul>
       </section>
       <section>
@@ -34,12 +44,19 @@
       </section>
       <section>
         <h2>Top tags</h2>
+        <input
+          type="search"
+          class="filter-within"
+          data-target="tag-filters"
+          placeholder="Filter tags…"
+          aria-label="Filter tags">
         <ul id="tag-filters" class="filter-list"></ul>
       </section>
-      <button id="clear" type="button" class="clear-btn">Clear filters</button>
+      <button id="clear" type="button" class="clear-btn">Clear all filters</button>
     </aside>
 
     <section class="results" aria-label="Skill list">
+      <div id="active-chips" class="active-chips" hidden></div>
       <ul id="results-list" class="results-list"></ul>
     </section>
 

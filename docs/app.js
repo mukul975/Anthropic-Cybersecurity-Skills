@@ -14,6 +14,56 @@ const state = {
   activeSkill: null,
 };
 
+// Security-domain acronyms that should render uppercase rather than Title Case.
+// Add entries as you notice mis-cased terms in the UI ("Jwt" → "JWT", etc).
+const ACRONYMS = new Set([
+  "api", "soc", "siem", "soar", "ioc", "iam", "owasp", "saml", "oauth",
+  "tls", "ssl", "dns", "http", "https", "url", "jwt", "xss", "csrf", "ssrf",
+  "xxe", "sql", "rce", "rdp", "smb", "ntlm", "tcp", "udp", "wmi", "ldap",
+  "mfa", "vpn", "ad", "aws", "gcp", "ip", "ai", "ml", "cli", "ci", "cd",
+  "ttp", "dfir", "edr", "xdr", "mdr", "waf", "ips", "ids", "nist", "csf",
+  "iot", "ot", "ics", "scada", "pki", "ca", "lfi", "csp", "hsts", "cors",
+  "fido", "totp", "yara", "stix", "taxii", "misp", "rat", "apt", "c2",
+  "lnk", "pdf", "elf", "pe", "exe", "dll", "vm", "icmp", "snmp", "ipsec",
+  "dhcp", "ntp", "smtp", "imap", "ftp", "ssh", "rbac", "abac", "uba", "ueba",
+  "k8s", "ec2", "s3", "iam", "kms", "vpc", "elb", "lambda", "gke", "aks",
+]);
+
+function prettifyName(name) {
+  return name.split("-").map((w) => {
+    if (!w) return "";
+    if (ACRONYMS.has(w.toLowerCase())) return w.toUpperCase();
+    return w.charAt(0).toUpperCase() + w.slice(1);
+  }).join(" ");
+}
+
+// Safely insert text into an element, wrapping case-insensitive matches of
+// `query` in <mark>. Uses DOM nodes (no innerHTML) so it's XSS-safe.
+function highlightInto(target, text, query) {
+  target.replaceChildren();
+  if (!query) {
+    target.append(document.createTextNode(text));
+    return;
+  }
+  const lower = text.toLowerCase();
+  const q = query.toLowerCase();
+  let cursor = 0;
+  let idx = lower.indexOf(q);
+  if (idx === -1) {
+    target.append(document.createTextNode(text));
+    return;
+  }
+  while (idx !== -1) {
+    if (idx > cursor) target.append(document.createTextNode(text.slice(cursor, idx)));
+    const mark = document.createElement("mark");
+    mark.textContent = text.slice(idx, idx + q.length);
+    target.append(mark);
+    cursor = idx + q.length;
+    idx = lower.indexOf(q, cursor);
+  }
+  if (cursor < text.length) target.append(document.createTextNode(text.slice(cursor)));
+}
+
 // ────────────────────────────────────────────────────────────────────────────
 // FILTER COMPOSITION — user contribution point
 // ────────────────────────────────────────────────────────────────────────────
@@ -157,6 +207,8 @@ function wireSearch() {
   const input = document.getElementById("search");
   let timer = null;
   input.addEventListener("input", () => {
+    // Show/hide the (×) button immediately, even before the debounced render.
+    updateSearchClearVisibility();
     clearTimeout(timer);
     timer = setTimeout(() => {
       state.query = input.value.trim().toLowerCase();
@@ -165,18 +217,131 @@ function wireSearch() {
   });
 }
 
+function clearAllFilters() {
+  state.subdomainSelections.clear();
+  state.tagSelections.clear();
+  state.frameworkSelections.clear();
+  state.query = "";
+  document.getElementById("search").value = "";
+  document.querySelectorAll('.filter-list input[type="checkbox"]').forEach((cb) => {
+    cb.checked = false;
+  });
+  // Also clear the "filter within" inputs and unhide all filter list items.
+  document.querySelectorAll(".filter-within").forEach((input) => { input.value = ""; });
+  document.querySelectorAll(".filter-list li.hidden-by-filter").forEach((li) => {
+    li.classList.remove("hidden-by-filter");
+  });
+  updateSearchClearVisibility();
+  render();
+}
+
 function wireClear() {
-  document.getElementById("clear").addEventListener("click", () => {
-    state.subdomainSelections.clear();
-    state.tagSelections.clear();
-    state.frameworkSelections.clear();
+  document.getElementById("clear").addEventListener("click", clearAllFilters);
+}
+
+function updateSearchClearVisibility() {
+  const btn = document.getElementById("search-clear");
+  btn.hidden = !document.getElementById("search").value;
+}
+
+function wireSearchClear() {
+  const btn = document.getElementById("search-clear");
+  btn.addEventListener("click", () => {
+    const input = document.getElementById("search");
+    input.value = "";
     state.query = "";
-    document.getElementById("search").value = "";
-    document.querySelectorAll('.filter-list input[type="checkbox"]').forEach((cb) => {
-      cb.checked = false;
-    });
+    btn.hidden = true;
+    input.focus();
     render();
   });
+}
+
+// Search-within-filter: type to narrow long checkbox lists by substring
+// match on the visible label text. Doesn't change filter state — only what's
+// shown in the sidebar.
+function wireFilterWithin() {
+  document.querySelectorAll(".filter-within").forEach((input) => {
+    input.addEventListener("input", () => {
+      const q = input.value.trim().toLowerCase();
+      const ul = document.getElementById(input.dataset.target);
+      if (!ul) return;
+      ul.querySelectorAll("li").forEach((li) => {
+        const labelText = li.textContent.toLowerCase();
+        const match = !q || labelText.includes(q);
+        li.classList.toggle("hidden-by-filter", !match);
+      });
+    });
+  });
+}
+
+// Active filter chips: a horizontal strip above the results that mirrors
+// state.* selections. Each chip has an × that removes just that one filter.
+// Lets users see and undo without scrolling back to the sidebar.
+function renderActiveChips() {
+  const bar = document.getElementById("active-chips");
+  bar.replaceChildren();
+
+  const chips = [];
+  for (const v of state.subdomainSelections) chips.push({ kind: "subdomain", value: v, label: v });
+  for (const v of state.tagSelections)       chips.push({ kind: "tag",       value: v, label: v });
+  for (const v of state.frameworkSelections) {
+    const label = { attack: "ATT&CK", nist_csf: "NIST CSF", owasp: "OWASP" }[v] || v;
+    chips.push({ kind: "framework", value: v, label });
+  }
+  if (state.query) chips.push({ kind: "query", value: state.query, label: state.query });
+
+  if (chips.length === 0) {
+    bar.hidden = true;
+    return;
+  }
+  bar.hidden = false;
+
+  for (const c of chips) {
+    const chip = document.createElement("span");
+    chip.className = "active-chip";
+
+    const prefix = document.createElement("span");
+    prefix.className = "label-prefix";
+    prefix.textContent = {
+      subdomain: "Subdomain:",
+      tag: "Tag:",
+      framework: "Framework:",
+      query: "Search:",
+    }[c.kind];
+
+    const text = document.createElement("span");
+    text.textContent = c.label;
+
+    const x = document.createElement("button");
+    x.type = "button";
+    x.setAttribute("aria-label", `Remove ${c.kind} filter`);
+    x.textContent = "×";
+    x.addEventListener("click", () => removeFilter(c.kind, c.value));
+
+    chip.append(prefix, text, x);
+    bar.append(chip);
+  }
+}
+
+function removeFilter(kind, value) {
+  if (kind === "subdomain") {
+    state.subdomainSelections.delete(value);
+    const cb = document.querySelector(`input[data-subdomain="${CSS.escape(value)}"]`);
+    if (cb) cb.checked = false;
+  } else if (kind === "tag") {
+    state.tagSelections.delete(value);
+    const cb = document.querySelector(`input[data-tag="${CSS.escape(value)}"]`);
+    if (cb) cb.checked = false;
+  } else if (kind === "framework") {
+    state.frameworkSelections.delete(value);
+    const cb = document.querySelector(`input[data-framework="${CSS.escape(value)}"]`);
+    if (cb) cb.checked = false;
+  } else if (kind === "query") {
+    state.query = "";
+    document.getElementById("search").value = "";
+    updateSearchClearVisibility();
+  }
+  render();
 }
 
 function renderResults(visible) {
@@ -187,7 +352,14 @@ function renderResults(visible) {
   if (visible.length === 0) {
     const empty = document.createElement("div");
     empty.className = "empty-state";
-    empty.textContent = "No skills match the current filters.";
+    const msg = document.createElement("div");
+    msg.textContent = "No skills match the current filters.";
+    empty.append(msg);
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.textContent = "Clear all filters";
+    btn.addEventListener("click", clearAllFilters);
+    empty.append(btn);
     ul.append(empty);
     return;
   }
@@ -203,7 +375,11 @@ function renderResults(visible) {
 
     const nameDiv = document.createElement("div");
     nameDiv.className = "skill-name";
-    nameDiv.textContent = s.name;
+    // Highlight the query if it matches the display name; otherwise the
+    // match came from a tag/description/technique-id and we just show the
+    // pretty name unmarked.
+    const pretty = prettifyName(s.name);
+    highlightInto(nameDiv, pretty, state.query);
 
     const metaDiv = document.createElement("div");
     metaDiv.className = "skill-meta";
@@ -274,8 +450,13 @@ function showDetail(skill) {
 
   const h2 = document.createElement("h2");
   h2.className = "detail-title";
-  h2.textContent = skill.name;
+  h2.textContent = prettifyName(skill.name);
   detail.append(h2);
+
+  const slug = document.createElement("code");
+  slug.className = "detail-slug";
+  slug.textContent = skill.name;
+  detail.append(slug);
 
   const desc = document.createElement("p");
   desc.className = "desc";
@@ -404,6 +585,7 @@ function wireKeyboard() {
 
 function render() {
   const visible = state.skills.filter(matchesFilters);
+  renderActiveChips();
   renderResults(visible);
   serializeStateToHash();
 }
@@ -421,8 +603,11 @@ async function main() {
   renderTagFilters(data.top_tags);
   applyHashToState();       // populate state.* from #hash before wiring inputs
   syncCheckboxesToState();  // reflect that state into the freshly-built UI
+  updateSearchClearVisibility();
   wireFrameworkFilters();
   wireSearch();
+  wireSearchClear();
+  wireFilterWithin();
   wireClear();
   wireKeyboard();
   render();
