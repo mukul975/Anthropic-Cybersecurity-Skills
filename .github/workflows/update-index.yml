@@ -5,6 +5,8 @@ on:
     branches: [main]
     paths:
       - 'skills/**'
+      - 'mappings/attack-navigator-layer.json'
+      - 'tools/build-browser-data.py'
       - '.github/workflows/update-index.yml'
   workflow_dispatch:
 
@@ -61,10 +63,13 @@ jobs:
           print(f"Updated index.json: {len(skills)} skills")
           EOF
 
-      - name: Commit updated index
+      - name: Regenerate docs/data.json (skill browser)
+        run: python3 tools/build-browser-data.py
+
+      - name: Commit updated index and browser data
         run: |
           git config user.name "mukul975"
           git config user.email "mukuljangra5@gmail.com"
-          git add index.json
-          git diff --staged --quiet || git commit -m "chore: auto-update index.json"
+          git add index.json docs/data.json
+          git diff --staged --quiet || git commit -m "chore: auto-update index.json and docs/data.json"
           git push

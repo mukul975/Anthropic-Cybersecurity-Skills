@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cybersecurity Skills Browser</title>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>Cybersecurity Skills</h1>
+    <input
+      id="search"
+      type="search"
+      placeholder="Search 754 skills (name, description, tag, technique ID)…"
+      autocomplete="off"
+      autofocus>
+    <span id="count" class="count">Loading…</span>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar" aria-label="Filters">
+      <section>
+        <h2>Subdomain</h2>
+        <ul id="subdomain-filters" class="filter-list"></ul>
+      </section>
+      <section>
+        <h2>Framework</h2>
+        <ul class="filter-list framework-filters">
+          <li><label><input type="checkbox" data-framework="attack"> Has MITRE ATT&amp;CK mapping</label></li>
+          <li><label><input type="checkbox" data-framework="nist_csf"> Has NIST CSF mapping</label></li>
+          <li><label><input type="checkbox" data-framework="owasp"> Has OWASP mapping</label></li>
+        </ul>
+      </section>
+      <section>
+        <h2>Top tags</h2>
+        <ul id="tag-filters" class="filter-list"></ul>
+      </section>
+      <button id="clear" type="button" class="clear-btn">Clear filters</button>
+    </aside>
+
+    <section class="results" aria-label="Skill list">
+      <ul id="results-list" class="results-list"></ul>
+    </section>
+
+    <article id="detail" class="detail" aria-label="Skill detail">
+      <p class="hint">Select a skill on the left to view its details.</p>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <small>
+      Built from <code>tools/build-browser-data.py</code> ·
+      Source: <a href="https://github.com/mukul975/Anthropic-Cybersecurity-Skills">github.com/mukul975/Anthropic-Cybersecurity-Skills</a>
+    </small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
