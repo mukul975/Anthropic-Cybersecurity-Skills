@@ -11,7 +11,7 @@ import json
 import os
 import subprocess
 import sys
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timezone
 
 
 def check_veeam_backups(server_url, token):
@@ -203,7 +203,7 @@ def audit_321_rule(backup_config):
 def format_summary(all_findings):
     """Print audit summary."""
     print(f"\n{'='*60}")
-    print(f"  Ransomware Backup Strategy Audit")
+    print("  Ransomware Backup Strategy Audit")
     print(f"{'='*60}")
 
     severity_counts = {}
@@ -220,13 +220,13 @@ def format_summary(all_findings):
     print(f"  Failed   : {fail_count}")
     print(f"  Warnings : {warn_count}")
 
-    print(f"\n  By Severity:")
+    print("\n  By Severity:")
     for sev in ["CRITICAL", "HIGH", "MEDIUM", "LOW", "INFO"]:
         count = severity_counts.get(sev, 0)
         if count > 0:
             print(f"    {sev:10s}: {count}")
 
-    print(f"\n  Detailed Results:")
+    print("\n  Detailed Results:")
     for f in all_findings:
         status_icon = "OK" if f["status"] == "PASS" else "!!" if f["status"] == "FAIL" else "~~"
         detail = f.get("detail", "")

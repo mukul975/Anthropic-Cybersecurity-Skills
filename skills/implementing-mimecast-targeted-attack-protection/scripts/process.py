@@ -15,10 +15,8 @@ Usage:
 import argparse
 import json
 import re
-import sys
 from dataclasses import dataclass, field, asdict
 from collections import defaultdict, Counter
-from datetime import datetime
 
 
 @dataclass

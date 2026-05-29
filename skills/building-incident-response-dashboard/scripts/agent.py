@@ -166,7 +166,7 @@ def main():
 
     if args.action in ("metrics", "full_dashboard"):
         report["data"]["soc_metrics"] = get_soc_metrics(service)
-        print(f"[+] SOC metrics calculated")
+        print("[+] SOC metrics calculated")
 
     if args.action in ("workload", "full_dashboard"):
         report["data"]["analyst_workload"] = get_analyst_workload(service)

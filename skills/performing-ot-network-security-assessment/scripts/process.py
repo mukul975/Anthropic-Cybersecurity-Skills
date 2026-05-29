@@ -11,14 +11,12 @@ Usage:
 """
 
 import argparse
-import csv
 import json
 import sys
 from collections import defaultdict
 from dataclasses import dataclass, field, asdict
 from datetime import datetime
 from ipaddress import ip_address, ip_network
-from typing import Optional
 
 try:
     from scapy.all import rdpcap, sniff, IP, TCP, UDP, Ether, ARP
@@ -368,14 +366,14 @@ class OTNetworkDiscovery:
         for level in sorted(level_counts.keys()):
             print(f"  {level}: {level_counts[level]} devices")
 
-        print(f"\nProtocol Distribution:")
+        print("\nProtocol Distribution:")
         for proto, count in sorted(self.protocol_stats.items(), key=lambda x: -x[1]):
             print(f"  {proto}: {count} packets")
 
         print(f"\nCross-Zone Flows: {len(self.cross_zone_flows)}")
         print(f"Modbus Write Operations: {len(self.modbus_writes)}")
 
-        print(f"\nFindings:")
+        print("\nFindings:")
         severity_counts = defaultdict(int)
         for f in self.findings:
             severity_counts[f.severity] += 1
@@ -384,7 +382,7 @@ class OTNetworkDiscovery:
                 print(f"  {sev.upper()}: {severity_counts[sev]}")
 
         if self.findings:
-            print(f"\nTop Findings:")
+            print("\nTop Findings:")
             for f in self.findings[:10]:
                 print(f"  [{f.finding_id}] [{f.severity.upper()}] {f.title}")
 

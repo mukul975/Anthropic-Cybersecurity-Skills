@@ -15,12 +15,8 @@ Usage:
 import argparse
 import json
 import re
-import sys
-import hashlib
 from datetime import datetime, timezone
-from pathlib import Path
 from dataclasses import dataclass, field, asdict
-from typing import Optional
 from collections import defaultdict
 
 try:
@@ -432,7 +428,7 @@ def generate_detection_rules(indicators_db: list) -> str:
         output_lines.append(f"  mitre: {rule['mitre']}")
         output_lines.append(f"  action: {rule['action']}")
         output_lines.append(f"  indicators_count: {rule['values_count']}")
-        output_lines.append(f"  sample_values:")
+        output_lines.append("  sample_values:")
         for val in rule["sample_values"]:
             output_lines.append(f"    - \"{val}\"")
         output_lines.append("")
@@ -467,7 +463,7 @@ def format_analysis_report(analysis: EmailAnalysis) -> str:
         lines.append("[INDICATORS] None found")
 
     if analysis.domain_similarities:
-        lines.append(f"\n[DOMAIN ANALYSIS]")
+        lines.append("\n[DOMAIN ANALYSIS]")
         for sim in analysis.domain_similarities:
             lines.append(f"  {sim.suspicious_domain} ~ {sim.original_domain} "
                          f"(distance={sim.distance}, technique={sim.technique})")

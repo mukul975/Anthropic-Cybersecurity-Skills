@@ -177,5 +177,5 @@ if __name__ == "__main__":
     print(f"  2. Acquire with dcfldd: dcfldd if={demo_source} of={demo_image} "
           f"hash=sha256 hashwindow=1G bs=4096 conv=noerror,sync")
     print(f"  3. Verify: compare SHA-256 of {demo_source} and {demo_image}")
-    print(f"  4. Generate acquisition report with chain-of-custody metadata")
+    print("  4. Generate acquisition report with chain-of-custody metadata")
     print("\n[*] Agent ready. Provide a source device and case directory to begin.")

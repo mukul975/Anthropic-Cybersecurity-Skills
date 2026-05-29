@@ -115,7 +115,7 @@ def generate_pretext_scenarios():
 def run_assessment(base_url=None, api_key=None, campaign_id=None):
     """Execute social engineering assessment analysis."""
     print(f"\n{'='*60}")
-    print(f"  SOCIAL ENGINEERING PENETRATION TEST")
+    print("  SOCIAL ENGINEERING PENETRATION TEST")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
 
@@ -129,7 +129,7 @@ def run_assessment(base_url=None, api_key=None, campaign_id=None):
         if campaign_id:
             results = client.get_campaign_results(campaign_id)
             stats = analyze_campaign_results(results)
-            print(f"\n--- CAMPAIGN METRICS ---")
+            print("\n--- CAMPAIGN METRICS ---")
             for k, v in stats.items():
                 print(f"  {k}: {v}")
 

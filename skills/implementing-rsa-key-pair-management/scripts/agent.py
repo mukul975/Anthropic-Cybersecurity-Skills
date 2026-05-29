@@ -155,7 +155,7 @@ def scan_directory_for_keys(directory, recursive=True):
 def format_summary(results, action):
     """Print a human-readable summary."""
     print(f"\n{'='*60}")
-    print(f"  RSA Key Management Report")
+    print("  RSA Key Management Report")
     print(f"{'='*60}")
     print(f"  Action    : {action}")
     if action == "audit" and isinstance(results, list):

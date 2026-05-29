@@ -202,7 +202,7 @@ def print_report(travel_alerts, offhours_alerts, risk_scores):
     print(f"Date: {datetime.now().isoformat()}")
     print(f"Impossible Travel Alerts: {len(travel_alerts)}")
     print(f"Off-Hours Access Alerts:  {len(offhours_alerts)}")
-    print(f"\nTOP RISK USERS:")
+    print("\nTOP RISK USERS:")
     for user, data in risk_scores[:10]:
         print(f"  {user:20s} Risk: {data['risk']:>5}")
         for a in data["anomalies"][:3]:

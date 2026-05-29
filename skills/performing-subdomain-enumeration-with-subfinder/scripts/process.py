@@ -6,11 +6,9 @@ Automates subdomain discovery, validation, and reporting.
 
 import subprocess
 import json
-import csv
 import sys
 import os
 from datetime import datetime
-from pathlib import Path
 
 
 def run_subfinder(domain: str, output_dir: str, use_all_sources: bool = False) -> list:
@@ -102,7 +100,7 @@ def generate_report(domain: str, subdomains: list, live_hosts: list,
     with open(report_path, "w") as f:
         f.write(f"# Subdomain Enumeration Report: {domain}\n\n")
         f.write(f"**Date**: {timestamp}\n\n")
-        f.write(f"## Summary\n")
+        f.write("## Summary\n")
         f.write(f"- **Total Subdomains Discovered**: {len(subdomains)}\n")
         f.write(f"- **Live Hosts**: {len(live_hosts)}\n")
         f.write(f"- **Takeover Candidates**: {len(takeover_candidates)}\n\n")

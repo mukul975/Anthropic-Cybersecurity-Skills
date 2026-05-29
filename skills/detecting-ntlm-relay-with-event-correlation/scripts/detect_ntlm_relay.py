@@ -591,7 +591,7 @@ def main():
         else:
             print(output)
     else:
-        print(f"\n[*] NTLM Relay Detection Report")
+        print("\n[*] NTLM Relay Detection Report")
         print(f"[*] Scan Time: {all_results['scan_time']}")
         print(f"[*] Events Analyzed: {all_results['total_events_parsed']}")
         print(f"[*] NTLM Network Logons: {all_results['ntlm_logon_events']}")
@@ -608,7 +608,7 @@ def main():
         print_findings(anon_findings, "Anonymous NTLM Logon Analysis")
 
         print(f"\n{'=' * 80}")
-        print(f"  SUMMARY")
+        print("  SUMMARY")
         print(f"{'=' * 80}")
         s = all_results["summary"]
         print(f"  Total Findings:  {s['total_findings']}")
@@ -618,9 +618,9 @@ def main():
         print(f"  Low:             {s['low']}")
 
         if s["critical"] > 0:
-            print(f"\n  [!!!] CRITICAL findings detected -- NTLM relay attack likely in progress!")
-            print(f"        Recommended: Isolate source IPs, reset affected credentials,")
-            print(f"        enforce SMB/LDAP signing, disable LLMNR/NBT-NS.")
+            print("\n  [!!!] CRITICAL findings detected -- NTLM relay attack likely in progress!")
+            print("        Recommended: Isolate source IPs, reset affected credentials,")
+            print("        enforce SMB/LDAP signing, disable LLMNR/NBT-NS.")
 
         if args.output:
             with open(args.output, "w") as f:

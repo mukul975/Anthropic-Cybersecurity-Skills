@@ -13,7 +13,6 @@ import re
 import sys
 import xml.etree.ElementTree as ET
 from collections import defaultdict
-from datetime import datetime
 
 try:
     import Evtx.Evtx as evtx
@@ -442,7 +441,7 @@ if __name__ == "__main__":
     input_path = sys.argv[1] if len(sys.argv) > 1 else None
 
     if not input_path or not os.path.exists(input_path):
-        print(f"\n[DEMO] Usage: python agent.py <sysmon_events.evtx|json|jsonl>")
+        print("\n[DEMO] Usage: python agent.py <sysmon_events.evtx|json|jsonl>")
         print("[*] Provide Sysmon event logs (EVTX or JSON) for LOLBin analysis.")
         print(f"[*] Monitors {len(LOLBIN_SIGNATURES)} LOLBins with "
               f"{sum(len(v['patterns']) for v in LOLBIN_SIGNATURES.values())} detection patterns")

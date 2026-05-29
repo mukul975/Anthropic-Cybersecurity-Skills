@@ -23,7 +23,6 @@ import hashlib
 import argparse
 import logging
 from pathlib import Path
-from typing import Optional, Tuple
 
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC

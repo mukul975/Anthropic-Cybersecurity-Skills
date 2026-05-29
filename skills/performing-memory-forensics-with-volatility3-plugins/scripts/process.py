@@ -13,7 +13,6 @@ Usage:
 import argparse
 import json
 import subprocess
-import sys
 
 
 def run_vol3(dump_path, plugin, extra_args=None, vol3_cmd="vol"):

@@ -161,7 +161,7 @@ def print_profile(profile):
     print(f"\nSoftware ({len(profile.get('software', []))}):")
     for s in profile.get("software", []):
         print(f"  [{s['type']:7s}] {s['name']}")
-    print(f"\nReferences:")
+    print("\nReferences:")
     for r in profile.get("external_references", [])[:5]:
         print(f"  {r['source']}: {r.get('url', r.get('external_id', ''))}")
 

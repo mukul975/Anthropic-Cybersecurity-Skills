@@ -9,7 +9,6 @@ Requirements:
     pip install requests msal pandas
 """
 
-import json
 import sys
 from datetime import datetime, timezone
 from typing import Any

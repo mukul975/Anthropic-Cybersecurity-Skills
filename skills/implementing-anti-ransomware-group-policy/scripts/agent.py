@@ -280,7 +280,7 @@ if __name__ == "__main__":
 
     if command == "audit":
         report = generate_gpo_report()
-        print(f"\n--- GPO Compliance Report ---")
+        print("\n--- GPO Compliance Report ---")
         print(f"  Hostname: {report['hostname']}")
         print(f"  Overall Score: {report['overall_score']}%")
         for name, result in report["checks"].items():
@@ -316,7 +316,7 @@ if __name__ == "__main__":
         print(f"\nASR Rules ({len(ASR_RULES)} recommended):")
         for rule_id, rule in ASR_RULES.items():
             print(f"  {rule_id}: {rule['name']}")
-        print(f"\nControlled Folder Access Protected Folders:")
+        print("\nControlled Folder Access Protected Folders:")
         for folder in CFA_RECOMMENDED_FOLDERS:
             print(f"  {folder}")
 

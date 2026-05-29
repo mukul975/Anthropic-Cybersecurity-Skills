@@ -9,7 +9,6 @@ import string
 import json
 import sys
 import time
-from urllib.parse import urljoin
 
 
 def test_operator_injection(target_url: str, content_type: str = "json") -> dict:

@@ -17,7 +17,6 @@ except ImportError:
 
 def audit_aws_security_groups(session):
     """Audit AWS security groups for microsegmentation compliance."""
-    import boto3
     ec2 = session.client("ec2")
     findings = []
     for sg in ec2.describe_security_groups()["SecurityGroups"]:
@@ -92,7 +91,7 @@ def run_audit(profile=None, region="us-east-1"):
     import boto3
     session = boto3.Session(profile_name=profile, region_name=region)
     print(f"\n{'='*60}")
-    print(f"  MICROSEGMENTATION ZERO TRUST AUDIT")
+    print("  MICROSEGMENTATION ZERO TRUST AUDIT")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
 
@@ -102,7 +101,7 @@ def run_audit(profile=None, region="us-east-1"):
         print(f"  [{f['severity']}] {f['sg_id']} ({f['sg_name']}): port {f['port']} from {f['cidr']}")
 
     policy = generate_segmentation_policy([])
-    print(f"\n--- RECOMMENDED SEGMENTATION MODEL ---")
+    print("\n--- RECOMMENDED SEGMENTATION MODEL ---")
     print(f"  Principle: {policy['principle']}")
     for tier in policy["example_tiers"]:
         print(f"  {tier['name']}: allow from {tier['inbound_from']} on ports {tier['ports']}")

@@ -9,7 +9,6 @@ and generates actionable reports.
 import subprocess
 import json
 import sys
-import os
 import argparse
 from datetime import datetime
 from dataclasses import dataclass, field
@@ -244,7 +243,7 @@ def print_report(report: dict):
     print(f"Policy:    {meta['policy_result']}")
     print("=" * 70)
 
-    print(f"\nVulnerability Summary:")
+    print("\nVulnerability Summary:")
     print(f"  CRITICAL:  {summary['critical']}")
     print(f"  HIGH:      {summary['high']}")
     print(f"  MEDIUM:    {summary['medium']}")
@@ -273,7 +272,7 @@ def print_report(report: dict):
     # Print policy result
     policy = report["policy_evaluation"]
     if not policy["passed"]:
-        print(f"\nPOLICY FAILURES:")
+        print("\nPOLICY FAILURES:")
         for reason in policy["failure_reasons"]:
             print(f"  - {reason}")
 

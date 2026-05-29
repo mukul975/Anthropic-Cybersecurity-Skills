@@ -10,8 +10,6 @@ import json
 import os
 import sys
 from datetime import datetime
-from pathlib import Path
-from collections import defaultdict
 
 
 def parse_fuzzer_stats(stats_file: str) -> dict:
@@ -119,19 +117,19 @@ def analyze_campaign(findings_dir: str) -> dict:
 
 def print_report(report: dict) -> None:
     print(f"\n{'='*60}")
-    print(f"AFL++ Fuzzing Campaign Report")
+    print("AFL++ Fuzzing Campaign Report")
     print(f"{'='*60}")
     print(f"Findings directory: {report['findings_dir']}")
     print(f"Analyzed at: {report['analyzed_at']}")
     print(f"Fuzzer instances: {len(report['instances'])}")
-    print(f"\nAggregate Statistics:")
+    print("\nAggregate Statistics:")
     print(f"  Total executions: {report['total_execs']:,}")
     print(f"  Avg exec/sec: {report['avg_execs_per_sec']:,.1f}")
     print(f"  Total corpus entries: {report['total_corpus']}")
     print(f"  Total unique crashes: {report['total_crashes']}")
     print(f"  Total hangs: {report['total_hangs']}")
 
-    print(f"\nInstance Details:")
+    print("\nInstance Details:")
     for inst in report["instances"]:
         print(f"  {inst['name']:20s} | Execs: {inst['execs_done']:>12,} | "
               f"Speed: {inst['execs_per_sec']:>8.1f}/s | "

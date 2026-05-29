@@ -11,7 +11,7 @@ import json
 import os
 import subprocess
 import sys
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timezone
 
 try:
     import requests
@@ -177,7 +177,7 @@ def assess_patch_sla(findings, sla_days=None):
 def format_summary(findings, kev_findings, sla_findings, platform):
     """Print patch management summary."""
     print(f"\n{'='*60}")
-    print(f"  Patch Management Audit Report")
+    print("  Patch Management Audit Report")
     print(f"{'='*60}")
     print(f"  Platform        : {platform}")
     print(f"  Pending Updates : {len(findings)}")
@@ -191,19 +191,19 @@ def format_summary(findings, kev_findings, sla_findings, platform):
         sev = f.get("severity", "MEDIUM")
         severity_counts[sev] = severity_counts.get(sev, 0) + 1
 
-    print(f"\n  By Severity:")
+    print("\n  By Severity:")
     for sev in ["CRITICAL", "HIGH", "MEDIUM", "LOW"]:
         count = severity_counts.get(sev, 0)
         if count > 0:
             print(f"    {sev:10s}: {count}")
 
     if kev_findings:
-        print(f"\n  CISA KEV Exposed CVEs (IMMEDIATE ACTION):")
+        print("\n  CISA KEV Exposed CVEs (IMMEDIATE ACTION):")
         for k in kev_findings:
             print(f"    {k['cve_id']}: {k['description']}")
 
     if findings:
-        print(f"\n  Pending Updates:")
+        print("\n  Pending Updates:")
         for f in findings[:20]:
             pkg = f.get("package", f.get("hotfix_id", "unknown"))
             sev = f.get("severity", "MEDIUM")

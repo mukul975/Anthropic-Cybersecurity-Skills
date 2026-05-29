@@ -186,7 +186,7 @@ if __name__ == "__main__":
     generate_detection_report(detections, report_path)
     print(f"Detection report: {report_path}")
 
-    print(f"\n--- Evasion Detection Summary ---")
+    print("\n--- Evasion Detection Summary ---")
     print(f"Total detections: {len(detections)}")
 
     severity_counts = defaultdict(int)
@@ -200,6 +200,6 @@ if __name__ == "__main__":
             print(f"  {sev.upper()}: {severity_counts[sev]}")
 
     if technique_counts:
-        print(f"\nBy technique:")
+        print("\nBy technique:")
         for tid, count in sorted(technique_counts.items(), key=lambda x: -x[1]):
             print(f"  {tid}: {count}")

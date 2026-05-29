@@ -12,7 +12,6 @@ References:
     - EDPB Guidelines 01/2022 on Right of Access
 """
 
-import os
 import re
 import json
 import uuid
@@ -22,7 +21,6 @@ import csv
 import io
 from datetime import datetime, timedelta
 from pathlib import Path
-from typing import Any
 
 # ---------------------------------------------------------------------------
 # PII Regex Patterns -- sourced from Netwrix, PII Crawler, and Varonis

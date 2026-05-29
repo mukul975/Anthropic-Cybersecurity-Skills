@@ -15,9 +15,7 @@ Usage:
     python process.py test-samples  # Run against built-in test samples
 """
 
-import os
 import re
-import sys
 import json
 import argparse
 import logging

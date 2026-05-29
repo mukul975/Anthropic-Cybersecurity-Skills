@@ -100,23 +100,23 @@ def check_powershell_logging():
 def run_audit():
     """Execute Windows event logging audit."""
     print(f"\n{'='*60}")
-    print(f"  WINDOWS EVENT LOGGING AUDIT")
+    print("  WINDOWS EVENT LOGGING AUDIT")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
 
     sysmon = check_sysmon_installed()
-    print(f"--- SYSMON ---")
+    print("--- SYSMON ---")
     print(f"  Installed: {sysmon.get('installed', False)}")
     print(f"  Status: {sysmon.get('status', 'N/A')}")
 
     logs = check_log_sizes()
-    print(f"\n--- LOG SIZES ---")
+    print("\n--- LOG SIZES ---")
     for l in logs:
         if "error" not in l:
             print(f"  {l['log']}: {l['max_size_mb']} MB [{l['severity']}]")
 
     ps_logging = check_powershell_logging()
-    print(f"\n--- POWERSHELL LOGGING ---")
+    print("\n--- POWERSHELL LOGGING ---")
     for name, config in ps_logging.items():
         enabled = config.get("EnableScriptBlockLogging", config.get("EnableTranscripting", False))
         print(f"  {name}: {'Enabled' if enabled else 'Disabled'}")

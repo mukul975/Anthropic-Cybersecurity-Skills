@@ -6,9 +6,6 @@ Lists, analyzes, and exports GuardDuty findings for security operations.
 """
 
 import boto3
-import json
-import sys
-from datetime import datetime
 from collections import Counter
 
 

@@ -26,8 +26,7 @@ import os
 import re
 import sys
 from collections import Counter, defaultdict
-from datetime import datetime, timedelta
-from pathlib import Path
+from datetime import datetime
 
 import numpy as np
 
@@ -771,7 +770,7 @@ def train_dga_model(legit_domains, dga_domains, model_type="random_forest",
         },
     }
 
-    print(f"[+] Model trained successfully")
+    print("[+] Model trained successfully")
     print(f"    Accuracy:      {metrics['accuracy']}")
     print(f"    DGA F1:        {metrics['dga_f1']}")
     print(f"    DGA Recall:    {metrics['dga_recall']}")

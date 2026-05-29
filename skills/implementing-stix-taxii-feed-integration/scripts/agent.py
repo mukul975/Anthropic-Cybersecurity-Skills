@@ -7,7 +7,6 @@ malware families, and attack patterns from STIX bundles.
 """
 import argparse
 import json
-import os
 import sys
 from datetime import datetime, timezone
 
@@ -195,10 +194,10 @@ def summarize_stix_objects(stix_objects):
 def format_summary(type_counts, indicators, actors, malware, attack_patterns):
     """Print human-readable summary."""
     print(f"\n{'='*60}")
-    print(f"  STIX/TAXII Feed Intelligence Report")
+    print("  STIX/TAXII Feed Intelligence Report")
     print(f"{'='*60}")
 
-    print(f"\n  Object Type Distribution:")
+    print("\n  Object Type Distribution:")
     for obj_type, count in sorted(type_counts.items(), key=lambda x: -x[1]):
         print(f"    {obj_type:30s}: {count}")
 

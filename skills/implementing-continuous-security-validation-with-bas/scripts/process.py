@@ -16,9 +16,6 @@ Usage:
 
 import argparse
 import sys
-from collections import defaultdict
-from datetime import datetime
-from pathlib import Path
 
 import pandas as pd
 
@@ -87,7 +84,7 @@ def print_summary(scores_df, gaps_df):
     print("BAS CONTROL EFFECTIVENESS REPORT")
     print(f"{'=' * 70}")
 
-    print(f"\nControl Scores:")
+    print("\nControl Scores:")
     for _, row in scores_df.iterrows():
         status = "PASS" if row["effectiveness"] >= 80 else "WARN" if row["effectiveness"] >= 60 else "FAIL"
         print(f"  [{status}] {row['control']:<15} "
@@ -97,7 +94,7 @@ def print_summary(scores_df, gaps_df):
               f"Miss: {row['gap_rate']}%)")
 
     if len(gaps_df) > 0:
-        print(f"\nTop Security Gaps (attacks that bypass controls):")
+        print("\nTop Security Gaps (attacks that bypass controls):")
         for _, row in gaps_df.head(10).iterrows():
             print(f"  {row['technique_id']}: {row['technique_name']} "
                   f"({row['miss_count']} misses)")

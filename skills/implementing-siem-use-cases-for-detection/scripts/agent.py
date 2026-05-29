@@ -165,7 +165,7 @@ def generate_sigma_rule(use_case_id):
 def run_detection_coverage_report():
     """Generate SIEM detection coverage report."""
     print(f"\n{'='*60}")
-    print(f"  SIEM DETECTION USE CASE REPORT")
+    print("  SIEM DETECTION USE CASE REPORT")
     print(f"  Generated: {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC")
     print(f"{'='*60}\n")
 
@@ -175,12 +175,12 @@ def run_detection_coverage_report():
         print(f"  [{uc['severity'].upper():>8}] {uc['name']}")
         print(f"           ATT&CK: {uc['technique']} ({uc['tactic']}) | SLA: {uc['sla_response']}")
 
-    print(f"\n--- TACTIC COVERAGE ---")
+    print("\n--- TACTIC COVERAGE ---")
     for tactic, count in sorted(mapping["tactics"].items(), key=lambda x: -x[1]):
         bar = "#" * count
         print(f"  {tactic:<25} {bar} ({count})")
 
-    print(f"\n--- ATT&CK COVERAGE ---")
+    print("\n--- ATT&CK COVERAGE ---")
     try:
         coverage = get_attack_coverage(mapping["techniques"])
         print(f"  Total Enterprise Techniques: {coverage['total_techniques']}")
@@ -189,7 +189,7 @@ def run_detection_coverage_report():
     except Exception as e:
         print(f"  Could not calculate coverage: {e}")
 
-    print(f"\n--- DATA SOURCE REQUIREMENTS ---")
+    print("\n--- DATA SOURCE REQUIREMENTS ---")
     all_sources = set()
     for uc in USE_CASE_TEMPLATES.values():
         all_sources.update(uc["data_sources"])

@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 """Scheduled Task Persistence Detection - Analyzes Windows task creation events for suspicious persistence indicators."""
 
-import json, csv, argparse, datetime, re
-from collections import defaultdict
+import json
+import csv
+import argparse
+import datetime
+import re
 from pathlib import Path
 
 SUSPICIOUS_TASK_PATTERNS = {

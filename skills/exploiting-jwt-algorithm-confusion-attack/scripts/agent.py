@@ -118,7 +118,7 @@ def main():
             pub_key = f.read()
         forged = forge_hs256_with_public_key(payload_dict, pub_key)
         report["findings"].append({"type": "forge_hs256_confusion", "token": forged[:60] + "..."})
-        print(f"[*] Forged HS256 confusion token generated")
+        print("[*] Forged HS256 confusion token generated")
 
     if args.output:
         with open(args.output, "w") as f:

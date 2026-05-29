@@ -310,7 +310,7 @@ def generate_report(all_findings, smb_audit, output_path):
     logger.info("Report saved to %s", output_path)
 
     s = report["summary"]
-    print(f"\nNTLM RELAY DETECTION REPORT")
+    print("\nNTLM RELAY DETECTION REPORT")
     print(f"  Total findings: {s['total_findings']}")
     print(f"  Critical: {s['critical']}, High: {s['high']}, Medium: {s['medium']}")
     if s["critical"] > 0:

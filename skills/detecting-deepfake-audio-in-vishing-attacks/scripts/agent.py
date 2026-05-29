@@ -382,7 +382,7 @@ def train_model(genuine_dir, deepfake_dir, output_path):
 def analyze_audio(audio_path, model_path=None, output_json=None):
     """Full analysis pipeline: load, extract features, classify, and report."""
     print(f"\n{'='*60}")
-    print(f"DEEPFAKE AUDIO ANALYSIS")
+    print("DEEPFAKE AUDIO ANALYSIS")
     print(f"{'='*60}")
     print(f"File:           {audio_path}")
     print(f"Analysis Date:  {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S UTC')}")
@@ -398,7 +398,7 @@ def analyze_audio(audio_path, model_path=None, output_json=None):
     heuristic_score = heuristic_deepfake_score(features)
 
     if ml_result:
-        print(f"\n--- ML Classification (Trained Model) ---")
+        print("\n--- ML Classification (Trained Model) ---")
         print(f"Random Forest:     {ml_result['random_forest_score']:.3f}")
         print(f"Gradient Boosting: {ml_result['gradient_boosting_score']:.3f}")
         print(f"Ensemble Score:    {ml_result['ensemble_score']:.3f}")
@@ -406,7 +406,7 @@ def analyze_audio(audio_path, model_path=None, output_json=None):
         final_score = ml_result["ensemble_score"]
         method = "trained_ensemble"
     else:
-        print(f"\n--- Heuristic Classification (No trained model) ---")
+        print("\n--- Heuristic Classification (No trained model) ---")
         print(f"Heuristic Score:   {heuristic_score:.3f}")
         verdict = "LIKELY DEEPFAKE" if heuristic_score > 0.5 else "LIKELY GENUINE"
         print(f"Verdict:           {verdict}")
@@ -414,7 +414,7 @@ def analyze_audio(audio_path, model_path=None, output_json=None):
         method = "heuristic"
 
     # Print feature anomalies
-    print(f"\n--- Feature Anomaly Report ---")
+    print("\n--- Feature Anomaly Report ---")
     anomalies = []
 
     jitter = features.get("pitch_jitter_hz", 0)
@@ -504,7 +504,7 @@ def batch_analyze(audio_dir, model_path=None, output_json=None):
     errors = sum(1 for r in results if "error" in r)
 
     print(f"\n{'='*60}")
-    print(f"BATCH ANALYSIS SUMMARY")
+    print("BATCH ANALYSIS SUMMARY")
     print(f"{'='*60}")
     print(f"Total Files:    {len(results)}")
     print(f"Likely Deepfake: {deepfakes}")

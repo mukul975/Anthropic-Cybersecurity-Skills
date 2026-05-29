@@ -133,7 +133,7 @@ def generate_sla_matrix(criticality_tier):
 def run_audit(args):
     """Execute asset criticality scoring audit."""
     print(f"\n{'='*60}")
-    print(f"  ASSET CRITICALITY SCORING FOR VULNERABILITY PRIORITIZATION")
+    print("  ASSET CRITICALITY SCORING FOR VULNERABILITY PRIORITIZATION")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
 
@@ -155,11 +155,11 @@ def run_audit(args):
             print(f"  Tier {s['tier']} ({s['tier_name']}): {s['asset']} "
                   f"— score {s['weighted_score']}")
 
-        print(f"\n--- TIER DISTRIBUTION ---")
+        print("\n--- TIER DISTRIBUTION ---")
         for tier_name, count in sorted(tier_counts.items()):
             print(f"  {tier_name}: {count} assets")
 
-        print(f"\n--- REMEDIATION SLA MATRIX ---")
+        print("\n--- REMEDIATION SLA MATRIX ---")
         for tier in range(1, 6):
             sla = generate_sla_matrix(tier)
             print(f"  Tier {tier}: Critical={sla['critical']} High={sla['high']} "
@@ -174,7 +174,7 @@ def run_audit(args):
             "adjusted_priority": adjusted,
             "sla": sla,
         }
-        print(f"\n--- RISK-ADJUSTED PRIORITY ---")
+        print("\n--- RISK-ADJUSTED PRIORITY ---")
         print(f"  CVSS: {args.cvss_score} x Tier {args.asset_tier} = {adjusted}")
         print(f"  SLA: {sla}")
 

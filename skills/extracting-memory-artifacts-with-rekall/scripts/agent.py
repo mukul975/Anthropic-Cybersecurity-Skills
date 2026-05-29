@@ -6,7 +6,6 @@ import argparse
 from datetime import datetime
 
 from rekall import session
-from rekall import plugins
 
 
 def create_session(image_path, profile_path=None):

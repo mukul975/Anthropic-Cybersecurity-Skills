@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """DLP Policy Analyzer - Analyzes DLP alert exports for policy tuning."""
 
-import json, csv, sys, os
+import json
+import csv
+import sys
+import os
 from collections import Counter
 from datetime import datetime
 

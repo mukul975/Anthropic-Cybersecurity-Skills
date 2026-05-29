@@ -151,7 +151,7 @@ def test_xxe_payloads(base_url, endpoint, token=None, callback=None):
                     "type": "XXE_DOS_POSSIBLE", "payload_name": name,
                     "endpoint": endpoint, "severity": "HIGH",
                 })
-                print(f"  [!] Possible DoS via entity expansion (request timed out)")
+                print("  [!] Possible DoS via entity expansion (request timed out)")
     return findings
 
 

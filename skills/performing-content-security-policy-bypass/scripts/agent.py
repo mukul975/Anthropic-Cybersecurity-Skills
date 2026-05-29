@@ -11,7 +11,6 @@ written permission to test.
 """
 import argparse
 import json
-import re
 import sys
 from datetime import datetime, timezone
 
@@ -207,7 +206,7 @@ def analyze_csp(directives, csp_string):
 def format_summary(url, directives, findings, csp_string):
     """Print analysis summary."""
     print(f"\n{'='*60}")
-    print(f"  CSP Analysis Report")
+    print("  CSP Analysis Report")
     print(f"{'='*60}")
     print(f"  URL           : {url}")
     print(f"  Directives    : {len(directives)}")
@@ -218,19 +217,19 @@ def format_summary(url, directives, findings, csp_string):
         sev = f.get("severity", "INFO")
         severity_counts[sev] = severity_counts.get(sev, 0) + 1
 
-    print(f"\n  By Severity:")
+    print("\n  By Severity:")
     for sev in ["CRITICAL", "HIGH", "MEDIUM", "LOW", "INFO"]:
         count = severity_counts.get(sev, 0)
         if count > 0:
             print(f"    {sev:10s}: {count}")
 
     if directives:
-        print(f"\n  Parsed Directives:")
+        print("\n  Parsed Directives:")
         for d, v in directives.items():
             print(f"    {d:20s}: {' '.join(v)[:60]}")
 
     if findings:
-        print(f"\n  Security Issues:")
+        print("\n  Security Issues:")
         for f in findings:
             if f["severity"] in ("CRITICAL", "HIGH"):
                 bypass = f" | Bypass: {f['bypass']}" if f.get("bypass") else ""

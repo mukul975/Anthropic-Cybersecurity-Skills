@@ -151,7 +151,7 @@ def parse_openvas_xml_report(xml_path):
 def run_audit(args):
     """Execute OpenVAS scan audit and analysis."""
     print(f"\n{'='*60}")
-    print(f"  OPENVAS AUTHENTICATED SCAN AUDIT")
+    print("  OPENVAS AUTHENTICATED SCAN AUDIT")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
 
@@ -168,7 +168,7 @@ def run_audit(args):
         print(f"--- SCAN RESULTS ({len(results)} vulnerabilities) ---")
         print(f"  High: {severity_counts['High']} | Medium: {severity_counts['Medium']} | "
               f"Low: {severity_counts['Low']} | Log: {severity_counts['Log']}")
-        print(f"\n--- TOP VULNERABILITIES ---")
+        print("\n--- TOP VULNERABILITIES ---")
         for r in results[:15]:
             print(f"  [{r['threat']}] {r['host']}:{r['port']} — {r['name'][:70]}")
 
@@ -193,7 +193,7 @@ def run_audit(args):
         if args.task_id:
             status = get_task_status(gmp, args.task_id)
             report["task_status"] = status
-            print(f"\n--- TASK STATUS ---")
+            print("\n--- TASK STATUS ---")
             print(f"  {status.get('name','')}: {status.get('status','')} "
                   f"({status.get('progress','')}%)")
 

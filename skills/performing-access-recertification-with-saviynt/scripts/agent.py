@@ -18,7 +18,7 @@ def authenticate(base_url, username, password):
     resp = requests.post(url, json=payload, verify=not os.environ.get("SKIP_TLS_VERIFY", "").lower() == "true", timeout=30)  # Set SKIP_TLS_VERIFY=true for self-signed certs in lab environments
     resp.raise_for_status()
     token = resp.json().get("access_token")
-    print(f"[*] Authenticated to Saviynt EIC")
+    print("[*] Authenticated to Saviynt EIC")
     return {"Authorization": f"Bearer {token}"}
 
 

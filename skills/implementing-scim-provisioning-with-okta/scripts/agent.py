@@ -165,7 +165,7 @@ def check_deprovisioning(org_url, token):
 def format_summary(scim_apps, all_findings):
     """Print audit summary."""
     print(f"\n{'='*60}")
-    print(f"  Okta SCIM Provisioning Audit Report")
+    print("  Okta SCIM Provisioning Audit Report")
     print(f"{'='*60}")
     print(f"  SCIM Apps    : {len(scim_apps)}")
     print(f"  Findings     : {len(all_findings)}")
@@ -175,21 +175,21 @@ def format_summary(scim_apps, all_findings):
         sev = f.get("severity", "INFO")
         severity_counts[sev] = severity_counts.get(sev, 0) + 1
 
-    print(f"\n  By Severity:")
+    print("\n  By Severity:")
     for sev in ["CRITICAL", "HIGH", "MEDIUM", "LOW", "INFO"]:
         count = severity_counts.get(sev, 0)
         if count:
             print(f"    {sev:10s}: {count}")
 
     if scim_apps:
-        print(f"\n  Provisioning-Enabled Apps:")
+        print("\n  Provisioning-Enabled Apps:")
         for app in scim_apps:
             print(f"    {app['label']:30s} | {app['status']:10s} | "
                   f"Features: {', '.join(app['features'][:3])}")
 
     issues = [f for f in all_findings if f["severity"] in ("CRITICAL", "HIGH")]
     if issues:
-        print(f"\n  Issues Requiring Attention:")
+        print("\n  Issues Requiring Attention:")
         for f in issues[:15]:
             print(f"    [{f['severity']:8s}] {f['check']}: {f.get('detail', '')[:50]}")
 

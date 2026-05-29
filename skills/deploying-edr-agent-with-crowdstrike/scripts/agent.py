@@ -79,7 +79,7 @@ def check_sensor_versions(hosts_data):
 def run_audit(client_id, client_secret):
     """Execute CrowdStrike EDR audit."""
     print(f"\n{'='*60}")
-    print(f"  CROWDSTRIKE EDR DEPLOYMENT AUDIT")
+    print("  CROWDSTRIKE EDR DEPLOYMENT AUDIT")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
 
@@ -89,7 +89,7 @@ def run_audit(client_id, client_secret):
         print(f"  {h['hostname']}: {h['platform']} v{h['sensor_version']} ({h['status']})")
 
     versions = check_sensor_versions(hosts_data)
-    print(f"\n--- SENSOR VERSIONS ---")
+    print("\n--- SENSOR VERSIONS ---")
     for ver, count in sorted(versions["version_distribution"].items()):
         print(f"  {ver}: {count} hosts")
 

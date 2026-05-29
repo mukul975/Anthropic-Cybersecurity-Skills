@@ -4,7 +4,6 @@
 import subprocess
 import json
 import sys
-import re
 
 def run_docker_bench():
     """Run Docker Bench Security and parse results."""
@@ -44,13 +43,13 @@ def run_docker_bench():
         print(f"Score: {score:.1f}%")
 
     if results["FAIL"]:
-        print(f"\nFAILED CHECKS:")
+        print("\nFAILED CHECKS:")
         for f in results["FAIL"]:
             print(f"  {f}")
 
     with open("docker_bench_results.json", "w") as fh:
         json.dump(results, fh, indent=2)
-    print(f"\n[*] Results saved to docker_bench_results.json")
+    print("\n[*] Results saved to docker_bench_results.json")
 
 if __name__ == "__main__":
     run_docker_bench()

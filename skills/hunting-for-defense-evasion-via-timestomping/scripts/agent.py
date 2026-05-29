@@ -9,7 +9,6 @@ anomalous nanosecond patterns and temporal inconsistencies.
 import argparse
 import csv
 import json
-import os
 import re
 import sys
 import datetime

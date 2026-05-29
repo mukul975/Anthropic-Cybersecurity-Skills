@@ -6,14 +6,9 @@ Parses Kerberos TGS request logs (Event ID 4769) to detect potential
 Kerberoasting activity and analyzes extracted hashes for weak passwords.
 """
 
-import json
-import os
-import re
-import csv
 from datetime import datetime, timedelta
 from collections import defaultdict
 from dataclasses import dataclass, field
-from typing import Optional
 
 
 @dataclass

@@ -96,7 +96,7 @@ def generate_sigma_rule(technique_id, technique_name, tactic):
 def build_hunt_report(group_name):
     """Build a complete threat hunt report for an APT group."""
     print(f"\n{'='*70}")
-    print(f"  APT THREAT HUNT REPORT")
+    print("  APT THREAT HUNT REPORT")
     print(f"  Generated: {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC")
     print(f"{'='*70}\n")
 
@@ -108,19 +108,19 @@ def build_hunt_report(group_name):
     print(f"[+] Found: {group_data['group']} ({group_data['id']})")
     print(f"[+] Techniques mapped: {len(group_data['techniques'])}\n")
 
-    print(f"--- TECHNIQUE COVERAGE ---")
+    print("--- TECHNIQUE COVERAGE ---")
     tactic_counts = {}
     for t in group_data["techniques"]:
         print(f"  [{t['id']}] {t['name']} -> {', '.join(t['tactic'])}")
         for tac in t["tactic"]:
             tactic_counts[tac] = tactic_counts.get(tac, 0) + 1
 
-    print(f"\n--- TACTIC DISTRIBUTION ---")
+    print("\n--- TACTIC DISTRIBUTION ---")
     for tac, count in sorted(tactic_counts.items(), key=lambda x: -x[1]):
         bar = "#" * count
         print(f"  {tac:<30} {bar} ({count})")
 
-    print(f"\n--- OSQUERY HUNT QUERIES ---")
+    print("\n--- OSQUERY HUNT QUERIES ---")
     hunts = generate_osquery_hunts(group_data["techniques"])
     if hunts:
         for h in hunts:
@@ -129,19 +129,19 @@ def build_hunt_report(group_name):
     else:
         print("  No matching osquery hunts for this group's techniques.")
 
-    print(f"\n--- SIGMA RULES ---")
+    print("\n--- SIGMA RULES ---")
     for t in group_data["techniques"][:5]:
         rule = generate_sigma_rule(t["id"], t["name"], t["tactic"])
         print(f"\n  Rule: {rule['title']}")
         print(f"  Tags: {', '.join(rule['tags'])}")
         print(f"  Level: {rule['level']}")
 
-    print(f"\n--- HUNT RECOMMENDATIONS ---")
-    print(f"  1. Execute osquery hunts across all endpoints via fleet manager")
-    print(f"  2. Search SIEM for technique indicators over past 90 days")
+    print("\n--- HUNT RECOMMENDATIONS ---")
+    print("  1. Execute osquery hunts across all endpoints via fleet manager")
+    print("  2. Search SIEM for technique indicators over past 90 days")
     print(f"  3. Validate EDR telemetry covers all {len(group_data['techniques'])} techniques")
-    print(f"  4. Cross-reference with network logs (Zeek/Suricata) for C2 patterns")
-    print(f"  5. Document findings using Diamond Model analysis framework")
+    print("  4. Cross-reference with network logs (Zeek/Suricata) for C2 patterns")
+    print("  5. Document findings using Diamond Model analysis framework")
     print(f"\n{'='*70}\n")
 
     return group_data

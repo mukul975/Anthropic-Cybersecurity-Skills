@@ -92,7 +92,7 @@ def check_script_injection(filepath, job_name, run_cmd):
             findings.append({
                 "file": filepath,
                 "job": job_name,
-                "issue": f"Script injection via untrusted input",
+                "issue": "Script injection via untrusted input",
                 "severity": "CRITICAL",
                 "pattern": pattern,
                 "detail": run_cmd[:100],

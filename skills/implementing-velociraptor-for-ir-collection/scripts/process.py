@@ -4,12 +4,8 @@ Manages artifact collection, hunt creation, and result analysis via Velociraptor
 """
 
 import json
-import os
-import csv
-import hashlib
 from datetime import datetime
 from pathlib import Path
-from collections import defaultdict
 
 
 class VelociraptorCollector:

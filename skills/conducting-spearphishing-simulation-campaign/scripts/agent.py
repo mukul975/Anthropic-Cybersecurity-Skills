@@ -98,7 +98,7 @@ def analyze_campaign_metrics(summary):
 def run_simulation(base_url=None, api_key=None, campaign_id=None):
     """Execute spearphishing simulation analysis."""
     print(f"\n{'='*60}")
-    print(f"  SPEARPHISHING SIMULATION CAMPAIGN")
+    print("  SPEARPHISHING SIMULATION CAMPAIGN")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
 
@@ -112,7 +112,7 @@ def run_simulation(base_url=None, api_key=None, campaign_id=None):
         if campaign_id:
             summary = client.get_summary(campaign_id)
             metrics = analyze_campaign_metrics(summary)
-            print(f"\n--- CAMPAIGN METRICS ---")
+            print("\n--- CAMPAIGN METRICS ---")
             for k, v in metrics.items():
                 print(f"  {k}: {v}")
             return {"templates": templates, "metrics": metrics}

@@ -4,7 +4,6 @@
 import subprocess
 import os
 import sys
-import json
 import hashlib
 from pathlib import Path
 from collections import defaultdict

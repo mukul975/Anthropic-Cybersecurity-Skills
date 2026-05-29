@@ -15,9 +15,6 @@ Usage:
 """
 
 import argparse
-import json
-import sys
-from datetime import datetime
 
 import pandas as pd
 import requests
@@ -152,10 +149,10 @@ class PatchTuesdayAnalyzer:
         print(f"Total patches: {len(df)}")
         print(f"Zero-day/KEV (Ring 0): {len(df[df['deployment_ring'] == 0])}")
 
-        print(f"\nBy Severity:")
+        print("\nBy Severity:")
         print(df["severity"].value_counts().to_string())
 
-        print(f"\nBy Deployment Ring:")
+        print("\nBy Deployment Ring:")
         for ring in sorted(df["deployment_ring"].unique()):
             ring_data = df[df["deployment_ring"] == ring]
             ring_name = ring_data.iloc[0]["ring_name"]
@@ -163,7 +160,7 @@ class PatchTuesdayAnalyzer:
             print(f"  Ring {ring} ({ring_name}): {len(ring_data)} patches, "
                   f"SLA: {sla}h")
 
-        print(f"\nBy Attack Type:")
+        print("\nBy Attack Type:")
         print(df["attack_type"].value_counts().head(5).to_string())
 
 

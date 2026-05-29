@@ -73,7 +73,7 @@ def check_pod_security(namespace="default"):
                 caps = sc.get("capabilities", {})
                 if caps.get("add") and any(c in caps["add"] for c in ["SYS_ADMIN", "NET_ADMIN", "ALL"]):
                     issues.append("DANGEROUS_CAPABILITIES")
-                if not sc.get("allowPrivilegeEscalation") is False:
+                if sc.get("allowPrivilegeEscalation") is not False:
                     issues.append("PRIVILEGE_ESCALATION_ALLOWED")
                 if issues:
                     findings.append({"pod": name, "container": container.get("name"), "issues": issues})

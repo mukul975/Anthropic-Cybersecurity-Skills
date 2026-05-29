@@ -154,7 +154,7 @@ def compare_groups(client, group_names):
 def run_audit(args):
     """Execute threat actor TTP mapping audit."""
     print(f"\n{'='*60}")
-    print(f"  MITRE ATT&CK THREAT ACTOR TTP ANALYSIS")
+    print("  MITRE ATT&CK THREAT ACTOR TTP ANALYSIS")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
 
@@ -186,7 +186,7 @@ def run_audit(args):
     if args.compare:
         comparison = compare_groups(client, args.compare)
         report["comparison"] = comparison
-        print(f"\n--- GROUP COMPARISON ---")
+        print("\n--- GROUP COMPARISON ---")
         print(f"  Groups: {comparison['groups_compared']}")
         print(f"  Total unique techniques: {comparison['total_unique_techniques']}")
         print(f"  Shared: {comparison['shared_count']}")

@@ -195,7 +195,7 @@ if __name__ == "__main__":
 
     info = report.get("wallet_info", {})
     if info:
-        print(f"\n--- Wallet Summary ---")
+        print("\n--- Wallet Summary ---")
         print(f"  Total received: {info.get('total_received_btc', 0):.8f} BTC")
         print(f"  Total sent:     {info.get('total_sent_btc', 0):.8f} BTC")
         print(f"  Balance:        {info.get('final_balance_btc', 0):.8f} BTC")

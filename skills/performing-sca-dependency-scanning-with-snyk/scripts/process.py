@@ -244,7 +244,7 @@ def main():
         print(f"    {sev.upper()}: {count}")
 
     if quality_gate["passed"]:
-        print(f"\n[PASS] Quality gate passed.")
+        print("\n[PASS] Quality gate passed.")
     else:
         print(f"\n[FAIL] {quality_gate['blocking_count']} blocking vulnerabilities.")
         for d in quality_gate["blocking_details"][:10]:

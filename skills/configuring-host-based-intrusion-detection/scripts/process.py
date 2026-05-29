@@ -9,7 +9,7 @@ file integrity monitoring and intrusion detection events.
 import json
 import sys
 import os
-from collections import defaultdict, Counter
+from collections import Counter
 from datetime import datetime
 
 
@@ -144,7 +144,7 @@ if __name__ == "__main__":
     generate_report(analysis, report_path)
     print(f"Analysis report: {report_path}")
 
-    print(f"\n--- HIDS Alert Summary ---")
+    print("\n--- HIDS Alert Summary ---")
     print(f"Total alerts: {analysis['total_alerts']}")
     print(f"High severity (level >= 10): {len(analysis['high_severity'])}")
     print(f"FIM: {analysis['fim_events']['modified']} modified, "

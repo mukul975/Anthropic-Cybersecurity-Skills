@@ -45,7 +45,7 @@ class WazuhClient:
         return self._get("agents", params)
 
     def get_agent_alerts(self, agent_id, limit=20):
-        return self._get(f"alerts", {"agent.id": agent_id, "limit": limit})
+        return self._get("alerts", {"agent.id": agent_id, "limit": limit})
 
     def get_sca_results(self, agent_id):
         return self._get(f"sca/{agent_id}")
@@ -67,7 +67,8 @@ def run_osquery_check(query):
 def check_file_integrity(paths):
     """Check file integrity for key system files."""
     checks = []
-    import hashlib, os
+    import hashlib
+    import os
     for path in paths:
         if os.path.exists(path):
             with open(path, "rb") as f:
@@ -88,7 +89,7 @@ def check_file_integrity(paths):
 def run_audit(wazuh_url=None, username=None, password=None, agent_id=None):
     """Execute HIDS audit."""
     print(f"\n{'='*60}")
-    print(f"  HOST-BASED INTRUSION DETECTION AUDIT")
+    print("  HOST-BASED INTRUSION DETECTION AUDIT")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
 
@@ -110,7 +111,7 @@ def run_audit(wazuh_url=None, username=None, password=None, agent_id=None):
 
     system_files = ["/etc/passwd", "/etc/shadow", "/etc/sudoers", "/etc/ssh/sshd_config"]
     integrity = check_file_integrity(system_files)
-    print(f"\n--- FILE INTEGRITY CHECK ---")
+    print("\n--- FILE INTEGRITY CHECK ---")
     for f in integrity:
         print(f"  {f['path']}: {f['status']}")
 

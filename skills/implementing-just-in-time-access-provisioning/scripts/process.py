@@ -7,7 +7,6 @@ automatic revocation, and audit logging for zero-standing-privilege
 implementations.
 """
 
-import json
 import datetime
 import secrets
 from typing import Dict, List, Optional

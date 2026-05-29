@@ -18,11 +18,7 @@ Requirements:
 import argparse
 import hashlib
 import json
-import math
 import os
-import re
-import sys
-from collections import Counter, defaultdict
 from datetime import datetime
 from pathlib import Path
 
@@ -753,18 +749,18 @@ def generate_powershell_test_script(blind_spots, output_path):
         lines.extend([
             f'# --- {tech_id}: {tech_name} ---',
             f'Write-Host "[*] Testing {tech_id} - {tech_name}" -ForegroundColor Cyan',
-            f'try {{',
+            'try {',
             f'    Invoke-AtomicTest {tech_id} -TestNumbers 1 -CheckPrereqs',
             f'    Invoke-AtomicTest {tech_id} -TestNumbers 1 -GetPrereqs',
             f'    Invoke-AtomicTest {tech_id} -TestNumbers 1 -Confirm:$false',
             f'    $Results += [PSCustomObject]@{{ TechniqueId="{tech_id}"; Status="EXECUTED" }}',
-            f'    Write-Host "    [+] Success" -ForegroundColor Green',
-            f'}} catch {{',
+            '    Write-Host "    [+] Success" -ForegroundColor Green',
+            '} catch {',
             f'    $Results += [PSCustomObject]@{{ TechniqueId="{tech_id}"; Status="FAILED"; Error=$_.Exception.Message }}',
-            f'    Write-Host "    [-] Failed: $($_.Exception.Message)" -ForegroundColor Red',
-            f'}}',
-            f'Start-Sleep -Seconds 30  # Allow SIEM ingestion',
-            f'',
+            '    Write-Host "    [-] Failed: $($_.Exception.Message)" -ForegroundColor Red',
+            '}',
+            'Start-Sleep -Seconds 30  # Allow SIEM ingestion',
+            '',
         ])
 
     lines.extend([
@@ -782,7 +778,7 @@ def generate_powershell_test_script(blind_spots, output_path):
         "",
         "# Summary",
         '$Results | Format-Table -AutoSize',
-        f'$Results | Export-Csv "retest_results_$(Get-Date -Format yyyyMMdd_HHmmss).csv" -NoTypeInformation',
+        '$Results | Export-Csv "retest_results_$(Get-Date -Format yyyyMMdd_HHmmss).csv" -NoTypeInformation',
     ])
 
     with open(output_path, "w", encoding="utf-8") as f:

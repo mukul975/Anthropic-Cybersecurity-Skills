@@ -62,7 +62,7 @@ def fetch_tor_exit_nodes():
                 if line and not line.startswith("#"):
                     nodes.add(line)
             return nodes
-    except Exception as e:
+    except Exception:
         return set()
 
 

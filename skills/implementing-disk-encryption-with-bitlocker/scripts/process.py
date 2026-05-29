@@ -10,7 +10,6 @@ import json
 import subprocess
 import sys
 import os
-import csv
 from datetime import datetime
 
 
@@ -164,7 +163,7 @@ if __name__ == "__main__":
     generate_report(status, compliance, report_path)
     print(f"Compliance report: {report_path}")
 
-    print(f"\n--- BitLocker Compliance ---")
+    print("\n--- BitLocker Compliance ---")
     print(f"Hostname: {compliance['hostname']}")
     print(f"Overall: {'COMPLIANT' if compliance['overall_compliant'] else 'NON-COMPLIANT'}")
     print(f"TPM: {compliance['tpm_status']}")

@@ -239,10 +239,10 @@ def generate_vaccination_script():
 
     for mutex_name, info in KNOWN_KILL_SWITCH_MUTEXES.items():
         lines.append(f"# {info['family']} - {info['notes']}")
-        lines.append(f'$created = $false')
+        lines.append('$created = $false')
         lines.append(f'$m = New-Object System.Threading.Mutex($true, "{mutex_name}", [ref]$created)')
         lines.append(f'if ($created) {{ Write-Host "Vaccinated: {mutex_name}" }}')
-        lines.append(f'$mutexHandles += $m')
+        lines.append('$mutexHandles += $m')
         lines.append("")
 
     lines.append("# Keep script running to maintain mutex handles")
@@ -271,7 +271,7 @@ if __name__ == "__main__":
 
     if command == "scan":
         report = scan_all_kill_switches()
-        print(f"\n--- Kill Switch Scan Results ---")
+        print("\n--- Kill Switch Scan Results ---")
         print(f"  Total checked: {report['summary']['total_checked']}")
         print(f"  Active mutex vaccinations: {report['summary']['active_vaccinations']}")
         print(f"  Active kill switch domains: {report['summary']['active_domains']}")
@@ -286,7 +286,7 @@ if __name__ == "__main__":
     elif command == "vaccinate":
         print("\n[*] Deploying mutex vaccinations...")
         results = vaccinate_endpoint()
-        print(f"\n--- Vaccination Results ---")
+        print("\n--- Vaccination Results ---")
         print(f"  Newly vaccinated: {results['summary']['newly_vaccinated']}")
         print(f"  Already vaccinated: {results['summary']['already_vaccinated']}")
         print(f"  Failed: {results['summary']['failed']}")
@@ -306,11 +306,11 @@ if __name__ == "__main__":
         with open(output_file, "w") as f:
             f.write(script)
         print(f"\n[+] Vaccination script saved to: {output_file}")
-        print(f"[+] Deploy via GPO startup script or scheduled task")
+        print("[+] Deploy via GPO startup script or scheduled task")
         print(f"\n{script[:500]}...")
 
     elif command == "list":
-        print(f"\n--- Known Ransomware Kill Switches ---")
+        print("\n--- Known Ransomware Kill Switches ---")
         print(f"\nMutexes ({len(KNOWN_KILL_SWITCH_MUTEXES)}):")
         for name, info in KNOWN_KILL_SWITCH_MUTEXES.items():
             print(f"  {info['family']:20s} {name}")
