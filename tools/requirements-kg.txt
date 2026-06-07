@@ -1,0 +1,6 @@
+# Knowledge graph tools dependencies
+# Install: pip install -r tools/requirements-kg.txt
+
+lancedb>=0.20.0
+pyarrow>=19.0.0
+sentence-transformers>=3.0.0

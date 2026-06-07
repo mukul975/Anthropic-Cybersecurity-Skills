@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/schemas/skill-schema.json",
+  "title": "Cybersecurity Skill",
+  "description": "Canonical schema for a cybersecurity skill entity",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "string",
+      "const": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld"
+    },
+    "@id": {
+      "type": "string",
+      "pattern": "^skill:[a-z0-9][a-z0-9-]*(?:-[a-z0-9]+)*$"
+    },
+    "@type": {
+      "type": "string",
+      "const": "Skill"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "description": {
+      "type": "string",
+      "minLength": 50
+    },
+    "domain": {
+      "type": "string",
+      "const": "cybersecurity"
+    },
+    "subdomain": {
+      "type": "string",
+      "enum": [
+        "api-security",
+        "cloud-security",
+        "compliance-governance",
+        "container-security",
+        "cryptography",
+        "devsecops",
+        "digital-forensics",
+        "endpoint-security",
+        "identity-access-management",
+        "incident-response",
+        "malware-analysis",
+        "mobile-security",
+        "network-security",
+        "ot-ics-security",
+        "penetration-testing",
+        "phishing-defense",
+        "ransomware-defense",
+        "red-teaming",
+        "soc-operations",
+        "threat-hunting",
+        "threat-intelligence",
+        "vulnerability-management",
+        "web-application-security",
+        "zero-trust-architecture"
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 2
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "author": {
+      "type": "string"
+    },
+    "license": {
+      "type": "string"
+    },
+    "references": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      }
+    },
+    "mitre_attack": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^T[0-9]+(\\.[0-9]+)?$"
+      }
+    },
+    "nist_csf": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Z]{2}\\.[A-Z]{2}\\.[0-9]+$"
+      }
+    },
+    "atlas_techniques": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^AML\\.T[0-9]+$"
+      }
+    }
+  },
+  "required": ["@id", "@type", "name", "description", "domain", "subdomain", "tags"]
+}

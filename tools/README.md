@@ -1,30 +1,25 @@
-# Skill Validation Tools
+# Attack Scenario Generator
 
-## validate-skill.py
+Tools for generating realistic attack simulations by traversing the LanceDB knowledge graph.
 
-Validate SKILL.md metadata before submitting a PR.
+## Files
 
-### Usage
+- `attack-scenario-generator.py` — Main CLI entry point
+- `templates/scenario-template.md` — Markdown output template
+- `templates/atomic-workflow.json` — Structured output mode
+
+## Prerequisites
 
 ```bash
-# Validate a single skill
-python tools/validate-skill.py skills/my-new-skill/
-
-# Validate all skills
-python tools/validate-skill.py --all
+pip install pyyaml
 ```
 
-### What it checks
+The knowledge graph must exist (`.codegraph/knowledge_graph.lance`).
 
-- SKILL.md exists in the skill directory
-- Valid YAML frontmatter (between `---` markers)
-- Required fields present: `name`, `description`, `domain`, `subdomain`, `tags`
-- Name is kebab-case, 1–64 characters
-- Description is at least 50 characters (no upper limit; multi-line folded scalars are valid)
-- Domain is `cybersecurity`
-- Subdomain is from the allowed list
-- Tags is a list with at least 2 items
+## Usage
 
-### Requirements
-
-Python 3.8+ (stdlib only, no external dependencies)
+```bash
+python tools/attack-scenario-generator.py --entry T1566.001 --depth 5 --format markdown
+python tools/attack-scenario-generator.py --entry T1003 --tactic TA0006 --format json
+python tools/attack-scenario-generator.py --objective "domain-dominance" --format yaml
+```

@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/schemas/technique-schema.json",
+  "title": "Cybersecurity Technique",
+  "description": "Canonical schema for a cybersecurity technique entity (MITRE ATT&CK, ATLAS, or D3FEND)",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "string",
+      "const": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld"
+    },
+    "@id": {
+      "type": "string",
+      "pattern": "^technique:[A-Za-z0-9]+$"
+    },
+    "@type": {
+      "type": "string",
+      "const": "Technique"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string"
+    },
+    "framework": {
+      "type": "string",
+      "enum": ["mitre-attack", "atlas", "d3fend", "ai-rmf"]
+    },
+    "framework_id": {
+      "type": "string",
+      "description": "Original framework technique ID (e.g., T1071, AML.T0052, D3-NTA)"
+    },
+    "tactic": {
+      "type": "string",
+      "description": "Tactic ID or name this technique belongs to"
+    },
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^skill:[a-z0-9-]+$"
+      }
+    }
+  },
+  "required": ["@id", "@type", "name", "framework", "framework_id"]
+}

@@ -1,0 +1,58 @@
+{
+  "@context": {
+    "ex": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/",
+    "skill": "ex:skill/",
+    "technique": "ex:technique/",
+    "tactic": "ex:tactic/",
+    "category": "ex:category/",
+    "control": "ex:control/",
+    "framework": "ex:framework/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "stix": "https://stix2.org/vocab/",
+    "name": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+    "description": {
+      "@id": "schema:description",
+      "@type": "xsd:string"
+    },
+    "id": "@id",
+    "type": "@type",
+    "Skill": "ex:Skill",
+    "Technique": "ex:Technique",
+    "Tactic": "ex:Tactic",
+    "Category": "ex:Category",
+    "Control": "ex:Control",
+    "Framework": "ex:Framework",
+    "references": {
+      "@id": "schema:references",
+      "@type": "@id"
+    },
+    "belongsToFramework": {
+      "@id": "ex:belongsToFramework",
+      "@type": "@id"
+    },
+    "belongsToTactic": {
+      "@id": "ex:belongsToTactic",
+      "@type": "@id"
+    },
+    "belongsToCategory": {
+      "@id": "ex:belongsToCategory",
+      "@type": "@id"
+    },
+    "implements": {
+      "@id": "schema:implements",
+      "@type": "@id"
+    },
+    "mitigates": {
+      "@id": "ex:mitigates",
+      "@type": "@id"
+    },
+    "relatedTo": {
+      "@id": "schema:relatedTo",
+      "@type": "@id"
+    }
+  }
+}

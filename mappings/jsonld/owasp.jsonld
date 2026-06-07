@@ -1,0 +1,92 @@
+[
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "category:OWASP-A01",
+    "@type": "Category",
+    "name": "OWASP A01 - Broken Access Control",
+    "description": "Restrictions on what authenticated users are allowed to do are not properly enforced.",
+    "framework": "owasp",
+    "framework_id": "A01"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "category:OWASP-A02",
+    "@type": "Category",
+    "name": "OWASP A02 - Cryptographic Failures",
+    "description": "Failures related to cryptography that lead to exposure of sensitive data.",
+    "framework": "owasp",
+    "framework_id": "A02"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "category:OWASP-A03",
+    "@type": "Category",
+    "name": "OWASP A03 - Injection",
+    "description": "User-supplied data is sent to an interpreter as part of a command or query without proper validation.",
+    "framework": "owasp",
+    "framework_id": "A03"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "category:OWASP-A04",
+    "@type": "Category",
+    "name": "OWASP A04 - Insecure Design",
+    "description": "Risks related to design and architectural flaws, calling for more use of threat modeling and secure design patterns.",
+    "framework": "owasp",
+    "framework_id": "A04"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "category:OWASP-A05",
+    "@type": "Category",
+    "name": "OWASP A05 - Security Misconfiguration",
+    "description": "Missing or incorrect security hardening across the application stack.",
+    "framework": "owasp",
+    "framework_id": "A05"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "category:OWASP-A06",
+    "@type": "Category",
+    "name": "OWASP A06 - Vulnerable and Outdated Components",
+    "description": "Using components with known vulnerabilities or that are no longer maintained.",
+    "framework": "owasp",
+    "framework_id": "A06"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "category:OWASP-A07",
+    "@type": "Category",
+    "name": "OWASP A07 - Identification and Authentication Failures",
+    "description": "Weaknesses in authentication and session management.",
+    "framework": "owasp",
+    "framework_id": "A07"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "category:OWASP-A08",
+    "@type": "Category",
+    "name": "OWASP A08 - Software and Data Integrity Failures",
+    "description": "Failures related to code and infrastructure that do not protect against integrity violations.",
+    "framework": "owasp",
+    "framework_id": "A08"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "category:OWASP-A09",
+    "@type": "Category",
+    "name": "OWASP A09 - Security Logging and Monitoring Failures",
+    "description": "Insufficient logging, detection, monitoring, and active response.",
+    "framework": "owasp",
+    "framework_id": "A09"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "category:OWASP-A10",
+    "@type": "Category",
+    "name": "OWASP A10 - Server-Side Request Forgery (SSRF)",
+    "description": "Fetching a remote resource without validating the user-supplied URL.",
+    "framework": "owasp",
+    "framework_id": "A10"
+  }
+]

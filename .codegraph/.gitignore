@@ -1,0 +1,19 @@
+# CodeGraph data files
+# These are local to each machine and should not be committed
+
+# SQLite database (CodeGraph)
+*.db
+*.db-wal
+*.db-shm
+
+# LanceDB knowledge graph
+knowledge_graph.lance/
+
+# Cache
+cache/
+
+# Logs
+*.log
+
+# Hook markers
+.dirty

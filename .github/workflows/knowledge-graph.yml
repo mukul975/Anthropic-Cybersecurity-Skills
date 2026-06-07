@@ -1,0 +1,67 @@
+name: Update Knowledge Graph
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'skills/**'
+      - 'mappings/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r tools/requirements-kg.txt
+
+      - name: Build JSON-LD entities
+        run: python3 tools/build-jsonld.py
+
+      - name: Build LanceDB knowledge graph
+        run: python3 tools/build-lancedb.py
+
+      - name: Prepare artifact
+        run: |
+          mkdir -p dist
+          cp -r .codegraph/knowledge_graph.lance dist/
+
+      - name: Upload knowledge graph artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: knowledge-graph
+          path: dist/knowledge_graph.lance
+
+  on-demand:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch'
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r tools/requirements-kg.txt
+
+      - name: Build JSON-LD entities
+        run: python3 tools/build-jsonld.py
+
+      - name: Build LanceDB knowledge graph
+        run: python3 tools/build-lancedb.py
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: knowledge-graph
+          path: .codegraph/knowledge_graph.lance

@@ -472,6 +472,7 @@ To regenerate: `python3 extract_attack.py`
 81 skills mapped to ATLAS adversarial ML techniques.
 
 Key techniques applied:
+
 - AML.T0051 — LLM Prompt Injection (Execution)
 - AML.T0054 — LLM Jailbreak (Privilege Escalation)
 - AML.T0088 — Generate Deepfakes (AI Attack Staging)
@@ -495,6 +496,7 @@ defensive countermeasures derived from the skill's ATT&CK technique tags.
 85 skills mapped to NIST AI Risk Management Framework subcategories.
 
 Core functions covered:
+
 - GOVERN: Organizational accountability for AI risk (GOVERN-1.1, GOVERN-6.1, GOVERN-6.2)
 - MAP: AI risk identification and context (MAP-5.1, MAP-5.2, MAP-1.6)
 - MEASURE: AI risk analysis and evaluation (MEASURE-2.5, MEASURE-2.7, MEASURE-2.8, MEASURE-2.11)

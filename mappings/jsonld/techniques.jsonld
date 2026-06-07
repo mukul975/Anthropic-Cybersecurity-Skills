@@ -1,0 +1,4966 @@
+[
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1003",
+    "@type": "Technique",
+    "name": "OS Credential Dumping",
+    "framework": "mitre-attack",
+    "framework_id": "T1003",
+    "tactic": "TA0006",
+    "skills": [
+      "skill:building-attack-pattern-library-from-cti-reports",
+      "skill:building-detection-rules-with-sigma",
+      "skill:detecting-container-escape-with-falco-rules",
+      "skill:detecting-credential-dumping-techniques"
+    ],
+    "score": 42
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1003.001",
+    "@type": "Technique",
+    "name": "LSASS Memory",
+    "framework": "mitre-attack",
+    "framework_id": "T1003.001",
+    "tactic": "TA0006",
+    "skills": [
+      "skill:building-attack-pattern-library-from-cti-reports",
+      "skill:building-detection-rule-with-splunk-spl",
+      "skill:building-detection-rules-with-sigma",
+      "skill:conducting-full-scope-red-team-engagement"
+    ],
+    "score": 46
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1003.002",
+    "@type": "Technique",
+    "name": "SAM",
+    "framework": "mitre-attack",
+    "framework_id": "T1003.002",
+    "tactic": "TA0006",
+    "skills": [
+      "skill:detecting-credential-dumping-with-edr",
+      "skill:detecting-t1003-credential-dumping-with-edr"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1003.003",
+    "@type": "Technique",
+    "name": "NTDS",
+    "framework": "mitre-attack",
+    "framework_id": "T1003.003",
+    "tactic": "TA0006",
+    "skills": [
+      "skill:detecting-credential-dumping-with-edr",
+      "skill:detecting-t1003-credential-dumping-with-edr"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1003.004",
+    "@type": "Technique",
+    "name": "LSA Secrets",
+    "framework": "mitre-attack",
+    "framework_id": "T1003.004",
+    "tactic": "TA0006",
+    "skills": [
+      "skill:detecting-credential-dumping-with-edr",
+      "skill:detecting-t1003-credential-dumping-with-edr",
+      "skill:performing-credential-access-with-lazagne"
+    ],
+    "score": 12
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1003.005",
+    "@type": "Technique",
+    "name": "Cached Domain Credentials",
+    "framework": "mitre-attack",
+    "framework_id": "T1003.005",
+    "tactic": "TA0006",
+    "skills": [
+      "skill:detecting-credential-dumping-with-edr",
+      "skill:detecting-t1003-credential-dumping-with-edr"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1003.006",
+    "@type": "Technique",
+    "name": "DCSync",
+    "framework": "mitre-attack",
+    "framework_id": "T1003.006",
+    "tactic": "TA0006",
+    "skills": [
+      "skill:analyzing-windows-event-logs-in-splunk",
+      "skill:conducting-domain-persistence-with-dcsync",
+      "skill:conducting-full-scope-red-team-engagement",
+      "skill:conducting-internal-network-penetration-test"
+    ],
+    "score": 50
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1005",
+    "@type": "Technique",
+    "name": "Data from Local System",
+    "framework": "mitre-attack",
+    "framework_id": "T1005",
+    "tactic": "TA0009",
+    "skills": [
+      "skill:conducting-malware-incident-response",
+      "skill:detecting-container-escape-with-falco-rules"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1016",
+    "@type": "Technique",
+    "name": "System Network Configuration Discovery",
+    "framework": "mitre-attack",
+    "framework_id": "T1016",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:conducting-full-scope-red-team-engagement",
+      "skill:conducting-internal-reconnaissance-with-bloodhound-ce",
+      "skill:exploiting-active-directory-with-bloodhound"
+    ],
+    "score": 12
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1018",
+    "@type": "Technique",
+    "name": "Remote System Discovery",
+    "framework": "mitre-attack",
+    "framework_id": "T1018",
+    "tactic": "TA0007",
+    "skills": [
+      "skill:conducting-full-scope-red-team-engagement",
+      "skill:conducting-internal-reconnaissance-with-bloodhound-ce",
+      "skill:exploiting-active-directory-with-bloodhound",
+      "skill:performing-active-directory-bloodhound-analysis"
+    ],
+    "score": 15
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1020",
+    "@type": "Technique",
+    "name": "Automated Exfiltration",
+    "framework": "mitre-attack",
+    "framework_id": "T1020",
+    "tactic": "TA0012",
+    "skills": [
+      "skill:hunting-for-data-exfiltration-indicators"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1021",
+    "@type": "Technique",
+    "name": "Remote Services",
+    "framework": "mitre-attack",
+    "framework_id": "T1021",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:detecting-lateral-movement-in-network",
+      "skill:detecting-lateral-movement-with-splunk",
+      "skill:detecting-service-account-abuse",
+      "skill:exploiting-constrained-delegation-abuse"
+    ],
+    "score": 38
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1021.001",
+    "@type": "Technique",
+    "name": "Remote Desktop Protocol",
+    "framework": "mitre-attack",
+    "framework_id": "T1021.001",
+    "tactic": "TA0008",
+    "skills": [
+      "skill:analyzing-windows-event-logs-in-splunk",
+      "skill:building-attack-pattern-library-from-cti-reports",
+      "skill:detecting-lateral-movement-with-splunk",
+      "skill:executing-red-team-exercise"
+    ],
+    "score": 31
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1021.002",
+    "@type": "Technique",
+    "name": "SMB/Windows Admin Shares",
+    "framework": "mitre-attack",
+    "framework_id": "T1021.002",
+    "tactic": "TA0008",
+    "skills": [
+      "skill:analyzing-windows-event-logs-in-splunk",
+      "skill:building-attack-pattern-library-from-cti-reports",
+      "skill:building-detection-rule-with-splunk-spl",
+      "skill:conducting-full-scope-red-team-engagement"
+    ],
+    "score": 46
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1021.003",
+    "@type": "Technique",
+    "name": "DCOM",
+    "framework": "mitre-attack",
+    "framework_id": "T1021.003",
+    "tactic": "TA0008",
+    "skills": [
+      "skill:detecting-lateral-movement-with-splunk",
+      "skill:performing-lateral-movement-detection",
+      "skill:performing-lateral-movement-with-wmiexec"
+    ],
+    "score": 12
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1021.004",
+    "@type": "Technique",
+    "name": "SSH",
+    "framework": "mitre-attack",
+    "framework_id": "T1021.004",
+    "tactic": "TA0008",
+    "skills": [
+      "skill:detecting-lateral-movement-with-splunk"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1021.006",
+    "@type": "Technique",
+    "name": "Windows Remote Management",
+    "framework": "mitre-attack",
+    "framework_id": "T1021.006",
+    "tactic": "TA0008",
+    "skills": [
+      "skill:building-attack-pattern-library-from-cti-reports",
+      "skill:detecting-lateral-movement-with-splunk",
+      "skill:performing-lateral-movement-detection"
+    ],
+    "score": 12
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1027",
+    "@type": "Technique",
+    "name": "Obfuscated Files or Information",
+    "framework": "mitre-attack",
+    "framework_id": "T1027",
+    "tactic": "TA0005",
+    "skills": [
+      "skill:analyzing-apt-group-with-mitre-navigator",
+      "skill:conducting-full-scope-red-team-engagement"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1029",
+    "@type": "Technique",
+    "name": "Scheduled Transfer",
+    "framework": "mitre-attack",
+    "framework_id": "T1029",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:hunting-for-data-exfiltration-indicators"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1030",
+    "@type": "Technique",
+    "name": "Data Transfer Size Limits",
+    "framework": "mitre-attack",
+    "framework_id": "T1030",
+    "tactic": "TA0004",
+    "skills": [
+      "skill:hunting-for-data-exfiltration-indicators"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1033",
+    "@type": "Technique",
+    "name": "System Owner/User Discovery",
+    "framework": "mitre-attack",
+    "framework_id": "T1033",
+    "tactic": "TA0004",
+    "skills": [
+      "skill:conducting-internal-reconnaissance-with-bloodhound-ce",
+      "skill:exploiting-active-directory-with-bloodhound"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1036",
+    "@type": "Technique",
+    "name": "Masquerading",
+    "framework": "mitre-attack",
+    "framework_id": "T1036",
+    "tactic": "TA0005",
+    "skills": [
+      "skill:detecting-evasion-techniques-in-endpoint-logs",
+      "skill:implementing-mitre-attack-coverage-mapping",
+      "skill:implementing-siem-use-cases-for-detection"
+    ],
+    "score": 12
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1036.005",
+    "@type": "Technique",
+    "name": "Match Legitimate Name or Location",
+    "framework": "mitre-attack",
+    "framework_id": "T1036.005",
+    "tactic": "TA0004",
+    "skills": [
+      "skill:detecting-process-injection-techniques"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1040",
+    "@type": "Technique",
+    "name": "Network Sniffing",
+    "framework": "mitre-attack",
+    "framework_id": "T1040",
+    "tactic": "TA0007",
+    "skills": [
+      "skill:implementing-continuous-security-validation-with-bas"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1041",
+    "@type": "Technique",
+    "name": "Exfiltration Over C2 Channel",
+    "framework": "mitre-attack",
+    "framework_id": "T1041",
+    "tactic": "TA0012",
+    "skills": [
+      "skill:analyzing-ransomware-network-indicators",
+      "skill:building-attack-pattern-library-from-cti-reports",
+      "skill:conducting-full-scope-red-team-engagement",
+      "skill:conducting-malware-incident-response"
+    ],
+    "score": 35
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1047",
+    "@type": "Technique",
+    "name": "Windows Management Instrumentation",
+    "framework": "mitre-attack",
+    "framework_id": "T1047",
+    "tactic": "TA0002",
+    "skills": [
+      "skill:conducting-full-scope-red-team-engagement",
+      "skill:detecting-lateral-movement-with-splunk",
+      "skill:performing-lateral-movement-detection",
+      "skill:performing-lateral-movement-with-wmiexec",
+      "skill:performing-purple-team-exercise"
+    ],
+    "score": 19
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1048",
+    "@type": "Technique",
+    "name": "Exfiltration Over Alternative Protocol",
+    "framework": "mitre-attack",
+    "framework_id": "T1048",
+    "tactic": "TA0012",
+    "skills": [
+      "skill:building-detection-rule-with-splunk-spl",
+      "skill:conducting-full-scope-red-team-engagement",
+      "skill:hunting-for-data-exfiltration-indicators",
+      "skill:implementing-continuous-security-validation-with-bas",
+      "skill:implementing-mitre-attack-coverage-mapping"
+    ],
+    "score": 19
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1048.001",
+    "@type": "Technique",
+    "name": "Symmetric Encrypted Non-C2",
+    "framework": "mitre-attack",
+    "framework_id": "T1048.001",
+    "tactic": "TA0012",
+    "skills": [
+      "skill:hunting-for-data-exfiltration-indicators"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1048.002",
+    "@type": "Technique",
+    "name": "Asymmetric Encrypted Non-C2",
+    "framework": "mitre-attack",
+    "framework_id": "T1048.002",
+    "tactic": "TA0012",
+    "skills": [
+      "skill:hunting-for-data-exfiltration-indicators"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1048.003",
+    "@type": "Technique",
+    "name": "Unencrypted/Obfuscated Non-C2",
+    "framework": "mitre-attack",
+    "framework_id": "T1048.003",
+    "tactic": "TA0012",
+    "skills": [
+      "skill:conducting-full-scope-red-team-engagement",
+      "skill:hunting-for-data-exfiltration-indicators",
+      "skill:hunting-for-dns-tunneling-with-zeek",
+      "skill:implementing-continuous-security-validation-with-bas",
+      "skill:implementing-mitre-attack-coverage-mapping"
+    ],
+    "score": 19
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1052",
+    "@type": "Technique",
+    "name": "Exfiltration Over Physical Medium",
+    "framework": "mitre-attack",
+    "framework_id": "T1052",
+    "tactic": "TA0012",
+    "skills": [
+      "skill:hunting-for-data-exfiltration-indicators"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1053",
+    "@type": "Technique",
+    "name": "Scheduled Task/Job",
+    "framework": "mitre-attack",
+    "framework_id": "T1053",
+    "tactic": "TA0004",
+    "skills": [
+      "skill:analyzing-apt-group-with-mitre-navigator",
+      "skill:analyzing-persistence-mechanisms-in-linux",
+      "skill:hunting-for-persistence-mechanisms-in-windows",
+      "skill:implementing-mitre-attack-coverage-mapping"
+    ],
+    "score": 23
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1053.002",
+    "@type": "Technique",
+    "name": "At",
+    "framework": "mitre-attack",
+    "framework_id": "T1053.002",
+    "tactic": "TA0003",
+    "skills": [
+      "skill:hunting-for-scheduled-task-persistence"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1053.003",
+    "@type": "Technique",
+    "name": "Cron",
+    "framework": "mitre-attack",
+    "framework_id": "T1053.003",
+    "tactic": "TA0003",
+    "skills": [
+      "skill:hunting-for-scheduled-task-persistence",
+      "skill:performing-privilege-escalation-on-linux"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1053.005",
+    "@type": "Technique",
+    "name": "Scheduled Task",
+    "framework": "mitre-attack",
+    "framework_id": "T1053.005",
+    "tactic": "TA0003",
+    "skills": [
+      "skill:analyzing-apt-group-with-mitre-navigator",
+      "skill:analyzing-windows-event-logs-in-splunk",
+      "skill:building-attack-pattern-library-from-cti-reports",
+      "skill:building-detection-rule-with-splunk-spl"
+    ],
+    "score": 62
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1055",
+    "@type": "Technique",
+    "name": "Process Injection",
+    "framework": "mitre-attack",
+    "framework_id": "T1055",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:building-attack-pattern-library-from-cti-reports",
+      "skill:building-red-team-c2-infrastructure-with-havoc",
+      "skill:conducting-full-scope-red-team-engagement",
+      "skill:detecting-evasion-techniques-in-endpoint-logs"
+    ],
+    "score": 65
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1055.001",
+    "@type": "Technique",
+    "name": "DLL Injection",
+    "framework": "mitre-attack",
+    "framework_id": "T1055.001",
+    "tactic": "TA0005",
+    "skills": [
+      "skill:detecting-process-hollowing-technique",
+      "skill:detecting-process-injection-techniques",
+      "skill:detecting-t1055-process-injection-with-sysmon",
+      "skill:hunting-for-process-injection-techniques"
+    ],
+    "score": 15
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1055.002",
+    "@type": "Technique",
+    "name": "Portable Executable Injection",
+    "framework": "mitre-attack",
+    "framework_id": "T1055.002",
+    "tactic": "TA0005",
+    "skills": [
+      "skill:detecting-process-injection-techniques",
+      "skill:detecting-t1055-process-injection-with-sysmon"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1055.003",
+    "@type": "Technique",
+    "name": "Thread Execution Hijacking",
+    "framework": "mitre-attack",
+    "framework_id": "T1055.003",
+    "tactic": "TA0005",
+    "skills": [
+      "skill:detecting-process-hollowing-technique",
+      "skill:detecting-process-injection-techniques",
+      "skill:detecting-t1055-process-injection-with-sysmon"
+    ],
+    "score": 12
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1055.004",
+    "@type": "Technique",
+    "name": "APC Injection",
+    "framework": "mitre-attack",
+    "framework_id": "T1055.004",
+    "tactic": "TA0005",
+    "skills": [
+      "skill:detecting-process-hollowing-technique",
+      "skill:detecting-process-injection-techniques",
+      "skill:detecting-t1055-process-injection-with-sysmon"
+    ],
+    "score": 12
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1055.005",
+    "@type": "Technique",
+    "name": "Thread Local Storage",
+    "framework": "mitre-attack",
+    "framework_id": "T1055.005",
+    "tactic": "TA0005",
+    "skills": [
+      "skill:detecting-process-injection-techniques",
+      "skill:detecting-t1055-process-injection-with-sysmon"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1055.008",
+    "@type": "Technique",
+    "name": "Ptrace System Calls",
+    "framework": "mitre-attack",
+    "framework_id": "T1055.008",
+    "tactic": "TA0004",
+    "skills": [
+      "skill:detecting-process-injection-techniques"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1055.009",
+    "@type": "Technique",
+    "name": "Proc Memory",
+    "framework": "mitre-attack",
+    "framework_id": "T1055.009",
+    "tactic": "TA0004",
+    "skills": [
+      "skill:detecting-process-injection-techniques"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1055.011",
+    "@type": "Technique",
+    "name": "Extra Window Memory Injection",
+    "framework": "mitre-attack",
+    "framework_id": "T1055.011",
+    "tactic": "TA0004",
+    "skills": [
+      "skill:detecting-process-injection-techniques"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1055.012",
+    "@type": "Technique",
+    "name": "Process Hollowing",
+    "framework": "mitre-attack",
+    "framework_id": "T1055.012",
+    "tactic": "TA0005",
+    "skills": [
+      "skill:conducting-malware-incident-response",
+      "skill:detecting-fileless-malware-techniques",
+      "skill:detecting-process-hollowing-technique",
+      "skill:detecting-process-injection-techniques"
+    ],
+    "score": 23
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1055.013",
+    "@type": "Technique",
+    "name": "Process Doppelganging",
+    "framework": "mitre-attack",
+    "framework_id": "T1055.013",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:detecting-process-hollowing-technique",
+      "skill:detecting-process-injection-techniques",
+      "skill:detecting-t1055-process-injection-with-sysmon"
+    ],
+    "score": 12
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1055.014",
+    "@type": "Technique",
+    "name": "VDSO Hijacking",
+    "framework": "mitre-attack",
+    "framework_id": "T1055.014",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:detecting-process-injection-techniques"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1055.015",
+    "@type": "Technique",
+    "name": "ListPlanting",
+    "framework": "mitre-attack",
+    "framework_id": "T1055.015",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:detecting-process-injection-techniques",
+      "skill:detecting-t1055-process-injection-with-sysmon"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1059",
+    "@type": "Technique",
+    "name": "Command and Scripting Interpreter",
+    "framework": "mitre-attack",
+    "framework_id": "T1059",
+    "tactic": "TA0043",
+    "skills": [
+      "skill:analyzing-apt-group-with-mitre-navigator",
+      "skill:analyzing-threat-actor-ttps-with-mitre-attack",
+      "skill:analyzing-windows-event-logs-in-splunk",
+      "skill:building-incident-timeline-with-timesketch"
+    ],
+    "score": 38
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1059.001",
+    "@type": "Technique",
+    "name": "PowerShell",
+    "framework": "mitre-attack",
+    "framework_id": "T1059.001",
+    "tactic": "TA0006",
+    "skills": [
+      "skill:analyzing-apt-group-with-mitre-navigator",
+      "skill:analyzing-macro-malware-in-office-documents",
+      "skill:analyzing-powershell-empire-artifacts",
+      "skill:analyzing-security-logs-with-splunk"
+    ],
+    "score": 100
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1059.003",
+    "@type": "Technique",
+    "name": "Windows Command Shell",
+    "framework": "mitre-attack",
+    "framework_id": "T1059.003",
+    "tactic": "TA0006",
+    "skills": [
+      "skill:building-attack-pattern-library-from-cti-reports",
+      "skill:detecting-suspicious-powershell-execution",
+      "skill:mapping-mitre-attack-techniques"
+    ],
+    "score": 12
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1059.005",
+    "@type": "Technique",
+    "name": "Visual Basic",
+    "framework": "mitre-attack",
+    "framework_id": "T1059.005",
+    "tactic": "TA0002",
+    "skills": [
+      "skill:analyzing-macro-malware-in-office-documents",
+      "skill:executing-red-team-exercise",
+      "skill:hunting-for-lolbins-execution-in-endpoint-logs",
+      "skill:mapping-mitre-attack-techniques"
+    ],
+    "score": 15
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1068",
+    "@type": "Technique",
+    "name": "Exploitation for Privilege Escalation",
+    "framework": "mitre-attack",
+    "framework_id": "T1068",
+    "tactic": "TA0004",
+    "skills": [
+      "skill:conducting-full-scope-red-team-engagement",
+      "skill:detecting-container-escape-attempts",
+      "skill:detecting-privilege-escalation-attempts",
+      "skill:detecting-privilege-escalation-in-kubernetes-pods"
+    ],
+    "score": 31
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1069.001",
+    "@type": "Technique",
+    "name": "Local Groups",
+    "framework": "mitre-attack",
+    "framework_id": "T1069.001",
+    "tactic": "TA0004",
+    "skills": [
+      "skill:performing-active-directory-bloodhound-analysis"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1069.002",
+    "@type": "Technique",
+    "name": "Domain Groups",
+    "framework": "mitre-attack",
+    "framework_id": "T1069.002",
+    "tactic": "TA0004",
+    "skills": [
+      "skill:conducting-internal-reconnaissance-with-bloodhound-ce",
+      "skill:exploiting-active-directory-with-bloodhound",
+      "skill:performing-active-directory-bloodhound-analysis",
+      "skill:performing-kerberoasting-attack"
+    ],
+    "score": 15
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1070",
+    "@type": "Technique",
+    "name": "Indicator Removal",
+    "framework": "mitre-attack",
+    "framework_id": "T1070",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:detecting-evasion-techniques-in-endpoint-logs",
+      "skill:implementing-siem-use-cases-for-detection",
+      "skill:implementing-velociraptor-for-ir-collection"
+    ],
+    "score": 12
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1070.001",
+    "@type": "Technique",
+    "name": "Clear Windows Event Logs",
+    "framework": "mitre-attack",
+    "framework_id": "T1070.001",
+    "tactic": "TA0005",
+    "skills": [
+      "skill:detecting-evasion-techniques-in-endpoint-logs",
+      "skill:implementing-mitre-attack-coverage-mapping",
+      "skill:performing-purple-team-exercise"
+    ],
+    "score": 12
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1070.004",
+    "@type": "Technique",
+    "name": "File Deletion",
+    "framework": "mitre-attack",
+    "framework_id": "T1070.004",
+    "tactic": "TA0005",
+    "skills": [
+      "skill:implementing-threat-modeling-with-mitre-attack"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1070.006",
+    "@type": "Technique",
+    "name": "Timestomping",
+    "framework": "mitre-attack",
+    "framework_id": "T1070.006",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:detecting-evasion-techniques-in-endpoint-logs",
+      "skill:hunting-for-defense-evasion-via-timestomping"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1071",
+    "@type": "Technique",
+    "name": "Application Layer Protocol",
+    "framework": "mitre-attack",
+    "framework_id": "T1071",
+    "tactic": "TA0012",
+    "skills": [
+      "skill:analyzing-apt-group-with-mitre-navigator",
+      "skill:analyzing-network-covert-channels-in-malware",
+      "skill:analyzing-ransomware-network-indicators",
+      "skill:analyzing-threat-actor-ttps-with-mitre-attack"
+    ],
+    "score": 38
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1071.001",
+    "@type": "Technique",
+    "name": "Web Protocols",
+    "framework": "mitre-attack",
+    "framework_id": "T1071.001",
+    "tactic": "TA0011",
+    "skills": [
+      "skill:analyzing-apt-group-with-mitre-navigator",
+      "skill:building-c2-infrastructure-with-sliver-framework",
+      "skill:building-red-team-c2-infrastructure-with-havoc",
+      "skill:conducting-malware-incident-response"
+    ],
+    "score": 46
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1071.004",
+    "@type": "Technique",
+    "name": "DNS",
+    "framework": "mitre-attack",
+    "framework_id": "T1071.004",
+    "tactic": "TA0011",
+    "skills": [
+      "skill:building-attack-pattern-library-from-cti-reports",
+      "skill:building-c2-infrastructure-with-sliver-framework",
+      "skill:hunting-for-beaconing-with-frequency-analysis",
+      "skill:hunting-for-command-and-control-beaconing"
+    ],
+    "score": 27
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1074",
+    "@type": "Technique",
+    "name": "Data Staged",
+    "framework": "mitre-attack",
+    "framework_id": "T1074",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:building-attack-pattern-library-from-cti-reports",
+      "skill:executing-red-team-exercise",
+      "skill:hunting-for-data-staging-before-exfiltration"
+    ],
+    "score": 12
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1074.001",
+    "@type": "Technique",
+    "name": "Local Data Staging",
+    "framework": "mitre-attack",
+    "framework_id": "T1074.001",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:hunting-for-data-staging-before-exfiltration"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1074.002",
+    "@type": "Technique",
+    "name": "Remote Data Staging",
+    "framework": "mitre-attack",
+    "framework_id": "T1074.002",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:hunting-for-data-staging-before-exfiltration"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1078",
+    "@type": "Technique",
+    "name": "Valid Accounts",
+    "framework": "mitre-attack",
+    "framework_id": "T1078",
+    "tactic": "TA0003",
+    "skills": [
+      "skill:analyzing-apt-group-with-mitre-navigator",
+      "skill:analyzing-windows-event-logs-in-splunk",
+      "skill:conducting-full-scope-red-team-engagement",
+      "skill:conducting-internal-network-penetration-test"
+    ],
+    "score": 50
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1078.001",
+    "@type": "Technique",
+    "name": "Default Accounts",
+    "framework": "mitre-attack",
+    "framework_id": "T1078.001",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:detecting-service-account-abuse"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1078.002",
+    "@type": "Technique",
+    "name": "Domain Accounts",
+    "framework": "mitre-attack",
+    "framework_id": "T1078.002",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:conducting-domain-persistence-with-dcsync",
+      "skill:detecting-service-account-abuse",
+      "skill:exploiting-active-directory-certificate-services-esc1",
+      "skill:exploiting-constrained-delegation-abuse"
+    ],
+    "score": 23
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1078.004",
+    "@type": "Technique",
+    "name": "Cloud Accounts",
+    "framework": "mitre-attack",
+    "framework_id": "T1078.004",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:detecting-azure-service-principal-abuse",
+      "skill:implementing-mitre-attack-coverage-mapping",
+      "skill:implementing-threat-modeling-with-mitre-attack"
+    ],
+    "score": 12
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1082",
+    "@type": "Technique",
+    "name": "System Information Discovery",
+    "framework": "mitre-attack",
+    "framework_id": "T1082",
+    "tactic": "TA0007",
+    "skills": [
+      "skill:conducting-full-scope-red-team-engagement"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1087",
+    "@type": "Technique",
+    "name": "Account Discovery",
+    "framework": "mitre-attack",
+    "framework_id": "T1087",
+    "tactic": "TA0007",
+    "skills": [
+      "skill:conducting-full-scope-red-team-engagement",
+      "skill:implementing-continuous-security-validation-with-bas"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1087.002",
+    "@type": "Technique",
+    "name": "Domain Account",
+    "framework": "mitre-attack",
+    "framework_id": "T1087.002",
+    "tactic": "TA0007",
+    "skills": [
+      "skill:conducting-internal-reconnaissance-with-bloodhound-ce",
+      "skill:exploiting-active-directory-certificate-services-esc1",
+      "skill:exploiting-active-directory-with-bloodhound",
+      "skill:exploiting-kerberoasting-with-impacket"
+    ],
+    "score": 23
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1087.004",
+    "@type": "Technique",
+    "name": "Cloud Account",
+    "framework": "mitre-attack",
+    "framework_id": "T1087.004",
+    "tactic": "TA0007",
+    "skills": [
+      "skill:detecting-azure-service-principal-abuse",
+      "skill:implementing-mitre-attack-coverage-mapping"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1090",
+    "@type": "Technique",
+    "name": "Proxy",
+    "framework": "mitre-attack",
+    "framework_id": "T1090",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:implementing-mitre-attack-coverage-mapping"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1090.002",
+    "@type": "Technique",
+    "name": "External Proxy",
+    "framework": "mitre-attack",
+    "framework_id": "T1090.002",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:building-c2-infrastructure-with-sliver-framework",
+      "skill:building-red-team-c2-infrastructure-with-havoc"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1090.004",
+    "@type": "Technique",
+    "name": "T1090.004",
+    "framework": "mitre-attack",
+    "framework_id": "T1090.004",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:hunting-for-domain-fronting-c2-traffic"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1091",
+    "@type": "Technique",
+    "name": "Replication Through Removable Media",
+    "framework": "mitre-attack",
+    "framework_id": "T1091",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:performing-physical-intrusion-assessment"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1095",
+    "@type": "Technique",
+    "name": "Non-Application Layer Protocol",
+    "framework": "mitre-attack",
+    "framework_id": "T1095",
+    "tactic": "TA0011",
+    "skills": [
+      "skill:hunting-for-command-and-control-beaconing",
+      "skill:hunting-for-unusual-network-connections"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1098",
+    "@type": "Technique",
+    "name": "Account Manipulation",
+    "framework": "mitre-attack",
+    "framework_id": "T1098",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:analyzing-windows-event-logs-in-splunk",
+      "skill:conducting-domain-persistence-with-dcsync",
+      "skill:hunting-for-t1098-account-manipulation",
+      "skill:implementing-mitre-attack-coverage-mapping",
+      "skill:performing-active-directory-compromise-investigation"
+    ],
+    "score": 19
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1098.001",
+    "@type": "Technique",
+    "name": "Additional Cloud Credentials",
+    "framework": "mitre-attack",
+    "framework_id": "T1098.001",
+    "tactic": "TA0003",
+    "skills": [
+      "skill:conducting-cloud-penetration-testing",
+      "skill:detecting-azure-service-principal-abuse",
+      "skill:implementing-mitre-attack-coverage-mapping"
+    ],
+    "score": 12
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1098.002",
+    "@type": "Technique",
+    "name": "Additional Email Delegate Permissions",
+    "framework": "mitre-attack",
+    "framework_id": "T1098.002",
+    "tactic": "TA0003",
+    "skills": [
+      "skill:detecting-email-forwarding-rules-attack"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1102",
+    "@type": "Technique",
+    "name": "Web Service",
+    "framework": "mitre-attack",
+    "framework_id": "T1102",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:hunting-for-living-off-the-cloud-techniques"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1105",
+    "@type": "Technique",
+    "name": "Ingress Tool Transfer",
+    "framework": "mitre-attack",
+    "framework_id": "T1105",
+    "tactic": "TA0043",
+    "skills": [
+      "skill:building-c2-infrastructure-with-sliver-framework",
+      "skill:building-red-team-c2-infrastructure-with-havoc",
+      "skill:detecting-living-off-the-land-with-lolbas",
+      "skill:implementing-mitre-attack-coverage-mapping"
+    ],
+    "score": 23
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1110",
+    "@type": "Technique",
+    "name": "Brute Force",
+    "framework": "mitre-attack",
+    "framework_id": "T1110",
+    "tactic": "TA0006",
+    "skills": [
+      "skill:analyzing-windows-event-logs-in-splunk",
+      "skill:conducting-internal-network-penetration-test",
+      "skill:implementing-mitre-attack-coverage-mapping",
+      "skill:performing-alert-triage-with-elastic-siem"
+    ],
+    "score": 15
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1110.001",
+    "@type": "Technique",
+    "name": "Password Guessing",
+    "framework": "mitre-attack",
+    "framework_id": "T1110.001",
+    "tactic": "TA0006",
+    "skills": [
+      "skill:analyzing-windows-event-logs-in-splunk",
+      "skill:building-detection-rule-with-splunk-spl",
+      "skill:implementing-siem-use-cases-for-detection",
+      "skill:performing-false-positive-reduction-in-siem"
+    ],
+    "score": 15
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1110.002",
+    "@type": "Technique",
+    "name": "Password Cracking",
+    "framework": "mitre-attack",
+    "framework_id": "T1110.002",
+    "tactic": "TA0006",
+    "skills": [
+      "skill:exploiting-kerberoasting-with-impacket"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1110.003",
+    "@type": "Technique",
+    "name": "Password Spraying",
+    "framework": "mitre-attack",
+    "framework_id": "T1110.003",
+    "tactic": "TA0006",
+    "skills": [
+      "skill:implementing-siem-use-cases-for-detection"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1112",
+    "@type": "Technique",
+    "name": "Modify Registry",
+    "framework": "mitre-attack",
+    "framework_id": "T1112",
+    "tactic": "TA0002",
+    "skills": [
+      "skill:detecting-fileless-malware-techniques"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1114.002",
+    "@type": "Technique",
+    "name": "Remote Email Collection",
+    "framework": "mitre-attack",
+    "framework_id": "T1114.002",
+    "tactic": "TA0002",
+    "skills": [
+      "skill:detecting-email-forwarding-rules-attack"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1114.003",
+    "@type": "Technique",
+    "name": "Email Forwarding Rule",
+    "framework": "mitre-attack",
+    "framework_id": "T1114.003",
+    "tactic": "TA0002",
+    "skills": [
+      "skill:detecting-business-email-compromise",
+      "skill:detecting-email-forwarding-rules-attack"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1127",
+    "@type": "Technique",
+    "name": "Trusted Developer Utilities Proxy Execution",
+    "framework": "mitre-attack",
+    "framework_id": "T1127",
+    "tactic": "TA0002",
+    "skills": [
+      "skill:detecting-evasion-techniques-in-endpoint-logs",
+      "skill:detecting-living-off-the-land-with-lolbas"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1127.001",
+    "@type": "Technique",
+    "name": "MSBuild",
+    "framework": "mitre-attack",
+    "framework_id": "T1127.001",
+    "tactic": "TA0002",
+    "skills": [
+      "skill:hunting-for-lolbins-execution-in-endpoint-logs"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1132",
+    "@type": "Technique",
+    "name": "Data Encoding",
+    "framework": "mitre-attack",
+    "framework_id": "T1132",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:hunting-for-command-and-control-beaconing"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1132.001",
+    "@type": "Technique",
+    "name": "Standard Encoding",
+    "framework": "mitre-attack",
+    "framework_id": "T1132.001",
+    "tactic": "TA0011",
+    "skills": [
+      "skill:building-c2-infrastructure-with-sliver-framework"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1133",
+    "@type": "Technique",
+    "name": "External Remote Services",
+    "framework": "mitre-attack",
+    "framework_id": "T1133",
+    "tactic": "TA0003",
+    "skills": [
+      "skill:performing-threat-landscape-assessment-for-sector"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1134",
+    "@type": "Technique",
+    "name": "Access Token Manipulation",
+    "framework": "mitre-attack",
+    "framework_id": "T1134",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:analyzing-windows-event-logs-in-splunk",
+      "skill:detecting-privilege-escalation-attempts"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1134.001",
+    "@type": "Technique",
+    "name": "Token Impersonation/Theft",
+    "framework": "mitre-attack",
+    "framework_id": "T1134.001",
+    "tactic": "TA0004",
+    "skills": [
+      "skill:exploiting-constrained-delegation-abuse"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1134.005",
+    "@type": "Technique",
+    "name": "SID-History Injection",
+    "framework": "mitre-attack",
+    "framework_id": "T1134.005",
+    "tactic": "TA0004",
+    "skills": [
+      "skill:performing-active-directory-compromise-investigation"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1136",
+    "@type": "Technique",
+    "name": "Create Account",
+    "framework": "mitre-attack",
+    "framework_id": "T1136",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:detecting-privilege-escalation-in-kubernetes-pods",
+      "skill:implementing-mitre-attack-coverage-mapping"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1136.001",
+    "@type": "Technique",
+    "name": "Local Account",
+    "framework": "mitre-attack",
+    "framework_id": "T1136.001",
+    "tactic": "TA0003",
+    "skills": [
+      "skill:analyzing-windows-event-logs-in-splunk"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1136.002",
+    "@type": "Technique",
+    "name": "Domain Account",
+    "framework": "mitre-attack",
+    "framework_id": "T1136.002",
+    "tactic": "TA0003",
+    "skills": [
+      "skill:exploiting-nopac-cve-2021-42278-42287"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1140",
+    "@type": "Technique",
+    "name": "Deobfuscate/Decode Files or Information",
+    "framework": "mitre-attack",
+    "framework_id": "T1140",
+    "tactic": "",
+    "skills": [
+      "skill:detecting-living-off-the-land-with-lolbas",
+      "skill:hunting-for-living-off-the-land-binaries",
+      "skill:hunting-for-lolbins-execution-in-endpoint-logs"
+    ],
+    "score": 12
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1190",
+    "@type": "Technique",
+    "name": "Exploit Public-Facing Application",
+    "framework": "mitre-attack",
+    "framework_id": "T1190",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:conducting-full-scope-red-team-engagement",
+      "skill:exploiting-ms17-010-eternalblue-vulnerability",
+      "skill:hunting-for-webshell-activity",
+      "skill:performing-threat-landscape-assessment-for-sector"
+    ],
+    "score": 15
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1195",
+    "@type": "Technique",
+    "name": "Supply Chain Compromise",
+    "framework": "mitre-attack",
+    "framework_id": "T1195",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:analyzing-supply-chain-malware-artifacts",
+      "skill:performing-threat-landscape-assessment-for-sector"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1195.001",
+    "@type": "Technique",
+    "name": "Compromise Software Dependencies",
+    "framework": "mitre-attack",
+    "framework_id": "T1195.001",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:hunting-for-supply-chain-compromise"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1195.002",
+    "@type": "Technique",
+    "name": "Compromise Software Supply Chain",
+    "framework": "mitre-attack",
+    "framework_id": "T1195.002",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:hunting-for-supply-chain-compromise"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1197",
+    "@type": "Technique",
+    "name": "BITS Jobs",
+    "framework": "mitre-attack",
+    "framework_id": "T1197",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:hunting-for-living-off-the-land-binaries",
+      "skill:hunting-for-lolbins-execution-in-endpoint-logs"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1199",
+    "@type": "Technique",
+    "name": "Trusted Relationship",
+    "framework": "mitre-attack",
+    "framework_id": "T1199",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:hunting-for-supply-chain-compromise",
+      "skill:performing-physical-intrusion-assessment"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1200",
+    "@type": "Technique",
+    "name": "Hardware Additions",
+    "framework": "mitre-attack",
+    "framework_id": "T1200",
+    "tactic": "TA0003",
+    "skills": [
+      "skill:performing-physical-intrusion-assessment"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1204.001",
+    "@type": "Technique",
+    "name": "Malicious Link",
+    "framework": "mitre-attack",
+    "framework_id": "T1204.001",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:conducting-spearphishing-simulation-campaign"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1204.002",
+    "@type": "Technique",
+    "name": "Malicious File",
+    "framework": "mitre-attack",
+    "framework_id": "T1204.002",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:analyzing-macro-malware-in-office-documents",
+      "skill:conducting-full-scope-red-team-engagement",
+      "skill:conducting-spearphishing-simulation-campaign",
+      "skill:implementing-siem-use-cases-for-detection"
+    ],
+    "score": 23
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1210",
+    "@type": "Technique",
+    "name": "Exploitation of Remote Services",
+    "framework": "mitre-attack",
+    "framework_id": "T1210",
+    "tactic": "TA0004",
+    "skills": [
+      "skill:exploiting-ms17-010-eternalblue-vulnerability",
+      "skill:exploiting-zerologon-vulnerability-cve-2020-1472"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1213",
+    "@type": "Technique",
+    "name": "Data from Information Repositories",
+    "framework": "mitre-attack",
+    "framework_id": "T1213",
+    "tactic": "TA0009",
+    "skills": [
+      "skill:conducting-full-scope-red-team-engagement"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1218",
+    "@type": "Technique",
+    "name": "System Binary Proxy Execution",
+    "framework": "mitre-attack",
+    "framework_id": "T1218",
+    "tactic": "TA0005",
+    "skills": [
+      "skill:detecting-evasion-techniques-in-endpoint-logs",
+      "skill:detecting-living-off-the-land-with-lolbas",
+      "skill:hunting-advanced-persistent-threats",
+      "skill:hunting-for-living-off-the-land-binaries"
+    ],
+    "score": 23
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1218.001",
+    "@type": "Technique",
+    "name": "Compiled HTML File",
+    "framework": "mitre-attack",
+    "framework_id": "T1218.001",
+    "tactic": "TA0005",
+    "skills": [
+      "skill:hunting-for-living-off-the-land-binaries",
+      "skill:hunting-for-lolbins-execution-in-endpoint-logs"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1218.002",
+    "@type": "Technique",
+    "name": "T1218.002",
+    "framework": "mitre-attack",
+    "framework_id": "T1218.002",
+    "tactic": "TA0005",
+    "skills": [
+      "skill:hunting-for-living-off-the-land-binaries"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1218.003",
+    "@type": "Technique",
+    "name": "CMSTP",
+    "framework": "mitre-attack",
+    "framework_id": "T1218.003",
+    "tactic": "TA0005",
+    "skills": [
+      "skill:hunting-for-living-off-the-land-binaries",
+      "skill:hunting-for-lolbins-execution-in-endpoint-logs"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1218.005",
+    "@type": "Technique",
+    "name": "Mshta",
+    "framework": "mitre-attack",
+    "framework_id": "T1218.005",
+    "tactic": "TA0005",
+    "skills": [
+      "skill:detecting-fileless-malware-techniques",
+      "skill:hunting-for-living-off-the-land-binaries",
+      "skill:hunting-for-lolbins-execution-in-endpoint-logs"
+    ],
+    "score": 12
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1218.010",
+    "@type": "Technique",
+    "name": "Regsvr32",
+    "framework": "mitre-attack",
+    "framework_id": "T1218.010",
+    "tactic": "TA0004",
+    "skills": [
+      "skill:hunting-for-living-off-the-land-binaries",
+      "skill:hunting-for-lolbins-execution-in-endpoint-logs"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1218.011",
+    "@type": "Technique",
+    "name": "Rundll32",
+    "framework": "mitre-attack",
+    "framework_id": "T1218.011",
+    "tactic": "TA0004",
+    "skills": [
+      "skill:hunting-for-living-off-the-land-binaries",
+      "skill:hunting-for-lolbins-execution-in-endpoint-logs",
+      "skill:performing-dynamic-analysis-with-any-run"
+    ],
+    "score": 12
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1222.001",
+    "@type": "Technique",
+    "name": "Windows",
+    "framework": "mitre-attack",
+    "framework_id": "T1222.001",
+    "tactic": "",
+    "skills": [
+      "skill:conducting-domain-persistence-with-dcsync"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1482",
+    "@type": "Technique",
+    "name": "Domain Trust Discovery",
+    "framework": "mitre-attack",
+    "framework_id": "T1482",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:conducting-internal-reconnaissance-with-bloodhound-ce",
+      "skill:exploiting-active-directory-with-bloodhound",
+      "skill:performing-active-directory-bloodhound-analysis"
+    ],
+    "score": 12
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1484",
+    "@type": "Technique",
+    "name": "Domain Policy Modification",
+    "framework": "mitre-attack",
+    "framework_id": "T1484",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:exploiting-active-directory-certificate-services-esc1",
+      "skill:performing-active-directory-vulnerability-assessment"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1484.001",
+    "@type": "Technique",
+    "name": "Group Policy Modification",
+    "framework": "mitre-attack",
+    "framework_id": "T1484.001",
+    "tactic": "TA0003",
+    "skills": [
+      "skill:performing-active-directory-compromise-investigation"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1485",
+    "@type": "Technique",
+    "name": "Data Destruction",
+    "framework": "mitre-attack",
+    "framework_id": "T1485",
+    "tactic": "TA0040",
+    "skills": [
+      "skill:hunting-for-shadow-copy-deletion"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1486",
+    "@type": "Technique",
+    "name": "Data Encrypted for Impact",
+    "framework": "mitre-attack",
+    "framework_id": "T1486",
+    "tactic": "TA0040",
+    "skills": [
+      "skill:conducting-full-scope-red-team-engagement",
+      "skill:hunting-for-shadow-copy-deletion",
+      "skill:implementing-honeypot-for-ransomware-detection",
+      "skill:implementing-mitre-attack-coverage-mapping"
+    ],
+    "score": 23
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1489",
+    "@type": "Technique",
+    "name": "Service Stop",
+    "framework": "mitre-attack",
+    "framework_id": "T1489",
+    "tactic": "TA0040",
+    "skills": [
+      "skill:conducting-full-scope-red-team-engagement"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1490",
+    "@type": "Technique",
+    "name": "Inhibit System Recovery",
+    "framework": "mitre-attack",
+    "framework_id": "T1490",
+    "tactic": "TA0040",
+    "skills": [
+      "skill:building-soc-playbook-for-ransomware",
+      "skill:hunting-for-shadow-copy-deletion",
+      "skill:performing-purple-team-exercise"
+    ],
+    "score": 12
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1497",
+    "@type": "Technique",
+    "name": "Virtualization/Sandbox Evasion",
+    "framework": "mitre-attack",
+    "framework_id": "T1497",
+    "tactic": "TA0040",
+    "skills": [
+      "skill:analyzing-malware-sandbox-evasion-techniques"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1505.003",
+    "@type": "Technique",
+    "name": "Web Shell",
+    "framework": "mitre-attack",
+    "framework_id": "T1505.003",
+    "tactic": "",
+    "skills": [
+      "skill:building-attack-pattern-library-from-cti-reports",
+      "skill:hunting-for-webshell-activity"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1528",
+    "@type": "Technique",
+    "name": "Steal Application Access Token",
+    "framework": "mitre-attack",
+    "framework_id": "T1528",
+    "tactic": "TA0006",
+    "skills": [
+      "skill:detecting-azure-service-principal-abuse"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1530",
+    "@type": "Technique",
+    "name": "Data from Cloud Storage Object",
+    "framework": "mitre-attack",
+    "framework_id": "T1530",
+    "tactic": "TA0006",
+    "skills": [
+      "skill:detecting-insider-threat-behaviors",
+      "skill:implementing-mitre-attack-coverage-mapping",
+      "skill:performing-cloud-incident-containment-procedures"
+    ],
+    "score": 12
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1534",
+    "@type": "Technique",
+    "name": "Internal Spearphishing",
+    "framework": "mitre-attack",
+    "framework_id": "T1534",
+    "tactic": "TA0006",
+    "skills": [
+      "skill:implementing-mitre-attack-coverage-mapping"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1537",
+    "@type": "Technique",
+    "name": "Transfer Data to Cloud Account",
+    "framework": "mitre-attack",
+    "framework_id": "T1537",
+    "tactic": "TA0006",
+    "skills": [
+      "skill:hunting-for-data-exfiltration-indicators",
+      "skill:hunting-for-living-off-the-cloud-techniques",
+      "skill:implementing-mitre-attack-coverage-mapping",
+      "skill:implementing-threat-modeling-with-mitre-attack",
+      "skill:performing-cloud-incident-containment-procedures"
+    ],
+    "score": 19
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1539",
+    "@type": "Technique",
+    "name": "Steal Web Session Cookie",
+    "framework": "mitre-attack",
+    "framework_id": "T1539",
+    "tactic": "TA0006",
+    "skills": [
+      "skill:performing-credential-access-with-lazagne",
+      "skill:performing-initial-access-with-evilginx3"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1543",
+    "@type": "Technique",
+    "name": "Create or Modify System Process",
+    "framework": "mitre-attack",
+    "framework_id": "T1543",
+    "tactic": "TA0003",
+    "skills": [
+      "skill:analyzing-persistence-mechanisms-in-linux",
+      "skill:hunting-for-persistence-mechanisms-in-windows"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1543.002",
+    "@type": "Technique",
+    "name": "Systemd Service",
+    "framework": "mitre-attack",
+    "framework_id": "T1543.002",
+    "tactic": "TA0003",
+    "skills": [
+      "skill:performing-privilege-escalation-on-linux"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1543.003",
+    "@type": "Technique",
+    "name": "Windows Service",
+    "framework": "mitre-attack",
+    "framework_id": "T1543.003",
+    "tactic": "TA0003",
+    "skills": [
+      "skill:hunting-for-persistence-mechanisms-in-windows",
+      "skill:hunting-for-unusual-service-installations",
+      "skill:implementing-mitre-attack-coverage-mapping"
+    ],
+    "score": 12
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1546",
+    "@type": "Technique",
+    "name": "Event Triggered Execution",
+    "framework": "mitre-attack",
+    "framework_id": "T1546",
+    "tactic": "TA0003",
+    "skills": [
+      "skill:analyzing-persistence-mechanisms-in-linux"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1546.003",
+    "@type": "Technique",
+    "name": "WMI Event Subscription",
+    "framework": "mitre-attack",
+    "framework_id": "T1546.003",
+    "tactic": "TA0003",
+    "skills": [
+      "skill:analyzing-windows-event-logs-in-splunk",
+      "skill:detecting-fileless-malware-techniques",
+      "skill:detecting-wmi-persistence",
+      "skill:hunting-for-persistence-mechanisms-in-windows",
+      "skill:hunting-for-persistence-via-wmi-subscriptions"
+    ],
+    "score": 19
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1546.010",
+    "@type": "Technique",
+    "name": "AppInit DLLs",
+    "framework": "mitre-attack",
+    "framework_id": "T1546.010",
+    "tactic": "TA0003",
+    "skills": [
+      "skill:hunting-for-persistence-mechanisms-in-windows"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1546.012",
+    "@type": "Technique",
+    "name": "IFEO Injection",
+    "framework": "mitre-attack",
+    "framework_id": "T1546.012",
+    "tactic": "TA0003",
+    "skills": [
+      "skill:hunting-for-persistence-mechanisms-in-windows",
+      "skill:hunting-for-registry-persistence-mechanisms"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1546.015",
+    "@type": "Technique",
+    "name": "COM Hijacking",
+    "framework": "mitre-attack",
+    "framework_id": "T1546.015",
+    "tactic": "TA0003",
+    "skills": [
+      "skill:hunting-for-persistence-mechanisms-in-windows",
+      "skill:hunting-for-registry-persistence-mechanisms"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1547",
+    "@type": "Technique",
+    "name": "Boot or Logon Autostart Execution",
+    "framework": "mitre-attack",
+    "framework_id": "T1547",
+    "tactic": "TA0040",
+    "skills": [
+      "skill:analyzing-apt-group-with-mitre-navigator",
+      "skill:analyzing-malware-persistence-with-autoruns",
+      "skill:hunting-advanced-persistent-threats",
+      "skill:hunting-for-persistence-mechanisms-in-windows"
+    ],
+    "score": 23
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1547.001",
+    "@type": "Technique",
+    "name": "Registry Run Keys / Startup Folder",
+    "framework": "mitre-attack",
+    "framework_id": "T1547.001",
+    "tactic": "TA0004",
+    "skills": [
+      "skill:analyzing-apt-group-with-mitre-navigator",
+      "skill:analyzing-windows-event-logs-in-splunk",
+      "skill:building-attack-pattern-library-from-cti-reports",
+      "skill:conducting-full-scope-red-team-engagement"
+    ],
+    "score": 50
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1547.004",
+    "@type": "Technique",
+    "name": "Winlogon Helper DLL",
+    "framework": "mitre-attack",
+    "framework_id": "T1547.004",
+    "tactic": "TA0003",
+    "skills": [
+      "skill:hunting-for-persistence-mechanisms-in-windows",
+      "skill:hunting-for-registry-persistence-mechanisms"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1547.005",
+    "@type": "Technique",
+    "name": "Security Support Provider",
+    "framework": "mitre-attack",
+    "framework_id": "T1547.005",
+    "tactic": "TA0003",
+    "skills": [
+      "skill:hunting-for-persistence-mechanisms-in-windows"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1548",
+    "@type": "Technique",
+    "name": "Abuse Elevation Control Mechanism",
+    "framework": "mitre-attack",
+    "framework_id": "T1548",
+    "tactic": "TA0003",
+    "skills": [
+      "skill:detecting-container-escape-attempts",
+      "skill:detecting-privilege-escalation-in-kubernetes-pods",
+      "skill:detecting-t1548-abuse-elevation-control-mechanism",
+      "skill:performing-privilege-escalation-assessment"
+    ],
+    "score": 15
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1548.001",
+    "@type": "Technique",
+    "name": "Setuid and Setgid",
+    "framework": "mitre-attack",
+    "framework_id": "T1548.001",
+    "tactic": "TA0004",
+    "skills": [
+      "skill:detecting-privilege-escalation-in-kubernetes-pods",
+      "skill:detecting-t1548-abuse-elevation-control-mechanism",
+      "skill:performing-privilege-escalation-on-linux"
+    ],
+    "score": 12
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1548.002",
+    "@type": "Technique",
+    "name": "Bypass User Account Control",
+    "framework": "mitre-attack",
+    "framework_id": "T1548.002",
+    "tactic": "TA0004",
+    "skills": [
+      "skill:conducting-full-scope-red-team-engagement",
+      "skill:detecting-privilege-escalation-attempts",
+      "skill:detecting-t1548-abuse-elevation-control-mechanism"
+    ],
+    "score": 12
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1548.003",
+    "@type": "Technique",
+    "name": "Sudo and Sudo Caching",
+    "framework": "mitre-attack",
+    "framework_id": "T1548.003",
+    "tactic": "TA0004",
+    "skills": [
+      "skill:detecting-t1548-abuse-elevation-control-mechanism",
+      "skill:performing-privilege-escalation-assessment",
+      "skill:performing-privilege-escalation-on-linux"
+    ],
+    "score": 12
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1548.004",
+    "@type": "Technique",
+    "name": "Elevated Execution with Prompt",
+    "framework": "mitre-attack",
+    "framework_id": "T1548.004",
+    "tactic": "TA0004",
+    "skills": [
+      "skill:detecting-t1548-abuse-elevation-control-mechanism"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1550",
+    "@type": "Technique",
+    "name": "Use Alternate Authentication Material",
+    "framework": "mitre-attack",
+    "framework_id": "T1550",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:performing-lateral-movement-detection"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1550.002",
+    "@type": "Technique",
+    "name": "Pass the Hash",
+    "framework": "mitre-attack",
+    "framework_id": "T1550.002",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:analyzing-windows-event-logs-in-splunk",
+      "skill:building-attack-pattern-library-from-cti-reports",
+      "skill:conducting-full-scope-red-team-engagement",
+      "skill:detecting-lateral-movement-in-network"
+    ],
+    "score": 35
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1550.003",
+    "@type": "Technique",
+    "name": "Pass the Ticket",
+    "framework": "mitre-attack",
+    "framework_id": "T1550.003",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:conducting-pass-the-ticket-attack",
+      "skill:detecting-pass-the-hash-attacks",
+      "skill:detecting-pass-the-ticket-attacks",
+      "skill:exploiting-constrained-delegation-abuse"
+    ],
+    "score": 15
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1550.004",
+    "@type": "Technique",
+    "name": "Web Session Cookie",
+    "framework": "mitre-attack",
+    "framework_id": "T1550.004",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:performing-initial-access-with-evilginx3"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1552",
+    "@type": "Technique",
+    "name": "Unsecured Credentials",
+    "framework": "mitre-attack",
+    "framework_id": "T1552",
+    "tactic": "TA0008",
+    "skills": [
+      "skill:performing-cloud-incident-containment-procedures"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1552.001",
+    "@type": "Technique",
+    "name": "Credentials In Files",
+    "framework": "mitre-attack",
+    "framework_id": "T1552.001",
+    "tactic": "TA0006",
+    "skills": [
+      "skill:performing-credential-access-with-lazagne"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1552.002",
+    "@type": "Technique",
+    "name": "Credentials in Registry",
+    "framework": "mitre-attack",
+    "framework_id": "T1552.002",
+    "tactic": "TA0006",
+    "skills": [
+      "skill:performing-credential-access-with-lazagne"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1552.005",
+    "@type": "Technique",
+    "name": "Cloud Instance Metadata API",
+    "framework": "mitre-attack",
+    "framework_id": "T1552.005",
+    "tactic": "TA0006",
+    "skills": [
+      "skill:conducting-cloud-penetration-testing"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1555",
+    "@type": "Technique",
+    "name": "Credentials from Password Stores",
+    "framework": "mitre-attack",
+    "framework_id": "T1555",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:performing-credential-access-with-lazagne"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1555.003",
+    "@type": "Technique",
+    "name": "Web Browsers",
+    "framework": "mitre-attack",
+    "framework_id": "T1555.003",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:performing-credential-access-with-lazagne"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1555.004",
+    "@type": "Technique",
+    "name": "Windows Credential Manager",
+    "framework": "mitre-attack",
+    "framework_id": "T1555.004",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:performing-credential-access-with-lazagne"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1556",
+    "@type": "Technique",
+    "name": "Modify Authentication Process",
+    "framework": "mitre-attack",
+    "framework_id": "T1556",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:performing-initial-access-with-evilginx3"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1557",
+    "@type": "Technique",
+    "name": "Adversary-in-the-Middle",
+    "framework": "mitre-attack",
+    "framework_id": "T1557",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:performing-initial-access-with-evilginx3"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1557.001",
+    "@type": "Technique",
+    "name": "LLMNR/NBT-NS Poisoning",
+    "framework": "mitre-attack",
+    "framework_id": "T1557.001",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:conducting-internal-network-penetration-test",
+      "skill:hunting-for-ntlm-relay-attacks"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1558",
+    "@type": "Technique",
+    "name": "Steal or Forge Kerberos Tickets",
+    "framework": "mitre-attack",
+    "framework_id": "T1558",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:analyzing-windows-event-logs-in-splunk",
+      "skill:conducting-pass-the-ticket-attack",
+      "skill:exploiting-kerberoasting-with-impacket",
+      "skill:exploiting-nopac-cve-2021-42278-42287",
+      "skill:performing-lateral-movement-detection"
+    ],
+    "score": 19
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1558.001",
+    "@type": "Technique",
+    "name": "Golden Ticket",
+    "framework": "mitre-attack",
+    "framework_id": "T1558.001",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:analyzing-windows-event-logs-in-splunk",
+      "skill:conducting-domain-persistence-with-dcsync",
+      "skill:detecting-golden-ticket-forgery",
+      "skill:detecting-kerberoasting-attacks"
+    ],
+    "score": 27
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1558.002",
+    "@type": "Technique",
+    "name": "Silver Ticket",
+    "framework": "mitre-attack",
+    "framework_id": "T1558.002",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:performing-active-directory-compromise-investigation"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1558.003",
+    "@type": "Technique",
+    "name": "Kerberoasting",
+    "framework": "mitre-attack",
+    "framework_id": "T1558.003",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:analyzing-windows-event-logs-in-splunk",
+      "skill:building-attack-pattern-library-from-cti-reports",
+      "skill:conducting-full-scope-red-team-engagement",
+      "skill:conducting-internal-network-penetration-test"
+    ],
+    "score": 54
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1558.004",
+    "@type": "Technique",
+    "name": "AS-REP Roasting",
+    "framework": "mitre-attack",
+    "framework_id": "T1558.004",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:detecting-kerberoasting-attacks"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1560",
+    "@type": "Technique",
+    "name": "Archive Collected Data",
+    "framework": "mitre-attack",
+    "framework_id": "T1560",
+    "tactic": "TA0009",
+    "skills": [
+      "skill:conducting-full-scope-red-team-engagement",
+      "skill:hunting-for-data-staging-before-exfiltration"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1562",
+    "@type": "Technique",
+    "name": "Impair Defenses",
+    "framework": "mitre-attack",
+    "framework_id": "T1562",
+    "tactic": "TA0040",
+    "skills": [
+      "skill:detecting-evasion-techniques-in-endpoint-logs"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1562.001",
+    "@type": "Technique",
+    "name": "Disable or Modify Tools",
+    "framework": "mitre-attack",
+    "framework_id": "T1562.001",
+    "tactic": "TA0005",
+    "skills": [
+      "skill:detecting-suspicious-powershell-execution"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1566",
+    "@type": "Technique",
+    "name": "Phishing",
+    "framework": "mitre-attack",
+    "framework_id": "T1566",
+    "tactic": "TA0003",
+    "skills": [
+      "skill:analyzing-apt-group-with-mitre-navigator",
+      "skill:analyzing-threat-actor-ttps-with-mitre-attack",
+      "skill:analyzing-threat-landscape-with-misp",
+      "skill:building-attack-pattern-library-from-cti-reports"
+    ],
+    "score": 23
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1566.001",
+    "@type": "Technique",
+    "name": "Spearphishing Attachment",
+    "framework": "mitre-attack",
+    "framework_id": "T1566.001",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:analyzing-apt-group-with-mitre-navigator",
+      "skill:analyzing-macro-malware-in-office-documents",
+      "skill:analyzing-threat-actor-ttps-with-mitre-navigator",
+      "skill:building-attack-pattern-library-from-cti-reports"
+    ],
+    "score": 58
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1566.002",
+    "@type": "Technique",
+    "name": "Spearphishing Link",
+    "framework": "mitre-attack",
+    "framework_id": "T1566.002",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:building-attack-pattern-library-from-cti-reports",
+      "skill:conducting-spearphishing-simulation-campaign",
+      "skill:hunting-for-spearphishing-indicators",
+      "skill:implementing-continuous-security-validation-with-bas"
+    ],
+    "score": 23
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1566.003",
+    "@type": "Technique",
+    "name": "Spearphishing via Service",
+    "framework": "mitre-attack",
+    "framework_id": "T1566.003",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:conducting-spearphishing-simulation-campaign",
+      "skill:hunting-for-spearphishing-indicators",
+      "skill:implementing-continuous-security-validation-with-bas"
+    ],
+    "score": 12
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1566.004",
+    "@type": "Technique",
+    "name": "Spearphishing Voice",
+    "framework": "mitre-attack",
+    "framework_id": "T1566.004",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:conducting-social-engineering-pretext-call"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1567",
+    "@type": "Technique",
+    "name": "Exfiltration Over Web Service",
+    "framework": "mitre-attack",
+    "framework_id": "T1567",
+    "tactic": "TA0012",
+    "skills": [
+      "skill:detecting-insider-threat-behaviors",
+      "skill:hunting-for-data-exfiltration-indicators",
+      "skill:hunting-for-living-off-the-cloud-techniques",
+      "skill:implementing-continuous-security-validation-with-bas"
+    ],
+    "score": 15
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1567.002",
+    "@type": "Technique",
+    "name": "Exfiltration to Cloud Storage",
+    "framework": "mitre-attack",
+    "framework_id": "T1567.002",
+    "tactic": "TA0012",
+    "skills": [
+      "skill:hunting-for-data-exfiltration-indicators"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1568",
+    "@type": "Technique",
+    "name": "Dynamic Resolution",
+    "framework": "mitre-attack",
+    "framework_id": "T1568",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:hunting-for-command-and-control-beaconing",
+      "skill:implementing-mitre-attack-coverage-mapping"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1568.002",
+    "@type": "Technique",
+    "name": "Domain Generation Algorithms",
+    "framework": "mitre-attack",
+    "framework_id": "T1568.002",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:hunting-for-beaconing-with-frequency-analysis"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1569.002",
+    "@type": "Technique",
+    "name": "Service Execution",
+    "framework": "mitre-attack",
+    "framework_id": "T1569.002",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:detecting-lateral-movement-in-network",
+      "skill:detecting-lateral-movement-with-splunk",
+      "skill:exploiting-ms17-010-eternalblue-vulnerability"
+    ],
+    "score": 12
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1570",
+    "@type": "Technique",
+    "name": "Lateral Tool Transfer",
+    "framework": "mitre-attack",
+    "framework_id": "T1570",
+    "tactic": "TA0012",
+    "skills": [
+      "skill:detecting-lateral-movement-in-network",
+      "skill:detecting-lateral-movement-with-splunk",
+      "skill:performing-lateral-movement-with-wmiexec"
+    ],
+    "score": 12
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1571",
+    "@type": "Technique",
+    "name": "Non-Standard Port",
+    "framework": "mitre-attack",
+    "framework_id": "T1571",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:hunting-for-unusual-network-connections",
+      "skill:implementing-mitre-attack-coverage-mapping"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1572",
+    "@type": "Technique",
+    "name": "Protocol Tunneling",
+    "framework": "mitre-attack",
+    "framework_id": "T1572",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:building-c2-infrastructure-with-sliver-framework",
+      "skill:hunting-for-command-and-control-beaconing",
+      "skill:hunting-for-dns-tunneling-with-zeek",
+      "skill:implementing-mitre-attack-coverage-mapping"
+    ],
+    "score": 15
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1573",
+    "@type": "Technique",
+    "name": "Encrypted Channel",
+    "framework": "mitre-attack",
+    "framework_id": "T1573",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:analyzing-ransomware-network-indicators",
+      "skill:hunting-for-beaconing-with-frequency-analysis",
+      "skill:hunting-for-command-and-control-beaconing",
+      "skill:implementing-mitre-attack-coverage-mapping"
+    ],
+    "score": 15
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1573.002",
+    "@type": "Technique",
+    "name": "Asymmetric Cryptography",
+    "framework": "mitre-attack",
+    "framework_id": "T1573.002",
+    "tactic": "TA0011",
+    "skills": [
+      "skill:building-c2-infrastructure-with-sliver-framework",
+      "skill:building-red-team-c2-infrastructure-with-havoc"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1574",
+    "@type": "Technique",
+    "name": "Hijack Execution Flow",
+    "framework": "mitre-attack",
+    "framework_id": "T1574",
+    "tactic": "TA0003",
+    "skills": [
+      "skill:analyzing-persistence-mechanisms-in-linux"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1574.001",
+    "@type": "Technique",
+    "name": "DLL Search Order Hijacking",
+    "framework": "mitre-attack",
+    "framework_id": "T1574.001",
+    "tactic": "TA0003",
+    "skills": [
+      "skill:detecting-dll-sideloading-attacks",
+      "skill:hunting-for-persistence-mechanisms-in-windows"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1574.002",
+    "@type": "Technique",
+    "name": "DLL Side-Loading",
+    "framework": "mitre-attack",
+    "framework_id": "T1574.002",
+    "tactic": "TA0005",
+    "skills": [
+      "skill:analyzing-windows-event-logs-in-splunk",
+      "skill:building-attack-pattern-library-from-cti-reports",
+      "skill:detecting-dll-sideloading-attacks",
+      "skill:implementing-siem-use-cases-for-detection"
+    ],
+    "score": 15
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1574.006",
+    "@type": "Technique",
+    "name": "Dynamic Linker Hijacking",
+    "framework": "mitre-attack",
+    "framework_id": "T1574.006",
+    "tactic": "TA0003",
+    "skills": [
+      "skill:detecting-dll-sideloading-attacks",
+      "skill:performing-privilege-escalation-on-linux"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1574.008",
+    "@type": "Technique",
+    "name": "Path Interception by Search Order Hijacking",
+    "framework": "mitre-attack",
+    "framework_id": "T1574.008",
+    "tactic": "TA0003",
+    "skills": [
+      "skill:detecting-dll-sideloading-attacks"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1574.009",
+    "@type": "Technique",
+    "name": "Unquoted Service Path",
+    "framework": "mitre-attack",
+    "framework_id": "T1574.009",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:detecting-privilege-escalation-attempts"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1578",
+    "@type": "Technique",
+    "name": "Modify Cloud Compute Infrastructure",
+    "framework": "mitre-attack",
+    "framework_id": "T1578",
+    "tactic": "TA0003",
+    "skills": [
+      "skill:performing-cloud-incident-containment-procedures"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1580",
+    "@type": "Technique",
+    "name": "Cloud Infrastructure Discovery",
+    "framework": "mitre-attack",
+    "framework_id": "T1580",
+    "tactic": "TA0011",
+    "skills": [
+      "skill:implementing-mitre-attack-coverage-mapping"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1583.001",
+    "@type": "Technique",
+    "name": "Domains",
+    "framework": "mitre-attack",
+    "framework_id": "T1583.001",
+    "tactic": "TA0011",
+    "skills": [
+      "skill:building-red-team-c2-infrastructure-with-havoc",
+      "skill:conducting-full-scope-red-team-engagement",
+      "skill:conducting-spearphishing-simulation-campaign",
+      "skill:implementing-mitre-attack-coverage-mapping"
+    ],
+    "score": 15
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1583.003",
+    "@type": "Technique",
+    "name": "Virtual Private Server",
+    "framework": "mitre-attack",
+    "framework_id": "T1583.003",
+    "tactic": "TA0011",
+    "skills": [
+      "skill:building-red-team-c2-infrastructure-with-havoc"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1585.002",
+    "@type": "Technique",
+    "name": "Email Accounts",
+    "framework": "mitre-attack",
+    "framework_id": "T1585.002",
+    "tactic": "TA0011",
+    "skills": [
+      "skill:conducting-spearphishing-simulation-campaign"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1587.001",
+    "@type": "Technique",
+    "name": "Malware",
+    "framework": "mitre-attack",
+    "framework_id": "T1587.001",
+    "tactic": "TA0011",
+    "skills": [
+      "skill:building-red-team-c2-infrastructure-with-havoc",
+      "skill:conducting-full-scope-red-team-engagement"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1589",
+    "@type": "Technique",
+    "name": "Gather Victim Identity Information",
+    "framework": "mitre-attack",
+    "framework_id": "T1589",
+    "tactic": "TA0043",
+    "skills": [
+      "skill:conducting-full-scope-red-team-engagement",
+      "skill:conducting-social-engineering-pretext-call",
+      "skill:performing-open-source-intelligence-gathering"
+    ],
+    "score": 12
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1590",
+    "@type": "Technique",
+    "name": "Gather Victim Network Information",
+    "framework": "mitre-attack",
+    "framework_id": "T1590",
+    "tactic": "TA0043",
+    "skills": [
+      "skill:performing-open-source-intelligence-gathering"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1591",
+    "@type": "Technique",
+    "name": "Gather Victim Org Information",
+    "framework": "mitre-attack",
+    "framework_id": "T1591",
+    "tactic": "TA0043",
+    "skills": [
+      "skill:collecting-open-source-intelligence",
+      "skill:conducting-social-engineering-pretext-call",
+      "skill:performing-open-source-intelligence-gathering"
+    ],
+    "score": 12
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1592",
+    "@type": "Technique",
+    "name": "Gather Victim Host Information",
+    "framework": "mitre-attack",
+    "framework_id": "T1592",
+    "tactic": "TA0043",
+    "skills": [
+      "skill:performing-open-source-intelligence-gathering"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1593",
+    "@type": "Technique",
+    "name": "Search Open Websites/Domains",
+    "framework": "mitre-attack",
+    "framework_id": "T1593",
+    "tactic": "TA0043",
+    "skills": [
+      "skill:conducting-full-scope-red-team-engagement",
+      "skill:performing-open-source-intelligence-gathering"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1594",
+    "@type": "Technique",
+    "name": "Search Victim-Owned Websites",
+    "framework": "mitre-attack",
+    "framework_id": "T1594",
+    "tactic": "TA0043",
+    "skills": [
+      "skill:performing-open-source-intelligence-gathering"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1595.001",
+    "@type": "Technique",
+    "name": "Scanning IP Blocks",
+    "framework": "mitre-attack",
+    "framework_id": "T1595.001",
+    "tactic": "TA0043",
+    "skills": [
+      "skill:performing-open-source-intelligence-gathering"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1595.002",
+    "@type": "Technique",
+    "name": "Vulnerability Scanning",
+    "framework": "mitre-attack",
+    "framework_id": "T1595.002",
+    "tactic": "TA0043",
+    "skills": [
+      "skill:performing-open-source-intelligence-gathering"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1596",
+    "@type": "Technique",
+    "name": "Search Open Technical Databases",
+    "framework": "mitre-attack",
+    "framework_id": "T1596",
+    "tactic": "TA0043",
+    "skills": [
+      "skill:performing-open-source-intelligence-gathering"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1598",
+    "@type": "Technique",
+    "name": "Phishing for Information",
+    "framework": "mitre-attack",
+    "framework_id": "T1598",
+    "tactic": "TA0043",
+    "skills": [
+      "skill:conducting-social-engineering-pretext-call"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1598.003",
+    "@type": "Technique",
+    "name": "Spearphishing Link/Voice",
+    "framework": "mitre-attack",
+    "framework_id": "T1598.003",
+    "tactic": "TA0043",
+    "skills": [
+      "skill:conducting-social-engineering-pretext-call",
+      "skill:conducting-spearphishing-simulation-campaign"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1608.001",
+    "@type": "Technique",
+    "name": "Upload Malware",
+    "framework": "mitre-attack",
+    "framework_id": "T1608.001",
+    "tactic": "TA0002",
+    "skills": [
+      "skill:conducting-spearphishing-simulation-campaign"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1608.005",
+    "@type": "Technique",
+    "name": "Link Target",
+    "framework": "mitre-attack",
+    "framework_id": "T1608.005",
+    "tactic": "TA0002",
+    "skills": [
+      "skill:conducting-spearphishing-simulation-campaign"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1610",
+    "@type": "Technique",
+    "name": "Deploy Container",
+    "framework": "mitre-attack",
+    "framework_id": "T1610",
+    "tactic": "TA0002",
+    "skills": [
+      "skill:detecting-container-escape-attempts",
+      "skill:detecting-container-escape-with-falco-rules"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1611",
+    "@type": "Technique",
+    "name": "Escape to Host",
+    "framework": "mitre-attack",
+    "framework_id": "T1611",
+    "tactic": "TA0002",
+    "skills": [
+      "skill:detecting-container-escape-attempts",
+      "skill:detecting-container-escape-with-falco-rules"
+    ],
+    "score": 8
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1615",
+    "@type": "Technique",
+    "name": "Group Policy Discovery",
+    "framework": "mitre-attack",
+    "framework_id": "T1615",
+    "tactic": "TA0002",
+    "skills": [
+      "skill:conducting-internal-reconnaissance-with-bloodhound-ce",
+      "skill:exploiting-active-directory-with-bloodhound",
+      "skill:performing-active-directory-bloodhound-analysis"
+    ],
+    "score": 12
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1649",
+    "@type": "Technique",
+    "name": "Steal or Forge Authentication Certificates",
+    "framework": "mitre-attack",
+    "framework_id": "T1649",
+    "tactic": "",
+    "skills": [
+      "skill:exploiting-active-directory-certificate-services-esc1"
+    ],
+    "score": 4
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1006",
+    "@type": "Technique",
+    "name": "T1006",
+    "framework": "mitre-attack",
+    "framework_id": "T1006",
+    "tactic": "TA0006",
+    "skills": [
+      "skill:acquiring-disk-image-with-dd-and-dcfldd"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1025",
+    "@type": "Technique",
+    "name": "T1025",
+    "framework": "mitre-attack",
+    "framework_id": "T1025",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:acquiring-disk-image-with-dd-and-dcfldd"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1098.007",
+    "@type": "Technique",
+    "name": "T1098.007",
+    "framework": "mitre-attack",
+    "framework_id": "T1098.007",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:analyzing-active-directory-acl-abuse"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1406",
+    "@type": "Technique",
+    "name": "T1406",
+    "framework": "mitre-attack",
+    "framework_id": "T1406",
+    "tactic": "",
+    "skills": [
+      "skill:analyzing-android-malware-with-apktool"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1407",
+    "@type": "Technique",
+    "name": "T1407",
+    "framework": "mitre-attack",
+    "framework_id": "T1407",
+    "tactic": "",
+    "skills": [
+      "skill:analyzing-android-malware-with-apktool"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1626.001",
+    "@type": "Technique",
+    "name": "T1626.001",
+    "framework": "mitre-attack",
+    "framework_id": "T1626.001",
+    "tactic": "",
+    "skills": [
+      "skill:analyzing-android-malware-with-apktool"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1655.001",
+    "@type": "Technique",
+    "name": "T1655.001",
+    "framework": "mitre-attack",
+    "framework_id": "T1655.001",
+    "tactic": "",
+    "skills": [
+      "skill:analyzing-android-malware-with-apktool"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1521.001",
+    "@type": "Technique",
+    "name": "T1521.001",
+    "framework": "mitre-attack",
+    "framework_id": "T1521.001",
+    "tactic": "TA0006",
+    "skills": [
+      "skill:analyzing-android-malware-with-apktool"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1110.004",
+    "@type": "Technique",
+    "name": "T1110.004",
+    "framework": "mitre-attack",
+    "framework_id": "T1110.004",
+    "tactic": "TA0006",
+    "skills": [
+      "skill:analyzing-api-gateway-access-logs"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1119",
+    "@type": "Technique",
+    "name": "T1119",
+    "framework": "mitre-attack",
+    "framework_id": "T1119",
+    "tactic": "TA0002",
+    "skills": [
+      "skill:analyzing-api-gateway-access-logs"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1098.003",
+    "@type": "Technique",
+    "name": "T1098.003",
+    "framework": "mitre-attack",
+    "framework_id": "T1098.003",
+    "tactic": "TA0003",
+    "skills": [
+      "skill:analyzing-azure-activity-logs-for-threats"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1538",
+    "@type": "Technique",
+    "name": "T1538",
+    "framework": "mitre-attack",
+    "framework_id": "T1538",
+    "tactic": "TA0006",
+    "skills": [
+      "skill:analyzing-azure-activity-logs-for-threats"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1556.009",
+    "@type": "Technique",
+    "name": "T1556.009",
+    "framework": "mitre-attack",
+    "framework_id": "T1556.009",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:analyzing-azure-activity-logs-for-threats"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1542.003",
+    "@type": "Technique",
+    "name": "T1542.003",
+    "framework": "mitre-attack",
+    "framework_id": "T1542.003",
+    "tactic": "TA0003",
+    "skills": [
+      "skill:analyzing-bootkit-and-rootkit-samples"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1542.001",
+    "@type": "Technique",
+    "name": "T1542.001",
+    "framework": "mitre-attack",
+    "framework_id": "T1542.001",
+    "tactic": "TA0003",
+    "skills": [
+      "skill:analyzing-bootkit-and-rootkit-samples"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1542.002",
+    "@type": "Technique",
+    "name": "T1542.002",
+    "framework": "mitre-attack",
+    "framework_id": "T1542.002",
+    "tactic": "TA0003",
+    "skills": [
+      "skill:analyzing-bootkit-and-rootkit-samples"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1014",
+    "@type": "Technique",
+    "name": "T1014",
+    "framework": "mitre-attack",
+    "framework_id": "T1014",
+    "tactic": "TA0004",
+    "skills": [
+      "skill:analyzing-bootkit-and-rootkit-samples"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1547.006",
+    "@type": "Technique",
+    "name": "T1547.006",
+    "framework": "mitre-attack",
+    "framework_id": "T1547.006",
+    "tactic": "TA0003",
+    "skills": [
+      "skill:analyzing-bootkit-and-rootkit-samples"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1217",
+    "@type": "Technique",
+    "name": "T1217",
+    "framework": "mitre-attack",
+    "framework_id": "T1217",
+    "tactic": "TA0007",
+    "skills": [
+      "skill:analyzing-browser-forensics-with-hindsight"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1185",
+    "@type": "Technique",
+    "name": "T1185",
+    "framework": "mitre-attack",
+    "framework_id": "T1185",
+    "tactic": "",
+    "skills": [
+      "skill:analyzing-browser-forensics-with-hindsight"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1588.002",
+    "@type": "Technique",
+    "name": "T1588.002",
+    "framework": "mitre-attack",
+    "framework_id": "T1588.002",
+    "tactic": "TA0011",
+    "skills": [
+      "skill:analyzing-campaign-attribution-evidence"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1583.004",
+    "@type": "Technique",
+    "name": "T1583.004",
+    "framework": "mitre-attack",
+    "framework_id": "T1583.004",
+    "tactic": "TA0011",
+    "skills": [
+      "skill:analyzing-certificate-transparency-for-phishing"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1596.003",
+    "@type": "Technique",
+    "name": "T1596.003",
+    "framework": "mitre-attack",
+    "framework_id": "T1596.003",
+    "tactic": "TA0043",
+    "skills": [
+      "skill:analyzing-certificate-transparency-for-phishing"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1619",
+    "@type": "Technique",
+    "name": "T1619",
+    "framework": "mitre-attack",
+    "framework_id": "T1619",
+    "tactic": "TA0002",
+    "skills": [
+      "skill:analyzing-cloud-storage-access-patterns"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1573.001",
+    "@type": "Technique",
+    "name": "T1573.001",
+    "framework": "mitre-attack",
+    "framework_id": "T1573.001",
+    "tactic": "TA0011",
+    "skills": [
+      "skill:analyzing-cobalt-strike-beacon-configuration"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1001.003",
+    "@type": "Technique",
+    "name": "T1001.003",
+    "framework": "mitre-attack",
+    "framework_id": "T1001.003",
+    "tactic": "TA0006",
+    "skills": [
+      "skill:analyzing-cobaltstrike-malleable-c2-profiles"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1008",
+    "@type": "Technique",
+    "name": "T1008",
+    "framework": "mitre-attack",
+    "framework_id": "T1008",
+    "tactic": "TA0006",
+    "skills": [
+      "skill:analyzing-command-and-control-communication"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1083",
+    "@type": "Technique",
+    "name": "T1083",
+    "framework": "mitre-attack",
+    "framework_id": "T1083",
+    "tactic": "TA0007",
+    "skills": [
+      "skill:analyzing-disk-image-with-autopsy"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1613",
+    "@type": "Technique",
+    "name": "T1613",
+    "framework": "mitre-attack",
+    "framework_id": "T1613",
+    "tactic": "TA0002",
+    "skills": [
+      "skill:analyzing-docker-container-forensics"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1612",
+    "@type": "Technique",
+    "name": "T1612",
+    "framework": "mitre-attack",
+    "framework_id": "T1612",
+    "tactic": "TA0002",
+    "skills": [
+      "skill:analyzing-docker-container-forensics"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1620",
+    "@type": "Technique",
+    "name": "T1620",
+    "framework": "mitre-attack",
+    "framework_id": "T1620",
+    "tactic": "",
+    "skills": [
+      "skill:analyzing-golang-malware-with-ghidra"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1203",
+    "@type": "Technique",
+    "name": "T1203",
+    "framework": "mitre-attack",
+    "framework_id": "T1203",
+    "tactic": "TA0008",
+    "skills": [
+      "skill:analyzing-heap-spray-exploitation"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1059.007",
+    "@type": "Technique",
+    "name": "T1059.007",
+    "framework": "mitre-attack",
+    "framework_id": "T1059.007",
+    "tactic": "TA0002",
+    "skills": [
+      "skill:analyzing-heap-spray-exploitation"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1106",
+    "@type": "Technique",
+    "name": "T1106",
+    "framework": "mitre-attack",
+    "framework_id": "T1106",
+    "tactic": "TA0040",
+    "skills": [
+      "skill:analyzing-heap-spray-exploitation"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1635",
+    "@type": "Technique",
+    "name": "T1635",
+    "framework": "mitre-attack",
+    "framework_id": "T1635",
+    "tactic": "",
+    "skills": [
+      "skill:analyzing-ios-app-security-with-objection"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1414",
+    "@type": "Technique",
+    "name": "T1414",
+    "framework": "mitre-attack",
+    "framework_id": "T1414",
+    "tactic": "",
+    "skills": [
+      "skill:analyzing-ios-app-security-with-objection"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1417.001",
+    "@type": "Technique",
+    "name": "T1417.001",
+    "framework": "mitre-attack",
+    "framework_id": "T1417.001",
+    "tactic": "",
+    "skills": [
+      "skill:analyzing-ios-app-security-with-objection"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1409",
+    "@type": "Technique",
+    "name": "T1409",
+    "framework": "mitre-attack",
+    "framework_id": "T1409",
+    "tactic": "",
+    "skills": [
+      "skill:analyzing-ios-app-security-with-objection"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1552.007",
+    "@type": "Technique",
+    "name": "T1552.007",
+    "framework": "mitre-attack",
+    "framework_id": "T1552.007",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:analyzing-kubernetes-audit-logs"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1059.004",
+    "@type": "Technique",
+    "name": "T1059.004",
+    "framework": "mitre-attack",
+    "framework_id": "T1059.004",
+    "tactic": "TA0006",
+    "skills": [
+      "skill:analyzing-linux-audit-logs-for-intrusion"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1564.001",
+    "@type": "Technique",
+    "name": "T1564.001",
+    "framework": "mitre-attack",
+    "framework_id": "T1564.001",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:analyzing-linux-kernel-rootkits"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1547.009",
+    "@type": "Technique",
+    "name": "T1547.009",
+    "framework": "mitre-attack",
+    "framework_id": "T1547.009",
+    "tactic": "TA0003",
+    "skills": [
+      "skill:analyzing-lnk-file-and-jump-list-artifacts"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1137.001",
+    "@type": "Technique",
+    "name": "T1137.001",
+    "framework": "mitre-attack",
+    "framework_id": "T1137.001",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:analyzing-macro-malware-in-office-documents"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1037.001",
+    "@type": "Technique",
+    "name": "T1037.001",
+    "framework": "mitre-attack",
+    "framework_id": "T1037.001",
+    "tactic": "TA0004",
+    "skills": [
+      "skill:analyzing-malware-persistence-with-autoruns"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1497.001",
+    "@type": "Technique",
+    "name": "T1497.001",
+    "framework": "mitre-attack",
+    "framework_id": "T1497.001",
+    "tactic": "TA0040",
+    "skills": [
+      "skill:analyzing-malware-sandbox-evasion-techniques"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1497.003",
+    "@type": "Technique",
+    "name": "T1497.003",
+    "framework": "mitre-attack",
+    "framework_id": "T1497.003",
+    "tactic": "TA0040",
+    "skills": [
+      "skill:analyzing-malware-sandbox-evasion-techniques"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1480",
+    "@type": "Technique",
+    "name": "T1480",
+    "framework": "mitre-attack",
+    "framework_id": "T1480",
+    "tactic": "TA0040",
+    "skills": [
+      "skill:analyzing-malware-sandbox-evasion-techniques"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1027.002",
+    "@type": "Technique",
+    "name": "T1027.002",
+    "framework": "mitre-attack",
+    "framework_id": "T1027.002",
+    "tactic": "TA0005",
+    "skills": [
+      "skill:analyzing-malware-sandbox-evasion-techniques"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1001",
+    "@type": "Technique",
+    "name": "T1001",
+    "framework": "mitre-attack",
+    "framework_id": "T1001",
+    "tactic": "TA0006",
+    "skills": [
+      "skill:analyzing-network-covert-channels-in-malware"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1046",
+    "@type": "Technique",
+    "name": "T1046",
+    "framework": "mitre-attack",
+    "framework_id": "T1046",
+    "tactic": "TA0007",
+    "skills": [
+      "skill:analyzing-network-flow-data-with-netflow"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1556.006",
+    "@type": "Technique",
+    "name": "T1556.006",
+    "framework": "mitre-attack",
+    "framework_id": "T1556.006",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:analyzing-office365-audit-logs-for-compromise"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1114.001",
+    "@type": "Technique",
+    "name": "T1114.001",
+    "framework": "mitre-attack",
+    "framework_id": "T1114.001",
+    "tactic": "TA0002",
+    "skills": [
+      "skill:analyzing-outlook-pst-for-email-forensics"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1564.008",
+    "@type": "Technique",
+    "name": "T1564.008",
+    "framework": "mitre-attack",
+    "framework_id": "T1564.008",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:analyzing-outlook-pst-for-email-forensics"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1070.008",
+    "@type": "Technique",
+    "name": "T1070.008",
+    "framework": "mitre-attack",
+    "framework_id": "T1070.008",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:analyzing-outlook-pst-for-email-forensics"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1546.004",
+    "@type": "Technique",
+    "name": "T1546.004",
+    "framework": "mitre-attack",
+    "framework_id": "T1546.004",
+    "tactic": "TA0003",
+    "skills": [
+      "skill:analyzing-persistence-mechanisms-in-linux"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1098.004",
+    "@type": "Technique",
+    "name": "T1098.004",
+    "framework": "mitre-attack",
+    "framework_id": "T1098.004",
+    "tactic": "TA0003",
+    "skills": [
+      "skill:analyzing-persistence-mechanisms-in-linux"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1027.010",
+    "@type": "Technique",
+    "name": "T1027.010",
+    "framework": "mitre-attack",
+    "framework_id": "T1027.010",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:analyzing-powershell-empire-artifacts"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1657",
+    "@type": "Technique",
+    "name": "T1657",
+    "framework": "mitre-attack",
+    "framework_id": "T1657",
+    "tactic": "",
+    "skills": [
+      "skill:analyzing-ransomware-leak-site-intelligence"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1554",
+    "@type": "Technique",
+    "name": "T1554",
+    "framework": "mitre-attack",
+    "framework_id": "T1554",
+    "tactic": "TA0002",
+    "skills": [
+      "skill:analyzing-sbom-for-supply-chain-vulnerabilities"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1564.004",
+    "@type": "Technique",
+    "name": "T1564.004",
+    "framework": "mitre-attack",
+    "framework_id": "T1564.004",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:analyzing-slack-space-and-file-system-artifacts"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1553.002",
+    "@type": "Technique",
+    "name": "T1553.002",
+    "framework": "mitre-attack",
+    "framework_id": "T1553.002",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:analyzing-supply-chain-malware-artifacts"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1583.006",
+    "@type": "Technique",
+    "name": "T1583.006",
+    "framework": "mitre-attack",
+    "framework_id": "T1583.006",
+    "tactic": "TA0011",
+    "skills": [
+      "skill:analyzing-tls-certificate-transparency-logs"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1553.006",
+    "@type": "Technique",
+    "name": "T1553.006",
+    "framework": "mitre-attack",
+    "framework_id": "T1553.006",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:analyzing-uefi-bootkit-persistence"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1542",
+    "@type": "Technique",
+    "name": "T1542",
+    "framework": "mitre-attack",
+    "framework_id": "T1542",
+    "tactic": "TA0003",
+    "skills": [
+      "skill:analyzing-uefi-bootkit-persistence"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1052.001",
+    "@type": "Technique",
+    "name": "T1052.001",
+    "framework": "mitre-attack",
+    "framework_id": "T1052.001",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:analyzing-usb-device-connection-history"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1057",
+    "@type": "Technique",
+    "name": "T1057",
+    "framework": "mitre-attack",
+    "framework_id": "T1057",
+    "tactic": "TA0007",
+    "skills": [
+      "skill:analyzing-windows-prefetch-with-python"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1012",
+    "@type": "Technique",
+    "name": "T1012",
+    "framework": "mitre-attack",
+    "framework_id": "T1012",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:analyzing-windows-registry-for-artifacts"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1135",
+    "@type": "Technique",
+    "name": "T1135",
+    "framework": "mitre-attack",
+    "framework_id": "T1135",
+    "tactic": "TA0007",
+    "skills": [
+      "skill:analyzing-windows-shellbag-artifacts"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1069.003",
+    "@type": "Technique",
+    "name": "T1069.003",
+    "framework": "mitre-attack",
+    "framework_id": "T1069.003",
+    "tactic": "TA0004",
+    "skills": [
+      "skill:auditing-azure-active-directory-configuration"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1526",
+    "@type": "Technique",
+    "name": "T1526",
+    "framework": "mitre-attack",
+    "framework_id": "T1526",
+    "tactic": "TA0006",
+    "skills": [
+      "skill:auditing-azure-active-directory-configuration"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1685.002",
+    "@type": "Technique",
+    "name": "T1685.002",
+    "framework": "mitre-attack",
+    "framework_id": "T1685.002",
+    "tactic": "",
+    "skills": [
+      "skill:auditing-cloud-with-cis-benchmarks"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1548.005",
+    "@type": "Technique",
+    "name": "T1548.005",
+    "framework": "mitre-attack",
+    "framework_id": "T1548.005",
+    "tactic": "TA0004",
+    "skills": [
+      "skill:auditing-gcp-iam-permissions"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1098.006",
+    "@type": "Technique",
+    "name": "T1098.006",
+    "framework": "mitre-attack",
+    "framework_id": "T1098.006",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:auditing-kubernetes-cluster-rbac"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1587.003",
+    "@type": "Technique",
+    "name": "T1587.003",
+    "framework": "mitre-attack",
+    "framework_id": "T1587.003",
+    "tactic": "TA0011",
+    "skills": [
+      "skill:auditing-tls-certificate-transparency-logs"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1588.001",
+    "@type": "Technique",
+    "name": "T1588.001",
+    "framework": "mitre-attack",
+    "framework_id": "T1588.001",
+    "tactic": "TA0011",
+    "skills": [
+      "skill:automating-ioc-enrichment"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1590.005",
+    "@type": "Technique",
+    "name": "T1590.005",
+    "framework": "mitre-attack",
+    "framework_id": "T1590.005",
+    "tactic": "TA0043",
+    "skills": [
+      "skill:automating-ioc-enrichment"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1596.001",
+    "@type": "Technique",
+    "name": "T1596.001",
+    "framework": "mitre-attack",
+    "framework_id": "T1596.001",
+    "tactic": "TA0043",
+    "skills": [
+      "skill:building-adversary-infrastructure-tracking-system"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1590.002",
+    "@type": "Technique",
+    "name": "T1590.002",
+    "framework": "mitre-attack",
+    "framework_id": "T1590.002",
+    "tactic": "TA0043",
+    "skills": [
+      "skill:building-adversary-infrastructure-tracking-system"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1021.007",
+    "@type": "Technique",
+    "name": "T1021.007",
+    "framework": "mitre-attack",
+    "framework_id": "T1021.007",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:building-cloud-siem-with-sentinel"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1606.002",
+    "@type": "Technique",
+    "name": "T1606.002",
+    "framework": "mitre-attack",
+    "framework_id": "T1606.002",
+    "tactic": "TA0042",
+    "skills": [
+      "skill:building-identity-federation-with-saml-azure-ad"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1556.007",
+    "@type": "Technique",
+    "name": "T1556.007",
+    "framework": "mitre-attack",
+    "framework_id": "T1556.007",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:building-identity-federation-with-saml-azure-ad"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1484.002",
+    "@type": "Technique",
+    "name": "T1484.002",
+    "framework": "mitre-attack",
+    "framework_id": "T1484.002",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:building-identity-federation-with-saml-azure-ad"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1531",
+    "@type": "Technique",
+    "name": "T1531",
+    "framework": "mitre-attack",
+    "framework_id": "T1531",
+    "tactic": "TA0006",
+    "skills": [
+      "skill:building-identity-governance-lifecycle-process"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1588.006",
+    "@type": "Technique",
+    "name": "T1588.006",
+    "framework": "mitre-attack",
+    "framework_id": "T1588.006",
+    "tactic": "TA0011",
+    "skills": [
+      "skill:building-patch-tuesday-response-process"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1069",
+    "@type": "Technique",
+    "name": "T1069",
+    "framework": "mitre-attack",
+    "framework_id": "T1069",
+    "tactic": "TA0007",
+    "skills": [
+      "skill:building-role-mining-for-rbac-optimization"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1593.001",
+    "@type": "Technique",
+    "name": "T1593.001",
+    "framework": "mitre-attack",
+    "framework_id": "T1593.001",
+    "tactic": "TA0043",
+    "skills": [
+      "skill:collecting-open-source-intelligence"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1589.002",
+    "@type": "Technique",
+    "name": "T1589.002",
+    "framework": "mitre-attack",
+    "framework_id": "T1589.002",
+    "tactic": "TA0011",
+    "skills": [
+      "skill:collecting-open-source-intelligence"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1596.002",
+    "@type": "Technique",
+    "name": "T1596.002",
+    "framework": "mitre-attack",
+    "framework_id": "T1596.002",
+    "tactic": "TA0043",
+    "skills": [
+      "skill:collecting-open-source-intelligence"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1049",
+    "@type": "Technique",
+    "name": "T1049",
+    "framework": "mitre-attack",
+    "framework_id": "T1049",
+    "tactic": "TA0007",
+    "skills": [
+      "skill:collecting-volatile-evidence-from-compromised-host"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1525",
+    "@type": "Technique",
+    "name": "T1525",
+    "framework": "mitre-attack",
+    "framework_id": "T1525",
+    "tactic": "TA0006",
+    "skills": [
+      "skill:conducting-cloud-incident-response"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1207",
+    "@type": "Technique",
+    "name": "T1207",
+    "framework": "mitre-attack",
+    "framework_id": "T1207",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:conducting-domain-persistence-with-dcsync"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1595",
+    "@type": "Technique",
+    "name": "T1595",
+    "framework": "mitre-attack",
+    "framework_id": "T1595",
+    "tactic": "TA0043",
+    "skills": [
+      "skill:conducting-external-reconnaissance-with-osint"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1204",
+    "@type": "Technique",
+    "name": "T1204",
+    "framework": "mitre-attack",
+    "framework_id": "T1204",
+    "tactic": "TA0002",
+    "skills": [
+      "skill:conducting-malware-incident-response"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1557.002",
+    "@type": "Technique",
+    "name": "T1557.002",
+    "framework": "mitre-attack",
+    "framework_id": "T1557.002",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:conducting-man-in-the-middle-attack-simulation"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1426",
+    "@type": "Technique",
+    "name": "T1426",
+    "framework": "mitre-attack",
+    "framework_id": "T1426",
+    "tactic": "",
+    "skills": [
+      "skill:conducting-mobile-app-penetration-test"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1521.003",
+    "@type": "Technique",
+    "name": "T1521.003",
+    "framework": "mitre-attack",
+    "framework_id": "T1521.003",
+    "tactic": "TA0006",
+    "skills": [
+      "skill:conducting-mobile-app-penetration-test"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1633",
+    "@type": "Technique",
+    "name": "T1633",
+    "framework": "mitre-attack",
+    "framework_id": "T1633",
+    "tactic": "",
+    "skills": [
+      "skill:conducting-mobile-app-penetration-test"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1417",
+    "@type": "Technique",
+    "name": "T1417",
+    "framework": "mitre-attack",
+    "framework_id": "T1417",
+    "tactic": "",
+    "skills": [
+      "skill:conducting-mobile-app-penetration-test"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1422",
+    "@type": "Technique",
+    "name": "T1422",
+    "framework": "mitre-attack",
+    "framework_id": "T1422",
+    "tactic": "",
+    "skills": [
+      "skill:conducting-mobile-app-penetration-test"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1114",
+    "@type": "Technique",
+    "name": "T1114",
+    "framework": "mitre-attack",
+    "framework_id": "T1114",
+    "tactic": "TA0002",
+    "skills": [
+      "skill:conducting-phishing-incident-response"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1056.003",
+    "@type": "Technique",
+    "name": "T1056.003",
+    "framework": "mitre-attack",
+    "framework_id": "T1056.003",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:conducting-phishing-incident-response"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1598.004",
+    "@type": "Technique",
+    "name": "T1598.004",
+    "framework": "mitre-attack",
+    "framework_id": "T1598.004",
+    "tactic": "TA0043",
+    "skills": [
+      "skill:conducting-social-engineering-pretext-call"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1598.002",
+    "@type": "Technique",
+    "name": "T1598.002",
+    "framework": "mitre-attack",
+    "framework_id": "T1598.002",
+    "tactic": "TA0043",
+    "skills": [
+      "skill:conducting-spearphishing-simulation-campaign"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1557.004",
+    "@type": "Technique",
+    "name": "T1557.004",
+    "framework": "mitre-attack",
+    "framework_id": "T1557.004",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:conducting-wireless-network-penetration-test"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1669",
+    "@type": "Technique",
+    "name": "T1669",
+    "framework": "mitre-attack",
+    "framework_id": "T1669",
+    "tactic": "",
+    "skills": [
+      "skill:conducting-wireless-network-penetration-test"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1553.004",
+    "@type": "Technique",
+    "name": "T1553.004",
+    "framework": "mitre-attack",
+    "framework_id": "T1553.004",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:configuring-certificate-authority-with-openssl"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1552.004",
+    "@type": "Technique",
+    "name": "T1552.004",
+    "framework": "mitre-attack",
+    "framework_id": "T1552.004",
+    "tactic": "TA0006",
+    "skills": [
+      "skill:configuring-hsm-for-key-storage"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1621",
+    "@type": "Technique",
+    "name": "T1621",
+    "framework": "mitre-attack",
+    "framework_id": "T1621",
+    "tactic": "",
+    "skills": [
+      "skill:configuring-multi-factor-authentication-with-duo"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1550.001",
+    "@type": "Technique",
+    "name": "T1550.001",
+    "framework": "mitre-attack",
+    "framework_id": "T1550.001",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:configuring-oauth2-authorization-flow"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1606.001",
+    "@type": "Technique",
+    "name": "T1606.001",
+    "framework": "mitre-attack",
+    "framework_id": "T1606.001",
+    "tactic": "TA0042",
+    "skills": [
+      "skill:configuring-oauth2-authorization-flow"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1212",
+    "@type": "Technique",
+    "name": "T1212",
+    "framework": "mitre-attack",
+    "framework_id": "T1212",
+    "tactic": "TA0004",
+    "skills": [
+      "skill:configuring-oauth2-authorization-flow"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1556.004",
+    "@type": "Technique",
+    "name": "T1556.004",
+    "framework": "mitre-attack",
+    "framework_id": "T1556.004",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:configuring-tls-1-3-for-secure-communications"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1685",
+    "@type": "Technique",
+    "name": "T1685",
+    "framework": "mitre-attack",
+    "framework_id": "T1685",
+    "tactic": "",
+    "skills": [
+      "skill:configuring-windows-defender-advanced-settings"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1685.005",
+    "@type": "Technique",
+    "name": "T1685.005",
+    "framework": "mitre-attack",
+    "framework_id": "T1685.005",
+    "tactic": "",
+    "skills": [
+      "skill:configuring-windows-event-logging-for-detection"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1219",
+    "@type": "Technique",
+    "name": "T1219",
+    "framework": "mitre-attack",
+    "framework_id": "T1219",
+    "tactic": "TA0011",
+    "skills": [
+      "skill:configuring-zscaler-private-access-for-ztna"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1027.006",
+    "@type": "Technique",
+    "name": "T1027.006",
+    "framework": "mitre-attack",
+    "framework_id": "T1027.006",
+    "tactic": "TA0005",
+    "skills": [
+      "skill:deobfuscating-javascript-malware"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1552.006",
+    "@type": "Technique",
+    "name": "T1552.006",
+    "framework": "mitre-attack",
+    "framework_id": "T1552.006",
+    "tactic": "TA0006",
+    "skills": [
+      "skill:deploying-active-directory-honeytokens"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1659",
+    "@type": "Technique",
+    "name": "T1659",
+    "framework": "mitre-attack",
+    "framework_id": "T1659",
+    "tactic": "",
+    "skills": [
+      "skill:detecting-ai-model-prompt-injection-attacks"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1588.007",
+    "@type": "Technique",
+    "name": "T1588.007",
+    "framework": "mitre-attack",
+    "framework_id": "T1588.007",
+    "tactic": "TA0011",
+    "skills": [
+      "skill:detecting-ai-model-prompt-injection-attacks"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1565",
+    "@type": "Technique",
+    "name": "T1565",
+    "framework": "mitre-attack",
+    "framework_id": "T1565",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:detecting-ai-model-prompt-injection-attacks"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T0836",
+    "@type": "Technique",
+    "name": "T0836",
+    "framework": "mitre-attack",
+    "framework_id": "T0836",
+    "tactic": "",
+    "skills": [
+      "skill:detecting-anomalies-in-industrial-control-systems"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T0831",
+    "@type": "Technique",
+    "name": "T0831",
+    "framework": "mitre-attack",
+    "framework_id": "T0831",
+    "tactic": "",
+    "skills": [
+      "skill:detecting-anomalies-in-industrial-control-systems"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T0832",
+    "@type": "Technique",
+    "name": "T0832",
+    "framework": "mitre-attack",
+    "framework_id": "T0832",
+    "tactic": "",
+    "skills": [
+      "skill:detecting-anomalies-in-industrial-control-systems"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T0814",
+    "@type": "Technique",
+    "name": "T0814",
+    "framework": "mitre-attack",
+    "framework_id": "T0814",
+    "tactic": "",
+    "skills": [
+      "skill:detecting-anomalies-in-industrial-control-systems"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T0801",
+    "@type": "Technique",
+    "name": "T0801",
+    "framework": "mitre-attack",
+    "framework_id": "T0801",
+    "tactic": "",
+    "skills": [
+      "skill:detecting-anomalies-in-industrial-control-systems"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T0811",
+    "@type": "Technique",
+    "name": "T0811",
+    "framework": "mitre-attack",
+    "framework_id": "T0811",
+    "tactic": "",
+    "skills": [
+      "skill:detecting-attacks-on-historian-servers"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T0882",
+    "@type": "Technique",
+    "name": "T0882",
+    "framework": "mitre-attack",
+    "framework_id": "T0882",
+    "tactic": "",
+    "skills": [
+      "skill:detecting-attacks-on-historian-servers"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T0888",
+    "@type": "Technique",
+    "name": "T0888",
+    "framework": "mitre-attack",
+    "framework_id": "T0888",
+    "tactic": "",
+    "skills": [
+      "skill:detecting-attacks-on-historian-servers"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T0846",
+    "@type": "Technique",
+    "name": "T0846",
+    "framework": "mitre-attack",
+    "framework_id": "T0846",
+    "tactic": "",
+    "skills": [
+      "skill:detecting-attacks-on-historian-servers"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T0859",
+    "@type": "Technique",
+    "name": "T0859",
+    "framework": "mitre-attack",
+    "framework_id": "T0859",
+    "tactic": "",
+    "skills": [
+      "skill:detecting-attacks-on-historian-servers"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1589.001",
+    "@type": "Technique",
+    "name": "T1589.001",
+    "framework": "mitre-attack",
+    "framework_id": "T1589.001",
+    "tactic": "TA0011",
+    "skills": [
+      "skill:detecting-aws-credential-exposure-with-trufflehog"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1496",
+    "@type": "Technique",
+    "name": "T1496",
+    "framework": "mitre-attack",
+    "framework_id": "T1496",
+    "tactic": "TA0040",
+    "skills": [
+      "skill:detecting-aws-guardduty-findings-automation"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1011.001",
+    "@type": "Technique",
+    "name": "T1011.001",
+    "framework": "mitre-attack",
+    "framework_id": "T1011.001",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:detecting-bluetooth-low-energy-attacks"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1609",
+    "@type": "Technique",
+    "name": "T1609",
+    "framework": "mitre-attack",
+    "framework_id": "T1609",
+    "tactic": "TA0002",
+    "skills": [
+      "skill:detecting-container-drift-at-runtime"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T0816",
+    "@type": "Technique",
+    "name": "T0816",
+    "framework": "mitre-attack",
+    "framework_id": "T0816",
+    "tactic": "",
+    "skills": [
+      "skill:detecting-dnp3-protocol-anomalies"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1056",
+    "@type": "Technique",
+    "name": "T1056",
+    "framework": "mitre-attack",
+    "framework_id": "T1056",
+    "tactic": "TA0009",
+    "skills": [
+      "skill:detecting-mobile-malware-behavior"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1648",
+    "@type": "Technique",
+    "name": "T1648",
+    "framework": "mitre-attack",
+    "framework_id": "T1648",
+    "tactic": "",
+    "skills": [
+      "skill:detecting-serverless-function-injection"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T0853",
+    "@type": "Technique",
+    "name": "T0853",
+    "framework": "mitre-attack",
+    "framework_id": "T0853",
+    "tactic": "",
+    "skills": [
+      "skill:detecting-stuxnet-style-attacks"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T0809",
+    "@type": "Technique",
+    "name": "T0809",
+    "framework": "mitre-attack",
+    "framework_id": "T0809",
+    "tactic": "",
+    "skills": [
+      "skill:detecting-stuxnet-style-attacks"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T0807",
+    "@type": "Technique",
+    "name": "T0807",
+    "framework": "mitre-attack",
+    "framework_id": "T0807",
+    "tactic": "",
+    "skills": [
+      "skill:detecting-stuxnet-style-attacks"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1553",
+    "@type": "Technique",
+    "name": "T1553",
+    "framework": "mitre-attack",
+    "framework_id": "T1553",
+    "tactic": "TA0001",
+    "skills": [
+      "skill:hardening-docker-daemon-configuration"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T1600",
+    "@type": "Technique",
+    "name": "T1600",
+    "framework": "mitre-attack",
+    "framework_id": "T1600",
+    "tactic": "TA0002",
+    "skills": [
+      "skill:implementing-aes-encryption-for-data-at-rest"
+    ],
+    "score": 0
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "technique:T0830",
+    "@type": "Technique",
+    "name": "T0830",
+    "framework": "mitre-attack",
+    "framework_id": "T0830",
+    "tactic": "",
+    "skills": [
+      "skill:monitoring-scada-modbus-traffic-anomalies"
+    ],
+    "score": 0
+  }
+]

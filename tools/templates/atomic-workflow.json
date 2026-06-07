@@ -1,0 +1,143 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AtomicAttackWorkflow",
+  "description": "Structured representation of an atomic attack workflow step",
+  "type": "object",
+  "required": ["workflow_id", "technique", "tactic", "skills"],
+  "properties": {
+    "workflow_id": {
+      "type": "string",
+      "description": "Unique identifier for this workflow instance"
+    },
+    "technique": {
+      "type": "object",
+      "required": ["id", "name"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^T\\d{4}(\\.\\d{3})?$",
+          "description": "MITRE ATT&CK technique ID"
+        },
+        "name": {
+          "type": "string",
+          "description": "Technique display name"
+        },
+        "description": {
+          "type": "string",
+          "description": "Detailed technique description"
+        },
+        "score": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Coverage score from knowledge graph"
+        }
+      }
+    },
+    "tactic": {
+      "type": "object",
+      "required": ["id", "name"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^TA\\d{4}$",
+          "description": "MITRE ATT&CK tactic ID"
+        },
+        "name": {
+          "type": "string",
+          "description": "Tactic display name"
+        }
+      }
+    },
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "type"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Skill identifier"
+          },
+          "name": {
+            "type": "string",
+            "description": "Skill display name"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["mitigation", "detection", "response", "prevention"],
+            "description": "Category of defensive skill"
+          },
+          "description": {
+            "type": "string",
+            "description": "Skill description"
+          },
+          "relevance_score": {
+            "type": "number",
+            "description": "Relevance score from knowledge graph"
+          }
+        }
+      },
+      "description": "Mapped defensive skills for this technique"
+    },
+    "prerequisites": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string",
+            "description": "Prerequisite description"
+          },
+          "type": {
+            "type": "string",
+            "description": "Prerequisite type (access, tool, credential, etc.)"
+          }
+        }
+      },
+      "description": "Required conditions to execute this technique"
+    },
+    "commands": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "command": {
+            "type": "string",
+            "description": "Example command or tool invocation"
+          },
+          "platform": {
+            "type": "string",
+            "description": "Target platform (Windows, Linux, macOS, etc.)"
+          },
+          "description": {
+            "type": "string",
+            "description": "What the command accomplishes"
+          }
+        }
+      },
+      "description": "Example commands or tools for this technique"
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "source": {
+          "type": "string",
+          "description": "Data source (e.g., MITRE ATT&CK, knowledge graph)"
+        },
+        "version": {
+          "type": "string",
+          "description": "ATT&CK version or data version"
+        },
+        "tags": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    }
+  }
+}

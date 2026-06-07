@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/schemas/owasp-schema.json",
+  "title": "OWASP Category",
+  "description": "Canonical schema for OWASP Top 10 category entity",
+  "type": "object",
+  "properties": {
+    "@context": {
+      "type": "string",
+      "const": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld"
+    },
+    "@id": {
+      "type": "string",
+      "pattern": "^category:OWASP-A\\d{2}$"
+    },
+    "@type": {
+      "type": "string",
+      "const": "Category"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string"
+    },
+    "framework": {
+      "type": "string",
+      "const": "owasp"
+    },
+    "framework_id": {
+      "type": "string",
+      "pattern": "^A\\d{2}$"
+    }
+  },
+  "required": ["@id", "@type", "name", "framework", "framework_id"]
+}

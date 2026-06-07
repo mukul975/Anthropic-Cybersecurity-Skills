@@ -3521,6 +3521,3009 @@
           "value": "exploiting-active-directory-certificate-services-esc1"
         }
       ]
+    },
+    {
+      "techniqueID": "T1006",
+      "score": 0,
+      "comment": "T1006 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "acquiring-disk-image-with-dd-and-dcfldd"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0006"
+        }
+      ],
+      "tactic": "Credential Access"
+    },
+    {
+      "techniqueID": "T1025",
+      "score": 0,
+      "comment": "T1025 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "acquiring-disk-image-with-dd-and-dcfldd"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0001"
+        }
+      ],
+      "tactic": "Initial Access"
+    },
+    {
+      "techniqueID": "T1098.007",
+      "score": 0,
+      "comment": "T1098.007 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-active-directory-acl-abuse"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0001"
+        }
+      ],
+      "tactic": "Initial Access"
+    },
+    {
+      "techniqueID": "T1406",
+      "score": 0,
+      "comment": "T1406 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-android-malware-with-apktool"
+        },
+        {
+          "name": "tactic",
+          "value": ""
+        }
+      ],
+      "tactic": ""
+    },
+    {
+      "techniqueID": "T1407",
+      "score": 0,
+      "comment": "T1407 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-android-malware-with-apktool"
+        },
+        {
+          "name": "tactic",
+          "value": ""
+        }
+      ],
+      "tactic": ""
+    },
+    {
+      "techniqueID": "T1626.001",
+      "score": 0,
+      "comment": "T1626.001 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-android-malware-with-apktool"
+        },
+        {
+          "name": "tactic",
+          "value": ""
+        }
+      ],
+      "tactic": ""
+    },
+    {
+      "techniqueID": "T1655.001",
+      "score": 0,
+      "comment": "T1655.001 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-android-malware-with-apktool"
+        },
+        {
+          "name": "tactic",
+          "value": ""
+        }
+      ],
+      "tactic": ""
+    },
+    {
+      "techniqueID": "T1521.001",
+      "score": 0,
+      "comment": "T1521.001 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-android-malware-with-apktool"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0006"
+        }
+      ],
+      "tactic": "Credential Access"
+    },
+    {
+      "techniqueID": "T1110.004",
+      "score": 0,
+      "comment": "T1110.004 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-api-gateway-access-logs"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0006"
+        }
+      ],
+      "tactic": "Credential Access"
+    },
+    {
+      "techniqueID": "T1119",
+      "score": 0,
+      "comment": "T1119 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-api-gateway-access-logs"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0002"
+        }
+      ],
+      "tactic": "Execution"
+    },
+    {
+      "techniqueID": "T1098.003",
+      "score": 0,
+      "comment": "T1098.003 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-azure-activity-logs-for-threats"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0003"
+        }
+      ],
+      "tactic": "Persistence"
+    },
+    {
+      "techniqueID": "T1538",
+      "score": 0,
+      "comment": "T1538 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-azure-activity-logs-for-threats"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0006"
+        }
+      ],
+      "tactic": "Credential Access"
+    },
+    {
+      "techniqueID": "T1556.009",
+      "score": 0,
+      "comment": "T1556.009 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-azure-activity-logs-for-threats"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0001"
+        }
+      ],
+      "tactic": "Initial Access"
+    },
+    {
+      "techniqueID": "T1542.003",
+      "score": 0,
+      "comment": "T1542.003 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-bootkit-and-rootkit-samples"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0003"
+        }
+      ],
+      "tactic": "Persistence"
+    },
+    {
+      "techniqueID": "T1542.001",
+      "score": 0,
+      "comment": "T1542.001 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-bootkit-and-rootkit-samples"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0003"
+        }
+      ],
+      "tactic": "Persistence"
+    },
+    {
+      "techniqueID": "T1542.002",
+      "score": 0,
+      "comment": "T1542.002 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-bootkit-and-rootkit-samples"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0003"
+        }
+      ],
+      "tactic": "Persistence"
+    },
+    {
+      "techniqueID": "T1014",
+      "score": 0,
+      "comment": "T1014 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-bootkit-and-rootkit-samples"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0003"
+        }
+      ],
+      "tactic": "Persistence"
+    },
+    {
+      "techniqueID": "T1547.006",
+      "score": 0,
+      "comment": "T1547.006 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-bootkit-and-rootkit-samples"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0003"
+        }
+      ],
+      "tactic": "Persistence"
+    },
+    {
+      "techniqueID": "T1217",
+      "score": 0,
+      "comment": "T1217 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-browser-forensics-with-hindsight"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0007"
+        }
+      ],
+      "tactic": "Discovery"
+    },
+    {
+      "techniqueID": "T1185",
+      "score": 0,
+      "comment": "T1185 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-browser-forensics-with-hindsight"
+        },
+        {
+          "name": "tactic",
+          "value": ""
+        }
+      ],
+      "tactic": ""
+    },
+    {
+      "techniqueID": "T1588.002",
+      "score": 0,
+      "comment": "T1588.002 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-campaign-attribution-evidence"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0011"
+        }
+      ],
+      "tactic": "Command and Control"
+    },
+    {
+      "techniqueID": "T1583.004",
+      "score": 0,
+      "comment": "T1583.004 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-certificate-transparency-for-phishing"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0011"
+        }
+      ],
+      "tactic": "Command and Control"
+    },
+    {
+      "techniqueID": "T1596.003",
+      "score": 0,
+      "comment": "T1596.003 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-certificate-transparency-for-phishing"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0043"
+        }
+      ],
+      "tactic": "Reconnaissance"
+    },
+    {
+      "techniqueID": "T1619",
+      "score": 0,
+      "comment": "T1619 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-cloud-storage-access-patterns"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0002"
+        }
+      ],
+      "tactic": "Execution"
+    },
+    {
+      "techniqueID": "T1573.001",
+      "score": 0,
+      "comment": "T1573.001 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-cobalt-strike-beacon-configuration"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0011"
+        }
+      ],
+      "tactic": "Command and Control"
+    },
+    {
+      "techniqueID": "T1001.003",
+      "score": 0,
+      "comment": "T1001.003 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-cobaltstrike-malleable-c2-profiles"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0006"
+        }
+      ],
+      "tactic": "Credential Access"
+    },
+    {
+      "techniqueID": "T1008",
+      "score": 0,
+      "comment": "T1008 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-command-and-control-communication"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0006"
+        }
+      ],
+      "tactic": "Credential Access"
+    },
+    {
+      "techniqueID": "T1083",
+      "score": 0,
+      "comment": "T1083 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-disk-image-with-autopsy"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0007"
+        }
+      ],
+      "tactic": "Discovery"
+    },
+    {
+      "techniqueID": "T1613",
+      "score": 0,
+      "comment": "T1613 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-docker-container-forensics"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0002"
+        }
+      ],
+      "tactic": "Execution"
+    },
+    {
+      "techniqueID": "T1612",
+      "score": 0,
+      "comment": "T1612 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-docker-container-forensics"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0002"
+        }
+      ],
+      "tactic": "Execution"
+    },
+    {
+      "techniqueID": "T1620",
+      "score": 0,
+      "comment": "T1620 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-golang-malware-with-ghidra"
+        },
+        {
+          "name": "tactic",
+          "value": ""
+        }
+      ],
+      "tactic": ""
+    },
+    {
+      "techniqueID": "T1203",
+      "score": 0,
+      "comment": "T1203 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-heap-spray-exploitation"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0002"
+        }
+      ],
+      "tactic": "Execution"
+    },
+    {
+      "techniqueID": "T1059.007",
+      "score": 0,
+      "comment": "T1059.007 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-heap-spray-exploitation"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0002"
+        }
+      ],
+      "tactic": "Execution"
+    },
+    {
+      "techniqueID": "T1106",
+      "score": 0,
+      "comment": "T1106 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-heap-spray-exploitation"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0001"
+        }
+      ],
+      "tactic": "Initial Access"
+    },
+    {
+      "techniqueID": "T1635",
+      "score": 0,
+      "comment": "T1635 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-ios-app-security-with-objection"
+        },
+        {
+          "name": "tactic",
+          "value": ""
+        }
+      ],
+      "tactic": ""
+    },
+    {
+      "techniqueID": "T1414",
+      "score": 0,
+      "comment": "T1414 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-ios-app-security-with-objection"
+        },
+        {
+          "name": "tactic",
+          "value": ""
+        }
+      ],
+      "tactic": ""
+    },
+    {
+      "techniqueID": "T1417.001",
+      "score": 0,
+      "comment": "T1417.001 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-ios-app-security-with-objection"
+        },
+        {
+          "name": "tactic",
+          "value": ""
+        }
+      ],
+      "tactic": ""
+    },
+    {
+      "techniqueID": "T1409",
+      "score": 0,
+      "comment": "T1409 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-ios-app-security-with-objection"
+        },
+        {
+          "name": "tactic",
+          "value": ""
+        }
+      ],
+      "tactic": ""
+    },
+    {
+      "techniqueID": "T1552.007",
+      "score": 0,
+      "comment": "T1552.007 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-kubernetes-audit-logs"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0001"
+        }
+      ],
+      "tactic": "Initial Access"
+    },
+    {
+      "techniqueID": "T1059.004",
+      "score": 0,
+      "comment": "T1059.004 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-linux-audit-logs-for-intrusion"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0002"
+        }
+      ],
+      "tactic": "Execution"
+    },
+    {
+      "techniqueID": "T1564.001",
+      "score": 0,
+      "comment": "T1564.001 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-linux-kernel-rootkits"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0001"
+        }
+      ],
+      "tactic": "Initial Access"
+    },
+    {
+      "techniqueID": "T1547.009",
+      "score": 0,
+      "comment": "T1547.009 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-lnk-file-and-jump-list-artifacts"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0003"
+        }
+      ],
+      "tactic": "Persistence"
+    },
+    {
+      "techniqueID": "T1137.001",
+      "score": 0,
+      "comment": "T1137.001 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-macro-malware-in-office-documents"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0001"
+        }
+      ],
+      "tactic": "Initial Access"
+    },
+    {
+      "techniqueID": "T1037.001",
+      "score": 0,
+      "comment": "T1037.001 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-malware-persistence-with-autoruns"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0004"
+        }
+      ],
+      "tactic": "Privilege Escalation"
+    },
+    {
+      "techniqueID": "T1497.001",
+      "score": 0,
+      "comment": "T1497.001 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-malware-sandbox-evasion-techniques"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0040"
+        }
+      ],
+      "tactic": "Impact"
+    },
+    {
+      "techniqueID": "T1497.003",
+      "score": 0,
+      "comment": "T1497.003 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-malware-sandbox-evasion-techniques"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0040"
+        }
+      ],
+      "tactic": "Impact"
+    },
+    {
+      "techniqueID": "T1480",
+      "score": 0,
+      "comment": "T1480 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-malware-sandbox-evasion-techniques"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0040"
+        }
+      ],
+      "tactic": "Impact"
+    },
+    {
+      "techniqueID": "T1027.002",
+      "score": 0,
+      "comment": "T1027.002 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-malware-sandbox-evasion-techniques"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0005"
+        }
+      ],
+      "tactic": "Defense Evasion"
+    },
+    {
+      "techniqueID": "T1001",
+      "score": 0,
+      "comment": "T1001 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-network-covert-channels-in-malware"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0006"
+        }
+      ],
+      "tactic": "Credential Access"
+    },
+    {
+      "techniqueID": "T1046",
+      "score": 0,
+      "comment": "T1046 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-network-flow-data-with-netflow"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0007"
+        }
+      ],
+      "tactic": "Discovery"
+    },
+    {
+      "techniqueID": "T1556.006",
+      "score": 0,
+      "comment": "T1556.006 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-office365-audit-logs-for-compromise"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0001"
+        }
+      ],
+      "tactic": "Initial Access"
+    },
+    {
+      "techniqueID": "T1114.001",
+      "score": 0,
+      "comment": "T1114.001 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-outlook-pst-for-email-forensics"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0002"
+        }
+      ],
+      "tactic": "Execution"
+    },
+    {
+      "techniqueID": "T1564.008",
+      "score": 0,
+      "comment": "T1564.008 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-outlook-pst-for-email-forensics"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0001"
+        }
+      ],
+      "tactic": "Initial Access"
+    },
+    {
+      "techniqueID": "T1070.008",
+      "score": 0,
+      "comment": "T1070.008 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-outlook-pst-for-email-forensics"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0001"
+        }
+      ],
+      "tactic": "Initial Access"
+    },
+    {
+      "techniqueID": "T1546.004",
+      "score": 0,
+      "comment": "T1546.004 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-persistence-mechanisms-in-linux"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0003"
+        }
+      ],
+      "tactic": "Persistence"
+    },
+    {
+      "techniqueID": "T1098.004",
+      "score": 0,
+      "comment": "T1098.004 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-persistence-mechanisms-in-linux"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0003"
+        }
+      ],
+      "tactic": "Persistence"
+    },
+    {
+      "techniqueID": "T1027.010",
+      "score": 0,
+      "comment": "T1027.010 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-powershell-empire-artifacts"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0001"
+        }
+      ],
+      "tactic": "Initial Access"
+    },
+    {
+      "techniqueID": "T1657",
+      "score": 0,
+      "comment": "T1657 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-ransomware-leak-site-intelligence"
+        },
+        {
+          "name": "tactic",
+          "value": ""
+        }
+      ],
+      "tactic": ""
+    },
+    {
+      "techniqueID": "T1554",
+      "score": 0,
+      "comment": "T1554 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-sbom-for-supply-chain-vulnerabilities"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0002"
+        }
+      ],
+      "tactic": "Execution"
+    },
+    {
+      "techniqueID": "T1564.004",
+      "score": 0,
+      "comment": "T1564.004 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-slack-space-and-file-system-artifacts"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0001"
+        }
+      ],
+      "tactic": "Initial Access"
+    },
+    {
+      "techniqueID": "T1553.002",
+      "score": 0,
+      "comment": "T1553.002 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-supply-chain-malware-artifacts"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0001"
+        }
+      ],
+      "tactic": "Initial Access"
+    },
+    {
+      "techniqueID": "T1583.006",
+      "score": 0,
+      "comment": "T1583.006 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-tls-certificate-transparency-logs"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0011"
+        }
+      ],
+      "tactic": "Command and Control"
+    },
+    {
+      "techniqueID": "T1553.006",
+      "score": 0,
+      "comment": "T1553.006 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-uefi-bootkit-persistence"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0001"
+        }
+      ],
+      "tactic": "Initial Access"
+    },
+    {
+      "techniqueID": "T1542",
+      "score": 0,
+      "comment": "T1542 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-uefi-bootkit-persistence"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0003"
+        }
+      ],
+      "tactic": "Persistence"
+    },
+    {
+      "techniqueID": "T1052.001",
+      "score": 0,
+      "comment": "T1052.001 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-usb-device-connection-history"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0001"
+        }
+      ],
+      "tactic": "Initial Access"
+    },
+    {
+      "techniqueID": "T1057",
+      "score": 0,
+      "comment": "T1057 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-windows-prefetch-with-python"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0007"
+        }
+      ],
+      "tactic": "Discovery"
+    },
+    {
+      "techniqueID": "T1012",
+      "score": 0,
+      "comment": "T1012 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-windows-registry-for-artifacts"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0001"
+        }
+      ],
+      "tactic": "Initial Access"
+    },
+    {
+      "techniqueID": "T1135",
+      "score": 0,
+      "comment": "T1135 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "analyzing-windows-shellbag-artifacts"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0007"
+        }
+      ],
+      "tactic": "Discovery"
+    },
+    {
+      "techniqueID": "T1069.003",
+      "score": 0,
+      "comment": "T1069.003 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "auditing-azure-active-directory-configuration"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0004"
+        }
+      ],
+      "tactic": "Privilege Escalation"
+    },
+    {
+      "techniqueID": "T1526",
+      "score": 0,
+      "comment": "T1526 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "auditing-azure-active-directory-configuration"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0006"
+        }
+      ],
+      "tactic": "Credential Access"
+    },
+    {
+      "techniqueID": "T1685.002",
+      "score": 0,
+      "comment": "T1685.002 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "auditing-cloud-with-cis-benchmarks"
+        },
+        {
+          "name": "tactic",
+          "value": ""
+        }
+      ],
+      "tactic": ""
+    },
+    {
+      "techniqueID": "T1548.005",
+      "score": 0,
+      "comment": "T1548.005 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "auditing-gcp-iam-permissions"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0004"
+        }
+      ],
+      "tactic": "Privilege Escalation"
+    },
+    {
+      "techniqueID": "T1098.006",
+      "score": 0,
+      "comment": "T1098.006 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "auditing-kubernetes-cluster-rbac"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0001"
+        }
+      ],
+      "tactic": "Initial Access"
+    },
+    {
+      "techniqueID": "T1587.003",
+      "score": 0,
+      "comment": "T1587.003 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "auditing-tls-certificate-transparency-logs"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0011"
+        }
+      ],
+      "tactic": "Command and Control"
+    },
+    {
+      "techniqueID": "T1588.001",
+      "score": 0,
+      "comment": "T1588.001 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "automating-ioc-enrichment"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0011"
+        }
+      ],
+      "tactic": "Command and Control"
+    },
+    {
+      "techniqueID": "T1590.005",
+      "score": 0,
+      "comment": "T1590.005 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "automating-ioc-enrichment"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0043"
+        }
+      ],
+      "tactic": "Reconnaissance"
+    },
+    {
+      "techniqueID": "T1596.001",
+      "score": 0,
+      "comment": "T1596.001 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "building-adversary-infrastructure-tracking-system"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0043"
+        }
+      ],
+      "tactic": "Reconnaissance"
+    },
+    {
+      "techniqueID": "T1590.002",
+      "score": 0,
+      "comment": "T1590.002 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "building-adversary-infrastructure-tracking-system"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0043"
+        }
+      ],
+      "tactic": "Reconnaissance"
+    },
+    {
+      "techniqueID": "T1021.007",
+      "score": 0,
+      "comment": "T1021.007 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "building-cloud-siem-with-sentinel"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0001"
+        }
+      ],
+      "tactic": "Initial Access"
+    },
+    {
+      "techniqueID": "T1606.002",
+      "score": 0,
+      "comment": "T1606.002 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "building-identity-federation-with-saml-azure-ad"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0042"
+        }
+      ],
+      "tactic": "Resource Development"
+    },
+    {
+      "techniqueID": "T1556.007",
+      "score": 0,
+      "comment": "T1556.007 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "building-identity-federation-with-saml-azure-ad"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0001"
+        }
+      ],
+      "tactic": "Initial Access"
+    },
+    {
+      "techniqueID": "T1484.002",
+      "score": 0,
+      "comment": "T1484.002 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "building-identity-federation-with-saml-azure-ad"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0001"
+        }
+      ],
+      "tactic": "Initial Access"
+    },
+    {
+      "techniqueID": "T1531",
+      "score": 0,
+      "comment": "T1531 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "building-identity-governance-lifecycle-process"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0006"
+        }
+      ],
+      "tactic": "Credential Access"
+    },
+    {
+      "techniqueID": "T1588.006",
+      "score": 0,
+      "comment": "T1588.006 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "building-patch-tuesday-response-process"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0011"
+        }
+      ],
+      "tactic": "Command and Control"
+    },
+    {
+      "techniqueID": "T1069",
+      "score": 0,
+      "comment": "T1069 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "building-role-mining-for-rbac-optimization"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0007"
+        }
+      ],
+      "tactic": "Discovery"
+    },
+    {
+      "techniqueID": "T1593.001",
+      "score": 0,
+      "comment": "T1593.001 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "collecting-open-source-intelligence"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0043"
+        }
+      ],
+      "tactic": "Reconnaissance"
+    },
+    {
+      "techniqueID": "T1589.002",
+      "score": 0,
+      "comment": "T1589.002 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "collecting-open-source-intelligence"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0011"
+        }
+      ],
+      "tactic": "Command and Control"
+    },
+    {
+      "techniqueID": "T1596.002",
+      "score": 0,
+      "comment": "T1596.002 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "collecting-open-source-intelligence"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0043"
+        }
+      ],
+      "tactic": "Reconnaissance"
+    },
+    {
+      "techniqueID": "T1049",
+      "score": 0,
+      "comment": "T1049 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "collecting-volatile-evidence-from-compromised-host"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0007"
+        }
+      ],
+      "tactic": "Discovery"
+    },
+    {
+      "techniqueID": "T1525",
+      "score": 0,
+      "comment": "T1525 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "conducting-cloud-incident-response"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0006"
+        }
+      ],
+      "tactic": "Credential Access"
+    },
+    {
+      "techniqueID": "T1207",
+      "score": 0,
+      "comment": "T1207 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "conducting-domain-persistence-with-dcsync"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0001"
+        }
+      ],
+      "tactic": "Initial Access"
+    },
+    {
+      "techniqueID": "T1595",
+      "score": 0,
+      "comment": "T1595 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "conducting-external-reconnaissance-with-osint"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0043"
+        }
+      ],
+      "tactic": "Reconnaissance"
+    },
+    {
+      "techniqueID": "T1204",
+      "score": 0,
+      "comment": "T1204 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "conducting-malware-incident-response"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0002"
+        }
+      ],
+      "tactic": "Execution"
+    },
+    {
+      "techniqueID": "T1557.002",
+      "score": 0,
+      "comment": "T1557.002 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "conducting-man-in-the-middle-attack-simulation"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0001"
+        }
+      ],
+      "tactic": "Initial Access"
+    },
+    {
+      "techniqueID": "T1426",
+      "score": 0,
+      "comment": "T1426 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "conducting-mobile-app-penetration-test"
+        },
+        {
+          "name": "tactic",
+          "value": ""
+        }
+      ],
+      "tactic": ""
+    },
+    {
+      "techniqueID": "T1521.003",
+      "score": 0,
+      "comment": "T1521.003 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "conducting-mobile-app-penetration-test"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0006"
+        }
+      ],
+      "tactic": "Credential Access"
+    },
+    {
+      "techniqueID": "T1633",
+      "score": 0,
+      "comment": "T1633 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "conducting-mobile-app-penetration-test"
+        },
+        {
+          "name": "tactic",
+          "value": ""
+        }
+      ],
+      "tactic": ""
+    },
+    {
+      "techniqueID": "T1417",
+      "score": 0,
+      "comment": "T1417 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "conducting-mobile-app-penetration-test"
+        },
+        {
+          "name": "tactic",
+          "value": ""
+        }
+      ],
+      "tactic": ""
+    },
+    {
+      "techniqueID": "T1422",
+      "score": 0,
+      "comment": "T1422 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "conducting-mobile-app-penetration-test"
+        },
+        {
+          "name": "tactic",
+          "value": ""
+        }
+      ],
+      "tactic": ""
+    },
+    {
+      "techniqueID": "T1114",
+      "score": 0,
+      "comment": "T1114 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "conducting-phishing-incident-response"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0002"
+        }
+      ],
+      "tactic": "Execution"
+    },
+    {
+      "techniqueID": "T1056.003",
+      "score": 0,
+      "comment": "T1056.003 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "conducting-phishing-incident-response"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0001"
+        }
+      ],
+      "tactic": "Initial Access"
+    },
+    {
+      "techniqueID": "T1598.004",
+      "score": 0,
+      "comment": "T1598.004 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "conducting-social-engineering-pretext-call"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0043"
+        }
+      ],
+      "tactic": "Reconnaissance"
+    },
+    {
+      "techniqueID": "T1598.002",
+      "score": 0,
+      "comment": "T1598.002 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "conducting-spearphishing-simulation-campaign"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0043"
+        }
+      ],
+      "tactic": "Reconnaissance"
+    },
+    {
+      "techniqueID": "T1557.004",
+      "score": 0,
+      "comment": "T1557.004 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "conducting-wireless-network-penetration-test"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0001"
+        }
+      ],
+      "tactic": "Initial Access"
+    },
+    {
+      "techniqueID": "T1669",
+      "score": 0,
+      "comment": "T1669 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "conducting-wireless-network-penetration-test"
+        },
+        {
+          "name": "tactic",
+          "value": ""
+        }
+      ],
+      "tactic": ""
+    },
+    {
+      "techniqueID": "T1553.004",
+      "score": 0,
+      "comment": "T1553.004 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "configuring-certificate-authority-with-openssl"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0001"
+        }
+      ],
+      "tactic": "Initial Access"
+    },
+    {
+      "techniqueID": "T1552.004",
+      "score": 0,
+      "comment": "T1552.004 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "configuring-hsm-for-key-storage"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0006"
+        }
+      ],
+      "tactic": "Credential Access"
+    },
+    {
+      "techniqueID": "T1621",
+      "score": 0,
+      "comment": "T1621 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "configuring-multi-factor-authentication-with-duo"
+        },
+        {
+          "name": "tactic",
+          "value": ""
+        }
+      ],
+      "tactic": ""
+    },
+    {
+      "techniqueID": "T1550.001",
+      "score": 0,
+      "comment": "T1550.001 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "configuring-oauth2-authorization-flow"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0001"
+        }
+      ],
+      "tactic": "Initial Access"
+    },
+    {
+      "techniqueID": "T1606.001",
+      "score": 0,
+      "comment": "T1606.001 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "configuring-oauth2-authorization-flow"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0042"
+        }
+      ],
+      "tactic": "Resource Development"
+    },
+    {
+      "techniqueID": "T1212",
+      "score": 0,
+      "comment": "T1212 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "configuring-oauth2-authorization-flow"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0004"
+        }
+      ],
+      "tactic": "Privilege Escalation"
+    },
+    {
+      "techniqueID": "T1556.004",
+      "score": 0,
+      "comment": "T1556.004 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "configuring-tls-1-3-for-secure-communications"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0001"
+        }
+      ],
+      "tactic": "Initial Access"
+    },
+    {
+      "techniqueID": "T1685",
+      "score": 0,
+      "comment": "T1685 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "configuring-windows-defender-advanced-settings"
+        },
+        {
+          "name": "tactic",
+          "value": ""
+        }
+      ],
+      "tactic": ""
+    },
+    {
+      "techniqueID": "T1685.005",
+      "score": 0,
+      "comment": "T1685.005 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "configuring-windows-event-logging-for-detection"
+        },
+        {
+          "name": "tactic",
+          "value": ""
+        }
+      ],
+      "tactic": ""
+    },
+    {
+      "techniqueID": "T1219",
+      "score": 0,
+      "comment": "T1219 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "configuring-zscaler-private-access-for-ztna"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0011"
+        }
+      ],
+      "tactic": "Command and Control"
+    },
+    {
+      "techniqueID": "T1027.006",
+      "score": 0,
+      "comment": "T1027.006 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "deobfuscating-javascript-malware"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0005"
+        }
+      ],
+      "tactic": "Defense Evasion"
+    },
+    {
+      "techniqueID": "T1552.006",
+      "score": 0,
+      "comment": "T1552.006 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "deploying-active-directory-honeytokens"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0006"
+        }
+      ],
+      "tactic": "Credential Access"
+    },
+    {
+      "techniqueID": "T1659",
+      "score": 0,
+      "comment": "T1659 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "detecting-ai-model-prompt-injection-attacks"
+        },
+        {
+          "name": "tactic",
+          "value": ""
+        }
+      ],
+      "tactic": ""
+    },
+    {
+      "techniqueID": "T1588.007",
+      "score": 0,
+      "comment": "T1588.007 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "detecting-ai-model-prompt-injection-attacks"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0011"
+        }
+      ],
+      "tactic": "Command and Control"
+    },
+    {
+      "techniqueID": "T1565",
+      "score": 0,
+      "comment": "T1565 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "detecting-ai-model-prompt-injection-attacks"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0001"
+        }
+      ],
+      "tactic": "Initial Access"
+    },
+    {
+      "techniqueID": "T0836",
+      "score": 0,
+      "comment": "T0836 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "detecting-anomalies-in-industrial-control-systems"
+        },
+        {
+          "name": "tactic",
+          "value": ""
+        }
+      ],
+      "tactic": ""
+    },
+    {
+      "techniqueID": "T0831",
+      "score": 0,
+      "comment": "T0831 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "detecting-anomalies-in-industrial-control-systems"
+        },
+        {
+          "name": "tactic",
+          "value": ""
+        }
+      ],
+      "tactic": ""
+    },
+    {
+      "techniqueID": "T0832",
+      "score": 0,
+      "comment": "T0832 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "detecting-anomalies-in-industrial-control-systems"
+        },
+        {
+          "name": "tactic",
+          "value": ""
+        }
+      ],
+      "tactic": ""
+    },
+    {
+      "techniqueID": "T0814",
+      "score": 0,
+      "comment": "T0814 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "detecting-anomalies-in-industrial-control-systems"
+        },
+        {
+          "name": "tactic",
+          "value": ""
+        }
+      ],
+      "tactic": ""
+    },
+    {
+      "techniqueID": "T0801",
+      "score": 0,
+      "comment": "T0801 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "detecting-anomalies-in-industrial-control-systems"
+        },
+        {
+          "name": "tactic",
+          "value": ""
+        }
+      ],
+      "tactic": ""
+    },
+    {
+      "techniqueID": "T0811",
+      "score": 0,
+      "comment": "T0811 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "detecting-attacks-on-historian-servers"
+        },
+        {
+          "name": "tactic",
+          "value": ""
+        }
+      ],
+      "tactic": ""
+    },
+    {
+      "techniqueID": "T0882",
+      "score": 0,
+      "comment": "T0882 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "detecting-attacks-on-historian-servers"
+        },
+        {
+          "name": "tactic",
+          "value": ""
+        }
+      ],
+      "tactic": ""
+    },
+    {
+      "techniqueID": "T0888",
+      "score": 0,
+      "comment": "T0888 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "detecting-attacks-on-historian-servers"
+        },
+        {
+          "name": "tactic",
+          "value": ""
+        }
+      ],
+      "tactic": ""
+    },
+    {
+      "techniqueID": "T0846",
+      "score": 0,
+      "comment": "T0846 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "detecting-attacks-on-historian-servers"
+        },
+        {
+          "name": "tactic",
+          "value": ""
+        }
+      ],
+      "tactic": ""
+    },
+    {
+      "techniqueID": "T0859",
+      "score": 0,
+      "comment": "T0859 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "detecting-attacks-on-historian-servers"
+        },
+        {
+          "name": "tactic",
+          "value": ""
+        }
+      ],
+      "tactic": ""
+    },
+    {
+      "techniqueID": "T1589.001",
+      "score": 0,
+      "comment": "T1589.001 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "detecting-aws-credential-exposure-with-trufflehog"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0011"
+        }
+      ],
+      "tactic": "Command and Control"
+    },
+    {
+      "techniqueID": "T1496",
+      "score": 0,
+      "comment": "T1496 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "detecting-aws-guardduty-findings-automation"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0040"
+        }
+      ],
+      "tactic": "Impact"
+    },
+    {
+      "techniqueID": "T1011.001",
+      "score": 0,
+      "comment": "T1011.001 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "detecting-bluetooth-low-energy-attacks"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0001"
+        }
+      ],
+      "tactic": "Initial Access"
+    },
+    {
+      "techniqueID": "T1609",
+      "score": 0,
+      "comment": "T1609 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "detecting-container-drift-at-runtime"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0002"
+        }
+      ],
+      "tactic": "Execution"
+    },
+    {
+      "techniqueID": "T0816",
+      "score": 0,
+      "comment": "T0816 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "detecting-dnp3-protocol-anomalies"
+        },
+        {
+          "name": "tactic",
+          "value": ""
+        }
+      ],
+      "tactic": ""
+    },
+    {
+      "techniqueID": "T1056",
+      "score": 0,
+      "comment": "T1056 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "detecting-mobile-malware-behavior"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0006"
+        }
+      ],
+      "tactic": "Credential Access"
+    },
+    {
+      "techniqueID": "T1648",
+      "score": 0,
+      "comment": "T1648 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "detecting-serverless-function-injection"
+        },
+        {
+          "name": "tactic",
+          "value": ""
+        }
+      ],
+      "tactic": ""
+    },
+    {
+      "techniqueID": "T0853",
+      "score": 0,
+      "comment": "T0853 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "detecting-stuxnet-style-attacks"
+        },
+        {
+          "name": "tactic",
+          "value": ""
+        }
+      ],
+      "tactic": ""
+    },
+    {
+      "techniqueID": "T0809",
+      "score": 0,
+      "comment": "T0809 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "detecting-stuxnet-style-attacks"
+        },
+        {
+          "name": "tactic",
+          "value": ""
+        }
+      ],
+      "tactic": ""
+    },
+    {
+      "techniqueID": "T0807",
+      "score": 0,
+      "comment": "T0807 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "detecting-stuxnet-style-attacks"
+        },
+        {
+          "name": "tactic",
+          "value": ""
+        }
+      ],
+      "tactic": ""
+    },
+    {
+      "techniqueID": "T1553",
+      "score": 0,
+      "comment": "T1553 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "hardening-docker-daemon-configuration"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0001"
+        }
+      ],
+      "tactic": "Initial Access"
+    },
+    {
+      "techniqueID": "T1600",
+      "score": 0,
+      "comment": "T1600 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "implementing-aes-encryption-for-data-at-rest"
+        },
+        {
+          "name": "tactic",
+          "value": "TA0002"
+        }
+      ],
+      "tactic": "Execution"
+    },
+    {
+      "techniqueID": "T0830",
+      "score": 0,
+      "comment": "T0830 - Added from skill frontmatter",
+      "enabled": true,
+      "metadata": [
+        {
+          "name": "skill_count",
+          "value": "0"
+        },
+        {
+          "name": "skills",
+          "value": "monitoring-scada-modbus-traffic-anomalies"
+        },
+        {
+          "name": "tactic",
+          "value": ""
+        }
+      ],
+      "tactic": ""
     }
   ],
   "gradient": {
@@ -3579,6 +6582,18 @@
     {
       "name": "description",
       "value": "Auto-generated from skill SKILL.md files referencing ATT&CK technique IDs"
+    },
+    {
+      "name": "last_expanded",
+      "value": "2026-06-07"
+    },
+    {
+      "name": "last_expanded",
+      "value": "2026-06-07"
+    },
+    {
+      "name": "last_expanded",
+      "value": "2026-06-07"
     }
   ],
   "links": [
