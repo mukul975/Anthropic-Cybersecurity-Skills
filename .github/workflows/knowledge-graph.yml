@@ -28,6 +28,9 @@ jobs:
       - name: Build LanceDB knowledge graph
         run: python3 tools/build-lancedb.py
 
+      - name: Run coverage audit
+        run: python3 tools/coverage-audit.py
+
       - name: Prepare artifact
         run: |
           mkdir -p dist
@@ -59,6 +62,9 @@ jobs:
 
       - name: Build LanceDB knowledge graph
         run: python3 tools/build-lancedb.py
+
+      - name: Run coverage audit
+        run: python3 tools/coverage-audit.py
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4

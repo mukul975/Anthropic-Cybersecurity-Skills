@@ -1,108 +1,67 @@
-# Plan: Attack Scenario Generator
+# Plan: Attack Coverage Verification and Cleanup
 
-## Overview
+## Status
 
-Build an `attackScenarioGenerator` that creates realistic attack simulations by traversing the LanceDB knowledge graph, leveraging MITRE ATT&CK technique relationships to produce step-by-step attack narratives with skill references.
+- Code and tooling are functional end-to-end against the local graph.
+- `TACTIC_SEQUENCE` in `tools/attack-scenario-generator.py` is expanded to the full enterprise tactic flow.
+- Tactic metadata is preserved in `mappings/jsonld/techniques.jsonld`, so coverage can now be verified programmatically.
+- Syntax checks pass for all modified tools.
+- Knowledge graph: **361 techniques** (218 original + 143 added), **754 skills**, **7241 relationships**, **320 techniques with tactic metadata**.
 
-## Current Assets Available
+## Coverage Target Clarification
 
-| Asset | Count | Usage |
-|-------|-------|-------|
-| Skills | 754 | Defensive/actionable skills (mitigations, detections, responses) |
-| ATT&CK Techniques | 218 | Adversarial techniques for building attack paths |
-| NIST CSF Categories | 46 | Compliance controls mapping |
-| OWASP Categories | 10 | Web application security risks |
-| Relationships | 7,098 | Skill↔Technique and Technique↔Skill mappings |
+The stated goal is **"150% of MITRE coverage."** Current interpretation and open question:
 
-## Proposed Design
+| Baseline | Current | Target (150%) |
+|----------|---------|----------------|
+| Techniques in graph | 361 | Unknown |
+| Techniques in mapping | 340 | Unknown |
 
-### Core Concept
-Generate attack scenarios by:
-1. **Starting point**: Initial access technique (phishing, exploit, valid accounts)
-2. **Tactical flow**: Follow MITRE ATT&CK tactics TA0001→TA0008→TA0010
-3. **Path optimization**: Select techniques based on coverage scores and skill availability
-4. **Output**: Structured scenario with techniques, prerequisites, and mapped skills
+**Open question for user:**
+- Does "150%" mean: (a) 150% of the **current graph size** (expand from 361 to ~540 techniques), (b) 150% of **enterprise ATT&CK** (~600 enterprise techniques → ~900), or (c) full coverage of **Enterprise + Mobile + ICS** matrices combined?
+- Skills currently reference 271 Enterprise, 15 ICS, and 0 Mobile techniques. Do we scale by adding skills for gaps, or only by adding new techniques?
 
-### Files to Create
+This clarification determines whether the next work item focuses on:
+- **Option A**: Expand the existing `mappings/jsonld/tactic-mapping.json` to include every Enterprise technique (~600) with at least one skill mapped, or
+- **Option B**: Add Mobile (`M*`) and ICS (`T08*`) techniques referenced by skills, or
+- **Option C**: Include MITRE ATT&CK pre-attack/intelligence requirements (TA00) alongside enterprise.
 
-```
-tools/
-  attack-scenario-generator.py    # Main scenario generation script
-  templates/
-    scenario-template.md          # Markdown template for scenario output
-    atomic-workflow.json        # Structured output format
-```
+## Remaining Work
 
-### Implementation Phases
+### 1. Coverage Gate Tool
 
-#### Phase 1: ATT&CK Tactic Sequence Engine
-Build a directed graph of tactic flow:
-- TA0001 (Initial Access) → TA0002 (Execution) → TA0003 (Persistence) → ... → TA0010 (Exfiltration)
-- Parse technique→tactic relationships from ATT&CK Navigator layer or fetch STIX data
-- Create `tactic_sequence.json` mapping valid tactic progressions
+Add a verification script that:
+- Parses `mappings/jsonld/tactic-mapping.json` (authoritative technique list)
+- Opens `.codegraph/knowledge_graph.lance`
+- Confirms every referenced technique exists as a node with a populated `tactic` field
+- Reports **missing techniques** (in mapping but not graph), **orphaned nodes** (in graph but not mapping), and **tactic coverage %**
+- Exits non-zero when coverage regresses
 
-#### Phase 2: Technique Selection Logic
-For each tactic, select techniques based on:
-- `score` field from attack-navigator-layer.json (higher = more covered skills)
-- Skill count (minimum 2+ skills for actionable guidance)
-- Tactic coherence (parent technique vs sub-technique)
-
-#### Phase 3: Scenario Assembly
-Generate scenarios with:
-- Entry technique (user-specified or auto-selected)
-- Technique chain (3-7 steps based on depth parameter)
-- Mapped skills for each technique (detections, mitigations)
-- Prerequisites (what access/conditions needed)
-- Commands/tool suggestions from skill workflows
-
-#### Phase 4: Output Formats
-Support multiple output formats:
-- Markdown (human-readable report)
-- JSON (structured data for automation)
-- YAML (for integration with threat emulation tools)
-
-## Implementation Status
-
-### Completed
-
-- Created `tools/attack-scenario-generator.py` (387-line CLI with JSON/Markdown/YAML output)
-- Created `tools/templates/scenario-template.md` (Jinja2 markdown template)
-- Created `mappings/jsonld/tactic-mapping.json` (manual ATT&CK tactic-to-technique mapping)
-- Knowledge graph and JSON-LD generation already in place via `tools/build-lancedb.py` / `tools/build-jsonld.py`
-- `.codegraph/` directory and LanceDB tables exist locally
-
-### Remaining
-
-- `tools/templates/atomic-workflow.json` is referenced in the plan but not yet created
-- `tools/attack-scenario-generator.py.bak` was created during development and should be removed
-- Verify scenario generation end-to-end against the existing `.codegraph/knowledge_graph.lance` database
-
-## Updated CLI Interface
-
+Suggested CLI:
 ```bash
-# Generate a phishing-based attack scenario
-python tools/attack-scenario-generator.py --entry T1566.001 --depth 5 --format markdown
-
-# Generate all-paths scenario from credential access
-python tools/attack-scenario-generator.py --entry T1003 --tactic TA0006 --format json
-
-# Generate scenario with specific objectives
-python tools/attack-scenario-generator.py --objective "domain-dominance" --format yaml
+python tools/coverage-audit.py [--strict] [--report json|text]
 ```
 
-## Key Design Decisions
+### 2. Generator Hardening
 
-| Decision | Options | Recommendation |
-|----------|---------|---------------|
-| Graph traversal | DFS vs BFS vs Weighted | Weighted by technique coverage score |
-| Output format | Markdown vs JSON-first | Both - JSON as default, MD as readable format |
-| Technique source | Local mappings vs live STIX | Local mappings (attack-navigator-layer.json) |
-| Skills inclusion | All related vs top-N | Top 3 related skills by tag relevance |
-| Scenario length | Fixed vs variable | Variable via `--depth` parameter |
+- `generate_scenario` should fail fast when the graph or mapping is mismatched
+- Add `--validate` flag to run the coverage gate inline before generating scenarios
+- Expand Markdown fallback to produce readable content even with missing template/Jinja2
+- Confirm or deprecate `atomic-workflow.json` path (template file already exists)
 
-## Implementation Notes
+### 3. Tactic Mapping Expansion (pending target clarification)
 
-- Leverage existing `tools/query-graph.py` for relationship lookups
-- Reuse `sentence-transformers` embeddings for skill-text similarity
-- ATT&CK tactic IDs extracted from existing technique metadata or STIX
-- Technique→tactic mapping stored in `mappings/jsonld/tactic-mapping.json`
+If the user confirms target option A/B/C:
+- Scripted augmentation of `mappings/jsonld/tactic-mapping.json` to fill gaps from the official ATT&CK matrix
+- Rebuild pipeline: `python tools/build-jsonld.py && python tools/build-lancedb.py`
+- Verify 150% target is met via the coverage gate
+
+### 4. Toolchain Hygiene
+
+- Remove `tools/attack-scenario-generator.py.bak`
+- Verify `.codegraph/.gitignore` excludes `knowledge_graph.lance/`
+- Ensure `tools/build-jsonld.py` and `tools/build-lancedb.py` share a single source of truth for tactic mapping
+
+## Objective
+
+Bring the workspace to a verifiable green state where coverage is tracked, updatable, and protected from accidental regression.

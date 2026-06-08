@@ -201,10 +201,53 @@ def fallback_markdown(scenario):
     return "\n".join(out)
 
 
-def generate_scenario(entry_technique, depth, objective=None, db=None):
+def validate_graph(db=None):
     db = db or init_lancedb()
     tactics_data = load_tactics()
-    entry_tactic = get_tactic_for_technique(entry_technique)
+    if not tactics_data:
+        print("Error: tactic-mapping.json is empty or missing", file=sys.stderr)
+        return False
+
+    mapping_techniques = {
+        tech_id for data in tactics_data.values() for tech_id in data.get("techniques", [])
+    }
+
+    missing_in_graph = []
+    empty_tactic = []
+    for tech_id in sorted(mapping_techniques):
+        node = get_node(db, tech_id)
+        if not node:
+            missing_in_graph.append(tech_id)
+            continue
+        tactic = node.get("tactic", "")
+        if not tactic:
+            empty_tactic.append(tech_id)
+
+    if missing_in_graph:
+        print(
+            f"FAIL: {len(missing_in_graph)} mapped technique(s) missing from graph: "
+            + ", ".join(missing_in_graph[:20]),
+            file=sys.stderr,
+        )
+        return False
+    if empty_tactic:
+        print(
+            f"FAIL: {len(empty_tactic)} technique(s) in graph have empty tactic metadata: "
+            + ", ".join(empty_tactic[:20]),
+            file=sys.stderr,
+        )
+        return False
+    print(f"PASS: {len(mapping_techniques)} mapped techniques validated in graph", file=sys.stderr)
+    return True
+
+
+def generate_scenario(entry_technique, depth, objective=None, db=None, validate=True):
+    db = db or init_lancedb()
+    tactics_data = load_tactics()
+    if validate:
+        if not validate_graph(db=db):
+            raise RuntimeError("Graph validation failed. Run tools/coverage-audit.py for details.")
+    entry_tactic = get_tactic_for_technique(entry_technique, db=db)
     if not entry_tactic:
         print(
             f"Warning: Unknown tactic for technique {entry_technique}",
@@ -292,6 +335,13 @@ def generate_scenario(entry_technique, depth, objective=None, db=None):
     scenario_name = (
         f"{entry_technique} -> {' -> '.join(s['technique_id'] for s in steps)}"
     )
+    attack_chain = "\n".join(
+        f"### Step {s['number']}: {s['technique_id']} - {s['technique_name']}\n"
+        f"**Tactic**: {s['tactic_id']} - {s['tactic_name']}\n"
+        f"**Score**: {s['score']}/100\n\n"
+        f"{s.get('description', '')}\n"
+        for s in steps
+    )
     return {
         "scenario_name": scenario_name,
         "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
@@ -313,6 +363,7 @@ def generate_scenario(entry_technique, depth, objective=None, db=None):
         "unique_techniques": len({s["technique_id"] for s in steps}),
         "total_skills": sum(len(s["skills"]) for s in steps),
         "steps": steps,
+        "attack_chain": attack_chain,
         "skill_coverage": dict(skill_coverage),
         "skill_coverage_table": "\n".join(
             f"| {k} | {v} technique(s) |"
@@ -344,11 +395,16 @@ def main():
     parser.add_argument(
         "--output", help="Write to file instead of stdout"
     )
+    parser.add_argument(
+        "--validate",
+        action="store_true",
+        help="Run coverage validation against the knowledge graph before generating",
+    )
     parser.add_argument("--template", help="Custom template path")
     args = parser.parse_args()
     try:
         scenario = generate_scenario(
-            args.entry, args.depth, objective=args.objective
+            args.entry, args.depth, objective=args.objective, validate=args.validate
         )
     except RuntimeError as exc:
         print(f"Error: {exc}", file=sys.stderr)

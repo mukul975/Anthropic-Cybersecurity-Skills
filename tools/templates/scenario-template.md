@@ -17,7 +17,21 @@ The path follows MITRE ATT&CK tactics through {total_steps} stages with {unique_
 
 ## Attack Chain
 
-{attack_chain}
+{% for step in steps %}
+### Step {{ step.number }}: {{ step.technique_id }} - {{ step.technique_name }}
+**Tactic**: {{ step.tactic_id }} - {{ step.tactic_name }}
+**Score**: {{ step.score }}/100
+
+_{{ step.description }}_
+
+{% if step.skills %}
+#### Mapped Skills
+{% for s in step.skills %}
+- {{ s.name }} ({{ s.predicate }})
+{% endfor %}
+{% endif %}
+
+{% endfor %}
 
 ## Skill Coverage Summary
 
