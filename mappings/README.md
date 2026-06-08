@@ -6,7 +6,7 @@ This directory contains a MITRE ATT&CK Navigator layer file that maps the covera
 
 | File | Description |
 |------|-------------|
-| `attack-navigator-layer.json` | ATT&CK Navigator layer (v4.5 format, Enterprise ATT&CK v14) |
+| `attack-navigator-layer.json` | ATT&CK Navigator layer (v4.5 format, Enterprise ATT&CK v19.1) |
 
 ## How to View
 
@@ -21,11 +21,11 @@ Alternatively, paste the raw JSON URL into the Navigator's "Load from URL" optio
 
 | Metric | Value |
 |--------|-------|
-| Total skills scanned | 742 |
-| Unique ATT&CK techniques referenced | 218 |
-| Parent techniques | 94 |
-| Sub-techniques | 124 |
-| Tactics with coverage | 14/14 |
+| Total skills scanned | 754 |
+| Unique ATT&CK techniques referenced | 361 |
+| Parent techniques | 174 |
+| Sub-techniques | 187 |
+| Tactics with coverage | 16/16 |
 
 ## Coverage by Tactic
 
@@ -45,6 +45,8 @@ Alternatively, paste the raw JSON URL into the Navigator's "Load from URL" optio
 | Execution | 8 |
 | Resource Development | 6 |
 | Impact | 5 |
+| Defense Impairment | 4 |
+| Stealth | 4 |
 
 ## Color Scale
 
@@ -77,7 +79,7 @@ Techniques were extracted by scanning all `SKILL.md` files in the repository for
 ## Layer Format
 
 - **Format version**: 4.5
-- **ATT&CK version**: 14 (Enterprise)
+- **ATT&CK version**: 19.1 (Enterprise)
 - **Navigator version**: 4.9.1
 - **Domain**: enterprise-attack
 

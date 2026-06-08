@@ -1,7 +1,7 @@
 {
   "name": "Anthropic Cybersecurity Skills - ATT&CK Coverage",
   "versions": {
-    "attack": "14",
+    "attack": "19.1",
     "navigator": "4.9.1",
     "layer": "4.5"
   },

@@ -45,9 +45,9 @@ No other open-source skills library maps every skill to all five frameworks.  On
 
 | Framework | Version | Scope in this repo | What it maps |
 |---|---|---|---|
-| [MITRE ATT&CK](https://attack.mitre.org) | v19.1 | 15 tactics · 286 techniques | Adversary behaviors and TTPs |
+| [MITRE ATT&CK](https://attack.mitre.org) | v19.1 | 16 tactics · 361 techniques | Adversary behaviors and TTPs |
 | [NIST CSF 2.0](https://www.nist.gov/cyberframework) | 2.0 | 6 functions · 22 categories | Organizational security posture |
-| [MITRE ATLAS](https://atlas.mitre.org) | v5.4 | 16 tactics · 84 techniques | AI/ML adversarial threats |
+| [MITRE ATLAS](https://atlas.mitre.org) | v6 | 16 tactics · 21 techniques | AI/ML adversarial threats |
 | [MITRE D3FEND](https://d3fend.mitre.org) | v1.3 | 7 categories · 267 techniques | Defensive countermeasures |
 | [NIST AI RMF](https://airc.nist.gov/AI_RMF) | 1.0 | 4 functions · 72 subcategories | AI risk management |
 
@@ -59,7 +59,7 @@ No other open-source skills library maps every skill to all five frameworks.  On
 
 ### MITRE ATT&CK v19.1 — 754/754 skills mapped
 
-Every skill carries a `mitre_attack` frontmatter list validated against **MITRE ATT&CK v19.1** (the latest release) using the official `mitreattack-python` library — 286 distinct techniques across all 15 Enterprise tactics, plus ICS and Mobile techniques where relevant. Zero revoked or deprecated IDs. v19.1's restructured Defense Evasion (now split into **Stealth** and **Defense Impairment**) is reflected below.
+Every skill carries a `mitre_attack` frontmatter list validated against **MITRE ATT&CK v19.1** (the latest release) using the official `mitreattack-python` library — 361 distinct techniques across all 16 Enterprise tactics, including the split Defense Evasion into **Stealth** (TA0005) and **Defense Impairment** (TA0112).
 
 | Tactic | ID | Skills |
 |--------|----|--------|
@@ -265,9 +265,7 @@ Frontmatter fields: `name` (kebab-case, 1–64 chars), `description` (keyword-ri
 | Exfiltration | TA0010 | Strong | DNS exfiltration, DLP controls, data loss detection |
 | Impact | TA0040 | Strong | Ransomware defense, encryption analysis, recovery |
 
-An **ATT&CK Navigator layer file** is included in the [v1.0.0 release assets](https://github.com/mukul975/Anthropic-Cybersecurity-Skills/releases/tag/v1.0.0) for visual coverage mapping. 
-
-> **Note:** ATT&CK v19 lands April 28, 2026 — splitting Defense Evasion (TA0005) into two new tactics: *Stealth* and *Impair Defenses*.  Skill mappings will be updated in a forthcoming release.
+An ATT&CK Navigator layer file is included in the [v1.0.0 release assets](https://github.com/mukul975/Anthropic-Cybersecurity-Skills/releases/tag/v1.0.0) for visual coverage mapping.
 
 </details>
 
@@ -294,8 +292,8 @@ NIST CSF 2.0 (February 2024) added the **Govern** function  and expanded scope f
 
 &nbsp;
 
-### MITRE ATLAS v5.4 — AI/ML adversarial threats
-ATLAS maps adversarial tactics, techniques, and case studies specific to AI and machine learning systems. Version 5.4 covers **16 tactics and 84 techniques** including agentic AI attack vectors added in late 2025: AI agent context poisoning, tool invocation abuse, MCP server compromises, and malicious agent deployment.  Skills mapped to ATLAS help agents identify and defend against threats to ML pipelines, model weights, inference APIs, and autonomous workflows. 
+### MITRE ATLAS v6 — AI/ML adversarial threats
+ATLAS maps adversarial tactics, techniques, and case studies specific to AI and machine learning systems. Version 6 covers **16 tactics and 21 techniques**. Skills mapped to ATLAS help agents identify and defend against threats to ML pipelines, model weights, inference APIs, and autonomous workflows. 
 
 ### MITRE D3FEND v1.3 — Defensive countermeasures
 D3FEND is an NSA-funded knowledge graph of **267 defensive techniques** organized across 7 tactical categories: Model, Harden, Detect, Isolate, Deceive, Evict, and Restore.  Built on OWL 2 ontology, it uses a shared Digital Artifact layer to bidirectionally map defensive countermeasures to ATT&CK offensive techniques.  Skills tagged with D3FEND identifiers let agents recommend specific countermeasures for detected threats.
