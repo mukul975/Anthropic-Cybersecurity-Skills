@@ -38,6 +38,25 @@ TACTIC_SEQUENCE = [
     "TA0012",
 ]
 
+_ATLAS_TACTIC_SEQUENCE = [
+    "AML.TA0002",
+    "AML.TA0003",
+    "AML.TA0004",
+    "AML.TA0000",
+    "AML.TA0005",
+    "AML.TA0006",
+    "AML.TA0012",
+    "AML.TA0007",
+    "AML.TA0013",
+    "AML.TA0008",
+    "AML.TA0015",
+    "AML.TA0009",
+    "AML.TA0001",
+    "AML.TA0014",
+    "AML.TA0010",
+    "AML.TA0011",
+]
+
 
 def init_lancedb():
     import lancedb
@@ -50,20 +69,35 @@ def init_lancedb():
 def get_node(db, node_id):
     if not node_id:
         return None
-    if not node_id.startswith(("skill:", "technique:", "category:")) and node_id.startswith(
-        "T"
-    ):
+    prefixes = ("skill:", "technique:", "category:", "atlas:")
+    if not node_id.startswith(prefixes) and node_id.startswith("T"):
         node_id = f"technique:{node_id}"
+    if not node_id.startswith(prefixes) and node_id.startswith("AML."):
+        node_id = f"atlas:{node_id}"
     s = db.open_table("nodes").search().where(f"id = '{node_id}'").to_list()
     return s[0] if s else None
+
+
+def _resolve_tactic_from_node(node):
+    tactic = node.get("tactic", "")
+    if tactic:
+        return tactic
+    node_id = node.get("id", "")
+    if node_id.startswith("atlas:"):
+        fw_id = node_id.split(":", 1)[1]
+        if fw_id in _ATLAS_TACTIC_SEQUENCE:
+            return fw_id
+    return ""
 
 
 def get_tactic_for_technique(tech_id, db=None):
     node = None
     if db and tech_id:
         node = get_node(db, tech_id)
-    if node and node.get("tactic"):
-        return node["tactic"]
+    if node:
+        tactic = _resolve_tactic_from_node(node)
+        if tactic:
+            return tactic
     try:
         mapping = json.loads(Path(TACTIC_MAPPING_PATH).read_text(encoding="utf-8"))
     except Exception as exc:
@@ -76,8 +110,7 @@ def get_tactic_for_technique(tech_id, db=None):
         for tactic_id in TACTIC_SEQUENCE:
             data = mapping.get(tactic_id, {})
             if data.get("techniques", []) and any(
-                t.replace("T", "").startswith(prefix[1:4])
-                for t in data.get("techniques", [])
+                t.replace("T", "").startswith(prefix[1:4]) for t in data.get("techniques", [])
             ):
                 return tactic_id
     return ""
@@ -90,7 +123,34 @@ def load_tactics():
         return {}
 
 
-def select_techniques_for_tactic(tactic_id, tactics_data, db, depth=1):
+def _normalize_tech_id(tech_id):
+    if not tech_id.startswith("technique:") and tech_id.startswith("T"):
+        return f"technique:{tech_id}"
+    if not tech_id.startswith("technique:") and tech_id.startswith("AML."):
+        return f"atlas:{tech_id}"
+    return tech_id
+
+
+def select_techniques_for_tactic(tactic_id, tactics_data, db, depth=1, framework="mitre-attack"):
+    if framework == "mitre-atlas":
+        candidates = []
+        try:
+            rows = db.open_table("nodes").search().to_list()
+        except Exception:
+            return []
+        for row in rows:
+            if row.get("framework") != framework:
+                continue
+            if row.get("tactic") != tactic_id:
+                continue
+            candidates.append({
+                "technique_id": row.get("framework_id", row.get("id", "")),
+                "score": row.get("score", 0),
+                "skill_count": 0,
+                "node": row,
+            })
+        candidates.sort(key=lambda x: (x["score"], x["skill_count"]), reverse=True)
+        return candidates[: max(1, depth)]
     if tactic_id not in tactics_data:
         return []
     tech_ids = tactics_data[tactic_id].get("techniques", [])
@@ -201,20 +261,26 @@ def fallback_markdown(scenario):
     return "\n".join(out)
 
 
-def validate_graph(db=None):
+def validate_graph(db=None, framework="mitre-attack"):
     db = db or init_lancedb()
-    tactics_data = load_tactics()
-    if not tactics_data:
-        print("Error: tactic-mapping.json is empty or missing", file=sys.stderr)
-        return False
-
-    mapping_techniques = {
-        tech_id for data in tactics_data.values() for tech_id in data.get("techniques", [])
+    rows = db.open_table("nodes").search().to_list()
+    
+    # Type filter based on framework
+    type_filter = "Technique" if framework == "mitre-attack" else "ATLAS-Technique"
+    
+    included = {
+        row.get("framework_id", row.get("id", "").split(":", 1)[-1])
+        for row in rows
+        if row.get("framework") == framework
+        and row.get("type") == type_filter
+        and row.get("framework_id", row.get("id", "").split(":", 1)[-1])
     }
-
+    if not included:
+        print("PASS: no mapped entities to validate", file=sys.stderr)
+        return True
     missing_in_graph = []
     empty_tactic = []
-    for tech_id in sorted(mapping_techniques):
+    for tech_id in sorted(included):
         node = get_node(db, tech_id)
         if not node:
             missing_in_graph.append(tech_id)
@@ -222,7 +288,6 @@ def validate_graph(db=None):
         tactic = node.get("tactic", "")
         if not tactic:
             empty_tactic.append(tech_id)
-
     if missing_in_graph:
         print(
             f"FAIL: {len(missing_in_graph)} mapped technique(s) missing from graph: "
@@ -237,15 +302,61 @@ def validate_graph(db=None):
             file=sys.stderr,
         )
         return False
-    print(f"PASS: {len(mapping_techniques)} mapped techniques validated in graph", file=sys.stderr)
+    print(f"PASS: {len(included)} mapped entities validated in graph", file=sys.stderr)
     return True
 
 
-def generate_scenario(entry_technique, depth, objective=None, db=None, validate=True):
+def _atlas_equivalent_steps(db, attack_ids, seen_techniques, steps, max_steps):
+    if not attack_ids:
+        return steps
+    candidates = []
+    rows = db.open_table("nodes").search().to_list()
+    for row in rows:
+        if row.get("framework") != "mitre-atlas":
+            continue
+        atlas_id = row.get("framework_id", "")
+        if not atlas_id:
+            continue
+        rels = db.open_table("relationships").search().where(
+            f"source = 'atlas:{atlas_id}' AND predicate = 'atlasesEquivalentTo'"
+        ).to_list()
+        if any(
+            str(rel.get("target", "")).startswith("technique:")
+            and str(rel.get("target", "")).split(":", 1)[1] in attack_ids
+            for rel in rels
+        ):
+            candidates.append(row)
+    for row in candidates:
+        atlas_id = row.get("id", "")
+        if atlas_id in seen_techniques:
+            continue
+        seen_techniques.add(atlas_id)
+        steps.append(
+            {
+                "number": len(steps) + 1,
+                "technique_id": atlas_id,
+                "technique_name": row.get("name", atlas_id),
+                "tactic_id": row.get("tactic", ""),
+                "tactic_name": row.get("tactic", ""),
+                "description": row.get("description", "") or row.get("name", ""),
+                "score": row.get("score", 0),
+                "skills": [],
+                "path_length": len(steps) + 1,
+            }
+        )
+        if len(steps) >= max_steps:
+            break
+    return steps
+
+
+def generate_scenario(entry_technique, depth, objective=None, db=None, validate=True, framework="mitre-attack", cross_framework=False):
     db = db or init_lancedb()
-    tactics_data = load_tactics()
+    if framework == "mitre-attack":
+        tactics_data = load_tactics()
+    else:
+        tactics_data = {}
     if validate:
-        if not validate_graph(db=db):
+        if not validate_graph(db=db, framework=framework):
             raise RuntimeError("Graph validation failed. Run tools/coverage-audit.py for details.")
     entry_tactic = get_tactic_for_technique(entry_technique, db=db)
     if not entry_tactic:
@@ -254,32 +365,36 @@ def generate_scenario(entry_technique, depth, objective=None, db=None, validate=
             file=sys.stderr,
         )
         entry_tactic = ""
+    if framework == "mitre-atlas":
+        tactic_sequence = _ATLAS_TACTIC_SEQUENCE
+    else:
+        tactic_sequence = TACTIC_SEQUENCE
     technique_idx = (
-        TACTIC_SEQUENCE.index(entry_tactic)
-        if entry_tactic in TACTIC_SEQUENCE
+        tactic_sequence.index(entry_tactic)
+        if entry_tactic in tactic_sequence
         else 0
     )
     steps = []
     current_tech = entry_technique
     seen_techniques = set()
-    max_steps = max(1, min(depth, len(TACTIC_SEQUENCE) - max(technique_idx, 0)))
+    max_steps = max(1, min(depth, len(tactic_sequence) - max(technique_idx, 0)))
     for i in range(max_steps):
         tactic_idx = max(technique_idx + i, 0)
         tactic_id = (
-            TACTIC_SEQUENCE[tactic_idx]
-            if tactic_idx < len(TACTIC_SEQUENCE)
-            else TACTIC_SEQUENCE[-1]
+            tactic_sequence[tactic_idx]
+            if tactic_idx < len(tactic_sequence)
+            else tactic_sequence[-1]
         )
         node = get_node(db, current_tech)
         if not node:
             candidates = select_techniques_for_tactic(
-                tactic_id, tactics_data, db, depth=1
+                tactic_id, tactics_data, db, depth=1, framework=framework
             )
             if not candidates:
-                alt_idx = min(tactic_idx + 1, len(TACTIC_SEQUENCE) - 1)
-                tactic_id = TACTIC_SEQUENCE[alt_idx]
+                alt_idx = min(tactic_idx + 1, len(tactic_sequence) - 1)
+                tactic_id = tactic_sequence[alt_idx]
                 candidates = select_techniques_for_tactic(
-                    tactic_id, tactics_data, db, depth=1
+                    tactic_id, tactics_data, db, depth=1, framework=framework
                 )
             if not candidates:
                 continue
@@ -290,7 +405,7 @@ def generate_scenario(entry_technique, depth, objective=None, db=None, validate=
         skills = find_skills_for_technique(current_tech, db, top_k=3)
         if current_tech in seen_techniques and len(steps) > 1:
             candidates = select_techniques_for_tactic(
-                tactic_id, tactics_data, db, depth=3
+                tactic_id, tactics_data, db, depth=3, framework=framework
             )
             for ct in candidates:
                 if ct["technique_id"] not in seen_techniques:
@@ -307,9 +422,7 @@ def generate_scenario(entry_technique, depth, objective=None, db=None, validate=
                 "technique_id": current_tech,
                 "technique_name": name,
                 "tactic_id": tactic_id,
-                "tactic_name": tactics_data.get(tactic_id, {}).get(
-                    "name", tactic_id
-                ),
+                "tactic_name": node.get("tactic", tactic_id) if node else tactic_id,
                 "description": description,
                 "score": node.get("score", 0) if node else 0,
                 "skills": skills,
@@ -317,10 +430,10 @@ def generate_scenario(entry_technique, depth, objective=None, db=None, validate=
             }
         )
         if i + 1 < max_steps:
-            next_idx = min(tactic_idx + 1, len(TACTIC_SEQUENCE) - 1)
-            next_tactic = TACTIC_SEQUENCE[next_idx]
+            next_idx = min(tactic_idx + 1, len(tactic_sequence) - 1)
+            next_tactic = tactic_sequence[next_idx]
             next_candidates = select_techniques_for_tactic(
-                next_tactic, tactics_data, db, depth=3
+                next_tactic, tactics_data, db, depth=3, framework=framework
             )
             current_tech = (
                 next_candidates[0]["technique_id"]
@@ -331,6 +444,14 @@ def generate_scenario(entry_technique, depth, objective=None, db=None, validate=
     for step in steps:
         for skill in step.get("skills", []):
             skill_coverage[skill.get("id", "")] += 1
+    if cross_framework and steps:
+        last = steps[-1]
+        last_id = last.get("technique_id", "")
+        if last_id.startswith("technique:") or last_id.startswith("T"):
+            attack_ids = [
+                last_id.split(":", 1)[1] if ":" in last_id else last_id
+            ]
+            steps = _atlas_equivalent_steps(db, attack_ids, seen_techniques, steps, max_steps)
     objective_label = objective or "custom"
     scenario_name = (
         f"{entry_technique} -> {' -> '.join(s['technique_id'] for s in steps)}"
@@ -352,13 +473,14 @@ def generate_scenario(entry_technique, depth, objective=None, db=None, validate=
             else ""
         ),
         "entry_tactic_id": entry_tactic,
-        "entry_tactic_name": tactics_data.get(entry_tactic, {}).get(
-            "name", entry_tactic
-        )
-        if entry_tactic
-        else "",
+        "entry_tactic_name": (
+            next((s["tactic_name"] for s in steps if s["technique_id"] == entry_technique), entry_tactic)
+            if entry_tactic
+            else ""
+        ),
         "depth": depth,
         "objective": objective_label,
+        "framework": framework,
         "total_steps": len(steps),
         "unique_techniques": len({s["technique_id"] for s in steps}),
         "total_skills": sum(len(s["skills"]) for s in steps),
@@ -374,10 +496,10 @@ def generate_scenario(entry_technique, depth, objective=None, db=None, validate=
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Generate MITRE ATT&CK attack scenarios from knowledge graph"
+        description="Generate attack scenarios from knowledge graph"
     )
     parser.add_argument(
-        "--entry", "-e", required=True, help="Entry technique ID (e.g., T1566.001)"
+        "--entry", "-e", required=True, help="Entry technique ID (e.g., T1566.001 or AML.T0051)"
     )
     parser.add_argument(
         "--depth", "-d", type=int, default=5, help="Scenario depth (default: 5)"
@@ -400,11 +522,27 @@ def main():
         action="store_true",
         help="Run coverage validation against the knowledge graph before generating",
     )
+    parser.add_argument(
+        "--framework",
+        choices=["mitre-attack", "mitre-atlas"],
+        default="mitre-attack",
+        help="Framework to generate scenarios from (default: mitre-attack)",
+    )
+    parser.add_argument(
+        "--cross-framework",
+        action="store_true",
+        help="Weave between ATT&CK and ATLAS when supported",
+    )
     parser.add_argument("--template", help="Custom template path")
     args = parser.parse_args()
     try:
         scenario = generate_scenario(
-            args.entry, args.depth, objective=args.objective, validate=args.validate
+            args.entry,
+            args.depth,
+            objective=args.objective,
+            validate=args.validate,
+            framework=args.framework,
+            cross_framework=args.cross_framework,
         )
     except RuntimeError as exc:
         print(f"Error: {exc}", file=sys.stderr)

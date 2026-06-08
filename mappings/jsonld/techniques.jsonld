@@ -125,7 +125,7 @@
     "name": "System Network Configuration Discovery",
     "framework": "mitre-attack",
     "framework_id": "T1016",
-    "tactic": "TA0001",
+    "tactic": "TA0007",
     "skills": [
       "skill:conducting-full-scope-red-team-engagement",
       "skill:conducting-internal-reconnaissance-with-bloodhound-ce",
@@ -169,7 +169,7 @@
     "name": "Remote Services",
     "framework": "mitre-attack",
     "framework_id": "T1021",
-    "tactic": "TA0001",
+    "tactic": "TA0008",
     "skills": [
       "skill:detecting-lateral-movement-in-network",
       "skill:detecting-lateral-movement-with-splunk",
@@ -274,7 +274,7 @@
     "name": "Scheduled Transfer",
     "framework": "mitre-attack",
     "framework_id": "T1029",
-    "tactic": "TA0001",
+    "tactic": "TA0010",
     "skills": [
       "skill:hunting-for-data-exfiltration-indicators"
     ],
@@ -287,7 +287,7 @@
     "name": "Data Transfer Size Limits",
     "framework": "mitre-attack",
     "framework_id": "T1030",
-    "tactic": "TA0004",
+    "tactic": "TA0010",
     "skills": [
       "skill:hunting-for-data-exfiltration-indicators"
     ],
@@ -300,7 +300,7 @@
     "name": "System Owner/User Discovery",
     "framework": "mitre-attack",
     "framework_id": "T1033",
-    "tactic": "TA0004",
+    "tactic": "TA0007",
     "skills": [
       "skill:conducting-internal-reconnaissance-with-bloodhound-ce",
       "skill:exploiting-active-directory-with-bloodhound"
@@ -329,7 +329,7 @@
     "name": "Match Legitimate Name or Location",
     "framework": "mitre-attack",
     "framework_id": "T1036.005",
-    "tactic": "TA0004",
+    "tactic": "TA0005",
     "skills": [
       "skill:detecting-process-injection-techniques"
     ],
@@ -520,7 +520,7 @@
     "name": "Process Injection",
     "framework": "mitre-attack",
     "framework_id": "T1055",
-    "tactic": "TA0001",
+    "tactic": "TA0005",
     "skills": [
       "skill:building-attack-pattern-library-from-cti-reports",
       "skill:building-red-team-c2-infrastructure-with-havoc",
@@ -665,7 +665,7 @@
     "name": "Process Doppelganging",
     "framework": "mitre-attack",
     "framework_id": "T1055.013",
-    "tactic": "TA0001",
+    "tactic": "TA0005",
     "skills": [
       "skill:detecting-process-hollowing-technique",
       "skill:detecting-process-injection-techniques",
@@ -680,7 +680,7 @@
     "name": "VDSO Hijacking",
     "framework": "mitre-attack",
     "framework_id": "T1055.014",
-    "tactic": "TA0001",
+    "tactic": "TA0005",
     "skills": [
       "skill:detecting-process-injection-techniques"
     ],
@@ -693,7 +693,7 @@
     "name": "ListPlanting",
     "framework": "mitre-attack",
     "framework_id": "T1055.015",
-    "tactic": "TA0001",
+    "tactic": "TA0005",
     "skills": [
       "skill:detecting-process-injection-techniques",
       "skill:detecting-t1055-process-injection-with-sysmon"
@@ -786,7 +786,7 @@
     "name": "Local Groups",
     "framework": "mitre-attack",
     "framework_id": "T1069.001",
-    "tactic": "TA0004",
+    "tactic": "TA0007",
     "skills": [
       "skill:performing-active-directory-bloodhound-analysis"
     ],
@@ -799,7 +799,7 @@
     "name": "Domain Groups",
     "framework": "mitre-attack",
     "framework_id": "T1069.002",
-    "tactic": "TA0004",
+    "tactic": "TA0007",
     "skills": [
       "skill:conducting-internal-reconnaissance-with-bloodhound-ce",
       "skill:exploiting-active-directory-with-bloodhound",
@@ -815,7 +815,7 @@
     "name": "Indicator Removal",
     "framework": "mitre-attack",
     "framework_id": "T1070",
-    "tactic": "TA0001",
+    "tactic": "TA0005",
     "skills": [
       "skill:detecting-evasion-techniques-in-endpoint-logs",
       "skill:implementing-siem-use-cases-for-detection",
@@ -858,7 +858,7 @@
     "name": "Timestomping",
     "framework": "mitre-attack",
     "framework_id": "T1070.006",
-    "tactic": "TA0001",
+    "tactic": "TA0005",
     "skills": [
       "skill:detecting-evasion-techniques-in-endpoint-logs",
       "skill:hunting-for-defense-evasion-via-timestomping"
@@ -920,7 +920,7 @@
     "name": "Data Staged",
     "framework": "mitre-attack",
     "framework_id": "T1074",
-    "tactic": "TA0001",
+    "tactic": "TA0009",
     "skills": [
       "skill:building-attack-pattern-library-from-cti-reports",
       "skill:executing-red-team-exercise",
@@ -935,7 +935,7 @@
     "name": "Local Data Staging",
     "framework": "mitre-attack",
     "framework_id": "T1074.001",
-    "tactic": "TA0001",
+    "tactic": "TA0009",
     "skills": [
       "skill:hunting-for-data-staging-before-exfiltration"
     ],
@@ -948,7 +948,7 @@
     "name": "Remote Data Staging",
     "framework": "mitre-attack",
     "framework_id": "T1074.002",
-    "tactic": "TA0001",
+    "tactic": "TA0009",
     "skills": [
       "skill:hunting-for-data-staging-before-exfiltration"
     ],
@@ -977,7 +977,7 @@
     "name": "Default Accounts",
     "framework": "mitre-attack",
     "framework_id": "T1078.001",
-    "tactic": "TA0001",
+    "tactic": "TA0005",
     "skills": [
       "skill:detecting-service-account-abuse"
     ],
@@ -990,7 +990,7 @@
     "name": "Domain Accounts",
     "framework": "mitre-attack",
     "framework_id": "T1078.002",
-    "tactic": "TA0001",
+    "tactic": "TA0005",
     "skills": [
       "skill:conducting-domain-persistence-with-dcsync",
       "skill:detecting-service-account-abuse",
@@ -1006,7 +1006,7 @@
     "name": "Cloud Accounts",
     "framework": "mitre-attack",
     "framework_id": "T1078.004",
-    "tactic": "TA0001",
+    "tactic": "TA0005",
     "skills": [
       "skill:detecting-azure-service-principal-abuse",
       "skill:implementing-mitre-attack-coverage-mapping",
@@ -1078,7 +1078,7 @@
     "name": "Proxy",
     "framework": "mitre-attack",
     "framework_id": "T1090",
-    "tactic": "TA0001",
+    "tactic": "TA0011",
     "skills": [
       "skill:implementing-mitre-attack-coverage-mapping"
     ],
@@ -1091,7 +1091,7 @@
     "name": "External Proxy",
     "framework": "mitre-attack",
     "framework_id": "T1090.002",
-    "tactic": "TA0001",
+    "tactic": "TA0011",
     "skills": [
       "skill:building-c2-infrastructure-with-sliver-framework",
       "skill:building-red-team-c2-infrastructure-with-havoc"
@@ -1105,7 +1105,7 @@
     "name": "T1090.004",
     "framework": "mitre-attack",
     "framework_id": "T1090.004",
-    "tactic": "TA0001",
+    "tactic": "TA0011",
     "skills": [
       "skill:hunting-for-domain-fronting-c2-traffic"
     ],
@@ -1190,7 +1190,7 @@
     "name": "Web Service",
     "framework": "mitre-attack",
     "framework_id": "T1102",
-    "tactic": "TA0001",
+    "tactic": "TA0011",
     "skills": [
       "skill:hunting-for-living-off-the-cloud-techniques"
     ],
@@ -1277,7 +1277,7 @@
     "name": "Modify Registry",
     "framework": "mitre-attack",
     "framework_id": "T1112",
-    "tactic": "TA0002",
+    "tactic": "TA0112",
     "skills": [
       "skill:detecting-fileless-malware-techniques"
     ],
@@ -1290,7 +1290,7 @@
     "name": "Remote Email Collection",
     "framework": "mitre-attack",
     "framework_id": "T1114.002",
-    "tactic": "TA0002",
+    "tactic": "TA0009",
     "skills": [
       "skill:detecting-email-forwarding-rules-attack"
     ],
@@ -1303,7 +1303,7 @@
     "name": "Email Forwarding Rule",
     "framework": "mitre-attack",
     "framework_id": "T1114.003",
-    "tactic": "TA0002",
+    "tactic": "TA0009",
     "skills": [
       "skill:detecting-business-email-compromise",
       "skill:detecting-email-forwarding-rules-attack"
@@ -1344,7 +1344,7 @@
     "name": "Data Encoding",
     "framework": "mitre-attack",
     "framework_id": "T1132",
-    "tactic": "TA0001",
+    "tactic": "TA0011",
     "skills": [
       "skill:hunting-for-command-and-control-beaconing"
     ],
@@ -1383,7 +1383,7 @@
     "name": "Access Token Manipulation",
     "framework": "mitre-attack",
     "framework_id": "T1134",
-    "tactic": "TA0001",
+    "tactic": "TA0005",
     "skills": [
       "skill:analyzing-windows-event-logs-in-splunk",
       "skill:detecting-privilege-escalation-attempts"
@@ -1423,7 +1423,7 @@
     "name": "Create Account",
     "framework": "mitre-attack",
     "framework_id": "T1136",
-    "tactic": "TA0001",
+    "tactic": "TA0003",
     "skills": [
       "skill:detecting-privilege-escalation-in-kubernetes-pods",
       "skill:implementing-mitre-attack-coverage-mapping"
@@ -1463,7 +1463,7 @@
     "name": "Deobfuscate/Decode Files or Information",
     "framework": "mitre-attack",
     "framework_id": "T1140",
-    "tactic": "",
+    "tactic": "TA0005",
     "skills": [
       "skill:detecting-living-off-the-land-with-lolbas",
       "skill:hunting-for-living-off-the-land-binaries",
@@ -1575,7 +1575,7 @@
     "name": "Malicious Link",
     "framework": "mitre-attack",
     "framework_id": "T1204.001",
-    "tactic": "TA0001",
+    "tactic": "TA0002",
     "skills": [
       "skill:conducting-spearphishing-simulation-campaign"
     ],
@@ -1588,7 +1588,7 @@
     "name": "Malicious File",
     "framework": "mitre-attack",
     "framework_id": "T1204.002",
-    "tactic": "TA0001",
+    "tactic": "TA0002",
     "skills": [
       "skill:analyzing-macro-malware-in-office-documents",
       "skill:conducting-full-scope-red-team-engagement",
@@ -1604,7 +1604,7 @@
     "name": "Exploitation of Remote Services",
     "framework": "mitre-attack",
     "framework_id": "T1210",
-    "tactic": "TA0004",
+    "tactic": "TA0008",
     "skills": [
       "skill:exploiting-ms17-010-eternalblue-vulnerability",
       "skill:exploiting-zerologon-vulnerability-cve-2020-1472"
@@ -1703,7 +1703,7 @@
     "name": "Regsvr32",
     "framework": "mitre-attack",
     "framework_id": "T1218.010",
-    "tactic": "TA0004",
+    "tactic": "TA0005",
     "skills": [
       "skill:hunting-for-living-off-the-land-binaries",
       "skill:hunting-for-lolbins-execution-in-endpoint-logs"
@@ -1717,7 +1717,7 @@
     "name": "Rundll32",
     "framework": "mitre-attack",
     "framework_id": "T1218.011",
-    "tactic": "TA0004",
+    "tactic": "TA0005",
     "skills": [
       "skill:hunting-for-living-off-the-land-binaries",
       "skill:hunting-for-lolbins-execution-in-endpoint-logs",
@@ -1732,7 +1732,7 @@
     "name": "Windows",
     "framework": "mitre-attack",
     "framework_id": "T1222.001",
-    "tactic": "",
+    "tactic": "TA0112",
     "skills": [
       "skill:conducting-domain-persistence-with-dcsync"
     ],
@@ -1745,7 +1745,7 @@
     "name": "Domain Trust Discovery",
     "framework": "mitre-attack",
     "framework_id": "T1482",
-    "tactic": "TA0001",
+    "tactic": "TA0007",
     "skills": [
       "skill:conducting-internal-reconnaissance-with-bloodhound-ce",
       "skill:exploiting-active-directory-with-bloodhound",
@@ -1760,7 +1760,7 @@
     "name": "Domain Policy Modification",
     "framework": "mitre-attack",
     "framework_id": "T1484",
-    "tactic": "TA0001",
+    "tactic": "TA0112",
     "skills": [
       "skill:exploiting-active-directory-certificate-services-esc1",
       "skill:performing-active-directory-vulnerability-assessment"
@@ -1844,7 +1844,7 @@
     "name": "Virtualization/Sandbox Evasion",
     "framework": "mitre-attack",
     "framework_id": "T1497",
-    "tactic": "TA0040",
+    "tactic": "TA0007",
     "skills": [
       "skill:analyzing-malware-sandbox-evasion-techniques"
     ],
@@ -1857,7 +1857,7 @@
     "name": "Web Shell",
     "framework": "mitre-attack",
     "framework_id": "T1505.003",
-    "tactic": "",
+    "tactic": "TA0003",
     "skills": [
       "skill:building-attack-pattern-library-from-cti-reports",
       "skill:hunting-for-webshell-activity"
@@ -1884,7 +1884,7 @@
     "name": "Data from Cloud Storage Object",
     "framework": "mitre-attack",
     "framework_id": "T1530",
-    "tactic": "TA0006",
+    "tactic": "TA0009",
     "skills": [
       "skill:detecting-insider-threat-behaviors",
       "skill:implementing-mitre-attack-coverage-mapping",
@@ -1899,7 +1899,7 @@
     "name": "Internal Spearphishing",
     "framework": "mitre-attack",
     "framework_id": "T1534",
-    "tactic": "TA0006",
+    "tactic": "TA0008",
     "skills": [
       "skill:implementing-mitre-attack-coverage-mapping"
     ],
@@ -1912,7 +1912,7 @@
     "name": "Transfer Data to Cloud Account",
     "framework": "mitre-attack",
     "framework_id": "T1537",
-    "tactic": "TA0006",
+    "tactic": "TA0010",
     "skills": [
       "skill:hunting-for-data-exfiltration-indicators",
       "skill:hunting-for-living-off-the-cloud-techniques",
@@ -1957,7 +1957,7 @@
     "name": "Systemd Service",
     "framework": "mitre-attack",
     "framework_id": "T1543.002",
-    "tactic": "TA0003",
+    "tactic": "TA0004",
     "skills": [
       "skill:performing-privilege-escalation-on-linux"
     ],
@@ -1970,7 +1970,7 @@
     "name": "Windows Service",
     "framework": "mitre-attack",
     "framework_id": "T1543.003",
-    "tactic": "TA0003",
+    "tactic": "TA0004",
     "skills": [
       "skill:hunting-for-persistence-mechanisms-in-windows",
       "skill:hunting-for-unusual-service-installations",
@@ -1985,7 +1985,7 @@
     "name": "Event Triggered Execution",
     "framework": "mitre-attack",
     "framework_id": "T1546",
-    "tactic": "TA0003",
+    "tactic": "TA0004",
     "skills": [
       "skill:analyzing-persistence-mechanisms-in-linux"
     ],
@@ -2015,7 +2015,7 @@
     "name": "AppInit DLLs",
     "framework": "mitre-attack",
     "framework_id": "T1546.010",
-    "tactic": "TA0003",
+    "tactic": "TA0004",
     "skills": [
       "skill:hunting-for-persistence-mechanisms-in-windows"
     ],
@@ -2042,7 +2042,7 @@
     "name": "COM Hijacking",
     "framework": "mitre-attack",
     "framework_id": "T1546.015",
-    "tactic": "TA0003",
+    "tactic": "TA0004",
     "skills": [
       "skill:hunting-for-persistence-mechanisms-in-windows",
       "skill:hunting-for-registry-persistence-mechanisms"
@@ -2115,7 +2115,7 @@
     "name": "Abuse Elevation Control Mechanism",
     "framework": "mitre-attack",
     "framework_id": "T1548",
-    "tactic": "TA0003",
+    "tactic": "TA0004",
     "skills": [
       "skill:detecting-container-escape-attempts",
       "skill:detecting-privilege-escalation-in-kubernetes-pods",
@@ -2189,7 +2189,7 @@
     "name": "Use Alternate Authentication Material",
     "framework": "mitre-attack",
     "framework_id": "T1550",
-    "tactic": "TA0001",
+    "tactic": "TA0008",
     "skills": [
       "skill:performing-lateral-movement-detection"
     ],
@@ -2202,7 +2202,7 @@
     "name": "Pass the Hash",
     "framework": "mitre-attack",
     "framework_id": "T1550.002",
-    "tactic": "TA0001",
+    "tactic": "TA0008",
     "skills": [
       "skill:analyzing-windows-event-logs-in-splunk",
       "skill:building-attack-pattern-library-from-cti-reports",
@@ -2218,7 +2218,7 @@
     "name": "Pass the Ticket",
     "framework": "mitre-attack",
     "framework_id": "T1550.003",
-    "tactic": "TA0001",
+    "tactic": "TA0008",
     "skills": [
       "skill:conducting-pass-the-ticket-attack",
       "skill:detecting-pass-the-hash-attacks",
@@ -2234,7 +2234,7 @@
     "name": "Web Session Cookie",
     "framework": "mitre-attack",
     "framework_id": "T1550.004",
-    "tactic": "TA0001",
+    "tactic": "TA0008",
     "skills": [
       "skill:performing-initial-access-with-evilginx3"
     ],
@@ -2299,7 +2299,7 @@
     "name": "Credentials from Password Stores",
     "framework": "mitre-attack",
     "framework_id": "T1555",
-    "tactic": "TA0001",
+    "tactic": "TA0006",
     "skills": [
       "skill:performing-credential-access-with-lazagne"
     ],
@@ -2312,7 +2312,7 @@
     "name": "Web Browsers",
     "framework": "mitre-attack",
     "framework_id": "T1555.003",
-    "tactic": "TA0001",
+    "tactic": "TA0006",
     "skills": [
       "skill:performing-credential-access-with-lazagne"
     ],
@@ -2325,7 +2325,7 @@
     "name": "Windows Credential Manager",
     "framework": "mitre-attack",
     "framework_id": "T1555.004",
-    "tactic": "TA0001",
+    "tactic": "TA0006",
     "skills": [
       "skill:performing-credential-access-with-lazagne"
     ],
@@ -2338,7 +2338,7 @@
     "name": "Modify Authentication Process",
     "framework": "mitre-attack",
     "framework_id": "T1556",
-    "tactic": "TA0001",
+    "tactic": "TA0112",
     "skills": [
       "skill:performing-initial-access-with-evilginx3"
     ],
@@ -2351,7 +2351,7 @@
     "name": "Adversary-in-the-Middle",
     "framework": "mitre-attack",
     "framework_id": "T1557",
-    "tactic": "TA0001",
+    "tactic": "TA0009",
     "skills": [
       "skill:performing-initial-access-with-evilginx3"
     ],
@@ -2364,7 +2364,7 @@
     "name": "LLMNR/NBT-NS Poisoning",
     "framework": "mitre-attack",
     "framework_id": "T1557.001",
-    "tactic": "TA0001",
+    "tactic": "TA0009",
     "skills": [
       "skill:conducting-internal-network-penetration-test",
       "skill:hunting-for-ntlm-relay-attacks"
@@ -2378,7 +2378,7 @@
     "name": "Steal or Forge Kerberos Tickets",
     "framework": "mitre-attack",
     "framework_id": "T1558",
-    "tactic": "TA0001",
+    "tactic": "TA0006",
     "skills": [
       "skill:analyzing-windows-event-logs-in-splunk",
       "skill:conducting-pass-the-ticket-attack",
@@ -2395,7 +2395,7 @@
     "name": "Golden Ticket",
     "framework": "mitre-attack",
     "framework_id": "T1558.001",
-    "tactic": "TA0001",
+    "tactic": "TA0006",
     "skills": [
       "skill:analyzing-windows-event-logs-in-splunk",
       "skill:conducting-domain-persistence-with-dcsync",
@@ -2411,7 +2411,7 @@
     "name": "Silver Ticket",
     "framework": "mitre-attack",
     "framework_id": "T1558.002",
-    "tactic": "TA0001",
+    "tactic": "TA0006",
     "skills": [
       "skill:performing-active-directory-compromise-investigation"
     ],
@@ -2424,7 +2424,7 @@
     "name": "Kerberoasting",
     "framework": "mitre-attack",
     "framework_id": "T1558.003",
-    "tactic": "TA0001",
+    "tactic": "TA0006",
     "skills": [
       "skill:analyzing-windows-event-logs-in-splunk",
       "skill:building-attack-pattern-library-from-cti-reports",
@@ -2440,7 +2440,7 @@
     "name": "AS-REP Roasting",
     "framework": "mitre-attack",
     "framework_id": "T1558.004",
-    "tactic": "TA0001",
+    "tactic": "TA0006",
     "skills": [
       "skill:detecting-kerberoasting-attacks"
     ],
@@ -2598,7 +2598,7 @@
     "name": "Dynamic Resolution",
     "framework": "mitre-attack",
     "framework_id": "T1568",
-    "tactic": "TA0001",
+    "tactic": "TA0011",
     "skills": [
       "skill:hunting-for-command-and-control-beaconing",
       "skill:implementing-mitre-attack-coverage-mapping"
@@ -2612,7 +2612,7 @@
     "name": "Domain Generation Algorithms",
     "framework": "mitre-attack",
     "framework_id": "T1568.002",
-    "tactic": "TA0001",
+    "tactic": "TA0011",
     "skills": [
       "skill:hunting-for-beaconing-with-frequency-analysis"
     ],
@@ -2625,7 +2625,7 @@
     "name": "Service Execution",
     "framework": "mitre-attack",
     "framework_id": "T1569.002",
-    "tactic": "TA0001",
+    "tactic": "TA0002",
     "skills": [
       "skill:detecting-lateral-movement-in-network",
       "skill:detecting-lateral-movement-with-splunk",
@@ -2655,7 +2655,7 @@
     "name": "Non-Standard Port",
     "framework": "mitre-attack",
     "framework_id": "T1571",
-    "tactic": "TA0001",
+    "tactic": "TA0011",
     "skills": [
       "skill:hunting-for-unusual-network-connections",
       "skill:implementing-mitre-attack-coverage-mapping"
@@ -2669,7 +2669,7 @@
     "name": "Protocol Tunneling",
     "framework": "mitre-attack",
     "framework_id": "T1572",
-    "tactic": "TA0001",
+    "tactic": "TA0011",
     "skills": [
       "skill:building-c2-infrastructure-with-sliver-framework",
       "skill:hunting-for-command-and-control-beaconing",
@@ -2685,7 +2685,7 @@
     "name": "Encrypted Channel",
     "framework": "mitre-attack",
     "framework_id": "T1573",
-    "tactic": "TA0001",
+    "tactic": "TA0011",
     "skills": [
       "skill:analyzing-ransomware-network-indicators",
       "skill:hunting-for-beaconing-with-frequency-analysis",
@@ -2785,7 +2785,7 @@
     "name": "Unquoted Service Path",
     "framework": "mitre-attack",
     "framework_id": "T1574.009",
-    "tactic": "TA0001",
+    "tactic": "TA0005",
     "skills": [
       "skill:detecting-privilege-escalation-attempts"
     ],
@@ -2824,7 +2824,7 @@
     "name": "Domains",
     "framework": "mitre-attack",
     "framework_id": "T1583.001",
-    "tactic": "TA0011",
+    "tactic": "TA0042",
     "skills": [
       "skill:building-red-team-c2-infrastructure-with-havoc",
       "skill:conducting-full-scope-red-team-engagement",
@@ -2840,7 +2840,7 @@
     "name": "Virtual Private Server",
     "framework": "mitre-attack",
     "framework_id": "T1583.003",
-    "tactic": "TA0011",
+    "tactic": "TA0042",
     "skills": [
       "skill:building-red-team-c2-infrastructure-with-havoc"
     ],
@@ -2853,7 +2853,7 @@
     "name": "Email Accounts",
     "framework": "mitre-attack",
     "framework_id": "T1585.002",
-    "tactic": "TA0011",
+    "tactic": "TA0042",
     "skills": [
       "skill:conducting-spearphishing-simulation-campaign"
     ],
@@ -2866,7 +2866,7 @@
     "name": "Malware",
     "framework": "mitre-attack",
     "framework_id": "T1587.001",
-    "tactic": "TA0011",
+    "tactic": "TA0042",
     "skills": [
       "skill:building-red-team-c2-infrastructure-with-havoc",
       "skill:conducting-full-scope-red-team-engagement"
@@ -3029,7 +3029,7 @@
     "name": "Upload Malware",
     "framework": "mitre-attack",
     "framework_id": "T1608.001",
-    "tactic": "TA0002",
+    "tactic": "TA0042",
     "skills": [
       "skill:conducting-spearphishing-simulation-campaign"
     ],
@@ -3042,7 +3042,7 @@
     "name": "Link Target",
     "framework": "mitre-attack",
     "framework_id": "T1608.005",
-    "tactic": "TA0002",
+    "tactic": "TA0042",
     "skills": [
       "skill:conducting-spearphishing-simulation-campaign"
     ],
@@ -3083,7 +3083,7 @@
     "name": "Group Policy Discovery",
     "framework": "mitre-attack",
     "framework_id": "T1615",
-    "tactic": "TA0002",
+    "tactic": "TA0007",
     "skills": [
       "skill:conducting-internal-reconnaissance-with-bloodhound-ce",
       "skill:exploiting-active-directory-with-bloodhound",
@@ -3098,7 +3098,7 @@
     "name": "Steal or Forge Authentication Certificates",
     "framework": "mitre-attack",
     "framework_id": "T1649",
-    "tactic": "",
+    "tactic": "TA0006",
     "skills": [
       "skill:exploiting-active-directory-certificate-services-esc1"
     ],
@@ -3111,7 +3111,7 @@
     "name": "T1006",
     "framework": "mitre-attack",
     "framework_id": "T1006",
-    "tactic": "TA0006",
+    "tactic": "TA0005",
     "skills": [
       "skill:acquiring-disk-image-with-dd-and-dcfldd"
     ],
@@ -3124,7 +3124,7 @@
     "name": "T1025",
     "framework": "mitre-attack",
     "framework_id": "T1025",
-    "tactic": "TA0001",
+    "tactic": "TA0009",
     "skills": [
       "skill:acquiring-disk-image-with-dd-and-dcfldd"
     ],
@@ -3137,7 +3137,7 @@
     "name": "T1098.007",
     "framework": "mitre-attack",
     "framework_id": "T1098.007",
-    "tactic": "TA0001",
+    "tactic": "TA0004",
     "skills": [
       "skill:analyzing-active-directory-acl-abuse"
     ],
@@ -3176,7 +3176,7 @@
     "name": "T1626.001",
     "framework": "mitre-attack",
     "framework_id": "T1626.001",
-    "tactic": "",
+    "tactic": "TA0005",
     "skills": [
       "skill:analyzing-android-malware-with-apktool"
     ],
@@ -3189,7 +3189,7 @@
     "name": "T1655.001",
     "framework": "mitre-attack",
     "framework_id": "T1655.001",
-    "tactic": "",
+    "tactic": "TA0001",
     "skills": [
       "skill:analyzing-android-malware-with-apktool"
     ],
@@ -3202,7 +3202,7 @@
     "name": "T1521.001",
     "framework": "mitre-attack",
     "framework_id": "T1521.001",
-    "tactic": "TA0006",
+    "tactic": "TA0003",
     "skills": [
       "skill:analyzing-android-malware-with-apktool"
     ],
@@ -3228,7 +3228,7 @@
     "name": "T1119",
     "framework": "mitre-attack",
     "framework_id": "T1119",
-    "tactic": "TA0002",
+    "tactic": "TA0009",
     "skills": [
       "skill:analyzing-api-gateway-access-logs"
     ],
@@ -3254,7 +3254,7 @@
     "name": "T1538",
     "framework": "mitre-attack",
     "framework_id": "T1538",
-    "tactic": "TA0006",
+    "tactic": "TA0007",
     "skills": [
       "skill:analyzing-azure-activity-logs-for-threats"
     ],
@@ -3267,7 +3267,7 @@
     "name": "T1556.009",
     "framework": "mitre-attack",
     "framework_id": "T1556.009",
-    "tactic": "TA0001",
+    "tactic": "TA0112",
     "skills": [
       "skill:analyzing-azure-activity-logs-for-threats"
     ],
@@ -3280,7 +3280,7 @@
     "name": "T1542.003",
     "framework": "mitre-attack",
     "framework_id": "T1542.003",
-    "tactic": "TA0003",
+    "tactic": "TA0005",
     "skills": [
       "skill:analyzing-bootkit-and-rootkit-samples"
     ],
@@ -3306,7 +3306,7 @@
     "name": "T1542.002",
     "framework": "mitre-attack",
     "framework_id": "T1542.002",
-    "tactic": "TA0003",
+    "tactic": "TA0005",
     "skills": [
       "skill:analyzing-bootkit-and-rootkit-samples"
     ],
@@ -3358,7 +3358,7 @@
     "name": "T1185",
     "framework": "mitre-attack",
     "framework_id": "T1185",
-    "tactic": "",
+    "tactic": "TA0009",
     "skills": [
       "skill:analyzing-browser-forensics-with-hindsight"
     ],
@@ -3371,7 +3371,7 @@
     "name": "T1588.002",
     "framework": "mitre-attack",
     "framework_id": "T1588.002",
-    "tactic": "TA0011",
+    "tactic": "TA0042",
     "skills": [
       "skill:analyzing-campaign-attribution-evidence"
     ],
@@ -3384,7 +3384,7 @@
     "name": "T1583.004",
     "framework": "mitre-attack",
     "framework_id": "T1583.004",
-    "tactic": "TA0011",
+    "tactic": "TA0042",
     "skills": [
       "skill:analyzing-certificate-transparency-for-phishing"
     ],
@@ -3410,7 +3410,7 @@
     "name": "T1619",
     "framework": "mitre-attack",
     "framework_id": "T1619",
-    "tactic": "TA0002",
+    "tactic": "TA0007",
     "skills": [
       "skill:analyzing-cloud-storage-access-patterns"
     ],
@@ -3436,7 +3436,7 @@
     "name": "T1001.003",
     "framework": "mitre-attack",
     "framework_id": "T1001.003",
-    "tactic": "TA0006",
+    "tactic": "TA0011",
     "skills": [
       "skill:analyzing-cobaltstrike-malleable-c2-profiles"
     ],
@@ -3449,7 +3449,7 @@
     "name": "T1008",
     "framework": "mitre-attack",
     "framework_id": "T1008",
-    "tactic": "TA0006",
+    "tactic": "TA0011",
     "skills": [
       "skill:analyzing-command-and-control-communication"
     ],
@@ -3475,7 +3475,7 @@
     "name": "T1613",
     "framework": "mitre-attack",
     "framework_id": "T1613",
-    "tactic": "TA0002",
+    "tactic": "TA0007",
     "skills": [
       "skill:analyzing-docker-container-forensics"
     ],
@@ -3488,7 +3488,7 @@
     "name": "T1612",
     "framework": "mitre-attack",
     "framework_id": "T1612",
-    "tactic": "TA0002",
+    "tactic": "TA0005",
     "skills": [
       "skill:analyzing-docker-container-forensics"
     ],
@@ -3501,7 +3501,7 @@
     "name": "T1620",
     "framework": "mitre-attack",
     "framework_id": "T1620",
-    "tactic": "",
+    "tactic": "TA0005",
     "skills": [
       "skill:analyzing-golang-malware-with-ghidra"
     ],
@@ -3605,7 +3605,7 @@
     "name": "T1552.007",
     "framework": "mitre-attack",
     "framework_id": "T1552.007",
-    "tactic": "TA0001",
+    "tactic": "TA0006",
     "skills": [
       "skill:analyzing-kubernetes-audit-logs"
     ],
@@ -3631,7 +3631,7 @@
     "name": "T1564.001",
     "framework": "mitre-attack",
     "framework_id": "T1564.001",
-    "tactic": "TA0001",
+    "tactic": "TA0005",
     "skills": [
       "skill:analyzing-linux-kernel-rootkits"
     ],
@@ -3657,7 +3657,7 @@
     "name": "T1137.001",
     "framework": "mitre-attack",
     "framework_id": "T1137.001",
-    "tactic": "TA0001",
+    "tactic": "TA0003",
     "skills": [
       "skill:analyzing-macro-malware-in-office-documents"
     ],
@@ -3683,7 +3683,7 @@
     "name": "T1497.001",
     "framework": "mitre-attack",
     "framework_id": "T1497.001",
-    "tactic": "TA0040",
+    "tactic": "TA0007",
     "skills": [
       "skill:analyzing-malware-sandbox-evasion-techniques"
     ],
@@ -3696,7 +3696,7 @@
     "name": "T1497.003",
     "framework": "mitre-attack",
     "framework_id": "T1497.003",
-    "tactic": "TA0040",
+    "tactic": "TA0007",
     "skills": [
       "skill:analyzing-malware-sandbox-evasion-techniques"
     ],
@@ -3735,7 +3735,7 @@
     "name": "T1001",
     "framework": "mitre-attack",
     "framework_id": "T1001",
-    "tactic": "TA0006",
+    "tactic": "TA0011",
     "skills": [
       "skill:analyzing-network-covert-channels-in-malware"
     ],
@@ -3761,7 +3761,7 @@
     "name": "T1556.006",
     "framework": "mitre-attack",
     "framework_id": "T1556.006",
-    "tactic": "TA0001",
+    "tactic": "TA0112",
     "skills": [
       "skill:analyzing-office365-audit-logs-for-compromise"
     ],
@@ -3774,7 +3774,7 @@
     "name": "T1114.001",
     "framework": "mitre-attack",
     "framework_id": "T1114.001",
-    "tactic": "TA0002",
+    "tactic": "TA0009",
     "skills": [
       "skill:analyzing-outlook-pst-for-email-forensics"
     ],
@@ -3787,7 +3787,7 @@
     "name": "T1564.008",
     "framework": "mitre-attack",
     "framework_id": "T1564.008",
-    "tactic": "TA0001",
+    "tactic": "TA0005",
     "skills": [
       "skill:analyzing-outlook-pst-for-email-forensics"
     ],
@@ -3800,7 +3800,7 @@
     "name": "T1070.008",
     "framework": "mitre-attack",
     "framework_id": "T1070.008",
-    "tactic": "TA0001",
+    "tactic": "TA0005",
     "skills": [
       "skill:analyzing-outlook-pst-for-email-forensics"
     ],
@@ -3839,7 +3839,7 @@
     "name": "T1027.010",
     "framework": "mitre-attack",
     "framework_id": "T1027.010",
-    "tactic": "TA0001",
+    "tactic": "TA0005",
     "skills": [
       "skill:analyzing-powershell-empire-artifacts"
     ],
@@ -3852,7 +3852,7 @@
     "name": "T1657",
     "framework": "mitre-attack",
     "framework_id": "T1657",
-    "tactic": "",
+    "tactic": "TA0040",
     "skills": [
       "skill:analyzing-ransomware-leak-site-intelligence"
     ],
@@ -3878,7 +3878,7 @@
     "name": "T1564.004",
     "framework": "mitre-attack",
     "framework_id": "T1564.004",
-    "tactic": "TA0001",
+    "tactic": "TA0005",
     "skills": [
       "skill:analyzing-slack-space-and-file-system-artifacts"
     ],
@@ -3891,7 +3891,7 @@
     "name": "T1553.002",
     "framework": "mitre-attack",
     "framework_id": "T1553.002",
-    "tactic": "TA0001",
+    "tactic": "TA0112",
     "skills": [
       "skill:analyzing-supply-chain-malware-artifacts"
     ],
@@ -3904,7 +3904,7 @@
     "name": "T1583.006",
     "framework": "mitre-attack",
     "framework_id": "T1583.006",
-    "tactic": "TA0011",
+    "tactic": "TA0042",
     "skills": [
       "skill:analyzing-tls-certificate-transparency-logs"
     ],
@@ -3917,7 +3917,7 @@
     "name": "T1553.006",
     "framework": "mitre-attack",
     "framework_id": "T1553.006",
-    "tactic": "TA0001",
+    "tactic": "TA0112",
     "skills": [
       "skill:analyzing-uefi-bootkit-persistence"
     ],
@@ -3943,7 +3943,7 @@
     "name": "T1052.001",
     "framework": "mitre-attack",
     "framework_id": "T1052.001",
-    "tactic": "TA0001",
+    "tactic": "TA0010",
     "skills": [
       "skill:analyzing-usb-device-connection-history"
     ],
@@ -3995,7 +3995,7 @@
     "name": "T1069.003",
     "framework": "mitre-attack",
     "framework_id": "T1069.003",
-    "tactic": "TA0004",
+    "tactic": "TA0007",
     "skills": [
       "skill:auditing-azure-active-directory-configuration"
     ],
@@ -4008,7 +4008,7 @@
     "name": "T1526",
     "framework": "mitre-attack",
     "framework_id": "T1526",
-    "tactic": "TA0006",
+    "tactic": "TA0007",
     "skills": [
       "skill:auditing-azure-active-directory-configuration"
     ],
@@ -4021,7 +4021,7 @@
     "name": "T1685.002",
     "framework": "mitre-attack",
     "framework_id": "T1685.002",
-    "tactic": "",
+    "tactic": "TA0112",
     "skills": [
       "skill:auditing-cloud-with-cis-benchmarks"
     ],
@@ -4047,7 +4047,7 @@
     "name": "T1098.006",
     "framework": "mitre-attack",
     "framework_id": "T1098.006",
-    "tactic": "TA0001",
+    "tactic": "TA0004",
     "skills": [
       "skill:auditing-kubernetes-cluster-rbac"
     ],
@@ -4060,7 +4060,7 @@
     "name": "T1587.003",
     "framework": "mitre-attack",
     "framework_id": "T1587.003",
-    "tactic": "TA0011",
+    "tactic": "TA0042",
     "skills": [
       "skill:auditing-tls-certificate-transparency-logs"
     ],
@@ -4073,7 +4073,7 @@
     "name": "T1588.001",
     "framework": "mitre-attack",
     "framework_id": "T1588.001",
-    "tactic": "TA0011",
+    "tactic": "TA0042",
     "skills": [
       "skill:automating-ioc-enrichment"
     ],
@@ -4125,7 +4125,7 @@
     "name": "T1021.007",
     "framework": "mitre-attack",
     "framework_id": "T1021.007",
-    "tactic": "TA0001",
+    "tactic": "TA0008",
     "skills": [
       "skill:building-cloud-siem-with-sentinel"
     ],
@@ -4151,7 +4151,7 @@
     "name": "T1556.007",
     "framework": "mitre-attack",
     "framework_id": "T1556.007",
-    "tactic": "TA0001",
+    "tactic": "TA0112",
     "skills": [
       "skill:building-identity-federation-with-saml-azure-ad"
     ],
@@ -4177,7 +4177,7 @@
     "name": "T1531",
     "framework": "mitre-attack",
     "framework_id": "T1531",
-    "tactic": "TA0006",
+    "tactic": "TA0040",
     "skills": [
       "skill:building-identity-governance-lifecycle-process"
     ],
@@ -4190,7 +4190,7 @@
     "name": "T1588.006",
     "framework": "mitre-attack",
     "framework_id": "T1588.006",
-    "tactic": "TA0011",
+    "tactic": "TA0042",
     "skills": [
       "skill:building-patch-tuesday-response-process"
     ],
@@ -4229,7 +4229,7 @@
     "name": "T1589.002",
     "framework": "mitre-attack",
     "framework_id": "T1589.002",
-    "tactic": "TA0011",
+    "tactic": "TA0043",
     "skills": [
       "skill:collecting-open-source-intelligence"
     ],
@@ -4268,7 +4268,7 @@
     "name": "T1525",
     "framework": "mitre-attack",
     "framework_id": "T1525",
-    "tactic": "TA0006",
+    "tactic": "TA0003",
     "skills": [
       "skill:conducting-cloud-incident-response"
     ],
@@ -4281,7 +4281,7 @@
     "name": "T1207",
     "framework": "mitre-attack",
     "framework_id": "T1207",
-    "tactic": "TA0001",
+    "tactic": "TA0112",
     "skills": [
       "skill:conducting-domain-persistence-with-dcsync"
     ],
@@ -4320,7 +4320,7 @@
     "name": "T1557.002",
     "framework": "mitre-attack",
     "framework_id": "T1557.002",
-    "tactic": "TA0001",
+    "tactic": "TA0009",
     "skills": [
       "skill:conducting-man-in-the-middle-attack-simulation"
     ],
@@ -4346,7 +4346,7 @@
     "name": "T1521.003",
     "framework": "mitre-attack",
     "framework_id": "T1521.003",
-    "tactic": "TA0006",
+    "tactic": "TA0003",
     "skills": [
       "skill:conducting-mobile-app-penetration-test"
     ],
@@ -4398,7 +4398,7 @@
     "name": "T1114",
     "framework": "mitre-attack",
     "framework_id": "T1114",
-    "tactic": "TA0002",
+    "tactic": "TA0009",
     "skills": [
       "skill:conducting-phishing-incident-response"
     ],
@@ -4411,7 +4411,7 @@
     "name": "T1056.003",
     "framework": "mitre-attack",
     "framework_id": "T1056.003",
-    "tactic": "TA0001",
+    "tactic": "TA0009",
     "skills": [
       "skill:conducting-phishing-incident-response"
     ],
@@ -4450,7 +4450,7 @@
     "name": "T1557.004",
     "framework": "mitre-attack",
     "framework_id": "T1557.004",
-    "tactic": "TA0001",
+    "tactic": "TA0009",
     "skills": [
       "skill:conducting-wireless-network-penetration-test"
     ],
@@ -4463,7 +4463,7 @@
     "name": "T1669",
     "framework": "mitre-attack",
     "framework_id": "T1669",
-    "tactic": "",
+    "tactic": "TA0001",
     "skills": [
       "skill:conducting-wireless-network-penetration-test"
     ],
@@ -4476,7 +4476,7 @@
     "name": "T1553.004",
     "framework": "mitre-attack",
     "framework_id": "T1553.004",
-    "tactic": "TA0001",
+    "tactic": "TA0112",
     "skills": [
       "skill:configuring-certificate-authority-with-openssl"
     ],
@@ -4502,7 +4502,7 @@
     "name": "T1621",
     "framework": "mitre-attack",
     "framework_id": "T1621",
-    "tactic": "",
+    "tactic": "TA0006",
     "skills": [
       "skill:configuring-multi-factor-authentication-with-duo"
     ],
@@ -4515,7 +4515,7 @@
     "name": "T1550.001",
     "framework": "mitre-attack",
     "framework_id": "T1550.001",
-    "tactic": "TA0001",
+    "tactic": "TA0008",
     "skills": [
       "skill:configuring-oauth2-authorization-flow"
     ],
@@ -4541,7 +4541,7 @@
     "name": "T1212",
     "framework": "mitre-attack",
     "framework_id": "T1212",
-    "tactic": "TA0004",
+    "tactic": "TA0006",
     "skills": [
       "skill:configuring-oauth2-authorization-flow"
     ],
@@ -4554,7 +4554,7 @@
     "name": "T1556.004",
     "framework": "mitre-attack",
     "framework_id": "T1556.004",
-    "tactic": "TA0001",
+    "tactic": "TA0112",
     "skills": [
       "skill:configuring-tls-1-3-for-secure-communications"
     ],
@@ -4567,7 +4567,7 @@
     "name": "T1685",
     "framework": "mitre-attack",
     "framework_id": "T1685",
-    "tactic": "",
+    "tactic": "TA0112",
     "skills": [
       "skill:configuring-windows-defender-advanced-settings"
     ],
@@ -4580,7 +4580,7 @@
     "name": "T1685.005",
     "framework": "mitre-attack",
     "framework_id": "T1685.005",
-    "tactic": "",
+    "tactic": "TA0112",
     "skills": [
       "skill:configuring-windows-event-logging-for-detection"
     ],
@@ -4632,7 +4632,7 @@
     "name": "T1659",
     "framework": "mitre-attack",
     "framework_id": "T1659",
-    "tactic": "",
+    "tactic": "TA0011",
     "skills": [
       "skill:detecting-ai-model-prompt-injection-attacks"
     ],
@@ -4645,7 +4645,7 @@
     "name": "T1588.007",
     "framework": "mitre-attack",
     "framework_id": "T1588.007",
-    "tactic": "TA0011",
+    "tactic": "TA0042",
     "skills": [
       "skill:detecting-ai-model-prompt-injection-attacks"
     ],
@@ -4658,7 +4658,7 @@
     "name": "T1565",
     "framework": "mitre-attack",
     "framework_id": "T1565",
-    "tactic": "TA0001",
+    "tactic": "TA0040",
     "skills": [
       "skill:detecting-ai-model-prompt-injection-attacks"
     ],
@@ -4801,7 +4801,7 @@
     "name": "T1589.001",
     "framework": "mitre-attack",
     "framework_id": "T1589.001",
-    "tactic": "TA0011",
+    "tactic": "TA0043",
     "skills": [
       "skill:detecting-aws-credential-exposure-with-trufflehog"
     ],
@@ -4827,7 +4827,7 @@
     "name": "T1011.001",
     "framework": "mitre-attack",
     "framework_id": "T1011.001",
-    "tactic": "TA0001",
+    "tactic": "TA0010",
     "skills": [
       "skill:detecting-bluetooth-low-energy-attacks"
     ],
@@ -4879,7 +4879,7 @@
     "name": "T1648",
     "framework": "mitre-attack",
     "framework_id": "T1648",
-    "tactic": "",
+    "tactic": "TA0002",
     "skills": [
       "skill:detecting-serverless-function-injection"
     ],
@@ -4931,7 +4931,7 @@
     "name": "T1553",
     "framework": "mitre-attack",
     "framework_id": "T1553",
-    "tactic": "TA0001",
+    "tactic": "TA0112",
     "skills": [
       "skill:hardening-docker-daemon-configuration"
     ],
@@ -4944,7 +4944,7 @@
     "name": "T1600",
     "framework": "mitre-attack",
     "framework_id": "T1600",
-    "tactic": "TA0002",
+    "tactic": "TA0112",
     "skills": [
       "skill:implementing-aes-encryption-for-data-at-rest"
     ],

@@ -8,6 +8,7 @@ import json
 import os
 import re
 import sys
+from collections import defaultdict
 from pathlib import Path
 
 # Configuration
@@ -17,6 +18,7 @@ SKILLS_DIR = REPO_ROOT / "skills"
 ATTACK_NAVIGATOR = REPO_ROOT / "mappings" / "attack-navigator-layer.json"
 OUTPUT_DIR = REPO_ROOT / "mappings" / "jsonld"
 TACTIC_MAPPING_PATH = REPO_ROOT / "mappings" / "jsonld" / "tactic-mapping.json"
+ATLAS_TACTIC_MAPPING_PATH = REPO_ROOT / "mappings" / "jsonld" / "atlas-tactic-mapping.json"
 
 # JSON-LD context URL
 CONTEXT_URL = "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld"
@@ -242,6 +244,103 @@ def build_owasp_entities():
     return owasp_entities
 
 
+def build_atlas_entities(index_data):
+    """Build ATLAS technique entities from skill frontmatter references."""
+    atlas_techniques = {}
+
+    atlas_tactic_mapping = {}
+    try:
+        mapping_data = json.loads(Path(ATLAS_TACTIC_MAPPING_PATH).read_text(encoding="utf-8"))
+        for tactic_id, tactic_data in mapping_data.items():
+            for tech_id in tactic_data.get("techniques", []):
+                atlas_tactic_mapping[tech_id] = tactic_id
+    except Exception:
+        pass
+
+    for skill_entry in index_data.get("skills", []):
+        skill_md = REPO_ROOT / skill_entry["path"] / "SKILL.md"
+        if not skill_md.exists():
+            continue
+        text = skill_md.read_text(encoding="utf-8")
+        frontmatter = parse_frontmatter(text)
+        if not frontmatter:
+            continue
+        for tech_id in frontmatter.get("atlas_techniques", []):
+            tech_id = tech_id.strip()
+            if not tech_id:
+                continue
+            key = f"atlas:{tech_id}"
+            if key not in atlas_techniques:
+                atlas_techniques[key] = {
+                    "@context": CONTEXT_URL,
+                    "@id": key,
+                    "@type": "ATLAS-Technique",
+                    "name": tech_id,
+                    "description": "",
+                    "framework": "mitre-atlas",
+                    "framework_id": tech_id,
+                    "tactic": atlas_tactic_mapping.get(tech_id, ""),
+                    "source": "skill-frontmatter",
+                }
+
+    return list(atlas_techniques.values())
+
+
+_AI_RMF_DEFINITIONS = {
+    "GOVERN-1.1": ("Policy", "Establish organizational AI risk governance policies."),
+    "GOVERN-1.7": ("Policy", "Maintain AI risk management governance documentation."),
+    "GOVERN-4.2": ("Process", "Integrate AI risk factors into procurement decisions."),
+    "GOVERN-5.2": ("Accountability", "Assign and communicate AI accountability structures."),
+    "GOVERN-6.1": ("Culture", "Develop AI risk awareness training and culture."),
+    "GOVERN-6.2": ("Culture", "Manage workforce impacts from AI system deployment."),
+    "MANAGE-2.2": ("Response", "Implement AI incident response planning."),
+    "MANAGE-2.4": ("Response", "Monitor AI system behavior post-deployment."),
+    "MANAGE-3.1": ("Improvement", "Continuously improve AI risk management practices."),
+    "MAP-1.1": ("Context", "Define AI system purpose, scope, and intended use."),
+    "MAP-1.6": ("Context", "Document AI system life cycle and operational context."),
+    "MAP-2.3": ("Risk", "Categorize AI risks by likelihood and impact."),
+    "MAP-5.1": ("Evaluation", "Prepare AI system assessment and testing plans."),
+    "MAP-5.2": ("Evaluation", "Define criteria for AI system trustworthiness."),
+    "MEASURE-2.5": ("Analysis", "Evaluate AI system explainability metrics."),
+    "MEASURE-2.7": ("Analysis", "Assess AI model bias and fairness."),
+    "MEASURE-2.8": ("Analysis", "Validate AI system robustness and resilience."),
+    "MEASURE-2.9": ("Analysis", "Measure AI system performance and reliability."),
+    "MEASURE-3.1": ("Testing", "Conduct AI system testing and evaluation."),
+}
+
+
+def build_nist_ai_rmf_entities(index_data):
+    """Build NIST AI RMF entities from skill frontmatter references."""
+    ai_rmf_refs = defaultdict(int)
+    for skill_entry in index_data.get("skills", []):
+        skill_md = REPO_ROOT / skill_entry["path"] / "SKILL.md"
+        if not skill_md.exists():
+            continue
+        text = skill_md.read_text(encoding="utf-8")
+        frontmatter = parse_frontmatter(text)
+        if not frontmatter:
+            continue
+        for ref in frontmatter.get("nist_ai_rmf", []):
+            ref = ref.strip()
+            if ref:
+                ai_rmf_refs[ref] += 1
+
+    entities = []
+    for func_id, count in sorted(ai_rmf_refs.items()):
+        func, desc = _AI_RMF_DEFINITIONS.get(func_id, ("Function", ""))
+        entities.append({
+            "@context": CONTEXT_URL,
+            "@id": f"ai-rmf:{func_id}",
+            "@type": "AI-RMF-Function",
+            "name": f"NIST AI RMF {func_id}",
+            "description": desc,
+            "framework": "nist-ai-rmf",
+            "framework_id": func_id,
+            "tactic": func,
+        })
+    return entities
+
+
 def main():
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -253,6 +352,8 @@ def main():
     skills = build_skills_jsonld(index_data)
     techniques = build_techniques_jsonld(index_data, attack_data)
     owasp_categories = build_owasp_entities()
+    atlas_entities = build_atlas_entities(index_data)
+    ai_rmf_entities = build_nist_ai_rmf_entities(index_data)
 
     # Write bundled skills.jsonld
     with open(OUTPUT_DIR / "skills.jsonld", "w", encoding="utf-8") as f:
@@ -267,9 +368,21 @@ def main():
         with open(OUTPUT_DIR / "owasp.jsonld", "w", encoding="utf-8") as f:
             json.dump(owasp_categories, f, indent=2)
 
+    # Write ATLAS entities
+    if atlas_entities:
+        with open(OUTPUT_DIR / "atlas.jsonld", "w", encoding="utf-8") as f:
+            json.dump(atlas_entities, f, indent=2)
+
+    # Write NIST AI RMF entities
+    if ai_rmf_entities:
+        with open(OUTPUT_DIR / "ai-rmf.jsonld", "w", encoding="utf-8") as f:
+            json.dump(ai_rmf_entities, f, indent=2)
+
     print(f"Generated {len(skills)} skill entities")
     print(f"Generated {len(techniques)} technique entities")
     print(f"Generated {len(owasp_categories)} OWASP category entities")
+    print(f"Generated {len(atlas_entities)} ATLAS technique entities")
+    print(f"Generated {len(ai_rmf_entities)} NIST AI RMF entities")
     print(f"Output written to {OUTPUT_DIR}")
 
 

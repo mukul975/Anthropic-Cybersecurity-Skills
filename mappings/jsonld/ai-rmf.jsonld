@@ -1,0 +1,192 @@
+[
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "ai-rmf:GOVERN-1.1",
+    "@type": "AI-RMF-Function",
+    "name": "NIST AI RMF GOVERN-1.1",
+    "description": "Establish organizational AI risk governance policies.",
+    "framework": "nist-ai-rmf",
+    "framework_id": "GOVERN-1.1",
+    "tactic": "Policy"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "ai-rmf:GOVERN-1.7",
+    "@type": "AI-RMF-Function",
+    "name": "NIST AI RMF GOVERN-1.7",
+    "description": "Maintain AI risk management governance documentation.",
+    "framework": "nist-ai-rmf",
+    "framework_id": "GOVERN-1.7",
+    "tactic": "Policy"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "ai-rmf:GOVERN-4.2",
+    "@type": "AI-RMF-Function",
+    "name": "NIST AI RMF GOVERN-4.2",
+    "description": "Integrate AI risk factors into procurement decisions.",
+    "framework": "nist-ai-rmf",
+    "framework_id": "GOVERN-4.2",
+    "tactic": "Process"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "ai-rmf:GOVERN-5.2",
+    "@type": "AI-RMF-Function",
+    "name": "NIST AI RMF GOVERN-5.2",
+    "description": "Assign and communicate AI accountability structures.",
+    "framework": "nist-ai-rmf",
+    "framework_id": "GOVERN-5.2",
+    "tactic": "Accountability"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "ai-rmf:GOVERN-6.1",
+    "@type": "AI-RMF-Function",
+    "name": "NIST AI RMF GOVERN-6.1",
+    "description": "Develop AI risk awareness training and culture.",
+    "framework": "nist-ai-rmf",
+    "framework_id": "GOVERN-6.1",
+    "tactic": "Culture"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "ai-rmf:GOVERN-6.2",
+    "@type": "AI-RMF-Function",
+    "name": "NIST AI RMF GOVERN-6.2",
+    "description": "Manage workforce impacts from AI system deployment.",
+    "framework": "nist-ai-rmf",
+    "framework_id": "GOVERN-6.2",
+    "tactic": "Culture"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "ai-rmf:MANAGE-2.2",
+    "@type": "AI-RMF-Function",
+    "name": "NIST AI RMF MANAGE-2.2",
+    "description": "Implement AI incident response planning.",
+    "framework": "nist-ai-rmf",
+    "framework_id": "MANAGE-2.2",
+    "tactic": "Response"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "ai-rmf:MANAGE-2.4",
+    "@type": "AI-RMF-Function",
+    "name": "NIST AI RMF MANAGE-2.4",
+    "description": "Monitor AI system behavior post-deployment.",
+    "framework": "nist-ai-rmf",
+    "framework_id": "MANAGE-2.4",
+    "tactic": "Response"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "ai-rmf:MANAGE-3.1",
+    "@type": "AI-RMF-Function",
+    "name": "NIST AI RMF MANAGE-3.1",
+    "description": "Continuously improve AI risk management practices.",
+    "framework": "nist-ai-rmf",
+    "framework_id": "MANAGE-3.1",
+    "tactic": "Improvement"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "ai-rmf:MAP-1.1",
+    "@type": "AI-RMF-Function",
+    "name": "NIST AI RMF MAP-1.1",
+    "description": "Define AI system purpose, scope, and intended use.",
+    "framework": "nist-ai-rmf",
+    "framework_id": "MAP-1.1",
+    "tactic": "Context"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "ai-rmf:MAP-1.6",
+    "@type": "AI-RMF-Function",
+    "name": "NIST AI RMF MAP-1.6",
+    "description": "Document AI system life cycle and operational context.",
+    "framework": "nist-ai-rmf",
+    "framework_id": "MAP-1.6",
+    "tactic": "Context"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "ai-rmf:MAP-2.3",
+    "@type": "AI-RMF-Function",
+    "name": "NIST AI RMF MAP-2.3",
+    "description": "Categorize AI risks by likelihood and impact.",
+    "framework": "nist-ai-rmf",
+    "framework_id": "MAP-2.3",
+    "tactic": "Risk"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "ai-rmf:MAP-5.1",
+    "@type": "AI-RMF-Function",
+    "name": "NIST AI RMF MAP-5.1",
+    "description": "Prepare AI system assessment and testing plans.",
+    "framework": "nist-ai-rmf",
+    "framework_id": "MAP-5.1",
+    "tactic": "Evaluation"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "ai-rmf:MAP-5.2",
+    "@type": "AI-RMF-Function",
+    "name": "NIST AI RMF MAP-5.2",
+    "description": "Define criteria for AI system trustworthiness.",
+    "framework": "nist-ai-rmf",
+    "framework_id": "MAP-5.2",
+    "tactic": "Evaluation"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "ai-rmf:MEASURE-2.5",
+    "@type": "AI-RMF-Function",
+    "name": "NIST AI RMF MEASURE-2.5",
+    "description": "Evaluate AI system explainability metrics.",
+    "framework": "nist-ai-rmf",
+    "framework_id": "MEASURE-2.5",
+    "tactic": "Analysis"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "ai-rmf:MEASURE-2.7",
+    "@type": "AI-RMF-Function",
+    "name": "NIST AI RMF MEASURE-2.7",
+    "description": "Assess AI model bias and fairness.",
+    "framework": "nist-ai-rmf",
+    "framework_id": "MEASURE-2.7",
+    "tactic": "Analysis"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "ai-rmf:MEASURE-2.8",
+    "@type": "AI-RMF-Function",
+    "name": "NIST AI RMF MEASURE-2.8",
+    "description": "Validate AI system robustness and resilience.",
+    "framework": "nist-ai-rmf",
+    "framework_id": "MEASURE-2.8",
+    "tactic": "Analysis"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "ai-rmf:MEASURE-2.9",
+    "@type": "AI-RMF-Function",
+    "name": "NIST AI RMF MEASURE-2.9",
+    "description": "Measure AI system performance and reliability.",
+    "framework": "nist-ai-rmf",
+    "framework_id": "MEASURE-2.9",
+    "tactic": "Analysis"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "ai-rmf:MEASURE-3.1",
+    "@type": "AI-RMF-Function",
+    "name": "NIST AI RMF MEASURE-3.1",
+    "description": "Conduct AI system testing and evaluation.",
+    "framework": "nist-ai-rmf",
+    "framework_id": "MEASURE-3.1",
+    "tactic": "Testing"
+  }
+]

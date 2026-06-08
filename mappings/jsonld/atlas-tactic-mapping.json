@@ -1,0 +1,252 @@
+{
+  "AML.TA0000": {
+    "name": "AI Model Access",
+    "techniques": [
+      "AML.T0040",
+      "AML.T0041",
+      "AML.T0044",
+      "AML.T0047"
+    ]
+  },
+  "AML.TA0001": {
+    "name": "AI Attack Staging",
+    "techniques": [
+      "AML.T0005",
+      "AML.T0005.000",
+      "AML.T0005.001",
+      "AML.T0005.002",
+      "AML.T0042",
+      "AML.T0043",
+      "AML.T0043.000",
+      "AML.T0043.001",
+      "AML.T0043.002",
+      "AML.T0043.003",
+      "AML.T0043.004",
+      "AML.T0088",
+      "AML.T0102"
+    ]
+  },
+  "AML.TA0002": {
+    "name": "Reconnaissance",
+    "techniques": [
+      "AML.T0000",
+      "AML.T0000.000",
+      "AML.T0000.001",
+      "AML.T0000.002",
+      "AML.T0001",
+      "AML.T0003",
+      "AML.T0004",
+      "AML.T0006",
+      "AML.T0064",
+      "AML.T0087",
+      "AML.T0095",
+      "AML.T0095.000"
+    ]
+  },
+  "AML.TA0003": {
+    "name": "Resource Development",
+    "techniques": [
+      "AML.T0002",
+      "AML.T0002.000",
+      "AML.T0002.001",
+      "AML.T0002.002",
+      "AML.T0008",
+      "AML.T0008.000",
+      "AML.T0008.001",
+      "AML.T0008.002",
+      "AML.T0008.003",
+      "AML.T0008.004",
+      "AML.T0008.005",
+      "AML.T0016",
+      "AML.T0016.000",
+      "AML.T0016.001",
+      "AML.T0016.002",
+      "AML.T0017",
+      "AML.T0017.000",
+      "AML.T0019",
+      "AML.T0020",
+      "AML.T0021",
+      "AML.T0058",
+      "AML.T0060",
+      "AML.T0065",
+      "AML.T0066",
+      "AML.T0079",
+      "AML.T0104"
+    ]
+  },
+  "AML.TA0004": {
+    "name": "Initial Access",
+    "techniques": [
+      "AML.T0010",
+      "AML.T0010.000",
+      "AML.T0010.001",
+      "AML.T0010.002",
+      "AML.T0010.003",
+      "AML.T0010.004",
+      "AML.T0010.005",
+      "AML.T0012",
+      "AML.T0015",
+      "AML.T0049",
+      "AML.T0052",
+      "AML.T0052.000",
+      "AML.T0052.001",
+      "AML.T0078",
+      "AML.T0093"
+    ]
+  },
+  "AML.TA0005": {
+    "name": "Execution",
+    "techniques": [
+      "AML.T0011",
+      "AML.T0011.000",
+      "AML.T0011.001",
+      "AML.T0011.002",
+      "AML.T0011.003",
+      "AML.T0050",
+      "AML.T0051",
+      "AML.T0051.000",
+      "AML.T0051.001",
+      "AML.T0051.002",
+      "AML.T0053",
+      "AML.T0100",
+      "AML.T0103"
+    ]
+  },
+  "AML.TA0006": {
+    "name": "Persistence",
+    "techniques": [
+      "AML.T0018",
+      "AML.T0018.000",
+      "AML.T0018.001",
+      "AML.T0018.002",
+      "AML.T0061",
+      "AML.T0070",
+      "AML.T0080",
+      "AML.T0080.000",
+      "AML.T0080.001",
+      "AML.T0081",
+      "AML.T0099",
+      "AML.T0110"
+    ]
+  },
+  "AML.TA0007": {
+    "name": "Defense Evasion",
+    "techniques": [
+      "AML.T0067",
+      "AML.T0067.000",
+      "AML.T0068",
+      "AML.T0071",
+      "AML.T0073",
+      "AML.T0074",
+      "AML.T0076",
+      "AML.T0092",
+      "AML.T0094",
+      "AML.T0097",
+      "AML.T0107",
+      "AML.T0109",
+      "AML.T0111"
+    ]
+  },
+  "AML.TA0008": {
+    "name": "Discovery",
+    "techniques": [
+      "AML.T0007",
+      "AML.T0013",
+      "AML.T0014",
+      "AML.T0062",
+      "AML.T0063",
+      "AML.T0069",
+      "AML.T0069.000",
+      "AML.T0069.001",
+      "AML.T0069.002",
+      "AML.T0075",
+      "AML.T0084",
+      "AML.T0084.000",
+      "AML.T0084.001",
+      "AML.T0084.002",
+      "AML.T0084.003",
+      "AML.T0089"
+    ]
+  },
+  "AML.TA0009": {
+    "name": "Collection",
+    "techniques": [
+      "AML.T0035",
+      "AML.T0036",
+      "AML.T0037",
+      "AML.T0085",
+      "AML.T0085.000",
+      "AML.T0085.001"
+    ]
+  },
+  "AML.TA0010": {
+    "name": "Exfiltration",
+    "techniques": [
+      "AML.T0024",
+      "AML.T0024.000",
+      "AML.T0024.001",
+      "AML.T0024.002",
+      "AML.T0025",
+      "AML.T0056",
+      "AML.T0057",
+      "AML.T0077",
+      "AML.T0086"
+    ]
+  },
+  "AML.TA0011": {
+    "name": "Impact",
+    "techniques": [
+      "AML.T0029",
+      "AML.T0031",
+      "AML.T0034",
+      "AML.T0034.000",
+      "AML.T0034.001",
+      "AML.T0034.002",
+      "AML.T0046",
+      "AML.T0048",
+      "AML.T0048.000",
+      "AML.T0048.001",
+      "AML.T0048.002",
+      "AML.T0048.003",
+      "AML.T0048.004",
+      "AML.T0059",
+      "AML.T0101",
+      "AML.T0112",
+      "AML.T0112.000",
+      "AML.T0112.001"
+    ]
+  },
+  "AML.TA0012": {
+    "name": "Privilege Escalation",
+    "techniques": [
+      "AML.T0054",
+      "AML.T0105"
+    ]
+  },
+  "AML.TA0013": {
+    "name": "Credential Access",
+    "techniques": [
+      "AML.T0055",
+      "AML.T0082",
+      "AML.T0083",
+      "AML.T0090",
+      "AML.T0098",
+      "AML.T0106"
+    ]
+  },
+  "AML.TA0014": {
+    "name": "Command and Control",
+    "techniques": [
+      "AML.T0072",
+      "AML.T0096",
+      "AML.T0108"
+    ]
+  },
+  "AML.TA0015": {
+    "name": "Lateral Movement",
+    "techniques": [
+      "AML.T0091",
+      "AML.T0091.000"
+    ]
+  }
+}

@@ -11,6 +11,7 @@ Environment variables for embedding:
 import json
 import os
 import sys
+from collections import defaultdict
 from pathlib import Path
 
 import lancedb
@@ -48,7 +49,7 @@ def get_embedding_provider():
         return lambda texts: [[random.random() for _ in range(EMBEDDING_DIM)] for _ in texts]
 
 
-def build_nodes_table(skills, techniques, owasp_categories=None):
+def build_nodes_table(skills, techniques, owasp_categories=None, atlas_entities=None, ai_rmf_entities=None):
     """Create nodes table with entity data and embeddings."""
     rows = []
     embed = get_embedding_provider()
@@ -132,6 +133,42 @@ def build_nodes_table(skills, techniques, owasp_categories=None):
             "vector": vector,
         })
 
+    # Process ATLAS techniques
+    for tech in (atlas_entities or []):
+        text_for_embedding = f"{tech.get('name', tech['framework_id'])} {tech.get('description', '')}"
+        vector = embed([text_for_embedding])[0]
+        rows.append({
+            "id": tech["@id"],
+            "type": "ATLAS-Technique",
+            "name": tech.get("name", tech["framework_id"]),
+            "description": tech.get("description", ""),
+            "framework": tech.get("framework", "mitre-atlas"),
+            "framework_id": tech["framework_id"],
+            "tags": [],
+            "relationships": json.dumps([]),
+            "tactic": tech.get("tactic", ""),
+            "score": 0,
+            "vector": vector,
+        })
+
+    # Process NIST AI RMF entities
+    for entity in (ai_rmf_entities or []):
+        text_for_embedding = f"{entity.get('name', entity['framework_id'])} {entity.get('description', '')}"
+        vector = embed([text_for_embedding])[0]
+        rows.append({
+            "id": entity["@id"],
+            "type": "AI-RMF-Function",
+            "name": entity.get("name", entity["framework_id"]),
+            "description": entity.get("description", ""),
+            "framework": entity.get("framework", "nist-ai-rmf"),
+            "framework_id": entity["framework_id"],
+            "tags": [],
+            "relationships": json.dumps([]),
+            "tactic": entity.get("tactic", ""),
+            "score": 0,
+            "vector": vector,
+        })
+
     schema = pa.schema([
         pa.field("id", pa.string()),
         pa.field("type", pa.string()),
@@ -148,7 +185,7 @@ def build_nodes_table(skills, techniques, owasp_categories=None):
     return pa.Table.from_pylist(rows, schema=schema)
 
 
-def build_relationships_table(skills, techniques):
+def build_relationships_table(skills, techniques, atlas_entities=None, ai_rmf_entities=None):
     """Create relationships (edges) table from entity references."""
     rows = []
 
@@ -159,9 +196,17 @@ def build_relationships_table(skills, techniques):
             ("mitre_attack", "implements"),
             ("nist_csf", "alignedWith"),
             ("atlas_techniques", "mitigates"),
+            ("nist_ai_rmf", "alignedWith"),
         ]:
             for fw_id in skill.get(fw_key, []):
-                target = f"technique:{fw_id}" if fw_key != "nist_csf" else f"category:{fw_id}"
+                if fw_key == "nist_ai_rmf":
+                    target = f"ai-rmf:{fw_id}"
+                elif fw_key == "atlas_techniques":
+                    target = f"atlas:{fw_id}"
+                elif fw_key != "nist_csf":
+                    target = f"technique:{fw_id}"
+                else:
+                    target = f"category:{fw_id}"
                 rows.append({
                     "source": skill_id,
                     "target": target,
@@ -180,6 +225,36 @@ def build_relationships_table(skills, techniques):
                 "weight": tech.get("score", 0) / 100.0,
             })
 
+    # Cross-framework inferred edges
+    skill_atlas = defaultdict(list)
+    skill_attack = defaultdict(list)
+    skill_ai = defaultdict(list)
+    for skill in skills:
+        sid = skill["@id"]
+        for val in skill.get("mitre_attack", []):
+            skill_attack[sid].append(val)
+        for val in skill.get("atlas_techniques", []):
+            skill_atlas[sid].append(val)
+        for val in skill.get("nist_ai_rmf", []):
+            skill_ai[sid].append(val)
+
+    for sid, attack_ids in skill_attack.items():
+        for attack_id in attack_ids:
+            for atlas_id in skill_atlas.get(sid, []):
+                rows.append({
+                    "source": f"technique:{attack_id}",
+                    "target": f"atlas:{atlas_id}",
+                    "predicate": "atlasesEquivalentTo",
+                    "weight": 1.0,
+                })
+            for ai_id in skill_ai.get(sid, []):
+                rows.append({
+                    "source": f"technique:{attack_id}",
+                    "target": f"ai-rmf:{ai_id}",
+                    "predicate": "governedBy",
+                    "weight": 1.0,
+                })
+
     return pa.Table.from_pylist(rows)
 
 
@@ -191,6 +266,8 @@ def main():
     skills_file = JSONLD_DIR / "skills.jsonld"
     techniques_file = JSONLD_DIR / "techniques.jsonld"
     owasp_file = JSONLD_DIR / "owasp.jsonld"
+    atlas_file = JSONLD_DIR / "atlas.jsonld"
+    ai_rmf_file = JSONLD_DIR / "ai-rmf.jsonld"
 
     if not skills_file.exists():
         print("Error: skills.jsonld not found. Run build-jsonld.py first.")
@@ -207,16 +284,26 @@ def main():
         with open(owasp_file, "r", encoding="utf-8") as f:
             owasp_categories = json.load(f)
 
+    atlas_entities = []
+    if atlas_file.exists():
+        with open(atlas_file, "r", encoding="utf-8") as f:
+            atlas_entities = json.load(f)
+
+    ai_rmf_entities = []
+    if ai_rmf_file.exists():
+        with open(ai_rmf_file, "r", encoding="utf-8") as f:
+            ai_rmf_entities = json.load(f)
+
     # Connect to LanceDB
     db = lancedb.connect(str(OUTPUT_DIR))
 
     # Build and write nodes table
-    nodes_table = build_nodes_table(skills, techniques, owasp_categories)
+    nodes_table = build_nodes_table(skills, techniques, owasp_categories, atlas_entities, ai_rmf_entities)
     db.create_table("nodes", nodes_table, mode="overwrite")
     print(f"Created 'nodes' table with {len(nodes_table)} entities")
 
     # Build and write relationships table
-    edges_table = build_relationships_table(skills, techniques)
+    edges_table = build_relationships_table(skills, techniques, atlas_entities, ai_rmf_entities)
     db.create_table("relationships", edges_table, mode="overwrite")
     print(f"Created 'relationships' table with {len(edges_table)} relationships")
 

@@ -1,0 +1,233 @@
+[
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "atlas:AML.T0052",
+    "@type": "ATLAS-Technique",
+    "name": "AML.T0052",
+    "description": "",
+    "framework": "mitre-atlas",
+    "framework_id": "AML.T0052",
+    "tactic": "AML.TA0004",
+    "source": "skill-frontmatter"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "atlas:AML.T0024",
+    "@type": "ATLAS-Technique",
+    "name": "AML.T0024",
+    "description": "",
+    "framework": "mitre-atlas",
+    "framework_id": "AML.T0024",
+    "tactic": "AML.TA0010",
+    "source": "skill-frontmatter"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "atlas:AML.T0056",
+    "@type": "ATLAS-Technique",
+    "name": "AML.T0056",
+    "description": "",
+    "framework": "mitre-atlas",
+    "framework_id": "AML.T0056",
+    "tactic": "AML.TA0010",
+    "source": "skill-frontmatter"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "atlas:AML.T0086",
+    "@type": "ATLAS-Technique",
+    "name": "AML.T0086",
+    "description": "",
+    "framework": "mitre-atlas",
+    "framework_id": "AML.T0086",
+    "tactic": "AML.TA0010",
+    "source": "skill-frontmatter"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "atlas:AML.T0054",
+    "@type": "ATLAS-Technique",
+    "name": "AML.T0054",
+    "description": "",
+    "framework": "mitre-atlas",
+    "framework_id": "AML.T0054",
+    "tactic": "AML.TA0012",
+    "source": "skill-frontmatter"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "atlas:AML.T0068",
+    "@type": "ATLAS-Technique",
+    "name": "AML.T0068",
+    "description": "",
+    "framework": "mitre-atlas",
+    "framework_id": "AML.T0068",
+    "tactic": "AML.TA0007",
+    "source": "skill-frontmatter"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "atlas:AML.T0067",
+    "@type": "ATLAS-Technique",
+    "name": "AML.T0067",
+    "description": "",
+    "framework": "mitre-atlas",
+    "framework_id": "AML.T0067",
+    "tactic": "AML.TA0007",
+    "source": "skill-frontmatter"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "atlas:AML.T0010",
+    "@type": "ATLAS-Technique",
+    "name": "AML.T0010",
+    "description": "",
+    "framework": "mitre-atlas",
+    "framework_id": "AML.T0010",
+    "tactic": "AML.TA0004",
+    "source": "skill-frontmatter"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "atlas:AML.T0104",
+    "@type": "ATLAS-Technique",
+    "name": "AML.T0104",
+    "description": "",
+    "framework": "mitre-atlas",
+    "framework_id": "AML.T0104",
+    "tactic": "AML.TA0003",
+    "source": "skill-frontmatter"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "atlas:AML.T0070",
+    "@type": "ATLAS-Technique",
+    "name": "AML.T0070",
+    "description": "",
+    "framework": "mitre-atlas",
+    "framework_id": "AML.T0070",
+    "tactic": "AML.TA0006",
+    "source": "skill-frontmatter"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "atlas:AML.T0066",
+    "@type": "ATLAS-Technique",
+    "name": "AML.T0066",
+    "description": "",
+    "framework": "mitre-atlas",
+    "framework_id": "AML.T0066",
+    "tactic": "AML.TA0003",
+    "source": "skill-frontmatter"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "atlas:AML.T0082",
+    "@type": "ATLAS-Technique",
+    "name": "AML.T0082",
+    "description": "",
+    "framework": "mitre-atlas",
+    "framework_id": "AML.T0082",
+    "tactic": "AML.TA0013",
+    "source": "skill-frontmatter"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "atlas:AML.T0073",
+    "@type": "ATLAS-Technique",
+    "name": "AML.T0073",
+    "description": "",
+    "framework": "mitre-atlas",
+    "framework_id": "AML.T0073",
+    "tactic": "AML.TA0007",
+    "source": "skill-frontmatter"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "atlas:AML.T0088",
+    "@type": "ATLAS-Technique",
+    "name": "AML.T0088",
+    "description": "",
+    "framework": "mitre-atlas",
+    "framework_id": "AML.T0088",
+    "tactic": "AML.TA0001",
+    "source": "skill-frontmatter"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "atlas:AML.T0051",
+    "@type": "ATLAS-Technique",
+    "name": "AML.T0051",
+    "description": "",
+    "framework": "mitre-atlas",
+    "framework_id": "AML.T0051",
+    "tactic": "AML.TA0005",
+    "source": "skill-frontmatter"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "atlas:AML.T0043",
+    "@type": "ATLAS-Technique",
+    "name": "AML.T0043",
+    "description": "",
+    "framework": "mitre-atlas",
+    "framework_id": "AML.T0043",
+    "tactic": "AML.TA0001",
+    "source": "skill-frontmatter"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "atlas:AML.T0018",
+    "@type": "ATLAS-Technique",
+    "name": "AML.T0018",
+    "description": "",
+    "framework": "mitre-atlas",
+    "framework_id": "AML.T0018",
+    "tactic": "AML.TA0006",
+    "source": "skill-frontmatter"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "atlas:AML.T0020",
+    "@type": "ATLAS-Technique",
+    "name": "AML.T0020",
+    "description": "",
+    "framework": "mitre-atlas",
+    "framework_id": "AML.T0020",
+    "tactic": "AML.TA0003",
+    "source": "skill-frontmatter"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "atlas:AML.T0035",
+    "@type": "ATLAS-Technique",
+    "name": "AML.T0035",
+    "description": "",
+    "framework": "mitre-atlas",
+    "framework_id": "AML.T0035",
+    "tactic": "AML.TA0009",
+    "source": "skill-frontmatter"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "atlas:AML.T0057",
+    "@type": "ATLAS-Technique",
+    "name": "AML.T0057",
+    "description": "",
+    "framework": "mitre-atlas",
+    "framework_id": "AML.T0057",
+    "tactic": "AML.TA0010",
+    "source": "skill-frontmatter"
+  },
+  {
+    "@context": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills/knowledge-graph/context.jsonld",
+    "@id": "atlas:AML.T0062",
+    "@type": "ATLAS-Technique",
+    "name": "AML.T0062",
+    "description": "",
+    "framework": "mitre-atlas",
+    "framework_id": "AML.T0062",
+    "tactic": "AML.TA0008",
+    "source": "skill-frontmatter"
+  }
+]

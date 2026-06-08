@@ -29,18 +29,21 @@ jobs:
         run: python3 tools/build-lancedb.py
 
       - name: Run coverage audit
-        run: python3 tools/coverage-audit.py
+        run: python3 tools/coverage-audit.py --framework all
 
       - name: Prepare artifact
         run: |
           mkdir -p dist
           cp -r .codegraph/knowledge_graph.lance dist/
+          cp mappings/jsonld/*.jsonld dist/ || true
 
       - name: Upload knowledge graph artifact
         uses: actions/upload-artifact@v4
         with:
           name: knowledge-graph
-          path: dist/knowledge_graph.lance
+          path: |
+            dist/knowledge_graph.lance
+            dist/*.jsonld
 
   on-demand:
     runs-on: ubuntu-latest
@@ -64,10 +67,12 @@ jobs:
         run: python3 tools/build-lancedb.py
 
       - name: Run coverage audit
-        run: python3 tools/coverage-audit.py
+        run: python3 tools/coverage-audit.py --framework all
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: knowledge-graph
-          path: .codegraph/knowledge_graph.lance
+          path: |
+            .codegraph/knowledge_graph.lance
+            mappings/jsonld/*.jsonld
