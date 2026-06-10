@@ -77,6 +77,39 @@ pub struct StoredRawEvent {
     pub raw_hash: String,
 }
 
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct StoredNormalizedEvent {
+    pub id: i64,
+    pub raw_event_id: Option<i64>,
+    pub event_time: Option<String>,
+    pub event_type: String,
+    pub source_product: String,
+    pub host: String,
+    pub asset_id: String,
+    pub user_name: String,
+    pub user_id: String,
+    pub src_ip: String,
+    pub src_port: Option<i64>,
+    pub dest_ip: String,
+    pub dest_port: Option<i64>,
+    pub protocol: String,
+    pub dns_query: String,
+    pub http_method: String,
+    pub url: String,
+    pub status_code: Option<i64>,
+    pub process_name: String,
+    pub process_path: String,
+    pub parent_process_name: String,
+    pub command_line: String,
+    pub file_path: String,
+    pub file_hash_sha256: String,
+    pub rule_id: String,
+    pub rule_name: String,
+    pub severity: String,
+    pub action: String,
+    pub fields_json: String,
+}
+
 #[derive(Debug, Clone, PartialEq)]
 pub struct StoredAlert {
     pub id: i64,
@@ -435,13 +468,74 @@ impl Database {
         rows.collect()
     }
 
+    pub fn normalized_event_count(&self) -> Result<i64> {
+        self.conn
+            .query_row("SELECT COUNT(*) FROM normalized_events", [], |row| {
+                row.get(0)
+            })
+    }
+
+    pub fn normalized_events(&self, limit: usize) -> Result<Vec<StoredNormalizedEvent>> {
+        let mut statement = self.conn.prepare(
+            "SELECT id, raw_event_id, event_time, event_type, source_product, host, asset_id,
+                    user_name, user_id, src_ip, src_port, dest_ip, dest_port, protocol,
+                    dns_query, http_method, url, status_code, process_name, process_path,
+                    parent_process_name, command_line, file_path, file_hash_sha256, rule_id,
+                    rule_name, severity, action, fields_json
+             FROM normalized_events
+             ORDER BY COALESCE(event_time, created_at) DESC, id DESC
+             LIMIT ?1",
+        )?;
+        let rows = statement.query_map(params![bounded_limit(limit)], |row| {
+            Ok(StoredNormalizedEvent {
+                id: row.get(0)?,
+                raw_event_id: row.get(1)?,
+                event_time: row.get(2)?,
+                event_type: row.get(3)?,
+                source_product: row.get(4)?,
+                host: row.get(5)?,
+                asset_id: row.get(6)?,
+                user_name: row.get(7)?,
+                user_id: row.get(8)?,
+                src_ip: row.get(9)?,
+                src_port: row.get(10)?,
+                dest_ip: row.get(11)?,
+                dest_port: row.get(12)?,
+                protocol: row.get(13)?,
+                dns_query: row.get(14)?,
+                http_method: row.get(15)?,
+                url: row.get(16)?,
+                status_code: row.get(17)?,
+                process_name: row.get(18)?,
+                process_path: row.get(19)?,
+                parent_process_name: row.get(20)?,
+                command_line: row.get(21)?,
+                file_path: row.get(22)?,
+                file_hash_sha256: row.get(23)?,
+                rule_id: row.get(24)?,
+                rule_name: row.get(25)?,
+                severity: row.get(26)?,
+                action: row.get(27)?,
+                fields_json: row.get(28)?,
+            })
+        })?;
+        rows.collect()
+    }
+
     pub fn insert_normalized_event(&self, event: NewNormalizedEvent<'_>) -> Result<i64> {
         self.conn.execute(
             "INSERT INTO normalized_events (
                raw_event_id, event_time, event_type, source_product, host, asset_id,
-               user_name, src_ip, command_line, rule_id, rule_name, severity, fields_json
+               user_name, user_id, src_ip, src_port, dest_ip, dest_port, protocol,
+               dns_query, http_method, url, status_code, process_name, process_path,
+               parent_process_name, command_line, file_path, file_hash_sha256, rule_id,
+               rule_name, severity, action, fields_json
              )
-             VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13)",
+             VALUES (
+               ?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14,
+               ?15, ?16, ?17, ?18, ?19, ?20, ?21, ?22, ?23, ?24, ?25, ?26,
+               ?27, ?28
+             )",
             params![
                 event.raw_event_id,
                 event.event_time,
@@ -450,11 +544,26 @@ impl Database {
                 event.host,
                 event.asset_id,
                 event.user_name,
+                event.user_id,
                 event.src_ip,
+                event.src_port,
+                event.dest_ip,
+                event.dest_port,
+                event.protocol,
+                event.dns_query,
+                event.http_method,
+                event.url,
+                event.status_code,
+                event.process_name,
+                event.process_path,
+                event.parent_process_name,
                 event.command_line,
+                event.file_path,
+                event.file_hash_sha256,
                 event.rule_id,
                 event.rule_name,
                 event.severity,
+                event.action,
                 event.fields_json,
             ],
         )?;
@@ -578,11 +687,26 @@ pub struct NewNormalizedEvent<'a> {
     pub host: &'a str,
     pub asset_id: &'a str,
     pub user_name: &'a str,
+    pub user_id: &'a str,
     pub src_ip: &'a str,
+    pub src_port: Option<i64>,
+    pub dest_ip: &'a str,
+    pub dest_port: Option<i64>,
+    pub protocol: &'a str,
+    pub dns_query: &'a str,
+    pub http_method: &'a str,
+    pub url: &'a str,
+    pub status_code: Option<i64>,
+    pub process_name: &'a str,
+    pub process_path: &'a str,
+    pub parent_process_name: &'a str,
     pub command_line: &'a str,
+    pub file_path: &'a str,
+    pub file_hash_sha256: &'a str,
     pub rule_id: &'a str,
     pub rule_name: &'a str,
     pub severity: &'a str,
+    pub action: &'a str,
     pub fields_json: &'a str,
 }
 

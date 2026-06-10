@@ -1,12 +1,12 @@
 # SentinelBlue Development Tracker
 
-Last updated: 2026-06-09
+Last updated: 2026-06-10
 
 This tracker records current implementation status against [PRODUCTION_GOALS.md](PRODUCTION_GOALS.md). The production goals document is the source of truth for goal scope; this tracker is the working execution board.
 
 ## Current Status
 
-SentinelBlue now has an initialized product workspace plus durable backend foundations. The workspace exists under `product/sentinelblue/` with a Rust workspace, server binary crate, web app, Tauri desktop shell, packaging directories, sample data, model notes, local development docs, SQLite persistence, durable skill indexing, FTS-backed skill search, DB-backed HTTP read endpoints, JSON/JSONL raw event import, Wazuh alert normalization, and read-only web API consumption.
+SentinelBlue now has an initialized product workspace plus durable backend foundations. The workspace exists under `product/sentinelblue/` with a Rust workspace, server binary crate, web app, Tauri desktop shell, packaging directories, sample data, model notes, local development docs, SQLite persistence, durable skill indexing, FTS-backed skill search, DB-backed HTTP read endpoints, JSON/JSONL raw event import, MVP event normalization, and read-only web API consumption.
 
 ## Goal Status Board
 
@@ -17,8 +17,8 @@ SentinelBlue now has an initialized product workspace plus durable backend found
 | 3 | Skill Indexer | Complete | Parser, DB persistence, FTS search, checksum reindexing, and repository indexing tests are complete. |
 | 4 | Basic API Layer | Complete | HTTP stack, `GET /api/health`, DB-backed read endpoints, API contracts, errors, and route tests are complete. |
 | 5 | File Log Import | Complete | `sentinel-ingest` imports JSON/JSONL into raw events, hashes payloads, skips duplicates, reports errors, and is wired into `sentinel-server`. |
-| 6 | Event Normalization | Partial / Next | Source-neutral normalized event draft exists and Wazuh alert normalization is implemented. Broader MVP source mapping remains. |
-| 7 | Detection Engine | Blocked by Goals 2 and 6 | Requires normalized event schema and detector run persistence. |
+| 6 | Event Normalization | Complete | Wazuh, Sysmon, Zeek DNS/connection, Suricata EVE, API gateway, and identity/authentication JSON records normalize into common event fields. |
+| 7 | Detection Engine | Next | Normalized event schema and detector run persistence exist; detector contracts and first detectors remain. |
 | 8 | Alerts And Cases | Blocked by Goals 2 and 7 | Requires alerts, evidence, detector output, and case tables. |
 | 9 | Local Model Integration | Later | More useful after evidence/case shape exists. |
 | 10 | Desktop UI | Partial | Tauri shell exists and web UI consumes read-only health, skills, events, alerts, and cases APIs. Import/case workflows remain. |
@@ -30,7 +30,7 @@ SentinelBlue now has an initialized product workspace plus durable backend found
 | 16 | Network Security Expansion | Later | Should follow MVP ingestion, normalization, and detector engine. |
 | 17 | Security Hardening | Later | Must be continuous, but final acceptance depends on implemented surfaces. |
 | 18 | Packaging | Partial scaffold complete | Packaging directories exist; installable artifacts are not implemented. |
-| 19 | Test Suite | In progress | Rust unit tests now cover core, API contracts, DB migrations, DB inserts, FTS search, repository skill indexing, server routing, DB-backed read endpoints, JSON/JSONL import, dedupe, and Wazuh normalization. |
+| 19 | Test Suite | In progress | Rust unit tests now cover core, API contracts, DB migrations, DB inserts, FTS search, repository skill indexing, server routing, DB-backed read endpoints, JSON/JSONL import, dedupe, and MVP event normalization. |
 | 20 | Beta Soak | Not started | Requires deployable beta. |
 | 21 | Production Release | Not started | Requires all prior production gates. |
 
@@ -188,25 +188,45 @@ Verification result:
 - Raw payload hashes are stored and used for duplicate detection.
 - Import report includes imported, skipped, failed, normalized, and error details.
 
-## Partial Parallel Goal Evidence
-
 ### Goal 6: Event Normalization First Mapper
 
-Completed narrow work:
+Artifacts:
+
+- Normalization crate: `product/sentinelblue/crates/sentinel-ingest`
+- Normalized event persistence: `product/sentinelblue/crates/sentinel-db/src/lib.rs`
+- Normalized event schema: `product/sentinelblue/crates/sentinel-db/migrations/001_initial_schema.sql`
+
+Completed work:
 
 - Defines a source-neutral normalized event draft.
 - Implements Wazuh alert JSON normalization.
-- Stores normalized Wazuh rows in `normalized_events` during import.
+- Implements Sysmon JSON normalization.
+- Implements Zeek DNS and connection normalization.
+- Implements Suricata EVE normalization.
+- Implements API gateway access log normalization.
+- Implements identity/authentication JSON normalization.
+- Stores normalized rows in `normalized_events` during import.
 - Tests Wazuh fields for event time, host, asset ID, user, source IP, command line, rule ID, rule name, and severity.
+- Tests Sysmon fields for event time, host, asset ID, user, process name/path, parent process, command line, rule ID, and SHA-256 hash.
+- Tests Zeek DNS and connection fields for source/destination IPs, ports, protocol, DNS query, service, and connection state.
+- Tests Suricata EVE alert fields for event time, source/destination IPs, ports, protocol, signature ID/name, severity, and action.
+- Tests API gateway fields for host, request ID, user, source IP, method, URL, status code, severity, and action.
+- Tests identity/authentication fields for event time, user, user ID, source IP, device, event type, message, action, and severity.
 
-Remaining Goal 6 work:
+Verified commands:
 
-- Sysmon JSON normalization.
-- Zeek DNS/connection normalization.
-- Suricata EVE normalization.
-- API gateway log normalization.
-- Identity/authentication CSV or JSON normalization.
-- Normalization tests for each MVP source.
+```bash
+cd product/sentinelblue
+cargo test
+```
+
+Verification result:
+
+- Wazuh, Sysmon, Zeek, Suricata, API gateway, and identity/authentication fixtures normalize into common fields.
+- Importing each MVP source writes a raw event and one normalized event.
+- Normalized rows retain `raw_event_id`, keeping raw evidence reachable from normalized events.
+
+## Partial Parallel Goal Evidence
 
 ### Goal 10: Read-Only UI/API Consumption
 
@@ -226,25 +246,25 @@ Remaining UI work:
 
 ## Recommended Next Work
 
-### Primary Next Goal: Goal 6, Event Normalization
+### Primary Next Goal: Goal 7, Detection Engine Contracts
 
-Goal 6 should be the main next implementation target because detectors and cases need consistent normalized event rows across the MVP telemetry sources.
+Goal 7 should be the main next implementation target because normalized Wazuh, Sysmon, Zeek, Suricata, API gateway, and identity/authentication events now exist. The next stable layer is a detector contract that can query common normalized fields and persist repeatable findings.
 
 Recommended scope for the next development pass:
 
-- Keep Wazuh normalization as the first mapper.
-- Add Sysmon process event normalization.
-- Add Zeek DNS/connection normalization.
-- Add Suricata EVE alert normalization.
-- Add API gateway access log normalization.
-- Add identity/authentication JSON normalization.
-- Add fixture tests for each mapper.
+- Define detector input query boundaries against `normalized_events`.
+- Define detector output structs for findings, severity, confidence, evidence references, and ATT&CK mappings.
+- Add a detector crate or module with a narrow trait.
+- Implement one deterministic starter detector using existing normalized fixtures.
+- Persist detector runs in `detector_runs`.
+- Add tests that detector output references raw and normalized evidence.
 
 Definition of Done for the next pass:
 
-- Different log sources can be queried using common fields.
-- Normalization tests cover Wazuh, Sysmon, Zeek, Suricata, API gateway, and identity/authentication samples.
-- Raw evidence remains reachable from normalized events.
+- Detector contracts are explicit and source-neutral.
+- One starter detector runs against normalized fixtures.
+- Findings include severity, confidence, title, evidence references, and source event IDs.
+- Detector run persistence records status and finding count.
 
 ### Parallel Goal A: Continue Goal 10 UI Import Readiness
 
@@ -254,12 +274,13 @@ Parallel-safe work:
 - Keep file upload controls disabled until HTTP import/upload endpoints exist.
 - Add event/alert/case list rendering from existing read endpoints.
 
-### Parallel Goal B: Start Goal 7 Detector Contracts
+### Parallel Goal B: Expand Goal 19 Fixture Coverage
 
 Parallel-safe work:
 
-- Define detector trait and finding output structs.
-- Do not implement production detectors until normalized event coverage is broader.
+- Move representative normalization fixtures into `sample-data/`.
+- Add import smoke tests that use reusable fixture files.
+- Keep unit fixtures small and hand-authored for mapper edge cases.
 
 ## Suggested Parallel Plan
 
@@ -267,29 +288,30 @@ Use three short-lived implementation lanes:
 
 | Lane | Owner Type | Goal | Can Start Now | Stop Point |
 |---|---|---:|---|---|
-| Normalization | Backend | 6 | Yes | MVP source mappers and tests. |
+| Detector Contracts | Backend | 7 | Yes | Trait, finding schema, and one starter detector. |
 | UI Import Readiness | Frontend | 10 | Yes | API-backed status/list views, no upload mutation yet. |
-| Detector Contracts | Backend | 7 | Yes | Trait and finding schema only. |
+| Normalization Fixtures | Backend | 6/19 | Yes | Optional reusable sample-data fixtures beyond unit fixtures. |
 
 The safest order is:
 
-1. Finish Goal 6 normalization breadth across MVP sources.
-2. Add detector contracts in parallel, but wait on real detector logic until normalized fixtures exist.
+1. Add detector contracts and one starter detector over normalized MVP fixtures.
+2. Keep optional normalization fixture expansion focused on reusable `sample-data/` files.
 3. Keep frontend work read-only until import/upload HTTP endpoints are designed.
-4. Move to detector implementation after normalized Wazuh/Sysmon/DNS/API events exist.
+4. Move to alert creation after deterministic detector output is stable.
 
 ## Near-Term Risks
 
-- Detector logic will churn if normalized field names are not stable.
+- Detector logic will churn if the first detector bypasses the normalized event contract.
 - UI upload flows should wait for explicit HTTP upload/import design.
 - CSV/TSV import should be added after JSON/JSONL import behavior remains stable.
 
 ## Next Decision Needed
 
-Choose the normalization fixture set for Goal 6:
+Choose the first detector contract target for Goal 7:
 
-- Minimal hand-authored fixtures per source.
-- Realistic samples under `sample-data/`.
-- Both hand-authored unit fixtures and sample-data integration fixtures.
+- Suspicious PowerShell/process execution from Sysmon and Wazuh command fields.
+- Suspicious DNS query pattern from Zeek DNS fields.
+- Suricata alert promotion into SentinelBlue alerts.
+- API authentication or API abuse detector from API gateway and identity/authentication fields.
 
-Recommended for this app stage: both hand-authored unit fixtures and reusable `sample-data/` integration fixtures.
+Recommended for this app stage: suspicious PowerShell/process execution, because Wazuh and Sysmon both populate command/process fields and can prove cross-source detector behavior.
