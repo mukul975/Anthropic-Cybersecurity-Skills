@@ -78,6 +78,15 @@ pub struct EventSummary {
     pub source_product: String,
     pub event_time: Option<String>,
     pub event_type: String,
+    pub host: String,
+    pub user_name: String,
+    pub src_ip: String,
+    pub dest_ip: String,
+    pub process_name: String,
+    pub url: String,
+    pub dns_query: String,
+    pub severity: String,
+    pub action: String,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]

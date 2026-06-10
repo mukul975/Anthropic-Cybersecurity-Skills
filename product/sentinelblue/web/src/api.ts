@@ -28,6 +28,15 @@ export type EventSummary = {
   source_product: string;
   event_time: string | null;
   event_type: string;
+  host: string;
+  user_name: string;
+  src_ip: string;
+  dest_ip: string;
+  process_name: string;
+  url: string;
+  dns_query: string;
+  severity: string;
+  action: string;
 };
 
 export type AlertSummary = {
@@ -51,6 +60,25 @@ export type CaseSummary = {
   closed_at: string | null;
 };
 
+export type CaseTimelineItem = {
+  item_type: string;
+  item_id: string;
+  case_id: string;
+  alert_id: string | null;
+  raw_event_id: string | null;
+  normalized_event_id: string | null;
+  summary: string;
+  timeline_time: string;
+};
+
+export type DashboardData = {
+  health: HealthResponse;
+  skills: ListResponse<SkillSummary>;
+  events: ListResponse<EventSummary>;
+  alerts: ListResponse<AlertSummary>;
+  cases: ListResponse<CaseSummary>;
+};
+
 async function getJson<T>(path: string): Promise<T> {
   const response = await fetch(path, {
     headers: {
@@ -65,7 +93,7 @@ async function getJson<T>(path: string): Promise<T> {
   return response.json() as Promise<T>;
 }
 
-export async function loadDashboardData() {
+export async function loadDashboardData(): Promise<DashboardData> {
   const [health, skills, events, alerts, cases] = await Promise.all([
     getJson<HealthResponse>("/api/health"),
     getJson<ListResponse<SkillSummary>>("/api/skills?q=network"),
@@ -81,4 +109,10 @@ export async function loadDashboardData() {
     alerts,
     cases,
   };
+}
+
+export async function loadCaseTimeline(
+  caseId: string,
+): Promise<ListResponse<CaseTimelineItem>> {
+  return getJson<ListResponse<CaseTimelineItem>>(`/api/cases/${caseId}/timeline`);
 }

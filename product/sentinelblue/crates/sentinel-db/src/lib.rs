@@ -63,6 +63,15 @@ pub struct StoredEvent {
     pub source_product: String,
     pub event_time: Option<String>,
     pub event_type: String,
+    pub host: String,
+    pub user_name: String,
+    pub src_ip: String,
+    pub dest_ip: String,
+    pub process_name: String,
+    pub url: String,
+    pub dns_query: String,
+    pub severity: String,
+    pub action: String,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -409,7 +418,8 @@ impl Database {
 
     pub fn list_events(&self, limit: usize) -> Result<Vec<StoredEvent>> {
         let mut statement = self.conn.prepare(
-            "SELECT id, source_product, event_time, event_type
+            "SELECT id, source_product, event_time, event_type, host, user_name, src_ip,
+                    dest_ip, process_name, url, dns_query, severity, action
              FROM normalized_events
              ORDER BY COALESCE(event_time, created_at) DESC, id DESC
              LIMIT ?1",
@@ -420,6 +430,15 @@ impl Database {
                 source_product: row.get(1)?,
                 event_time: row.get(2)?,
                 event_type: row.get(3)?,
+                host: row.get(4)?,
+                user_name: row.get(5)?,
+                src_ip: row.get(6)?,
+                dest_ip: row.get(7)?,
+                process_name: row.get(8)?,
+                url: row.get(9)?,
+                dns_query: row.get(10)?,
+                severity: row.get(11)?,
+                action: row.get(12)?,
             })
         })?;
         rows.collect()

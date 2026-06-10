@@ -102,6 +102,8 @@ cd web
 npm run dev
 ```
 
+The Vite dev server proxies `/api` to `sentinel-server` on `127.0.0.1:8741`, so keep the local API server running when using API-backed UI screens.
+
 Run the desktop shell after installing desktop dependencies:
 
 ```bash

@@ -199,6 +199,15 @@ pub fn route_get(path: &str, config: &ServerConfig) -> HttpResponse {
                     source_product: event.source_product,
                     event_time: event.event_time,
                     event_type: event.event_type,
+                    host: event.host,
+                    user_name: event.user_name,
+                    src_ip: event.src_ip,
+                    dest_ip: event.dest_ip,
+                    process_name: event.process_name,
+                    url: event.url,
+                    dns_query: event.dns_query,
+                    severity: event.severity,
+                    action: event.action,
                 })
                 .collect::<Vec<_>>();
             Ok(serde_json::to_string(&ListResponse {

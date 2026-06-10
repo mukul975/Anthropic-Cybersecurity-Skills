@@ -26,6 +26,8 @@ npm run build
 npm run dev
 ```
 
+The web dev server proxies `/api` to `http://127.0.0.1:8741`, which is the default `sentinel-server --serve` bind address.
+
 ## Desktop
 
 ```bash

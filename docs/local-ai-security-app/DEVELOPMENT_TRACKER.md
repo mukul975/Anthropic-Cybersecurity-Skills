@@ -6,7 +6,7 @@ This tracker records current implementation status against [PRODUCTION_GOALS.md]
 
 ## Current Status
 
-SentinelBlue now has an initialized product workspace plus durable backend foundations. The workspace exists under `product/sentinelblue/` with a Rust workspace, server binary crate, web app, Tauri desktop shell, packaging directories, sample data, model notes, local development docs, SQLite persistence, durable skill indexing, FTS-backed skill search, DB-backed HTTP read endpoints, JSON/JSONL raw event import, MVP event normalization, deterministic detector engine, detector-created alerts/evidence, alert-to-case promotion, case timeline, case closure workflow, local model health/configuration, redacted evidence-cited case summaries, persisted model runs, and read-only web API consumption.
+SentinelBlue now has an initialized product workspace plus durable backend foundations. The workspace exists under `product/sentinelblue/` with a Rust workspace, server binary crate, web app, Tauri desktop shell, packaging directories, sample data, model notes, local development docs, SQLite persistence, durable skill indexing, FTS-backed skill search, DB-backed HTTP read endpoints, JSON/JSONL raw event import, MVP event normalization, deterministic detector engine, detector-created alerts/evidence, alert-to-case promotion, case timeline, case closure workflow, local model health/configuration, redacted evidence-cited case summaries, persisted model runs, richer normalized event API summaries, and a multi-screen analyst workspace UI for read-only investigation.
 
 ## Goal Status Board
 
@@ -21,7 +21,7 @@ SentinelBlue now has an initialized product workspace plus durable backend found
 | 7 | Detection Engine | Complete | Detector trait, versioned detector runs, initial deterministic detectors, alert creation, ATT&CK mappings, and evidence links are complete. |
 | 8 | Alerts And Cases | Complete | Detector findings create alerts, alerts promote to cases, case timeline includes evidence/alerts/notes/actions/model summaries, and closure requires disposition plus notes. |
 | 9 | Local Model Integration | Complete | Deterministic-only and OpenAI-compatible local model modes exist; model health, prompt redaction, evidence-cited summaries, unavailable-model guardrails, and model run persistence are complete. |
-| 10 | Desktop UI | Next | Tauri shell exists and web UI consumes read-only health, skills, events, alerts, and cases APIs. Import/case workflows remain. |
+| 10 | Desktop UI | Partial | Tauri shell exists; web UI now has dashboard, alert queue, case workspace with timeline, event search, skill library, connectors, model settings, policy settings, audit log, and light/dark/system themes. Import/run/summarize/close UI actions remain disabled until mutation routes or narrow desktop commands exist. |
 | 11 | Wazuh Connector | Later | Depends on DB, ingestion, normalization, and connector health model. |
 | 12 | Policy And Approval Engine | Later | Depends on actions, audit, users/roles direction, and backend execution boundaries. |
 | 13 | Server Mode | Partial scaffold complete | Server binary, simple HTTP serving, health, and read endpoints exist; config, auth, metrics, static web serving, and deployment still remain. |
@@ -30,7 +30,7 @@ SentinelBlue now has an initialized product workspace plus durable backend found
 | 16 | Network Security Expansion | Later | Should follow MVP ingestion, normalization, and detector engine. |
 | 17 | Security Hardening | Later | Must be continuous, but final acceptance depends on implemented surfaces. |
 | 18 | Packaging | Partial scaffold complete | Packaging directories exist; installable artifacts are not implemented. |
-| 19 | Test Suite | In progress | Rust unit tests now cover core, API contracts, DB migrations, DB inserts, FTS search, repository skill indexing, server routing, DB-backed read endpoints, JSON/JSONL import, dedupe, MVP event normalization, detector runs, detector findings, alerts, evidence links, case promotion, case timelines, case closure requirements, model health, prompt redaction, deterministic summaries, and model run persistence. |
+| 19 | Test Suite | In progress | Rust unit tests now cover core, API contracts, DB migrations, DB inserts, FTS search, repository skill indexing, server routing, DB-backed read endpoints, richer event summaries, JSON/JSONL import, dedupe, MVP event normalization, detector runs, detector findings, alerts, evidence links, case promotion, case timelines, case closure requirements, model health, prompt redaction, deterministic summaries, and model run persistence. Web build verifies the analyst workspace UI. |
 | 20 | Beta Soak | Not started | Requires deployable beta. |
 | 21 | Production Release | Not started | Requires all prior production gates. |
 
@@ -345,49 +345,69 @@ Verification result:
 
 ## Partial Parallel Goal Evidence
 
-### Goal 10: Read-Only UI/API Consumption
+### Goal 10: Analyst Workspace UI
 
-Completed narrow work:
+Completed partial work:
 
 - Adds `web/src/api.ts`.
-- Fetches `/api/health`.
-- Fetches `/api/skills?q=network`.
-- Fetches `/api/events`, `/api/alerts`, and `/api/cases`.
-- Shows API-backed counts and empty/offline states.
+- Adds `web/vite.config.ts` with a dev proxy from Vite to `sentinel-server`.
+- Fetches `/api/health`, `/api/skills?q=network`, `/api/events`, `/api/alerts`, `/api/cases`, and `/api/cases/{id}/timeline`.
+- Expands event API summaries with host, user, source IP, destination IP, process, URL, DNS query, severity, and action fields.
+- Adds dashboard, alert queue, case workspace, event search, skill library, connectors, model settings, policy settings, and audit log screens.
+- Adds light, dark, and system theme modes.
+- Adds case detail timeline rendering for raw/normalized evidence, detector alerts, analyst notes/actions when present, and extracted model summaries.
+- Shows API-backed counts, empty states, offline errors, and disabled action controls for mutation workflows that are not exposed yet.
+
+Verified commands:
+
+```bash
+cd product/sentinelblue
+cargo test -p sentinel-api -p sentinel-db -p sentinel-server
+
+cd product/sentinelblue/web
+npm run build
+```
+
+Verification result:
+
+- Web production build passes.
+- Richer event summary API remains compatible with server route tests.
+- Vite dev proxy returns backend `/api/health`, `/api/events`, and `/api/cases/{id}/timeline` from a seeded local server.
 
 Remaining UI work:
 
-- Upload/import UI.
-- Case workspace workflows.
-- Policy/action UI.
+- HTTP mutation routes or narrow Tauri commands for import, detector runs, alert promotion, case summary generation, and case closure.
+- File picker/upload implementation once mutation path is chosen.
+- Approval-gated action queue and active policy editing.
+- Full desktop runtime verification through Tauri.
 
 ## Recommended Next Work
 
-### Primary Next Goal: Goal 10, Desktop UI
+### Primary Next Goal: Goal 10, Desktop UI Mutation Path
 
-Goal 10 should be the main next implementation target because the backend now has enough stable read/write workflow surface for an analyst-facing workspace. The next stable layer is a desktop UI that makes the current health, event, alert, case, timeline, and model-summary workflows usable without relying on CLI commands.
+Goal 10 should remain the main next implementation target. The UI can now read the important investigation state, so the next stable layer is exposing a deliberately narrow mutation path for the workflows that are still CLI-only.
 
 Recommended scope for the next development pass:
 
-- Add an analyst dashboard with backend health, ingestion, detector, alert, and case status.
-- Add alert queue and case detail screens backed by existing APIs.
-- Add case timeline rendering for evidence, notes, actions, and model summaries.
-- Add disabled or staged controls for import, promote, summarize, and close workflows until HTTP mutation routes are implemented.
-- Add model settings visibility for deterministic-only and OpenAI-compatible endpoint state.
+- Add backend routes or Tauri commands for import, run detectors, promote alert, summarize case, and close case.
+- Keep command inputs narrow and validate file paths, case IDs, alert IDs, dispositions, and notes.
+- Return stable JSON result contracts for every mutation.
+- Enable the existing UI action controls only where the backend command exists.
+- Keep containment/destructive action controls disabled until Goal 12 policy enforcement exists.
 
 Definition of Done for the next pass:
 
-- Desktop/web UI has navigable dashboard, alerts, cases, events, skills, and settings surfaces.
-- Case detail view shows timeline evidence and model summary entries.
-- Empty, loading, offline, and API error states are handled without page crashes.
-- Destructive or unavailable actions are visibly disabled until backend endpoints exist.
-- The UI builds successfully and remains compatible with the Tauri shell.
+- UI can execute import, detector run, alert promotion, case summary generation, and case closure against the local backend.
+- Each command has API/command tests for success and validation failure.
+- Disabled actions become enabled only when their backend command is available and safe.
+- Case timeline refreshes after summary generation and closure.
+- The UI build and Rust test suite pass.
 
 Acceptance for the next pass:
 
-- An analyst can open the app, see backend health, inspect imported events, review detector alerts, open a case, and read its evidence timeline.
-- The UI clearly distinguishes available workflows from planned workflows.
-- No screen requires seeded demo-only data to render correctly.
+- An analyst can import logs, run detectors, promote an alert, generate a case summary, close the case, and see the updated timeline from the UI.
+- Invalid inputs return structured errors and do not mutate state.
+- Destructive or containment actions remain visually distinct and unavailable without Goal 12 approval enforcement.
 
 ### Parallel Goal A: Goal 19 Test Suite Expansion
 
@@ -411,15 +431,15 @@ Use three short-lived implementation lanes:
 
 | Lane | Owner Type | Goal | Can Start Now | Stop Point |
 |---|---|---:|---|---|
-| Analyst Workspace | Frontend | 10 | Yes | Dashboard, alert list, case detail, timeline/model summary display. |
+| UI Mutation Path | Backend/Frontend | 10 | Yes | Import, run detectors, promote, summarize, close case from UI. |
 | Verification Harness | Backend | 19 | Yes | Reusable smoke coverage for the current CLI workflow. |
 | Wazuh Connector Prep | Backend | 11 | Yes | Config schema, health model, endpoint contract, no production polling yet. |
 
 The safest order is:
 
-1. Build UI read surfaces from existing stable API routes.
-2. Add case detail and timeline rendering before adding mutation controls.
-3. Add mutation API design for promote, summarize, close, and import workflows.
+1. Add mutation API design for import, detector run, promote, summarize, and close.
+2. Implement backend validation and tests before enabling UI controls.
+3. Wire the existing UI controls to the new command contracts.
 4. Add Wazuh connector config and health after UI can show connector status cleanly.
 
 ## Near-Term Risks
@@ -430,10 +450,10 @@ The safest order is:
 
 ## Next Decision Needed
 
-Choose the first Desktop UI target for Goal 10:
+Choose the mutation path for Goal 10:
 
-- Dashboard and navigation shell first.
-- Alert queue and case detail first.
-- Settings and model/connector health first.
+- Local HTTP mutation routes consumed by web and desktop.
+- Tauri-only commands that call backend crates directly.
+- Hybrid: HTTP for server mode, Tauri commands for local file selection.
 
-Recommended for this app stage: alert queue and case detail first, because they expose the highest-value backend workflow now available.
+Recommended for this app stage: local HTTP mutation routes first, then Tauri file selection, because the same contracts will support desktop and future server mode.
