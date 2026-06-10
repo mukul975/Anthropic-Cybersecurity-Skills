@@ -1,10 +1,11 @@
 use std::{env, path::PathBuf, process};
 
 use sentinel_ingest::ImportFormat;
+use sentinel_model::ModelRuntimeConfig;
 use sentinel_server::{
-    ServerConfig, case_json, close_case_for_server, detection_reports_json, health_json,
-    import_file_for_server, import_report_json, promote_alert_for_server, run_detectors_for_server,
-    start_http_server,
+    ServerConfig, case_json, case_summary_json, close_case_for_server, detection_reports_json,
+    health_json, import_file_for_server, import_report_json, promote_alert_for_server,
+    run_detectors_for_server, start_http_server, summarize_case_for_server,
 };
 
 fn main() {
@@ -85,6 +86,26 @@ fn main() {
         }
     }
 
+    if let Some(case_id) = arg_value(&args, "--summarize-case") {
+        let case_id = match case_id.parse::<i64>() {
+            Ok(case_id) => case_id,
+            Err(_) => {
+                eprintln!("--summarize-case requires an integer case id");
+                process::exit(2);
+            }
+        };
+        match summarize_case_for_server(&config, case_id) {
+            Ok(summary) => {
+                println!("{}", case_summary_json(&summary));
+                return;
+            }
+            Err(error) => {
+                eprintln!("case summary failed: {error}");
+                process::exit(1);
+            }
+        }
+    }
+
     if let Some(import_path) = arg_value(&args, "--import-file") {
         let source_name =
             arg_value(&args, "--source-name").unwrap_or_else(|| "manual-file".to_string());
@@ -124,7 +145,8 @@ fn parse_config(args: &[String]) -> Result<ServerConfig, String> {
                 index += 1;
             }
             "--import-file" | "--source-name" | "--source-product" | "--format"
-            | "--promote-alert" | "--case-title" | "--close-case" | "--disposition" | "--notes" => {
+            | "--promote-alert" | "--case-title" | "--close-case" | "--disposition" | "--notes"
+            | "--summarize-case" | "--model-endpoint" | "--model-name" => {
                 let _value = args
                     .get(index + 1)
                     .ok_or_else(|| format!("{} requires a value", args[index]))?;
@@ -146,6 +168,11 @@ fn parse_config(args: &[String]) -> Result<ServerConfig, String> {
             }
             unknown => return Err(format!("unknown argument: {unknown}")),
         }
+    }
+    if let Some(endpoint) = arg_value(args, "--model-endpoint") {
+        let model_name =
+            arg_value(args, "--model-name").unwrap_or_else(|| "local-model".to_string());
+        config.model = ModelRuntimeConfig::openai_compatible(endpoint, model_name);
     }
 
     Ok(config)
@@ -169,6 +196,9 @@ fn print_help() {
     println!("  sentinel-server --promote-alert 1 --database ./sentinelblue.db");
     println!(
         "  sentinel-server --close-case 1 --database ./sentinelblue.db --disposition benign --notes \"Reviewed evidence\""
+    );
+    println!(
+        "  sentinel-server --summarize-case 1 --database ./sentinelblue.db [--model-endpoint http://127.0.0.1:8080 --model-name local-model]"
     );
     println!("  sentinel-server --serve [--bind 127.0.0.1:8741] [--database ./sentinelblue.db]");
     println!("  sentinel-server --help");

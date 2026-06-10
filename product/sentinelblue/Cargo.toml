@@ -6,6 +6,7 @@ members = [
   "crates/sentinel-db",
   "crates/sentinel-detect",
   "crates/sentinel-ingest",
+  "crates/sentinel-model",
   "crates/sentinel-server",
   "crates/sentinel-skill-indexer",
 ]

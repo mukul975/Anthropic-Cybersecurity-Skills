@@ -59,6 +59,22 @@ cargo run -p sentinel-server -- \
   --notes "Confirmed approved administration"
 ```
 
+Generate an evidence-cited case summary without requiring a model:
+
+```bash
+cargo run -p sentinel-server -- --summarize-case 1 --database ./sentinelblue.dev.db
+```
+
+Generate a case summary through a local OpenAI-compatible model endpoint:
+
+```bash
+cargo run -p sentinel-server -- \
+  --summarize-case 1 \
+  --database ./sentinelblue.dev.db \
+  --model-endpoint http://127.0.0.1:8080 \
+  --model-name local-model
+```
+
 Run the local HTTP API:
 
 ```bash

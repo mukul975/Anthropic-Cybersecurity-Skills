@@ -6,7 +6,7 @@ This tracker records current implementation status against [PRODUCTION_GOALS.md]
 
 ## Current Status
 
-SentinelBlue now has an initialized product workspace plus durable backend foundations. The workspace exists under `product/sentinelblue/` with a Rust workspace, server binary crate, web app, Tauri desktop shell, packaging directories, sample data, model notes, local development docs, SQLite persistence, durable skill indexing, FTS-backed skill search, DB-backed HTTP read endpoints, JSON/JSONL raw event import, MVP event normalization, deterministic detector engine, detector-created alerts/evidence, alert-to-case promotion, case timeline, case closure workflow, and read-only web API consumption.
+SentinelBlue now has an initialized product workspace plus durable backend foundations. The workspace exists under `product/sentinelblue/` with a Rust workspace, server binary crate, web app, Tauri desktop shell, packaging directories, sample data, model notes, local development docs, SQLite persistence, durable skill indexing, FTS-backed skill search, DB-backed HTTP read endpoints, JSON/JSONL raw event import, MVP event normalization, deterministic detector engine, detector-created alerts/evidence, alert-to-case promotion, case timeline, case closure workflow, local model health/configuration, redacted evidence-cited case summaries, persisted model runs, and read-only web API consumption.
 
 ## Goal Status Board
 
@@ -20,8 +20,8 @@ SentinelBlue now has an initialized product workspace plus durable backend found
 | 6 | Event Normalization | Complete | Wazuh, Sysmon, Zeek DNS/connection, Suricata EVE, API gateway, and identity/authentication JSON records normalize into common event fields. |
 | 7 | Detection Engine | Complete | Detector trait, versioned detector runs, initial deterministic detectors, alert creation, ATT&CK mappings, and evidence links are complete. |
 | 8 | Alerts And Cases | Complete | Detector findings create alerts, alerts promote to cases, case timeline includes evidence/alerts/notes/actions/model summaries, and closure requires disposition plus notes. |
-| 9 | Local Model Integration | Next | Case evidence shape exists; model runtime config, health, deterministic-only summaries, prompt templates, redaction, and evidence citations remain. |
-| 10 | Desktop UI | Partial | Tauri shell exists and web UI consumes read-only health, skills, events, alerts, and cases APIs. Import/case workflows remain. |
+| 9 | Local Model Integration | Complete | Deterministic-only and OpenAI-compatible local model modes exist; model health, prompt redaction, evidence-cited summaries, unavailable-model guardrails, and model run persistence are complete. |
+| 10 | Desktop UI | Next | Tauri shell exists and web UI consumes read-only health, skills, events, alerts, and cases APIs. Import/case workflows remain. |
 | 11 | Wazuh Connector | Later | Depends on DB, ingestion, normalization, and connector health model. |
 | 12 | Policy And Approval Engine | Later | Depends on actions, audit, users/roles direction, and backend execution boundaries. |
 | 13 | Server Mode | Partial scaffold complete | Server binary, simple HTTP serving, health, and read endpoints exist; config, auth, metrics, static web serving, and deployment still remain. |
@@ -30,7 +30,7 @@ SentinelBlue now has an initialized product workspace plus durable backend found
 | 16 | Network Security Expansion | Later | Should follow MVP ingestion, normalization, and detector engine. |
 | 17 | Security Hardening | Later | Must be continuous, but final acceptance depends on implemented surfaces. |
 | 18 | Packaging | Partial scaffold complete | Packaging directories exist; installable artifacts are not implemented. |
-| 19 | Test Suite | In progress | Rust unit tests now cover core, API contracts, DB migrations, DB inserts, FTS search, repository skill indexing, server routing, DB-backed read endpoints, JSON/JSONL import, dedupe, MVP event normalization, detector runs, detector findings, alerts, evidence links, case promotion, case timelines, and case closure requirements. |
+| 19 | Test Suite | In progress | Rust unit tests now cover core, API contracts, DB migrations, DB inserts, FTS search, repository skill indexing, server routing, DB-backed read endpoints, JSON/JSONL import, dedupe, MVP event normalization, detector runs, detector findings, alerts, evidence links, case promotion, case timelines, case closure requirements, model health, prompt redaction, deterministic summaries, and model run persistence. |
 | 20 | Beta Soak | Not started | Requires deployable beta. |
 | 21 | Production Release | Not started | Requires all prior production gates. |
 
@@ -302,6 +302,47 @@ Verification result:
 - Closing without disposition or notes is rejected.
 - Closing with disposition and notes marks the case closed and adds a closure note.
 
+### Goal 9: Local Model Integration
+
+Artifacts:
+
+- Model integration crate: `product/sentinelblue/crates/sentinel-model`
+- Model run persistence APIs: `product/sentinelblue/crates/sentinel-db/src/lib.rs`
+- Server model health and summary wiring: `product/sentinelblue/crates/sentinel-server/src/lib.rs`
+- Case summary command: `product/sentinelblue/crates/sentinel-server/src/main.rs`
+
+Completed work:
+
+- Adds runtime configuration for deterministic-only mode and OpenAI-compatible local HTTP endpoints.
+- Reports model health as loading, ready, degraded, unavailable, or deterministic-only disabled.
+- Keeps deterministic-only summary generation working without a model.
+- Adds case summary prompt templates built from case timeline evidence.
+- Redacts secret-like values before prompt construction.
+- Disables AI summary generation when model health is unavailable.
+- Falls back to deterministic evidence-cited summaries when AI is unavailable or disabled.
+- Requires every generated summary claim to cite evidence IDs or be marked as inference.
+- Persists summary runs into `model_runs`.
+- Includes model summaries in the case timeline.
+
+Verified commands:
+
+```bash
+cd product/sentinelblue
+cargo test
+cargo run -p sentinel-server -- --import-file sample-data/wazuh-alert.sample.json --database /tmp/sentinelblue.db --source-name sample-wazuh --source-product wazuh
+cargo run -p sentinel-server -- --run-detectors --database /tmp/sentinelblue.db
+cargo run -p sentinel-server -- --promote-alert 1 --database /tmp/sentinelblue.db
+cargo run -p sentinel-server -- --summarize-case 1 --database /tmp/sentinelblue.db
+```
+
+Verification result:
+
+- Deterministic-only mode reports model health as disabled and does not attempt AI generation.
+- Unavailable model endpoints disable AI summary generation.
+- Prompt input redacts secret-like tokens before model use.
+- Deterministic summaries cite case timeline evidence IDs.
+- Model summaries are stored as model runs and appear in case timeline output.
+
 ## Partial Parallel Goal Evidence
 
 ### Goal 10: Read-Only UI/API Consumption
@@ -322,42 +363,47 @@ Remaining UI work:
 
 ## Recommended Next Work
 
-### Primary Next Goal: Goal 9, Local Model Integration
+### Primary Next Goal: Goal 10, Desktop UI
 
-Goal 9 should be the main next implementation target because cases now have evidence timelines. The next stable layer is a deterministic-safe local summary workflow that can generate case summaries only when model health allows it and always cites evidence IDs.
+Goal 10 should be the main next implementation target because the backend now has enough stable read/write workflow surface for an analyst-facing workspace. The next stable layer is a desktop UI that makes the current health, event, alert, case, timeline, and model-summary workflows usable without relying on CLI commands.
 
 Recommended scope for the next development pass:
 
-- Add model runtime configuration for OpenAI-compatible local endpoints.
-- Add model health status: loading, ready, degraded, unavailable, or disabled.
-- Keep deterministic-only mode working without a model.
-- Add case summary prompt templates.
-- Redact secret-like values before prompt construction.
-- Generate deterministic evidence-cited summaries when model health is unavailable.
+- Add an analyst dashboard with backend health, ingestion, detector, alert, and case status.
+- Add alert queue and case detail screens backed by existing APIs.
+- Add case timeline rendering for evidence, notes, actions, and model summaries.
+- Add disabled or staged controls for import, promote, summarize, and close workflows until HTTP mutation routes are implemented.
+- Add model settings visibility for deterministic-only and OpenAI-compatible endpoint state.
 
 Definition of Done for the next pass:
 
-- Model runtime configuration exists.
-- Health checks report model readiness state.
-- Case summary prompt input redacts secret-like values.
-- Case summary generation cites evidence IDs or marks inference.
-- AI summary generation is disabled when model health is unavailable.
+- Desktop/web UI has navigable dashboard, alerts, cases, events, skills, and settings surfaces.
+- Case detail view shows timeline evidence and model summary entries.
+- Empty, loading, offline, and API error states are handled without page crashes.
+- Destructive or unavailable actions are visibly disabled until backend endpoints exist.
+- The UI builds successfully and remains compatible with the Tauri shell.
 
-### Parallel Goal A: Continue Goal 10 UI Import Readiness
+Acceptance for the next pass:
 
-Parallel-safe work:
+- An analyst can open the app, see backend health, inspect imported events, review detector alerts, open a case, and read its evidence timeline.
+- The UI clearly distinguishes available workflows from planned workflows.
+- No screen requires seeded demo-only data to render correctly.
 
-- Add an import status surface that reads API data only.
-- Keep file upload controls disabled until HTTP import/upload endpoints exist.
-- Add event/alert/case list rendering from existing read endpoints.
-
-### Parallel Goal B: Expand Goal 19 Fixture Coverage
+### Parallel Goal A: Goal 19 Test Suite Expansion
 
 Parallel-safe work:
 
-- Move representative normalization fixtures into `sample-data/`.
-- Add import smoke tests that use reusable fixture files.
-- Keep unit fixtures small and hand-authored for mapper edge cases.
+- Move representative normalization and detector fixtures into `sample-data/`.
+- Add reusable CLI smoke tests for import, detection, case promotion, and case summary.
+- Add UI build and API contract checks to the regular verification path.
+
+### Parallel Goal B: Goal 11 Wazuh Connector Design Spike
+
+Parallel-safe work:
+
+- Define Wazuh connector configuration and local-only credential storage boundaries.
+- Add connector health states without fetching remote data yet.
+- Identify the exact Wazuh API endpoints needed for alert polling and cursor persistence.
 
 ## Suggested Parallel Plan
 
@@ -365,29 +411,29 @@ Use three short-lived implementation lanes:
 
 | Lane | Owner Type | Goal | Can Start Now | Stop Point |
 |---|---|---:|---|---|
-| Model Summary | Backend | 9 | Yes | Config, health, redaction, prompt templates, deterministic fallback. |
-| UI Case Readiness | Frontend | 10 | Yes | API-backed alert/case detail display, no destructive actions. |
-| Detector Fixtures | Backend | 7/19 | Yes | Reusable detector fixture files beyond unit fixtures. |
+| Analyst Workspace | Frontend | 10 | Yes | Dashboard, alert list, case detail, timeline/model summary display. |
+| Verification Harness | Backend | 19 | Yes | Reusable smoke coverage for the current CLI workflow. |
+| Wazuh Connector Prep | Backend | 11 | Yes | Config schema, health model, endpoint contract, no production polling yet. |
 
 The safest order is:
 
-1. Add model config and health reporting without requiring a model.
-2. Add prompt construction and redaction tests.
-3. Add deterministic evidence-cited case summary fallback.
-4. Add optional local model call only after unavailable/disabled paths are safe.
+1. Build UI read surfaces from existing stable API routes.
+2. Add case detail and timeline rendering before adding mutation controls.
+3. Add mutation API design for promote, summarize, close, and import workflows.
+4. Add Wazuh connector config and health after UI can show connector status cleanly.
 
 ## Near-Term Risks
 
-- Model integration can leak sensitive values if redaction is not tested before prompt construction.
 - UI upload flows should wait for explicit HTTP upload/import design.
+- Case mutation flows need idempotent API behavior before exposing active buttons.
 - Detector deduplication is not implemented yet, so repeated detector runs can create repeated alerts.
 
 ## Next Decision Needed
 
-Choose the first local model integration target for Goal 9:
+Choose the first Desktop UI target for Goal 10:
 
-- Deterministic-only summary generation first.
-- OpenAI-compatible local endpoint configuration first.
-- Prompt template and redaction test suite first.
+- Dashboard and navigation shell first.
+- Alert queue and case detail first.
+- Settings and model/connector health first.
 
-Recommended for this app stage: prompt template and redaction test suite first, then deterministic-only summary generation, then optional local endpoint calls.
+Recommended for this app stage: alert queue and case detail first, because they expose the highest-value backend workflow now available.

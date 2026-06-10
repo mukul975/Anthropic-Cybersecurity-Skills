@@ -171,6 +171,16 @@ pub struct CaseTimelineItem {
     pub timeline_time: String,
 }
 
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct StoredModelRun {
+    pub id: i64,
+    pub case_id: Option<i64>,
+    pub model_name: String,
+    pub prompt_hash: String,
+    pub output_json: String,
+    pub status: String,
+}
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum SkillUpsertStatus {
     Inserted,
@@ -911,6 +921,43 @@ impl Database {
         rows.collect()
     }
 
+    pub fn insert_model_run(&self, model_run: NewModelRun<'_>) -> Result<i64> {
+        self.conn.execute(
+            "INSERT INTO model_runs (
+               case_id, model_name, prompt_hash, output_json, status, completed_at
+             )
+             VALUES (?1, ?2, ?3, ?4, ?5, CASE WHEN ?5 = 'completed' THEN datetime('now') ELSE NULL END)",
+            params![
+                model_run.case_id,
+                model_run.model_name,
+                model_run.prompt_hash,
+                model_run.output_json,
+                model_run.status,
+            ],
+        )?;
+        Ok(self.conn.last_insert_rowid())
+    }
+
+    pub fn model_runs_for_case(&self, case_id: i64) -> Result<Vec<StoredModelRun>> {
+        let mut statement = self.conn.prepare(
+            "SELECT id, case_id, model_name, prompt_hash, output_json, status
+             FROM model_runs
+             WHERE case_id = ?1
+             ORDER BY started_at, id",
+        )?;
+        let rows = statement.query_map(params![case_id], |row| {
+            Ok(StoredModelRun {
+                id: row.get(0)?,
+                case_id: row.get(1)?,
+                model_name: row.get(2)?,
+                prompt_hash: row.get(3)?,
+                output_json: row.get(4)?,
+                status: row.get(5)?,
+            })
+        })?;
+        rows.collect()
+    }
+
     fn refresh_skill_fts(&self, rowid: i64, skill: NewSkill<'_>) -> Result<()> {
         self.conn
             .execute("DELETE FROM skills_fts WHERE rowid = ?1", params![rowid])?;
@@ -1050,6 +1097,15 @@ pub struct NewCase<'a> {
     pub severity: &'a str,
     pub confidence: &'a str,
     pub disposition: &'a str,
+}
+
+#[derive(Debug, Clone, Copy)]
+pub struct NewModelRun<'a> {
+    pub case_id: Option<i64>,
+    pub model_name: &'a str,
+    pub prompt_hash: &'a str,
+    pub output_json: &'a str,
+    pub status: &'a str,
 }
 
 pub const CORE_TABLES: &[&str] = &[
@@ -1688,5 +1744,39 @@ mod tests {
             item.item_type == "analyst_note"
                 && item.summary.contains("Confirmed expected admin activity")
         }));
+    }
+
+    #[test]
+    fn model_runs_are_persisted_and_returned_in_case_timeline() {
+        let database = Database::open_initialized_memory().expect("database initializes");
+        let case_id = database
+            .create_case(NewCase {
+                title: "Suspicious PowerShell encoded command",
+                status: "triage",
+                severity: "high",
+                confidence: "0.86",
+                disposition: "",
+            })
+            .expect("case creates");
+        let model_run_id = database
+            .insert_model_run(NewModelRun {
+                case_id: Some(case_id),
+                model_name: "deterministic-case-summary",
+                prompt_hash: "abc123",
+                output_json: r#"{"summary":"Case summary","claims":[{"evidence_ids":[1]}]}"#,
+                status: "completed",
+            })
+            .expect("model run inserts");
+
+        let runs = database.model_runs_for_case(case_id).expect("runs list");
+        let timeline = database.case_timeline(case_id).expect("timeline loads");
+
+        assert_eq!(runs.len(), 1);
+        assert_eq!(runs[0].id, model_run_id);
+        assert_eq!(runs[0].status, "completed");
+        assert_eq!(timeline.len(), 1);
+        assert_eq!(timeline[0].item_type, "model_summary");
+        assert_eq!(timeline[0].item_id, model_run_id);
+        assert!(timeline[0].summary.contains("Case summary"));
     }
 }

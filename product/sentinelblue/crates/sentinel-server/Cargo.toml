@@ -13,6 +13,7 @@ sentinel-core = { path = "../sentinel-core" }
 sentinel-db = { path = "../sentinel-db" }
 sentinel-detect = { path = "../sentinel-detect" }
 sentinel-ingest = { path = "../sentinel-ingest" }
+sentinel-model = { path = "../sentinel-model" }
 rusqlite.workspace = true
 serde.workspace = true
 serde_json.workspace = true

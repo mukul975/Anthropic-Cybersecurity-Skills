@@ -10,9 +10,12 @@ use sentinel_api::{
     bootstrap_health_response,
 };
 use sentinel_core::{ComponentHealth, DEFAULT_API_BIND_ADDR, HealthSnapshot};
-use sentinel_db::{CORE_TABLES, Database, StoredCase};
+use sentinel_db::{CORE_TABLES, Database, NewModelRun, StoredCase};
 use sentinel_detect::{DetectionReport, run_default_detectors};
 use sentinel_ingest::{ImportFormat, ImportOptions, ImportReport, import_file};
+use sentinel_model::{
+    CaseSummaryResult, ModelHealthStatus, ModelRuntimeConfig, check_model_health, summarize_case,
+};
 use serde::Serialize;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -20,6 +23,7 @@ pub struct ServerConfig {
     pub bind_addr: String,
     pub version: String,
     pub database_path: Option<PathBuf>,
+    pub model: ModelRuntimeConfig,
 }
 
 impl Default for ServerConfig {
@@ -28,6 +32,7 @@ impl Default for ServerConfig {
             bind_addr: DEFAULT_API_BIND_ADDR.to_string(),
             version: env!("CARGO_PKG_VERSION").to_string(),
             database_path: None,
+            model: ModelRuntimeConfig::deterministic_only(),
         }
     }
 }
@@ -42,6 +47,7 @@ impl ServerConfig {
 pub fn health_snapshot(config: &ServerConfig) -> HealthSnapshot {
     let mut snapshot = bootstrap_health_response(&config.version);
     snapshot.components.push(database_health_component(config));
+    snapshot.components.push(model_health_component(config));
     snapshot
 }
 
@@ -97,6 +103,25 @@ fn database_health_component(config: &ServerConfig) -> ComponentHealth {
             ),
         ),
         Err(error) => ComponentHealth::unavailable("database", error.to_string()),
+    }
+}
+
+fn model_health_component(config: &ServerConfig) -> ComponentHealth {
+    let health = check_model_health(&config.model);
+    let detail = format!(
+        "model_status={} ai_enabled={} {}",
+        health.status.as_str(),
+        health.ai_enabled,
+        health.detail
+    );
+    match health.status {
+        ModelHealthStatus::Ready | ModelHealthStatus::Disabled => {
+            ComponentHealth::healthy("model", detail)
+        }
+        ModelHealthStatus::Loading | ModelHealthStatus::Degraded => {
+            ComponentHealth::degraded("model", detail)
+        }
+        ModelHealthStatus::Unavailable => ComponentHealth::unavailable("model", detail),
     }
 }
 
@@ -417,6 +442,37 @@ pub fn case_json(case: &StoredCase) -> String {
     .expect("case serializes")
 }
 
+pub fn summarize_case_for_server(
+    config: &ServerConfig,
+    case_id: i64,
+) -> Result<CaseSummaryResult, String> {
+    let database = open_request_database(config).map_err(|error| error.to_string())?;
+    let case = database
+        .case_by_id(case_id)
+        .map_err(|error| error.to_string())?
+        .ok_or_else(|| format!("case {case_id} not found"))?;
+    let timeline = database
+        .case_timeline(case_id)
+        .map_err(|error| error.to_string())?;
+    let result =
+        summarize_case(&config.model, &case, &timeline).map_err(|error| error.to_string())?;
+    let output_json = serde_json::to_string(&result).map_err(|error| error.to_string())?;
+    database
+        .insert_model_run(NewModelRun {
+            case_id: Some(case_id),
+            model_name: &result.model_name,
+            prompt_hash: &result.prompt_hash,
+            output_json: &output_json,
+            status: "completed",
+        })
+        .map_err(|error| error.to_string())?;
+    Ok(result)
+}
+
+pub fn case_summary_json(result: &CaseSummaryResult) -> String {
+    serde_json::to_string(result).expect("case summary serializes")
+}
+
 fn handle_connection(mut stream: TcpStream, config: &ServerConfig) -> std::io::Result<()> {
     let mut buffer = [0_u8; 8192];
     let read = stream.read(&mut buffer)?;
@@ -510,6 +566,8 @@ mod tests {
         assert!(json.contains("\"name\":\"database\""));
         assert!(json.contains("schema_version=4"));
         assert!(json.contains("core_tables=12"));
+        assert!(json.contains("\"name\":\"model\""));
+        assert!(json.contains("model_status=disabled"));
     }
 
     #[test]
@@ -822,5 +880,135 @@ mod tests {
         assert_eq!(cases.status_code, 200);
         assert!(cases.body.contains("\"status\":\"closed\""));
         assert!(cases.body.contains("\"disposition\":\"benign\""));
+    }
+
+    #[test]
+    fn server_summarizes_case_deterministically_and_persists_model_run() {
+        let dir = tempfile::tempdir().expect("tempdir exists");
+        let db_path = dir.path().join("sentinelblue.db");
+        let database = Database::open_initialized(&db_path).expect("database initializes");
+        let case_id = database
+            .create_case(sentinel_db::NewCase {
+                title: "Suspicious PowerShell encoded command",
+                status: "triage",
+                severity: "high",
+                confidence: "0.86",
+                disposition: "",
+            })
+            .expect("case creates");
+        let raw_event_id = database
+            .insert_raw_event(NewRawEvent {
+                source_id: None,
+                source_product: "wazuh",
+                event_time: Some("2026-06-10T01:00:00Z"),
+                raw_payload: "{}",
+                raw_hash: "server-summary-hash",
+                ingest_batch: "server-summary-batch",
+            })
+            .expect("raw event inserts");
+        let normalized_event_id = database
+            .insert_normalized_event(NewNormalizedEvent {
+                raw_event_id: Some(raw_event_id),
+                event_time: Some("2026-06-10T01:00:00Z"),
+                event_type: "alert",
+                source_product: "wazuh",
+                host: "demo-host",
+                asset_id: "001",
+                user_name: "deploy",
+                user_id: "",
+                src_ip: "10.0.0.5",
+                src_port: None,
+                dest_ip: "",
+                dest_port: None,
+                protocol: "",
+                dns_query: "",
+                http_method: "",
+                url: "",
+                status_code: None,
+                process_name: "powershell.exe",
+                process_path: "",
+                parent_process_name: "",
+                command_line: "powershell.exe -EncodedCommand redacted",
+                file_path: "",
+                file_hash_sha256: "",
+                rule_id: "100001",
+                rule_name: "Suspicious command execution",
+                severity: "8",
+                action: "",
+                fields_json: "{}",
+            })
+            .expect("normalized event inserts");
+        let evidence_id = database
+            .insert_evidence(NewEvidence {
+                case_id: Some(case_id),
+                alert_id: None,
+                raw_event_id: Some(raw_event_id),
+                normalized_event_id: Some(normalized_event_id),
+                evidence_type: "normalized_event",
+                summary: "Encoded command observed with api_key=sk-secret",
+            })
+            .expect("evidence inserts");
+        drop(database);
+
+        let config = ServerConfig::default().with_database_path(&db_path);
+        let summary = summarize_case_for_server(&config, case_id).expect("summary generates");
+        let summary_json = case_summary_json(&summary);
+        let database = Database::open_initialized(&db_path).expect("database reopens");
+        let model_runs = database
+            .model_runs_for_case(case_id)
+            .expect("model runs list");
+        let timeline = database.case_timeline(case_id).expect("timeline loads");
+
+        assert!(!summary.ai_attempted);
+        assert_eq!(summary.model_health_status, "disabled");
+        assert!(summary.summary.contains(&format!("#{evidence_id}")));
+        assert!(summary.prompt.redaction_count >= 1);
+        assert!(!summary.prompt.user.contains("sk-secret"));
+        assert!(
+            summary
+                .claims
+                .iter()
+                .all(|claim| claim.inference || !claim.evidence_ids.is_empty())
+        );
+        assert!(summary_json.contains("deterministic-only"));
+        assert_eq!(model_runs.len(), 1);
+        assert_eq!(model_runs[0].prompt_hash, summary.prompt_hash);
+        assert!(
+            timeline
+                .iter()
+                .any(|item| item.item_type == "model_summary")
+        );
+    }
+
+    #[test]
+    fn unavailable_model_endpoint_disables_ai_summary_generation() {
+        let dir = tempfile::tempdir().expect("tempdir exists");
+        let db_path = dir.path().join("sentinelblue.db");
+        let database = Database::open_initialized(&db_path).expect("database initializes");
+        let case_id = database
+            .create_case(sentinel_db::NewCase {
+                title: "Suspicious DNS activity",
+                status: "triage",
+                severity: "medium",
+                confidence: "0.70",
+                disposition: "",
+            })
+            .expect("case creates");
+        drop(database);
+
+        let mut config = ServerConfig::default().with_database_path(&db_path);
+        config.model = ModelRuntimeConfig::openai_compatible("http://127.0.0.1:1", "local-model");
+        config.model.request_timeout_ms = 100;
+        let summary = summarize_case_for_server(&config, case_id).expect("summary generates");
+
+        assert!(!summary.ai_attempted);
+        assert_eq!(summary.model_health_status, "unavailable");
+        assert_eq!(summary.mode, "deterministic-only");
+        assert!(
+            summary
+                .claims
+                .iter()
+                .all(|claim| claim.inference || !claim.evidence_ids.is_empty())
+        );
     }
 }

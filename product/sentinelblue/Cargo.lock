@@ -383,6 +383,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "sentinel-model"
+version = "0.1.0"
+dependencies = [
+ "sentinel-db",
+ "serde",
+ "serde_json",
+ "sha2",
+ "tempfile",
+]
+
+[[package]]
 name = "sentinel-server"
 version = "0.1.0"
 dependencies = [
@@ -392,6 +403,7 @@ dependencies = [
  "sentinel-db",
  "sentinel-detect",
  "sentinel-ingest",
+ "sentinel-model",
  "serde",
  "serde_json",
  "tempfile",
