@@ -98,6 +98,21 @@ pub struct CaseSummary {
     pub title: String,
     pub status: String,
     pub severity: String,
+    pub confidence: String,
+    pub disposition: String,
+    pub closed_at: Option<String>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
+pub struct CaseTimelineSummary {
+    pub item_type: String,
+    pub item_id: String,
+    pub case_id: String,
+    pub alert_id: Option<String>,
+    pub raw_event_id: Option<String>,
+    pub normalized_event_id: Option<String>,
+    pub summary: String,
+    pub timeline_time: String,
 }
 
 #[cfg(test)]

@@ -5,11 +5,12 @@ use std::{
 };
 
 use sentinel_api::{
-    ALERTS_ROUTE, AlertSummary, ApiError, CASES_ROUTE, CaseSummary, EVENTS_ROUTE, EventSummary,
-    HEALTH_ROUTE, ListResponse, SKILLS_ROUTE, SkillSummary, bootstrap_health_response,
+    ALERTS_ROUTE, AlertSummary, ApiError, CASES_ROUTE, CaseSummary, CaseTimelineSummary,
+    EVENTS_ROUTE, EventSummary, HEALTH_ROUTE, ListResponse, SKILLS_ROUTE, SkillSummary,
+    bootstrap_health_response,
 };
 use sentinel_core::{ComponentHealth, DEFAULT_API_BIND_ADDR, HealthSnapshot};
-use sentinel_db::{CORE_TABLES, Database};
+use sentinel_db::{CORE_TABLES, Database, StoredCase};
 use sentinel_detect::{DetectionReport, run_default_detectors};
 use sentinel_ingest::{ImportFormat, ImportOptions, ImportReport, import_file};
 use serde::Serialize;
@@ -211,6 +212,9 @@ pub fn route_get(path: &str, config: &ServerConfig) -> HttpResponse {
                     title: case.title,
                     status: case.status,
                     severity: case.severity,
+                    confidence: case.confidence,
+                    disposition: case.disposition,
+                    closed_at: case.closed_at,
                 })
                 .collect::<Vec<_>>();
             Ok(serde_json::to_string(&ListResponse {
@@ -218,6 +222,28 @@ pub fn route_get(path: &str, config: &ServerConfig) -> HttpResponse {
                 items,
             })
             .expect("cases response serializes"))
+        }),
+        path if case_timeline_id(path).is_some() => db_json_response(config, |database| {
+            let case_id = case_timeline_id(path).expect("checked above");
+            let timeline = database.case_timeline(case_id)?;
+            let items = timeline
+                .into_iter()
+                .map(|item| CaseTimelineSummary {
+                    item_type: item.item_type,
+                    item_id: item.item_id.to_string(),
+                    case_id: item.case_id.to_string(),
+                    alert_id: item.alert_id.map(|id| id.to_string()),
+                    raw_event_id: item.raw_event_id.map(|id| id.to_string()),
+                    normalized_event_id: item.normalized_event_id.map(|id| id.to_string()),
+                    summary: item.summary,
+                    timeline_time: item.timeline_time,
+                })
+                .collect::<Vec<_>>();
+            Ok(serde_json::to_string(&ListResponse {
+                total: items.len(),
+                items,
+            })
+            .expect("case timeline response serializes"))
         }),
         _ => HttpResponse::json(
             404,
@@ -336,6 +362,61 @@ pub fn detection_reports_json(reports: &[DetectionReport]) -> String {
     serde_json::to_string(reports).expect("detection reports serialize")
 }
 
+pub fn promote_alert_for_server(
+    config: &ServerConfig,
+    alert_id: i64,
+    title: Option<&str>,
+) -> Result<StoredCase, String> {
+    let database = open_request_database(config).map_err(|error| error.to_string())?;
+    let case_id = database
+        .promote_alert_to_case(alert_id, title)
+        .map_err(|error| error.to_string())?;
+    database
+        .case_by_id(case_id)
+        .map_err(|error| error.to_string())?
+        .ok_or_else(|| format!("case {case_id} not found after promotion"))
+}
+
+pub fn close_case_for_server(
+    config: &ServerConfig,
+    case_id: i64,
+    disposition: &str,
+    notes: &str,
+) -> Result<StoredCase, String> {
+    let database = open_request_database(config).map_err(|error| error.to_string())?;
+    database
+        .close_case(case_id, disposition, notes)
+        .map_err(|error| error.to_string())?;
+    database
+        .case_by_id(case_id)
+        .map_err(|error| error.to_string())?
+        .ok_or_else(|| format!("case {case_id} not found after close"))
+}
+
+pub fn case_json(case: &StoredCase) -> String {
+    #[derive(Serialize)]
+    struct Case<'a> {
+        id: i64,
+        title: &'a str,
+        status: &'a str,
+        severity: &'a str,
+        confidence: &'a str,
+        disposition: &'a str,
+        closed_at: Option<&'a str>,
+    }
+
+    serde_json::to_string(&Case {
+        id: case.id,
+        title: &case.title,
+        status: &case.status,
+        severity: &case.severity,
+        confidence: &case.confidence,
+        disposition: &case.disposition,
+        closed_at: case.closed_at.as_deref(),
+    })
+    .expect("case serializes")
+}
+
 fn handle_connection(mut stream: TcpStream, config: &ServerConfig) -> std::io::Result<()> {
     let mut buffer = [0_u8; 8192];
     let read = stream.read(&mut buffer)?;
@@ -374,6 +455,12 @@ fn query_value(query: Option<&str>, key: &str) -> Option<String> {
         .map(|(_, value)| value.replace('+', " "))
 }
 
+fn case_timeline_id(path: &str) -> Option<i64> {
+    let suffix = path.strip_prefix("/api/cases/")?;
+    let id = suffix.strip_suffix("/timeline")?;
+    id.parse::<i64>().ok()
+}
+
 fn escape_json(value: &str) -> String {
     value
         .replace('\\', "\\\\")
@@ -386,7 +473,7 @@ fn escape_json(value: &str) -> String {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use sentinel_db::{NewNormalizedEvent, NewRawEvent, NewSkill};
+    use sentinel_db::{NewAlert, NewEvidence, NewNormalizedEvent, NewRawEvent, NewSkill};
 
     #[test]
     fn default_config_uses_local_bind_addr() {
@@ -638,5 +725,102 @@ mod tests {
         );
         assert_eq!(evidence.len(), 1);
         assert_eq!(evidence[0].raw_event_id, Some(raw_event_id));
+    }
+
+    #[test]
+    fn server_promotes_alert_closes_case_and_reads_timeline() {
+        let dir = tempfile::tempdir().expect("tempdir exists");
+        let db_path = dir.path().join("sentinelblue.db");
+        let database = Database::open_initialized(&db_path).expect("database initializes");
+        let raw_event_id = database
+            .insert_raw_event(NewRawEvent {
+                source_id: None,
+                source_product: "wazuh",
+                event_time: Some("2026-06-10T01:00:00Z"),
+                raw_payload: "{}",
+                raw_hash: "server-case-hash",
+                ingest_batch: "server-case-batch",
+            })
+            .expect("raw event inserts");
+        let normalized_event_id = database
+            .insert_normalized_event(NewNormalizedEvent {
+                raw_event_id: Some(raw_event_id),
+                event_time: Some("2026-06-10T01:00:00Z"),
+                event_type: "alert",
+                source_product: "wazuh",
+                host: "demo-host",
+                asset_id: "001",
+                user_name: "deploy",
+                user_id: "",
+                src_ip: "10.0.0.5",
+                src_port: None,
+                dest_ip: "",
+                dest_port: None,
+                protocol: "",
+                dns_query: "",
+                http_method: "",
+                url: "",
+                status_code: None,
+                process_name: "powershell.exe",
+                process_path: "",
+                parent_process_name: "",
+                command_line: "powershell.exe -EncodedCommand redacted",
+                file_path: "",
+                file_hash_sha256: "",
+                rule_id: "100001",
+                rule_name: "Suspicious command execution",
+                severity: "8",
+                action: "",
+                fields_json: "{}",
+            })
+            .expect("normalized event inserts");
+        let alert_id = database
+            .insert_alert(NewAlert {
+                detector_run_id: None,
+                title: "Suspicious PowerShell encoded command",
+                description: "PowerShell execution used an encoded command indicator.",
+                severity: "high",
+                confidence: 0.86,
+                status: "new",
+                attack_json: r#"[{"technique_id":"T1059.001"}]"#,
+                evidence_json: "[]",
+            })
+            .expect("alert inserts");
+        database
+            .insert_evidence(NewEvidence {
+                case_id: None,
+                alert_id: Some(alert_id),
+                raw_event_id: Some(raw_event_id),
+                normalized_event_id: Some(normalized_event_id),
+                evidence_type: "normalized_event",
+                summary: "Encoded PowerShell evidence",
+            })
+            .expect("evidence inserts");
+        drop(database);
+
+        let config = ServerConfig::default().with_database_path(&db_path);
+        let case = promote_alert_for_server(&config, alert_id, None).expect("alert promotes");
+        let timeline = route_get(&format!("/api/cases/{}/timeline", case.id), &config);
+        let closed = close_case_for_server(
+            &config,
+            case.id,
+            "benign",
+            "Confirmed approved administration.",
+        )
+        .expect("case closes");
+        let close_json = case_json(&closed);
+        let cases = route_get("/api/cases", &config);
+
+        assert_eq!(case.status, "triage");
+        assert_eq!(case.severity, "high");
+        assert_eq!(timeline.status_code, 200);
+        assert!(timeline.body.contains("\"item_type\":\"normalized_event\""));
+        assert!(timeline.body.contains("\"item_type\":\"detector_alert\""));
+        assert_eq!(closed.status, "closed");
+        assert!(closed.closed_at.is_some());
+        assert!(close_json.contains("\"disposition\":\"benign\""));
+        assert_eq!(cases.status_code, 200);
+        assert!(cases.body.contains("\"status\":\"closed\""));
+        assert!(cases.body.contains("\"disposition\":\"benign\""));
     }
 }

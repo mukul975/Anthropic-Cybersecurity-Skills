@@ -154,6 +154,21 @@ pub struct StoredCase {
     pub title: String,
     pub status: String,
     pub severity: String,
+    pub confidence: String,
+    pub disposition: String,
+    pub closed_at: Option<String>,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct CaseTimelineItem {
+    pub item_type: String,
+    pub item_id: i64,
+    pub case_id: i64,
+    pub alert_id: Option<i64>,
+    pub raw_event_id: Option<i64>,
+    pub normalized_event_id: Option<i64>,
+    pub summary: String,
+    pub timeline_time: String,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -711,6 +726,17 @@ impl Database {
         rows.collect()
     }
 
+    pub fn alert_by_id(&self, id: i64) -> Result<Option<StoredAlert>> {
+        self.conn
+            .query_row(
+                "SELECT id, title, description, severity, confidence, status, attack_json, evidence_json
+                 FROM alerts WHERE id = ?1",
+                params![id],
+                stored_alert_from_row,
+            )
+            .optional()
+    }
+
     pub fn list_alerts(&self, limit: usize) -> Result<Vec<StoredAlert>> {
         let mut statement = self.conn.prepare(
             "SELECT id, title, description, severity, confidence, status, attack_json, evidence_json
@@ -718,34 +744,168 @@ impl Database {
              ORDER BY created_at DESC, id DESC
              LIMIT ?1",
         )?;
-        let rows = statement.query_map(params![bounded_limit(limit)], |row| {
-            Ok(StoredAlert {
-                id: row.get(0)?,
-                title: row.get(1)?,
-                description: row.get(2)?,
-                severity: row.get(3)?,
-                confidence: row.get(4)?,
-                status: row.get(5)?,
-                attack_json: row.get(6)?,
-                evidence_json: row.get(7)?,
-            })
-        })?;
+        let rows = statement.query_map(params![bounded_limit(limit)], stored_alert_from_row)?;
         rows.collect()
     }
 
     pub fn list_cases(&self, limit: usize) -> Result<Vec<StoredCase>> {
         let mut statement = self.conn.prepare(
-            "SELECT id, title, status, severity
+            "SELECT id, title, status, severity, confidence, disposition, closed_at
              FROM cases
              ORDER BY created_at DESC, id DESC
              LIMIT ?1",
         )?;
-        let rows = statement.query_map(params![bounded_limit(limit)], |row| {
-            Ok(StoredCase {
-                id: row.get(0)?,
-                title: row.get(1)?,
-                status: row.get(2)?,
-                severity: row.get(3)?,
+        let rows = statement.query_map(params![bounded_limit(limit)], stored_case_from_row)?;
+        rows.collect()
+    }
+
+    pub fn case_by_id(&self, id: i64) -> Result<Option<StoredCase>> {
+        self.conn
+            .query_row(
+                "SELECT id, title, status, severity, confidence, disposition, closed_at
+                 FROM cases WHERE id = ?1",
+                params![id],
+                stored_case_from_row,
+            )
+            .optional()
+    }
+
+    pub fn create_case(&self, case: NewCase<'_>) -> Result<i64> {
+        self.conn.execute(
+            "INSERT INTO cases (title, status, severity, confidence, disposition)
+             VALUES (?1, ?2, ?3, ?4, ?5)",
+            params![
+                case.title,
+                case.status,
+                case.severity,
+                case.confidence,
+                case.disposition
+            ],
+        )?;
+        Ok(self.conn.last_insert_rowid())
+    }
+
+    pub fn promote_alert_to_case(&self, alert_id: i64, title: Option<&str>) -> Result<i64> {
+        let alert = self.alert_by_id(alert_id)?.ok_or_else(|| {
+            rusqlite::Error::InvalidParameterName(format!("alert {alert_id} not found"))
+        })?;
+        let case_title = title.unwrap_or(&alert.title);
+        let case_id = self.create_case(NewCase {
+            title: case_title,
+            status: "triage",
+            severity: &alert.severity,
+            confidence: &format!("{:.2}", alert.confidence),
+            disposition: "",
+        })?;
+
+        self.conn.execute(
+            "UPDATE alerts SET status = 'in_case', updated_at = datetime('now') WHERE id = ?1",
+            params![alert_id],
+        )?;
+        self.conn.execute(
+            "UPDATE evidence SET case_id = ?1 WHERE alert_id = ?2 AND case_id IS NULL",
+            params![case_id, alert_id],
+        )?;
+        self.insert_evidence(NewEvidence {
+            case_id: Some(case_id),
+            alert_id: Some(alert_id),
+            raw_event_id: None,
+            normalized_event_id: None,
+            evidence_type: "detector_alert",
+            summary: &format!("Promoted alert: {}", alert.title),
+        })?;
+
+        Ok(case_id)
+    }
+
+    pub fn add_case_note(&self, case_id: i64, note: &str) -> Result<i64> {
+        let note = note.trim();
+        if note.is_empty() {
+            return Err(rusqlite::Error::InvalidParameterName(
+                "case note is required".to_string(),
+            ));
+        }
+        if self.case_by_id(case_id)?.is_none() {
+            return Err(rusqlite::Error::InvalidParameterName(format!(
+                "case {case_id} not found"
+            )));
+        }
+
+        self.insert_evidence(NewEvidence {
+            case_id: Some(case_id),
+            alert_id: None,
+            raw_event_id: None,
+            normalized_event_id: None,
+            evidence_type: "analyst_note",
+            summary: note,
+        })
+    }
+
+    pub fn close_case(&self, case_id: i64, disposition: &str, notes: &str) -> Result<()> {
+        let disposition = disposition.trim();
+        let notes = notes.trim();
+        if disposition.is_empty() {
+            return Err(rusqlite::Error::InvalidParameterName(
+                "case closure disposition is required".to_string(),
+            ));
+        }
+        if notes.is_empty() {
+            return Err(rusqlite::Error::InvalidParameterName(
+                "case closure notes are required".to_string(),
+            ));
+        }
+        if self.case_by_id(case_id)?.is_none() {
+            return Err(rusqlite::Error::InvalidParameterName(format!(
+                "case {case_id} not found"
+            )));
+        }
+
+        self.add_case_note(case_id, &format!("Closure note: {notes}"))?;
+        self.conn.execute(
+            "UPDATE cases
+             SET status = 'closed', disposition = ?1, closed_at = datetime('now'), updated_at = datetime('now')
+             WHERE id = ?2",
+            params![disposition, case_id],
+        )?;
+        Ok(())
+    }
+
+    pub fn case_timeline(&self, case_id: i64) -> Result<Vec<CaseTimelineItem>> {
+        let mut statement = self.conn.prepare(
+            "SELECT item_type, item_id, case_id, alert_id, raw_event_id, normalized_event_id,
+                    summary, timeline_time
+             FROM (
+               SELECT evidence_type AS item_type, id AS item_id, case_id, alert_id,
+                      raw_event_id, normalized_event_id, summary, created_at AS timeline_time,
+                      1 AS source_order
+               FROM evidence
+               WHERE case_id = ?1
+               UNION ALL
+               SELECT 'model_summary' AS item_type, id AS item_id, case_id, NULL AS alert_id,
+                      NULL AS raw_event_id, NULL AS normalized_event_id, output_json AS summary,
+                      started_at AS timeline_time, 2 AS source_order
+               FROM model_runs
+               WHERE case_id = ?1
+               UNION ALL
+               SELECT 'action' AS item_type, id AS item_id, case_id, NULL AS alert_id,
+                      NULL AS raw_event_id, NULL AS normalized_event_id,
+                      action_id || ' [' || status || ']' AS summary, created_at AS timeline_time,
+                      3 AS source_order
+               FROM actions
+               WHERE case_id = ?1
+             )
+             ORDER BY timeline_time, source_order, item_id",
+        )?;
+        let rows = statement.query_map(params![case_id], |row| {
+            Ok(CaseTimelineItem {
+                item_type: row.get(0)?,
+                item_id: row.get(1)?,
+                case_id: row.get(2)?,
+                alert_id: row.get(3)?,
+                raw_event_id: row.get(4)?,
+                normalized_event_id: row.get(5)?,
+                summary: row.get(6)?,
+                timeline_time: row.get(7)?,
             })
         })?;
         rows.collect()
@@ -883,6 +1043,15 @@ pub struct NewEvidence<'a> {
     pub summary: &'a str,
 }
 
+#[derive(Debug, Clone, Copy)]
+pub struct NewCase<'a> {
+    pub title: &'a str,
+    pub status: &'a str,
+    pub severity: &'a str,
+    pub confidence: &'a str,
+    pub disposition: &'a str,
+}
+
 pub const CORE_TABLES: &[&str] = &[
     "skills",
     "telemetry_sources",
@@ -909,6 +1078,31 @@ fn stored_skill_from_row(row: &rusqlite::Row<'_>) -> Result<StoredSkill> {
         domain: row.get(4)?,
         subdomain: row.get(5)?,
         checksum: row.get(6)?,
+    })
+}
+
+fn stored_alert_from_row(row: &rusqlite::Row<'_>) -> Result<StoredAlert> {
+    Ok(StoredAlert {
+        id: row.get(0)?,
+        title: row.get(1)?,
+        description: row.get(2)?,
+        severity: row.get(3)?,
+        confidence: row.get(4)?,
+        status: row.get(5)?,
+        attack_json: row.get(6)?,
+        evidence_json: row.get(7)?,
+    })
+}
+
+fn stored_case_from_row(row: &rusqlite::Row<'_>) -> Result<StoredCase> {
+    Ok(StoredCase {
+        id: row.get(0)?,
+        title: row.get(1)?,
+        status: row.get(2)?,
+        severity: row.get(3)?,
+        confidence: row.get(4)?,
+        disposition: row.get(5)?,
+        closed_at: row.get(6)?,
     })
 }
 
@@ -1313,5 +1507,186 @@ mod tests {
         assert_eq!(evidence.len(), 1);
         assert_eq!(evidence[0].raw_event_id, Some(raw_event_id));
         assert_eq!(evidence[0].normalized_event_id, Some(normalized_event_id));
+    }
+
+    #[test]
+    fn alert_can_be_promoted_to_case_with_chronological_timeline() {
+        let database = Database::open_initialized_memory().expect("database initializes");
+        let raw_event_id = database
+            .insert_raw_event(NewRawEvent {
+                source_id: None,
+                source_product: "wazuh",
+                event_time: Some("2026-06-10T01:00:00Z"),
+                raw_payload: "{}",
+                raw_hash: "hash-case",
+                ingest_batch: "batch-case",
+            })
+            .expect("raw event inserts");
+        let normalized_event_id = database
+            .insert_normalized_event(NewNormalizedEvent {
+                raw_event_id: Some(raw_event_id),
+                event_time: Some("2026-06-10T01:00:00Z"),
+                event_type: "alert",
+                source_product: "wazuh",
+                host: "demo-host",
+                asset_id: "001",
+                user_name: "deploy",
+                user_id: "",
+                src_ip: "10.0.0.5",
+                src_port: None,
+                dest_ip: "",
+                dest_port: None,
+                protocol: "",
+                dns_query: "",
+                http_method: "",
+                url: "",
+                status_code: None,
+                process_name: "powershell.exe",
+                process_path: "",
+                parent_process_name: "",
+                command_line: "powershell.exe -EncodedCommand redacted",
+                file_path: "",
+                file_hash_sha256: "",
+                rule_id: "100001",
+                rule_name: "Suspicious command execution",
+                severity: "8",
+                action: "",
+                fields_json: "{}",
+            })
+            .expect("normalized event inserts");
+        let alert_id = database
+            .insert_alert(NewAlert {
+                detector_run_id: None,
+                title: "Suspicious PowerShell encoded command",
+                description: "PowerShell execution used an encoded command indicator.",
+                severity: "high",
+                confidence: 0.86,
+                status: "new",
+                attack_json: r#"[{"technique_id":"T1059.001"}]"#,
+                evidence_json: "[]",
+            })
+            .expect("alert inserts");
+        let alert_evidence_id = database
+            .insert_evidence(NewEvidence {
+                case_id: None,
+                alert_id: Some(alert_id),
+                raw_event_id: Some(raw_event_id),
+                normalized_event_id: Some(normalized_event_id),
+                evidence_type: "normalized_event",
+                summary: "Encoded PowerShell evidence",
+            })
+            .expect("alert evidence inserts");
+
+        let case_id = database
+            .promote_alert_to_case(alert_id, None)
+            .expect("alert promotes");
+        let case = database.case_by_id(case_id).unwrap().expect("case exists");
+        let alert = database
+            .alert_by_id(alert_id)
+            .unwrap()
+            .expect("alert exists");
+        let evidence = database.evidence_for_alert(alert_id).unwrap();
+
+        assert_eq!(case.title, "Suspicious PowerShell encoded command");
+        assert_eq!(case.status, "triage");
+        assert_eq!(case.severity, "high");
+        assert_eq!(case.confidence, "0.86");
+        assert_eq!(alert.status, "in_case");
+        assert!(evidence.iter().any(|item| item.id == alert_evidence_id
+            && item.case_id == Some(case_id)
+            && item.raw_event_id == Some(raw_event_id)
+            && item.normalized_event_id == Some(normalized_event_id)));
+        assert!(evidence
+            .iter()
+            .any(|item| item.case_id == Some(case_id) && item.evidence_type == "detector_alert"));
+
+        let note_id = database
+            .add_case_note(case_id, "Analyst reviewed encoded command evidence.")
+            .expect("note inserts");
+        database
+            .connection()
+            .execute(
+                "UPDATE evidence SET created_at = CASE
+                   WHEN id = ?1 THEN '2026-06-10T01:00:00Z'
+                   WHEN id = ?2 THEN '2026-06-10T01:01:00Z'
+                   ELSE '2026-06-10T01:02:00Z'
+                 END
+                 WHERE case_id = ?3",
+                params![alert_evidence_id, note_id, case_id],
+            )
+            .unwrap();
+        database
+            .connection()
+            .execute(
+                "INSERT INTO actions (case_id, action_id, tier, status, created_at)
+                 VALUES (?1, 'case.comment', 'low-risk-write', 'draft', '2026-06-10T01:03:00Z')",
+                params![case_id],
+            )
+            .unwrap();
+        database
+            .connection()
+            .execute(
+                "INSERT INTO model_runs (case_id, model_name, output_json, started_at)
+                 VALUES (?1, 'deterministic-summary', '{\"summary\":\"review\"}', '2026-06-10T01:04:00Z')",
+                params![case_id],
+            )
+            .unwrap();
+
+        let timeline = database.case_timeline(case_id).expect("timeline loads");
+        let timeline_types = timeline
+            .iter()
+            .map(|item| item.item_type.as_str())
+            .collect::<Vec<_>>();
+
+        assert_eq!(
+            timeline_types,
+            vec![
+                "normalized_event",
+                "analyst_note",
+                "detector_alert",
+                "action",
+                "model_summary"
+            ]
+        );
+        assert!(
+            timeline
+                .windows(2)
+                .all(|window| window[0].timeline_time <= window[1].timeline_time)
+        );
+    }
+
+    #[test]
+    fn closing_case_requires_disposition_and_notes() {
+        let database = Database::open_initialized_memory().expect("database initializes");
+        let case_id = database
+            .create_case(NewCase {
+                title: "Suspicious DNS activity",
+                status: "triage",
+                severity: "medium",
+                confidence: "0.70",
+                disposition: "",
+            })
+            .expect("case creates");
+
+        assert!(database.close_case(case_id, "", "reviewed").is_err());
+        assert!(database.close_case(case_id, "benign", "").is_err());
+        assert_eq!(
+            database.case_by_id(case_id).unwrap().unwrap().status,
+            "triage"
+        );
+
+        database
+            .close_case(case_id, "benign", "Confirmed expected admin activity.")
+            .expect("case closes");
+        let closed = database.case_by_id(case_id).unwrap().expect("case exists");
+        let timeline = database.case_timeline(case_id).expect("timeline loads");
+
+        assert_eq!(closed.status, "closed");
+        assert_eq!(closed.disposition, "benign");
+        assert!(closed.closed_at.is_some());
+        assert!(timeline.iter().any(|item| {
+            item.item_type == "analyst_note"
+                && item.summary.contains("Confirmed expected admin activity")
+        }));
     }
 }

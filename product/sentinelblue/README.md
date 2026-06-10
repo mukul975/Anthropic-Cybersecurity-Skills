@@ -48,6 +48,17 @@ Run deterministic detectors against normalized events:
 cargo run -p sentinel-server -- --run-detectors --database ./sentinelblue.dev.db
 ```
 
+Promote an alert into a case and close it after review:
+
+```bash
+cargo run -p sentinel-server -- --promote-alert 1 --database ./sentinelblue.dev.db
+cargo run -p sentinel-server -- \
+  --close-case 1 \
+  --database ./sentinelblue.dev.db \
+  --disposition benign \
+  --notes "Confirmed approved administration"
+```
+
 Run the local HTTP API:
 
 ```bash

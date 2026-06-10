@@ -2,8 +2,9 @@ use std::{env, path::PathBuf, process};
 
 use sentinel_ingest::ImportFormat;
 use sentinel_server::{
-    ServerConfig, detection_reports_json, health_json, import_file_for_server, import_report_json,
-    run_detectors_for_server, start_http_server,
+    ServerConfig, case_json, close_case_for_server, detection_reports_json, health_json,
+    import_file_for_server, import_report_json, promote_alert_for_server, run_detectors_for_server,
+    start_http_server,
 };
 
 fn main() {
@@ -36,6 +37,49 @@ fn main() {
             }
             Err(error) => {
                 eprintln!("detector run failed: {error}");
+                process::exit(1);
+            }
+        }
+    }
+
+    if let Some(alert_id) = arg_value(&args, "--promote-alert") {
+        let alert_id = match alert_id.parse::<i64>() {
+            Ok(alert_id) => alert_id,
+            Err(_) => {
+                eprintln!("--promote-alert requires an integer alert id");
+                process::exit(2);
+            }
+        };
+        let case_title = arg_value(&args, "--case-title");
+        match promote_alert_for_server(&config, alert_id, case_title.as_deref()) {
+            Ok(case) => {
+                println!("{}", case_json(&case));
+                return;
+            }
+            Err(error) => {
+                eprintln!("case promotion failed: {error}");
+                process::exit(1);
+            }
+        }
+    }
+
+    if let Some(case_id) = arg_value(&args, "--close-case") {
+        let case_id = match case_id.parse::<i64>() {
+            Ok(case_id) => case_id,
+            Err(_) => {
+                eprintln!("--close-case requires an integer case id");
+                process::exit(2);
+            }
+        };
+        let disposition = arg_value(&args, "--disposition").unwrap_or_default();
+        let notes = arg_value(&args, "--notes").unwrap_or_default();
+        match close_case_for_server(&config, case_id, &disposition, &notes) {
+            Ok(case) => {
+                println!("{}", case_json(&case));
+                return;
+            }
+            Err(error) => {
+                eprintln!("case close failed: {error}");
                 process::exit(1);
             }
         }
@@ -79,7 +123,8 @@ fn parse_config(args: &[String]) -> Result<ServerConfig, String> {
             "--print-health" | "--serve" | "--run-detectors" => {
                 index += 1;
             }
-            "--import-file" | "--source-name" | "--source-product" | "--format" => {
+            "--import-file" | "--source-name" | "--source-product" | "--format"
+            | "--promote-alert" | "--case-title" | "--close-case" | "--disposition" | "--notes" => {
                 let _value = args
                     .get(index + 1)
                     .ok_or_else(|| format!("{} requires a value", args[index]))?;
@@ -121,6 +166,10 @@ fn print_help() {
         "  sentinel-server --import-file ./alerts.json --database ./sentinelblue.db --source-product wazuh"
     );
     println!("  sentinel-server --run-detectors --database ./sentinelblue.db");
+    println!("  sentinel-server --promote-alert 1 --database ./sentinelblue.db");
+    println!(
+        "  sentinel-server --close-case 1 --database ./sentinelblue.db --disposition benign --notes \"Reviewed evidence\""
+    );
     println!("  sentinel-server --serve [--bind 127.0.0.1:8741] [--database ./sentinelblue.db]");
     println!("  sentinel-server --help");
 }

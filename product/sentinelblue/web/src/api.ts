@@ -46,6 +46,9 @@ export type CaseSummary = {
   title: string;
   status: string;
   severity: string;
+  confidence: string;
+  disposition: string;
+  closed_at: string | null;
 };
 
 async function getJson<T>(path: string): Promise<T> {
