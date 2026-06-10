@@ -16,7 +16,7 @@ use sentinel_ingest::{ImportFormat, ImportOptions, ImportReport, import_file};
 use sentinel_model::{
     CaseSummaryResult, ModelHealthStatus, ModelRuntimeConfig, check_model_health, summarize_case,
 };
-use serde::Serialize;
+use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct ServerConfig {
@@ -144,6 +144,7 @@ impl HttpResponse {
     pub fn status_text(&self) -> &'static str {
         match self.status_code {
             200 => "OK",
+            400 => "Bad Request",
             404 => "Not Found",
             405 => "Method Not Allowed",
             500 => "Internal Server Error",
@@ -162,6 +163,25 @@ impl HttpResponse {
         );
         response.into_bytes()
     }
+}
+
+#[derive(Debug, Clone, Deserialize)]
+struct ImportFileRequest {
+    path: Option<String>,
+    source_name: Option<String>,
+    source_product: Option<String>,
+    format: Option<String>,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+struct PromoteAlertRequest {
+    title: Option<String>,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+struct CloseCaseRequest {
+    disposition: String,
+    notes: String,
 }
 
 pub fn route_get(path: &str, config: &ServerConfig) -> HttpResponse {
@@ -286,6 +306,81 @@ pub fn route_get(path: &str, config: &ServerConfig) -> HttpResponse {
     }
 }
 
+pub fn route_post(path: &str, body: &str, config: &ServerConfig) -> HttpResponse {
+    let (path, _) = split_path_query(path);
+    match path {
+        "/api/import-file" => {
+            let request = match parse_json_body::<ImportFileRequest>(body) {
+                Ok(request) => request,
+                Err(response) => return response,
+            };
+            let import_path = request.path.as_deref().map(str::trim).unwrap_or("");
+            if import_path.is_empty() {
+                return bad_request("path is required");
+            }
+            let source_name = non_empty_or(request.source_name, "manual-file");
+            let source_product = non_empty_or(request.source_product, "custom");
+            let format = match parse_import_format(request.format.as_deref()) {
+                Ok(format) => format,
+                Err(error) => return bad_request(error),
+            };
+
+            match import_file_for_server(config, import_path, source_name, source_product, format) {
+                Ok(report) => HttpResponse::json(200, import_report_json(&report)),
+                Err(error) => operation_error(error),
+            }
+        }
+        "/api/detectors/run" => match run_detectors_for_server(config) {
+            Ok(reports) => HttpResponse::json(200, detection_reports_json(&reports)),
+            Err(error) => operation_error(error),
+        },
+        path if alert_promote_id(path).is_some() => {
+            let request = match parse_json_body::<PromoteAlertRequest>(body) {
+                Ok(request) => request,
+                Err(response) => return response,
+            };
+            let title = request
+                .title
+                .as_deref()
+                .map(str::trim)
+                .filter(|value| !value.is_empty());
+            let alert_id = alert_promote_id(path).expect("checked above");
+            match promote_alert_for_server(config, alert_id, title) {
+                Ok(case) => HttpResponse::json(200, case_json(&case)),
+                Err(error) => operation_error(error),
+            }
+        }
+        path if case_summarize_id(path).is_some() => {
+            let case_id = case_summarize_id(path).expect("checked above");
+            match summarize_case_for_server(config, case_id) {
+                Ok(summary) => HttpResponse::json(200, case_summary_json(&summary)),
+                Err(error) => operation_error(error),
+            }
+        }
+        path if case_close_id(path).is_some() => {
+            let request = match parse_json_body::<CloseCaseRequest>(body) {
+                Ok(request) => request,
+                Err(response) => return response,
+            };
+            if request.disposition.trim().is_empty() {
+                return bad_request("disposition is required");
+            }
+            if request.notes.trim().is_empty() {
+                return bad_request("notes are required");
+            }
+            let case_id = case_close_id(path).expect("checked above");
+            match close_case_for_server(config, case_id, &request.disposition, &request.notes) {
+                Ok(case) => HttpResponse::json(200, case_json(&case)),
+                Err(error) => operation_error(error),
+            }
+        }
+        _ => HttpResponse::json(
+            404,
+            ApiError::new("not_found", format!("No route for POST {path}")).to_json(),
+        ),
+    }
+}
+
 fn db_json_response(
     config: &ServerConfig,
     build: impl FnOnce(Database) -> Result<String, rusqlite::Error>,
@@ -306,9 +401,10 @@ fn open_request_database(config: &ServerConfig) -> Result<Database, rusqlite::Er
     }
 }
 
-pub fn route_request(method: &str, path: &str, config: &ServerConfig) -> HttpResponse {
+pub fn route_request(method: &str, path: &str, body: &str, config: &ServerConfig) -> HttpResponse {
     match method {
         "GET" => route_get(path, config),
+        "POST" => route_post(path, body, config),
         _ => HttpResponse::json(
             405,
             ApiError::new(
@@ -487,7 +583,7 @@ fn handle_connection(mut stream: TcpStream, config: &ServerConfig) -> std::io::R
     let read = stream.read(&mut buffer)?;
     let request = String::from_utf8_lossy(&buffer[..read]);
     let response = match parse_request_line(&request) {
-        Some((method, path)) => route_request(method, path, config),
+        Some((method, path)) => route_request(method, path, request_body(&request), config),
         None => HttpResponse::json(
             500,
             ApiError::new("bad_request", "Could not parse request line").to_json(),
@@ -505,11 +601,50 @@ fn parse_request_line(request: &str) -> Option<(&str, &str)> {
     Some((method, path))
 }
 
+fn request_body(request: &str) -> &str {
+    request.split_once("\r\n\r\n").map_or("", |(_, body)| body)
+}
+
 fn split_path_query(path: &str) -> (&str, Option<&str>) {
     match path.split_once('?') {
         Some((path, query)) => (path, Some(query)),
         None => (path, None),
     }
+}
+
+fn parse_json_body<T>(body: &str) -> Result<T, HttpResponse>
+where
+    T: for<'de> Deserialize<'de>,
+{
+    let body = if body.trim().is_empty() { "{}" } else { body };
+    serde_json::from_str(body).map_err(|error| bad_request(format!("invalid JSON body: {error}")))
+}
+
+fn parse_import_format(format: Option<&str>) -> Result<ImportFormat, String> {
+    match format.unwrap_or("auto").trim().to_lowercase().as_str() {
+        "" | "auto" => Ok(ImportFormat::Auto),
+        "json" => Ok(ImportFormat::Json),
+        "jsonl" => Ok(ImportFormat::Jsonl),
+        other => Err(format!("unsupported import format: {other}")),
+    }
+}
+
+fn non_empty_or(value: Option<String>, default: &str) -> String {
+    value
+        .map(|value| value.trim().to_string())
+        .filter(|value| !value.is_empty())
+        .unwrap_or_else(|| default.to_string())
+}
+
+fn bad_request(message: impl Into<String>) -> HttpResponse {
+    HttpResponse::json(400, ApiError::new("bad_request", message.into()).to_json())
+}
+
+fn operation_error(message: impl Into<String>) -> HttpResponse {
+    HttpResponse::json(
+        500,
+        ApiError::new("operation_failed", message.into()).to_json(),
+    )
 }
 
 fn query_value(query: Option<&str>, key: &str) -> Option<String> {
@@ -523,6 +658,24 @@ fn query_value(query: Option<&str>, key: &str) -> Option<String> {
 fn case_timeline_id(path: &str) -> Option<i64> {
     let suffix = path.strip_prefix("/api/cases/")?;
     let id = suffix.strip_suffix("/timeline")?;
+    id.parse::<i64>().ok()
+}
+
+fn alert_promote_id(path: &str) -> Option<i64> {
+    let suffix = path.strip_prefix("/api/alerts/")?;
+    let id = suffix.strip_suffix("/promote")?;
+    id.parse::<i64>().ok()
+}
+
+fn case_summarize_id(path: &str) -> Option<i64> {
+    let suffix = path.strip_prefix("/api/cases/")?;
+    let id = suffix.strip_suffix("/summarize")?;
+    id.parse::<i64>().ok()
+}
+
+fn case_close_id(path: &str) -> Option<i64> {
+    let suffix = path.strip_prefix("/api/cases/")?;
+    let id = suffix.strip_suffix("/close")?;
     id.parse::<i64>().ok()
 }
 
@@ -601,7 +754,7 @@ mod tests {
     #[test]
     fn unsupported_method_returns_405() {
         let config = ServerConfig::default();
-        let response = route_request("POST", "/api/health", &config);
+        let response = route_request("DELETE", "/api/health", "", &config);
 
         assert_eq!(response.status_code, 405);
         assert!(response.body.contains("\"code\":\"method_not_allowed\""));
@@ -707,6 +860,55 @@ mod tests {
         assert!(import_report_json(&report).contains("\"imported\":1"));
         let database = Database::open_initialized(&db_path).expect("database reopens");
         assert_eq!(database.raw_event_count().unwrap(), 1);
+    }
+
+    #[test]
+    fn mutation_routes_import_file_and_run_detectors() {
+        let dir = tempfile::tempdir().expect("tempdir exists");
+        let db_path = dir.path().join("sentinelblue.db");
+        let import_path = dir.path().join("events.jsonl");
+        std::fs::write(
+            &import_path,
+            "{\"timestamp\":\"2026-06-09T12:00:00Z\",\"event\":\"one\"}\n",
+        )
+        .expect("fixture writes");
+        let config = ServerConfig::default().with_database_path(&db_path);
+        let import_body = serde_json::json!({
+            "path": import_path,
+            "source_name": "api-import",
+            "source_product": "custom",
+            "format": "jsonl"
+        })
+        .to_string();
+
+        let import_response = route_request("POST", "/api/import-file", &import_body, &config);
+        let detector_response = route_request("POST", "/api/detectors/run", "{}", &config);
+
+        assert_eq!(import_response.status_code, 200);
+        assert!(import_response.body.contains("\"imported\":1"));
+        assert_eq!(detector_response.status_code, 200);
+        assert!(
+            detector_response
+                .body
+                .contains("sentinelblue.detector.powershell_encoded_command")
+        );
+    }
+
+    #[test]
+    fn mutation_routes_validate_required_json_fields() {
+        let config = ServerConfig::default();
+        let missing_import_path = route_request("POST", "/api/import-file", "{}", &config);
+        let invalid_close = route_request(
+            "POST",
+            "/api/cases/1/close",
+            r#"{"disposition":"","notes":""}"#,
+            &config,
+        );
+
+        assert_eq!(missing_import_path.status_code, 400);
+        assert!(missing_import_path.body.contains("path is required"));
+        assert_eq!(invalid_close.status_code, 400);
+        assert!(invalid_close.body.contains("disposition is required"));
     }
 
     #[test]
@@ -889,6 +1091,111 @@ mod tests {
         assert_eq!(cases.status_code, 200);
         assert!(cases.body.contains("\"status\":\"closed\""));
         assert!(cases.body.contains("\"disposition\":\"benign\""));
+    }
+
+    #[test]
+    fn mutation_routes_promote_summarize_and_close_case() {
+        let dir = tempfile::tempdir().expect("tempdir exists");
+        let db_path = dir.path().join("sentinelblue.db");
+        let database = Database::open_initialized(&db_path).expect("database initializes");
+        let raw_event_id = database
+            .insert_raw_event(NewRawEvent {
+                source_id: None,
+                source_product: "wazuh",
+                event_time: Some("2026-06-10T01:00:00Z"),
+                raw_payload: "{}",
+                raw_hash: "route-case-hash",
+                ingest_batch: "route-case-batch",
+            })
+            .expect("raw event inserts");
+        let normalized_event_id = database
+            .insert_normalized_event(NewNormalizedEvent {
+                raw_event_id: Some(raw_event_id),
+                event_time: Some("2026-06-10T01:00:00Z"),
+                event_type: "alert",
+                source_product: "wazuh",
+                host: "demo-host",
+                asset_id: "001",
+                user_name: "deploy",
+                user_id: "",
+                src_ip: "10.0.0.5",
+                src_port: None,
+                dest_ip: "",
+                dest_port: None,
+                protocol: "",
+                dns_query: "",
+                http_method: "",
+                url: "",
+                status_code: None,
+                process_name: "powershell.exe",
+                process_path: "",
+                parent_process_name: "",
+                command_line: "powershell.exe -EncodedCommand redacted",
+                file_path: "",
+                file_hash_sha256: "",
+                rule_id: "100001",
+                rule_name: "Suspicious command execution",
+                severity: "8",
+                action: "",
+                fields_json: "{}",
+            })
+            .expect("normalized event inserts");
+        let alert_id = database
+            .insert_alert(NewAlert {
+                detector_run_id: None,
+                title: "Suspicious PowerShell encoded command",
+                description: "PowerShell execution used an encoded command indicator.",
+                severity: "high",
+                confidence: 0.86,
+                status: "new",
+                attack_json: r#"[{"technique_id":"T1059.001"}]"#,
+                evidence_json: "[]",
+            })
+            .expect("alert inserts");
+        database
+            .insert_evidence(NewEvidence {
+                case_id: None,
+                alert_id: Some(alert_id),
+                raw_event_id: Some(raw_event_id),
+                normalized_event_id: Some(normalized_event_id),
+                evidence_type: "normalized_event",
+                summary: "Encoded PowerShell evidence",
+            })
+            .expect("evidence inserts");
+        drop(database);
+
+        let config = ServerConfig::default().with_database_path(&db_path);
+        let promote = route_request(
+            "POST",
+            &format!("/api/alerts/{alert_id}/promote"),
+            "{}",
+            &config,
+        );
+        let promoted: serde_json::Value =
+            serde_json::from_str(&promote.body).expect("case response parses");
+        let case_id = promoted["id"].as_i64().expect("case id is present");
+        let summary = route_request(
+            "POST",
+            &format!("/api/cases/{case_id}/summarize"),
+            "{}",
+            &config,
+        );
+        let close = route_request(
+            "POST",
+            &format!("/api/cases/{case_id}/close"),
+            r#"{"disposition":"benign","notes":"Confirmed approved administration."}"#,
+            &config,
+        );
+        let timeline = route_get(&format!("/api/cases/{case_id}/timeline"), &config);
+
+        assert_eq!(promote.status_code, 200);
+        assert!(promote.body.contains("\"status\":\"triage\""));
+        assert_eq!(summary.status_code, 200);
+        assert!(summary.body.contains("\"mode\":\"deterministic-only\""));
+        assert_eq!(close.status_code, 200);
+        assert!(close.body.contains("\"status\":\"closed\""));
+        assert_eq!(timeline.status_code, 200);
+        assert!(timeline.body.contains("\"item_type\":\"model_summary\""));
     }
 
     #[test]

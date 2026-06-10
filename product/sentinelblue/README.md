@@ -104,6 +104,8 @@ npm run dev
 
 The Vite dev server proxies `/api` to `sentinel-server` on `127.0.0.1:8741`, so keep the local API server running when using API-backed UI screens.
 
+The UI can call local workflow routes for import, detector runs, alert promotion, case summaries, and case closure. See `docs/local-development.md` for curl examples.
+
 Run the desktop shell after installing desktop dependencies:
 
 ```bash

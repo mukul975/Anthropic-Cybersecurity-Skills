@@ -1,6 +1,11 @@
 import {
+  closeCase,
+  importTelemetryFile,
   loadCaseTimeline,
   loadDashboardData,
+  promoteAlert,
+  runDetectors,
+  summarizeCase,
   type AlertSummary,
   type CaseSummary,
   type CaseTimelineItem,
@@ -33,8 +38,16 @@ type AppState = {
   timeline: ListResponse<CaseTimelineItem> | null;
   timelineCaseId: string | null;
   eventQuery: string;
+  importPath: string;
+  importSourceName: string;
+  importSourceProduct: string;
+  importFormat: "auto" | "json" | "jsonl";
+  closeDisposition: string;
+  closeNotes: string;
   loading: boolean;
   timelineLoading: boolean;
+  busyAction: string | null;
+  notice: string | null;
   error: string | null;
 };
 
@@ -65,8 +78,16 @@ const state: AppState = {
   timeline: null,
   timelineCaseId: null,
   eventQuery: "",
+  importPath: "",
+  importSourceName: "manual-file",
+  importSourceProduct: "wazuh",
+  importFormat: "auto",
+  closeDisposition: "benign",
+  closeNotes: "",
   loading: true,
   timelineLoading: false,
+  busyAction: null,
+  notice: null,
   error: null,
 };
 
@@ -78,6 +99,7 @@ void refreshData();
 async function refreshData() {
   state.loading = true;
   state.error = null;
+  state.notice = null;
   render();
 
   try {
@@ -162,6 +184,7 @@ function render() {
           </div>
         </header>
         ${renderOfflineBanner()}
+        ${renderNoticeBanner()}
         ${renderScreen()}
       </section>
     </main>
@@ -224,12 +247,7 @@ function renderDashboard(data: DashboardData): string {
       ${renderMetric("High alerts", highAlerts.toString(), "Open queue")}
       ${renderMetric("Open cases", openCases.toString(), "Triage")}
     </section>
-    <section class="action-strip" aria-label="Workflow actions">
-      <button class="button" type="button" disabled title="HTTP mutation route unavailable">Import logs</button>
-      <button class="button" type="button" disabled title="HTTP mutation route unavailable">Run detectors</button>
-      <button class="button" type="button" disabled title="HTTP mutation route unavailable">Generate summary</button>
-      <button class="button danger" type="button" disabled title="Approval gate unavailable">Containment action</button>
-    </section>
+    ${renderWorkflowPanel()}
     <section class="workspace-grid">
       ${renderPanel("Health", renderHealthComponents(data.health))}
       ${renderPanel("Alert queue", renderAlertRows(data.alerts.items.slice(0, 6)))}
@@ -247,9 +265,8 @@ function renderAlerts(alerts: AlertSummary[]): string {
           <h2>Alert Queue</h2>
           <p>${alerts.length} alerts returned from the local API.</p>
         </div>
-        <button class="button secondary" type="button" disabled title="HTTP mutation route unavailable">Promote</button>
       </div>
-      ${alerts.length === 0 ? renderEmptyState("No alerts generated.") : renderAlertRows(alerts)}
+      ${alerts.length === 0 ? renderEmptyState("No alerts generated.") : renderAlertRows(alerts, true)}
     </section>
   `;
 }
@@ -286,8 +303,7 @@ function renderCases(cases: CaseSummary[]): string {
             <p>Case #${escapeHtml(selectedCase.id)} · ${escapeHtml(selectedCase.status)} · ${escapeHtml(selectedCase.severity)}</p>
           </div>
           <div class="button-row">
-            <button class="button secondary" type="button" disabled title="HTTP mutation route unavailable">Summarize</button>
-            <button class="button secondary" type="button" disabled title="HTTP mutation route unavailable">Close</button>
+            <button class="button secondary" type="button" data-action="summarize-case" ${busyAttr("summarize-case")}>Summarize</button>
           </div>
         </div>
         <dl class="detail-grid">
@@ -295,6 +311,7 @@ function renderCases(cases: CaseSummary[]): string {
           <div><dt>Disposition</dt><dd>${escapeHtml(selectedCase.disposition || "Open")}</dd></div>
           <div><dt>Closed</dt><dd>${escapeHtml(selectedCase.closed_at ?? "No")}</dd></div>
         </dl>
+        ${renderCloseCaseForm(selectedCase)}
         <h3>Timeline</h3>
         ${renderTimeline()}
       </article>
@@ -385,7 +402,7 @@ function renderModelSettings(health: HealthResponse): string {
           <h2>Model Settings</h2>
           <p>${escapeHtml(model?.detail ?? "No model health component returned.")}</p>
         </div>
-        <button class="button secondary" type="button" disabled title="HTTP mutation route unavailable">Test summary</button>
+        <button class="button secondary" type="button" data-action="summarize-case" ${state.selectedCaseId ? busyAttr("summarize-case") : "disabled"}>Test summary</button>
       </div>
       <div class="settings-grid">
         ${renderSettingTile("Runtime", escapeHtml(model?.detail ?? "Unknown"), escapeHtml(model?.status ?? "unknown"))}
@@ -438,6 +455,76 @@ function renderAuditLog(): string {
   `;
 }
 
+function renderWorkflowPanel(): string {
+  return `
+    <section class="screen-band workflow-panel" aria-label="Local workflow">
+      <div class="section-head">
+        <div>
+          <h2>Local Workflow</h2>
+          <p>Import, detection, and investigation commands run against the local backend.</p>
+        </div>
+        <button class="button danger" type="button" disabled title="Approval gate unavailable">Containment action</button>
+      </div>
+      <div class="form-grid">
+        ${renderField("Import file path", "import-path", state.importPath, "Path to JSON or JSONL telemetry")}
+        ${renderField("Source name", "import-source-name", state.importSourceName, "manual-file")}
+        ${renderField("Source product", "import-source-product", state.importSourceProduct, "wazuh, sysmon, zeek, suricata")}
+        <label class="field">
+          <span>Format</span>
+          <select id="import-format">
+            ${renderOption("auto", "Auto", state.importFormat)}
+            ${renderOption("json", "JSON", state.importFormat)}
+            ${renderOption("jsonl", "JSONL", state.importFormat)}
+          </select>
+        </label>
+      </div>
+      <div class="action-strip">
+        <button class="button" type="button" data-action="import-file" ${busyAttr("import-file")}>Import logs</button>
+        <button class="button secondary" type="button" data-action="run-detectors" ${busyAttr("run-detectors")}>Run detectors</button>
+      </div>
+    </section>
+  `;
+}
+
+function renderField(
+  label: string,
+  id: string,
+  value: string,
+  placeholder: string,
+): string {
+  return `
+    <label class="field">
+      <span>${escapeHtml(label)}</span>
+      <input id="${id}" type="text" value="${escapeHtml(value)}" placeholder="${escapeHtml(placeholder)}" />
+    </label>
+  `;
+}
+
+function renderOption(value: "auto" | "json" | "jsonl", label: string, selected: string): string {
+  return `<option value="${value}" ${value === selected ? "selected" : ""}>${label}</option>`;
+}
+
+function renderCloseCaseForm(selectedCase: CaseSummary): string {
+  if (selectedCase.status === "closed") {
+    return "";
+  }
+
+  return `
+    <section class="inline-form" aria-label="Close case">
+      <div class="form-grid two">
+        ${renderField("Disposition", "close-disposition", state.closeDisposition, "benign, malicious, false_positive")}
+        <label class="field">
+          <span>Closure notes</span>
+          <textarea id="close-notes" rows="3" placeholder="Required review notes">${escapeHtml(state.closeNotes)}</textarea>
+        </label>
+      </div>
+      <div class="action-strip">
+        <button class="button secondary" type="button" data-action="close-case" ${busyAttr("close-case")}>Close case</button>
+      </div>
+    </section>
+  `;
+}
+
 function renderMetric(label: string, value: string, meta: string): string {
   return `
     <div class="metric">
@@ -473,7 +560,7 @@ function renderHealthComponents(health: HealthResponse): string {
     .join("");
 }
 
-function renderAlertRows(alerts: AlertSummary[]): string {
+function renderAlertRows(alerts: AlertSummary[], includeActions = false): string {
   if (alerts.length === 0) {
     return renderEmptyState("No alerts generated.");
   }
@@ -488,7 +575,11 @@ function renderAlertRows(alerts: AlertSummary[]): string {
           </div>
           <span class="pill ${severityTone(alert.severity)}">${escapeHtml(alert.severity)}</span>
           <span>${Math.round(alert.confidence * 100)}%</span>
-          <span>${escapeHtml(alert.status)}</span>
+          ${
+            includeActions
+              ? `<button class="button secondary compact" type="button" data-promote-alert-id="${escapeHtml(alert.id)}" ${busyAttr(`promote-alert-${alert.id}`)}>Promote</button>`
+              : `<span>${escapeHtml(alert.status)}</span>`
+          }
         </div>
       `,
     )
@@ -595,6 +686,14 @@ function renderOfflineBanner(): string {
   return `<div class="banner" role="status">${escapeHtml(state.error)}</div>`;
 }
 
+function renderNoticeBanner(): string {
+  if (!state.notice) {
+    return "";
+  }
+
+  return `<div class="banner good" role="status">${escapeHtml(state.notice)}</div>`;
+}
+
 function renderLoading(): string {
   return `
     <section class="summary-grid" aria-label="Loading system summary">
@@ -650,6 +749,169 @@ function bindEvents() {
     input?.focus();
     input?.setSelectionRange(state.eventQuery.length, state.eventQuery.length);
   });
+
+  bindFormState();
+  bindActionButtons();
+}
+
+function bindFormState() {
+  app.querySelector<HTMLInputElement>("#import-path")?.addEventListener("input", (event) => {
+    state.importPath = event.currentTarget.value;
+  });
+  app.querySelector<HTMLInputElement>("#import-source-name")?.addEventListener("input", (event) => {
+    state.importSourceName = event.currentTarget.value;
+  });
+  app.querySelector<HTMLInputElement>("#import-source-product")?.addEventListener("input", (event) => {
+    state.importSourceProduct = event.currentTarget.value;
+  });
+  app.querySelector<HTMLSelectElement>("#import-format")?.addEventListener("change", (event) => {
+    state.importFormat = event.currentTarget.value as AppState["importFormat"];
+  });
+  app.querySelector<HTMLInputElement>("#close-disposition")?.addEventListener("input", (event) => {
+    state.closeDisposition = event.currentTarget.value;
+  });
+  app.querySelector<HTMLTextAreaElement>("#close-notes")?.addEventListener("input", (event) => {
+    state.closeNotes = event.currentTarget.value;
+  });
+}
+
+function bindActionButtons() {
+  app.querySelector<HTMLButtonElement>("[data-action='import-file']")?.addEventListener("click", () => {
+    void importFileAction();
+  });
+  app.querySelector<HTMLButtonElement>("[data-action='run-detectors']")?.addEventListener("click", () => {
+    void runDetectorAction();
+  });
+  app.querySelector<HTMLButtonElement>("[data-action='summarize-case']")?.addEventListener("click", () => {
+    void summarizeCaseAction();
+  });
+  app.querySelector<HTMLButtonElement>("[data-action='close-case']")?.addEventListener("click", () => {
+    void closeCaseAction();
+  });
+  app.querySelectorAll<HTMLButtonElement>("[data-promote-alert-id]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const alertId = button.dataset.promoteAlertId;
+      if (alertId) {
+        void promoteAlertAction(alertId);
+      }
+    });
+  });
+}
+
+async function importFileAction() {
+  if (!state.importPath.trim()) {
+    state.error = "Import file path is required.";
+    state.notice = null;
+    render();
+    return;
+  }
+
+  await runAction("import-file", async () => {
+    const report = await importTelemetryFile({
+      path: state.importPath.trim(),
+      source_name: state.importSourceName.trim() || "manual-file",
+      source_product: state.importSourceProduct.trim() || "custom",
+      format: state.importFormat,
+    });
+    return `Imported ${report.imported} events, normalized ${report.normalized}, skipped ${report.skipped}.`;
+  });
+}
+
+async function runDetectorAction() {
+  await runAction("run-detectors", async () => {
+    const reports = await runDetectors();
+    const created = reports.reduce((sum, report) => sum + report.alerts_created, 0);
+    return `Detector run completed across ${reports.length} detectors and created ${created} alerts.`;
+  });
+}
+
+async function promoteAlertAction(alertId: string) {
+  await runAction(`promote-alert-${alertId}`, async () => {
+    const caseItem = await promoteAlert(alertId);
+    state.selectedCaseId = caseItem.id;
+    state.timeline = null;
+    state.timelineCaseId = null;
+    state.screen = "cases";
+    return `Promoted alert ${alertId} to case ${caseItem.id}.`;
+  });
+}
+
+async function summarizeCaseAction() {
+  if (!state.selectedCaseId) {
+    state.error = "Select a case before generating a summary.";
+    state.notice = null;
+    render();
+    return;
+  }
+
+  await runAction("summarize-case", async () => {
+    const summary = await summarizeCase(state.selectedCaseId ?? "");
+    state.timeline = null;
+    state.timelineCaseId = null;
+    return `Generated ${summary.mode} summary for case ${summary.case_id}.`;
+  });
+}
+
+async function closeCaseAction() {
+  if (!state.selectedCaseId) {
+    state.error = "Select a case before closing it.";
+    state.notice = null;
+    render();
+    return;
+  }
+  if (!state.closeDisposition.trim() || !state.closeNotes.trim()) {
+    state.error = "Disposition and closure notes are required.";
+    state.notice = null;
+    render();
+    return;
+  }
+
+  await runAction("close-case", async () => {
+    const caseItem = await closeCase(
+      state.selectedCaseId ?? "",
+      state.closeDisposition.trim(),
+      state.closeNotes.trim(),
+    );
+    state.closeNotes = "";
+    state.timeline = null;
+    state.timelineCaseId = null;
+    return `Closed case ${caseItem.id} as ${caseItem.disposition}.`;
+  });
+}
+
+async function runAction(action: string, execute: () => Promise<string>) {
+  state.busyAction = action;
+  state.error = null;
+  state.notice = null;
+  render();
+
+  try {
+    state.notice = await execute();
+    await refreshDataAfterMutation();
+  } catch (error) {
+    state.error = error instanceof Error ? error.message : "Action failed";
+  } finally {
+    state.busyAction = null;
+    render();
+  }
+}
+
+async function refreshDataAfterMutation() {
+  const selectedCaseId = state.selectedCaseId;
+  const data = await loadDashboardData();
+  state.data = data;
+  state.selectedCaseId =
+    selectedCaseId && data.cases.items.some((caseItem) => caseItem.id === selectedCaseId)
+      ? selectedCaseId
+      : data.cases.items[0]?.id ?? null;
+  if (state.selectedCaseId) {
+    state.timeline = await loadCaseTimeline(state.selectedCaseId);
+    state.timelineCaseId = state.selectedCaseId;
+  }
+}
+
+function busyAttr(_action: string): string {
+  return state.busyAction ? "disabled" : "";
 }
 
 function applyTheme() {

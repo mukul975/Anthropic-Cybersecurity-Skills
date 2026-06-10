@@ -28,6 +28,29 @@ npm run dev
 
 The web dev server proxies `/api` to `http://127.0.0.1:8741`, which is the default `sentinel-server --serve` bind address.
 
+## Local API Mutations
+
+Start the backend first:
+
+```bash
+cargo run -p sentinel-server -- --serve --database ./sentinelblue.dev.db
+```
+
+Then call the narrow local workflow routes:
+
+```bash
+curl -sS -X POST http://127.0.0.1:8741/api/import-file \
+  -H 'Content-Type: application/json' \
+  -d '{"path":"./sample-data/wazuh-alert.sample.json","source_name":"sample-wazuh","source_product":"wazuh","format":"auto"}'
+
+curl -sS -X POST http://127.0.0.1:8741/api/detectors/run -d '{}'
+curl -sS -X POST http://127.0.0.1:8741/api/alerts/1/promote -d '{}'
+curl -sS -X POST http://127.0.0.1:8741/api/cases/1/summarize -d '{}'
+curl -sS -X POST http://127.0.0.1:8741/api/cases/1/close \
+  -H 'Content-Type: application/json' \
+  -d '{"disposition":"benign","notes":"Confirmed approved administration"}'
+```
+
 ## Desktop
 
 ```bash

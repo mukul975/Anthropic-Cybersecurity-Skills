@@ -229,6 +229,11 @@ h3 {
   color: var(--text);
 }
 
+.button.compact {
+  min-height: 28px;
+  padding: 5px 8px;
+}
+
 .button.danger {
   background: var(--bad);
 }
@@ -280,6 +285,12 @@ h3 {
   font-weight: 650;
 }
 
+.banner.good {
+  border-color: var(--good);
+  background: var(--good-bg);
+  color: var(--good);
+}
+
 .summary-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -323,6 +334,51 @@ small {
   flex-wrap: wrap;
   gap: 10px;
   margin: 16px 0 0;
+}
+
+.workflow-panel {
+  margin-top: 16px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: minmax(260px, 1.5fr) repeat(3, minmax(150px, 1fr));
+  gap: 12px;
+}
+
+.form-grid.two {
+  grid-template-columns: minmax(180px, 0.6fr) minmax(260px, 1fr);
+}
+
+.field {
+  display: grid;
+  gap: 5px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  min-height: 34px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text);
+  padding: 7px 10px;
+}
+
+.field textarea {
+  min-height: 72px;
+  resize: vertical;
+}
+
+.inline-form {
+  margin-top: 16px;
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
 }
 
 .workspace-grid {
@@ -548,7 +604,9 @@ small {
   .workspace-grid,
   .case-layout,
   .detail-grid,
-  .settings-grid {
+  .settings-grid,
+  .form-grid,
+  .form-grid.two {
     grid-template-columns: 1fr;
   }
 
