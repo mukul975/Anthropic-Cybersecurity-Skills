@@ -1,0 +1,13 @@
+services:
+  sentinelblue:
+    image: sentinelblue/server:dev
+    build:
+      context: ../..
+      dockerfile: packaging/docker/server.Dockerfile
+    ports:
+      - "8741:8741"
+    volumes:
+      - sentinel-data:/var/lib/sentinelblue
+
+volumes:
+  sentinel-data:

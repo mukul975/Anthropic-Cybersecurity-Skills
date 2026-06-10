@@ -1,0 +1,16 @@
+[package]
+name = "sentinel-api"
+description = "API route contracts for SentinelBlue."
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+version.workspace = true
+
+[dependencies]
+sentinel-core = { path = "../sentinel-core" }
+serde.workspace = true
+serde_json.workspace = true
+
+[lib]
+path = "src/lib.rs"

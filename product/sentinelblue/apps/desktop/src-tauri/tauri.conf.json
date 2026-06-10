@@ -1,0 +1,31 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "SentinelBlue",
+  "version": "0.1.0",
+  "identifier": "com.sentinelblue.app",
+  "build": {
+    "beforeDevCommand": "cd ../../web && npm run dev",
+    "beforeBuildCommand": "cd ../../web && npm run build",
+    "devUrl": "http://127.0.0.1:5173",
+    "frontendDist": "../../web/dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "SentinelBlue",
+        "width": 1280,
+        "height": 800,
+        "minWidth": 1024,
+        "minHeight": 700
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": []
+  }
+}

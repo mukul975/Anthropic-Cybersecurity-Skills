@@ -1,0 +1,32 @@
+# Local Development
+
+Run these commands from `product/sentinelblue` unless noted otherwise.
+
+## Rust
+
+```bash
+cargo test
+cargo run -p sentinel-server -- --print-health
+cargo run -p sentinel-server -- --print-health --database ./sentinelblue.dev.db
+cargo run -p sentinel-server -- --import-file ./sample-data/wazuh-alert.sample.json --database ./sentinelblue.dev.db --source-name sample-wazuh --source-product wazuh
+cargo run -p sentinel-server -- --serve --database ./sentinelblue.dev.db
+```
+
+## Web
+
+```bash
+cd web
+npm install
+npm run build
+npm run dev
+```
+
+## Desktop
+
+```bash
+cd apps/desktop
+npm install
+npm run tauri:dev
+```
+
+The desktop shell uses the shared web app from `web/`.
