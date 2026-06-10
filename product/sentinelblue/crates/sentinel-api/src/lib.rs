@@ -84,9 +84,12 @@ pub struct EventSummary {
 pub struct AlertSummary {
     pub id: String,
     pub title: String,
+    pub description: String,
     pub severity: String,
     pub confidence: f64,
     pub status: String,
+    pub attack_json: String,
+    pub evidence_json: String,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]

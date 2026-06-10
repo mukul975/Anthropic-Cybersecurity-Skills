@@ -2,7 +2,7 @@ use std::path::Path;
 
 use rusqlite::{Connection, OptionalExtension, Result, params};
 
-pub const CURRENT_SCHEMA_VERSION: i64 = 3;
+pub const CURRENT_SCHEMA_VERSION: i64 = 4;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct Migration {
@@ -26,6 +26,11 @@ pub const MIGRATIONS: &[Migration] = &[
         version: 3,
         name: "003_raw_event_hash_index",
         sql: include_str!("../migrations/003_raw_event_hash_index.sql"),
+    },
+    Migration {
+        version: 4,
+        name: "004_alert_description",
+        sql: include_str!("../migrations/004_alert_description.sql"),
     },
 ];
 
@@ -114,9 +119,33 @@ pub struct StoredNormalizedEvent {
 pub struct StoredAlert {
     pub id: i64,
     pub title: String,
+    pub description: String,
     pub severity: String,
     pub confidence: f64,
     pub status: String,
+    pub attack_json: String,
+    pub evidence_json: String,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct StoredDetectorRun {
+    pub id: i64,
+    pub detector_id: String,
+    pub detector_version: String,
+    pub input_query: String,
+    pub status: String,
+    pub finding_count: i64,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct StoredEvidence {
+    pub id: i64,
+    pub case_id: Option<i64>,
+    pub alert_id: Option<i64>,
+    pub raw_event_id: Option<i64>,
+    pub normalized_event_id: Option<i64>,
+    pub evidence_type: String,
+    pub summary: String,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -570,9 +599,121 @@ impl Database {
         Ok(self.conn.last_insert_rowid())
     }
 
+    pub fn start_detector_run(&self, run: NewDetectorRun<'_>) -> Result<i64> {
+        self.conn.execute(
+            "INSERT INTO detector_runs (detector_id, detector_version, input_query, status)
+             VALUES (?1, ?2, ?3, 'running')",
+            params![run.detector_id, run.detector_version, run.input_query],
+        )?;
+        Ok(self.conn.last_insert_rowid())
+    }
+
+    pub fn complete_detector_run(
+        &self,
+        detector_run_id: i64,
+        status: &str,
+        finding_count: usize,
+    ) -> Result<()> {
+        self.conn.execute(
+            "UPDATE detector_runs
+             SET status = ?1, finding_count = ?2, completed_at = datetime('now')
+             WHERE id = ?3",
+            params![status, finding_count as i64, detector_run_id],
+        )?;
+        Ok(())
+    }
+
+    pub fn detector_run_by_id(&self, id: i64) -> Result<Option<StoredDetectorRun>> {
+        self.conn
+            .query_row(
+                "SELECT id, detector_id, detector_version, input_query, status, finding_count
+                 FROM detector_runs WHERE id = ?1",
+                params![id],
+                |row| {
+                    Ok(StoredDetectorRun {
+                        id: row.get(0)?,
+                        detector_id: row.get(1)?,
+                        detector_version: row.get(2)?,
+                        input_query: row.get(3)?,
+                        status: row.get(4)?,
+                        finding_count: row.get(5)?,
+                    })
+                },
+            )
+            .optional()
+    }
+
+    pub fn insert_alert(&self, alert: NewAlert<'_>) -> Result<i64> {
+        self.conn.execute(
+            "INSERT INTO alerts (
+               detector_run_id, title, description, severity, confidence, status, attack_json,
+               evidence_json
+             )
+             VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8)",
+            params![
+                alert.detector_run_id,
+                alert.title,
+                alert.description,
+                alert.severity,
+                alert.confidence,
+                alert.status,
+                alert.attack_json,
+                alert.evidence_json
+            ],
+        )?;
+        Ok(self.conn.last_insert_rowid())
+    }
+
+    pub fn update_alert_evidence_json(&self, alert_id: i64, evidence_json: &str) -> Result<()> {
+        self.conn.execute(
+            "UPDATE alerts SET evidence_json = ?1, updated_at = datetime('now') WHERE id = ?2",
+            params![evidence_json, alert_id],
+        )?;
+        Ok(())
+    }
+
+    pub fn insert_evidence(&self, evidence: NewEvidence<'_>) -> Result<i64> {
+        self.conn.execute(
+            "INSERT INTO evidence (
+               case_id, alert_id, raw_event_id, normalized_event_id, evidence_type, summary
+             )
+             VALUES (?1, ?2, ?3, ?4, ?5, ?6)",
+            params![
+                evidence.case_id,
+                evidence.alert_id,
+                evidence.raw_event_id,
+                evidence.normalized_event_id,
+                evidence.evidence_type,
+                evidence.summary,
+            ],
+        )?;
+        Ok(self.conn.last_insert_rowid())
+    }
+
+    pub fn evidence_for_alert(&self, alert_id: i64) -> Result<Vec<StoredEvidence>> {
+        let mut statement = self.conn.prepare(
+            "SELECT id, case_id, alert_id, raw_event_id, normalized_event_id, evidence_type, summary
+             FROM evidence
+             WHERE alert_id = ?1
+             ORDER BY id",
+        )?;
+        let rows = statement.query_map(params![alert_id], |row| {
+            Ok(StoredEvidence {
+                id: row.get(0)?,
+                case_id: row.get(1)?,
+                alert_id: row.get(2)?,
+                raw_event_id: row.get(3)?,
+                normalized_event_id: row.get(4)?,
+                evidence_type: row.get(5)?,
+                summary: row.get(6)?,
+            })
+        })?;
+        rows.collect()
+    }
+
     pub fn list_alerts(&self, limit: usize) -> Result<Vec<StoredAlert>> {
         let mut statement = self.conn.prepare(
-            "SELECT id, title, severity, confidence, status
+            "SELECT id, title, description, severity, confidence, status, attack_json, evidence_json
              FROM alerts
              ORDER BY created_at DESC, id DESC
              LIMIT ?1",
@@ -581,9 +722,12 @@ impl Database {
             Ok(StoredAlert {
                 id: row.get(0)?,
                 title: row.get(1)?,
-                severity: row.get(2)?,
-                confidence: row.get(3)?,
-                status: row.get(4)?,
+                description: row.get(2)?,
+                severity: row.get(3)?,
+                confidence: row.get(4)?,
+                status: row.get(5)?,
+                attack_json: row.get(6)?,
+                evidence_json: row.get(7)?,
             })
         })?;
         rows.collect()
@@ -708,6 +852,35 @@ pub struct NewNormalizedEvent<'a> {
     pub severity: &'a str,
     pub action: &'a str,
     pub fields_json: &'a str,
+}
+
+#[derive(Debug, Clone, Copy)]
+pub struct NewDetectorRun<'a> {
+    pub detector_id: &'a str,
+    pub detector_version: &'a str,
+    pub input_query: &'a str,
+}
+
+#[derive(Debug, Clone, Copy)]
+pub struct NewAlert<'a> {
+    pub detector_run_id: Option<i64>,
+    pub title: &'a str,
+    pub description: &'a str,
+    pub severity: &'a str,
+    pub confidence: f64,
+    pub status: &'a str,
+    pub attack_json: &'a str,
+    pub evidence_json: &'a str,
+}
+
+#[derive(Debug, Clone, Copy)]
+pub struct NewEvidence<'a> {
+    pub case_id: Option<i64>,
+    pub alert_id: Option<i64>,
+    pub raw_event_id: Option<i64>,
+    pub normalized_event_id: Option<i64>,
+    pub evidence_type: &'a str,
+    pub summary: &'a str,
 }
 
 pub const CORE_TABLES: &[&str] = &[
@@ -1042,5 +1215,103 @@ mod tests {
         assert_eq!(database.list_events(10).unwrap()[0].source_product, "zeek");
         assert_eq!(database.list_alerts(10).unwrap()[0].severity, "medium");
         assert_eq!(database.list_cases(10).unwrap()[0].status, "triage");
+    }
+
+    #[test]
+    fn detector_run_alert_and_evidence_helpers_persist_links() {
+        let database = Database::open_initialized_memory().expect("database initializes");
+        let raw_event_id = database
+            .insert_raw_event(NewRawEvent {
+                source_id: None,
+                source_product: "sysmon",
+                event_time: Some("2026-06-10T01:00:00Z"),
+                raw_payload: "{}",
+                raw_hash: "hash-detector",
+                ingest_batch: "batch-detector",
+            })
+            .expect("raw event inserts");
+        let normalized_event_id = database
+            .insert_normalized_event(NewNormalizedEvent {
+                raw_event_id: Some(raw_event_id),
+                event_time: Some("2026-06-10T01:00:00Z"),
+                event_type: "process_start",
+                source_product: "sysmon",
+                host: "win-host-01",
+                asset_id: "asset-win-01",
+                user_name: "ACME\\alice",
+                user_id: "",
+                src_ip: "",
+                src_port: None,
+                dest_ip: "",
+                dest_port: None,
+                protocol: "",
+                dns_query: "",
+                http_method: "",
+                url: "",
+                status_code: None,
+                process_name: "powershell.exe",
+                process_path: "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                parent_process_name: "explorer.exe",
+                command_line: "powershell.exe -EncodedCommand redacted",
+                file_path: "",
+                file_hash_sha256: "",
+                rule_id: "sysmon-1",
+                rule_name: "process_start",
+                severity: "info",
+                action: "",
+                fields_json: "{}",
+            })
+            .expect("normalized event inserts");
+        let detector_run_id = database
+            .start_detector_run(NewDetectorRun {
+                detector_id: "detector.test",
+                detector_version: "0.1.0",
+                input_query: "normalized_events",
+            })
+            .expect("detector run starts");
+        let alert_id = database
+            .insert_alert(NewAlert {
+                detector_run_id: Some(detector_run_id),
+                title: "Suspicious PowerShell encoded command",
+                description: "PowerShell execution used an encoded command indicator.",
+                severity: "high",
+                confidence: 0.86,
+                status: "new",
+                attack_json: r#"[{"technique_id":"T1059.001"}]"#,
+                evidence_json: "[]",
+            })
+            .expect("alert inserts");
+        let evidence_id = database
+            .insert_evidence(NewEvidence {
+                case_id: None,
+                alert_id: Some(alert_id),
+                raw_event_id: Some(raw_event_id),
+                normalized_event_id: Some(normalized_event_id),
+                evidence_type: "normalized_event",
+                summary: "Encoded PowerShell command line",
+            })
+            .expect("evidence inserts");
+        database
+            .update_alert_evidence_json(
+                alert_id,
+                &format!(
+                    r#"[{{"evidence_id":{evidence_id},"raw_event_id":{raw_event_id},"normalized_event_id":{normalized_event_id}}}]"#
+                ),
+            )
+            .expect("alert evidence updates");
+        database
+            .complete_detector_run(detector_run_id, "completed", 1)
+            .expect("detector run completes");
+
+        let run = database
+            .detector_run_by_id(detector_run_id)
+            .unwrap()
+            .expect("run exists");
+        assert_eq!(run.status, "completed");
+        assert_eq!(run.finding_count, 1);
+        let evidence = database.evidence_for_alert(alert_id).unwrap();
+        assert_eq!(evidence.len(), 1);
+        assert_eq!(evidence[0].raw_event_id, Some(raw_event_id));
+        assert_eq!(evidence[0].normalized_event_id, Some(normalized_event_id));
     }
 }

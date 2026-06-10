@@ -361,6 +361,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "sentinel-detect"
+version = "0.1.0"
+dependencies = [
+ "rusqlite",
+ "sentinel-db",
+ "serde",
+ "serde_json",
+ "tempfile",
+]
+
+[[package]]
 name = "sentinel-ingest"
 version = "0.1.0"
 dependencies = [
@@ -379,6 +390,7 @@ dependencies = [
  "sentinel-api",
  "sentinel-core",
  "sentinel-db",
+ "sentinel-detect",
  "sentinel-ingest",
  "serde",
  "serde_json",

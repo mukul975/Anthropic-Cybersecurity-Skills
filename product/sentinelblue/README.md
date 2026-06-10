@@ -42,6 +42,12 @@ cargo run -p sentinel-server -- \
   --source-product wazuh
 ```
 
+Run deterministic detectors against normalized events:
+
+```bash
+cargo run -p sentinel-server -- --run-detectors --database ./sentinelblue.dev.db
+```
+
 Run the local HTTP API:
 
 ```bash

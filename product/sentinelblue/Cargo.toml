@@ -4,6 +4,7 @@ members = [
   "crates/sentinel-api",
   "crates/sentinel-core",
   "crates/sentinel-db",
+  "crates/sentinel-detect",
   "crates/sentinel-ingest",
   "crates/sentinel-server",
   "crates/sentinel-skill-indexer",

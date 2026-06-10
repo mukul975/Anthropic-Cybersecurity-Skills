@@ -1,0 +1,1 @@
+ALTER TABLE alerts ADD COLUMN description TEXT NOT NULL DEFAULT '';

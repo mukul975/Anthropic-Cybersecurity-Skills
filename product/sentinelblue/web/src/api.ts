@@ -33,9 +33,12 @@ export type EventSummary = {
 export type AlertSummary = {
   id: string;
   title: string;
+  description: string;
   severity: string;
   confidence: number;
   status: string;
+  attack_json: string;
+  evidence_json: string;
 };
 
 export type CaseSummary = {

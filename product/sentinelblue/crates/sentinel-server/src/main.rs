@@ -2,7 +2,8 @@ use std::{env, path::PathBuf, process};
 
 use sentinel_ingest::ImportFormat;
 use sentinel_server::{
-    ServerConfig, health_json, import_file_for_server, import_report_json, start_http_server,
+    ServerConfig, detection_reports_json, health_json, import_file_for_server, import_report_json,
+    run_detectors_for_server, start_http_server,
 };
 
 fn main() {
@@ -25,6 +26,19 @@ fn main() {
     if args.iter().any(|arg| arg == "--print-health") {
         println!("{}", health_json(&config));
         return;
+    }
+
+    if args.iter().any(|arg| arg == "--run-detectors") {
+        match run_detectors_for_server(&config) {
+            Ok(reports) => {
+                println!("{}", detection_reports_json(&reports));
+                return;
+            }
+            Err(error) => {
+                eprintln!("detector run failed: {error}");
+                process::exit(1);
+            }
+        }
     }
 
     if let Some(import_path) = arg_value(&args, "--import-file") {
@@ -62,7 +76,7 @@ fn parse_config(args: &[String]) -> Result<ServerConfig, String> {
 
     while index < args.len() {
         match args[index].as_str() {
-            "--print-health" | "--serve" => {
+            "--print-health" | "--serve" | "--run-detectors" => {
                 index += 1;
             }
             "--import-file" | "--source-name" | "--source-product" | "--format" => {
@@ -106,6 +120,7 @@ fn print_help() {
     println!(
         "  sentinel-server --import-file ./alerts.json --database ./sentinelblue.db --source-product wazuh"
     );
+    println!("  sentinel-server --run-detectors --database ./sentinelblue.db");
     println!("  sentinel-server --serve [--bind 127.0.0.1:8741] [--database ./sentinelblue.db]");
     println!("  sentinel-server --help");
 }

@@ -6,7 +6,7 @@ This tracker records current implementation status against [PRODUCTION_GOALS.md]
 
 ## Current Status
 
-SentinelBlue now has an initialized product workspace plus durable backend foundations. The workspace exists under `product/sentinelblue/` with a Rust workspace, server binary crate, web app, Tauri desktop shell, packaging directories, sample data, model notes, local development docs, SQLite persistence, durable skill indexing, FTS-backed skill search, DB-backed HTTP read endpoints, JSON/JSONL raw event import, MVP event normalization, and read-only web API consumption.
+SentinelBlue now has an initialized product workspace plus durable backend foundations. The workspace exists under `product/sentinelblue/` with a Rust workspace, server binary crate, web app, Tauri desktop shell, packaging directories, sample data, model notes, local development docs, SQLite persistence, durable skill indexing, FTS-backed skill search, DB-backed HTTP read endpoints, JSON/JSONL raw event import, MVP event normalization, deterministic detector engine, detector-created alerts/evidence, and read-only web API consumption.
 
 ## Goal Status Board
 
@@ -18,8 +18,8 @@ SentinelBlue now has an initialized product workspace plus durable backend found
 | 4 | Basic API Layer | Complete | HTTP stack, `GET /api/health`, DB-backed read endpoints, API contracts, errors, and route tests are complete. |
 | 5 | File Log Import | Complete | `sentinel-ingest` imports JSON/JSONL into raw events, hashes payloads, skips duplicates, reports errors, and is wired into `sentinel-server`. |
 | 6 | Event Normalization | Complete | Wazuh, Sysmon, Zeek DNS/connection, Suricata EVE, API gateway, and identity/authentication JSON records normalize into common event fields. |
-| 7 | Detection Engine | Next | Normalized event schema and detector run persistence exist; detector contracts and first detectors remain. |
-| 8 | Alerts And Cases | Blocked by Goals 2 and 7 | Requires alerts, evidence, detector output, and case tables. |
+| 7 | Detection Engine | Complete | Detector trait, versioned detector runs, initial deterministic detectors, alert creation, ATT&CK mappings, and evidence links are complete. |
+| 8 | Alerts And Cases | Next | Detector findings create alerts; case promotion, status workflow, notes, evidence timeline, and closure remain. |
 | 9 | Local Model Integration | Later | More useful after evidence/case shape exists. |
 | 10 | Desktop UI | Partial | Tauri shell exists and web UI consumes read-only health, skills, events, alerts, and cases APIs. Import/case workflows remain. |
 | 11 | Wazuh Connector | Later | Depends on DB, ingestion, normalization, and connector health model. |
@@ -30,7 +30,7 @@ SentinelBlue now has an initialized product workspace plus durable backend found
 | 16 | Network Security Expansion | Later | Should follow MVP ingestion, normalization, and detector engine. |
 | 17 | Security Hardening | Later | Must be continuous, but final acceptance depends on implemented surfaces. |
 | 18 | Packaging | Partial scaffold complete | Packaging directories exist; installable artifacts are not implemented. |
-| 19 | Test Suite | In progress | Rust unit tests now cover core, API contracts, DB migrations, DB inserts, FTS search, repository skill indexing, server routing, DB-backed read endpoints, JSON/JSONL import, dedupe, and MVP event normalization. |
+| 19 | Test Suite | In progress | Rust unit tests now cover core, API contracts, DB migrations, DB inserts, FTS search, repository skill indexing, server routing, DB-backed read endpoints, JSON/JSONL import, dedupe, MVP event normalization, detector runs, detector findings, alerts, and evidence links. |
 | 20 | Beta Soak | Not started | Requires deployable beta. |
 | 21 | Production Release | Not started | Requires all prior production gates. |
 
@@ -85,7 +85,7 @@ Verification result:
 - Database initialization is idempotent.
 - App can create and reopen a local SQLite database.
 - Basic insert/query tests pass for all core tables.
-- Server health reports `database` as healthy with `schema_version=3`, `applied_migrations=3`, and `core_tables=12`.
+- Server health reports `database` as healthy with `schema_version=4`, `applied_migrations=4`, and `core_tables=12`.
 
 ### Goal 3: Skill Indexer
 
@@ -226,6 +226,43 @@ Verification result:
 - Importing each MVP source writes a raw event and one normalized event.
 - Normalized rows retain `raw_event_id`, keeping raw evidence reachable from normalized events.
 
+### Goal 7: Detection Engine
+
+Artifacts:
+
+- Detector crate: `product/sentinelblue/crates/sentinel-detect`
+- Detector run persistence APIs: `product/sentinelblue/crates/sentinel-db/src/lib.rs`
+- Alert description migration: `product/sentinelblue/crates/sentinel-db/migrations/004_alert_description.sql`
+- Server detector command: `product/sentinelblue/crates/sentinel-server/src/main.rs`
+
+Completed work:
+
+- Defines a source-neutral `Detector` trait.
+- Defines detector findings with title, severity, confidence, explanation, ATT&CK mappings, and evidence references.
+- Stores versioned detector runs in `detector_runs`.
+- Stores detector-created alerts in `alerts`.
+- Links alert evidence through `evidence` rows and alert `evidence_json`.
+- Exposes alert explanation, ATT&CK JSON, and evidence JSON through the API contract.
+- Adds `sentinel-server --run-detectors`.
+- Implements initial deterministic detectors for suspicious PowerShell, Sysmon process injection, password spray, impossible travel, DNS tunneling candidate, DNS beaconing candidate, API enumeration, and IOC match.
+
+Verified commands:
+
+```bash
+cd product/sentinelblue
+cargo test
+cargo run -p sentinel-server -- --import-file sample-data/wazuh-alert.sample.json --database /tmp/sentinelblue.db --source-name sample-wazuh --source-product wazuh
+cargo run -p sentinel-server -- --run-detectors --database /tmp/sentinelblue.db
+```
+
+Verification result:
+
+- The default detector runner executes all eight initial detectors.
+- Detector runs are persisted with detector ID, version, input query, status, and finding count.
+- Suspicious PowerShell detection creates a high-severity alert from the Wazuh sample.
+- Detector alerts include severity, confidence, explanation, ATT&CK mapping JSON, and evidence JSON.
+- Alert evidence links back to raw and normalized event IDs.
+
 ## Partial Parallel Goal Evidence
 
 ### Goal 10: Read-Only UI/API Consumption
@@ -246,25 +283,25 @@ Remaining UI work:
 
 ## Recommended Next Work
 
-### Primary Next Goal: Goal 7, Detection Engine Contracts
+### Primary Next Goal: Goal 8, Alerts And Cases
 
-Goal 7 should be the main next implementation target because normalized Wazuh, Sysmon, Zeek, Suricata, API gateway, and identity/authentication events now exist. The next stable layer is a detector contract that can query common normalized fields and persist repeatable findings.
+Goal 8 should be the main next implementation target because detector findings now create alerts with evidence links. The next stable layer is the analyst workflow that promotes alerts into cases, tracks investigation state, and shows evidence chronologically.
 
 Recommended scope for the next development pass:
 
-- Define detector input query boundaries against `normalized_events`.
-- Define detector output structs for findings, severity, confidence, evidence references, and ATT&CK mappings.
-- Add a detector crate or module with a narrow trait.
-- Implement one deterministic starter detector using existing normalized fixtures.
-- Persist detector runs in `detector_runs`.
-- Add tests that detector output references raw and normalized evidence.
+- Add typed case creation APIs in `sentinel-db`.
+- Promote one alert into one case.
+- Link existing alert evidence into the case timeline.
+- Add case status, severity, confidence, disposition, and closure helpers.
+- Add server command or API path for alert-to-case promotion.
+- Add tests for case creation, evidence timeline ordering, and close-with-disposition behavior.
 
 Definition of Done for the next pass:
 
-- Detector contracts are explicit and source-neutral.
-- One starter detector runs against normalized fixtures.
-- Findings include severity, confidence, title, evidence references, and source event IDs.
-- Detector run persistence records status and finding count.
+- Analyst can create a case from one alert.
+- Case timeline displays evidence in chronological order.
+- Closing a case requires disposition and notes.
+- Case records preserve alert, raw event, and normalized event references.
 
 ### Parallel Goal A: Continue Goal 10 UI Import Readiness
 
@@ -288,30 +325,29 @@ Use three short-lived implementation lanes:
 
 | Lane | Owner Type | Goal | Can Start Now | Stop Point |
 |---|---|---:|---|---|
-| Detector Contracts | Backend | 7 | Yes | Trait, finding schema, and one starter detector. |
-| UI Import Readiness | Frontend | 10 | Yes | API-backed status/list views, no upload mutation yet. |
-| Normalization Fixtures | Backend | 6/19 | Yes | Optional reusable sample-data fixtures beyond unit fixtures. |
+| Case Workflow | Backend | 8 | Yes | Alert promotion, case status helpers, and evidence timeline. |
+| UI Case Readiness | Frontend | 10 | Yes | API-backed alert/case detail display, no destructive actions. |
+| Detector Fixtures | Backend | 7/19 | Yes | Reusable detector fixture files beyond unit fixtures. |
 
 The safest order is:
 
-1. Add detector contracts and one starter detector over normalized MVP fixtures.
-2. Keep optional normalization fixture expansion focused on reusable `sample-data/` files.
-3. Keep frontend work read-only until import/upload HTTP endpoints are designed.
-4. Move to alert creation after deterministic detector output is stable.
+1. Add alert-to-case promotion and evidence timeline helpers.
+2. Expose enough case detail for the UI to display case evidence.
+3. Keep frontend actions constrained to read-only or explicit safe case workflow commands.
+4. Move to local model summaries after case evidence and citations are stable.
 
 ## Near-Term Risks
 
-- Detector logic will churn if the first detector bypasses the normalized event contract.
+- Case workflow will churn if evidence timeline ordering and references are not stable.
 - UI upload flows should wait for explicit HTTP upload/import design.
-- CSV/TSV import should be added after JSON/JSONL import behavior remains stable.
+- Detector deduplication is not implemented yet, so repeated detector runs can create repeated alerts.
 
 ## Next Decision Needed
 
-Choose the first detector contract target for Goal 7:
+Choose the first case workflow target for Goal 8:
 
-- Suspicious PowerShell/process execution from Sysmon and Wazuh command fields.
-- Suspicious DNS query pattern from Zeek DNS fields.
-- Suricata alert promotion into SentinelBlue alerts.
-- API authentication or API abuse detector from API gateway and identity/authentication fields.
+- Promote a single alert to a case from the CLI.
+- Add HTTP case promotion endpoint.
+- Add UI-only case detail view first.
 
-Recommended for this app stage: suspicious PowerShell/process execution, because Wazuh and Sysmon both populate command/process fields and can prove cross-source detector behavior.
+Recommended for this app stage: promote a single alert to a case from the backend first, then expose the workflow through HTTP/UI after the case timeline contract is stable.

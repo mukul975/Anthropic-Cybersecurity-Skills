@@ -10,6 +10,7 @@ use sentinel_api::{
 };
 use sentinel_core::{ComponentHealth, DEFAULT_API_BIND_ADDR, HealthSnapshot};
 use sentinel_db::{CORE_TABLES, Database};
+use sentinel_detect::{DetectionReport, run_default_detectors};
 use sentinel_ingest::{ImportFormat, ImportOptions, ImportReport, import_file};
 use serde::Serialize;
 
@@ -187,9 +188,12 @@ pub fn route_get(path: &str, config: &ServerConfig) -> HttpResponse {
                 .map(|alert| AlertSummary {
                     id: alert.id.to_string(),
                     title: alert.title,
+                    description: alert.description,
                     severity: alert.severity,
                     confidence: alert.confidence,
                     status: alert.status,
+                    attack_json: alert.attack_json,
+                    evidence_json: alert.evidence_json,
                 })
                 .collect::<Vec<_>>();
             Ok(serde_json::to_string(&ListResponse {
@@ -323,6 +327,15 @@ pub fn import_report_json(report: &ImportReport) -> String {
     serde_json::to_string(&report).expect("import report serializes")
 }
 
+pub fn run_detectors_for_server(config: &ServerConfig) -> Result<Vec<DetectionReport>, String> {
+    let database = open_request_database(config).map_err(|error| error.to_string())?;
+    run_default_detectors(&database).map_err(|error| error.to_string())
+}
+
+pub fn detection_reports_json(reports: &[DetectionReport]) -> String {
+    serde_json::to_string(reports).expect("detection reports serialize")
+}
+
 fn handle_connection(mut stream: TcpStream, config: &ServerConfig) -> std::io::Result<()> {
     let mut buffer = [0_u8; 8192];
     let read = stream.read(&mut buffer)?;
@@ -373,7 +386,7 @@ fn escape_json(value: &str) -> String {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use sentinel_db::NewSkill;
+    use sentinel_db::{NewNormalizedEvent, NewRawEvent, NewSkill};
 
     #[test]
     fn default_config_uses_local_bind_addr() {
@@ -408,7 +421,7 @@ mod tests {
         let json = health_json(&config);
 
         assert!(json.contains("\"name\":\"database\""));
-        assert!(json.contains("schema_version=3"));
+        assert!(json.contains("schema_version=4"));
         assert!(json.contains("core_tables=12"));
     }
 
@@ -540,5 +553,90 @@ mod tests {
         assert!(import_report_json(&report).contains("\"imported\":1"));
         let database = Database::open_initialized(&db_path).expect("database reopens");
         assert_eq!(database.raw_event_count().unwrap(), 1);
+    }
+
+    #[test]
+    fn server_run_detectors_creates_alerts_and_evidence() {
+        let dir = tempfile::tempdir().expect("tempdir exists");
+        let db_path = dir.path().join("sentinelblue.db");
+        let database = Database::open_initialized(&db_path).expect("database initializes");
+        let raw_event_id = database
+            .insert_raw_event(NewRawEvent {
+                source_id: None,
+                source_product: "sysmon",
+                event_time: Some("2026-06-10T01:00:00Z"),
+                raw_payload: "{}",
+                raw_hash: "server-detector-hash",
+                ingest_batch: "server-detector-batch",
+            })
+            .expect("raw event inserts");
+        database
+            .insert_normalized_event(NewNormalizedEvent {
+                raw_event_id: Some(raw_event_id),
+                event_time: Some("2026-06-10T01:00:00Z"),
+                event_type: "process_start",
+                source_product: "sysmon",
+                host: "win-host-01",
+                asset_id: "asset-win-01",
+                user_name: "ACME\\alice",
+                user_id: "",
+                src_ip: "",
+                src_port: None,
+                dest_ip: "",
+                dest_port: None,
+                protocol: "",
+                dns_query: "",
+                http_method: "",
+                url: "",
+                status_code: None,
+                process_name: "powershell.exe",
+                process_path: "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                parent_process_name: "explorer.exe",
+                command_line: "powershell.exe -EncodedCommand redacted",
+                file_path: "",
+                file_hash_sha256: "",
+                rule_id: "sysmon-1",
+                rule_name: "process_start",
+                severity: "info",
+                action: "",
+                fields_json: "{}",
+            })
+            .expect("normalized event inserts");
+        drop(database);
+
+        let config = ServerConfig::default().with_database_path(&db_path);
+        let reports = run_detectors_for_server(&config).expect("detectors run");
+        let json = detection_reports_json(&reports);
+        let alerts = route_get("/api/alerts", &config);
+        let database = Database::open_initialized(&db_path).expect("database reopens");
+        let alert_rows = database.list_alerts(10).expect("alerts list");
+        let evidence = database
+            .evidence_for_alert(alert_rows[0].id)
+            .expect("evidence list");
+
+        assert_eq!(reports.len(), 8);
+        assert_eq!(
+            reports
+                .iter()
+                .map(|report| report.findings.len())
+                .sum::<usize>(),
+            1
+        );
+        assert_eq!(
+            reports
+                .iter()
+                .map(|report| report.alerts_created)
+                .sum::<usize>(),
+            1
+        );
+        assert!(json.contains("sentinelblue.detector.powershell_encoded_command"));
+        assert_eq!(alerts.status_code, 200);
+        assert!(
+            alerts
+                .body
+                .contains("Suspicious PowerShell encoded command")
+        );
+        assert_eq!(evidence.len(), 1);
+        assert_eq!(evidence[0].raw_event_id, Some(raw_event_id));
     }
 }
