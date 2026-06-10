@@ -1,11 +1,17 @@
-use std::{env, path::PathBuf, process};
+use std::{
+    env,
+    path::PathBuf,
+    process,
+    time::{SystemTime, UNIX_EPOCH},
+};
 
 use sentinel_ingest::ImportFormat;
 use sentinel_model::ModelRuntimeConfig;
 use sentinel_server::{
     ServerConfig, case_json, case_summary_json, close_case_for_server, detection_reports_json,
     health_json, import_file_for_server, import_report_json, promote_alert_for_server,
-    run_detectors_for_server, start_http_server, summarize_case_for_server,
+    run_detectors_for_server, run_smoke_workflow, smoke_workflow_report_json, start_http_server,
+    summarize_case_for_server,
 };
 
 fn main() {
@@ -28,6 +34,25 @@ fn main() {
     if args.iter().any(|arg| arg == "--print-health") {
         println!("{}", health_json(&config));
         return;
+    }
+
+    if args.iter().any(|arg| arg == "--smoke-workflow") {
+        let mut smoke_config = config;
+        if smoke_config.database_path.is_none() {
+            smoke_config.database_path = Some(default_smoke_database_path());
+        }
+        let sample_path = arg_value(&args, "--sample-file")
+            .unwrap_or_else(|| "sample-data/wazuh-alert.sample.json".to_string());
+        match run_smoke_workflow(&smoke_config, sample_path) {
+            Ok(report) => {
+                println!("{}", smoke_workflow_report_json(&report));
+                return;
+            }
+            Err(error) => {
+                eprintln!("smoke workflow failed: {error}");
+                process::exit(1);
+            }
+        }
     }
 
     if args.iter().any(|arg| arg == "--run-detectors") {
@@ -141,12 +166,12 @@ fn parse_config(args: &[String]) -> Result<ServerConfig, String> {
 
     while index < args.len() {
         match args[index].as_str() {
-            "--print-health" | "--serve" | "--run-detectors" => {
+            "--print-health" | "--serve" | "--run-detectors" | "--smoke-workflow" => {
                 index += 1;
             }
             "--import-file" | "--source-name" | "--source-product" | "--format"
             | "--promote-alert" | "--case-title" | "--close-case" | "--disposition" | "--notes"
-            | "--summarize-case" | "--model-endpoint" | "--model-name" => {
+            | "--summarize-case" | "--model-endpoint" | "--model-name" | "--sample-file" => {
                 let _value = args
                     .get(index + 1)
                     .ok_or_else(|| format!("{} requires a value", args[index]))?;
@@ -184,6 +209,17 @@ fn arg_value(args: &[String], name: &str) -> Option<String> {
         .map(|window| window[1].clone())
 }
 
+fn default_smoke_database_path() -> PathBuf {
+    let timestamp = SystemTime::now()
+        .duration_since(UNIX_EPOCH)
+        .map(|duration| duration.as_nanos())
+        .unwrap_or_default();
+    env::temp_dir().join(format!(
+        "sentinelblue-smoke-{}-{timestamp}.db",
+        process::id()
+    ))
+}
+
 fn print_help() {
     println!("sentinel-server");
     println!();
@@ -199,6 +235,9 @@ fn print_help() {
     );
     println!(
         "  sentinel-server --summarize-case 1 --database ./sentinelblue.db [--model-endpoint http://127.0.0.1:8080 --model-name local-model]"
+    );
+    println!(
+        "  sentinel-server --smoke-workflow [--database ./smoke.db] [--sample-file sample-data/wazuh-alert.sample.json]"
     );
     println!("  sentinel-server --serve [--bind 127.0.0.1:8741] [--database ./sentinelblue.db]");
     println!("  sentinel-server --help");

@@ -578,6 +578,110 @@ pub fn case_summary_json(result: &CaseSummaryResult) -> String {
     serde_json::to_string(result).expect("case summary serializes")
 }
 
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
+pub struct SmokeWorkflowReport {
+    pub sample_path: String,
+    pub imported: usize,
+    pub normalized: usize,
+    pub detectors_run: usize,
+    pub alerts_created: usize,
+    pub case_id: i64,
+    pub summary_mode: String,
+    pub closed_status: String,
+    pub timeline_entries: usize,
+}
+
+pub fn run_smoke_workflow(
+    config: &ServerConfig,
+    sample_path: impl Into<PathBuf>,
+) -> Result<SmokeWorkflowReport, String> {
+    let sample_path = sample_path.into();
+    if !sample_path.exists() {
+        return Err(format!(
+            "smoke sample file does not exist: {}",
+            sample_path.display()
+        ));
+    }
+
+    let import_report = import_file_for_server(
+        config,
+        sample_path.clone(),
+        "smoke-wazuh",
+        "wazuh",
+        ImportFormat::Auto,
+    )?;
+    if import_report.normalized == 0 {
+        return Err("smoke workflow imported no normalized events".to_string());
+    }
+
+    let detector_reports = run_detectors_for_server(config)?;
+    let alerts_created = detector_reports
+        .iter()
+        .map(|report| report.alerts_created)
+        .sum::<usize>();
+    if alerts_created == 0 {
+        return Err("smoke workflow created no alerts".to_string());
+    }
+
+    let alert_id = {
+        let database = open_request_database(config).map_err(|error| error.to_string())?;
+        database
+            .list_alerts(100)
+            .map_err(|error| error.to_string())?
+            .into_iter()
+            .find(|alert| alert.status == "new")
+            .map(|alert| alert.id)
+            .ok_or_else(|| "smoke workflow found no promotable alerts".to_string())?
+    };
+    let case = promote_alert_for_server(config, alert_id, Some("Smoke workflow case"))?;
+    let summary = summarize_case_for_server(config, case.id)?;
+    let closed_case = close_case_for_server(
+        config,
+        case.id,
+        "benign",
+        "Smoke workflow closure after validating generated evidence.",
+    )?;
+    if closed_case.status != "closed" {
+        return Err(format!(
+            "smoke workflow case did not close: {}",
+            closed_case.status
+        ));
+    }
+
+    let timeline = open_request_database(config)
+        .map_err(|error| error.to_string())?
+        .case_timeline(case.id)
+        .map_err(|error| error.to_string())?;
+    if !timeline
+        .iter()
+        .any(|item| item.item_type == "model_summary")
+    {
+        return Err("smoke workflow timeline is missing model summary".to_string());
+    }
+    if !timeline
+        .iter()
+        .any(|item| item.summary.contains("Closure note"))
+    {
+        return Err("smoke workflow timeline is missing closure note".to_string());
+    }
+
+    Ok(SmokeWorkflowReport {
+        sample_path: sample_path.to_string_lossy().to_string(),
+        imported: import_report.imported,
+        normalized: import_report.normalized,
+        detectors_run: detector_reports.len(),
+        alerts_created,
+        case_id: case.id,
+        summary_mode: summary.mode,
+        closed_status: closed_case.status,
+        timeline_entries: timeline.len(),
+    })
+}
+
+pub fn smoke_workflow_report_json(report: &SmokeWorkflowReport) -> String {
+    serde_json::to_string(report).expect("smoke workflow report serializes")
+}
+
 fn handle_connection(mut stream: TcpStream, config: &ServerConfig) -> std::io::Result<()> {
     let mut buffer = [0_u8; 8192];
     let read = stream.read(&mut buffer)?;
@@ -692,6 +796,13 @@ fn escape_json(value: &str) -> String {
 mod tests {
     use super::*;
     use sentinel_db::{NewAlert, NewEvidence, NewNormalizedEvent, NewRawEvent, NewSkill};
+    use std::path::PathBuf;
+
+    fn sample_data_path(file_name: &str) -> PathBuf {
+        PathBuf::from(env!("CARGO_MANIFEST_DIR"))
+            .join("../../sample-data")
+            .join(file_name)
+    }
 
     #[test]
     fn default_config_uses_local_bind_addr() {
@@ -1293,6 +1404,42 @@ mod tests {
             timeline
                 .iter()
                 .any(|item| item.item_type == "model_summary")
+        );
+    }
+
+    #[test]
+    fn smoke_workflow_exercises_complete_local_investigation() {
+        let dir = tempfile::tempdir().expect("tempdir exists");
+        let db_path = dir.path().join("sentinelblue.db");
+        let config = ServerConfig::default().with_database_path(&db_path);
+
+        let report = run_smoke_workflow(&config, sample_data_path("wazuh-alert.sample.json"))
+            .expect("smoke workflow passes");
+        let report_json = smoke_workflow_report_json(&report);
+        let database = Database::open_initialized(&db_path).expect("database reopens");
+        let cases = database.list_cases(10).expect("cases list");
+        let timeline = database
+            .case_timeline(report.case_id)
+            .expect("timeline loads");
+
+        assert_eq!(report.imported, 1);
+        assert_eq!(report.normalized, 1);
+        assert_eq!(report.detectors_run, 8);
+        assert_eq!(report.alerts_created, 1);
+        assert_eq!(report.closed_status, "closed");
+        assert_eq!(cases[0].status, "closed");
+        assert_eq!(cases[0].disposition, "benign");
+        assert!(report.timeline_entries >= 4);
+        assert!(report_json.contains("\"summary_mode\":\"deterministic-only\""));
+        assert!(
+            timeline
+                .iter()
+                .any(|item| item.item_type == "model_summary")
+        );
+        assert!(
+            timeline
+                .iter()
+                .any(|item| item.summary.contains("Closure note"))
         );
     }
 

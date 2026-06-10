@@ -32,6 +32,12 @@ Run the server health smoke command with a real SQLite database file:
 cargo run -p sentinel-server -- --print-health --database ./sentinelblue.dev.db
 ```
 
+Run the full local investigation smoke workflow against a disposable temporary database:
+
+```bash
+cargo run -p sentinel-server -- --smoke-workflow
+```
+
 Import a local telemetry file:
 
 ```bash
@@ -102,9 +108,9 @@ cd web
 npm run dev
 ```
 
-The Vite dev server proxies `/api` to `sentinel-server` on `127.0.0.1:8741`, so keep the local API server running when using API-backed UI screens.
+The Vite dev server proxies `/api` to `sentinel-server` on `127.0.0.1:8741`, so keep the local API server running when using browser-based API screens.
 
-The UI can call local workflow routes for import, detector runs, alert promotion, case summaries, and case closure. See `docs/local-development.md` for curl examples.
+The UI can call local workflow routes for import, detector runs, alert promotion, case summaries, and case closure. In the Tauri desktop shell, the same workflow uses direct Rust commands with an app-data SQLite database instead of requiring a separate server terminal. See `docs/local-development.md` for curl examples.
 
 Run the desktop shell after installing desktop dependencies:
 

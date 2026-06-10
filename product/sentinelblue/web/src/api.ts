@@ -116,6 +116,37 @@ export type CaseSummaryResult = {
   summary: string;
 };
 
+declare global {
+  interface Window {
+    __TAURI__?: {
+      core?: {
+        invoke<T>(command: string, args?: Record<string, unknown>): Promise<T>;
+      };
+    };
+  }
+}
+
+export function hasDesktopApiBridge(): boolean {
+  return typeof window.__TAURI__?.core?.invoke === "function";
+}
+
+export async function selectImportFile(): Promise<string | null> {
+  return invokeDesktop<string | null>("select_import_file");
+}
+
+async function invokeDesktop<T>(
+  command: string,
+  args?: Record<string, unknown>,
+): Promise<T> {
+  const invoke = window.__TAURI__?.core?.invoke;
+
+  if (!invoke) {
+    throw new Error("Desktop command bridge is unavailable.");
+  }
+
+  return invoke<T>(command, args);
+}
+
 async function getJson<T>(path: string): Promise<T> {
   const response = await fetch(path, {
     headers: {
@@ -161,6 +192,10 @@ async function responseErrorMessage(response: Response, path: string): Promise<s
 }
 
 export async function loadDashboardData(): Promise<DashboardData> {
+  if (hasDesktopApiBridge()) {
+    return invokeDesktop<DashboardData>("desktop_load_dashboard_data");
+  }
+
   const [health, skills, events, alerts, cases] = await Promise.all([
     getJson<HealthResponse>("/api/health"),
     getJson<ListResponse<SkillSummary>>("/api/skills?q=network"),
@@ -181,16 +216,30 @@ export async function loadDashboardData(): Promise<DashboardData> {
 export async function loadCaseTimeline(
   caseId: string,
 ): Promise<ListResponse<CaseTimelineItem>> {
+  if (hasDesktopApiBridge()) {
+    return invokeDesktop<ListResponse<CaseTimelineItem>>("desktop_load_case_timeline", {
+      request: { case_id: caseId },
+    });
+  }
+
   return getJson<ListResponse<CaseTimelineItem>>(`/api/cases/${caseId}/timeline`);
 }
 
 export async function importTelemetryFile(
   request: ImportFileRequest,
 ): Promise<ImportReport> {
+  if (hasDesktopApiBridge()) {
+    return invokeDesktop<ImportReport>("desktop_import_telemetry_file", { request });
+  }
+
   return postJson<ImportReport>("/api/import-file", request);
 }
 
 export async function runDetectors(): Promise<DetectionReport[]> {
+  if (hasDesktopApiBridge()) {
+    return invokeDesktop<DetectionReport[]>("desktop_run_detectors");
+  }
+
   return postJson<DetectionReport[]>("/api/detectors/run");
 }
 
@@ -198,10 +247,22 @@ export async function promoteAlert(
   alertId: string,
   title?: string,
 ): Promise<CaseSummary> {
+  if (hasDesktopApiBridge()) {
+    return invokeDesktop<CaseSummary>("desktop_promote_alert", {
+      request: { alert_id: alertId, title },
+    });
+  }
+
   return postJson<CaseSummary>(`/api/alerts/${alertId}/promote`, { title });
 }
 
 export async function summarizeCase(caseId: string): Promise<CaseSummaryResult> {
+  if (hasDesktopApiBridge()) {
+    return invokeDesktop<CaseSummaryResult>("desktop_summarize_case", {
+      request: { case_id: caseId },
+    });
+  }
+
   return postJson<CaseSummaryResult>(`/api/cases/${caseId}/summarize`);
 }
 
@@ -210,6 +271,12 @@ export async function closeCase(
   disposition: string,
   notes: string,
 ): Promise<CaseSummary> {
+  if (hasDesktopApiBridge()) {
+    return invokeDesktop<CaseSummary>("desktop_close_case", {
+      request: { case_id: caseId, disposition, notes },
+    });
+  }
+
   return postJson<CaseSummary>(`/api/cases/${caseId}/close`, {
     disposition,
     notes,

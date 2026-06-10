@@ -1,10 +1,12 @@
 import {
   closeCase,
+  hasDesktopApiBridge,
   importTelemetryFile,
   loadCaseTimeline,
   loadDashboardData,
   promoteAlert,
   runDetectors,
+  selectImportFile,
   summarizeCase,
   type AlertSummary,
   type CaseSummary,
@@ -16,16 +18,6 @@ import {
   type SkillSummary,
 } from "./api";
 import "./styles.css";
-
-declare global {
-  interface Window {
-    __TAURI__?: {
-      core?: {
-        invoke<T>(command: string, args?: Record<string, unknown>): Promise<T>;
-      };
-    };
-  }
-}
 
 type Screen =
   | "dashboard"
@@ -95,7 +87,7 @@ const state: AppState = {
   importFormat: "auto",
   closeDisposition: "benign",
   closeNotes: "",
-  desktopBridgeAvailable: hasTauriBridge(),
+  desktopBridgeAvailable: hasDesktopApiBridge(),
   loading: true,
   timelineLoading: false,
   busyAction: null,
@@ -473,7 +465,7 @@ function renderWorkflowPanel(): string {
       <div class="section-head">
         <div>
           <h2>Local Workflow</h2>
-          <p>Import, detection, and investigation commands run against the local backend.</p>
+          <p>Import, detection, and investigation commands run locally.</p>
         </div>
         <button class="button danger" type="button" disabled title="Approval gate unavailable">Containment action</button>
       </div>
@@ -824,7 +816,7 @@ function bindActionButtons() {
 }
 
 async function chooseImportFileAction() {
-  if (!hasTauriBridge()) {
+  if (!hasDesktopApiBridge()) {
     state.error = "Desktop file picker is unavailable in this browser session.";
     state.notice = null;
     render();
@@ -837,9 +829,7 @@ async function chooseImportFileAction() {
   render();
 
   try {
-    const selectedPath = await window.__TAURI__?.core?.invoke<string | null>(
-      "select_import_file",
-    );
+    const selectedPath = await selectImportFile();
     if (selectedPath) {
       state.importPath = selectedPath;
       state.notice = "Selected import file.";
@@ -968,13 +958,9 @@ function busyAttr(_action: string): string {
   return state.busyAction ? "disabled" : "";
 }
 
-function hasTauriBridge(): boolean {
-  return typeof window.__TAURI__?.core?.invoke === "function";
-}
-
 function desktopRuntimeText(): string {
   return state.desktopBridgeAvailable
-    ? "Desktop file picker available."
+    ? "Desktop direct runtime available; actions use app data SQLite without a separate server."
     : "Desktop file picker unavailable in browser mode; paste a local path.";
 }
 

@@ -6,7 +6,7 @@ This tracker records current implementation status against [PRODUCTION_GOALS.md]
 
 ## Current Status
 
-SentinelBlue now has an initialized product workspace plus durable backend foundations. The workspace exists under `product/sentinelblue/` with a Rust workspace, server binary crate, web app, Tauri desktop shell, packaging directories, sample data, model notes, local development docs, SQLite persistence, durable skill indexing, FTS-backed skill search, DB-backed HTTP read endpoints, JSON/JSONL raw event import, MVP event normalization, deterministic detector engine, detector-created alerts/evidence, alert-to-case promotion, case timeline, case closure workflow, local model health/configuration, redacted evidence-cited case summaries, persisted model runs, richer normalized event API summaries, narrow HTTP mutation routes, a multi-screen analyst workspace UI that can run the main local investigation workflow, and a narrow Tauri file-picker command for local imports.
+SentinelBlue now has an initialized product workspace plus durable backend foundations. The workspace exists under `product/sentinelblue/` with a Rust workspace, server binary crate, web app, Tauri desktop shell, packaging directories, sample data, model notes, local development docs, SQLite persistence, durable skill indexing, FTS-backed skill search, DB-backed HTTP read endpoints, JSON/JSONL raw event import, MVP event normalization, deterministic detector engine, detector-created alerts/evidence, alert-to-case promotion, case timeline, case closure workflow, local model health/configuration, redacted evidence-cited case summaries, persisted model runs, richer normalized event API summaries, narrow HTTP mutation routes, a multi-screen analyst workspace UI that can run the main local investigation workflow, and direct Tauri workflow commands that let the desktop shell use an app-data SQLite database without a separately started backend server.
 
 ## Goal Status Board
 
@@ -21,7 +21,7 @@ SentinelBlue now has an initialized product workspace plus durable backend found
 | 7 | Detection Engine | Complete | Detector trait, versioned detector runs, initial deterministic detectors, alert creation, ATT&CK mappings, and evidence links are complete. |
 | 8 | Alerts And Cases | Complete | Detector findings create alerts, alerts promote to cases, case timeline includes evidence/alerts/notes/actions/model summaries, and closure requires disposition plus notes. |
 | 9 | Local Model Integration | Complete | Deterministic-only and OpenAI-compatible local model modes exist; model health, prompt redaction, evidence-cited summaries, unavailable-model guardrails, and model run persistence are complete. |
-| 10 | Desktop UI | Partial | Tauri shell exists; web UI now has dashboard, alert queue, case workspace with timeline, event search, skill library, connectors, model settings, policy settings, audit log, light/dark/system themes, enabled local workflow actions through narrow HTTP mutation routes, and a desktop file picker for import paths. Desktop backend supervision and full runtime QA remain. |
+| 10 | Desktop UI | Partial | Tauri shell exists; web UI now has dashboard, alert queue, case workspace with timeline, event search, skill library, connectors, model settings, policy settings, audit log, light/dark/system themes, enabled local workflow actions through narrow HTTP mutation routes, a desktop file picker, and direct desktop workflow commands backed by app-data SQLite. Full desktop window QA and approval-gated actions remain. |
 | 11 | Wazuh Connector | Later | Depends on DB, ingestion, normalization, and connector health model. |
 | 12 | Policy And Approval Engine | Later | Depends on actions, audit, users/roles direction, and backend execution boundaries. |
 | 13 | Server Mode | Partial scaffold complete | Server binary, simple HTTP serving, health, and read endpoints exist; config, auth, metrics, static web serving, and deployment still remain. |
@@ -30,7 +30,7 @@ SentinelBlue now has an initialized product workspace plus durable backend found
 | 16 | Network Security Expansion | Later | Should follow MVP ingestion, normalization, and detector engine. |
 | 17 | Security Hardening | Later | Must be continuous, but final acceptance depends on implemented surfaces. |
 | 18 | Packaging | Partial scaffold complete | Packaging directories exist; installable artifacts are not implemented. |
-| 19 | Test Suite | In progress | Rust unit tests now cover core, API contracts, DB migrations, DB inserts, FTS search, repository skill indexing, server routing, DB-backed read endpoints, richer event summaries, mutation routes, JSON/JSONL import, dedupe, MVP event normalization, detector runs, detector findings, alerts, evidence links, case promotion, case timelines, case closure requirements, model health, prompt redaction, deterministic summaries, and model run persistence. Web build verifies the analyst workspace UI; desktop cargo check verifies the Tauri command bridge. |
+| 19 | Test Suite | In progress | Rust unit tests now cover core, API contracts, DB migrations, DB inserts, FTS search, repository skill indexing, server routing, DB-backed read endpoints, richer event summaries, mutation routes, JSON/JSONL import, dedupe, MVP event normalization, detector runs, detector findings, alerts, evidence links, case promotion, case timelines, case closure requirements, model health, prompt redaction, deterministic summaries, model run persistence, and the full local smoke workflow. Web build verifies the analyst workspace UI; desktop cargo check verifies the direct Tauri command bridge. |
 | 20 | Beta Soak | Not started | Requires deployable beta. |
 | 21 | Production Release | Not started | Requires all prior production gates. |
 
@@ -359,8 +359,12 @@ Completed partial work:
 - Adds narrow HTTP mutation routes for import, detector run, alert promotion, case summary generation, and case closure.
 - Wires UI controls to mutation routes with busy states, structured error messages, success notices, and post-action refresh.
 - Adds a Tauri `select_import_file` command using the official dialog plugin.
-- Enables `withGlobalTauri` so the shared web UI can call only the registered desktop command when running in the shell.
+- Enables `withGlobalTauri` so the shared web UI can call only registered desktop commands when running in the shell.
 - Shows a `Choose file` control in desktop mode while keeping browser mode compatible with pasted local paths.
+- Adds direct Tauri commands for dashboard loading, case timelines, import, detector runs, alert promotion, case summaries, and case closure.
+- Reuses the shared `sentinel-server` library from desktop commands instead of spawning shell commands or requiring a manual backend terminal.
+- Stores desktop workflow state in an app-data SQLite database.
+- Selects desktop command mode automatically in Tauri while preserving HTTP mode for browser development and server mode.
 - Adds a minimal local desktop icon so Tauri codegen and cargo checks work.
 - Keeps containment/destructive controls visually distinct and disabled until Goal 12 policy enforcement exists.
 
@@ -382,52 +386,75 @@ Verification result:
 - Web production build passes.
 - Richer event summary API remains compatible with server route tests.
 - Mutation route tests cover import, detector run, alert promotion, case summary generation, case closure, and validation failures.
-- Desktop crate compiles with the dialog plugin and registered file-picker command.
+- Desktop crate compiles with the dialog plugin and registered direct workflow command bridge.
 - Vite dev proxy returns backend `/api/health`, `/api/events`, and `/api/cases/{id}/timeline` from a seeded local server.
 - Full `cargo test` including the desktop crate was not rerun because the Tauri dependency graph exceeded available disk during this pass; desktop verification used `cargo check -p sentinelblue-desktop`.
 
 Remaining UI work:
 
-- Desktop backend supervision or direct crate command path.
 - Full desktop runtime verification with the actual Tauri window and seeded data.
+- Optional desktop seed/reset controls for local demo and QA databases.
 - Approval-gated action queue and active policy editing.
+
+### Goal 19: Verification Harness
+
+Completed partial work:
+
+- Adds `sentinel-server --smoke-workflow`.
+- Uses a disposable temporary SQLite database when `--database` is omitted.
+- Imports `sample-data/wazuh-alert.sample.json`.
+- Runs the default detector set.
+- Promotes a generated alert into a smoke case.
+- Generates a deterministic evidence-cited case summary.
+- Closes the case with a benign disposition and closure note.
+- Validates that the final timeline includes a model summary and closure note.
+- Adds a server test covering the complete smoke workflow.
+
+Verified commands:
+
+```bash
+cd product/sentinelblue
+cargo test -p sentinel-server
+cargo run -p sentinel-server -- --smoke-workflow
+```
+
+Verification result:
+
+- The smoke test passes against a temporary database.
+- The CLI smoke command returns a JSON report with `imported=1`, `normalized=1`, `detectors_run=8`, `alerts_created=1`, `summary_mode=deterministic-only`, `closed_status=closed`, and `timeline_entries=4`.
+
+Remaining test-suite work:
+
+- Add the smoke command to CI or a documented release verification script.
+- Add browser or desktop UI automation for the main workflow.
+- Add regression coverage for detector deduplication once implemented.
 
 ## Recommended Next Work
 
-### Primary Next Goal: Goal 10, Desktop Runtime Integration
+### Primary Next Goal: Goal 10 Desktop Runtime QA
 
-Goal 10 should remain the main next implementation target. The UI can now execute the main local investigation workflow and choose local files through Tauri, so the next stable layer is backend lifecycle integration in the desktop app.
+Goal 10 direct runtime integration is now implemented through registered Tauri commands backed by the shared Rust crates, and Goal 19 now has a reusable smoke command for the backend workflow. The next stable layer is visually verifying the actual desktop window against seeded data.
 
 Recommended scope for the next development pass:
 
-- Decide whether desktop launches/manages `sentinel-server` or calls backend crates through narrow Tauri commands.
-- Add desktop runtime health/status messaging when the backend is not reachable.
-- Verify the built desktop shell at 1280x800 against seeded local data.
+- Verify the desktop shell at 1280x800 with seeded local data.
+- Add or document a safe desktop QA seed/reset path if the app-data database blocks repeatable verification.
 - Keep containment/destructive action controls disabled until Goal 12 policy enforcement exists.
 
 Definition of Done for the next pass:
 
-- Desktop app can start or reach a local backend without a separate manual terminal step.
-- Desktop app reports backend unavailable/degraded states clearly.
-- Desktop runtime has narrow backend access, not broad shell execution.
-- 1280x800 desktop layout is verified with seeded data.
+- Desktop direct command mode is visually verified in an actual 1280x800 Tauri window.
+- Desktop app reports runtime unavailable/degraded states clearly if app-data SQLite or command execution fails.
+- Desktop runtime continues to use narrow Tauri commands, not broad shell execution.
 - Web build, Rust tests, and desktop build/dev checks pass or have documented environmental blockers.
 
 Acceptance for the next pass:
 
-- An analyst can use the desktop shell, import a local log file, run detectors, promote an alert, summarize the case, close it, and see the updated timeline without manually starting backend services.
-- Backend unavailable state is obvious and recoverable.
+- An analyst can use the desktop shell against seeded data without manually starting backend services.
+- Runtime unavailable state is obvious and recoverable.
 - Destructive or containment actions remain visually distinct and unavailable without Goal 12 approval enforcement.
 
-### Parallel Goal A: Goal 19 Test Suite Expansion
-
-Parallel-safe work:
-
-- Move representative normalization and detector fixtures into `sample-data/`.
-- Add reusable CLI smoke tests for import, detection, case promotion, and case summary.
-- Add UI build and API contract checks to the regular verification path.
-
-### Parallel Goal B: Goal 11 Wazuh Connector Design Spike
+### Parallel Goal A: Goal 11 Wazuh Connector Design Spike
 
 Parallel-safe work:
 
@@ -435,35 +462,43 @@ Parallel-safe work:
 - Add connector health states without fetching remote data yet.
 - Identify the exact Wazuh API endpoints needed for alert polling and cursor persistence.
 
+### Parallel Goal B: Goal 12 Policy And Approval Engine Design
+
+Parallel-safe work:
+
+- Define action tiers, approval states, and auditable policy decision records.
+- Keep destructive and containment actions disabled until approval enforcement exists.
+- Add backend policy evaluation before any executable action route is introduced.
+
 ## Suggested Parallel Plan
 
 Use three short-lived implementation lanes:
 
 | Lane | Owner Type | Goal | Can Start Now | Stop Point |
 |---|---|---:|---|---|
-| Desktop Runtime | Frontend/Desktop | 10 | Yes | Backend lifecycle, reachability, Tauri runtime verification. |
-| Verification Harness | Backend | 19 | Yes | Reusable smoke coverage for the current CLI workflow. |
+| Desktop Runtime QA | Frontend/Desktop | 10 | Yes | Actual Tauri runtime verification at 1280x800 with seeded data. |
 | Wazuh Connector Prep | Backend | 11 | Yes | Config schema, health model, endpoint contract, no production polling yet. |
+| Policy Approval Prep | Backend/Security | 12 | Yes | Policy decision model and auditable approval queue skeleton. |
 
 The safest order is:
 
-1. Decide whether Tauri supervises `sentinel-server` or calls backend crates directly.
-2. Add desktop backend reachability and lifecycle handling.
-3. Verify the desktop shell at 1280x800 with seeded data.
-4. Add Wazuh connector config and health after UI can show connector status cleanly.
+1. Verify the desktop shell at 1280x800 with seeded data.
+2. Add Wazuh connector config and health after UI can show connector status cleanly.
+3. Start Goal 12 approval-gated action queue before enabling containment or destructive actions.
+4. Add detector deduplication and CI wiring for the smoke command.
 
 ## Near-Term Risks
 
-- Desktop still depends on a separately running local backend until lifecycle integration is implemented.
+- Desktop direct-command mode still needs real-window runtime QA before Goal 10 can be marked complete.
 - Case mutation flows need idempotent API behavior before exposing active buttons.
 - Detector deduplication is not implemented yet, so repeated detector runs can create repeated alerts.
 
 ## Next Decision Needed
 
-Choose the desktop runtime path for Goal 10:
+Choose the next implementation lane after desktop runtime QA:
 
-- Tauri launches and supervises `sentinel-server`.
-- Tauri commands call backend crates directly.
-- Hybrid: HTTP backend for server mode plus Tauri file picker for local file paths.
+- Goal 11 Wazuh connector configuration and health model.
+- Goal 12 policy decision and approval queue skeleton.
+- Goal 19 CI/release verification script using `sentinel-server --smoke-workflow`.
 
-Recommended for this app stage: hybrid. Keep HTTP routes for server mode and add Tauri file picker/runtime affordances for the desktop path.
+Recommended for this app stage: complete desktop runtime QA first, then add Goal 11 Wazuh connector configuration and health. That expands real cybersecurity coverage without enabling risky containment actions before Goal 12 approval enforcement exists.
