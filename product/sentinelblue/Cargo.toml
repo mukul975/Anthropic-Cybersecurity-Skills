@@ -1,6 +1,7 @@
 [workspace]
 resolver = "3"
 members = [
+  "apps/desktop/src-tauri",
   "crates/sentinel-api",
   "crates/sentinel-core",
   "crates/sentinel-db",

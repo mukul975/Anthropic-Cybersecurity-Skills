@@ -57,6 +57,7 @@ curl -sS -X POST http://127.0.0.1:8741/api/cases/1/close \
 cd apps/desktop
 npm install
 npm run tauri:dev
+cargo check -p sentinelblue-desktop
 ```
 
-The desktop shell uses the shared web app from `web/`.
+The desktop shell uses the shared web app from `web/`. It exposes a narrow native file picker command for import paths and expects the local API server on `http://127.0.0.1:8741`.

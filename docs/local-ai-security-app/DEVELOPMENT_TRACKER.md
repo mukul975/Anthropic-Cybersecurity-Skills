@@ -6,7 +6,7 @@ This tracker records current implementation status against [PRODUCTION_GOALS.md]
 
 ## Current Status
 
-SentinelBlue now has an initialized product workspace plus durable backend foundations. The workspace exists under `product/sentinelblue/` with a Rust workspace, server binary crate, web app, Tauri desktop shell, packaging directories, sample data, model notes, local development docs, SQLite persistence, durable skill indexing, FTS-backed skill search, DB-backed HTTP read endpoints, JSON/JSONL raw event import, MVP event normalization, deterministic detector engine, detector-created alerts/evidence, alert-to-case promotion, case timeline, case closure workflow, local model health/configuration, redacted evidence-cited case summaries, persisted model runs, richer normalized event API summaries, narrow HTTP mutation routes, and a multi-screen analyst workspace UI that can run the main local investigation workflow.
+SentinelBlue now has an initialized product workspace plus durable backend foundations. The workspace exists under `product/sentinelblue/` with a Rust workspace, server binary crate, web app, Tauri desktop shell, packaging directories, sample data, model notes, local development docs, SQLite persistence, durable skill indexing, FTS-backed skill search, DB-backed HTTP read endpoints, JSON/JSONL raw event import, MVP event normalization, deterministic detector engine, detector-created alerts/evidence, alert-to-case promotion, case timeline, case closure workflow, local model health/configuration, redacted evidence-cited case summaries, persisted model runs, richer normalized event API summaries, narrow HTTP mutation routes, a multi-screen analyst workspace UI that can run the main local investigation workflow, and a narrow Tauri file-picker command for local imports.
 
 ## Goal Status Board
 
@@ -21,7 +21,7 @@ SentinelBlue now has an initialized product workspace plus durable backend found
 | 7 | Detection Engine | Complete | Detector trait, versioned detector runs, initial deterministic detectors, alert creation, ATT&CK mappings, and evidence links are complete. |
 | 8 | Alerts And Cases | Complete | Detector findings create alerts, alerts promote to cases, case timeline includes evidence/alerts/notes/actions/model summaries, and closure requires disposition plus notes. |
 | 9 | Local Model Integration | Complete | Deterministic-only and OpenAI-compatible local model modes exist; model health, prompt redaction, evidence-cited summaries, unavailable-model guardrails, and model run persistence are complete. |
-| 10 | Desktop UI | Partial | Tauri shell exists; web UI now has dashboard, alert queue, case workspace with timeline, event search, skill library, connectors, model settings, policy settings, audit log, light/dark/system themes, and enabled local workflow actions through narrow HTTP mutation routes. Desktop runtime integration and file picker remain. |
+| 10 | Desktop UI | Partial | Tauri shell exists; web UI now has dashboard, alert queue, case workspace with timeline, event search, skill library, connectors, model settings, policy settings, audit log, light/dark/system themes, enabled local workflow actions through narrow HTTP mutation routes, and a desktop file picker for import paths. Desktop backend supervision and full runtime QA remain. |
 | 11 | Wazuh Connector | Later | Depends on DB, ingestion, normalization, and connector health model. |
 | 12 | Policy And Approval Engine | Later | Depends on actions, audit, users/roles direction, and backend execution boundaries. |
 | 13 | Server Mode | Partial scaffold complete | Server binary, simple HTTP serving, health, and read endpoints exist; config, auth, metrics, static web serving, and deployment still remain. |
@@ -30,7 +30,7 @@ SentinelBlue now has an initialized product workspace plus durable backend found
 | 16 | Network Security Expansion | Later | Should follow MVP ingestion, normalization, and detector engine. |
 | 17 | Security Hardening | Later | Must be continuous, but final acceptance depends on implemented surfaces. |
 | 18 | Packaging | Partial scaffold complete | Packaging directories exist; installable artifacts are not implemented. |
-| 19 | Test Suite | In progress | Rust unit tests now cover core, API contracts, DB migrations, DB inserts, FTS search, repository skill indexing, server routing, DB-backed read endpoints, richer event summaries, mutation routes, JSON/JSONL import, dedupe, MVP event normalization, detector runs, detector findings, alerts, evidence links, case promotion, case timelines, case closure requirements, model health, prompt redaction, deterministic summaries, and model run persistence. Web build verifies the analyst workspace UI. |
+| 19 | Test Suite | In progress | Rust unit tests now cover core, API contracts, DB migrations, DB inserts, FTS search, repository skill indexing, server routing, DB-backed read endpoints, richer event summaries, mutation routes, JSON/JSONL import, dedupe, MVP event normalization, detector runs, detector findings, alerts, evidence links, case promotion, case timelines, case closure requirements, model health, prompt redaction, deterministic summaries, and model run persistence. Web build verifies the analyst workspace UI; desktop cargo check verifies the Tauri command bridge. |
 | 20 | Beta Soak | Not started | Requires deployable beta. |
 | 21 | Production Release | Not started | Requires all prior production gates. |
 
@@ -358,16 +358,23 @@ Completed partial work:
 - Adds case detail timeline rendering for raw/normalized evidence, detector alerts, analyst notes/actions when present, and extracted model summaries.
 - Adds narrow HTTP mutation routes for import, detector run, alert promotion, case summary generation, and case closure.
 - Wires UI controls to mutation routes with busy states, structured error messages, success notices, and post-action refresh.
+- Adds a Tauri `select_import_file` command using the official dialog plugin.
+- Enables `withGlobalTauri` so the shared web UI can call only the registered desktop command when running in the shell.
+- Shows a `Choose file` control in desktop mode while keeping browser mode compatible with pasted local paths.
+- Adds a minimal local desktop icon so Tauri codegen and cargo checks work.
 - Keeps containment/destructive controls visually distinct and disabled until Goal 12 policy enforcement exists.
 
 Verified commands:
 
 ```bash
 cd product/sentinelblue
-cargo test -p sentinel-api -p sentinel-db -p sentinel-server
+cargo test --workspace --exclude sentinelblue-desktop
 
 cd product/sentinelblue/web
 npm run build
+
+cd product/sentinelblue
+cargo check -p sentinelblue-desktop
 ```
 
 Verification result:
@@ -375,24 +382,24 @@ Verification result:
 - Web production build passes.
 - Richer event summary API remains compatible with server route tests.
 - Mutation route tests cover import, detector run, alert promotion, case summary generation, case closure, and validation failures.
+- Desktop crate compiles with the dialog plugin and registered file-picker command.
 - Vite dev proxy returns backend `/api/health`, `/api/events`, and `/api/cases/{id}/timeline` from a seeded local server.
+- Full `cargo test` including the desktop crate was not rerun because the Tauri dependency graph exceeded available disk during this pass; desktop verification used `cargo check -p sentinelblue-desktop`.
 
 Remaining UI work:
 
-- Tauri desktop runtime integration for the local backend.
-- File picker/upload implementation for local imports.
+- Desktop backend supervision or direct crate command path.
+- Full desktop runtime verification with the actual Tauri window and seeded data.
 - Approval-gated action queue and active policy editing.
-- Full desktop runtime verification through Tauri.
 
 ## Recommended Next Work
 
 ### Primary Next Goal: Goal 10, Desktop Runtime Integration
 
-Goal 10 should remain the main next implementation target. The UI can now execute the main local investigation workflow through HTTP routes, so the next stable layer is making that workflow feel native in the Tauri desktop app.
+Goal 10 should remain the main next implementation target. The UI can now execute the main local investigation workflow and choose local files through Tauri, so the next stable layer is backend lifecycle integration in the desktop app.
 
 Recommended scope for the next development pass:
 
-- Add a Tauri-safe local file picker path for imports.
 - Decide whether desktop launches/manages `sentinel-server` or calls backend crates through narrow Tauri commands.
 - Add desktop runtime health/status messaging when the backend is not reachable.
 - Verify the built desktop shell at 1280x800 against seeded local data.
@@ -400,7 +407,7 @@ Recommended scope for the next development pass:
 
 Definition of Done for the next pass:
 
-- Desktop app can choose a local telemetry file and submit it to the import workflow.
+- Desktop app can start or reach a local backend without a separate manual terminal step.
 - Desktop app reports backend unavailable/degraded states clearly.
 - Desktop runtime has narrow backend access, not broad shell execution.
 - 1280x800 desktop layout is verified with seeded data.
@@ -408,7 +415,7 @@ Definition of Done for the next pass:
 
 Acceptance for the next pass:
 
-- An analyst can use the desktop shell, pick a local log file, import it, run detectors, promote an alert, summarize the case, close it, and see the updated timeline without typing file paths.
+- An analyst can use the desktop shell, import a local log file, run detectors, promote an alert, summarize the case, close it, and see the updated timeline without manually starting backend services.
 - Backend unavailable state is obvious and recoverable.
 - Destructive or containment actions remain visually distinct and unavailable without Goal 12 approval enforcement.
 
@@ -434,20 +441,20 @@ Use three short-lived implementation lanes:
 
 | Lane | Owner Type | Goal | Can Start Now | Stop Point |
 |---|---|---:|---|---|
-| Desktop Runtime | Frontend/Desktop | 10 | Yes | File picker, backend reachability, Tauri runtime verification. |
+| Desktop Runtime | Frontend/Desktop | 10 | Yes | Backend lifecycle, reachability, Tauri runtime verification. |
 | Verification Harness | Backend | 19 | Yes | Reusable smoke coverage for the current CLI workflow. |
 | Wazuh Connector Prep | Backend | 11 | Yes | Config schema, health model, endpoint contract, no production polling yet. |
 
 The safest order is:
 
-1. Verify the current HTTP mutation workflow end-to-end through the web UI.
-2. Add Tauri file selection and backend reachability handling.
+1. Decide whether Tauri supervises `sentinel-server` or calls backend crates directly.
+2. Add desktop backend reachability and lifecycle handling.
 3. Verify the desktop shell at 1280x800 with seeded data.
 4. Add Wazuh connector config and health after UI can show connector status cleanly.
 
 ## Near-Term Risks
 
-- Browser file upload still needs a desktop-safe local file picker path.
+- Desktop still depends on a separately running local backend until lifecycle integration is implemented.
 - Case mutation flows need idempotent API behavior before exposing active buttons.
 - Detector deduplication is not implemented yet, so repeated detector runs can create repeated alerts.
 

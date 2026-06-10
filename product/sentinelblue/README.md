@@ -113,3 +113,9 @@ cd apps/desktop
 npm install
 npm run tauri:dev
 ```
+
+Verify the desktop Rust command bridge:
+
+```bash
+cargo check -p sentinelblue-desktop
+```

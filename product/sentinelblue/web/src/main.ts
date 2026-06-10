@@ -17,6 +17,16 @@ import {
 } from "./api";
 import "./styles.css";
 
+declare global {
+  interface Window {
+    __TAURI__?: {
+      core?: {
+        invoke<T>(command: string, args?: Record<string, unknown>): Promise<T>;
+      };
+    };
+  }
+}
+
 type Screen =
   | "dashboard"
   | "alerts"
@@ -44,6 +54,7 @@ type AppState = {
   importFormat: "auto" | "json" | "jsonl";
   closeDisposition: string;
   closeNotes: string;
+  desktopBridgeAvailable: boolean;
   loading: boolean;
   timelineLoading: boolean;
   busyAction: string | null;
@@ -84,6 +95,7 @@ const state: AppState = {
   importFormat: "auto",
   closeDisposition: "benign",
   closeNotes: "",
+  desktopBridgeAvailable: hasTauriBridge(),
   loading: true,
   timelineLoading: false,
   busyAction: null,
@@ -479,11 +491,21 @@ function renderWorkflowPanel(): string {
         </label>
       </div>
       <div class="action-strip">
+        ${renderChooseFileButton()}
         <button class="button" type="button" data-action="import-file" ${busyAttr("import-file")}>Import logs</button>
         <button class="button secondary" type="button" data-action="run-detectors" ${busyAttr("run-detectors")}>Run detectors</button>
       </div>
+      <small>${desktopRuntimeText()}</small>
     </section>
   `;
+}
+
+function renderChooseFileButton(): string {
+  if (!state.desktopBridgeAvailable) {
+    return "";
+  }
+
+  return `<button class="button secondary" type="button" data-action="choose-import-file" ${busyAttr("choose-import-file")}>Choose file</button>`;
 }
 
 function renderField(
@@ -776,6 +798,9 @@ function bindFormState() {
 }
 
 function bindActionButtons() {
+  app.querySelector<HTMLButtonElement>("[data-action='choose-import-file']")?.addEventListener("click", () => {
+    void chooseImportFileAction();
+  });
   app.querySelector<HTMLButtonElement>("[data-action='import-file']")?.addEventListener("click", () => {
     void importFileAction();
   });
@@ -796,6 +821,35 @@ function bindActionButtons() {
       }
     });
   });
+}
+
+async function chooseImportFileAction() {
+  if (!hasTauriBridge()) {
+    state.error = "Desktop file picker is unavailable in this browser session.";
+    state.notice = null;
+    render();
+    return;
+  }
+
+  state.busyAction = "choose-import-file";
+  state.error = null;
+  state.notice = null;
+  render();
+
+  try {
+    const selectedPath = await window.__TAURI__?.core?.invoke<string | null>(
+      "select_import_file",
+    );
+    if (selectedPath) {
+      state.importPath = selectedPath;
+      state.notice = "Selected import file.";
+    }
+  } catch (error) {
+    state.error = error instanceof Error ? error.message : String(error);
+  } finally {
+    state.busyAction = null;
+    render();
+  }
 }
 
 async function importFileAction() {
@@ -912,6 +966,16 @@ async function refreshDataAfterMutation() {
 
 function busyAttr(_action: string): string {
   return state.busyAction ? "disabled" : "";
+}
+
+function hasTauriBridge(): boolean {
+  return typeof window.__TAURI__?.core?.invoke === "function";
+}
+
+function desktopRuntimeText(): string {
+  return state.desktopBridgeAvailable
+    ? "Desktop file picker available."
+    : "Desktop file picker unavailable in browser mode; paste a local path.";
 }
 
 function applyTheme() {
