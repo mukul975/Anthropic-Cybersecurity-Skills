@@ -68,6 +68,36 @@ cd Anthropic-Cybersecurity-Skills
 ```
 
 Works immediately with Claude Code, GitHub Copilot, OpenAI Codex CLI, Cursor, Gemini CLI, and any [agentskills.io](https://agentskills.io)-compatible platform. 
+
+## Backend verification for live agent builds
+
+If you are using the bundled agent/runtime in this repo, do not trust backend changes by vibe alone.
+
+Verification rule:
+
+- force the backend explicitly with `AGENT_BACKEND`
+- run the end-to-end harness before calling a backend change good
+- treat provider quota blocks as **blocked**, not as false passes
+
+Quick local truth check:
+
+```bash
+AGENT_BACKEND=gemini python tools/verify-agent-e2e.py --mode quick
+```
+
+Full live verification:
+
+```bash
+AGENT_BACKEND=gemini python tools/verify-agent-e2e.py --mode full
+```
+
+Named smoke scenarios:
+
+- `exact-load-skill`
+- `search-then-load`
+
+See [`tools/README.md`](tools/README.md) for the verification harness details.
+
 ## 🚀 Try it on the Playground
 
 Experience Casky.ai hands-on — no setup required.
