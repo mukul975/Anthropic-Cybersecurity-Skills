@@ -82,6 +82,7 @@ Verification rule:
 Quick local truth check:
 
 ```bash
+.venv/bin/python tools/verify-repo-hygiene.py
 AGENT_BACKEND=gemini python tools/verify-agent-e2e.py --mode quick
 ```
 

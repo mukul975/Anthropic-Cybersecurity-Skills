@@ -41,6 +41,7 @@ python3 -m venv .venv
 .venv/bin/python -m pip install -r requirements.txt
 
 # Default Gemini verification
+.venv/bin/python tools/verify-repo-hygiene.py
 .venv/bin/python tools/verify-agent-e2e.py
 
 # Local truth only (no live provider calls)
@@ -100,3 +101,20 @@ python tools/verify-runtime-guardrails.py
 - `ALLOW_LOCAL_FILE_TOOLS=1` intentionally restores broad local file access
 - binding beyond localhost requires `API_TOKEN` unless explicitly overridden
 - wildcard CORS with credentials is refused
+
+## verify-repo-hygiene.py
+
+Fast commit-surface hygiene check for this local runtime fork.
+
+### Usage
+
+```bash
+python tools/verify-repo-hygiene.py
+```
+
+### What it checks
+
+- generated, sensitive, lab, and prompt-workshop paths are not tracked
+- required ignore rules still cover local-only material
+- high-confidence API key/private-key/password patterns are absent from tracked files
+- `data/.env` is private to the local user when present
