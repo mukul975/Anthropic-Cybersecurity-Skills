@@ -84,6 +84,40 @@ python3 -m venv .venv
 - Valid backend credentials in `data/.env`
 - Backend selected with `AGENT_BACKEND` or default `gemini`
 
+## cyberagent-doctor.py
+
+One-command wrapper for the local runtime verification stack.
+
+### Usage
+
+```bash
+# CI-safe local checks only
+.venv/bin/python tools/cyberagent-doctor.py
+
+# Include live Gemini/provider calls
+.venv/bin/python tools/cyberagent-doctor.py --live
+
+# Force the Python executable, useful in CI
+python tools/cyberagent-doctor.py --python python
+
+# Show child-check output even when checks pass
+.venv/bin/python tools/cyberagent-doctor.py --verbose
+```
+
+### What it runs
+
+- `verify-repo-hygiene.py`
+- `verify-runtime-guardrails.py`
+- `verify-agent-e2e.py --mode quick --json`
+- `validate-skill.py --all`
+- with `--live`: full E2E for `exact-load-skill`
+- with `--live`: full E2E for `search-then-load`
+
+Default mode uses a dummy Gemini key only for the quick local import path, so
+CI can verify wiring without provider secrets or live network calls. `--live`
+loads `data/.env` and uses the real backend credentials already configured for
+the local runtime.
+
 ## verify-runtime-guardrails.py
 
 Fast local guardrail check that does not require a live LLM backend.

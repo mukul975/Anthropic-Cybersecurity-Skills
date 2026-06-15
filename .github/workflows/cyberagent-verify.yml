@@ -1,0 +1,52 @@
+name: Verify cyberagent runtime
+
+on:
+  push:
+    paths:
+      - ".github/workflows/cyberagent-verify.yml"
+      - ".gitignore"
+      - "README.md"
+      - "requirements.txt"
+      - "tools/**"
+      - "cyberagent/**"
+      - "cyberagent.py"
+      - "run_agent.py"
+      - "run_api.py"
+      - "run_mcp.py"
+      - "agent_legacy.py"
+      - "build_index.py"
+  pull_request:
+    paths:
+      - ".github/workflows/cyberagent-verify.yml"
+      - ".gitignore"
+      - "README.md"
+      - "requirements.txt"
+      - "tools/**"
+      - "cyberagent/**"
+      - "cyberagent.py"
+      - "run_agent.py"
+      - "run_api.py"
+      - "run_mcp.py"
+      - "agent_legacy.py"
+      - "build_index.py"
+
+jobs:
+  doctor:
+    runs-on: ubuntu-latest
+    name: Local runtime doctor
+    env:
+      AGENT_BACKEND: gemini
+      GEMINI_API_KEY: ci-local-verification-only
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install runtime dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Run local doctor
+        run: python tools/cyberagent-doctor.py --python python

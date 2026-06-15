@@ -82,14 +82,13 @@ Verification rule:
 Quick local truth check:
 
 ```bash
-.venv/bin/python tools/verify-repo-hygiene.py
-AGENT_BACKEND=gemini python tools/verify-agent-e2e.py --mode quick
+.venv/bin/python tools/cyberagent-doctor.py
 ```
 
 Full live verification:
 
 ```bash
-AGENT_BACKEND=gemini python tools/verify-agent-e2e.py --mode full
+.venv/bin/python tools/cyberagent-doctor.py --live
 ```
 
 Named smoke scenarios:
