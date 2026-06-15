@@ -91,6 +91,16 @@ Full live verification:
 .venv/bin/python tools/cyberagent-doctor.py --live
 ```
 
+After committing, check whether the branch is still only local:
+
+```bash
+.venv/bin/python tools/publish-status.py
+```
+
+Push when the doctor is green, the working tree is clean, and the publish
+status says the branch is ready. Commit means saved locally; push means sent to
+GitHub.
+
 Named smoke scenarios:
 
 - `exact-load-skill`

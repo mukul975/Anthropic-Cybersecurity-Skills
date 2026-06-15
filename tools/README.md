@@ -118,6 +118,31 @@ CI can verify wiring without provider secrets or live network calls. `--live`
 loads `data/.env` and uses the real backend credentials already configured for
 the local runtime.
 
+## publish-status.py
+
+Read-only helper for the post-commit question: "is this still only local, and
+what would I push?"
+
+### Usage
+
+```bash
+.venv/bin/python tools/publish-status.py
+
+# JSON for another tool or handoff note
+.venv/bin/python tools/publish-status.py --json
+```
+
+### What it checks
+
+- current branch
+- push remote URL
+- upstream tracking branch, if one exists
+- clean/dirty working tree
+- local commits waiting to publish
+- the next push command when the branch is clean and ahead
+
+It never stages, commits, pushes, or fetches.
+
 ## verify-runtime-guardrails.py
 
 Fast local guardrail check that does not require a live LLM backend.
