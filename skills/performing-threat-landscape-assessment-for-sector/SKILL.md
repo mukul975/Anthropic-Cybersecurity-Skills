@@ -1,7 +1,8 @@
 ---
 name: performing-threat-landscape-assessment-for-sector
-description: Conduct a sector-specific threat landscape assessment by analyzing threat actor targeting patterns, common attack
-  vectors, and industry-specific vulnerabilities to inform organizational risk management.
+description: Conduct a sector-specific threat landscape assessment by analyzing threat
+  actor targeting patterns, common attack vectors, and industry-specific vulnerabilities
+  to inform organizational risk management.
 domain: cybersecurity
 subdomain: threat-intelligence
 tags:
@@ -26,6 +27,12 @@ nist_csf:
 - ID.RA-05
 - DE.CM-01
 - DE.AE-02
+mitre_attack:
+- T1591
+- T1592
+- T1593
+- T1589
+- T1566
 ---
 # Performing Threat Landscape Assessment for Sector
 

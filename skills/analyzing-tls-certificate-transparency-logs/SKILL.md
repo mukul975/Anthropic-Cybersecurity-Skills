@@ -1,17 +1,20 @@
 ---
 name: analyzing-tls-certificate-transparency-logs
-description: 'Queries Certificate Transparency logs via crt.sh and pycrtsh to detect phishing domains, unauthorized certificate
-  issuance, and shadow IT. Monitors newly issued certificates for typosquatting and brand impersonation using Levenshtein
+description: 'Queries Certificate Transparency logs via crt.sh and pycrtsh to detect
+  phishing domains, unauthorized certificate issuance, and shadow IT. Monitors newly
+  issued certificates for typosquatting and brand impersonation using Levenshtein
   distance. Use for proactive phishing domain detection and certificate monitoring.
 
   '
 domain: cybersecurity
 subdomain: security-operations
 tags:
-- analyzing
-- tls
-- certificate
-- transparency
+- certificate-transparency
+- ct-logs
+- crt-sh
+- phishing-detection
+- tls-monitoring
+- security-operations
 version: '1.0'
 author: mahipal
 license: Apache-2.0
@@ -23,6 +26,11 @@ nist_csf:
 - RS.MA-01
 - GV.OV-01
 - DE.AE-02
+mitre_attack:
+- T1583.001
+- T1566.002
+- T1598.003
+- T1583.006
 ---
 
 # Analyzing TLS Certificate Transparency Logs

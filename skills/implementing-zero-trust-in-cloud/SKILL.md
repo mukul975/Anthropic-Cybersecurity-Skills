@@ -1,9 +1,10 @@
 ---
 name: implementing-zero-trust-in-cloud
-description: 'This skill guides organizations through implementing zero trust architecture in cloud environments following
-  NIST SP 800-207 and Google BeyondCorp principles. It covers identity-centric access controls, micro-segmentation, continuous
-  verification, device trust assessment, and deploying Identity-Aware Proxy to eliminate implicit network trust in AWS, Azure,
-  and GCP environments.
+description: 'This skill guides organizations through implementing zero trust architecture
+  in cloud environments following NIST SP 800-207 and Google BeyondCorp principles.
+  It covers identity-centric access controls, micro-segmentation, continuous verification,
+  device trust assessment, and deploying Identity-Aware Proxy to eliminate implicit
+  network trust in AWS, Azure, and GCP environments.
 
   '
 domain: cybersecurity
@@ -22,6 +23,11 @@ nist_csf:
 - ID.AM-08
 - GV.SC-06
 - DE.CM-01
+mitre_attack:
+- T1078.004
+- T1530
+- T1537
+- T1580
 ---
 
 # Implementing Zero Trust in Cloud

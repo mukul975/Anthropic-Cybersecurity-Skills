@@ -1,9 +1,10 @@
 ---
 name: performing-user-behavior-analytics
-description: 'Performs User and Entity Behavior Analytics (UEBA) to detect anomalous user activities including impossible
-  travel, unusual access patterns, privilege abuse, and insider threats using SIEM-based behavioral baselines and statistical
-  analysis. Use when SOC teams need to identify compromised accounts or insider threats through deviation from established
-  behavioral norms.
+description: 'Performs User and Entity Behavior Analytics (UEBA) to detect anomalous
+  user activities including impossible travel, unusual access patterns, privilege
+  abuse, and insider threats using SIEM-based behavioral baselines and statistical
+  analysis. Use when SOC teams need to identify compromised accounts or insider threats
+  through deviation from established behavioral norms.
 
   '
 domain: cybersecurity
@@ -24,6 +25,12 @@ nist_csf:
 - DE.AE-02
 - RS.MA-01
 - DE.AE-06
+mitre_attack:
+- T1078
+- T1685.002
+- T1685.005
+- T1566
+- T0816
 ---
 # Performing User Behavior Analytics
 

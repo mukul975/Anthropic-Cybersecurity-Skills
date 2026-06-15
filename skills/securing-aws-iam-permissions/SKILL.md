@@ -1,7 +1,8 @@
 ---
 name: securing-aws-iam-permissions
-description: 'This skill guides practitioners through hardening AWS Identity and Access Management configurations to enforce
-  least privilege access across cloud accounts. It covers IAM policy scoping, permission boundaries, Access Analyzer integration,
+description: 'This skill guides practitioners through hardening AWS Identity and Access
+  Management configurations to enforce least privilege access across cloud accounts.
+  It covers IAM policy scoping, permission boundaries, Access Analyzer integration,
   and credential rotation strategies to reduce the blast radius of compromised identities.
 
   '
@@ -21,6 +22,12 @@ nist_csf:
 - ID.AM-08
 - GV.SC-06
 - DE.CM-01
+mitre_attack:
+- T1078.004
+- T1530
+- T1537
+- T1580
+- T1003
 ---
 
 # Securing AWS IAM Permissions

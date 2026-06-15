@@ -1,7 +1,7 @@
 ---
 name: hardening-docker-daemon-configuration
-description: Harden the Docker daemon by configuring daemon.json with user namespace remapping, TLS authentication, rootless
-  mode, and CIS benchmark controls.
+description: Harden the Docker daemon by configuring daemon.json with user namespace
+  remapping, TLS authentication, rootless mode, and CIS benchmark controls.
 domain: cybersecurity
 subdomain: container-security
 tags:
@@ -19,6 +19,12 @@ nist_csf:
 - PR.IR-01
 - ID.AM-08
 - DE.CM-01
+mitre_attack:
+- T1610
+- T1611
+- T1609
+- T1525
+- T1553
 ---
 
 # Hardening Docker Daemon Configuration

@@ -1,7 +1,8 @@
 ---
 name: detecting-azure-service-principal-abuse
-description: Detect and investigate Azure service principal abuse including privilege escalation, credential compromise, admin
-  consent bypass, and unauthorized enumeration in Microsoft Entra ID environments.
+description: Detect and investigate Azure service principal abuse including privilege
+  escalation, credential compromise, admin consent bypass, and unauthorized enumeration
+  in Microsoft Entra ID environments.
 domain: cybersecurity
 subdomain: cloud-security
 tags:
@@ -27,6 +28,12 @@ nist_csf:
 - ID.AM-08
 - GV.SC-06
 - DE.CM-01
+mitre_attack:
+- T1078.004
+- T1098.001
+- T1528
+- T1550.001
+- T1098.003
 ---
 
 # Detecting Azure Service Principal Abuse

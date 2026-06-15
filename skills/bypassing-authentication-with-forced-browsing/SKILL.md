@@ -1,7 +1,8 @@
 ---
 name: bypassing-authentication-with-forced-browsing
-description: Discovering and accessing unprotected pages, APIs, and administrative interfaces by enumerating URLs and bypassing
-  authentication controls during authorized security assessments.
+description: Discovering and accessing unprotected pages, APIs, and administrative
+  interfaces by enumerating URLs and bypassing authentication controls during authorized
+  security assessments.
 domain: cybersecurity
 subdomain: web-application-security
 tags:
@@ -19,6 +20,10 @@ nist_csf:
 - ID.RA-01
 - PR.DS-10
 - DE.CM-01
+mitre_attack:
+- T1190
+- T1083
+- T1087
 ---
 
 # Bypassing Authentication with Forced Browsing

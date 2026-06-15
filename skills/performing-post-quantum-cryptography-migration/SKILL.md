@@ -1,10 +1,12 @@
 ---
 name: performing-post-quantum-cryptography-migration
-description: 'Assesses organizational readiness for post-quantum cryptography migration per NIST FIPS 203/204/205 standards.
-  Performs cryptographic inventory scanning to identify quantum-vulnerable algorithms (RSA, ECDH, ECDSA), evaluates hybrid
-  TLS configurations with X25519MLKEM768, and validates CRYSTALS-Kyber (ML-KEM) and CRYSTALS-Dilithium (ML-DSA) readiness.
-  Implements crypto-agility assessment using oqs-provider for OpenSSL. Use when planning or executing the transition from
-  classical to post-quantum cryptographic algorithms across enterprise infrastructure.
+description: 'Assesses organizational readiness for post-quantum cryptography migration
+  per NIST FIPS 203/204/205 standards. Performs cryptographic inventory scanning to
+  identify quantum-vulnerable algorithms (RSA, ECDH, ECDSA), evaluates hybrid TLS
+  configurations with X25519MLKEM768, and validates CRYSTALS-Kyber (ML-KEM) and CRYSTALS-Dilithium
+  (ML-DSA) readiness. Implements crypto-agility assessment using oqs-provider for
+  OpenSSL. Use when planning or executing the transition from classical to post-quantum
+  cryptographic algorithms across enterprise infrastructure.
 
   '
 domain: cybersecurity
@@ -26,6 +28,11 @@ nist_csf:
 - PR.DS-01
 - PR.DS-02
 - PR.DS-10
+mitre_attack:
+- T1600
+- T1573
+- T1553
+- T1040
 ---
 
 # Performing Post-Quantum Cryptography Migration

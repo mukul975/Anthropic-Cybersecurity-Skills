@@ -1,7 +1,7 @@
 ---
 name: detecting-kerberoasting-attacks
-description: Detect Kerberoasting attacks by monitoring for anomalous Kerberos TGS requests targeting service accounts with
-  SPNs for offline password cracking.
+description: Detect Kerberoasting attacks by monitoring for anomalous Kerberos TGS
+  requests targeting service accounts with SPNs for offline password cracking.
 domain: cybersecurity
 subdomain: threat-hunting
 tags:
@@ -26,6 +26,12 @@ nist_csf:
 - DE.AE-02
 - DE.AE-07
 - ID.RA-05
+mitre_attack:
+- T1046
+- T1057
+- T1082
+- T1083
+- T1003
 ---
 
 # Detecting Kerberoasting Attacks

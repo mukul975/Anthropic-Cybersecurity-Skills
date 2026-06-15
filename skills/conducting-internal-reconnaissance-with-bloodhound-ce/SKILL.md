@@ -1,7 +1,8 @@
 ---
 name: conducting-internal-reconnaissance-with-bloodhound-ce
-description: Conduct internal Active Directory reconnaissance using BloodHound Community Edition to map attack paths, identify
-  privilege escalation chains, and discover misconfigurations in domain environments.
+description: Conduct internal Active Directory reconnaissance using BloodHound Community
+  Edition to map attack paths, identify privilege escalation chains, and discover
+  misconfigurations in domain environments.
 domain: cybersecurity
 subdomain: red-teaming
 tags:
@@ -25,6 +26,11 @@ nist_csf:
 - ID.RA-01
 - GV.OV-02
 - DE.AE-07
+mitre_attack:
+- T1087.002
+- T1069.002
+- T1482
+- T1018
 ---
 # Conducting Internal Reconnaissance with BloodHound CE
 

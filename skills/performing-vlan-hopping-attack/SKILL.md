@@ -1,7 +1,8 @@
 ---
 name: performing-vlan-hopping-attack
-description: 'Simulates VLAN hopping attacks using switch spoofing and double tagging techniques in authorized environments
-  to test VLAN segmentation effectiveness and validate switch port security configurations against Layer 2 bypass attacks.
+description: 'Simulates VLAN hopping attacks using switch spoofing and double tagging
+  techniques in authorized environments to test VLAN segmentation effectiveness and
+  validate switch port security configurations against Layer 2 bypass attacks.
 
   '
 domain: cybersecurity
@@ -20,6 +21,12 @@ nist_csf:
 - DE.CM-01
 - ID.AM-03
 - PR.DS-02
+mitre_attack:
+- T1046
+- T1040
+- T1557
+- T1071
+- T1027
 ---
 # Performing VLAN Hopping Attack
 

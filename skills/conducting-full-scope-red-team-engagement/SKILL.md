@@ -1,7 +1,8 @@
 ---
 name: conducting-full-scope-red-team-engagement
-description: Plan and execute a comprehensive red team engagement covering reconnaissance through post-exploitation using
-  MITRE ATT&CK-aligned TTPs to evaluate an organization's detection and response capabilities.
+description: Plan and execute a comprehensive red team engagement covering reconnaissance
+  through post-exploitation using MITRE ATT&CK-aligned TTPs to evaluate an organization's
+  detection and response capabilities.
 domain: cybersecurity
 subdomain: red-teaming
 tags:
@@ -25,6 +26,11 @@ nist_csf:
 - ID.RA-01
 - GV.OV-02
 - DE.AE-07
+mitre_attack:
+- T1566.001
+- T1059.001
+- T1078
+- T1071.001
 ---
 
 # Conducting Full-Scope Red Team Engagement

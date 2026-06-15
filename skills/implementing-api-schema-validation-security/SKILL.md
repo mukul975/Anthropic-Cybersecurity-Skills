@@ -1,7 +1,8 @@
 ---
 name: implementing-api-schema-validation-security
-description: Implement API schema validation using OpenAPI specifications and JSON Schema to enforce input/output contracts
-  and prevent injection, data exposure, and mass assignment attacks.
+description: Implement API schema validation using OpenAPI specifications and JSON
+  Schema to enforce input/output contracts and prevent injection, data exposure, and
+  mass assignment attacks.
 domain: cybersecurity
 subdomain: api-security
 tags:
@@ -21,6 +22,12 @@ nist_csf:
 - ID.RA-01
 - PR.DS-10
 - DE.CM-01
+mitre_attack:
+- T1190
+- T1059.007
+- T1552.001
+- T1055
+- T1059
 ---
 
 # Implementing API Schema Validation Security

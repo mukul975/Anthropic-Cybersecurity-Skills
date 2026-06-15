@@ -1,10 +1,12 @@
 ---
 name: testing-oauth2-implementation-flaws
-description: 'Tests OAuth 2.0 and OpenID Connect implementations for security flaws including authorization code interception,
-  redirect URI manipulation, CSRF in OAuth flows, token leakage, scope escalation, and PKCE bypass. The tester evaluates the
-  authorization server, client application, and token handling for common misconfigurations that enable account takeover or
-  unauthorized access. Activates for requests involving OAuth security testing, OIDC vulnerability assessment, OAuth2 redirect
-  bypass, or authorization code flow testing.
+description: 'Tests OAuth 2.0 and OpenID Connect implementations for security flaws
+  including authorization code interception, redirect URI manipulation, CSRF in OAuth
+  flows, token leakage, scope escalation, and PKCE bypass. The tester evaluates the
+  authorization server, client application, and token handling for common misconfigurations
+  that enable account takeover or unauthorized access. Activates for requests involving
+  OAuth security testing, OIDC vulnerability assessment, OAuth2 redirect bypass, or
+  authorization code flow testing.
 
   '
 domain: cybersecurity
@@ -24,6 +26,12 @@ nist_csf:
 - ID.RA-01
 - PR.DS-10
 - DE.CM-01
+mitre_attack:
+- T1190
+- T1059.007
+- T1552.001
+- T1027
+- T1070
 ---
 # Testing OAuth2 Implementation Flaws
 

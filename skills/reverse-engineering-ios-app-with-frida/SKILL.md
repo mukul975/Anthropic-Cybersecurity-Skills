@@ -1,9 +1,11 @@
 ---
 name: reverse-engineering-ios-app-with-frida
-description: 'Reverse engineers iOS applications using Frida dynamic instrumentation to understand internal logic, extract
-  encryption keys, bypass security controls, and discover hidden functionality without source code access. Use when performing
-  authorized iOS penetration testing, analyzing proprietary protocols, understanding obfuscated logic, or extracting runtime
-  secrets from iOS binaries. Activates for requests involving iOS reverse engineering, Frida iOS hooking, Objective-C/Swift
+description: 'Reverse engineers iOS applications using Frida dynamic instrumentation
+  to understand internal logic, extract encryption keys, bypass security controls,
+  and discover hidden functionality without source code access. Use when performing
+  authorized iOS penetration testing, analyzing proprietary protocols, understanding
+  obfuscated logic, or extracting runtime secrets from iOS binaries. Activates for
+  requests involving iOS reverse engineering, Frida iOS hooking, Objective-C/Swift
   method tracing, or iOS binary analysis.
 
   '
@@ -24,6 +26,12 @@ nist_csf:
 - PR.AA-05
 - ID.RA-01
 - DE.CM-09
+mitre_attack:
+- T1059
+- T1056
+- T1036
+- T1078
+- T1573
 ---
 # Reverse Engineering iOS App with Frida
 

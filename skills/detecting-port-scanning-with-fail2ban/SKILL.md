@@ -1,8 +1,8 @@
 ---
 name: detecting-port-scanning-with-fail2ban
-description: 'Configures Fail2ban with custom filters and actions to detect port scanning activity, SSH brute force attempts,
-  and network reconnaissance, automatically banning offending IP addresses and alerting security teams to suspicious network
-  probing.
+description: 'Configures Fail2ban with custom filters and actions to detect port scanning
+  activity, SSH brute force attempts, and network reconnaissance, automatically banning
+  offending IP addresses and alerting security teams to suspicious network probing.
 
   '
 domain: cybersecurity
@@ -21,6 +21,12 @@ nist_csf:
 - DE.CM-01
 - ID.AM-03
 - PR.DS-02
+mitre_attack:
+- T1046
+- T1040
+- T1557
+- T1071
+- T1595
 ---
 # Detecting Port Scanning with Fail2ban
 

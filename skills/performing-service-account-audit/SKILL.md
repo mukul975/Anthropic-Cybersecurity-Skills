@@ -1,7 +1,8 @@
 ---
 name: performing-service-account-audit
-description: Audit service accounts across enterprise infrastructure to identify orphaned, over-privileged, and non-compliant
-  accounts. This skill covers discovery of service accounts in Active Directory, cloud pl
+description: Audit service accounts across enterprise infrastructure to identify orphaned,
+  over-privileged, and non-compliant accounts. This skill covers discovery of service
+  accounts in Active Directory, cloud pl
 domain: cybersecurity
 subdomain: identity-access-management
 tags:
@@ -19,6 +20,12 @@ nist_csf:
 - PR.AA-02
 - PR.AA-05
 - PR.AA-06
+mitre_attack:
+- T1078
+- T1110
+- T1556
+- T1098
+- T1069
 ---
 # Performing Service Account Audit
 

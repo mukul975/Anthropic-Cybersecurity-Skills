@@ -1,10 +1,12 @@
 ---
 name: performing-ransomware-tabletop-exercise
-description: 'Plans and facilitates tabletop exercises simulating ransomware incidents to test organizational readiness, decision-making,
-  and communication procedures. Designs realistic scenarios based on current ransomware threat actors (LockBit, ALPHV/BlackCat,
-  Cl0p), injects covering double extortion, backup destruction, and regulatory notification requirements. Evaluates participant
-  responses against NIST CSF and CISA guidelines. Activates for requests involving ransomware tabletop, incident response
-  exercise, or ransomware readiness drill.
+description: 'Plans and facilitates tabletop exercises simulating ransomware incidents
+  to test organizational readiness, decision-making, and communication procedures.
+  Designs realistic scenarios based on current ransomware threat actors (LockBit,
+  ALPHV/BlackCat, Cl0p), injects covering double extortion, backup destruction, and
+  regulatory notification requirements. Evaluates participant responses against NIST
+  CSF and CISA guidelines. Activates for requests involving ransomware tabletop, incident
+  response exercise, or ransomware readiness drill.
 
   '
 domain: cybersecurity
@@ -23,6 +25,12 @@ nist_csf:
 - RS.MA-01
 - RC.RP-01
 - PR.IR-01
+mitre_attack:
+- T1078
+- T1190
+- T1059
+- T1486
+- T1490
 ---
 # Performing Ransomware Tabletop Exercise
 

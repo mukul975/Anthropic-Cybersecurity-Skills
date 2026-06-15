@@ -1,7 +1,8 @@
 ---
 name: performing-cloud-incident-containment-procedures
-description: Execute cloud-native incident containment across AWS, Azure, and GCP by isolating compromised resources, revoking
-  credentials, preserving forensic evidence, and applying security group restrictions to prevent lateral movement.
+description: Execute cloud-native incident containment across AWS, Azure, and GCP
+  by isolating compromised resources, revoking credentials, preserving forensic evidence,
+  and applying security group restrictions to prevent lateral movement.
 domain: cybersecurity
 subdomain: incident-response
 tags:
@@ -14,11 +15,11 @@ tags:
 - credential-revocation
 - network-isolation
 mitre_attack:
+- T1486
+- T1490
+- T1070
 - T1078
-- T1537
-- T1580
-- T1525
-- T1098
+- T1021
 version: '1.0'
 author: mahipal
 license: Apache-2.0

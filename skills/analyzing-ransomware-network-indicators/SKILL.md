@@ -1,7 +1,8 @@
 ---
 name: analyzing-ransomware-network-indicators
-description: Identify ransomware network indicators including C2 beaconing patterns, TOR exit node connections, data exfiltration
-  flows, and encryption key exchange via Zeek conn.log and NetFlow analysis
+description: Identify ransomware network indicators including C2 beaconing patterns,
+  TOR exit node connections, data exfiltration flows, and encryption key exchange
+  via Zeek conn.log and NetFlow analysis
 domain: cybersecurity
 subdomain: threat-hunting
 tags:
@@ -26,6 +27,12 @@ nist_csf:
 - DE.AE-02
 - DE.AE-07
 - ID.RA-05
+mitre_attack:
+- T1071.001
+- T1573
+- T1048
+- T1567.002
+- T1486
 ---
 
 # Analyzing Ransomware Network Indicators

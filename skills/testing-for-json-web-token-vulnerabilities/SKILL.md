@@ -1,7 +1,8 @@
 ---
 name: testing-for-json-web-token-vulnerabilities
-description: Test JWT implementations for critical vulnerabilities including algorithm confusion, none algorithm bypass, kid
-  parameter injection, and weak secret exploitation to achieve authentication bypass and privilege escalation.
+description: Test JWT implementations for critical vulnerabilities including algorithm
+  confusion, none algorithm bypass, kid parameter injection, and weak secret exploitation
+  to achieve authentication bypass and privilege escalation.
 domain: cybersecurity
 subdomain: web-application-security
 tags:
@@ -20,6 +21,12 @@ nist_csf:
 - ID.RA-01
 - PR.DS-10
 - DE.CM-01
+mitre_attack:
+- T1190
+- T1059.007
+- T1505.003
+- T1083
+- T1068
 ---
 
 # Testing for JSON Web Token Vulnerabilities

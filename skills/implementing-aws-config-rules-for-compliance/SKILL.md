@@ -1,7 +1,8 @@
 ---
 name: implementing-aws-config-rules-for-compliance
-description: 'Implementing AWS Config rules for continuous compliance monitoring of AWS resources, deploying managed and custom
-  rules aligned to CIS and PCI DSS frameworks, configuring automatic remediation with SSM Automation, and aggregating compliance
+description: 'Implementing AWS Config rules for continuous compliance monitoring of
+  AWS resources, deploying managed and custom rules aligned to CIS and PCI DSS frameworks,
+  configuring automatic remediation with SSM Automation, and aggregating compliance
   data across accounts.
 
   '
@@ -22,6 +23,11 @@ nist_csf:
 - ID.AM-08
 - GV.SC-06
 - DE.CM-01
+mitre_attack:
+- T1078.004
+- T1530
+- T1537
+- T1580
 ---
 
 # Implementing AWS Config Rules for Compliance

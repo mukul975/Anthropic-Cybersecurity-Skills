@@ -1,7 +1,8 @@
 ---
 name: performing-aws-account-enumeration-with-scout-suite
-description: Perform comprehensive security posture assessment of AWS accounts using ScoutSuite to enumerate resources, identify
-  misconfigurations, and generate actionable security reports.
+description: Perform comprehensive security posture assessment of AWS accounts using
+  ScoutSuite to enumerate resources, identify misconfigurations, and generate actionable
+  security reports.
 domain: cybersecurity
 subdomain: cloud-security
 tags:
@@ -21,6 +22,11 @@ nist_csf:
 - ID.AM-08
 - GV.SC-06
 - DE.CM-01
+mitre_attack:
+- T1078.004
+- T1530
+- T1537
+- T1580
 ---
 
 # Performing AWS Account Enumeration with ScoutSuite

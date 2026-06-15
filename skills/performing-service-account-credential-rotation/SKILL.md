@@ -1,7 +1,8 @@
 ---
 name: performing-service-account-credential-rotation
-description: Automate credential rotation for service accounts across Active Directory, cloud platforms, and application databases
-  to eliminate stale secrets and reduce compromise risk.
+description: Automate credential rotation for service accounts across Active Directory,
+  cloud platforms, and application databases to eliminate stale secrets and reduce
+  compromise risk.
 domain: cybersecurity
 subdomain: identity-access-management
 tags:
@@ -19,6 +20,12 @@ nist_csf:
 - PR.AA-02
 - PR.AA-05
 - PR.AA-06
+mitre_attack:
+- T1078
+- T1110
+- T1556
+- T1098
+- T1003
 ---
 
 # Performing Service Account Credential Rotation

@@ -1,7 +1,8 @@
 ---
 name: performing-packet-injection-attack
-description: 'Crafts and injects custom network packets using Scapy, hping3, and Nemesis during authorized security assessments
-  to test firewall rules, IDS detection, protocol handling, and network stack resilience against malformed and spoofed traffic.
+description: 'Crafts and injects custom network packets using Scapy, hping3, and Nemesis
+  during authorized security assessments to test firewall rules, IDS detection, protocol
+  handling, and network stack resilience against malformed and spoofed traffic.
 
   '
 domain: cybersecurity
@@ -20,6 +21,12 @@ nist_csf:
 - DE.CM-01
 - ID.AM-03
 - PR.DS-02
+mitre_attack:
+- T1046
+- T1040
+- T1557
+- T1071
+- T1055
 ---
 # Performing Packet Injection Attack
 

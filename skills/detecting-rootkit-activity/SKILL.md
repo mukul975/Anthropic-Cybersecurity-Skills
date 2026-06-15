@@ -1,9 +1,10 @@
 ---
 name: detecting-rootkit-activity
-description: 'Detects rootkit presence on compromised systems by identifying hidden processes, hooked system calls, modified
-  kernel structures, hidden files, and covert network connections using memory forensics, cross-view detection, and integrity
-  checking techniques. Activates for requests involving rootkit detection, hidden process discovery, kernel integrity checking,
-  or system call hook analysis.
+description: 'Detects rootkit presence on compromised systems by identifying hidden
+  processes, hooked system calls, modified kernel structures, hidden files, and covert
+  network connections using memory forensics, cross-view detection, and integrity
+  checking techniques. Activates for requests involving rootkit detection, hidden
+  process discovery, kernel integrity checking, or system call hook analysis.
 
   '
 domain: cybersecurity
@@ -22,6 +23,11 @@ nist_csf:
 - RS.AN-03
 - ID.RA-01
 - DE.CM-01
+mitre_attack:
+- T1014
+- T1547.006
+- T1564.001
+- T1574.006
 ---
 
 # Detecting Rootkit Activity

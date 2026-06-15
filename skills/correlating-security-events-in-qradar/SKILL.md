@@ -1,8 +1,10 @@
 ---
 name: correlating-security-events-in-qradar
-description: 'Correlates security events in IBM QRadar SIEM using AQL (Ariel Query Language), custom rules, building blocks,
-  and offense management to detect multi-stage attacks across network, endpoint, and application log sources. Use when SOC
-  analysts need to investigate QRadar offenses, build correlation rules, or tune detection logic for reducing false positives.
+description: 'Correlates security events in IBM QRadar SIEM using AQL (Ariel Query
+  Language), custom rules, building blocks, and offense management to detect multi-stage
+  attacks across network, endpoint, and application log sources. Use when SOC analysts
+  need to investigate QRadar offenses, build correlation rules, or tune detection
+  logic for reducing false positives.
 
   '
 domain: cybersecurity
@@ -23,6 +25,12 @@ nist_csf:
 - DE.AE-02
 - RS.MA-01
 - DE.AE-06
+mitre_attack:
+- T1078
+- T1110.003
+- T1021
+- T1071.001
+- T1041
 ---
 # Correlating Security Events in QRadar
 

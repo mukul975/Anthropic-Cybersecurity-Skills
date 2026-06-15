@@ -1,7 +1,8 @@
 ---
 name: implementing-patch-management-workflow
-description: Patch management is the systematic process of identifying, testing, deploying, and verifying software updates
-  to remediate vulnerabilities across an organization's IT infrastructure. An effective patc
+description: Patch management is the systematic process of identifying, testing, deploying,
+  and verifying software updates to remediate vulnerabilities across an organization's
+  IT infrastructure. An effective patc
 domain: cybersecurity
 subdomain: vulnerability-management
 tags:
@@ -19,6 +20,10 @@ nist_csf:
 - ID.RA-02
 - ID.IM-02
 - ID.RA-06
+mitre_attack:
+- T1190
+- T1203
+- T1068
 ---
 # Implementing Patch Management Workflow
 

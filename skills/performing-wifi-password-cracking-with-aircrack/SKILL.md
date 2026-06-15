@@ -1,7 +1,8 @@
 ---
 name: performing-wifi-password-cracking-with-aircrack
-description: 'Captures WPA/WPA2 handshakes and performs offline password cracking using aircrack-ng, hashcat, and dictionary
-  attacks during authorized wireless security assessments to evaluate passphrase strength and wireless network security posture.
+description: 'Captures WPA/WPA2 handshakes and performs offline password cracking
+  using aircrack-ng, hashcat, and dictionary attacks during authorized wireless security
+  assessments to evaluate passphrase strength and wireless network security posture.
 
   '
 domain: cybersecurity
@@ -20,6 +21,12 @@ nist_csf:
 - DE.CM-01
 - ID.AM-03
 - PR.DS-02
+mitre_attack:
+- T1046
+- T1040
+- T1557
+- T1071
+- T1591
 ---
 # Performing WiFi Password Cracking with Aircrack-ng
 

@@ -1,9 +1,11 @@
 ---
 name: performing-iot-security-assessment
-description: 'Performs comprehensive security assessments of IoT devices and their ecosystems by testing hardware interfaces,
-  firmware, network communications, cloud APIs, and companion mobile applications. The tester uses firmware extraction and
-  analysis, hardware debugging via UART and JTAG, network protocol analysis, and runtime exploitation to identify vulnerabilities
-  across all layers of the IoT stack. Activates for requests involving IoT security testing, embedded device assessment, firmware
+description: 'Performs comprehensive security assessments of IoT devices and their
+  ecosystems by testing hardware interfaces, firmware, network communications, cloud
+  APIs, and companion mobile applications. The tester uses firmware extraction and
+  analysis, hardware debugging via UART and JTAG, network protocol analysis, and runtime
+  exploitation to identify vulnerabilities across all layers of the IoT stack. Activates
+  for requests involving IoT security testing, embedded device assessment, firmware
   security analysis, or smart device penetration testing.
 
   '
@@ -23,6 +25,12 @@ nist_csf:
 - ID.RA-06
 - GV.OV-02
 - DE.AE-07
+mitre_attack:
+- T1595
+- T1190
+- T1059
+- T1078
+- T1078.004
 ---
 # Performing IoT Security Assessment
 

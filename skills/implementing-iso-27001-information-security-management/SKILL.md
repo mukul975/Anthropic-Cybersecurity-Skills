@@ -1,13 +1,30 @@
 ---
 name: implementing-iso-27001-information-security-management
-description: ISO/IEC 27001:2022 is the international standard for establishing, implementing, maintaining, and continually improving an Information Security Management System (ISMS). This skill covers the complete
+description: ISO/IEC 27001:2022 is the international standard for establishing, implementing,
+  maintaining, and continually improving an Information Security Management System
+  (ISMS). This skill covers the complete
 domain: cybersecurity
 subdomain: compliance-governance
-tags: [compliance, governance, iso27001, isms, risk-management, certification]
-nist_csf: [GV.OC-01, GV.RM-01, GV.PO-01, ID.RA-01, PR.DS-01]
-version: "1.0"
+tags:
+- compliance
+- governance
+- iso27001
+- isms
+- risk-management
+- certification
+nist_csf:
+- GV.OC-01
+- GV.RM-01
+- GV.PO-01
+- ID.RA-01
+- PR.DS-01
+version: '1.0'
 author: mahipal
 license: Apache-2.0
+mitre_attack:
+- T1078
+- T1530
+- T1685.002
 ---
 # Implementing ISO 27001 Information Security Management
 

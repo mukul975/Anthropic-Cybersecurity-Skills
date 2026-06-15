@@ -1,7 +1,8 @@
 ---
 name: implementing-supply-chain-security-with-in-toto
-description: Implement software supply chain integrity verification for container builds using the in-toto framework to create
-  cryptographically signed attestations across CI/CD pipeline steps.
+description: Implement software supply chain integrity verification for container
+  builds using the in-toto framework to create cryptographically signed attestations
+  across CI/CD pipeline steps.
 domain: cybersecurity
 subdomain: container-security
 tags:
@@ -22,6 +23,12 @@ nist_csf:
 - PR.IR-01
 - ID.AM-08
 - DE.CM-01
+mitre_attack:
+- T1610
+- T1611
+- T1609
+- T1525
+- T1195
 ---
 
 # Implementing Supply Chain Security with in-toto

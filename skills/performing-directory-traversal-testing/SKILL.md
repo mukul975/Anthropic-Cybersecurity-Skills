@@ -1,7 +1,7 @@
 ---
 name: performing-directory-traversal-testing
-description: Testing web applications for path traversal vulnerabilities that allow reading or writing arbitrary files on
-  the server by manipulating file path parameters.
+description: Testing web applications for path traversal vulnerabilities that allow
+  reading or writing arbitrary files on the server by manipulating file path parameters.
 domain: cybersecurity
 subdomain: web-application-security
 tags:
@@ -19,6 +19,11 @@ nist_csf:
 - ID.RA-01
 - PR.DS-10
 - DE.CM-01
+mitre_attack:
+- T1190
+- T1059.007
+- T1505.003
+- T1083
 ---
 
 # Performing Directory Traversal Testing

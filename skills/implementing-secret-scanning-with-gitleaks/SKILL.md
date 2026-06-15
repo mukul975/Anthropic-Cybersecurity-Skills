@@ -1,8 +1,10 @@
 ---
 name: implementing-secret-scanning-with-gitleaks
-description: 'This skill covers implementing Gitleaks for detecting and preventing hardcoded secrets in git repositories.
-  It addresses configuring pre-commit hooks, CI/CD pipeline integration, custom rule authoring for organization-specific secrets,
-  baseline management for existing repositories, and remediation workflows for exposed credentials.
+description: 'This skill covers implementing Gitleaks for detecting and preventing
+  hardcoded secrets in git repositories. It addresses configuring pre-commit hooks,
+  CI/CD pipeline integration, custom rule authoring for organization-specific secrets,
+  baseline management for existing repositories, and remediation workflows for exposed
+  credentials.
 
   '
 domain: cybersecurity
@@ -22,6 +24,12 @@ nist_csf:
 - GV.SC-07
 - ID.IM-04
 - PR.PS-04
+mitre_attack:
+- T1195
+- T1554
+- T1059.004
+- T1003
+- T1110
 ---
 
 # Implementing Secret Scanning with Gitleaks

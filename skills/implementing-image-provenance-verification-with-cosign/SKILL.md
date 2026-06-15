@@ -1,7 +1,7 @@
 ---
 name: implementing-image-provenance-verification-with-cosign
-description: Sign and verify container image provenance using Sigstore Cosign with keyless OIDC-based signing, attestations,
-  and Kubernetes admission enforcement.
+description: Sign and verify container image provenance using Sigstore Cosign with
+  keyless OIDC-based signing, attestations, and Kubernetes admission enforcement.
 domain: cybersecurity
 subdomain: container-security
 tags:
@@ -20,6 +20,12 @@ nist_csf:
 - PR.IR-01
 - ID.AM-08
 - DE.CM-01
+mitre_attack:
+- T1610
+- T1611
+- T1609
+- T1525
+- T1195
 ---
 
 # Implementing Image Provenance Verification with Cosign

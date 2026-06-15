@@ -1,9 +1,11 @@
 ---
 name: processing-stix-taxii-feeds
-description: 'Processes STIX 2.1 threat intelligence bundles delivered via TAXII 2.1 servers, normalizing objects into platform-native
-  schemas and routing them to appropriate consuming systems. Use when onboarding new TAXII collection endpoints, automating
-  bi-directional intelligence sharing with ISACs, or building pipeline validation for malformed STIX bundles. Activates for
-  requests involving OASIS STIX, TAXII server configuration, MISP TAXII, or Cortex XSOAR feed integrations.
+description: 'Processes STIX 2.1 threat intelligence bundles delivered via TAXII 2.1
+  servers, normalizing objects into platform-native schemas and routing them to appropriate
+  consuming systems. Use when onboarding new TAXII collection endpoints, automating
+  bi-directional intelligence sharing with ISACs, or building pipeline validation
+  for malformed STIX bundles. Activates for requests involving OASIS STIX, TAXII server
+  configuration, MISP TAXII, or Cortex XSOAR feed integrations.
 
   '
 domain: cybersecurity
@@ -25,6 +27,11 @@ nist_csf:
 - ID.RA-05
 - DE.CM-01
 - DE.AE-02
+mitre_attack:
+- T1591
+- T1592
+- T1593
+- T1589
 ---
 # Processing STIX/TAXII Feeds
 

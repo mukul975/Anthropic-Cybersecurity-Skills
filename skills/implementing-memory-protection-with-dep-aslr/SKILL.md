@@ -1,9 +1,11 @@
 ---
 name: implementing-memory-protection-with-dep-aslr
-description: 'Implements memory protection mechanisms including DEP (Data Execution Prevention), ASLR (Address Space Layout
-  Randomization), CFG (Control Flow Guard), and other exploit mitigations to prevent memory corruption attacks. Use when hardening
-  endpoints against buffer overflow exploits, ROP chains, and code injection. Activates for requests involving memory protection,
-  exploit mitigation, DEP, ASLR, or CFG configuration.
+description: 'Implements memory protection mechanisms including DEP (Data Execution
+  Prevention), ASLR (Address Space Layout Randomization), CFG (Control Flow Guard),
+  and other exploit mitigations to prevent memory corruption attacks. Use when hardening
+  endpoints against buffer overflow exploits, ROP chains, and code injection. Activates
+  for requests involving memory protection, exploit mitigation, DEP, ASLR, or CFG
+  configuration.
 
   '
 domain: cybersecurity
@@ -23,6 +25,12 @@ nist_csf:
 - PR.PS-02
 - DE.CM-01
 - PR.IR-01
+mitre_attack:
+- T1055
+- T1547
+- T1059
+- T1036
+- T1190
 ---
 # Implementing Memory Protection with DEP and ASLR
 

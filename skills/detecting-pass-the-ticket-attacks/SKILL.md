@@ -1,7 +1,8 @@
 ---
 name: detecting-pass-the-ticket-attacks
-description: Detect Kerberos Pass-the-Ticket (PtT) attacks by analyzing Windows Event IDs 4768, 4769, and 4771 for anomalous
-  ticket usage patterns in Splunk and Elastic SIEM
+description: Detect Kerberos Pass-the-Ticket (PtT) attacks by analyzing Windows Event
+  IDs 4768, 4769, and 4771 for anomalous ticket usage patterns in Splunk and Elastic
+  SIEM
 domain: cybersecurity
 subdomain: threat-detection
 tags:
@@ -26,6 +27,12 @@ nist_csf:
 - DE.AE-02
 - DE.AE-06
 - ID.RA-05
+mitre_attack:
+- T1078
+- T1190
+- T1059
+- T1003
+- T1110
 ---
 
 # Detecting Pass-the-Ticket Attacks

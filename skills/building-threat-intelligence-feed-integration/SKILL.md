@@ -1,9 +1,10 @@
 ---
 name: building-threat-intelligence-feed-integration
-description: 'Builds automated threat intelligence feed integration pipelines connecting STIX/TAXII feeds, open-source threat
-  intel, and commercial TI platforms into SIEM and security tools for real-time IOC matching and alerting. Use when SOC teams
-  need to operationalize threat intelligence by automating feed ingestion, normalization, scoring, and distribution to detection
-  systems.
+description: 'Builds automated threat intelligence feed integration pipelines connecting
+  STIX/TAXII feeds, open-source threat intel, and commercial TI platforms into SIEM
+  and security tools for real-time IOC matching and alerting. Use when SOC teams need
+  to operationalize threat intelligence by automating feed ingestion, normalization,
+  scoring, and distribution to detection systems.
 
   '
 domain: cybersecurity
@@ -25,6 +26,10 @@ nist_csf:
 - DE.AE-02
 - RS.MA-01
 - DE.AE-06
+mitre_attack:
+- T1071
+- T1105
+- T1588.001
 ---
 # Building Threat Intelligence Feed Integration
 

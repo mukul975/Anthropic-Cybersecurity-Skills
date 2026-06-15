@@ -1,7 +1,8 @@
 ---
 name: performing-content-security-policy-bypass
-description: Analyze and bypass Content Security Policy implementations to achieve cross-site scripting by exploiting misconfigurations,
-  JSONP endpoints, unsafe directives, and policy injection techniques.
+description: Analyze and bypass Content Security Policy implementations to achieve
+  cross-site scripting by exploiting misconfigurations, JSONP endpoints, unsafe directives,
+  and policy injection techniques.
 domain: cybersecurity
 subdomain: web-application-security
 tags:
@@ -20,6 +21,12 @@ nist_csf:
 - ID.RA-01
 - PR.DS-10
 - DE.CM-01
+mitre_attack:
+- T1190
+- T1059.007
+- T1505.003
+- T1083
+- T1055
 ---
 
 # Performing Content Security Policy Bypass

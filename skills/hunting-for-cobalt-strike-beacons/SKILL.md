@@ -1,7 +1,8 @@
 ---
 name: hunting-for-cobalt-strike-beacons
-description: Detect Cobalt Strike beacon network activity using default TLS certificate signatures (serial 8BB00EE), JA3/JA3S/JARM
-  fingerprints, HTTP C2 profile pattern matching, beacon jitter analysis, and named pipe detection via Zeek, Suricata, and
+description: Detect Cobalt Strike beacon network activity using default TLS certificate
+  signatures (serial 8BB00EE), JA3/JA3S/JARM fingerprints, HTTP C2 profile pattern
+  matching, beacon jitter analysis, and named pipe detection via Zeek, Suricata, and
   Python PCAP analysis.
 domain: cybersecurity
 subdomain: threat-hunting
@@ -23,6 +24,12 @@ nist_csf:
 - DE.AE-02
 - DE.AE-07
 - ID.RA-05
+mitre_attack:
+- T1046
+- T1057
+- T1082
+- T1083
+- T1071
 ---
 
 # Hunting for Cobalt Strike Beacons

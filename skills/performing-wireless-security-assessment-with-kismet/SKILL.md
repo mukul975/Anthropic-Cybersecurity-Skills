@@ -1,7 +1,8 @@
 ---
 name: performing-wireless-security-assessment-with-kismet
-description: Conduct wireless network security assessments using Kismet to detect rogue access points, hidden SSIDs, weak
-  encryption, and unauthorized clients through passive RF monitoring.
+description: Conduct wireless network security assessments using Kismet to detect
+  rogue access points, hidden SSIDs, weak encryption, and unauthorized clients through
+  passive RF monitoring.
 domain: cybersecurity
 subdomain: network-security
 tags:
@@ -22,6 +23,12 @@ nist_csf:
 - DE.CM-01
 - ID.AM-03
 - PR.DS-02
+mitre_attack:
+- T1046
+- T1040
+- T1557
+- T1071
+- T1573
 ---
 
 # Performing Wireless Security Assessment with Kismet

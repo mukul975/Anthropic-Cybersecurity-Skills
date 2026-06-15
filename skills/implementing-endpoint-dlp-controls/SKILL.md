@@ -1,9 +1,11 @@
 ---
 name: implementing-endpoint-dlp-controls
-description: 'Implements endpoint Data Loss Prevention (DLP) controls to detect and prevent sensitive data exfiltration through
-  email, USB, cloud storage, and printing. Use when deploying DLP agents, creating content inspection policies, or preventing
-  unauthorized data movement from endpoints. Activates for requests involving DLP, data exfiltration prevention, content inspection,
-  or sensitive data protection on endpoints.
+description: 'Implements endpoint Data Loss Prevention (DLP) controls to detect and
+  prevent sensitive data exfiltration through email, USB, cloud storage, and printing.
+  Use when deploying DLP agents, creating content inspection policies, or preventing
+  unauthorized data movement from endpoints. Activates for requests involving DLP,
+  data exfiltration prevention, content inspection, or sensitive data protection on
+  endpoints.
 
   '
 domain: cybersecurity
@@ -31,6 +33,12 @@ nist_csf:
 - PR.PS-02
 - DE.CM-01
 - PR.IR-01
+mitre_attack:
+- T1055
+- T1547
+- T1059
+- T1036
+- T1048
 ---
 # Implementing Endpoint DLP Controls
 

@@ -1,7 +1,8 @@
 ---
 name: analyzing-linux-system-artifacts
-description: Examine Linux system artifacts including auth logs, cron jobs, shell history, and system configuration to uncover
-  evidence of compromise or unauthorized activity.
+description: Examine Linux system artifacts including auth logs, cron jobs, shell
+  history, and system configuration to uncover evidence of compromise or unauthorized
+  activity.
 domain: cybersecurity
 subdomain: digital-forensics
 tags:
@@ -19,6 +20,11 @@ nist_csf:
 - RS.AN-03
 - DE.AE-02
 - RS.MA-01
+mitre_attack:
+- T1070
+- T1059.004
+- T1543.002
+- T1053.003
 ---
 
 # Analyzing Linux System Artifacts

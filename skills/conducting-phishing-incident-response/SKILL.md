@@ -1,9 +1,11 @@
 ---
 name: conducting-phishing-incident-response
-description: 'Responds to phishing incidents by analyzing reported emails, extracting indicators, assessing credential compromise,
-  quarantining malicious messages across the organization, and remediating affected accounts. Covers email header analysis,
-  URL/attachment sandboxing, and mailbox-wide purge operations. Activates for requests involving phishing response, email
-  incident, credential phishing, spear phishing investigation, or phishing remediation.
+description: 'Responds to phishing incidents by analyzing reported emails, extracting
+  indicators, assessing credential compromise, quarantining malicious messages across
+  the organization, and remediating affected accounts. Covers email header analysis,
+  URL/attachment sandboxing, and mailbox-wide purge operations. Activates for requests
+  involving phishing response, email incident, credential phishing, spear phishing
+  investigation, or phishing remediation.
 
   '
 domain: cybersecurity
@@ -15,10 +17,12 @@ tags:
 - email-header-analysis
 - mailbox-remediation
 mitre_attack:
-- T1566
-- T1204
-- T1534
-- T1598
+- T1566.001
+- T1566.002
+- T1204.002
+- T1204.001
+- T1114
+- T1056.003
 version: 1.0.0
 author: mahipal
 license: Apache-2.0

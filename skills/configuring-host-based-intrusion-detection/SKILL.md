@@ -1,9 +1,11 @@
 ---
 name: configuring-host-based-intrusion-detection
-description: 'Configures host-based intrusion detection systems (HIDS) to monitor endpoint file integrity, system calls, and
-  configuration changes for security violations. Use when deploying OSSEC, Wazuh, or AIDE for endpoint monitoring, building
-  file integrity monitoring (FIM) policies, or meeting compliance requirements for change detection. Activates for requests
-  involving HIDS configuration, file integrity monitoring, OSSEC/Wazuh deployment, or host-based detection.
+description: 'Configures host-based intrusion detection systems (HIDS) to monitor
+  endpoint file integrity, system calls, and configuration changes for security violations.
+  Use when deploying OSSEC, Wazuh, or AIDE for endpoint monitoring, building file
+  integrity monitoring (FIM) policies, or meeting compliance requirements for change
+  detection. Activates for requests involving HIDS configuration, file integrity monitoring,
+  OSSEC/Wazuh deployment, or host-based detection.
 
   '
 domain: cybersecurity
@@ -23,6 +25,12 @@ nist_csf:
 - PR.PS-02
 - DE.CM-01
 - PR.IR-01
+mitre_attack:
+- T1059
+- T1543
+- T1547
+- T1070
+- T1055
 ---
 # Configuring Host-Based Intrusion Detection
 

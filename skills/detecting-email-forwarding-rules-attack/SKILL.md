@@ -1,7 +1,7 @@
 ---
 name: detecting-email-forwarding-rules-attack
-description: Detect malicious email forwarding rules created by adversaries to maintain persistent access to email communications
-  for intelligence collection and BEC attacks.
+description: Detect malicious email forwarding rules created by adversaries to maintain
+  persistent access to email communications for intelligence collection and BEC attacks.
 domain: cybersecurity
 subdomain: threat-hunting
 tags:
@@ -26,6 +26,12 @@ nist_csf:
 - DE.AE-02
 - DE.AE-07
 - ID.RA-05
+mitre_attack:
+- T1046
+- T1057
+- T1082
+- T1083
+- T1547
 ---
 
 # Detecting Email Forwarding Rules Attack

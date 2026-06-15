@@ -1,7 +1,8 @@
 ---
 name: performing-active-directory-forest-trust-attack
-description: Enumerate and audit Active Directory forest trust relationships using impacket for SID filtering analysis, trust
-  key extraction, cross-forest SID history abuse detection, and inter-realm Kerberos ticket assessment.
+description: Enumerate and audit Active Directory forest trust relationships using
+  impacket for SID filtering analysis, trust key extraction, cross-forest SID history
+  abuse detection, and inter-realm Kerberos ticket assessment.
 domain: cybersecurity
 subdomain: red-team
 tags:
@@ -19,6 +20,12 @@ nist_csf:
 - ID.RA-01
 - GV.OV-02
 - DE.AE-07
+mitre_attack:
+- T1595
+- T1190
+- T1059
+- T1078
+- T1558.003
 ---
 
 # Performing Active Directory Forest Trust Attack

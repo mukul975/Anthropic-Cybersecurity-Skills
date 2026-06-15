@@ -1,7 +1,8 @@
 ---
 name: collecting-volatile-evidence-from-compromised-host
-description: Collect volatile forensic evidence from a compromised system following order of volatility, preserving memory,
-  network connections, processes, and system state before they are lost.
+description: Collect volatile forensic evidence from a compromised system following
+  order of volatility, preserving memory, network connections, processes, and system
+  state before they are lost.
 domain: cybersecurity
 subdomain: incident-response
 tags:
@@ -12,10 +13,11 @@ tags:
 - memory-forensics
 - chain-of-custody
 mitre_attack:
-- T1003
-- T1055
-- T1059
-- T1547
+- T1059.001
+- T1057
+- T1049
+- T1003.001
+- T1543.003
 version: '1.0'
 author: mahipal
 license: Apache-2.0

@@ -1,17 +1,22 @@
 ---
 name: analyzing-api-gateway-access-logs
-description: 'Parses API Gateway access logs (AWS API Gateway, Kong, Nginx) to detect BOLA/IDOR attacks, rate limit bypass,
-  credential scanning, and injection attempts. Uses pandas for statistical analysis of request patterns and anomaly detection.
+description: 'Parses API Gateway access logs (AWS API Gateway, Kong, Nginx) to detect
+  BOLA/IDOR attacks, rate limit bypass, credential scanning, and injection attempts.
+  Uses pandas for statistical analysis of request patterns and anomaly detection.
   Use when investigating API abuse or building API-specific threat detection rules.
 
   '
 domain: cybersecurity
 subdomain: security-operations
 tags:
-- analyzing
-- api
-- gateway
-- access
+- api-security
+- access-log-analysis
+- aws-api-gateway
+- kong
+- nginx
+- bola-detection
+- rate-limit-bypass
+- security-operations
 version: '1.0'
 author: mahipal
 license: Apache-2.0
@@ -20,6 +25,11 @@ nist_csf:
 - RS.MA-01
 - GV.OV-01
 - DE.AE-02
+mitre_attack:
+- T1190
+- T1110.004
+- T1078.004
+- T1119
 ---
 
 # Analyzing API Gateway Access Logs

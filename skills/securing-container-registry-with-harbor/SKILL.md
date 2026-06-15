@@ -1,7 +1,8 @@
 ---
 name: securing-container-registry-with-harbor
-description: Harbor is an open-source container registry that provides security features including vulnerability scanning
-  (integrated Trivy), image signing (Notary/Cosign), RBAC, content trust policies, replicatio
+description: Harbor is an open-source container registry that provides security features
+  including vulnerability scanning (integrated Trivy), image signing (Notary/Cosign),
+  RBAC, content trust policies, replicatio
 domain: cybersecurity
 subdomain: container-security
 tags:
@@ -19,6 +20,12 @@ nist_csf:
 - PR.IR-01
 - ID.AM-08
 - DE.CM-01
+mitre_attack:
+- T1610
+- T1611
+- T1609
+- T1525
+- T1190
 ---
 # Securing Container Registry with Harbor
 

@@ -1,9 +1,11 @@
 ---
 name: implementing-privileged-session-monitoring
-description: 'Implements privileged session monitoring and recording using Privileged Access Management (PAM) solutions, focusing
-  on CyberArk Privileged Session Manager (PSM) and open-source alternatives. Covers session recording configuration, keystroke
-  logging, real-time monitoring, risk-based session analysis, and compliance audit trail generation. Activates for requests
-  involving privileged session recording, PAM session monitoring, CyberArk PSM configuration, administrator activity monitoring,
+description: 'Implements privileged session monitoring and recording using Privileged
+  Access Management (PAM) solutions, focusing on CyberArk Privileged Session Manager
+  (PSM) and open-source alternatives. Covers session recording configuration, keystroke
+  logging, real-time monitoring, risk-based session analysis, and compliance audit
+  trail generation. Activates for requests involving privileged session recording,
+  PAM session monitoring, CyberArk PSM configuration, administrator activity monitoring,
   or compliance session auditing.
 
   '
@@ -25,6 +27,11 @@ nist_csf:
 - PR.AA-02
 - PR.AA-05
 - PR.AA-06
+mitre_attack:
+- T1078
+- T1110
+- T1556
+- T1098
 ---
 
 # Implementing Privileged Session Monitoring

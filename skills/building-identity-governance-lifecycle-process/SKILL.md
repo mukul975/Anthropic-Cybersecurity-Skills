@@ -1,9 +1,10 @@
 ---
 name: building-identity-governance-lifecycle-process
-description: 'Builds comprehensive identity governance and lifecycle management processes including joiner-mover-leaver automation,
-  role mining, access request workflows, periodic recertification, and orphaned account remediation using IGA platforms. Activates
-  for requests involving identity lifecycle management, JML processes, role-based access provisioning, or identity governance
-  program design.
+description: 'Builds comprehensive identity governance and lifecycle management processes
+  including joiner-mover-leaver automation, role mining, access request workflows,
+  periodic recertification, and orphaned account remediation using IGA platforms.
+  Activates for requests involving identity lifecycle management, JML processes, role-based
+  access provisioning, or identity governance program design.
 
   '
 domain: cybersecurity
@@ -27,6 +28,12 @@ nist_csf:
 - PR.AA-02
 - PR.AA-05
 - PR.AA-06
+mitre_attack:
+- T1098
+- T1136
+- T1078
+- T1531
+- T1087
 ---
 
 # Building Identity Governance Lifecycle Process

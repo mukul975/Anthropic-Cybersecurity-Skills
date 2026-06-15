@@ -1,7 +1,8 @@
 ---
 name: implementing-security-information-sharing-with-stix2
-description: 'Create, validate, and share STIX 2.1 threat intelligence objects using the stix2 Python library. Covers indicators,
-  malware, campaigns, relationships, bundles, and TAXII 2.1 publishing.
+description: 'Create, validate, and share STIX 2.1 threat intelligence objects using
+  the stix2 Python library. Covers indicators, malware, campaigns, relationships,
+  bundles, and TAXII 2.1 publishing.
 
   '
 domain: cybersecurity
@@ -25,6 +26,12 @@ nist_csf:
 - ID.RA-05
 - DE.CM-01
 - DE.AE-02
+mitre_attack:
+- T1591
+- T1592
+- T1593
+- T1589
+- T1027
 ---
 
 # Implementing Security Information Sharing with STIX 2.1

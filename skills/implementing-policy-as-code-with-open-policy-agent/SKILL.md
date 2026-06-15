@@ -1,8 +1,9 @@
 ---
 name: implementing-policy-as-code-with-open-policy-agent
-description: 'This skill covers implementing Open Policy Agent (OPA) and Gatekeeper for policy-as-code enforcement in Kubernetes
-  and CI/CD pipelines. It addresses writing Rego policies, deploying OPA Gatekeeper as a Kubernetes admission controller,
-  testing policies in development, and integrating policy evaluation into deployment pipelines.
+description: 'This skill covers implementing Open Policy Agent (OPA) and Gatekeeper
+  for policy-as-code enforcement in Kubernetes and CI/CD pipelines. It addresses writing
+  Rego policies, deploying OPA Gatekeeper as a Kubernetes admission controller, testing
+  policies in development, and integrating policy evaluation into deployment pipelines.
 
   '
 domain: cybersecurity
@@ -27,6 +28,12 @@ nist_csf:
 - GV.SC-07
 - ID.IM-04
 - PR.PS-04
+mitre_attack:
+- T1195
+- T1554
+- T1059.004
+- T1610
+- T1611
 ---
 
 # Implementing Policy as Code with Open Policy Agent

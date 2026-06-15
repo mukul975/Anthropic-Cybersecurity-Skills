@@ -1,7 +1,7 @@
 ---
 name: implementing-api-security-testing-with-42crunch
-description: Implement comprehensive API security testing using the 42Crunch platform to perform static audit and dynamic
-  conformance scanning of OpenAPI specifications.
+description: Implement comprehensive API security testing using the 42Crunch platform
+  to perform static audit and dynamic conformance scanning of OpenAPI specifications.
 domain: cybersecurity
 subdomain: api-security
 tags:
@@ -22,6 +22,10 @@ nist_csf:
 - ID.RA-01
 - PR.DS-10
 - DE.CM-01
+mitre_attack:
+- T1190
+- T1059.007
+- T1552.001
 ---
 
 # Implementing API Security Testing with 42Crunch

@@ -1,7 +1,7 @@
 ---
 name: implementing-aqua-security-for-container-scanning
-description: Deploy Aqua Security's Trivy scanner to detect vulnerabilities, misconfigurations, secrets, and license issues
-  in container images across CI/CD pipelines and registries.
+description: Deploy Aqua Security's Trivy scanner to detect vulnerabilities, misconfigurations,
+  secrets, and license issues in container images across CI/CD pipelines and registries.
 domain: cybersecurity
 subdomain: devsecops
 tags:
@@ -20,6 +20,12 @@ nist_csf:
 - GV.SC-07
 - ID.IM-04
 - PR.PS-04
+mitre_attack:
+- T1195
+- T1554
+- T1059.004
+- T1610
+- T1611
 ---
 
 # Implementing Aqua Security for Container Scanning

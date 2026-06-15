@@ -1,9 +1,11 @@
 ---
 name: testing-mobile-api-authentication
-description: 'Tests authentication and authorization mechanisms in mobile application APIs to identify broken authentication,
-  insecure token management, session fixation, privilege escalation, and IDOR vulnerabilities. Use when performing API security
-  assessments against mobile app backends, testing JWT implementations, evaluating OAuth flows, or assessing session management.
-  Activates for requests involving mobile API auth testing, token security assessment, OAuth mobile flow testing, or API authorization
+description: 'Tests authentication and authorization mechanisms in mobile application
+  APIs to identify broken authentication, insecure token management, session fixation,
+  privilege escalation, and IDOR vulnerabilities. Use when performing API security
+  assessments against mobile app backends, testing JWT implementations, evaluating
+  OAuth flows, or assessing session management. Activates for requests involving mobile
+  API auth testing, token security assessment, OAuth mobile flow testing, or API authorization
   bypass.
 
   '
@@ -24,6 +26,12 @@ nist_csf:
 - PR.AA-05
 - ID.RA-01
 - DE.CM-09
+mitre_attack:
+- T1059
+- T1056
+- T1036
+- T1078
+- T1068
 ---
 # Testing Mobile API Authentication
 

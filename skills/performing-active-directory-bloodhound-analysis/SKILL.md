@@ -1,7 +1,7 @@
 ---
 name: performing-active-directory-bloodhound-analysis
-description: Use BloodHound and SharpHound to enumerate Active Directory relationships and identify attack paths from compromised
-  users to Domain Admin.
+description: Use BloodHound and SharpHound to enumerate Active Directory relationships
+  and identify attack paths from compromised users to Domain Admin.
 domain: cybersecurity
 subdomain: red-teaming
 tags:
@@ -25,6 +25,12 @@ nist_csf:
 - ID.RA-01
 - GV.OV-02
 - DE.AE-07
+mitre_attack:
+- T1595
+- T1190
+- T1059
+- T1078
+- T1068
 ---
 
 # Performing Active Directory BloodHound Analysis

@@ -1,7 +1,8 @@
 ---
 name: analyzing-ethereum-smart-contract-vulnerabilities
-description: Perform static and symbolic analysis of Solidity smart contracts using Slither and Mythril to detect reentrancy,
-  integer overflow, access control, and other vulnerability classes before deployment to Ethereum mainnet.
+description: Perform static and symbolic analysis of Solidity smart contracts using
+  Slither and Mythril to detect reentrancy, integer overflow, access control, and
+  other vulnerability classes before deployment to Ethereum mainnet.
 domain: cybersecurity
 subdomain: blockchain-security
 tags:
@@ -20,6 +21,9 @@ nist_csf:
 - PR.DS-01
 - PR.DS-02
 - ID.RA-01
+mitre_attack:
+- T1190
+- T1059
 ---
 
 # Analyzing Ethereum Smart Contract Vulnerabilities

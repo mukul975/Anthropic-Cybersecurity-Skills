@@ -1,9 +1,11 @@
 ---
 name: detecting-fileless-attacks-on-endpoints
-description: 'Detects fileless malware and in-memory attacks that execute entirely in RAM without writing persistent files
-  to disk, evading traditional antivirus. Use when building detections for PowerShell-based attacks, reflective DLL injection,
-  WMI persistence, and registry-resident malware. Activates for requests involving fileless malware detection, in-memory attacks,
-  PowerShell exploitation, or living-off-the-land techniques.
+description: 'Detects fileless malware and in-memory attacks that execute entirely
+  in RAM without writing persistent files to disk, evading traditional antivirus.
+  Use when building detections for PowerShell-based attacks, reflective DLL injection,
+  WMI persistence, and registry-resident malware. Activates for requests involving
+  fileless malware detection, in-memory attacks, PowerShell exploitation, or living-off-the-land
+  techniques.
 
   '
 domain: cybersecurity
@@ -22,6 +24,12 @@ nist_csf:
 - PR.PS-02
 - DE.CM-01
 - PR.IR-01
+mitre_attack:
+- T1055
+- T1547
+- T1059
+- T1036
+- T1053
 ---
 # Detecting Fileless Attacks on Endpoints
 

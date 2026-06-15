@@ -1,8 +1,9 @@
 ---
 name: performing-network-packet-capture-analysis
-description: Perform forensic analysis of network packet captures (PCAP/PCAPNG) using Wireshark, tshark, and tcpdump to reconstruct
-  network communications, extract transferred files, identify malicious traffic, and establish evidence of data exfiltration
-  or command-and-control activity.
+description: Perform forensic analysis of network packet captures (PCAP/PCAPNG) using
+  Wireshark, tshark, and tcpdump to reconstruct network communications, extract transferred
+  files, identify malicious traffic, and establish evidence of data exfiltration or
+  command-and-control activity.
 domain: cybersecurity
 subdomain: digital-forensics
 tags:
@@ -24,6 +25,12 @@ nist_csf:
 - RS.AN-03
 - DE.AE-02
 - RS.MA-01
+mitre_attack:
+- T1005
+- T1074
+- T1119
+- T1070
+- T1048
 ---
 
 # Performing Network Packet Capture Analysis

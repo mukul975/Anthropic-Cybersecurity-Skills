@@ -1,9 +1,11 @@
 ---
 name: implementing-anti-ransomware-group-policy
-description: 'Configures Windows Group Policy Objects (GPO) to prevent ransomware execution and limit its spread. Implements
-  AppLocker rules, Software Restriction Policies, Controlled Folder Access, attack surface reduction rules, and network protection
-  settings. Activates for requests involving Windows GPO hardening against ransomware, AppLocker configuration, Controlled
-  Folder Access setup, or endpoint protection via Group Policy.
+description: 'Configures Windows Group Policy Objects (GPO) to prevent ransomware
+  execution and limit its spread. Implements AppLocker rules, Software Restriction
+  Policies, Controlled Folder Access, attack surface reduction rules, and network
+  protection settings. Activates for requests involving Windows GPO hardening against
+  ransomware, AppLocker configuration, Controlled Folder Access setup, or endpoint
+  protection via Group Policy.
 
   '
 domain: cybersecurity
@@ -23,6 +25,12 @@ nist_csf:
 - RS.MA-01
 - RC.RP-01
 - PR.IR-01
+mitre_attack:
+- T1078
+- T1190
+- T1059
+- T1486
+- T1490
 ---
 
 # Implementing Anti-Ransomware Group Policy

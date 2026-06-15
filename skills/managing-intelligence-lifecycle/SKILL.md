@@ -1,9 +1,11 @@
 ---
 name: managing-intelligence-lifecycle
-description: 'Manages the end-to-end cyber threat intelligence lifecycle from planning and direction through collection, processing,
-  analysis, dissemination, and feedback to ensure intelligence products meet stakeholder requirements and continuously improve.
-  Use when establishing or maturing a CTI program, defining intelligence requirements with business stakeholders, or building
-  feedback loops between intelligence consumers and producers. Activates for requests involving CTI program maturity, intelligence
+description: 'Manages the end-to-end cyber threat intelligence lifecycle from planning
+  and direction through collection, processing, analysis, dissemination, and feedback
+  to ensure intelligence products meet stakeholder requirements and continuously improve.
+  Use when establishing or maturing a CTI program, defining intelligence requirements
+  with business stakeholders, or building feedback loops between intelligence consumers
+  and producers. Activates for requests involving CTI program maturity, intelligence
   requirements, PIRs, or intelligence lifecycle management.
 
   '
@@ -24,6 +26,11 @@ nist_csf:
 - ID.RA-05
 - DE.CM-01
 - DE.AE-02
+mitre_attack:
+- T1591
+- T1592
+- T1593
+- T1589
 ---
 # Managing Intelligence Lifecycle
 

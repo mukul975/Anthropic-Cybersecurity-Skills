@@ -1,7 +1,8 @@
 ---
 name: hunting-for-t1098-account-manipulation
-description: Hunt for MITRE ATT&CK T1098 account manipulation including shadow admin creation, SID history injection, group
-  membership changes, and credential modifications using Windows Security Event Logs.
+description: Hunt for MITRE ATT&CK T1098 account manipulation including shadow admin
+  creation, SID history injection, group membership changes, and credential modifications
+  using Windows Security Event Logs.
 domain: cybersecurity
 subdomain: threat-hunting
 tags:
@@ -25,6 +26,12 @@ nist_csf:
 - DE.AE-02
 - DE.AE-07
 - ID.RA-05
+mitre_attack:
+- T1046
+- T1057
+- T1082
+- T1083
+- T1003
 ---
 # Hunting for T1098 Account Manipulation
 

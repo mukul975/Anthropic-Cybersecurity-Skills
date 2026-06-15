@@ -1,7 +1,8 @@
 ---
 name: detecting-lateral-movement-with-zeek
-description: 'Detect lateral movement in network traffic using Zeek (formerly Bro) log analysis. Parses conn.log, smb_mapping.log,
-  smb_files.log, dce_rpc.log, kerberos.log, and ntlm.log to identify SMB file transfers, NTLM account spray activity, remote
+description: 'Detect lateral movement in network traffic using Zeek (formerly Bro)
+  log analysis. Parses conn.log, smb_mapping.log, smb_files.log, dce_rpc.log, kerberos.log,
+  and ntlm.log to identify SMB file transfers, NTLM account spray activity, remote
   service execution, and anomalous internal connections.
 
   '
@@ -22,6 +23,12 @@ nist_csf:
 - DE.CM-01
 - ID.AM-03
 - PR.DS-02
+mitre_attack:
+- T1046
+- T1040
+- T1557
+- T1071
+- T1021
 ---
 
 # Detecting Lateral Movement with Zeek

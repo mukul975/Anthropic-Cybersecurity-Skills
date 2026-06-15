@@ -1,7 +1,8 @@
 ---
 name: performing-gcp-penetration-testing-with-gcpbucketbrute
-description: Perform GCP security testing using GCPBucketBrute for storage bucket enumeration, gcloud IAM privilege escalation
-  path analysis, and service account permission auditing
+description: Perform GCP security testing using GCPBucketBrute for storage bucket
+  enumeration, gcloud IAM privilege escalation path analysis, and service account
+  permission auditing
 domain: cybersecurity
 subdomain: cloud-security
 tags:
@@ -27,6 +28,12 @@ nist_csf:
 - ID.AM-08
 - GV.SC-06
 - DE.CM-01
+mitre_attack:
+- T1078.004
+- T1530
+- T1537
+- T1580
+- T1068
 ---
 
 # Performing GCP Penetration Testing with GCPBucketBrute

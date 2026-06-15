@@ -1,10 +1,12 @@
 ---
 name: generating-threat-intelligence-reports
-description: 'Generates structured cyber threat intelligence reports at strategic, operational, and tactical levels tailored
-  to specific audiences including executives, security operations teams, and technical analysts. Use when producing finished
-  intelligence products from raw collection data, creating sector threat briefings, or delivering post-incident intelligence
-  assessments. Activates for requests involving CTI report writing, threat briefings, intelligence products, finished intelligence,
-  or executive security reporting.
+description: 'Generates structured cyber threat intelligence reports at strategic,
+  operational, and tactical levels tailored to specific audiences including executives,
+  security operations teams, and technical analysts. Use when producing finished intelligence
+  products from raw collection data, creating sector threat briefings, or delivering
+  post-incident intelligence assessments. Activates for requests involving CTI report
+  writing, threat briefings, intelligence products, finished intelligence, or executive
+  security reporting.
 
   '
 domain: cybersecurity
@@ -25,6 +27,11 @@ nist_csf:
 - ID.RA-05
 - DE.CM-01
 - DE.AE-02
+mitre_attack:
+- T1591
+- T1592
+- T1593
+- T1589
 ---
 # Generating Threat Intelligence Reports
 

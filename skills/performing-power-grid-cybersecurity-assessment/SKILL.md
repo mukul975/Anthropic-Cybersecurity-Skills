@@ -1,10 +1,11 @@
 ---
 name: performing-power-grid-cybersecurity-assessment
-description: 'This skill covers conducting cybersecurity assessments of electric power grid infrastructure including generation
-  facilities, transmission substations, distribution systems, and energy management system (EMS) control centers. It addresses
-  NERC CIP compliance verification, substation automation security, IEC 61850 protocol analysis, synchrophasor (PMU) network
-  security, and the unique threat landscape targeting power grid operations as demonstrated by Industroyer/CrashOverride and
-  related attacks.
+description: 'This skill covers conducting cybersecurity assessments of electric power
+  grid infrastructure including generation facilities, transmission substations, distribution
+  systems, and energy management system (EMS) control centers. It addresses NERC CIP
+  compliance verification, substation automation security, IEC 61850 protocol analysis,
+  synchrophasor (PMU) network security, and the unique threat landscape targeting
+  power grid operations as demonstrated by Industroyer/CrashOverride and related attacks.
 
   '
 domain: cybersecurity
@@ -26,6 +27,12 @@ nist_csf:
 - DE.CM-01
 - ID.AM-05
 - GV.OC-02
+mitre_attack:
+- T1078
+- T1190
+- T1059
+- T0816
+- T0836
 ---
 
 # Performing Power Grid Cybersecurity Assessment

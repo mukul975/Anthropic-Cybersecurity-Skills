@@ -1,7 +1,8 @@
 ---
 name: validating-backup-integrity-for-recovery
-description: Validate backup integrity through cryptographic hash verification, automated restore testing, corruption detection,
-  and recoverability checks to ensure backups are reliable for disaster recovery and ransomware response scenarios.
+description: Validate backup integrity through cryptographic hash verification, automated
+  restore testing, corruption detection, and recoverability checks to ensure backups
+  are reliable for disaster recovery and ransomware response scenarios.
 domain: cybersecurity
 subdomain: incident-response
 tags:
@@ -19,6 +20,12 @@ nist_csf:
 - RS.MA-02
 - RS.AN-03
 - RC.RP-01
+mitre_attack:
+- T1486
+- T1490
+- T1070
+- T1078
+- T1489
 ---
 # Validating Backup Integrity for Recovery
 

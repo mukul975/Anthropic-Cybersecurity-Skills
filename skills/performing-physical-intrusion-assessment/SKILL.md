@@ -1,7 +1,8 @@
 ---
 name: performing-physical-intrusion-assessment
-description: Conduct authorized physical penetration testing using tailgating, badge cloning, lock bypassing, and rogue device
-  deployment to evaluate facility security controls.
+description: Conduct authorized physical penetration testing using tailgating, badge
+  cloning, lock bypassing, and rogue device deployment to evaluate facility security
+  controls.
 domain: cybersecurity
 subdomain: red-teaming
 tags:
@@ -25,6 +26,12 @@ nist_csf:
 - ID.RA-01
 - GV.OV-02
 - DE.AE-07
+mitre_attack:
+- T1595
+- T1190
+- T1059
+- T1078
+- T1027
 ---
 
 # Performing Physical Intrusion Assessment

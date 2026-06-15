@@ -1,8 +1,9 @@
 ---
 name: implementing-zero-trust-network-access
-description: 'Implementing Zero Trust Network Access (ZTNA) in cloud environments by configuring identity-aware proxies, micro-segmentation,
-  continuous verification with conditional access policies, and replacing traditional VPN-based access with BeyondCorp-style
-  architectures across AWS, Azure, and GCP.
+description: 'Implementing Zero Trust Network Access (ZTNA) in cloud environments
+  by configuring identity-aware proxies, micro-segmentation, continuous verification
+  with conditional access policies, and replacing traditional VPN-based access with
+  BeyondCorp-style architectures across AWS, Azure, and GCP.
 
   '
 domain: cybersecurity
@@ -22,6 +23,11 @@ nist_csf:
 - ID.AM-08
 - GV.SC-06
 - DE.CM-01
+mitre_attack:
+- T1078.004
+- T1530
+- T1537
+- T1580
 ---
 
 # Implementing Zero Trust Network Access

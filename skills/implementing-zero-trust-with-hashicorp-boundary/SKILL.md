@@ -1,7 +1,8 @@
 ---
 name: implementing-zero-trust-with-hashicorp-boundary
-description: Implement HashiCorp Boundary for identity-aware zero trust infrastructure access management with dynamic credential
-  brokering, session recording, and Vault integration.
+description: Implement HashiCorp Boundary for identity-aware zero trust infrastructure
+  access management with dynamic credential brokering, session recording, and Vault
+  integration.
 domain: cybersecurity
 subdomain: zero-trust-architecture
 tags:
@@ -21,6 +22,12 @@ nist_csf:
 - PR.AA-05
 - PR.IR-01
 - GV.PO-01
+mitre_attack:
+- T1078
+- T1190
+- T1059
+- T1003
+- T1110
 ---
 
 # Implementing Zero Trust with HashiCorp Boundary

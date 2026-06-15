@@ -1,7 +1,8 @@
 ---
 name: hunting-for-supply-chain-compromise
-description: Hunt for supply chain compromise indicators including trojanized software updates, compromised dependencies,
-  unauthorized code modifications, and tampered build artifacts.
+description: Hunt for supply chain compromise indicators including trojanized software
+  updates, compromised dependencies, unauthorized code modifications, and tampered
+  build artifacts.
 domain: cybersecurity
 subdomain: threat-hunting
 tags:
@@ -25,6 +26,12 @@ nist_csf:
 - DE.AE-02
 - DE.AE-07
 - ID.RA-05
+mitre_attack:
+- T1046
+- T1057
+- T1082
+- T1083
+- T1195
 ---
 
 # Hunting For Supply Chain Compromise

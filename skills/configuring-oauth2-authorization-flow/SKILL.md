@@ -1,7 +1,8 @@
 ---
 name: configuring-oauth2-authorization-flow
-description: Configure secure OAuth 2.0 authorization flows including Authorization Code with PKCE, Client Credentials, and
-  Device Authorization Grant. This skill covers flow selection, PKCE implementation, token
+description: Configure secure OAuth 2.0 authorization flows including Authorization
+  Code with PKCE, Client Credentials, and Device Authorization Grant. This skill covers
+  flow selection, PKCE implementation, token
 domain: cybersecurity
 subdomain: identity-access-management
 tags:
@@ -21,6 +22,12 @@ nist_csf:
 - PR.AA-02
 - PR.AA-05
 - PR.AA-06
+mitre_attack:
+- T1528
+- T1550.001
+- T1539
+- T1606.001
+- T1212
 ---
 # Configuring OAuth 2.0 Authorization Flow
 

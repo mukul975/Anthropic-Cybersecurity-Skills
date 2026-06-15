@@ -1,7 +1,8 @@
 ---
 name: implementing-just-in-time-access-provisioning
-description: Implement Just-In-Time (JIT) access provisioning to eliminate standing privileges by granting temporary, time-bound
-  access only when needed. This skill covers JIT architecture design, approval workflo
+description: Implement Just-In-Time (JIT) access provisioning to eliminate standing
+  privileges by granting temporary, time-bound access only when needed. This skill
+  covers JIT architecture design, approval workflo
 domain: cybersecurity
 subdomain: identity-access-management
 tags:
@@ -20,6 +21,11 @@ nist_csf:
 - PR.AA-02
 - PR.AA-05
 - PR.AA-06
+mitre_attack:
+- T1078
+- T1110
+- T1556
+- T1098
 ---
 # Implementing Just-In-Time Access Provisioning
 

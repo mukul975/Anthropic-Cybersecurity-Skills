@@ -1,17 +1,21 @@
 ---
 name: performing-dns-tunneling-detection
-description: 'Detects DNS tunneling by computing Shannon entropy of DNS query names, analyzing query length distributions,
-  inspecting TXT record payloads, and identifying high subdomain cardinality. Uses scapy for packet capture analysis and statistical
-  methods to distinguish legitimate DNS from covert channels. Use when hunting for data exfiltration.
+description: 'Detects DNS tunneling by computing Shannon entropy of DNS query names,
+  analyzing query length distributions, inspecting TXT record payloads, and identifying
+  high subdomain cardinality. Uses scapy for packet capture analysis and statistical
+  methods to distinguish legitimate DNS from covert channels. Use when hunting for
+  data exfiltration.
 
   '
 domain: cybersecurity
 subdomain: security-operations
 tags:
-- performing
-- dns
-- tunneling
-- detection
+- dns-tunneling
+- exfiltration-detection
+- shannon-entropy
+- dns-analysis
+- threat-detection
+- security-operations
 version: '1.0'
 author: mahipal
 license: Apache-2.0
@@ -20,6 +24,12 @@ nist_csf:
 - RS.MA-01
 - GV.OV-01
 - DE.AE-02
+mitre_attack:
+- T1078
+- T1190
+- T1059
+- T1048
+- T1041
 ---
 
 # Performing DNS Tunneling Detection

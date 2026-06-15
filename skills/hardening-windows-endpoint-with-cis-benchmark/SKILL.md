@@ -1,9 +1,11 @@
 ---
 name: hardening-windows-endpoint-with-cis-benchmark
-description: 'Hardens Windows endpoints using CIS (Center for Internet Security) Benchmark recommendations to reduce attack
-  surface, enforce security baselines, and meet compliance requirements. Use when deploying new Windows workstations or servers,
-  remediating audit findings, or establishing organization-wide security baselines. Activates for requests involving Windows
-  hardening, CIS benchmarks, GPO security baselines, or endpoint configuration compliance.
+description: 'Hardens Windows endpoints using CIS (Center for Internet Security) Benchmark
+  recommendations to reduce attack surface, enforce security baselines, and meet compliance
+  requirements. Use when deploying new Windows workstations or servers, remediating
+  audit findings, or establishing organization-wide security baselines. Activates
+  for requests involving Windows hardening, CIS benchmarks, GPO security baselines,
+  or endpoint configuration compliance.
 
   '
 domain: cybersecurity
@@ -23,6 +25,11 @@ nist_csf:
 - PR.PS-02
 - DE.CM-01
 - PR.IR-01
+mitre_attack:
+- T1055
+- T1547
+- T1059
+- T1036
 ---
 # Hardening Windows Endpoint with CIS Benchmark
 

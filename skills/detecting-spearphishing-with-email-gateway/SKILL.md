@@ -1,7 +1,8 @@
 ---
 name: detecting-spearphishing-with-email-gateway
-description: Spearphishing targets specific individuals using personalized, researched content that bypasses generic spam
-  filters. Email security gateways (SEGs) like Microsoft Defender for Office 365, Proofpoint,
+description: Spearphishing targets specific individuals using personalized, researched
+  content that bypasses generic spam filters. Email security gateways (SEGs) like
+  Microsoft Defender for Office 365, Proofpoint,
 domain: cybersecurity
 subdomain: phishing-defense
 tags:
@@ -20,6 +21,11 @@ nist_csf:
 - DE.CM-09
 - RS.CO-02
 - DE.AE-02
+mitre_attack:
+- T1566.001
+- T1566.002
+- T1204.001
+- T1204.002
 ---
 # Detecting Spearphishing with Email Gateway
 

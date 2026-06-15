@@ -1,7 +1,8 @@
 ---
 name: tracking-threat-actor-infrastructure
-description: Threat actor infrastructure tracking involves monitoring and mapping adversary-controlled assets including command-and-control
-  (C2) servers, phishing domains, exploit kit hosts, bulletproof hosting, a
+description: Threat actor infrastructure tracking involves monitoring and mapping
+  adversary-controlled assets including command-and-control (C2) servers, phishing
+  domains, exploit kit hosts, bulletproof hosting, a
 domain: cybersecurity
 subdomain: threat-intelligence
 tags:
@@ -22,6 +23,12 @@ nist_csf:
 - ID.RA-05
 - DE.CM-01
 - DE.AE-02
+mitre_attack:
+- T1591
+- T1592
+- T1593
+- T1589
+- T1566
 ---
 # Tracking Threat Actor Infrastructure
 

@@ -1,9 +1,11 @@
 ---
 name: performing-graphql-introspection-attack
-description: 'Performs GraphQL introspection attacks to extract the full API schema including types, queries, mutations, subscriptions,
-  and field definitions from GraphQL endpoints. The tester uses introspection queries to map the attack surface, identifies
-  sensitive fields and mutations, tests for query depth and complexity limits, and exploits GraphQL-specific vulnerabilities
-  including batching attacks, alias-based brute force, and nested query DoS. Activates for requests involving GraphQL security
+description: 'Performs GraphQL introspection attacks to extract the full API schema
+  including types, queries, mutations, subscriptions, and field definitions from GraphQL
+  endpoints. The tester uses introspection queries to map the attack surface, identifies
+  sensitive fields and mutations, tests for query depth and complexity limits, and
+  exploits GraphQL-specific vulnerabilities including batching attacks, alias-based
+  brute force, and nested query DoS. Activates for requests involving GraphQL security
   testing, introspection attack, GraphQL enumeration, or GraphQL API penetration testing.
 
   '
@@ -23,6 +25,11 @@ nist_csf:
 - ID.RA-01
 - PR.DS-10
 - DE.CM-01
+mitre_attack:
+- T1190
+- T1059.007
+- T1552.001
+- T1110
 ---
 # Performing GraphQL Introspection Attack
 

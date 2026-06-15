@@ -1,9 +1,10 @@
 ---
 name: investigating-insider-threat-indicators
-description: 'Investigates insider threat indicators including data exfiltration attempts, unauthorized access patterns, policy
-  violations, and pre-departure behaviors using SIEM analytics, DLP alerts, and HR data correlation. Use when SOC teams receive
-  insider threat referrals from HR, detect anomalous data movement by employees, or need to build investigation timelines
-  for potential insider threats.
+description: 'Investigates insider threat indicators including data exfiltration attempts,
+  unauthorized access patterns, policy violations, and pre-departure behaviors using
+  SIEM analytics, DLP alerts, and HR data correlation. Use when SOC teams receive
+  insider threat referrals from HR, detect anomalous data movement by employees, or
+  need to build investigation timelines for potential insider threats.
 
   '
 domain: cybersecurity
@@ -24,6 +25,12 @@ nist_csf:
 - DE.AE-02
 - RS.MA-01
 - DE.AE-06
+mitre_attack:
+- T1078
+- T1685.002
+- T1685.005
+- T1566
+- T1048
 ---
 # Investigating Insider Threat Indicators
 

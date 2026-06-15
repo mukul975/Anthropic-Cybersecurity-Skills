@@ -1,7 +1,8 @@
 ---
 name: performing-cloud-forensics-with-aws-cloudtrail
-description: Perform forensic investigation of AWS environments using CloudTrail logs to reconstruct attacker activity, identify
-  compromised credentials, and analyze API call patterns.
+description: Perform forensic investigation of AWS environments using CloudTrail logs
+  to reconstruct attacker activity, identify compromised credentials, and analyze
+  API call patterns.
 domain: cybersecurity
 subdomain: cloud-security
 tags:
@@ -21,6 +22,12 @@ nist_csf:
 - ID.AM-08
 - GV.SC-06
 - DE.CM-01
+mitre_attack:
+- T1078.004
+- T1530
+- T1537
+- T1580
+- T1003
 ---
 
 # Performing Cloud Forensics with AWS CloudTrail

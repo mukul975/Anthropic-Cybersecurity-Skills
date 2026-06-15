@@ -1,7 +1,8 @@
 ---
 name: building-attack-pattern-library-from-cti-reports
-description: Extract and catalog attack patterns from cyber threat intelligence reports into a structured STIX-based library
-  mapped to MITRE ATT&CK for detection engineering and threat-informed defense.
+description: Extract and catalog attack patterns from cyber threat intelligence reports
+  into a structured STIX-based library mapped to MITRE ATT&CK for detection engineering
+  and threat-informed defense.
 domain: cybersecurity
 subdomain: threat-intelligence
 tags:
@@ -27,6 +28,12 @@ nist_csf:
 - ID.RA-05
 - DE.CM-01
 - DE.AE-02
+mitre_attack:
+- T1566.001
+- T1059.001
+- T1003.001
+- T1558.003
+- T1550.002
 ---
 # Building Attack Pattern Library from CTI Reports
 

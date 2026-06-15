@@ -1,8 +1,10 @@
 ---
 name: implementing-siem-use-cases-for-detection
-description: 'Implements SIEM detection use cases by designing correlation rules, threshold alerts, and behavioral analytics
-  mapped to MITRE ATT&CK techniques across Splunk, Elastic, and Sentinel. Use when SOC teams need to expand detection coverage,
-  formalize use case lifecycle management, or build a detection library aligned to organizational threat profile.
+description: 'Implements SIEM detection use cases by designing correlation rules,
+  threshold alerts, and behavioral analytics mapped to MITRE ATT&CK techniques across
+  Splunk, Elastic, and Sentinel. Use when SOC teams need to expand detection coverage,
+  formalize use case lifecycle management, or build a detection library aligned to
+  organizational threat profile.
 
   '
 domain: cybersecurity
@@ -38,6 +40,12 @@ nist_csf:
 - DE.AE-02
 - RS.MA-01
 - DE.AE-06
+mitre_attack:
+- T1078
+- T1685.002
+- T1685.005
+- T1566
+- T0816
 ---
 # Implementing SIEM Use Cases for Detection
 

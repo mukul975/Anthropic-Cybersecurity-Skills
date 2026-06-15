@@ -1,9 +1,11 @@
 ---
 name: detecting-modbus-protocol-anomalies
-description: 'This skill covers detecting anomalies in Modbus/TCP and Modbus RTU communications in industrial control systems.
-  It addresses function code monitoring, register range validation, timing analysis, unauthorized client detection, and deep
-  packet inspection for malformed Modbus frames. The skill leverages Zeek with Modbus protocol analyzers, Suricata IDS with
-  OT rules, and custom Python-based detection using Markov chain models for normal Modbus transaction sequences.
+description: 'This skill covers detecting anomalies in Modbus/TCP and Modbus RTU communications
+  in industrial control systems. It addresses function code monitoring, register range
+  validation, timing analysis, unauthorized client detection, and deep packet inspection
+  for malformed Modbus frames. The skill leverages Zeek with Modbus protocol analyzers,
+  Suricata IDS with OT rules, and custom Python-based detection using Markov chain
+  models for normal Modbus transaction sequences.
 
   '
 domain: cybersecurity
@@ -32,6 +34,12 @@ nist_csf:
 - DE.CM-01
 - ID.AM-05
 - GV.OC-02
+mitre_attack:
+- T1078
+- T1190
+- T1059
+- T0816
+- T0836
 ---
 
 # Detecting Modbus Protocol Anomalies

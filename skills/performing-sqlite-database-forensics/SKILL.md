@@ -1,7 +1,8 @@
 ---
 name: performing-sqlite-database-forensics
-description: Perform forensic analysis of SQLite databases to recover deleted records from freelists and WAL files, decode
-  encoded timestamps, and extract evidence from browser history, messaging apps, and mobile device databases.
+description: Perform forensic analysis of SQLite databases to recover deleted records
+  from freelists and WAL files, decode encoded timestamps, and extract evidence from
+  browser history, messaging apps, and mobile device databases.
 domain: cybersecurity
 subdomain: digital-forensics
 tags:
@@ -23,6 +24,12 @@ nist_csf:
 - RS.AN-03
 - DE.AE-02
 - RS.MA-01
+mitre_attack:
+- T1005
+- T1074
+- T1119
+- T1070
+- T1059
 ---
 
 # Performing SQLite Database Forensics

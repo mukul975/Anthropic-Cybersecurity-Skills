@@ -1,7 +1,7 @@
 ---
 name: building-soc-escalation-matrix
-description: Build a structured SOC escalation matrix defining severity tiers, response SLAs, escalation paths, and notification
-  procedures for security incidents.
+description: Build a structured SOC escalation matrix defining severity tiers, response
+  SLAs, escalation paths, and notification procedures for security incidents.
 domain: cybersecurity
 subdomain: soc-operations
 tags:
@@ -20,6 +20,10 @@ nist_csf:
 - DE.AE-02
 - RS.MA-01
 - DE.AE-06
+mitre_attack:
+- T1078
+- T1071
+- T1041
 ---
 
 # Building SOC Escalation Matrix

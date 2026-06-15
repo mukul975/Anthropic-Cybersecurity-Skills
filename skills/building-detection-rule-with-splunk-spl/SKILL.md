@@ -1,7 +1,7 @@
 ---
 name: building-detection-rule-with-splunk-spl
-description: Build effective detection rules using Splunk Search Processing Language (SPL) correlation searches to identify
-  security threats in SOC environments.
+description: Build effective detection rules using Splunk Search Processing Language
+  (SPL) correlation searches to identify security threats in SOC environments.
 domain: cybersecurity
 subdomain: soc-operations
 tags:
@@ -27,6 +27,13 @@ nist_csf:
 - DE.AE-02
 - RS.MA-01
 - DE.AE-06
+mitre_attack:
+- T1059.001
+- T1003.001
+- T1021.002
+- T1110.003
+- T1053.005
+- T1048
 ---
 
 # Building Detection Rules with Splunk SPL

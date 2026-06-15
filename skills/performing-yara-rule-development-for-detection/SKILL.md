@@ -1,7 +1,8 @@
 ---
 name: performing-yara-rule-development-for-detection
-description: Develop precise YARA rules for malware detection by identifying unique byte patterns, strings, and behavioral
-  indicators in executable files while minimizing false positives.
+description: Develop precise YARA rules for malware detection by identifying unique
+  byte patterns, strings, and behavioral indicators in executable files while minimizing
+  false positives.
 domain: cybersecurity
 subdomain: malware-analysis
 tags:
@@ -20,6 +21,11 @@ nist_csf:
 - RS.AN-03
 - ID.RA-01
 - DE.CM-01
+mitre_attack:
+- T1027
+- T1055
+- T1140
+- T1497
 ---
 # Performing YARA Rule Development for Detection
 

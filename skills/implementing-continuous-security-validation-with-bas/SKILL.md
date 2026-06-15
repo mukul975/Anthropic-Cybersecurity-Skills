@@ -1,7 +1,8 @@
 ---
 name: implementing-continuous-security-validation-with-bas
-description: Deploy Breach and Attack Simulation tools to continuously validate security control effectiveness by safely emulating
-  real-world attack techniques across the kill chain.
+description: Deploy Breach and Attack Simulation tools to continuously validate security
+  control effectiveness by safely emulating real-world attack techniques across the
+  kill chain.
 domain: cybersecurity
 subdomain: vulnerability-management
 tags:
@@ -27,6 +28,10 @@ nist_csf:
 - ID.RA-02
 - ID.IM-02
 - ID.RA-06
+mitre_attack:
+- T1190
+- T1203
+- T1068
 ---
 # Implementing Continuous Security Validation with BAS
 

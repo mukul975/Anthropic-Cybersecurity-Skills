@@ -1,11 +1,13 @@
 ---
 name: executing-red-team-exercise
-description: 'Executes comprehensive red team exercises that simulate real-world adversary operations against an organization''s
-  people, processes, and technology. The red team operates with stealth as a primary objective, employing the full attack
-  lifecycle from initial reconnaissance through objective completion while testing the organization''s detection and response
-  capabilities. This differs from penetration testing by focusing on adversary emulation rather than vulnerability identification.
-  Activates for requests involving red team exercise, adversary simulation, adversary emulation, or full-scope offensive security
-  assessment.
+description: 'Executes comprehensive red team exercises that simulate real-world adversary
+  operations against an organization''s people, processes, and technology. The red
+  team operates with stealth as a primary objective, employing the full attack lifecycle
+  from initial reconnaissance through objective completion while testing the organization''s
+  detection and response capabilities. This differs from penetration testing by focusing
+  on adversary emulation rather than vulnerability identification. Activates for requests
+  involving red team exercise, adversary simulation, adversary emulation, or full-scope
+  offensive security assessment.
 
   '
 domain: cybersecurity
@@ -30,6 +32,12 @@ nist_csf:
 - ID.RA-06
 - GV.OV-02
 - DE.AE-07
+mitre_attack:
+- T1595
+- T1190
+- T1059
+- T1078
+- T1592
 ---
 # Executing Red Team Exercise
 

@@ -1,8 +1,10 @@
 ---
 name: performing-threat-hunting-with-elastic-siem
-description: 'Performs proactive threat hunting in Elastic Security SIEM using KQL/EQL queries, detection rules, and Timeline
-  investigation to identify threats that evade automated detection. Use when SOC teams need to hunt for specific ATT&CK techniques,
-  investigate anomalous behaviors, or validate detection coverage gaps using Elasticsearch and Kibana Security.
+description: 'Performs proactive threat hunting in Elastic Security SIEM using KQL/EQL
+  queries, detection rules, and Timeline investigation to identify threats that evade
+  automated detection. Use when SOC teams need to hunt for specific ATT&CK techniques,
+  investigate anomalous behaviors, or validate detection coverage gaps using Elasticsearch
+  and Kibana Security.
 
   '
 domain: cybersecurity
@@ -38,6 +40,12 @@ nist_csf:
 - DE.AE-02
 - RS.MA-01
 - DE.AE-06
+mitre_attack:
+- T1078
+- T1685.002
+- T1685.005
+- T1566
+- T1027
 ---
 # Performing Threat Hunting with Elastic SIEM
 

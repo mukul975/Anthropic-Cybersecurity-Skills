@@ -1,8 +1,10 @@
 ---
 name: investigating-phishing-email-incident
-description: 'Investigates phishing email incidents from initial user report through header analysis, URL/attachment detonation,
-  impacted user identification, and containment actions using SOC tools like Splunk, Microsoft Defender, and sandbox analysis
-  platforms. Use when a reported phishing email requires full incident investigation to determine scope and impact.
+description: 'Investigates phishing email incidents from initial user report through
+  header analysis, URL/attachment detonation, impacted user identification, and containment
+  actions using SOC tools like Splunk, Microsoft Defender, and sandbox analysis platforms.
+  Use when a reported phishing email requires full incident investigation to determine
+  scope and impact.
 
   '
 domain: cybersecurity
@@ -16,10 +18,11 @@ tags:
 - defender
 - sandbox
 mitre_attack:
-- T1566.001
-- T1566.002
-- T1204.001
-- T1598.003
+- T1078
+- T1685.002
+- T1685.005
+- T1566
+- T1598
 version: '1.0'
 author: mahipal
 license: Apache-2.0

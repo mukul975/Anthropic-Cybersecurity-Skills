@@ -1,7 +1,8 @@
 ---
 name: implementing-beyondcorp-zero-trust-access-model
-description: 'Implementing Google''s BeyondCorp zero trust access model to eliminate implicit trust from the network perimeter,
-  enforce identity-aware access controls using IAP, Access Context Manager, and Chrome Enterprise Premium for VPN-less secure
+description: 'Implementing Google''s BeyondCorp zero trust access model to eliminate
+  implicit trust from the network perimeter, enforce identity-aware access controls
+  using IAP, Access Context Manager, and Chrome Enterprise Premium for VPN-less secure
   application access.
 
   '
@@ -23,6 +24,12 @@ nist_csf:
 - PR.AA-05
 - PR.IR-01
 - GV.PO-01
+mitre_attack:
+- T1078
+- T1190
+- T1059
+- T1078.004
+- T1530
 ---
 
 # Implementing BeyondCorp Zero Trust Access Model

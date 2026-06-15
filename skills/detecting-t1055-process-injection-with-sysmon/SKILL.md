@@ -1,7 +1,8 @@
 ---
 name: detecting-t1055-process-injection-with-sysmon
-description: Detect process injection techniques (T1055) including classic DLL injection, process hollowing, and APC injection
-  by analyzing Sysmon events for cross-process memory operations, remote thread creation, and anomalous DLL loading patterns.
+description: Detect process injection techniques (T1055) including classic DLL injection,
+  process hollowing, and APC injection by analyzing Sysmon events for cross-process
+  memory operations, remote thread creation, and anomalous DLL loading patterns.
 domain: cybersecurity
 subdomain: threat-hunting
 tags:
@@ -26,6 +27,11 @@ nist_csf:
 - DE.AE-02
 - DE.AE-07
 - ID.RA-05
+mitre_attack:
+- T1055.001
+- T1055.002
+- T1055.003
+- T1055.012
 ---
 
 # Detecting T1055 Process Injection with Sysmon

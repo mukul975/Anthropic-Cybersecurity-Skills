@@ -1,7 +1,8 @@
 ---
 name: building-incident-timeline-with-timesketch
-description: Build collaborative forensic incident timelines using Timesketch to ingest, normalize, and analyze multi-source
-  event data for attack chain reconstruction and investigation documentation.
+description: Build collaborative forensic incident timelines using Timesketch to ingest,
+  normalize, and analyze multi-source event data for attack chain reconstruction and
+  investigation documentation.
 domain: cybersecurity
 subdomain: incident-response
 tags:
@@ -13,9 +14,11 @@ tags:
 - incident-investigation
 - collaborative-forensics
 mitre_attack:
-- T1070
-- T1059
-- T1053
+- T1059.001
+- T1021.002
+- T1547.001
+- T1053.005
+- T1070.006
 version: '1.0'
 author: mahipal
 license: Apache-2.0

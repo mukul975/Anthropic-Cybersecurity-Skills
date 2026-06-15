@@ -1,7 +1,8 @@
 ---
 name: detecting-aws-cloudtrail-anomalies
-description: Detect unusual API call patterns in AWS CloudTrail logs using boto3, statistical baselining, and behavioral analysis
-  to identify credential compromise, privilege escalation, and unauthorized resource access.
+description: Detect unusual API call patterns in AWS CloudTrail logs using boto3,
+  statistical baselining, and behavioral analysis to identify credential compromise,
+  privilege escalation, and unauthorized resource access.
 domain: cybersecurity
 subdomain: cloud-security
 tags:
@@ -19,6 +20,12 @@ nist_csf:
 - ID.AM-08
 - GV.SC-06
 - DE.CM-01
+mitre_attack:
+- T1078.004
+- T1580
+- T1538
+- T1098.001
+- T1526
 ---
 # Detecting AWS CloudTrail Anomalies
 

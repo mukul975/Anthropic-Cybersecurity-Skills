@@ -1,7 +1,8 @@
 ---
 name: auditing-kubernetes-cluster-rbac
-description: 'Auditing Kubernetes cluster RBAC configurations to identify overly permissive roles, wildcard permissions, dangerous
-  ClusterRoleBindings, service account abuse, and privilege escalation paths using kubectl, rbac-tool, KubiScan, and Kubeaudit.
+description: 'Auditing Kubernetes cluster RBAC configurations to identify overly permissive
+  roles, wildcard permissions, dangerous ClusterRoleBindings, service account abuse,
+  and privilege escalation paths using kubectl, rbac-tool, KubiScan, and Kubeaudit.
 
   '
 domain: cybersecurity
@@ -22,6 +23,12 @@ nist_csf:
 - ID.AM-08
 - GV.SC-06
 - DE.CM-01
+mitre_attack:
+- T1098.006
+- T1552.007
+- T1611
+- T1613
+- T1078.004
 ---
 
 # Auditing Kubernetes Cluster RBAC

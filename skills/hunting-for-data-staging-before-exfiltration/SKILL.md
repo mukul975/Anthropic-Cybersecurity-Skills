@@ -1,7 +1,8 @@
 ---
 name: hunting-for-data-staging-before-exfiltration
-description: Detect data staging activity before exfiltration by monitoring for archive creation with 7-Zip/RAR, unusual temp
-  folder access, large file consolidation, and staging directory patterns via EDR and process telemetry
+description: Detect data staging activity before exfiltration by monitoring for archive
+  creation with 7-Zip/RAR, unusual temp folder access, large file consolidation, and
+  staging directory patterns via EDR and process telemetry
 domain: cybersecurity
 subdomain: threat-hunting
 tags:
@@ -26,6 +27,12 @@ nist_csf:
 - DE.AE-02
 - DE.AE-07
 - ID.RA-05
+mitre_attack:
+- T1046
+- T1057
+- T1082
+- T1083
+- T1048
 ---
 
 # Hunting for Data Staging Before Exfiltration

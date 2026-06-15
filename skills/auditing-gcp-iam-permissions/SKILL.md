@@ -1,7 +1,8 @@
 ---
 name: auditing-gcp-iam-permissions
-description: 'Auditing Google Cloud Platform IAM permissions to identify overly permissive bindings, primitive role usage,
-  service account key proliferation, and cross-project access risks using gcloud CLI, Policy Analyzer, and IAM Recommender.
+description: 'Auditing Google Cloud Platform IAM permissions to identify overly permissive
+  bindings, primitive role usage, service account key proliferation, and cross-project
+  access risks using gcloud CLI, Policy Analyzer, and IAM Recommender.
 
   '
 domain: cybersecurity
@@ -21,6 +22,12 @@ nist_csf:
 - ID.AM-08
 - GV.SC-06
 - DE.CM-01
+mitre_attack:
+- T1078.004
+- T1098.003
+- T1528
+- T1548.005
+- T1580
 ---
 
 # Auditing GCP IAM Permissions

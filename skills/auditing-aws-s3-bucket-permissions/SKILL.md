@@ -1,7 +1,8 @@
 ---
 name: auditing-aws-s3-bucket-permissions
-description: 'Systematically audit AWS S3 bucket permissions to identify publicly accessible buckets, overly permissive ACLs,
-  misconfigured bucket policies, and missing encryption settings using AWS CLI, S3audit, and Prowler to enforce least-privilege
+description: 'Systematically audit AWS S3 bucket permissions to identify publicly
+  accessible buckets, overly permissive ACLs, misconfigured bucket policies, and missing
+  encryption settings using AWS CLI, S3audit, and Prowler to enforce least-privilege
   data access controls.
 
   '
@@ -22,6 +23,12 @@ nist_csf:
 - ID.AM-08
 - GV.SC-06
 - DE.CM-01
+mitre_attack:
+- T1530
+- T1619
+- T1078.004
+- T1537
+- T1567.002
 ---
 
 # Auditing AWS S3 Bucket Permissions

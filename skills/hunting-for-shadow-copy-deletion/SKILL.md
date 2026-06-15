@@ -1,7 +1,8 @@
 ---
 name: hunting-for-shadow-copy-deletion
-description: Hunt for Volume Shadow Copy deletion activity that indicates ransomware preparation or anti-forensics by monitoring
-  vssadmin, wmic, and PowerShell shadow copy commands.
+description: Hunt for Volume Shadow Copy deletion activity that indicates ransomware
+  preparation or anti-forensics by monitoring vssadmin, wmic, and PowerShell shadow
+  copy commands.
 domain: cybersecurity
 subdomain: threat-hunting
 tags:
@@ -26,6 +27,12 @@ nist_csf:
 - DE.AE-02
 - DE.AE-07
 - ID.RA-05
+mitre_attack:
+- T1046
+- T1057
+- T1082
+- T1083
+- T1486
 ---
 
 # Hunting For Shadow Copy Deletion

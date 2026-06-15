@@ -1,7 +1,8 @@
 ---
 name: conducting-domain-persistence-with-dcsync
-description: Perform DCSync attacks to replicate Active Directory credentials and establish domain persistence by extracting
-  KRBTGT, Domain Admin, and service account hashes for Golden Ticket creation.
+description: Perform DCSync attacks to replicate Active Directory credentials and
+  establish domain persistence by extracting KRBTGT, Domain Admin, and service account
+  hashes for Golden Ticket creation.
 domain: cybersecurity
 subdomain: red-teaming
 tags:
@@ -25,6 +26,10 @@ nist_csf:
 - ID.RA-01
 - GV.OV-02
 - DE.AE-07
+mitre_attack:
+- T1003.006
+- T1207
+- T1098
 ---
 # Conducting Domain Persistence with DCSync
 

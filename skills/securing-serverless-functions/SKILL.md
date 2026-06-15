@@ -1,9 +1,10 @@
 ---
 name: securing-serverless-functions
-description: 'This skill covers security hardening for serverless compute platforms including AWS Lambda, Azure Functions,
-  and Google Cloud Functions. It addresses least privilege IAM roles, dependency vulnerability scanning, secrets management
-  integration, input validation, function URL authentication, and runtime monitoring to protect against injection attacks,
-  credential theft, and supply chain compromises.
+description: 'This skill covers security hardening for serverless compute platforms
+  including AWS Lambda, Azure Functions, and Google Cloud Functions. It addresses
+  least privilege IAM roles, dependency vulnerability scanning, secrets management
+  integration, input validation, function URL authentication, and runtime monitoring
+  to protect against injection attacks, credential theft, and supply chain compromises.
 
   '
 domain: cybersecurity
@@ -22,6 +23,12 @@ nist_csf:
 - ID.AM-08
 - GV.SC-06
 - DE.CM-01
+mitre_attack:
+- T1078.004
+- T1530
+- T1537
+- T1580
+- T1003
 ---
 
 # Securing Serverless Functions

@@ -1,9 +1,10 @@
 ---
 name: securing-azure-with-microsoft-defender
-description: 'This skill instructs security practitioners on deploying Microsoft Defender for Cloud as a cloud-native application
-  protection platform for Azure, multi-cloud, and hybrid environments. It covers enabling Defender plans for servers, containers,
-  storage, and databases, configuring security recommendations, managing Secure Score, and integrating with the unified Defender
-  portal for centralized threat management.
+description: 'This skill instructs security practitioners on deploying Microsoft Defender
+  for Cloud as a cloud-native application protection platform for Azure, multi-cloud,
+  and hybrid environments. It covers enabling Defender plans for servers, containers,
+  storage, and databases, configuring security recommendations, managing Secure Score,
+  and integrating with the unified Defender portal for centralized threat management.
 
   '
 domain: cybersecurity
@@ -30,6 +31,12 @@ nist_csf:
 - ID.AM-08
 - GV.SC-06
 - DE.CM-01
+mitre_attack:
+- T1078.004
+- T1530
+- T1537
+- T1580
+- T1610
 ---
 
 # Securing Azure with Microsoft Defender

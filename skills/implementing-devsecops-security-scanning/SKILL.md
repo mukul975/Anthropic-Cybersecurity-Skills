@@ -1,9 +1,11 @@
 ---
 name: implementing-devsecops-security-scanning
-description: 'Integrates Static Application Security Testing (SAST), Dynamic Application Security Testing (DAST), and Software
-  Composition Analysis (SCA) into CI/CD pipelines using open-source tools. Covers Semgrep for SAST, Trivy for SCA and container
-  scanning, OWASP ZAP for DAST, and Gitleaks for secrets detection. Activates for requests involving DevSecOps pipeline setup,
-  automated security scanning in CI/CD, SAST/DAST/SCA integration, or shift-left security implementation.
+description: 'Integrates Static Application Security Testing (SAST), Dynamic Application
+  Security Testing (DAST), and Software Composition Analysis (SCA) into CI/CD pipelines
+  using open-source tools. Covers Semgrep for SAST, Trivy for SCA and container scanning,
+  OWASP ZAP for DAST, and Gitleaks for secrets detection. Activates for requests involving
+  DevSecOps pipeline setup, automated security scanning in CI/CD, SAST/DAST/SCA integration,
+  or shift-left security implementation.
 
   '
 domain: cybersecurity
@@ -27,6 +29,12 @@ nist_csf:
 - PR.PS-04
 - ID.RA-01
 - PR.DS-10
+mitre_attack:
+- T1078
+- T1190
+- T1059
+- T1610
+- T1611
 ---
 
 # Implementing DevSecOps Security Scanning

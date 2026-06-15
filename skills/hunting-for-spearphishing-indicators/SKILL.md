@@ -1,7 +1,7 @@
 ---
 name: hunting-for-spearphishing-indicators
-description: Hunt for spearphishing campaign indicators across email logs, endpoint telemetry, and network data to detect
-  targeted email attacks.
+description: Hunt for spearphishing campaign indicators across email logs, endpoint
+  telemetry, and network data to detect targeted email attacks.
 domain: cybersecurity
 subdomain: threat-hunting
 tags:
@@ -26,6 +26,12 @@ nist_csf:
 - DE.AE-02
 - DE.AE-07
 - ID.RA-05
+mitre_attack:
+- T1046
+- T1057
+- T1082
+- T1083
+- T1566
 ---
 
 # Hunting For Spearphishing Indicators

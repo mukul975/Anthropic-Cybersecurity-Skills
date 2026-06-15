@@ -1,7 +1,8 @@
 ---
 name: testing-cors-misconfiguration
-description: Identifying and exploiting Cross-Origin Resource Sharing misconfigurations that allow unauthorized cross-domain
-  data access and credential theft during security assessments.
+description: Identifying and exploiting Cross-Origin Resource Sharing misconfigurations
+  that allow unauthorized cross-domain data access and credential theft during security
+  assessments.
 domain: cybersecurity
 subdomain: web-application-security
 tags:
@@ -19,6 +20,12 @@ nist_csf:
 - ID.RA-01
 - PR.DS-10
 - DE.CM-01
+mitre_attack:
+- T1190
+- T1059.007
+- T1505.003
+- T1083
+- T1003
 ---
 
 # Testing CORS Misconfiguration

@@ -1,9 +1,10 @@
 ---
 name: integrating-sast-into-github-actions-pipeline
-description: 'This skill covers integrating Static Application Security Testing (SAST) tools—CodeQL and Semgrep—into GitHub
-  Actions CI/CD pipelines. It addresses configuring automated code scanning on pull requests and pushes, tuning rules to reduce
-  false positives, uploading SARIF results to GitHub Advanced Security, and establishing quality gates that block merges when
-  high-severity vulnerabilities are detected.
+description: 'This skill covers integrating Static Application Security Testing (SAST)
+  tools—CodeQL and Semgrep—into GitHub Actions CI/CD pipelines. It addresses configuring
+  automated code scanning on pull requests and pushes, tuning rules to reduce false
+  positives, uploading SARIF results to GitHub Advanced Security, and establishing
+  quality gates that block merges when high-severity vulnerabilities are detected.
 
   '
 domain: cybersecurity
@@ -23,6 +24,10 @@ nist_csf:
 - GV.SC-07
 - ID.IM-04
 - PR.PS-04
+mitre_attack:
+- T1195
+- T1554
+- T1059.004
 ---
 
 # Integrating SAST into GitHub Actions Pipeline

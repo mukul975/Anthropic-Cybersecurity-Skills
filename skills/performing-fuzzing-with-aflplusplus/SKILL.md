@@ -1,10 +1,11 @@
 ---
 name: performing-fuzzing-with-aflplusplus
-description: 'Perform coverage-guided fuzzing of compiled binaries using AFL++ (American Fuzzy Lop Plus Plus) to discover
-  memory corruption, crashes, and security vulnerabilities. The tester instruments target binaries with afl-cc/afl-clang-fast,
-  manages input corpora with afl-cmin and afl-tmin, runs parallel fuzzing campaigns with afl-fuzz, and triages crashes using
-  CASR or GDB scripts. Activates for requests involving binary fuzzing, crash discovery, coverage-guided testing, or AFL++
-  fuzzing campaigns.
+description: 'Perform coverage-guided fuzzing of compiled binaries using AFL++ (American
+  Fuzzy Lop Plus Plus) to discover memory corruption, crashes, and security vulnerabilities.
+  The tester instruments target binaries with afl-cc/afl-clang-fast, manages input
+  corpora with afl-cmin and afl-tmin, runs parallel fuzzing campaigns with afl-fuzz,
+  and triages crashes using CASR or GDB scripts. Activates for requests involving
+  binary fuzzing, crash discovery, coverage-guided testing, or AFL++ fuzzing campaigns.
 
   '
 domain: cybersecurity
@@ -32,6 +33,11 @@ nist_csf:
 - PR.PS-04
 - ID.RA-01
 - PR.DS-10
+mitre_attack:
+- T1078
+- T1190
+- T1059
+- T1005
 ---
 # Performing Fuzzing with AFL++
 

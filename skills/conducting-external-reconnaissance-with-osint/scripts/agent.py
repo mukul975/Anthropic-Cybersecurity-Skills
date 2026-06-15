@@ -84,16 +84,38 @@ def check_email_security(domain):
     return email_security
 
 
-def search_breach_data(email_domain):
-    """Search Have I Been Pwned for breached accounts (requires API key)."""
-    url = f"https://haveibeenpwned.com/api/v3/breachedaccount/{email_domain}"
-    headers = {"hibp-api-key": "PLACEHOLDER", "user-agent": "OSINT-Agent"}
+def search_breach_data(account, api_key):
+    """Search Have I Been Pwned v3 for breaches affecting an account.
+
+    Requires a paid HIBP API key passed in the `hibp-api-key` header. The v3
+    breachedaccount endpoint returns 200 with a breach list, 404 when the
+    account has no breaches, 401 for a missing/invalid key, and 429 on rate
+    limiting (Retry-After header indicates the back-off in seconds).
+    """
+    if not api_key:
+        logger.warning("HIBP API key not provided; skipping breach lookup")
+        return []
+    url = f"https://haveibeenpwned.com/api/v3/breachedaccount/{account}"
+    headers = {"hibp-api-key": api_key, "user-agent": "OSINT-Recon-Agent"}
+    params = {"truncateResponse": "false"}
     try:
-        resp = requests.get(url, headers=headers, timeout=10)
+        resp = requests.get(url, headers=headers, params=params, timeout=15)
         if resp.status_code == 200:
-            return resp.json()
-    except requests.RequestException:
-        pass
+            breaches = resp.json()
+            logger.info("HIBP: %d breach(es) for %s", len(breaches), account)
+            return breaches
+        if resp.status_code == 404:
+            logger.info("HIBP: no breaches found for %s", account)
+            return []
+        if resp.status_code == 401:
+            logger.error("HIBP: unauthorized - invalid or missing API key")
+        elif resp.status_code == 429:
+            logger.error("HIBP: rate limited, retry after %s seconds",
+                         resp.headers.get("Retry-After", "unknown"))
+        else:
+            logger.error("HIBP: unexpected status %d", resp.status_code)
+    except requests.RequestException as e:
+        logger.error("HIBP request failed: %s", e)
     return []
 
 
@@ -142,7 +164,8 @@ def search_github_leaks(domain, github_token=None):
     return all_results
 
 
-def generate_recon_report(domain, subdomains, dns, shodan_hosts, email_sec, technologies, github_leaks):
+def generate_recon_report(domain, subdomains, dns, shodan_hosts, email_sec,
+                          technologies, github_leaks, breaches):
     """Generate external reconnaissance report."""
     report = {
         "target": domain,
@@ -153,9 +176,11 @@ def generate_recon_report(domain, subdomains, dns, shodan_hosts, email_sec, tech
         "email_security": email_sec,
         "web_technologies": technologies,
         "github_leaks": github_leaks,
+        "breaches": {"count": len(breaches), "list": breaches},
     }
     print(f"RECON REPORT - {domain}")
-    print(f"Subdomains: {len(subdomains)}, Shodan hosts: {len(shodan_hosts)}, GitHub leaks: {len(github_leaks)}")
+    print(f"Subdomains: {len(subdomains)}, Shodan hosts: {len(shodan_hosts)}, "
+          f"GitHub leaks: {len(github_leaks)}, Breaches: {len(breaches)}")
     return report
 
 
@@ -165,6 +190,10 @@ def main():
     parser.add_argument("--org", help="Organization name for Shodan search")
     parser.add_argument("--shodan-key", help="Shodan API key")
     parser.add_argument("--github-token", help="GitHub token for code search")
+    parser.add_argument("--hibp-key", help="Have I Been Pwned API key "
+                        "(falls back to HIBP_API_KEY env var)")
+    parser.add_argument("--breach-account", help="Account/email to check "
+                        "against Have I Been Pwned breaches")
     parser.add_argument("--output", default="recon_report.json")
     args = parser.parse_args()
 
@@ -179,8 +208,14 @@ def main():
 
     github_leaks = search_github_leaks(args.domain, args.github_token) if args.github_token else []
 
+    breaches = []
+    if args.breach_account:
+        hibp_key = args.hibp_key or os.environ.get("HIBP_API_KEY")
+        breaches = search_breach_data(args.breach_account, hibp_key)
+
     report = generate_recon_report(
-        args.domain, subdomains, dns, shodan_hosts, email_sec, technologies, github_leaks
+        args.domain, subdomains, dns, shodan_hosts, email_sec,
+        technologies, github_leaks, breaches
     )
     with open(args.output, "w") as f:
         json.dump(report, f, indent=2)

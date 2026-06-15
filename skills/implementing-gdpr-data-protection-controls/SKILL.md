@@ -1,7 +1,8 @@
 ---
 name: implementing-gdpr-data-protection-controls
-description: The General Data Protection Regulation (EU) 2016/679 (GDPR) is the EU's comprehensive data protection law governing
-  the collection, processing, storage, and transfer of personal data. This skill cover
+description: The General Data Protection Regulation (EU) 2016/679 (GDPR) is the EU's
+  comprehensive data protection law governing the collection, processing, storage,
+  and transfer of personal data. This skill cover
 domain: cybersecurity
 subdomain: compliance-governance
 tags:
@@ -30,6 +31,10 @@ atlas_techniques:
 - AML.T0070
 - AML.T0066
 - AML.T0082
+mitre_attack:
+- T1078
+- T1530
+- T1685.002
 ---
 # Implementing GDPR Data Protection Controls
 

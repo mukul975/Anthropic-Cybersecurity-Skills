@@ -1,10 +1,12 @@
 ---
 name: executing-phishing-simulation-campaign
-description: 'Executes authorized phishing simulation campaigns to assess an organization''s susceptibility to email-based
-  social engineering attacks. The tester designs realistic phishing scenarios, builds credential harvesting infrastructure,
-  sends targeted phishing emails, and tracks open rates, click-through rates, and credential submission rates to measure human
-  security awareness. Activates for requests involving phishing simulation, social engineering assessment, email security
-  testing, or security awareness measurement.
+description: 'Executes authorized phishing simulation campaigns to assess an organization''s
+  susceptibility to email-based social engineering attacks. The tester designs realistic
+  phishing scenarios, builds credential harvesting infrastructure, sends targeted
+  phishing emails, and tracks open rates, click-through rates, and credential submission
+  rates to measure human security awareness. Activates for requests involving phishing
+  simulation, social engineering assessment, email security testing, or security awareness
+  measurement.
 
   '
 domain: cybersecurity
@@ -23,6 +25,12 @@ nist_csf:
 - ID.RA-06
 - GV.OV-02
 - DE.AE-07
+mitre_attack:
+- T1595
+- T1190
+- T1059
+- T1078
+- T1003
 ---
 # Executing Phishing Simulation Campaign
 

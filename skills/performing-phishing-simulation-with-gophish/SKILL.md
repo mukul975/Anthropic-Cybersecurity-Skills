@@ -1,7 +1,8 @@
 ---
 name: performing-phishing-simulation-with-gophish
-description: GoPhish is an open-source phishing simulation framework used by security teams to conduct authorized phishing
-  awareness campaigns. It provides campaign management, email template creation, landing pag
+description: GoPhish is an open-source phishing simulation framework used by security
+  teams to conduct authorized phishing awareness campaigns. It provides campaign management,
+  email template creation, landing pag
 domain: cybersecurity
 subdomain: phishing-defense
 tags:
@@ -20,6 +21,11 @@ nist_csf:
 - DE.CM-09
 - RS.CO-02
 - DE.AE-02
+mitre_attack:
+- T1566
+- T1598
+- T1534
+- T1036
 ---
 # Performing Phishing Simulation with GoPhish
 

@@ -1,9 +1,11 @@
 ---
 name: conducting-memory-forensics-with-volatility
-description: 'Performs memory forensics analysis using Volatility 3 to extract evidence of malware execution, process injection,
-  network connections, and credential theft from RAM dumps captured during incident response. Covers memory acquisition, process
-  analysis, DLL inspection, and malware detection. Activates for requests involving memory forensics, RAM analysis, Volatility
-  framework, memory dump investigation, volatile evidence analysis, or live memory acquisition.
+description: 'Performs memory forensics analysis using Volatility 3 to extract evidence
+  of malware execution, process injection, network connections, and credential theft
+  from RAM dumps captured during incident response. Covers memory acquisition, process
+  analysis, DLL inspection, and malware detection. Activates for requests involving
+  memory forensics, RAM analysis, Volatility framework, memory dump investigation,
+  volatile evidence analysis, or live memory acquisition.
 
   '
 domain: cybersecurity
@@ -15,10 +17,11 @@ tags:
 - process-injection
 - DFIR
 mitre_attack:
-- T1003
 - T1055
+- T1003.001
+- T1014
+- T1059.001
 - T1620
-- T1574
 version: 1.0.0
 author: mahipal
 license: Apache-2.0

@@ -1,7 +1,8 @@
 ---
 name: implementing-network-intrusion-prevention-with-suricata
-description: Deploy and configure Suricata as a network intrusion prevention system with custom rules, Emerging Threats rulesets,
-  and inline traffic inspection for real-time threat blocking.
+description: Deploy and configure Suricata as a network intrusion prevention system
+  with custom rules, Emerging Threats rulesets, and inline traffic inspection for
+  real-time threat blocking.
 domain: cybersecurity
 subdomain: network-security
 tags:
@@ -22,6 +23,11 @@ nist_csf:
 - DE.CM-01
 - ID.AM-03
 - PR.DS-02
+mitre_attack:
+- T1046
+- T1040
+- T1557
+- T1071
 ---
 
 # Implementing Network Intrusion Prevention with Suricata

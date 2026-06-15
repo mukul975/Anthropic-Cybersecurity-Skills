@@ -1,7 +1,7 @@
 ---
 name: implementing-opa-gatekeeper-for-policy-enforcement
-description: Enforce Kubernetes admission policies using OPA Gatekeeper with ConstraintTemplates, Rego rules, and the Gatekeeper
-  policy library.
+description: Enforce Kubernetes admission policies using OPA Gatekeeper with ConstraintTemplates,
+  Rego rules, and the Gatekeeper policy library.
 domain: cybersecurity
 subdomain: container-security
 tags:
@@ -19,6 +19,11 @@ nist_csf:
 - PR.IR-01
 - ID.AM-08
 - DE.CM-01
+mitre_attack:
+- T1610
+- T1611
+- T1609
+- T1525
 ---
 
 # Implementing OPA Gatekeeper for Policy Enforcement

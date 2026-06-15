@@ -1,7 +1,8 @@
 ---
 name: testing-for-broken-access-control
-description: Systematically testing web applications for broken access control vulnerabilities including privilege escalation,
-  missing function-level checks, and insecure direct object references.
+description: Systematically testing web applications for broken access control vulnerabilities
+  including privilege escalation, missing function-level checks, and insecure direct
+  object references.
 domain: cybersecurity
 subdomain: web-application-security
 tags:
@@ -19,6 +20,12 @@ nist_csf:
 - ID.RA-01
 - PR.DS-10
 - DE.CM-01
+mitre_attack:
+- T1190
+- T1059.007
+- T1505.003
+- T1083
+- T1068
 ---
 
 # Testing for Broken Access Control

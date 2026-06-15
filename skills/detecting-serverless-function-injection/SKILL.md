@@ -1,12 +1,14 @@
 ---
 name: detecting-serverless-function-injection
-description: 'Detects and prevents code injection attacks targeting serverless functions (AWS Lambda, Azure Functions, Google
-  Cloud Functions) through event source poisoning, malicious layer injection, runtime command execution, and IAM privilege
-  escalation via function modification. The analyst combines static analysis of function code, CloudTrail event correlation,
-  runtime behavior monitoring, and IAM policy auditing to identify injection vectors across the expanded serverless attack
-  surface including API Gateway, S3, SQS, DynamoDB Streams, and CloudWatch event triggers. Activates for requests involving
-  Lambda security assessment, serverless injection detection, function event poisoning analysis, or serverless privilege escalation
-  investigation.
+description: 'Detects and prevents code injection attacks targeting serverless functions
+  (AWS Lambda, Azure Functions, Google Cloud Functions) through event source poisoning,
+  malicious layer injection, runtime command execution, and IAM privilege escalation
+  via function modification. The analyst combines static analysis of function code,
+  CloudTrail event correlation, runtime behavior monitoring, and IAM policy auditing
+  to identify injection vectors across the expanded serverless attack surface including
+  API Gateway, S3, SQS, DynamoDB Streams, and CloudWatch event triggers. Activates
+  for requests involving Lambda security assessment, serverless injection detection,
+  function event poisoning analysis, or serverless privilege escalation investigation.
 
   '
 domain: cybersecurity
@@ -26,6 +28,12 @@ nist_csf:
 - ID.AM-08
 - GV.SC-06
 - DE.CM-01
+mitre_attack:
+- T1190
+- T1059
+- T1648
+- T1078.004
+- T1068
 ---
 # Detecting Serverless Function Injection
 

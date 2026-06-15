@@ -1,7 +1,8 @@
 ---
 name: securing-aws-lambda-execution-roles
-description: 'Securing AWS Lambda execution roles by implementing least-privilege IAM policies, applying permission boundaries,
-  restricting resource-based policies, using IAM Access Analyzer to validate permissions, and enforcing role scoping through
+description: 'Securing AWS Lambda execution roles by implementing least-privilege
+  IAM policies, applying permission boundaries, restricting resource-based policies,
+  using IAM Access Analyzer to validate permissions, and enforcing role scoping through
   SCPs.
 
   '
@@ -22,6 +23,11 @@ nist_csf:
 - ID.AM-08
 - GV.SC-06
 - DE.CM-01
+mitre_attack:
+- T1078.004
+- T1530
+- T1537
+- T1580
 ---
 
 # Securing AWS Lambda Execution Roles

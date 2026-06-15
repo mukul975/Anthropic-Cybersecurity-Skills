@@ -1,10 +1,12 @@
 ---
 name: detecting-attacks-on-scada-systems
-description: 'This skill covers detecting cyber attacks targeting Supervisory Control and Data Acquisition (SCADA) systems
-  including man-in-the-middle attacks on industrial protocols, unauthorized command injection into PLCs, HMI compromise, historian
-  data manipulation, and denial-of-service against control system communications. It leverages OT-specific intrusion detection
-  systems, industrial protocol anomaly detection, and process data analytics to identify attacks that traditional IT security
-  tools miss.
+description: 'This skill covers detecting cyber attacks targeting Supervisory Control
+  and Data Acquisition (SCADA) systems including man-in-the-middle attacks on industrial
+  protocols, unauthorized command injection into PLCs, HMI compromise, historian data
+  manipulation, and denial-of-service against control system communications. It leverages
+  OT-specific intrusion detection systems, industrial protocol anomaly detection,
+  and process data analytics to identify attacks that traditional IT security tools
+  miss.
 
   '
 domain: cybersecurity
@@ -33,6 +35,12 @@ nist_csf:
 - DE.CM-01
 - ID.AM-05
 - GV.OC-02
+mitre_attack:
+- T0846
+- T0836
+- T0831
+- T0814
+- T0832
 ---
 
 # Detecting Attacks on SCADA Systems

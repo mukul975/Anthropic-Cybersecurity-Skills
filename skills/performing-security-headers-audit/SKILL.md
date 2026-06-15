@@ -1,7 +1,7 @@
 ---
 name: performing-security-headers-audit
-description: Auditing HTTP security headers including CSP, HSTS, X-Frame-Options, and cookie attributes to identify missing
-  or misconfigured browser-level protections.
+description: Auditing HTTP security headers including CSP, HSTS, X-Frame-Options,
+  and cookie attributes to identify missing or misconfigured browser-level protections.
 domain: cybersecurity
 subdomain: web-application-security
 tags:
@@ -20,6 +20,11 @@ nist_csf:
 - ID.RA-01
 - PR.DS-10
 - DE.CM-01
+mitre_attack:
+- T1190
+- T1059.007
+- T1505.003
+- T1083
 ---
 
 # Performing Security Headers Audit

@@ -1,7 +1,7 @@
 ---
 name: analyzing-prefetch-files-for-execution-history
-description: Parse Windows Prefetch files to determine program execution history including run counts, timestamps, and referenced
-  files for forensic investigation.
+description: Parse Windows Prefetch files to determine program execution history including
+  run counts, timestamps, and referenced files for forensic investigation.
 domain: cybersecurity
 subdomain: digital-forensics
 tags:
@@ -19,6 +19,11 @@ nist_csf:
 - RS.AN-03
 - DE.AE-02
 - RS.MA-01
+mitre_attack:
+- T1059.001
+- T1003.001
+- T1021.002
+- T1567.002
 ---
 
 # Analyzing Prefetch Files for Execution History

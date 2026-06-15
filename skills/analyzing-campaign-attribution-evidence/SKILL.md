@@ -1,7 +1,8 @@
 ---
 name: analyzing-campaign-attribution-evidence
-description: Campaign attribution analysis involves systematically evaluating evidence to determine which threat actor or
-  group is responsible for a cyber operation. This skill covers collecting and weighting attr
+description: Campaign attribution analysis involves systematically evaluating evidence
+  to determine which threat actor or group is responsible for a cyber operation. This
+  skill covers collecting and weighting attr
 domain: cybersecurity
 subdomain: threat-intelligence
 tags:
@@ -20,6 +21,11 @@ nist_csf:
 - ID.RA-05
 - DE.CM-01
 - DE.AE-02
+mitre_attack:
+- T1587.001
+- T1583.001
+- T1588.002
+- T1071.001
 ---
 # Analyzing Campaign Attribution Evidence
 

@@ -1,9 +1,11 @@
 ---
 name: conducting-network-penetration-test
-description: 'Conducts comprehensive network penetration tests against authorized target environments by performing host discovery,
-  port scanning, service enumeration, vulnerability identification, and controlled exploitation to assess the security posture
-  of network infrastructure. The tester follows PTES methodology from reconnaissance through post-exploitation and reporting.
-  Activates for requests involving network pentest, infrastructure security assessment, internal network testing, or external
+description: 'Conducts comprehensive network penetration tests against authorized
+  target environments by performing host discovery, port scanning, service enumeration,
+  vulnerability identification, and controlled exploitation to assess the security
+  posture of network infrastructure. The tester follows PTES methodology from reconnaissance
+  through post-exploitation and reporting. Activates for requests involving network
+  pentest, infrastructure security assessment, internal network testing, or external
   perimeter testing.
 
   '
@@ -23,6 +25,13 @@ nist_csf:
 - ID.RA-06
 - GV.OV-02
 - DE.AE-07
+mitre_attack:
+- T1046
+- T1595.002
+- T1190
+- T1210
+- T1021
+- T1078
 ---
 # Conducting Network Penetration Test
 

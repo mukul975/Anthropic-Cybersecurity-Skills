@@ -1,8 +1,10 @@
 ---
 name: implementing-alert-fatigue-reduction
-description: 'Implements strategies to reduce SOC alert fatigue by tuning detection rules, consolidating duplicate alerts,
-  implementing risk-based alerting, and measuring alert quality metrics to maintain analyst effectiveness and prevent critical
-  alert dismissal. Use when SOC teams face overwhelming alert volumes, high false positive rates, or declining analyst performance.
+description: 'Implements strategies to reduce SOC alert fatigue by tuning detection
+  rules, consolidating duplicate alerts, implementing risk-based alerting, and measuring
+  alert quality metrics to maintain analyst effectiveness and prevent critical alert
+  dismissal. Use when SOC teams face overwhelming alert volumes, high false positive
+  rates, or declining analyst performance.
 
   '
 domain: cybersecurity
@@ -23,6 +25,12 @@ nist_csf:
 - DE.AE-02
 - RS.MA-01
 - DE.AE-06
+mitre_attack:
+- T1078
+- T1685.002
+- T1685.005
+- T1566
+- T0816
 ---
 # Implementing Alert Fatigue Reduction
 

@@ -1,7 +1,8 @@
 ---
 name: performing-web-cache-poisoning-attack
-description: Exploiting web cache mechanisms to serve malicious content to other users by poisoning cached responses through
-  unkeyed headers and parameters during authorized security tests.
+description: Exploiting web cache mechanisms to serve malicious content to other users
+  by poisoning cached responses through unkeyed headers and parameters during authorized
+  security tests.
 domain: cybersecurity
 subdomain: web-application-security
 tags:
@@ -19,6 +20,11 @@ nist_csf:
 - ID.RA-01
 - PR.DS-10
 - DE.CM-01
+mitre_attack:
+- T1190
+- T1059.007
+- T1505.003
+- T1083
 ---
 
 # Performing Web Cache Poisoning Attack

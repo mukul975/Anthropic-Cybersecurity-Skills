@@ -1,9 +1,11 @@
 ---
 name: analyzing-threat-actor-ttps-with-mitre-navigator
-description: 'Map advanced persistent threat (APT) group tactics, techniques, and procedures (TTPs) to the MITRE ATT&CK framework
-  using the ATT&CK Navigator and attackcti Python library. The analyst queries STIX/TAXII data for group-technique associations,
-  generates Navigator layer files for visualization, and compares defensive coverage against adversary profiles. Activates
-  for requests involving APT TTP mapping, ATT&CK Navigator layers, threat actor profiling, or MITRE technique coverage analysis.
+description: 'Map advanced persistent threat (APT) group tactics, techniques, and
+  procedures (TTPs) to the MITRE ATT&CK framework using the ATT&CK Navigator and attackcti
+  Python library. The analyst queries STIX/TAXII data for group-technique associations,
+  generates Navigator layer files for visualization, and compares defensive coverage
+  against adversary profiles. Activates for requests involving APT TTP mapping, ATT&CK
+  Navigator layers, threat actor profiling, or MITRE technique coverage analysis.
 
   '
 domain: cybersecurity
@@ -38,6 +40,12 @@ nist_csf:
 - ID.RA-05
 - DE.CM-01
 - DE.AE-02
+mitre_attack:
+- T1566.001
+- T1059.001
+- T1071.001
+- T1547.001
+- T1053.005
 ---
 # Analyzing Threat Actor TTPs with MITRE Navigator
 

@@ -1,7 +1,8 @@
 ---
 name: implementing-network-segmentation-with-firewall-zones
-description: Design and implement network segmentation using firewall security zones, VLANs, ACLs, and microsegmentation policies
-  to restrict lateral movement and enforce least-privilege network access.
+description: Design and implement network segmentation using firewall security zones,
+  VLANs, ACLs, and microsegmentation policies to restrict lateral movement and enforce
+  least-privilege network access.
 domain: cybersecurity
 subdomain: network-security
 tags:
@@ -22,6 +23,12 @@ nist_csf:
 - DE.CM-01
 - ID.AM-03
 - PR.DS-02
+mitre_attack:
+- T1046
+- T1040
+- T1557
+- T1071
+- T1021
 ---
 
 # Implementing Network Segmentation with Firewall Zones

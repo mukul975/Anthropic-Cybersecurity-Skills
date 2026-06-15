@@ -1,17 +1,21 @@
 ---
 name: detecting-insider-data-exfiltration-via-dlp
-description: 'Detects insider data exfiltration by analyzing DLP policy violations, file access patterns, upload volume anomalies,
-  and off-hours activity in endpoint and cloud logs. Uses pandas for behavioral analytics and statistical baselines. Use when
-  investigating insider threats or building user behavior analytics for data loss prevention.
+description: 'Detects insider data exfiltration by analyzing DLP policy violations,
+  file access patterns, upload volume anomalies, and off-hours activity in endpoint
+  and cloud logs. Uses pandas for behavioral analytics and statistical baselines.
+  Use when investigating insider threats or building user behavior analytics for data
+  loss prevention.
 
   '
 domain: cybersecurity
 subdomain: security-operations
 tags:
-- detecting
-- insider
-- data
-- exfiltration
+- insider-threat
+- data-loss-prevention
+- dlp
+- exfiltration-detection
+- ueba
+- security-operations
 version: '1.0'
 author: mahipal
 license: Apache-2.0
@@ -20,6 +24,12 @@ nist_csf:
 - RS.MA-01
 - GV.OV-01
 - DE.AE-02
+mitre_attack:
+- T1078
+- T1190
+- T1059
+- T1048
+- T1041
 ---
 
 # Detecting Insider Data Exfiltration via DLP

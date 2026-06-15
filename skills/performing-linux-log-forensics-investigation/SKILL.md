@@ -1,8 +1,8 @@
 ---
 name: performing-linux-log-forensics-investigation
-description: Perform forensic investigation of Linux system logs including syslog, auth.log, systemd journal, kern.log, and
-  application logs to reconstruct user activity, detect unauthorized access, and establish event timelines on compromised
-  Linux systems.
+description: Perform forensic investigation of Linux system logs including syslog,
+  auth.log, systemd journal, kern.log, and application logs to reconstruct user activity,
+  detect unauthorized access, and establish event timelines on compromised Linux systems.
 domain: cybersecurity
 subdomain: digital-forensics
 tags:
@@ -24,6 +24,12 @@ nist_csf:
 - RS.AN-03
 - DE.AE-02
 - RS.MA-01
+mitre_attack:
+- T1005
+- T1074
+- T1119
+- T1070
+- T1059
 ---
 
 # Performing Linux Log Forensics Investigation

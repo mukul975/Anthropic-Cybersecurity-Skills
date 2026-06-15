@@ -1,7 +1,8 @@
 ---
 name: performing-dns-enumeration-and-zone-transfer
-description: 'Enumerates DNS records, attempts zone transfers, brute-forces subdomains, and maps DNS infrastructure during
-  authorized reconnaissance to identify attack surface, misconfigurations, and information disclosure in target domains.
+description: 'Enumerates DNS records, attempts zone transfers, brute-forces subdomains,
+  and maps DNS infrastructure during authorized reconnaissance to identify attack
+  surface, misconfigurations, and information disclosure in target domains.
 
   '
 domain: cybersecurity
@@ -20,6 +21,12 @@ nist_csf:
 - DE.CM-01
 - ID.AM-03
 - PR.DS-02
+mitre_attack:
+- T1046
+- T1040
+- T1557
+- T1071
+- T1595
 ---
 # Performing DNS Enumeration and Zone Transfer
 

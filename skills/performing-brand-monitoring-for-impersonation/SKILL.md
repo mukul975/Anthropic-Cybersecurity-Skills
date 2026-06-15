@@ -1,7 +1,8 @@
 ---
 name: performing-brand-monitoring-for-impersonation
-description: Monitor for brand impersonation attacks across domains, social media, mobile apps, and dark web channels to detect
-  phishing campaigns, fake sites, and unauthorized brand usage targeting your organization.
+description: Monitor for brand impersonation attacks across domains, social media,
+  mobile apps, and dark web channels to detect phishing campaigns, fake sites, and
+  unauthorized brand usage targeting your organization.
 domain: cybersecurity
 subdomain: threat-intelligence
 tags:
@@ -20,6 +21,12 @@ nist_csf:
 - ID.RA-05
 - DE.CM-01
 - DE.AE-02
+mitre_attack:
+- T1591
+- T1592
+- T1593
+- T1589
+- T1566
 ---
 # Performing Brand Monitoring for Impersonation
 

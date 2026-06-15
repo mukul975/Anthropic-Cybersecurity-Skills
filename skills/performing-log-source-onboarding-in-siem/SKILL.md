@@ -1,7 +1,7 @@
 ---
 name: performing-log-source-onboarding-in-siem
-description: Perform structured log source onboarding into SIEM platforms by configuring collectors, parsers, normalization,
-  and validation for complete security visibility.
+description: Perform structured log source onboarding into SIEM platforms by configuring
+  collectors, parsers, normalization, and validation for complete security visibility.
 domain: cybersecurity
 subdomain: soc-operations
 tags:
@@ -20,6 +20,11 @@ nist_csf:
 - DE.AE-02
 - RS.MA-01
 - DE.AE-06
+mitre_attack:
+- T1078
+- T1685.002
+- T1685.005
+- T1566
 ---
 
 # Performing Log Source Onboarding in SIEM

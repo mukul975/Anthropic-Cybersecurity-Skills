@@ -1,8 +1,9 @@
 ---
 name: implementing-gcp-vpc-firewall-rules
-description: 'Implementing and auditing GCP VPC firewall rules to enforce network segmentation, restrict ingress and egress
-  traffic, apply hierarchical firewall policies across the organization, and monitor firewall rule effectiveness using VPC
-  Flow Logs.
+description: 'Implementing and auditing GCP VPC firewall rules to enforce network
+  segmentation, restrict ingress and egress traffic, apply hierarchical firewall policies
+  across the organization, and monitor firewall rule effectiveness using VPC Flow
+  Logs.
 
   '
 domain: cybersecurity
@@ -22,6 +23,11 @@ nist_csf:
 - ID.AM-08
 - GV.SC-06
 - DE.CM-01
+mitre_attack:
+- T1078.004
+- T1530
+- T1537
+- T1580
 ---
 
 # Implementing GCP VPC Firewall Rules

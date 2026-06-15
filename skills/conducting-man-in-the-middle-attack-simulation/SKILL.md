@@ -1,7 +1,8 @@
 ---
 name: conducting-man-in-the-middle-attack-simulation
-description: 'Simulates man-in-the-middle attacks using Ettercap, mitmproxy, and Bettercap in authorized environments to intercept,
-  analyze, and modify network traffic for testing encryption enforcement, certificate validation, and detection capabilities.
+description: 'Simulates man-in-the-middle attacks using Ettercap, mitmproxy, and Bettercap
+  in authorized environments to intercept, analyze, and modify network traffic for
+  testing encryption enforcement, certificate validation, and detection capabilities.
 
   '
 domain: cybersecurity
@@ -20,6 +21,10 @@ nist_csf:
 - DE.CM-01
 - ID.AM-03
 - PR.DS-02
+mitre_attack:
+- T1557.001
+- T1557.002
+- T1040
 ---
 # Conducting Man-in-the-Middle Attack Simulation
 

@@ -1,9 +1,11 @@
 ---
 name: implementing-patch-management-for-ot-systems
-description: 'This skill covers implementing a structured patch management program for OT/ICS environments where traditional
-  IT patching approaches can cause process disruption or safety hazards. It addresses vendor compatibility testing, risk-based
-  patch prioritization, staged deployment through test environments, maintenance window coordination, rollback procedures,
-  and compensating controls when patches cannot be applied due to operational constraints or vendor restrictions.
+description: 'This skill covers implementing a structured patch management program
+  for OT/ICS environments where traditional IT patching approaches can cause process
+  disruption or safety hazards. It addresses vendor compatibility testing, risk-based
+  patch prioritization, staged deployment through test environments, maintenance window
+  coordination, rollback procedures, and compensating controls when patches cannot
+  be applied due to operational constraints or vendor restrictions.
 
   '
 domain: cybersecurity
@@ -24,6 +26,12 @@ nist_csf:
 - DE.CM-01
 - ID.AM-05
 - GV.OC-02
+mitre_attack:
+- T1078
+- T1190
+- T1059
+- T0816
+- T0836
 ---
 
 # Implementing Patch Management for OT Systems

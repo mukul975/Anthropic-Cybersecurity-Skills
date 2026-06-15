@@ -1,7 +1,8 @@
 ---
 name: performing-hardware-security-module-integration
-description: Integrate Hardware Security Modules (HSMs) using PKCS#11 interface for cryptographic key management, signing
-  operations, and secure key storage with python-pkcs11, AWS CloudHSM, and YubiHSM2.
+description: Integrate Hardware Security Modules (HSMs) using PKCS#11 interface for
+  cryptographic key management, signing operations, and secure key storage with python-pkcs11,
+  AWS CloudHSM, and YubiHSM2.
 domain: cybersecurity
 subdomain: cryptography
 tags:
@@ -27,6 +28,12 @@ nist_csf:
 - PR.DS-01
 - PR.DS-02
 - PR.DS-10
+mitre_attack:
+- T1600
+- T1573
+- T1553
+- T1078.004
+- T1530
 ---
 
 # Performing Hardware Security Module Integration

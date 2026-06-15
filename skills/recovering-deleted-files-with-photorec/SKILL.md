@@ -1,7 +1,7 @@
 ---
 name: recovering-deleted-files-with-photorec
-description: Recover deleted files from disk images and storage media using PhotoRec's file signature-based carving engine
-  regardless of file system damage.
+description: Recover deleted files from disk images and storage media using PhotoRec's
+  file signature-based carving engine regardless of file system damage.
 domain: cybersecurity
 subdomain: digital-forensics
 tags:
@@ -27,6 +27,12 @@ nist_csf:
 - RS.AN-03
 - DE.AE-02
 - RS.MA-01
+mitre_attack:
+- T1005
+- T1074
+- T1119
+- T1070
+- T1059
 ---
 
 # Recovering Deleted Files with PhotoRec

@@ -1,7 +1,8 @@
 ---
 name: detecting-golden-ticket-attacks-in-kerberos-logs
-description: Detect Golden Ticket attacks in Active Directory by analyzing Kerberos TGT anomalies including mismatched encryption
-  types, impossible ticket lifetimes, non-existent accounts, and forged PAC signatures in domain controller event logs.
+description: Detect Golden Ticket attacks in Active Directory by analyzing Kerberos
+  TGT anomalies including mismatched encryption types, impossible ticket lifetimes,
+  non-existent accounts, and forged PAC signatures in domain controller event logs.
 domain: cybersecurity
 subdomain: threat-hunting
 tags:
@@ -19,6 +20,12 @@ nist_csf:
 - DE.AE-02
 - DE.AE-07
 - ID.RA-05
+mitre_attack:
+- T1046
+- T1057
+- T1082
+- T1083
+- T1003
 ---
 
 # Detecting Golden Ticket Attacks in Kerberos Logs

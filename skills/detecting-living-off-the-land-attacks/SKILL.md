@@ -1,7 +1,8 @@
 ---
 name: detecting-living-off-the-land-attacks
-description: 'Detect abuse of legitimate Windows binaries (LOLBins) used for living off the land attacks. Monitors process
-  creation, command-line arguments, and parent-child relationships to identify suspicious LOLBin execution patterns.
+description: 'Detect abuse of legitimate Windows binaries (LOLBins) used for living
+  off the land attacks. Monitors process creation, command-line arguments, and parent-child
+  relationships to identify suspicious LOLBin execution patterns.
 
   '
 domain: cybersecurity
@@ -25,6 +26,10 @@ nist_csf:
 - DE.AE-02
 - DE.AE-06
 - ID.RA-05
+mitre_attack:
+- T1078
+- T1190
+- T1059
 ---
 
 # Detecting Living Off the Land Attacks

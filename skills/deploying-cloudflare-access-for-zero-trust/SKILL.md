@@ -1,7 +1,8 @@
 ---
 name: deploying-cloudflare-access-for-zero-trust
-description: 'Deploying Cloudflare Access with Cloudflare Tunnel to provide zero trust access to self-hosted and private applications,
-  configuring identity-aware access policies, device posture checks, and WARP client enrollment for VPN replacement.
+description: 'Deploying Cloudflare Access with Cloudflare Tunnel to provide zero trust
+  access to self-hosted and private applications, configuring identity-aware access
+  policies, device posture checks, and WARP client enrollment for VPN replacement.
 
   '
 domain: cybersecurity
@@ -31,6 +32,11 @@ nist_csf:
 - PR.AA-05
 - PR.IR-01
 - GV.PO-01
+mitre_attack:
+- T1133
+- T1078
+- T1190
+- T1021
 ---
 
 # Deploying Cloudflare Access for Zero Trust

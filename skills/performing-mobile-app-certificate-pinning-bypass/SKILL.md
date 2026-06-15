@@ -1,9 +1,11 @@
 ---
 name: performing-mobile-app-certificate-pinning-bypass
-description: 'Bypasses SSL/TLS certificate pinning implementations in Android and iOS applications to enable traffic interception
-  during authorized security assessments. Covers OkHttp, TrustManager, NSURLSession, and third-party pinning library bypass
-  techniques using Frida, Objection, and custom scripts. Activates for requests involving certificate pinning bypass, SSL
-  pinning defeat, mobile TLS interception, or proxy-resistant app testing.
+description: 'Bypasses SSL/TLS certificate pinning implementations in Android and
+  iOS applications to enable traffic interception during authorized security assessments.
+  Covers OkHttp, TrustManager, NSURLSession, and third-party pinning library bypass
+  techniques using Frida, Objection, and custom scripts. Activates for requests involving
+  certificate pinning bypass, SSL pinning defeat, mobile TLS interception, or proxy-resistant
+  app testing.
 
   '
 domain: cybersecurity
@@ -23,6 +25,12 @@ nist_csf:
 - PR.AA-05
 - ID.RA-01
 - DE.CM-09
+mitre_attack:
+- T1059
+- T1056
+- T1036
+- T1078
+- T1027
 ---
 # Performing Mobile App Certificate Pinning Bypass
 

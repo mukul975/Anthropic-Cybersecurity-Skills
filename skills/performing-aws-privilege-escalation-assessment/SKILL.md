@@ -1,8 +1,8 @@
 ---
 name: performing-aws-privilege-escalation-assessment
-description: 'Performing authorized privilege escalation assessments in AWS environments to identify IAM misconfigurations
-  that allow users or roles to elevate their permissions using Pacu, CloudFox, Principal Mapper, and manual IAM policy analysis
-  techniques.
+description: 'Performing authorized privilege escalation assessments in AWS environments
+  to identify IAM misconfigurations that allow users or roles to elevate their permissions
+  using Pacu, CloudFox, Principal Mapper, and manual IAM policy analysis techniques.
 
   '
 domain: cybersecurity
@@ -22,6 +22,12 @@ nist_csf:
 - ID.AM-08
 - GV.SC-06
 - DE.CM-01
+mitre_attack:
+- T1078.004
+- T1530
+- T1537
+- T1580
+- T1068
 ---
 
 # Performing AWS Privilege Escalation Assessment

@@ -1,7 +1,8 @@
 ---
 name: hunting-for-data-exfiltration-indicators
-description: Hunt for data exfiltration through network traffic analysis, detecting unusual data flows, DNS tunneling, cloud
-  storage uploads, and encrypted channel abuse.
+description: Hunt for data exfiltration through network traffic analysis, detecting
+  unusual data flows, DNS tunneling, cloud storage uploads, and encrypted channel
+  abuse.
 domain: cybersecurity
 subdomain: threat-hunting
 tags:
@@ -32,6 +33,12 @@ nist_csf:
 - DE.AE-02
 - DE.AE-07
 - ID.RA-05
+mitre_attack:
+- T1046
+- T1057
+- T1082
+- T1083
+- T1048
 ---
 
 # Hunting for Data Exfiltration Indicators

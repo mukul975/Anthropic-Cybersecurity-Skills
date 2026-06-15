@@ -1,7 +1,8 @@
 ---
 name: analyzing-typosquatting-domains-with-dnstwist
-description: Detect typosquatting, homograph phishing, and brand impersonation domains using dnstwist to generate domain permutations
-  and identify registered lookalike domains targeting your organization.
+description: Detect typosquatting, homograph phishing, and brand impersonation domains
+  using dnstwist to generate domain permutations and identify registered lookalike
+  domains targeting your organization.
 domain: cybersecurity
 subdomain: threat-intelligence
 tags:
@@ -24,6 +25,11 @@ nist_csf:
 - ID.RA-05
 - DE.CM-01
 - DE.AE-02
+mitre_attack:
+- T1583.001
+- T1566.002
+- T1598.003
+- T1583.006
 ---
 # Analyzing Typosquatting Domains with DNSTwist
 

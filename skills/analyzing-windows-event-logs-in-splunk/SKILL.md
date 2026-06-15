@@ -1,9 +1,10 @@
 ---
 name: analyzing-windows-event-logs-in-splunk
-description: 'Analyzes Windows Security, System, and Sysmon event logs in Splunk to detect authentication attacks, privilege
-  escalation, persistence mechanisms, and lateral movement using SPL queries mapped to MITRE ATT&CK techniques. Use when SOC
-  analysts need to investigate Windows-based threats, build detection queries, or perform forensic timeline analysis of Windows
-  endpoints and domain controllers.
+description: 'Analyzes Windows Security, System, and Sysmon event logs in Splunk to
+  detect authentication attacks, privilege escalation, persistence mechanisms, and
+  lateral movement using SPL queries mapped to MITRE ATT&CK techniques. Use when SOC
+  analysts need to investigate Windows-based threats, build detection queries, or
+  perform forensic timeline analysis of Windows endpoints and domain controllers.
 
   '
 domain: cybersecurity
@@ -30,6 +31,13 @@ nist_csf:
 - DE.AE-02
 - RS.MA-01
 - DE.AE-06
+mitre_attack:
+- T1110
+- T1053.005
+- T1547.001
+- T1021.002
+- T1558.003
+- T1003.006
 ---
 # Analyzing Windows Event Logs in Splunk
 

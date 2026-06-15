@@ -1,7 +1,7 @@
 ---
 name: performing-network-traffic-analysis-with-zeek
-description: Deploy Zeek network security monitor to capture, parse, and analyze network traffic metadata for threat detection,
-  anomaly identification, and forensic investigation.
+description: Deploy Zeek network security monitor to capture, parse, and analyze network
+  traffic metadata for threat detection, anomaly identification, and forensic investigation.
 domain: cybersecurity
 subdomain: network-security
 tags:
@@ -22,6 +22,12 @@ nist_csf:
 - DE.CM-01
 - ID.AM-03
 - PR.DS-02
+mitre_attack:
+- T1046
+- T1040
+- T1557
+- T1071
+- T1685.002
 ---
 
 # Performing Network Traffic Analysis with Zeek

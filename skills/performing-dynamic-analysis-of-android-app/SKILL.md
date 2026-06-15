@@ -1,10 +1,12 @@
 ---
 name: performing-dynamic-analysis-of-android-app
-description: 'Performs runtime dynamic analysis of Android applications using Frida, Objection, and Android Debug Bridge to
-  observe application behavior during execution, intercept function calls, modify runtime values, and identify vulnerabilities
-  that static analysis misses. Use when testing Android apps for runtime security flaws, hooking sensitive methods, bypassing
-  client-side protections, or analyzing obfuscated applications. Activates for requests involving Android dynamic analysis,
-  runtime hooking, Frida Android instrumentation, or live app behavior analysis.
+description: 'Performs runtime dynamic analysis of Android applications using Frida,
+  Objection, and Android Debug Bridge to observe application behavior during execution,
+  intercept function calls, modify runtime values, and identify vulnerabilities that
+  static analysis misses. Use when testing Android apps for runtime security flaws,
+  hooking sensitive methods, bypassing client-side protections, or analyzing obfuscated
+  applications. Activates for requests involving Android dynamic analysis, runtime
+  hooking, Frida Android instrumentation, or live app behavior analysis.
 
   '
 domain: cybersecurity
@@ -24,6 +26,12 @@ nist_csf:
 - PR.AA-05
 - ID.RA-01
 - DE.CM-09
+mitre_attack:
+- T1059
+- T1056
+- T1036
+- T1078
+- T1027
 ---
 # Performing Dynamic Analysis of Android App
 

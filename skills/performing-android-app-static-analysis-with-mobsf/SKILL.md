@@ -1,9 +1,11 @@
 ---
 name: performing-android-app-static-analysis-with-mobsf
-description: 'Performs automated static analysis of Android applications using Mobile Security Framework (MobSF) to identify
-  hardcoded secrets, insecure permissions, vulnerable components, weak cryptography, and code-level security flaws without
-  executing the application. Use when assessing Android APK/AAB files for security vulnerabilities before deployment, during
-  penetration testing, or as part of CI/CD security gates. Activates for requests involving Android static analysis, MobSF
+description: 'Performs automated static analysis of Android applications using Mobile
+  Security Framework (MobSF) to identify hardcoded secrets, insecure permissions,
+  vulnerable components, weak cryptography, and code-level security flaws without
+  executing the application. Use when assessing Android APK/AAB files for security
+  vulnerabilities before deployment, during penetration testing, or as part of CI/CD
+  security gates. Activates for requests involving Android static analysis, MobSF
   scanning, APK security assessment, or mobile application code review.
 
   '
@@ -24,6 +26,11 @@ nist_csf:
 - PR.AA-05
 - ID.RA-01
 - DE.CM-09
+mitre_attack:
+- T1059
+- T1056
+- T1036
+- T1078
 ---
 # Performing Android App Static Analysis with MobSF
 

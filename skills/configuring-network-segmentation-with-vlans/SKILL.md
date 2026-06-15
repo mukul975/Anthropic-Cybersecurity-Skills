@@ -1,8 +1,8 @@
 ---
 name: configuring-network-segmentation-with-vlans
-description: 'Designs and implements VLAN-based network segmentation on managed switches to isolate network zones, enforce
-  access control between segments, and reduce the attack surface by limiting lateral movement paths in enterprise network
-  environments.
+description: 'Designs and implements VLAN-based network segmentation on managed switches
+  to isolate network zones, enforce access control between segments, and reduce the
+  attack surface by limiting lateral movement paths in enterprise network environments.
 
   '
 domain: cybersecurity
@@ -21,6 +21,12 @@ nist_csf:
 - DE.CM-01
 - ID.AM-03
 - PR.DS-02
+mitre_attack:
+- T1046
+- T1040
+- T1557.002
+- T1021
+- T1018
 ---
 # Configuring Network Segmentation with VLANs
 

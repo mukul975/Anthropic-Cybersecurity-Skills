@@ -1,9 +1,11 @@
 ---
 name: implementing-gdpr-data-subject-access-request
-description: 'Automates GDPR Data Subject Access Request (DSAR) workflows including identity verification, PII discovery across
-  databases and files using regex and NER, data mapping, response templating per Article 15 requirements, deadline tracking,
-  and audit logging. Covers ICO/EDPB guidance compliance, exemption handling, and scalable batch processing. Use when building
-  or auditing DSAR response capabilities under GDPR/UK GDPR.
+description: 'Automates GDPR Data Subject Access Request (DSAR) workflows including
+  identity verification, PII discovery across databases and files using regex and
+  NER, data mapping, response templating per Article 15 requirements, deadline tracking,
+  and audit logging. Covers ICO/EDPB guidance compliance, exemption handling, and
+  scalable batch processing. Use when building or auditing DSAR response capabilities
+  under GDPR/UK GDPR.
 
   '
 domain: cybersecurity
@@ -23,6 +25,10 @@ nist_csf:
 - GV.PO-01
 - PR.DS-01
 - GV.OC-05
+mitre_attack:
+- T1078
+- T1190
+- T1059
 ---
 
 # Implementing GDPR Data Subject Access Request (DSAR) Workflow

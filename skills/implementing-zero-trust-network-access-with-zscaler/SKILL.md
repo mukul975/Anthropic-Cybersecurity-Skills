@@ -1,7 +1,8 @@
 ---
 name: implementing-zero-trust-network-access-with-zscaler
-description: Implement Zero Trust Network Access using Zscaler Private Access (ZPA) to replace traditional VPN with identity-based,
-  context-aware access to private applications through the Zscaler Zero Trust Exchange.
+description: Implement Zero Trust Network Access using Zscaler Private Access (ZPA)
+  to replace traditional VPN with identity-based, context-aware access to private
+  applications through the Zscaler Zero Trust Exchange.
 domain: cybersecurity
 subdomain: zero-trust-architecture
 tags:
@@ -18,6 +19,10 @@ nist_csf:
 - PR.AA-05
 - PR.IR-01
 - GV.PO-01
+mitre_attack:
+- T1078
+- T1190
+- T1059
 ---
 
 # Implementing Zero Trust Network Access with Zscaler

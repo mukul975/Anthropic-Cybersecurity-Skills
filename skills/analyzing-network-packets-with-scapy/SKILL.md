@@ -1,7 +1,8 @@
 ---
 name: analyzing-network-packets-with-scapy
-description: Craft, send, sniff, and dissect network packets using Scapy for protocol analysis, network reconnaissance, and
-  traffic anomaly detection in authorized security testing
+description: Craft, send, sniff, and dissect network packets using Scapy for protocol
+  analysis, network reconnaissance, and traffic anomaly detection in authorized security
+  testing
 domain: cybersecurity
 subdomain: network-security
 tags:
@@ -19,6 +20,11 @@ nist_csf:
 - DE.CM-01
 - ID.AM-03
 - PR.DS-02
+mitre_attack:
+- T1040
+- T1071
+- T1046
+- T1557
 ---
 
 # Analyzing Network Packets with Scapy

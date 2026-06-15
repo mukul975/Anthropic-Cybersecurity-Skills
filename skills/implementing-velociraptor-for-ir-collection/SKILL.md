@@ -1,7 +1,8 @@
 ---
 name: implementing-velociraptor-for-ir-collection
-description: Deploy and configure Velociraptor for scalable endpoint forensic artifact collection during incident response
-  using VQL queries, hunts, and pre-built artifact packs across Windows, Linux, and macOS environments.
+description: Deploy and configure Velociraptor for scalable endpoint forensic artifact
+  collection during incident response using VQL queries, hunts, and pre-built artifact
+  packs across Windows, Linux, and macOS environments.
 domain: cybersecurity
 subdomain: incident-response
 tags:
@@ -14,10 +15,11 @@ tags:
 - threat-hunting
 - incident-response
 mitre_attack:
-- T1059
-- T1003
+- T1486
+- T1490
 - T1070
-- T1547
+- T1078
+- T1005
 version: '1.0'
 author: mahipal
 license: Apache-2.0

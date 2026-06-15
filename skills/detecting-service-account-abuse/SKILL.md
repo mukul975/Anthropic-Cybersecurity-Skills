@@ -1,7 +1,7 @@
 ---
 name: detecting-service-account-abuse
-description: Detect abuse of service accounts through anomalous interactive logons, privilege escalation, lateral movement,
-  and unauthorized access patterns.
+description: Detect abuse of service accounts through anomalous interactive logons,
+  privilege escalation, lateral movement, and unauthorized access patterns.
 domain: cybersecurity
 subdomain: threat-hunting
 tags:
@@ -25,6 +25,11 @@ nist_csf:
 - DE.AE-02
 - DE.AE-07
 - ID.RA-05
+mitre_attack:
+- T1078.002
+- T1021.001
+- T1098.001
+- T1550.002
 ---
 
 # Detecting Service Account Abuse

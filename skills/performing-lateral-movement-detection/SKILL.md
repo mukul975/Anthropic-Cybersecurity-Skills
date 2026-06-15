@@ -1,8 +1,9 @@
 ---
 name: performing-lateral-movement-detection
-description: 'Detects lateral movement techniques including Pass-the-Hash, PsExec, WMI execution, RDP pivoting, and SMB-based
-  spreading using SIEM correlation of Windows event logs, network flow data, and endpoint telemetry mapped to MITRE ATT&CK
-  Lateral Movement (TA0008) techniques.
+description: 'Detects lateral movement techniques including Pass-the-Hash, PsExec,
+  WMI execution, RDP pivoting, and SMB-based spreading using SIEM correlation of Windows
+  event logs, network flow data, and endpoint telemetry mapped to MITRE ATT&CK Lateral
+  Movement (TA0008) techniques.
 
   '
 domain: cybersecurity
@@ -31,6 +32,12 @@ nist_csf:
 - DE.AE-02
 - RS.MA-01
 - DE.AE-06
+mitre_attack:
+- T1078
+- T1685.002
+- T1685.005
+- T1566
+- T1021
 ---
 # Performing Lateral Movement Detection
 

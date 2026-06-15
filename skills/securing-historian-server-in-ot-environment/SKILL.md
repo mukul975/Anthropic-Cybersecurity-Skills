@@ -1,9 +1,11 @@
 ---
 name: securing-historian-server-in-ot-environment
-description: 'This skill covers hardening and securing process historian servers (OSIsoft PI, Honeywell PHD, GE Proficy, AVEVA
-  Historian) in OT environments. It addresses network placement across Purdue levels, access control for historian interfaces,
-  data replication through DMZ using data diodes or PI-to-PI connectors, SQL injection prevention in historian queries, and
-  integrity protection of process data used for safety analysis, regulatory reporting, and process optimization.
+description: 'This skill covers hardening and securing process historian servers (OSIsoft
+  PI, Honeywell PHD, GE Proficy, AVEVA Historian) in OT environments. It addresses
+  network placement across Purdue levels, access control for historian interfaces,
+  data replication through DMZ using data diodes or PI-to-PI connectors, SQL injection
+  prevention in historian queries, and integrity protection of process data used for
+  safety analysis, regulatory reporting, and process optimization.
 
   '
 domain: cybersecurity
@@ -25,6 +27,12 @@ nist_csf:
 - DE.CM-01
 - ID.AM-05
 - GV.OC-02
+mitre_attack:
+- T1078
+- T1190
+- T1059
+- T1055
+- T0816
 ---
 
 # Securing Historian Server in OT Environment

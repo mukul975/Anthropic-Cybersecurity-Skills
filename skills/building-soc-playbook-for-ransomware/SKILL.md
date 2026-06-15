@@ -1,8 +1,10 @@
 ---
 name: building-soc-playbook-for-ransomware
-description: 'Builds a structured SOC incident response playbook for ransomware attacks covering detection, containment, eradication,
-  and recovery phases with specific SIEM queries, isolation procedures, and decision trees. Use when SOC teams need formalized
-  response procedures for ransomware incidents aligned to NIST SP 800-61 and MITRE ATT&CK ransomware techniques.
+description: 'Builds a structured SOC incident response playbook for ransomware attacks
+  covering detection, containment, eradication, and recovery phases with specific
+  SIEM queries, isolation procedures, and decision trees. Use when SOC teams need
+  formalized response procedures for ransomware incidents aligned to NIST SP 800-61
+  and MITRE ATT&CK ransomware techniques.
 
   '
 domain: cybersecurity
@@ -19,7 +21,8 @@ mitre_attack:
 - T1486
 - T1490
 - T1489
-- T1570
+- T1566
+- T1059.001
 version: '1.0'
 author: mahipal
 license: Apache-2.0

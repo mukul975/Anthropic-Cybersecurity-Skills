@@ -1,7 +1,8 @@
 ---
 name: performing-gcp-security-assessment-with-forseti
-description: 'Performing comprehensive security assessments of Google Cloud Platform environments using Forseti Security,
-  Security Command Center, and gcloud CLI to audit IAM policies, firewall rules, storage permissions, and compliance against
+description: 'Performing comprehensive security assessments of Google Cloud Platform
+  environments using Forseti Security, Security Command Center, and gcloud CLI to
+  audit IAM policies, firewall rules, storage permissions, and compliance against
   CIS GCP Foundations Benchmark.
 
   '
@@ -32,6 +33,11 @@ nist_csf:
 - ID.AM-08
 - GV.SC-06
 - DE.CM-01
+mitre_attack:
+- T1078.004
+- T1530
+- T1537
+- T1580
 ---
 
 # Performing GCP Security Assessment with Forseti

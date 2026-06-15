@@ -1,7 +1,8 @@
 ---
 name: implementing-dragos-platform-for-ot-monitoring
-description: 'Deploy and configure the Dragos Platform for OT network monitoring, leveraging its 600+ industrial protocol
-  parsers, intelligence-driven threat detection analytics, and asset visibility capabilities to protect ICS environments against
+description: 'Deploy and configure the Dragos Platform for OT network monitoring,
+  leveraging its 600+ industrial protocol parsers, intelligence-driven threat detection
+  analytics, and asset visibility capabilities to protect ICS environments against
   threat groups like VOLTZITE, GRAPHITE, and BAUXITE.
 
   '
@@ -32,6 +33,12 @@ nist_csf:
 - DE.CM-01
 - ID.AM-05
 - GV.OC-02
+mitre_attack:
+- T1078
+- T1190
+- T1059
+- T0816
+- T0836
 ---
 
 # Implementing Dragos Platform for OT Monitoring

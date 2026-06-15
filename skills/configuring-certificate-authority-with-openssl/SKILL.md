@@ -1,7 +1,8 @@
 ---
 name: configuring-certificate-authority-with-openssl
-description: A Certificate Authority (CA) is the trust anchor in a PKI hierarchy, responsible for issuing, signing, and revoking
-  digital certificates. This skill covers building a two-tier CA hierarchy (Root CA +
+description: A Certificate Authority (CA) is the trust anchor in a PKI hierarchy,
+  responsible for issuing, signing, and revoking digital certificates. This skill
+  covers building a two-tier CA hierarchy (Root CA +
 domain: cybersecurity
 subdomain: cryptography
 tags:
@@ -17,6 +18,11 @@ nist_csf:
 - PR.DS-01
 - PR.DS-02
 - PR.DS-10
+mitre_attack:
+- T1649
+- T1553.004
+- T1557
+- T1587.003
 ---
 # Configuring Certificate Authority with OpenSSL
 

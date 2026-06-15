@@ -1,7 +1,8 @@
 ---
 name: building-ioc-defanging-and-sharing-pipeline
-description: Build an automated pipeline to defang indicators of compromise (URLs, IPs, domains, emails) for safe sharing
-  and distribute them in STIX format through TAXII feeds and threat intelligence platforms.
+description: Build an automated pipeline to defang indicators of compromise (URLs,
+  IPs, domains, emails) for safe sharing and distribute them in STIX format through
+  TAXII feeds and threat intelligence platforms.
 domain: cybersecurity
 subdomain: threat-intelligence
 tags:
@@ -21,6 +22,11 @@ nist_csf:
 - ID.RA-05
 - DE.CM-01
 - DE.AE-02
+mitre_attack:
+- T1071.001
+- T1583.001
+- T1105
+- T1566.002
 ---
 # Building IOC Defanging and Sharing Pipeline
 

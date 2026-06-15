@@ -1,7 +1,8 @@
 ---
 name: detecting-aws-iam-privilege-escalation
-description: Detect AWS IAM privilege escalation paths using boto3 and Cloudsplaining policy analysis to identify overly permissive
-  policies, dangerous permission combinations, and least-privilege violations
+description: Detect AWS IAM privilege escalation paths using boto3 and Cloudsplaining
+  policy analysis to identify overly permissive policies, dangerous permission combinations,
+  and least-privilege violations
 domain: cybersecurity
 subdomain: cloud-security
 tags:
@@ -20,6 +21,12 @@ nist_csf:
 - ID.AM-08
 - GV.SC-06
 - DE.CM-01
+mitre_attack:
+- T1098.001
+- T1098.003
+- T1078.004
+- T1548.005
+- T1484
 ---
 
 # Detecting AWS IAM Privilege Escalation

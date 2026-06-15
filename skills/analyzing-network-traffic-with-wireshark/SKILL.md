@@ -1,7 +1,8 @@
 ---
 name: analyzing-network-traffic-with-wireshark
-description: 'Captures and analyzes network packet data using Wireshark and tshark to identify malicious traffic patterns,
-  diagnose protocol issues, extract artifacts, and support incident response investigations on authorized network segments.
+description: 'Captures and analyzes network packet data using Wireshark and tshark
+  to identify malicious traffic patterns, diagnose protocol issues, extract artifacts,
+  and support incident response investigations on authorized network segments.
 
   '
 domain: cybersecurity
@@ -20,6 +21,11 @@ nist_csf:
 - DE.CM-01
 - ID.AM-03
 - PR.DS-02
+mitre_attack:
+- T1040
+- T1071
+- T1557
+- T1046
 ---
 # Analyzing Network Traffic with Wireshark
 

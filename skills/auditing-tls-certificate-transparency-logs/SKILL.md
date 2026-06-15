@@ -1,10 +1,12 @@
 ---
 name: auditing-tls-certificate-transparency-logs
-description: 'Monitors Certificate Transparency (CT) logs to detect unauthorized certificate issuance, discover subdomains
-  via CT data, and alert on suspicious certificate activity for owned domains. Uses the crt.sh API and direct CT log querying
-  based on RFC 6962 to build continuous monitoring pipelines that catch rogue certificates, track CA behavior, and map the
-  external attack surface. Activates for requests involving certificate transparency monitoring, CT log auditing, subdomain
-  discovery via certificates, or certificate issuance alerting.
+description: 'Monitors Certificate Transparency (CT) logs to detect unauthorized certificate
+  issuance, discover subdomains via CT data, and alert on suspicious certificate activity
+  for owned domains. Uses the crt.sh API and direct CT log querying based on RFC 6962
+  to build continuous monitoring pipelines that catch rogue certificates, track CA
+  behavior, and map the external attack surface. Activates for requests involving
+  certificate transparency monitoring, CT log auditing, subdomain discovery via certificates,
+  or certificate issuance alerting.
 
   '
 domain: cybersecurity
@@ -24,6 +26,12 @@ nist_csf:
 - ID.RA-05
 - DE.CM-01
 - DE.AE-02
+mitre_attack:
+- T1596.003
+- T1583.001
+- T1587.003
+- T1593
+- T1566.002
 ---
 # Auditing TLS Certificate Transparency Logs
 

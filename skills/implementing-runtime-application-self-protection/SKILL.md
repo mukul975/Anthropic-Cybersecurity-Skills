@@ -1,8 +1,8 @@
 ---
 name: implementing-runtime-application-self-protection
-description: Deploy Runtime Application Self-Protection (RASP) agents to detect and block attacks from within application
-  runtime, covering OpenRASP integration, attack pattern detection, and security policy configuration for Java and Python
-  web applications.
+description: Deploy Runtime Application Self-Protection (RASP) agents to detect and
+  block attacks from within application runtime, covering OpenRASP integration, attack
+  pattern detection, and security policy configuration for Java and Python web applications.
 domain: cybersecurity
 subdomain: application-security
 tags:
@@ -26,6 +26,11 @@ nist_csf:
 - PR.PS-04
 - ID.RA-01
 - PR.DS-10
+mitre_attack:
+- T1078
+- T1190
+- T1059
+- T1059.007
 ---
 
 # Implementing Runtime Application Self-Protection

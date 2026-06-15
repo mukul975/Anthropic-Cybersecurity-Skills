@@ -1,9 +1,11 @@
 ---
 name: configuring-windows-event-logging-for-detection
-description: 'Configures Windows Event Logging with advanced audit policies to generate high-fidelity security events for
-  threat detection and forensic investigation. Use when enabling audit policies for logon events, process creation, privilege
-  use, and object access to feed SIEM detection rules. Activates for requests involving Windows audit policy, event log configuration,
-  security logging, or detection-oriented logging.
+description: 'Configures Windows Event Logging with advanced audit policies to generate
+  high-fidelity security events for threat detection and forensic investigation. Use
+  when enabling audit policies for logon events, process creation, privilege use,
+  and object access to feed SIEM detection rules. Activates for requests involving
+  Windows audit policy, event log configuration, security logging, or detection-oriented
+  logging.
 
   '
 domain: cybersecurity
@@ -22,6 +24,12 @@ nist_csf:
 - PR.PS-02
 - DE.CM-01
 - PR.IR-01
+mitre_attack:
+- T1685.005
+- T1059.001
+- T1053.005
+- T1047
+- T1543.003
 ---
 # Configuring Windows Event Logging for Detection
 

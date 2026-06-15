@@ -1,9 +1,11 @@
 ---
 name: conducting-wireless-network-penetration-test
-description: 'Conducts authorized wireless network penetration tests to assess the security of WiFi infrastructure by testing
-  for weak encryption protocols, captive portal bypasses, evil twin attacks, WPA2/WPA3 handshake capture, rogue access point
-  detection, and client-side attacks. The tester evaluates wireless authentication, network segmentation, and the effectiveness
-  of wireless intrusion detection systems. Activates for requests involving wireless pentest, WiFi security assessment, WPA2/WPA3
+description: 'Conducts authorized wireless network penetration tests to assess the
+  security of WiFi infrastructure by testing for weak encryption protocols, captive
+  portal bypasses, evil twin attacks, WPA2/WPA3 handshake capture, rogue access point
+  detection, and client-side attacks. The tester evaluates wireless authentication,
+  network segmentation, and the effectiveness of wireless intrusion detection systems.
+  Activates for requests involving wireless pentest, WiFi security assessment, WPA2/WPA3
   testing, or rogue access point detection.
 
   '
@@ -23,6 +25,12 @@ nist_csf:
 - ID.RA-06
 - GV.OV-02
 - DE.AE-07
+mitre_attack:
+- T1557.004
+- T1040
+- T1110.002
+- T1557
+- T1669
 ---
 # Conducting Wireless Network Penetration Test
 

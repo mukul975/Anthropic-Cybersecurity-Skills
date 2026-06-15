@@ -1,7 +1,8 @@
 ---
 name: performing-s7comm-protocol-security-analysis
-description: 'Perform security analysis of Siemens S7comm and S7CommPlus protocols used by SIMATIC S7 PLCs to identify vulnerabilities
-  including replay attacks, integrity bypass, unauthorized CPU stop commands, and program download manipulation exploiting
+description: 'Perform security analysis of Siemens S7comm and S7CommPlus protocols
+  used by SIMATIC S7 PLCs to identify vulnerabilities including replay attacks, integrity
+  bypass, unauthorized CPU stop commands, and program download manipulation exploiting
   weaknesses in S7-300, S7-400, S7-1200, and S7-1500 controllers.
 
   '
@@ -24,6 +25,12 @@ nist_csf:
 - DE.CM-01
 - ID.AM-05
 - GV.OC-02
+mitre_attack:
+- T1078
+- T1190
+- T1059
+- T1685.002
+- T1685.005
 ---
 
 # Performing S7comm Protocol Security Analysis
