@@ -27,11 +27,11 @@ FORBIDDEN_TRACKED_EXACT = {
 
 REQUIRED_IGNORED_PATHS = (
     "data/.env",
-    ".venv",
-    ".playwright-mcp",
-    "security-lab",
-    "havoc-c2-lab",
-    "control-room",
+    ".venv/",
+    ".playwright-mcp/",
+    "security-lab/",
+    "havoc-c2-lab/",
+    "control-room/",
     "CLAUDE_CLEANUP_BRIEF.md",
     "cyberagent/skills/personas/gunner.md",
 )
