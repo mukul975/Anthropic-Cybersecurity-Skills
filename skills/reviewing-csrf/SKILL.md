@@ -32,6 +32,14 @@ license: Apache-2.0
 
 ## Workflow
 
+1. Initialize and execute the testing sequence.
+
+```bash
+# Verification block
+echo test
+```
+
+
 ### Step 1: Identify State-Changing Endpoints & Authentication
 1. Find an endpoint that alters data (e.g., updating a profile, creating an API key, changing an email address).
 2. Verify how the application authenticates the request. If it uses an `Authorization` header, CSRF is highly unlikely. If it uses a `Cookie`, proceed.
@@ -69,7 +77,6 @@ Systematically attempt to bypass the identified defenses:
    <img src="https://target.com/api/deleteAccount">
    ```
 4. While logged into the target application as the victim, open the attacker HTML file in the same browser. Check if the state change occurred.
-
 ## Key Concepts
 
 | Term | Definition |
@@ -77,6 +84,12 @@ Systematically attempt to bypass the identified defenses:
 | **CSRF (Cross-Site Request Forgery)** | An attack that forces an end user to execute unwanted actions on a web application in which they're currently authenticated. |
 | **SameSite Cookie Attribute** | A browser security feature that determines whether cookies are sent with cross-site requests. `Strict` sends cookies only for first-party requests. `Lax` sends cookies for top-level navigations (like following a link). `None` sends cookies with all requests. |
 | **Synchronizer Token Pattern** | The primary defense against CSRF. The server generates a unique, cryptographically strong, and unpredictable token per session, requiring it to be submitted with every state-changing request. |
+
+
+## Tools & Systems
+
+- Burp Suite Professional / Community Edition
+- Standard web browsers and interception proxies.
 
 ## Common Scenarios
 

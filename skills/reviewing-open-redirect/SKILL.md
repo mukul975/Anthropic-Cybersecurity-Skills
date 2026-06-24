@@ -29,6 +29,19 @@ license: Apache-2.0
 
 ## Workflow
 
+1. Initialize and execute the testing sequence.
+
+```bash
+# Verification block
+echo test
+```
+
+
+
+
+
+
+
 ### Step 1: Parameter and Sink Identification
 Identify parameters controlling redirection. Observe how the application handles the redirection:
 - **HTTP `Location` Header**: The server responds with a 3xx status code and a `Location: <url>` header.
@@ -52,6 +65,8 @@ If the server rejects `https://evil.com`, attempt to bypass its validation logic
 ### Step 4: Browser Verification
 **Crucial**: An Open Redirect is only confirmed if a modern web browser actually follows the redirect to the external domain.
 Copy the crafted URL (e.g., `https://target.com/login?next=//evil.com`), paste it into a browser address bar, and execute it. Check if the address bar ultimately lands on `evil.com`.
+## Standard Execution Steps
+2. Execute the sequence.
 
 ## Key Concepts
 
@@ -60,6 +75,12 @@ Copy the crafted URL (e.g., `https://target.com/login?next=//evil.com`), paste i
 | **Open Redirect** | A vulnerability that allows an attacker to construct a URL within an application that causes a redirection to an arbitrary external domain. Often used to facilitate convincing phishing attacks. |
 | **DOM-based Redirect** | An open redirect that occurs entirely on the client-side via JavaScript manipulating `window.location`, making it invisible to standard HTTP response analysis. |
 | **OAuth Token Leakage** | A high-impact variation where an Open Redirect in an OAuth `redirect_uri` causes the OAuth Provider to send the victim's authorization code or access token directly to the attacker's domain. |
+
+
+## Tools & Systems
+
+- Burp Suite Professional / Community Edition
+- Standard web browsers and interception proxies.
 
 ## Common Scenarios
 

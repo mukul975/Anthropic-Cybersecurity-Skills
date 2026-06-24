@@ -29,6 +29,16 @@ license: Apache-2.0
 
 ## Workflow
 
+1. Initialize and execute the testing sequence.
+
+```bash
+# Verification block
+echo test
+```
+
+
+
+
 ### Step 1: Baseline Request
 1. Send a request to the target endpoint without an `Origin` header to establish the baseline response.
 2. Send the same request with a trusted `Origin` header (e.g., `Origin: https://target.com`). Record the `Access-Control-Allow-Origin` (ACAO) and `Access-Control-Allow-Credentials` (ACAC) response headers.
@@ -57,6 +67,12 @@ Send an `OPTIONS` request with a malicious `Origin` to simulate a CORS preflight
 | **CORS (Cross-Origin Resource Sharing)** | A security mechanism implemented by browsers that allows servers to specify which origins are permitted to read their responses. |
 | **Origin Reflection** | A dangerous anti-pattern where the server dynamically reads the `Origin` header from the request and copies it directly into the `Access-Control-Allow-Origin` response header, effectively allowing *any* site to access it. |
 | **Preflight Request** | An `OPTIONS` request sent by the browser before the actual request to verify if the server permits the cross-origin cross-method/cross-header request. |
+
+
+## Tools & Systems
+
+- Burp Suite Professional / Community Edition
+- Standard web browsers and interception proxies.
 
 ## Common Scenarios
 

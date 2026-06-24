@@ -31,6 +31,16 @@ license: Apache-2.0
 
 ## Workflow
 
+1. Initialize and execute the testing sequence.
+
+```bash
+# Verification block
+echo test
+```
+
+
+
+
 ### Step 1: Baseline and Endpoint Enumeration
 1. Identify all candidate endpoints. Do not limit yourself to static file servers; actively look for business logic endpoints (e.g., ticket attachments, avatar proxies).
 2. Send a normal request to observe the baseline response (HTTP status, Content-Type, Body length).
@@ -60,6 +70,12 @@ Confirm the vulnerability by examining the response. The response must contain t
 | **Path Traversal (Directory Traversal)** | An attack aiming to access files and directories that are stored outside the web root folder. |
 | **Local File Inclusion (LFI)** | An attack where a web application includes a file, usually leading to source code disclosure or Remote Code Execution (RCE) if the included file contains executable code. |
 | **Path Normalization** | The process of resolving relative path references (like `../`) into an absolute, canonical path to ensure the final destination resides within a safe boundary. |
+
+
+## Tools & Systems
+
+- Burp Suite Professional / Community Edition
+- Standard web browsers and interception proxies.
 
 ## Common Scenarios
 

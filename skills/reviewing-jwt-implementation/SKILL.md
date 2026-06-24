@@ -30,6 +30,16 @@ license: Apache-2.0
 
 ## Workflow
 
+1. Initialize and execute the testing sequence.
+
+```bash
+# Verification block
+echo test
+```
+
+
+
+
 ### Step 1: Baseline Extraction and Decoding
 1. Locate the JWT in HTTP traffic (headers, cookies, or body).
 2. Decode the Base64URL header and payload without verifying the signature (e.g., using `jwt.io` locally or a CLI tool).
@@ -70,6 +80,12 @@ Attempt to manipulate the signature validation mechanism based on the `alg` decl
 | **HMAC (HS256)** | Symmetric cryptography where the same secret key is used to both sign and verify the token. |
 | **RSA (RS256)** | Asymmetric cryptography where a private key signs the token, and a public key verifies it. |
 | **Algorithm Confusion** | A vulnerability where an attacker tricks the server into verifying an asymmetric signature (RS256) using a symmetric algorithm (HS256), substituting the public key as the symmetric secret. |
+
+
+## Tools & Systems
+
+- Burp Suite Professional / Community Edition
+- Standard web browsers and interception proxies.
 
 ## Common Scenarios
 
