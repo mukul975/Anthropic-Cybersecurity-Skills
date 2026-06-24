@@ -109,9 +109,10 @@ def parse_frontmatter(text):
 
     for line in block.split("\n"):
         stripped = line.strip()
+        is_top_level = line == stripped
 
         # Flush a completed folded scalar when we hit the next top-level key.
-        if in_folded and stripped and not line.startswith(" ") and not line.startswith("\t"):
+        if in_folded and stripped and is_top_level:
             if current_key and folded_lines:
                 data[current_key] = " ".join(folded_lines)
             in_folded = False
@@ -124,6 +125,13 @@ def parse_frontmatter(text):
             continue
 
         if not stripped or stripped.startswith("#"):
+            continue
+
+        # Only parse top-level list items and key/value pairs.
+        if not is_top_level:
+            if stripped.startswith("- ") and current_key:
+                list_values.append(stripped[2:].strip().strip('"').strip("'"))
+                data[current_key] = list(list_values)
             continue
 
         # Handle list items (must come before key: value to avoid misparse).
@@ -151,7 +159,7 @@ def parse_frontmatter(text):
             continue
 
         # Handle key: value (plain scalar)
-        m = re.match(r'^(\w[\w_-]*):\s*(.*)$', stripped)
+        m = re.match(r"^(\w[\w_-]*):\s*(.*)$", stripped)
         if m:
             current_key = m.group(1)
             val = m.group(2).strip().strip('"').strip("'")
