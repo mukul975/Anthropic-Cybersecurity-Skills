@@ -8,13 +8,13 @@ description: >-
 domain: cybersecurity
 subdomain: web-application-security
 tags: [race-condition, toctou, concurrency, business-logic]
-mitre_attack: [T1190, T1222]
+mitre_attack: [T1190]
 version: "1.0"
 author: Victor
 license: Apache-2.0
 ---
 
-# Analyzing Race Conditions (TOCTOU)
+# Reviewing Race Conditions
 
 ## When to Use
 
@@ -29,16 +29,6 @@ license: Apache-2.0
 - Controlled test accounts or sentinel resources. **Critical**: Do not run race conditions against real production inventory or financial balances unless using a dedicated test sentinel account, as the effects (negative balances, overselling) are permanent.
 
 ## Workflow
-
-1. Initialize and execute the testing sequence.
-
-```bash
-# Verification block
-echo test
-```
-
-
-
 
 ### Step 1: Target Identification
 Identify the non-atomic check-then-act sequence:
@@ -61,6 +51,18 @@ You must verify the backend state:
 - Check the inventory: Were 5 items bought when only 1 was in stock?
 - Check the coupon list: Was the "limit 1" coupon applied 3 times?
 
+### Verification Phase
+1. Establish baseline network responses and determine parameter contexts.
+2. Inject specialized payloads specifically targeted at evaluating Reviewing Race Conditions.
+3. Analyze HTTP response headers, status codes, and out-of-band signals.
+
+```bash
+# Verify endpoint response behavior under inspection payload
+curl -i -s -k -X POST "https://target.example.com/api/v1/inspect" \
+     -H "Content-Type: application/json" \
+     -d '{"parameter": "test_payload"}'
+```
+
 ## Key Concepts
 
 | Term | Definition |
@@ -68,7 +70,6 @@ You must verify the backend state:
 | **Race Condition (TOCTOU)** | A flaw occurring when the timing or ordering of events affects a program's correctness. Specifically, Time-of-Check to Time-of-Use occurs when a resource's state changes between the time it is checked and the time it is used. |
 | **Atomic Operation** | An operation that completes in a single step relative to other threads. If the check and act are atomic (e.g., using a database `SELECT ... FOR UPDATE` row lock), the race condition is prevented. |
 | **HTTP/2 Single Packet Attack** | A technique that places multiple HTTP requests into a single TCP packet, allowing them to be processed by the server at the exact same moment, bypassing network jitter. |
-
 
 ## Tools & Systems
 

@@ -8,13 +8,13 @@ description: >-
 domain: cybersecurity
 subdomain: web-application-security
 tags: [configuration-management, security-misconfiguration, whitebox, default-passwords]
-mitre_attack: [T1078, T1190]
+mitre_attack: [T1588.006, T1580]
 version: "1.0"
 author: Victor
 license: Apache-2.0
 ---
 
-# Detecting Dangerous Configurations
+# Reviewing Insecure Configurations
 
 ## When to Use
 
@@ -29,19 +29,6 @@ license: Apache-2.0
 - Note: Do NOT use this skill for searching hardcoded passwords or API keys. Route those tasks to `detecting-hardcoded-secrets`. This skill focuses on boolean flags, modes, and behavioral settings.
 
 ## Workflow
-
-1. Initialize and execute the testing sequence.
-
-```bash
-# Verification block
-echo test
-```
-
-
-
-
-
-
 
 ### Step 1: Locate Configuration Media
 Identify where the application stores its settings:
@@ -70,8 +57,18 @@ Search for Cross-Origin Resource Sharing (CORS) configurations.
 Evaluate framework-specific features that are known to be dangerous if left in their default state:
 - **Jackson (Java)**: Is `enableDefaultTyping()` activated? This allows polymorphic deserialization, leading to RCE.
 - **XML Parsers**: Is the `DocumentBuilderFactory` explicitly configured to disallow DOCTYPE declarations (`setFeature("...disallow-doctype-decl", true)`)? If not, it defaults to allowing XXE.
-## Standard Execution Steps
-2. Execute the sequence.
+
+### Verification Phase
+1. Establish baseline network responses and determine parameter contexts.
+2. Inject specialized payloads specifically targeted at evaluating Reviewing Insecure Configurations.
+3. Analyze HTTP response headers, status codes, and out-of-band signals.
+
+```bash
+# Verify endpoint response behavior under inspection payload
+curl -i -s -k -X POST "https://target.example.com/api/v1/inspect" \
+     -H "Content-Type: application/json" \
+     -d '{"parameter": "test_payload"}'
+```
 
 ## Key Concepts
 
@@ -79,7 +76,6 @@ Evaluate framework-specific features that are known to be dangerous if left in t
 |------|------------|
 | **Security Misconfiguration** | Insecure default settings, incomplete configurations, open cloud storage, misconfigured HTTP headers, and verbose error messages containing sensitive information. |
 | **Profile-Specific Configurations** | Frameworks like Spring use profiles (e.g., `dev`, `staging`, `prod`) to load different configurations. Always audit the configuration files intended for the production environment. |
-
 
 ## Tools & Systems
 

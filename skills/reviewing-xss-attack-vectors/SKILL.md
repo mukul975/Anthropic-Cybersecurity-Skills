@@ -7,13 +7,13 @@ description: >-
 domain: cybersecurity
 subdomain: web-application-security
 tags: [xss, client-side, web-vulnerability, penetration-testing]
-mitre_attack: [T1189]
+mitre_attack: [T1059.007, T1189]
 version: "1.0"
 author: Victor
 license: Apache-2.0
 ---
 
-# Analyzing XSS Vulnerabilities
+# Reviewing Cross-Site Scripting Attack Vectors
 
 ## When to Use
 
@@ -32,16 +32,6 @@ license: Apache-2.0
 - An isolated browser profile or Incognito window to safely execute payloads without contaminating your primary session.
 
 ## Workflow
-
-1. Initialize and execute the testing sequence.
-
-```bash
-# Verification block
-echo test
-```
-
-
-
 
 ### Step 1: Probe Injection and Context Mapping
 1. Send a unique alphanumeric probe string (e.g., `xPrObE9k2`) into all available input vectors (query parameters, JSON bodies, headers, URL fragments).
@@ -75,6 +65,18 @@ To confirm the vulnerability, you **must** achieve execution in a browser.
 2. Verify execution by observing `console.log(1)` output in the Developer Tools Console, or by proving the DOM has been fundamentally altered.
 3. For Stored XSS, ensure you can clean up (delete) the payload after execution.
 
+### Verification Phase
+1. Establish baseline network responses and determine parameter contexts.
+2. Inject specialized payloads specifically targeted at evaluating Reviewing Cross-Site Scripting Attack Vectors.
+3. Analyze HTTP response headers, status codes, and out-of-band signals.
+
+```bash
+# Verify endpoint response behavior under inspection payload
+curl -i -s -k -X POST "https://target.example.com/api/v1/inspect" \
+     -H "Content-Type: application/json" \
+     -d '{"parameter": "test_payload"}'
+```
+
 ## Key Concepts
 
 | Term | Definition |
@@ -82,7 +84,6 @@ To confirm the vulnerability, you **must** achieve execution in a browser.
 | **DOM-based XSS** | XSS that occurs entirely on the client-side. The server response does not contain the payload; rather, frontend JavaScript insecurely handles client-side input (like `location.hash`). |
 | **Blind XSS** | A variant of Stored XSS where the payload is executed in an environment the attacker cannot see, such as a backend administrative dashboard or customer support portal. |
 | **mXSS (Mutation XSS)** | XSS triggered by browser rendering engines mutating seemingly safe HTML (often after it passes a sanitizer) into executable, unsafe HTML during the `innerHTML` serialization-parsing cycle. |
-
 
 ## Tools & Systems
 

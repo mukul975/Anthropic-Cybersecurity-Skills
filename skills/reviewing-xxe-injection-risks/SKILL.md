@@ -8,13 +8,13 @@ description: >-
 domain: cybersecurity
 subdomain: web-application-security
 tags: [xxe, xml, ssrf, out-of-band, penetration-testing]
-mitre_attack: [T1190]
+mitre_attack: [T1190, T1005]
 version: "1.0"
 author: Victor
 license: Apache-2.0
 ---
 
-# Analyzing XML External Entity (XXE) Vulnerabilities
+# Reviewing XXE Injection Risks
 
 ## When to Use
 
@@ -29,17 +29,6 @@ license: Apache-2.0
 - Understanding of Document Type Definitions (DTDs) and XML Entity syntax.
 
 ## Workflow
-
-1. Initialize and execute the testing sequence.
-
-```bash
-# Verification block
-echo test
-```
-
-
-
-
 
 ### Step 1: Parser Discovery & Baseline
 Send a valid XML payload to the target endpoint. Ensure the application processes the XML and returns a normal business response. 
@@ -81,8 +70,18 @@ If your OOB listener receives an HTTP or DNS request, Blind XXE is confirmed. Yo
 - **XInclude**: If the application filters the `<!DOCTYPE` string, inject XInclude namespaces:
   `<foo xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include parse="text" href="file:///etc/passwd"/></foo>`
 - **SVG / Office Docs**: For image or document uploads, inject the XXE payload into the XML structure of an SVG file, or unzip a `.docx`, insert the payload into `word/document.xml`, re-zip it, and upload.
-## Standard Execution Steps
-2. Execute the sequence.
+
+### Verification Phase
+1. Establish baseline network responses and determine parameter contexts.
+2. Inject specialized payloads specifically targeted at evaluating Reviewing XXE Injection Risks.
+3. Analyze HTTP response headers, status codes, and out-of-band signals.
+
+```bash
+# Verify endpoint response behavior under inspection payload
+curl -i -s -k -X POST "https://target.example.com/api/v1/inspect" \
+     -H "Content-Type: application/json" \
+     -d '{"parameter": "test_payload"}'
+```
 
 ## Key Concepts
 
@@ -91,7 +90,6 @@ If your OOB listener receives an HTTP or DNS request, Blind XXE is confirmed. Yo
 | **XXE (XML External Entity)** | A type of attack against an application that parses XML input. It occurs when XML input containing a reference to an external entity is processed by a weakly configured XML parser. |
 | **DTD (Document Type Definition)** | Defines the structure and the legal elements and attributes of an XML document. XXE relies on defining custom entities within the DTD. |
 | **Blind XXE** | An XXE vulnerability where the server does not return the results of the evaluated entity in its HTTP response, requiring the attacker to exfiltrate data via Out-of-Band (OOB) network requests. |
-
 
 ## Tools & Systems
 

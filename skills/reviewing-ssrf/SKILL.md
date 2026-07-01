@@ -7,13 +7,13 @@ description: >-
 domain: cybersecurity
 subdomain: web-application-security
 tags: [ssrf, cloud-security, penetration-testing, network-scanning]
-mitre_attack: [T1190]
+mitre_attack: [T1190, T1552]
 version: "1.0"
 author: Victor
 license: Apache-2.0
 ---
 
-# Analyzing SSRF Vulnerabilities
+# Reviewing Server-Side Request Forgery
 
 ## When to Use
 
@@ -30,16 +30,6 @@ license: Apache-2.0
 - Understanding of cloud metadata IP addresses (e.g., `169.254.169.254` for AWS/GCP).
 
 ## Workflow
-
-1. Initialize and execute the testing sequence.
-
-```bash
-# Verification block
-echo test
-```
-
-
-
 
 ### Step 1: Out-of-Band (OOB) Confirmation
 Before attempting internal network scanning, confirm the SSRF by making the server ping an external domain you control.
@@ -67,6 +57,18 @@ If direct requests to `127.0.0.1` are blocked, attempt to bypass the blocklist:
 - **Open Redirects**: Provide a URL on a trusted domain that redirects (`302`) to the internal target. If the backend HTTP client follows redirects blindly, the SSRF triggers.
 - **URL Parsing Inconsistencies**: `http://expected-domain.com@127.0.0.1`
 
+### Verification Phase
+1. Establish baseline network responses and determine parameter contexts.
+2. Inject specialized payloads specifically targeted at evaluating Reviewing Server-Side Request Forgery.
+3. Analyze HTTP response headers, status codes, and out-of-band signals.
+
+```bash
+# Verify endpoint response behavior under inspection payload
+curl -i -s -k -X POST "https://target.example.com/api/v1/inspect" \
+     -H "Content-Type: application/json" \
+     -d '{"parameter": "test_payload"}'
+```
+
 ## Key Concepts
 
 | Term | Definition |
@@ -74,7 +76,6 @@ If direct requests to `127.0.0.1` are blocked, attempt to bypass the blocklist:
 | **SSRF** | Server-Side Request Forgery. A vulnerability where an attacker forces a backend server to make HTTP/TCP requests to an arbitrary domain of the attacker's choosing. |
 | **Cloud Metadata Service** | A local REST API provided by cloud providers (AWS, Azure, GCP) accessible only from within the cloud instance (usually at `169.254.169.254`), often containing sensitive IAM tokens. |
 | **Blind SSRF** | An SSRF where the response from the targeted internal service is not returned to the attacker. Detection relies entirely on time delays or OOB pingbacks. |
-
 
 ## Tools & Systems
 

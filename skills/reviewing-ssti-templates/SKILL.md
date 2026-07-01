@@ -7,13 +7,13 @@ description: >-
 domain: cybersecurity
 subdomain: web-application-security
 tags: [ssti, template-injection, rce, penetration-testing]
-mitre_attack: [T1190]
+mitre_attack: [T1190, T1059]
 version: "1.0"
 author: Victor
 license: Apache-2.0
 ---
 
-# Analyzing Server-Side Template Injection (SSTI)
+# Reviewing Server-Side Template Injection
 
 ## When to Use
 
@@ -28,16 +28,6 @@ license: Apache-2.0
 - **Critical Rule**: Limit initial testing to harmless mathematical evaluations (`{{7*7}}`). Do not attempt OS command execution (`id`, `whoami`) until the engine is confirmed and authorized.
 
 ## Workflow
-
-1. Initialize and execute the testing sequence.
-
-```bash
-# Verification block
-echo test
-```
-
-
-
 
 ### Step 1: Baseline and Injection Sinks
 Identify parameters, headers, or URL paths that are reflected in the response. Observe the reflection behavior to ensure the input is not simply URL-encoded or HTML-escaped before reaching the template engine.
@@ -65,6 +55,18 @@ Once the engine is identified, probe the execution context:
 1. **Object Enumeration**: Try to dump configuration objects (e.g., `{{config}}` in Jinja2 or `{{_self.env}}` in Twig).
 2. **Sandbox Detection**: If `{{7*7}}` evaluates to `49`, but `{{config}}` returns empty or throws a security exception, the engine is likely sandboxed (e.g., Jinja2 `SandboxedEnvironment`). A sandboxed SSTI is still a confirmed vulnerability, but achieving RCE requires sandbox escape techniques (like traversing Python's `__mro__` subclass tree).
 
+### Verification Phase
+1. Establish baseline network responses and determine parameter contexts.
+2. Inject specialized payloads specifically targeted at evaluating Reviewing Server-Side Template Injection.
+3. Analyze HTTP response headers, status codes, and out-of-band signals.
+
+```bash
+# Verify endpoint response behavior under inspection payload
+curl -i -s -k -X POST "https://target.example.com/api/v1/inspect" \
+     -H "Content-Type: application/json" \
+     -d '{"parameter": "test_payload"}'
+```
+
 ## Key Concepts
 
 | Term | Definition |
@@ -72,7 +74,6 @@ Once the engine is identified, probe the execution context:
 | **SSTI (Server-Side Template Injection)** | A vulnerability occurring when user input is concatenated directly into a template string rather than being passed in as contextual data, allowing the attacker to execute arbitrary template directives. |
 | **Sandbox Escape** | Techniques used to bypass restrictions placed on template engines, usually by navigating the object hierarchy to find unrestricted classes (like Python's `os.popen` or Java's `java.lang.Runtime`). |
 | **XSS vs. SSTI** | XSS executes in the user's browser (Client-Side). SSTI executes on the backend server. A payload like `{{7*7}}` evaluates to `49` on the server before the browser ever sees it. |
-
 
 ## Tools & Systems
 

@@ -14,7 +14,7 @@ author: Victor
 license: Apache-2.0
 ---
 
-# Analyzing SQL Injection Vulnerabilities
+# Reviewing SQL Injection Vulnerabilities
 
 ## When to Use
 
@@ -33,16 +33,6 @@ license: Apache-2.0
 - Out-of-Band (OOB) testing infrastructure (e.g., Burp Collaborator, interactsh) if testing blind/OOB vectors.
 
 ## Workflow
-
-1. Initialize and execute the testing sequence.
-
-```bash
-# Verification block
-echo test
-```
-
-
-
 
 ### Step 0: Baseline Collection
 1. Send the unmodified request 2-3 times to establish a "Baseline Response Profile" (status code, content length, average response time).
@@ -97,6 +87,18 @@ A vulnerability is only **Confirmed** if you have observable evidence:
 - A time delay that is statistically significant and exclusively triggered by the payload.
 - OOB DNS/HTTP interaction containing a unique token.
 
+### Verification Phase
+1. Establish baseline network responses and determine parameter contexts.
+2. Inject specialized payloads specifically targeted at evaluating Reviewing SQL Injection Vulnerabilities.
+3. Analyze HTTP response headers, status codes, and out-of-band signals.
+
+```bash
+# Verify endpoint response behavior under inspection payload
+curl -i -s -k -X POST "https://target.example.com/api/v1/inspect" \
+     -H "Content-Type: application/json" \
+     -d '{"parameter": "test_payload"}'
+```
+
 ## Key Concepts
 
 | Term | Definition |
@@ -104,7 +106,6 @@ A vulnerability is only **Confirmed** if you have observable evidence:
 | **Observation Channel** | The specific mechanism through which the SQLi is verified (e.g., `error-echo`, `boolean-diff`, `time-sidechannel`, `oob-dns`). |
 | **Second-Order Injection** | A payload that is safely inserted into the database but triggers an injection when read and used in a subsequent query elsewhere in the application. |
 | **Stacked Queries** | Using a semicolon (`;`) to terminate the current statement and execute an entirely new one (e.g., `1; DROP TABLE users--`). Common in MSSQL/PostgreSQL, but disabled by default in modern MySQL PHP/Java drivers. |
-
 
 ## Tools & Systems
 
