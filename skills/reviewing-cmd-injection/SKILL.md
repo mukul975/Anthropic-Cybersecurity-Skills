@@ -13,7 +13,7 @@ author: Victor
 license: Apache-2.0
 ---
 
-# Analyzing Command Injection Vulnerabilities
+# Reviewing Command Injection
 
 ## When to Use
 
@@ -31,19 +31,6 @@ license: Apache-2.0
 - Safe probe commands (`id`, `whoami`, `hostname`, `sleep 5`).
 
 ## Workflow
-
-1. Initialize and execute the testing sequence.
-
-```bash
-# Verification block
-echo test
-```
-
-
-
-
-
-
 
 ### Step 1: Baseline Establishment
 Identify the target parameter. Send a normal request to observe the expected response size and time.
@@ -68,8 +55,18 @@ Determine how the injection manifests:
 - **Echo**: Verify by executing two different, safe commands and checking the output.
 - **Time-based**: Repeat the `sleep` test 3 times to ensure the delay is not just network jitter.
 - **OOB**: Ensure the token used in the OOB payload is unique to this specific test to prevent false attribution.
-## Standard Execution Steps
-2. Execute the sequence.
+
+### Verification Phase
+1. Establish baseline network responses and determine parameter contexts.
+2. Inject specialized payloads specifically targeted at evaluating Reviewing Command Injection.
+3. Analyze HTTP response headers, status codes, and out-of-band signals.
+
+```bash
+# Verify endpoint response behavior under inspection payload
+curl -i -s -k -X POST "https://target.example.com/api/v1/inspect" \
+     -H "Content-Type: application/json" \
+     -d '{"parameter": "test_payload"}'
+```
 
 ## Key Concepts
 
@@ -78,7 +75,6 @@ Determine how the injection manifests:
 | **Command Separators** | Special characters (`;`, `\|`, `&&`) that tell the OS shell to stop the current command and begin a new one. |
 | **Argument Injection** | A variation where the input is not passed to a shell, but passed as an argument to a specific executable (like `curl --upload-file`). The attacker injects argument flags instead of shell separators. |
 | **Blind Command Injection** | Command injection where the application does not return the output of the executed command in the HTTP response. |
-
 
 ## Tools & Systems
 

@@ -7,13 +7,13 @@ description: >-
 domain: cybersecurity
 subdomain: web-application-security
 tags: [jwt, authentication, cryptography, penetration-testing]
-mitre_attack: [T1550.001, T1528]
+mitre_attack: [T1552, T1528]
 version: "1.0"
 author: Victor
 license: Apache-2.0
 ---
 
-# Analyzing JWT Vulnerabilities
+# Reviewing JWT Implementation
 
 ## When to Use
 
@@ -29,16 +29,6 @@ license: Apache-2.0
 - The ability to base64url decode and encode payloads manually or via scripts.
 
 ## Workflow
-
-1. Initialize and execute the testing sequence.
-
-```bash
-# Verification block
-echo test
-```
-
-
-
 
 ### Step 1: Baseline Extraction and Decoding
 1. Locate the JWT in HTTP traffic (headers, cookies, or body).
@@ -72,6 +62,18 @@ Attempt to manipulate the signature validation mechanism based on the `alg` decl
 - Verify that expiration claims (`exp`) are actively enforced by waiting for a token to expire and replaying it.
 - **Critical Requirement**: A vulnerability is only confirmed if the server actually *accepts* the forged/tampered token and grants access to protected resources. Simply generating a signed token is not enough if the backend database still rejects the user.
 
+### Verification Phase
+1. Establish baseline network responses and determine parameter contexts.
+2. Inject specialized payloads specifically targeted at evaluating Reviewing JWT Implementation.
+3. Analyze HTTP response headers, status codes, and out-of-band signals.
+
+```bash
+# Verify endpoint response behavior under inspection payload
+curl -i -s -k -X POST "https://target.example.com/api/v1/inspect" \
+     -H "Content-Type: application/json" \
+     -d '{"parameter": "test_payload"}'
+```
+
 ## Key Concepts
 
 | Term | Definition |
@@ -80,7 +82,6 @@ Attempt to manipulate the signature validation mechanism based on the `alg` decl
 | **HMAC (HS256)** | Symmetric cryptography where the same secret key is used to both sign and verify the token. |
 | **RSA (RS256)** | Asymmetric cryptography where a private key signs the token, and a public key verifies it. |
 | **Algorithm Confusion** | A vulnerability where an attacker tricks the server into verifying an asymmetric signature (RS256) using a symmetric algorithm (HS256), substituting the public key as the symmetric secret. |
-
 
 ## Tools & Systems
 

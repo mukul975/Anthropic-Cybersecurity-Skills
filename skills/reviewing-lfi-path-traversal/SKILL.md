@@ -7,13 +7,13 @@ description: >-
 domain: cybersecurity
 subdomain: web-application-security
 tags: [path-traversal, lfi, arbitrary-file-read, penetration-testing]
-mitre_attack: [T1190]
+mitre_attack: [T1083, T1005]
 version: "1.0"
 author: Victor
 license: Apache-2.0
 ---
 
-# Analyzing Path Traversal & LFI Vulnerabilities
+# Reviewing LFI and Path Traversal
 
 ## When to Use
 
@@ -30,16 +30,6 @@ license: Apache-2.0
   - Windows: `C:\Windows\win.ini`
 
 ## Workflow
-
-1. Initialize and execute the testing sequence.
-
-```bash
-# Verification block
-echo test
-```
-
-
-
 
 ### Step 1: Baseline and Endpoint Enumeration
 1. Identify all candidate endpoints. Do not limit yourself to static file servers; actively look for business logic endpoints (e.g., ticket attachments, avatar proxies).
@@ -63,6 +53,18 @@ If the backend is executing the file (e.g., `include($_GET['view'])`) rather tha
 ### Step 4: Verification
 Confirm the vulnerability by examining the response. The response must contain the actual contents of the target file (e.g., the user list format of `/etc/passwd`). A simple difference in HTTP status code or response length is a strong indicator (Suspected), but is not definitive proof.
 
+### Verification Phase
+1. Establish baseline network responses and determine parameter contexts.
+2. Inject specialized payloads specifically targeted at evaluating Reviewing LFI and Path Traversal.
+3. Analyze HTTP response headers, status codes, and out-of-band signals.
+
+```bash
+# Verify endpoint response behavior under inspection payload
+curl -i -s -k -X POST "https://target.example.com/api/v1/inspect" \
+     -H "Content-Type: application/json" \
+     -d '{"parameter": "test_payload"}'
+```
+
 ## Key Concepts
 
 | Term | Definition |
@@ -70,7 +72,6 @@ Confirm the vulnerability by examining the response. The response must contain t
 | **Path Traversal (Directory Traversal)** | An attack aiming to access files and directories that are stored outside the web root folder. |
 | **Local File Inclusion (LFI)** | An attack where a web application includes a file, usually leading to source code disclosure or Remote Code Execution (RCE) if the included file contains executable code. |
 | **Path Normalization** | The process of resolving relative path references (like `../`) into an absolute, canonical path to ensure the final destination resides within a safe boundary. |
-
 
 ## Tools & Systems
 

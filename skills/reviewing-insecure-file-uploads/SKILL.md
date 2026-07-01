@@ -7,13 +7,13 @@ description: >-
 domain: cybersecurity
 subdomain: web-application-security
 tags: [file-upload, rce, lfi, xxe, penetration-testing]
-mitre_attack: [T1190, T1505.003]
+mitre_attack: [T1190, T1059]
 version: "1.0"
 author: Victor
 license: Apache-2.0
 ---
 
-# Analyzing File Upload Vulnerabilities
+# Reviewing Insecure File Uploads
 
 ## When to Use
 
@@ -28,16 +28,6 @@ license: Apache-2.0
 - A collection of benign sentinel payloads (e.g., a PHP file that only outputs a timestamp instead of executing arbitrary commands) to safely verify execution without causing damage.
 
 ## Workflow
-
-1. Initialize and execute the testing sequence.
-
-```bash
-# Verification block
-echo test
-```
-
-
-
 
 ### Step 1: Baseline and Constraints
 1. Upload a completely benign file (e.g., a valid `.jpg`).
@@ -68,6 +58,18 @@ If the application stores files safely but parses their content, test parser vul
 ### Step 5: Path Traversal and Overwrites
 If the application accepts a `filename` parameter (e.g., `{"filename": "avatar.png", "data": "..."}`), change the filename to `../../var/www/html/shell.php` to attempt arbitrary file write.
 
+### Verification Phase
+1. Establish baseline network responses and determine parameter contexts.
+2. Inject specialized payloads specifically targeted at evaluating Reviewing Insecure File Uploads.
+3. Analyze HTTP response headers, status codes, and out-of-band signals.
+
+```bash
+# Verify endpoint response behavior under inspection payload
+curl -i -s -k -X POST "https://target.example.com/api/v1/inspect" \
+     -H "Content-Type: application/json" \
+     -d '{"parameter": "test_payload"}'
+```
+
 ## Key Concepts
 
 | Term | Definition |
@@ -75,7 +77,6 @@ If the application accepts a `filename` parameter (e.g., `{"filename": "avatar.p
 | **Polyglot File** | A file that is perfectly valid as two different file types (e.g., a valid JPEG image that is also a valid PHP script). |
 | **MIME Type** | A string sent in the HTTP header indicating the nature of the file (e.g., `image/png`). It is easily manipulated by attackers. |
 | **Magic Number / File Signature** | The first few bytes of a file that uniquely identify its true format, regardless of the extension or MIME type. |
-
 
 ## Tools & Systems
 

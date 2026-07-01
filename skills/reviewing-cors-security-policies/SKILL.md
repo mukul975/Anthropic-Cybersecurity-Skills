@@ -7,13 +7,13 @@ description: >-
 domain: cybersecurity
 subdomain: web-application-security
 tags: [cors, cross-origin, api-security, penetration-testing]
-mitre_attack: [T1189]
+mitre_attack: [T1189, T1190]
 version: "1.0"
 author: Victor
 license: Apache-2.0
 ---
 
-# Analyzing CORS Misconfigurations
+# Reviewing CORS Security Policies
 
 ## When to Use
 
@@ -28,16 +28,6 @@ license: Apache-2.0
 - Access to an authenticated session to verify if credentials can be passed cross-origin to read sensitive data.
 
 ## Workflow
-
-1. Initialize and execute the testing sequence.
-
-```bash
-# Verification block
-echo test
-```
-
-
-
 
 ### Step 1: Baseline Request
 1. Send a request to the target endpoint without an `Origin` header to establish the baseline response.
@@ -60,6 +50,18 @@ If the server reflects the malicious origin in the ACAO header, verify the follo
 ### Step 4: Preflight Validation (OPTIONS)
 Send an `OPTIONS` request with a malicious `Origin` to simulate a CORS preflight. Check if the server responds with overly permissive `Access-Control-Allow-Methods` or `Access-Control-Allow-Headers` (e.g., allowing custom headers like `X-Admin-Access`).
 
+### Verification Phase
+1. Establish baseline network responses and determine parameter contexts.
+2. Inject specialized payloads specifically targeted at evaluating Reviewing CORS Security Policies.
+3. Analyze HTTP response headers, status codes, and out-of-band signals.
+
+```bash
+# Verify endpoint response behavior under inspection payload
+curl -i -s -k -X POST "https://target.example.com/api/v1/inspect" \
+     -H "Content-Type: application/json" \
+     -d '{"parameter": "test_payload"}'
+```
+
 ## Key Concepts
 
 | Term | Definition |
@@ -67,7 +69,6 @@ Send an `OPTIONS` request with a malicious `Origin` to simulate a CORS preflight
 | **CORS (Cross-Origin Resource Sharing)** | A security mechanism implemented by browsers that allows servers to specify which origins are permitted to read their responses. |
 | **Origin Reflection** | A dangerous anti-pattern where the server dynamically reads the `Origin` header from the request and copies it directly into the `Access-Control-Allow-Origin` response header, effectively allowing *any* site to access it. |
 | **Preflight Request** | An `OPTIONS` request sent by the browser before the actual request to verify if the server permits the cross-origin cross-method/cross-header request. |
-
 
 ## Tools & Systems
 
