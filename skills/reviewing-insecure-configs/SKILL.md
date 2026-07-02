@@ -8,7 +8,7 @@ description: >-
 domain: cybersecurity
 subdomain: web-application-security
 tags: [configuration-management, security-misconfiguration, whitebox, default-passwords]
-mitre_attack: [T1588.006, T1580]
+mitre_attack: [T1588.006, T1580, T1190]
 version: "1.0"
 author: Victor
 license: Apache-2.0
@@ -58,17 +58,15 @@ Evaluate framework-specific features that are known to be dangerous if left in t
 - **Jackson (Java)**: Is `enableDefaultTyping()` activated? This allows polymorphic deserialization, leading to RCE.
 - **XML Parsers**: Is the `DocumentBuilderFactory` explicitly configured to disallow DOCTYPE declarations (`setFeature("...disallow-doctype-decl", true)`)? If not, it defaults to allowing XXE.
 
-### Verification Phase
-1. Establish baseline network responses and determine parameter contexts.
-2. Inject specialized payloads specifically targeted at evaluating Reviewing Insecure Configurations.
-3. Analyze HTTP response headers, status codes, and out-of-band signals.
+### Verification and Validation Phase
+1. Establish target environment baseline and identify endpoint parameters.
+2. Execute realistic detection payload to evaluate vulnerability exposure:
 
 ```bash
-# Verify endpoint response behavior under inspection payload
-curl -i -s -k -X POST "https://target.example.com/api/v1/inspect" \
-     -H "Content-Type: application/json" \
-     -d '{"parameter": "test_payload"}'
+curl -i -s -X TRACE "https://target.example.com/api/v1/status"
 ```
+
+3. Analyze HTTP response status, reflected headers, and execution timing to confirm finding.
 
 ## Key Concepts
 

@@ -7,7 +7,7 @@ description: >-
 domain: cybersecurity
 subdomain: web-application-security
 tags: [ssrf, cloud-security, penetration-testing, network-scanning]
-mitre_attack: [T1190, T1552]
+mitre_attack: [T1190, T1552.005]
 version: "1.0"
 author: Victor
 license: Apache-2.0
@@ -57,17 +57,17 @@ If direct requests to `127.0.0.1` are blocked, attempt to bypass the blocklist:
 - **Open Redirects**: Provide a URL on a trusted domain that redirects (`302`) to the internal target. If the backend HTTP client follows redirects blindly, the SSRF triggers.
 - **URL Parsing Inconsistencies**: `http://expected-domain.com@127.0.0.1`
 
-### Verification Phase
-1. Establish baseline network responses and determine parameter contexts.
-2. Inject specialized payloads specifically targeted at evaluating Reviewing Server-Side Request Forgery.
-3. Analyze HTTP response headers, status codes, and out-of-band signals.
+### Verification and Validation Phase
+1. Establish target environment baseline and identify endpoint parameters.
+2. Execute realistic detection payload to evaluate vulnerability exposure:
 
 ```bash
-# Verify endpoint response behavior under inspection payload
-curl -i -s -k -X POST "https://target.example.com/api/v1/inspect" \
+curl -i -s -X POST "https://target.example.com/api/v1/webhook/register" \
      -H "Content-Type: application/json" \
-     -d '{"parameter": "test_payload"}'
+     -d '{"callback_url": "http://169.254.169.254/latest/meta-data/"}'
 ```
+
+3. Analyze HTTP response status, reflected headers, and execution timing to confirm finding.
 
 ## Key Concepts
 

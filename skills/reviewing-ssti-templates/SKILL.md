@@ -55,17 +55,17 @@ Once the engine is identified, probe the execution context:
 1. **Object Enumeration**: Try to dump configuration objects (e.g., `{{config}}` in Jinja2 or `{{_self.env}}` in Twig).
 2. **Sandbox Detection**: If `{{7*7}}` evaluates to `49`, but `{{config}}` returns empty or throws a security exception, the engine is likely sandboxed (e.g., Jinja2 `SandboxedEnvironment`). A sandboxed SSTI is still a confirmed vulnerability, but achieving RCE requires sandbox escape techniques (like traversing Python's `__mro__` subclass tree).
 
-### Verification Phase
-1. Establish baseline network responses and determine parameter contexts.
-2. Inject specialized payloads specifically targeted at evaluating Reviewing Server-Side Template Injection.
-3. Analyze HTTP response headers, status codes, and out-of-band signals.
+### Verification and Validation Phase
+1. Establish target environment baseline and identify endpoint parameters.
+2. Execute realistic detection payload to evaluate vulnerability exposure:
 
 ```bash
-# Verify endpoint response behavior under inspection payload
-curl -i -s -k -X POST "https://target.example.com/api/v1/inspect" \
+curl -i -s -X POST "https://target.example.com/api/v1/render" \
      -H "Content-Type: application/json" \
-     -d '{"parameter": "test_payload"}'
+     -d '{"template": "{{7*7}}"}'
 ```
+
+3. Analyze HTTP response status, reflected headers, and execution timing to confirm finding.
 
 ## Key Concepts
 

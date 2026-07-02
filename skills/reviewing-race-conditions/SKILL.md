@@ -8,7 +8,7 @@ description: >-
 domain: cybersecurity
 subdomain: web-application-security
 tags: [race-condition, toctou, concurrency, business-logic]
-mitre_attack: [T1190]
+mitre_attack: [T1190, T1499]
 version: "1.0"
 author: Victor
 license: Apache-2.0
@@ -51,17 +51,20 @@ You must verify the backend state:
 - Check the inventory: Were 5 items bought when only 1 was in stock?
 - Check the coupon list: Was the "limit 1" coupon applied 3 times?
 
-### Verification Phase
-1. Establish baseline network responses and determine parameter contexts.
-2. Inject specialized payloads specifically targeted at evaluating Reviewing Race Conditions.
-3. Analyze HTTP response headers, status codes, and out-of-band signals.
+### Verification and Validation Phase
+1. Establish target environment baseline and identify endpoint parameters.
+2. Execute realistic detection payload to evaluate vulnerability exposure:
 
 ```bash
-# Verify endpoint response behavior under inspection payload
-curl -i -s -k -X POST "https://target.example.com/api/v1/inspect" \
-     -H "Content-Type: application/json" \
-     -d '{"parameter": "test_payload"}'
+for i in {1..5}; do
+  curl -s -X POST "https://target.example.com/api/v1/coupon/claim" \
+       -H "Authorization: Bearer test_token" \
+       -d '{"coupon_code": "DISCOUNT100"}' &
+done
+wait
 ```
+
+3. Analyze HTTP response status, reflected headers, and execution timing to confirm finding.
 
 ## Key Concepts
 

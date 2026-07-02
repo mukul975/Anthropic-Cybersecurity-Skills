@@ -8,7 +8,7 @@ description: >-
 domain: cybersecurity
 subdomain: web-application-security
 tags: [sqli, penetration-testing, web-vulnerability, injection, database]
-mitre_attack: [T1190]
+mitre_attack: [T1190, T1005]
 version: "1.0"
 author: Victor
 license: Apache-2.0
@@ -87,17 +87,15 @@ A vulnerability is only **Confirmed** if you have observable evidence:
 - A time delay that is statistically significant and exclusively triggered by the payload.
 - OOB DNS/HTTP interaction containing a unique token.
 
-### Verification Phase
-1. Establish baseline network responses and determine parameter contexts.
-2. Inject specialized payloads specifically targeted at evaluating Reviewing SQL Injection Vulnerabilities.
-3. Analyze HTTP response headers, status codes, and out-of-band signals.
+### Verification and Validation Phase
+1. Establish target environment baseline and identify endpoint parameters.
+2. Execute realistic detection payload to evaluate vulnerability exposure:
 
 ```bash
-# Verify endpoint response behavior under inspection payload
-curl -i -s -k -X POST "https://target.example.com/api/v1/inspect" \
-     -H "Content-Type: application/json" \
-     -d '{"parameter": "test_payload"}'
+curl -i -s -X GET "https://target.example.com/api/v1/products?category=Books'%20OR%20'1'='1"
 ```
+
+3. Analyze HTTP response status, reflected headers, and execution timing to confirm finding.
 
 ## Key Concepts
 
