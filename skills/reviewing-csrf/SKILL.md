@@ -8,7 +8,7 @@ description: >-
 domain: cybersecurity
 subdomain: web-application-security
 tags: [csrf, session-management, penetration-testing]
-mitre_attack: [T1189]
+mitre_attack: [T1189, T1190, T1539]
 version: "1.0"
 author: Victor
 license: Apache-2.0
@@ -70,17 +70,18 @@ Systematically attempt to bypass the identified defenses:
    ```
 4. While logged into the target application as the victim, open the attacker HTML file in the same browser. Check if the state change occurred.
 
-### Verification Phase
-1. Establish baseline network responses and determine parameter contexts.
-2. Inject specialized payloads specifically targeted at evaluating Reviewing CSRF Attack Vectors.
-3. Analyze HTTP response headers, status codes, and out-of-band signals.
+### Verification and Validation Phase
+1. Establish target environment baseline and identify endpoint parameters.
+2. Execute realistic detection payload to evaluate vulnerability exposure:
 
 ```bash
-# Verify endpoint response behavior under inspection payload
-curl -i -s -k -X POST "https://target.example.com/api/v1/inspect" \
-     -H "Content-Type: application/json" \
-     -d '{"parameter": "test_payload"}'
+curl -i -s -X POST "https://target.example.com/api/v1/account/email" \
+     -H "Cookie: session_id=s29ajk319fa091" \
+     -H "Content-Type: application/x-www-form-urlencoded" \
+     -d "email=attacker@evil.com"
 ```
+
+3. Analyze HTTP response status, reflected headers, and execution timing to confirm finding.
 
 ## Key Concepts
 

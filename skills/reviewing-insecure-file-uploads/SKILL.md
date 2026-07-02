@@ -58,17 +58,16 @@ If the application stores files safely but parses their content, test parser vul
 ### Step 5: Path Traversal and Overwrites
 If the application accepts a `filename` parameter (e.g., `{"filename": "avatar.png", "data": "..."}`), change the filename to `../../var/www/html/shell.php` to attempt arbitrary file write.
 
-### Verification Phase
-1. Establish baseline network responses and determine parameter contexts.
-2. Inject specialized payloads specifically targeted at evaluating Reviewing Insecure File Uploads.
-3. Analyze HTTP response headers, status codes, and out-of-band signals.
+### Verification and Validation Phase
+1. Establish target environment baseline and identify endpoint parameters.
+2. Execute realistic detection payload to evaluate vulnerability exposure:
 
 ```bash
-# Verify endpoint response behavior under inspection payload
-curl -i -s -k -X POST "https://target.example.com/api/v1/inspect" \
-     -H "Content-Type: application/json" \
-     -d '{"parameter": "test_payload"}'
+curl -i -s -X POST "https://target.example.com/api/v1/upload" \
+     -F "file=@payload.php;filename=shell.php;type=application/x-httpd-php"
 ```
+
+3. Analyze HTTP response status, reflected headers, and execution timing to confirm finding.
 
 ## Key Concepts
 

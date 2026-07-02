@@ -7,7 +7,7 @@ description: >-
 domain: cybersecurity
 subdomain: web-application-security
 tags: [jwt, authentication, cryptography, penetration-testing]
-mitre_attack: [T1552, T1528]
+mitre_attack: [T1552, T1528, T1550.001]
 version: "1.0"
 author: Victor
 license: Apache-2.0
@@ -62,17 +62,16 @@ Attempt to manipulate the signature validation mechanism based on the `alg` decl
 - Verify that expiration claims (`exp`) are actively enforced by waiting for a token to expire and replaying it.
 - **Critical Requirement**: A vulnerability is only confirmed if the server actually *accepts* the forged/tampered token and grants access to protected resources. Simply generating a signed token is not enough if the backend database still rejects the user.
 
-### Verification Phase
-1. Establish baseline network responses and determine parameter contexts.
-2. Inject specialized payloads specifically targeted at evaluating Reviewing JWT Implementation.
-3. Analyze HTTP response headers, status codes, and out-of-band signals.
+### Verification and Validation Phase
+1. Establish target environment baseline and identify endpoint parameters.
+2. Execute realistic detection payload to evaluate vulnerability exposure:
 
 ```bash
-# Verify endpoint response behavior under inspection payload
-curl -i -s -k -X POST "https://target.example.com/api/v1/inspect" \
-     -H "Content-Type: application/json" \
-     -d '{"parameter": "test_payload"}'
+curl -i -s -X GET "https://target.example.com/api/v1/admin" \
+     -H "Authorization: Bearer eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJ1c2VyIjoiYWRtaW4ifQ."
 ```
+
+3. Analyze HTTP response status, reflected headers, and execution timing to confirm finding.
 
 ## Key Concepts
 

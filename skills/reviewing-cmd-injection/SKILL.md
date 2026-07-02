@@ -7,7 +7,7 @@ description: >-
 domain: cybersecurity
 subdomain: web-application-security
 tags: [command-injection, rce, os-command, penetration-testing]
-mitre_attack: [T1059.004]
+mitre_attack: [T1059.004, T1190]
 version: "1.0"
 author: Victor
 license: Apache-2.0
@@ -56,17 +56,17 @@ Determine how the injection manifests:
 - **Time-based**: Repeat the `sleep` test 3 times to ensure the delay is not just network jitter.
 - **OOB**: Ensure the token used in the OOB payload is unique to this specific test to prevent false attribution.
 
-### Verification Phase
-1. Establish baseline network responses and determine parameter contexts.
-2. Inject specialized payloads specifically targeted at evaluating Reviewing Command Injection.
-3. Analyze HTTP response headers, status codes, and out-of-band signals.
+### Verification and Validation Phase
+1. Establish target environment baseline and identify endpoint parameters.
+2. Execute realistic detection payload to evaluate vulnerability exposure:
 
 ```bash
-# Verify endpoint response behavior under inspection payload
-curl -i -s -k -X POST "https://target.example.com/api/v1/inspect" \
+curl -i -s -X POST "https://target.example.com/api/v1/diagnostics" \
      -H "Content-Type: application/json" \
-     -d '{"parameter": "test_payload"}'
+     -d '{"ip": "127.0.0.1; sleep 5"}'
 ```
+
+3. Analyze HTTP response status, reflected headers, and execution timing to confirm finding.
 
 ## Key Concepts
 

@@ -7,7 +7,7 @@ description: >-
 domain: cybersecurity
 subdomain: web-application-security
 tags: [open-redirect, phishing, oauth, penetration-testing]
-mitre_attack: [T1566.002]
+mitre_attack: [T1566.002, T1189, T1190]
 version: "1.0"
 author: Victor
 license: Apache-2.0
@@ -53,17 +53,15 @@ If the server rejects `https://evil.com`, attempt to bypass its validation logic
 **Crucial**: An Open Redirect is only confirmed if a modern web browser actually follows the redirect to the external domain.
 Copy the crafted URL (e.g., `https://target.com/login?next=//evil.com`), paste it into a browser address bar, and execute it. Check if the address bar ultimately lands on `evil.com`.
 
-### Verification Phase
-1. Establish baseline network responses and determine parameter contexts.
-2. Inject specialized payloads specifically targeted at evaluating Reviewing Open Redirect Flaws.
-3. Analyze HTTP response headers, status codes, and out-of-band signals.
+### Verification and Validation Phase
+1. Establish target environment baseline and identify endpoint parameters.
+2. Execute realistic detection payload to evaluate vulnerability exposure:
 
 ```bash
-# Verify endpoint response behavior under inspection payload
-curl -i -s -k -X POST "https://target.example.com/api/v1/inspect" \
-     -H "Content-Type: application/json" \
-     -d '{"parameter": "test_payload"}'
+curl -i -s -X GET "https://target.example.com/login?next=https://evil.attacker.com"
 ```
+
+3. Analyze HTTP response status, reflected headers, and execution timing to confirm finding.
 
 ## Key Concepts
 

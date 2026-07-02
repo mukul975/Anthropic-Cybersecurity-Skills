@@ -7,7 +7,7 @@ description: >-
 domain: cybersecurity
 subdomain: web-application-security
 tags: [path-traversal, lfi, arbitrary-file-read, penetration-testing]
-mitre_attack: [T1083, T1005]
+mitre_attack: [T1083, T1005, T1190]
 version: "1.0"
 author: Victor
 license: Apache-2.0
@@ -53,17 +53,15 @@ If the backend is executing the file (e.g., `include($_GET['view'])`) rather tha
 ### Step 4: Verification
 Confirm the vulnerability by examining the response. The response must contain the actual contents of the target file (e.g., the user list format of `/etc/passwd`). A simple difference in HTTP status code or response length is a strong indicator (Suspected), but is not definitive proof.
 
-### Verification Phase
-1. Establish baseline network responses and determine parameter contexts.
-2. Inject specialized payloads specifically targeted at evaluating Reviewing LFI and Path Traversal.
-3. Analyze HTTP response headers, status codes, and out-of-band signals.
+### Verification and Validation Phase
+1. Establish target environment baseline and identify endpoint parameters.
+2. Execute realistic detection payload to evaluate vulnerability exposure:
 
 ```bash
-# Verify endpoint response behavior under inspection payload
-curl -i -s -k -X POST "https://target.example.com/api/v1/inspect" \
-     -H "Content-Type: application/json" \
-     -d '{"parameter": "test_payload"}'
+curl -i -s -X GET "https://target.example.com/download?file=../../../../../../etc/passwd"
 ```
+
+3. Analyze HTTP response status, reflected headers, and execution timing to confirm finding.
 
 ## Key Concepts
 

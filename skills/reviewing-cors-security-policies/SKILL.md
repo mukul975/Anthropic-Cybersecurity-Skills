@@ -7,7 +7,7 @@ description: >-
 domain: cybersecurity
 subdomain: web-application-security
 tags: [cors, cross-origin, api-security, penetration-testing]
-mitre_attack: [T1189, T1190]
+mitre_attack: [T1190, T1539, T1550.001]
 version: "1.0"
 author: Victor
 license: Apache-2.0
@@ -50,17 +50,17 @@ If the server reflects the malicious origin in the ACAO header, verify the follo
 ### Step 4: Preflight Validation (OPTIONS)
 Send an `OPTIONS` request with a malicious `Origin` to simulate a CORS preflight. Check if the server responds with overly permissive `Access-Control-Allow-Methods` or `Access-Control-Allow-Headers` (e.g., allowing custom headers like `X-Admin-Access`).
 
-### Verification Phase
-1. Establish baseline network responses and determine parameter contexts.
-2. Inject specialized payloads specifically targeted at evaluating Reviewing CORS Security Policies.
-3. Analyze HTTP response headers, status codes, and out-of-band signals.
+### Verification and Validation Phase
+1. Establish target environment baseline and identify endpoint parameters.
+2. Execute realistic detection payload to evaluate vulnerability exposure:
 
 ```bash
-# Verify endpoint response behavior under inspection payload
-curl -i -s -k -X POST "https://target.example.com/api/v1/inspect" \
-     -H "Content-Type: application/json" \
-     -d '{"parameter": "test_payload"}'
+curl -i -s -X OPTIONS "https://target.example.com/api/v1/user/profile" \
+     -H "Origin: https://evil.attacker.com" \
+     -H "Access-Control-Request-Method: GET"
 ```
+
+3. Analyze HTTP response status, reflected headers, and execution timing to confirm finding.
 
 ## Key Concepts
 
