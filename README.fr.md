@@ -346,7 +346,7 @@ Toutes les plateformes supportant le standard agentskills.io peuvent charger ces
 
 ## Historique des étoiles
 
-![Star History Chart](https://api.star-history.com/svg?repos=mukul975/Anthropic-Cybersecurity-Skills&type=Date)
+![Star History Chart](https://star-history.dera.page/svg?repos=mukul975/Anthropic-Cybersecurity-Skills&type=Date)
 
 ## Releases
 
