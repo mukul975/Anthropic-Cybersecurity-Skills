@@ -59,6 +59,7 @@ _SUBDOMAIN_ALIASES = {
     "supply-chain-security": {"supply-chain-security"},
     "wireless-security": {"wireless-security"},
     "ai-security": {"ai-security"},
+    "adversarial-machine-learning": {"adversarial-machine-learning"},
 }
 
 # Flat set of all accepted subdomain values (canonical + aliases).
