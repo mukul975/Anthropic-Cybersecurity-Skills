@@ -122,7 +122,9 @@ def test_pkce_requirement(auth_endpoint: str, client_id: str,
     resp_no_pkce = requests.get(auth_endpoint, params=params, timeout=10,
                                  allow_redirects=False, verify=False)
 
-    import hashlib, base64, os
+    import hashlib
+    import base64
+    import os
     verifier = base64.urlsafe_b64encode(os.urandom(32)).rstrip(b"=").decode()
     challenge = base64.urlsafe_b64encode(
         hashlib.sha256(verifier.encode()).digest()

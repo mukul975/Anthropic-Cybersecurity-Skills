@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """Browser Forensics Analyzer - Parses Chrome History SQLite for investigation."""
-import sqlite3, json, os, sys
+import sqlite3
+import json
+import os
+import sys
 from datetime import datetime, timedelta
 
 CHROME_EPOCH = datetime(1601, 1, 1)

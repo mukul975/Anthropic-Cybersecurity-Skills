@@ -9,7 +9,6 @@ import argparse
 import json
 import os
 import subprocess
-import sys
 from datetime import datetime, timezone
 
 
@@ -180,7 +179,7 @@ def format_summary(role_findings, binding_findings, sa_findings):
     """Print RBAC audit summary."""
     all_findings = role_findings + binding_findings + sa_findings
     print(f"\n{'='*60}")
-    print(f"  Kubernetes RBAC Hardening Audit")
+    print("  Kubernetes RBAC Hardening Audit")
     print(f"{'='*60}")
     print(f"  ClusterRole Issues    : {len(role_findings)}")
     print(f"  Binding Issues        : {len(binding_findings)}")
@@ -192,14 +191,14 @@ def format_summary(role_findings, binding_findings, sa_findings):
         sev = f.get("severity", "INFO")
         severity_counts[sev] = severity_counts.get(sev, 0) + 1
 
-    print(f"\n  By Severity:")
+    print("\n  By Severity:")
     for sev in ["CRITICAL", "HIGH", "MEDIUM", "LOW"]:
         count = severity_counts.get(sev, 0)
         if count:
             print(f"    {sev:10s}: {count}")
 
     if all_findings:
-        print(f"\n  Top Findings:")
+        print("\n  Top Findings:")
         for f in sorted(all_findings, key=lambda x: {"CRITICAL": 0, "HIGH": 1, "MEDIUM": 2}.get(x["severity"], 9))[:15]:
             print(f"    [{f['severity']:8s}] {f['type']:25s} | {f.get('detail', '')[:50]}")
 

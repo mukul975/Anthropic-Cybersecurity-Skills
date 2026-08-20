@@ -16,18 +16,14 @@ import os
 import secrets
 import sqlite3
 import sys
-import time
-from base64 import urlsafe_b64decode, urlsafe_b64encode
+from base64 import urlsafe_b64encode
 from datetime import datetime, timezone
-from pathlib import Path
 
-from flask import Flask, abort, jsonify, redirect, request, session, render_template_string
+from flask import Flask, abort, jsonify, request, session, render_template_string
 
 from fido2.server import Fido2Server
 from fido2.webauthn import (
     AttestationConveyancePreference,
-    AuthenticatorAttachment,
-    AuthenticatorSelectionCriteria,
     PublicKeyCredentialDescriptor,
     PublicKeyCredentialRpEntity,
     PublicKeyCredentialUserEntity,

@@ -130,7 +130,7 @@ def audit_playbook_health(playbooks, integrations):
 def format_summary(playbooks, incident_stats, integrations, findings):
     """Print XSOAR audit summary."""
     print(f"\n{'='*60}")
-    print(f"  Cortex XSOAR Playbook Audit Report")
+    print("  Cortex XSOAR Playbook Audit Report")
     print(f"{'='*60}")
     print(f"  Playbooks    : {len(playbooks)}")
     print(f"  Integrations : {len(integrations)}")
@@ -138,7 +138,7 @@ def format_summary(playbooks, incident_stats, integrations, findings):
     print(f"  Findings     : {len(findings)}")
 
     if incident_stats.get("by_status"):
-        print(f"\n  Incidents by Status:")
+        print("\n  Incidents by Status:")
         for status, count in incident_stats["by_status"].items():
             print(f"    {status:15s}: {count}")
 

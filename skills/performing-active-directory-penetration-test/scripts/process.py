@@ -10,8 +10,6 @@ Usage:
 """
 
 import subprocess
-import json
-import os
 import argparse
 import datetime
 from pathlib import Path
@@ -131,7 +129,7 @@ def generate_report(domain: str, output_dir: Path) -> str:
             asrep_count = sum(1 for line in f if line.strip() and line.startswith("$krb5asrep$"))
 
     with open(report_file, "w") as f:
-        f.write(f"# Active Directory Penetration Test Report\n\n")
+        f.write("# Active Directory Penetration Test Report\n\n")
         f.write(f"**Domain:** {domain}\n")
         f.write(f"**Generated:** {timestamp}\n\n---\n\n")
         f.write("## Kerberos Attack Results\n\n")

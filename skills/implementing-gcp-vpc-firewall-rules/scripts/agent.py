@@ -134,7 +134,7 @@ def check_logging_status(project_id):
 def run_firewall_audit(project_id):
     """Run a comprehensive firewall audit."""
     print(f"\n{'='*60}")
-    print(f"  GCP VPC FIREWALL AUDIT")
+    print("  GCP VPC FIREWALL AUDIT")
     print(f"  Project: {project_id}")
     print(f"  Generated: {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC")
     print(f"{'='*60}\n")
@@ -157,7 +157,7 @@ def run_firewall_audit(project_id):
         print(f"  {d['rule']}: {d['issue']}")
 
     logging = check_logging_status(project_id)
-    print(f"\n--- LOGGING STATUS ---")
+    print("\n--- LOGGING STATUS ---")
     print(f"  Rules with logging:    {logging['logged']}")
     print(f"  Rules without logging: {logging['unlogged']}")
 

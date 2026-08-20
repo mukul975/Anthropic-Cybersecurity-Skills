@@ -120,7 +120,7 @@ def check_virustotal(api_key, indicator, indicator_type="ip"):
                 print(f"  [+] VT Result: {name} - {malicious} detections")
                 return {"name": name, "malicious": malicious}
         elif resp.status_code == 404:
-            print(f"  [-] Not found in VirusTotal")
+            print("  [-] Not found in VirusTotal")
         else:
             print(f"  [-] VT API error: {resp.status_code}")
     except requests.RequestException as e:
@@ -149,7 +149,7 @@ def build_mitre_mapping(category, process_info=""):
     }
     techniques = mappings.get(category, [])
     if techniques:
-        print(f"\n[*] MITRE ATT&CK mapping:")
+        print("\n[*] MITRE ATT&CK mapping:")
         for t in techniques:
             print(f"  - {t['technique']}: {t['name']}")
     return techniques

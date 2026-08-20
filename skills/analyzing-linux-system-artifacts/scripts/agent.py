@@ -259,5 +259,5 @@ if __name__ == "__main__":
         for t in tmp[:20]:
             print(f"  {t}")
     else:
-        print(f"\n[DEMO] Usage: python agent.py <evidence_mount_point>")
+        print("\n[DEMO] Usage: python agent.py <evidence_mount_point>")
         print("[*] Mount a forensic image and provide the path for analysis.")

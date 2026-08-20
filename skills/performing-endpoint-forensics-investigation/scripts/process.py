@@ -11,7 +11,6 @@ import csv
 import sys
 import os
 from datetime import datetime
-from collections import defaultdict
 
 
 def parse_prefetch_csv(csv_path: str) -> list:
@@ -202,7 +201,7 @@ if __name__ == "__main__":
     generate_report(timeline, iocs, report_path)
     print(f"Forensic report: {report_path}")
 
-    print(f"\n--- Forensic Summary ---")
+    print("\n--- Forensic Summary ---")
     print(f"Timeline entries: {len(timeline)}")
     print(f"Unique file hashes: {len(iocs['file_hashes'])}")
     print(f"Suspicious file paths: {len(iocs['suspicious_paths'])}")

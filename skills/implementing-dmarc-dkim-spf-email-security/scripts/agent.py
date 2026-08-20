@@ -97,7 +97,7 @@ def audit_domains(domain_list):
 def generate_dns_records(domain, policy="reject"):
     """Generate recommended SPF, DMARC, and DKIM DNS records."""
     return {
-        "spf": f'v=spf1 include:_spf.google.com include:spf.protection.outlook.com -all',
+        "spf": 'v=spf1 include:_spf.google.com include:spf.protection.outlook.com -all',
         "dmarc": f'v=DMARC1; p={policy}; pct=100; rua=mailto:dmarc-reports@{domain}; '
                  f'ruf=mailto:dmarc-forensics@{domain}; adkim=s; aspf=s',
         "dkim_selector": "google._domainkey",

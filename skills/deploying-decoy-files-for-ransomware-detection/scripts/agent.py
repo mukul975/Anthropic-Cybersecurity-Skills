@@ -60,7 +60,7 @@ def generate_canary_content(canary_type, name):
     timestamp = datetime.now().isoformat()
     content = f"CANARY_TOKEN:{name}\n"
     content += f"Generated: {timestamp}\n"
-    content += f"Classification: CONFIDENTIAL\n\n"
+    content += "Classification: CONFIDENTIAL\n\n"
 
     if "budget" in name or "financial" in name:
         content += "Q4 Financial Summary\n"

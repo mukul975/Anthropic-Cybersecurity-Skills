@@ -121,12 +121,12 @@ def generate_c2_checklist():
 def run_planning(scope, objectives):
     """Execute red team engagement planning."""
     print(f"\n{'='*60}")
-    print(f"  RED TEAM ENGAGEMENT PLANNER")
+    print("  RED TEAM ENGAGEMENT PLANNER")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
 
     plan = generate_engagement_plan(scope, objectives)
-    print(f"--- ENGAGEMENT PLAN ---")
+    print("--- ENGAGEMENT PLAN ---")
     print(f"  Scope: {plan['scope']}")
     print(f"  Duration: {plan['total_duration_days']} days")
     for phase in plan["phases"]:
@@ -135,7 +135,7 @@ def run_planning(scope, objectives):
             print(f"    - {act}")
 
     checklist = generate_c2_checklist()
-    print(f"\n--- C2 INFRASTRUCTURE CHECKLIST ---")
+    print("\n--- C2 INFRASTRUCTURE CHECKLIST ---")
     for item in checklist["infrastructure"]:
         print(f"  [ ] {item['item']}")
 

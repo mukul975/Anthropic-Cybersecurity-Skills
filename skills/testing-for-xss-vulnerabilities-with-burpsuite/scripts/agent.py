@@ -151,7 +151,7 @@ def analyze_csp(base_url):
             findings.append({"type": "CSP_WEAKNESS", "detail": w, "severity": "HIGH"})
             print(f"  [!] CSP weakness: {w}")
         if not weaknesses:
-            print(f"  [+] CSP appears well-configured")
+            print("  [+] CSP appears well-configured")
     except requests.RequestException:
         pass
     return findings

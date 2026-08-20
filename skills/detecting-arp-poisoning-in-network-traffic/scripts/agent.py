@@ -148,7 +148,7 @@ def check_arpwatch_log(log_path="/var/lib/arpwatch/arp.dat"):
 def run_audit(args):
     """Execute ARP poisoning detection audit."""
     print(f"\n{'='*60}")
-    print(f"  ARP POISONING DETECTION AUDIT")
+    print("  ARP POISONING DETECTION AUDIT")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
 
@@ -157,7 +157,7 @@ def run_audit(args):
     if args.pcap:
         arp_data = analyze_pcap_arp(args.pcap)
         report["arp_analysis"] = arp_data
-        print(f"--- ARP TRAFFIC ANALYSIS ---")
+        print("--- ARP TRAFFIC ANALYSIS ---")
         print(f"  Total ARP packets: {arp_data.get('total_arp_packets', 0)}")
         print(f"  ARP replies: {arp_data.get('arp_replies', 0)}")
         print(f"  Gratuitous ARPs: {arp_data.get('gratuitous_arps', 0)}")
@@ -171,7 +171,7 @@ def run_audit(args):
     if args.check_table:
         table = check_arp_table()
         report["arp_table"] = table
-        print(f"\n--- SYSTEM ARP TABLE ---")
+        print("\n--- SYSTEM ARP TABLE ---")
         print(f"  Entries: {table.get('entries', 0)}")
         dups = table.get("duplicates", [])
         if dups:
@@ -182,7 +182,7 @@ def run_audit(args):
     if args.arpwatch_db:
         aw = check_arpwatch_log(args.arpwatch_db)
         report["arpwatch"] = aw
-        print(f"\n--- ARPWATCH DATABASE ---")
+        print("\n--- ARPWATCH DATABASE ---")
         ff = aw.get("flip_flops", {})
         print(f"  Flip-flop entries: {len(ff)}")
         for ip, macs in list(ff.items())[:10]:

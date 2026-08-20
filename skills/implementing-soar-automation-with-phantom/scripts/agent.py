@@ -165,13 +165,13 @@ def create_malware_containment_playbook_data():
 def run_soar_audit(client):
     """Run SOAR platform audit."""
     print(f"\n{'='*60}")
-    print(f"  SPLUNK SOAR (PHANTOM) AUDIT")
+    print("  SPLUNK SOAR (PHANTOM) AUDIT")
     print(f"  Generated: {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC")
     print(f"{'='*60}\n")
 
     try:
         sys_info = client.get_system_info()
-        print(f"--- SYSTEM INFO ---")
+        print("--- SYSTEM INFO ---")
         print(f"  Version: {sys_info.get('version', 'N/A')}")
         print(f"  Build: {sys_info.get('build', 'N/A')}")
     except Exception as e:
@@ -202,7 +202,7 @@ def run_soar_audit(client):
     for ct in ct_data[:10]:
         print(f"  [{ct.get('severity', 'N/A')}] {ct.get('name', 'N/A')} (Status: {ct.get('status')})")
 
-    print(f"\n--- PLAYBOOK TEMPLATES ---")
+    print("\n--- PLAYBOOK TEMPLATES ---")
     phishing = create_phishing_response_playbook_data()
     print(f"  {phishing['name']}: {len(phishing['steps'])} steps")
     malware = create_malware_containment_playbook_data()

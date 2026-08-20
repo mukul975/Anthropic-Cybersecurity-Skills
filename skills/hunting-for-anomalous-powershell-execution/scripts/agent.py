@@ -184,7 +184,7 @@ def hunt_scripts(assembled_blocks):
 def run_audit(args):
     """Execute PowerShell script block hunting."""
     print(f"\n{'='*60}")
-    print(f"  POWERSHELL SCRIPT BLOCK HUNTING")
+    print("  POWERSHELL SCRIPT BLOCK HUNTING")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
 
@@ -212,12 +212,12 @@ def run_audit(args):
         "obfuscation_detected": obf,
     }
 
-    print(f"--- HUNT RESULTS ---")
+    print("--- HUNT RESULTS ---")
     print(f"  AMSI bypass attempts: {amsi}")
     print(f"  Credential/offensive tools: {cred}")
     print(f"  Download cradles: {dl}")
     print(f"  Obfuscation detected: {obf}")
-    print(f"\n--- HIGH SEVERITY ---")
+    print("\n--- HIGH SEVERITY ---")
     for r in results[:15]:
         if r["severity"] == "high":
             print(f"  [{r['timestamp']}] {r['script_block_id']}")

@@ -428,7 +428,7 @@ def run_hunt(input_path: str, output_dir: str, log_format: str = "auto") -> None
     # Write hunt report
     report_file = output_path / "hunt_report.md"
     with open(report_file, "w", encoding="utf-8") as f:
-        f.write(f"# LOLBin Threat Hunt Report\n\n")
+        f.write("# LOLBin Threat Hunt Report\n\n")
         f.write(f"**Hunt ID**: TH-LOLBIN-{datetime.date.today().isoformat()}\n")
         f.write(f"**Date**: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
         f.write(f"**Events Analyzed**: {len(raw_events)}\n")

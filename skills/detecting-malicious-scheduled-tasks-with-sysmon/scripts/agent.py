@@ -163,7 +163,7 @@ def detect_event_4698(events):
 def run_audit(args):
     """Execute scheduled task detection audit."""
     print(f"\n{'='*60}")
-    print(f"  MALICIOUS SCHEDULED TASK DETECTION")
+    print("  MALICIOUS SCHEDULED TASK DETECTION")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
 

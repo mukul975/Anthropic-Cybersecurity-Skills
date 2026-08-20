@@ -6,8 +6,6 @@ Generates Cedar access policies, validates configurations,
 and monitors Verified Access deployments.
 """
 
-import json
-import datetime
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -209,9 +207,9 @@ def main():
     print("=" * 60)
     print("\nGroup Policy (production access):")
     print(group_policy)
-    print(f"\nAdmin Policy:")
+    print("\nAdmin Policy:")
     print(admin_policy)
-    print(f"\nRead-Only Policy:")
+    print("\nRead-Only Policy:")
     print(readonly_policy)
 
     # Generate Terraform config

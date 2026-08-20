@@ -145,22 +145,22 @@ def get_conditional_access_policies(token):
 def run_passwordless_audit(token):
     """Run comprehensive passwordless authentication audit."""
     print(f"\n{'='*60}")
-    print(f"  MICROSOFT ENTRA PASSWORDLESS AUTH AUDIT")
+    print("  MICROSOFT ENTRA PASSWORDLESS AUTH AUDIT")
     print(f"  Generated: {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC")
     print(f"{'='*60}\n")
 
     fido2 = get_fido2_policy(token)
-    print(f"--- FIDO2 SECURITY KEYS ---")
+    print("--- FIDO2 SECURITY KEYS ---")
     print(f"  State: {fido2.get('state', 'unknown')}")
     print(f"  Attestation Enforced: {fido2.get('is_attestation_enforced', 'N/A')}")
     print(f"  Self-Service Registration: {fido2.get('is_self_service_allowed', 'N/A')}")
 
     authenticator = get_microsoft_authenticator_policy(token)
-    print(f"\n--- MICROSOFT AUTHENTICATOR ---")
+    print("\n--- MICROSOFT AUTHENTICATOR ---")
     print(f"  State: {authenticator.get('state', 'unknown')}")
 
     hello = get_windows_hello_policy(token)
-    print(f"\n--- WINDOWS HELLO FOR BUSINESS ---")
+    print("\n--- WINDOWS HELLO FOR BUSINESS ---")
     print(f"  State: {hello.get('state', 'unknown')}")
 
     ca_policies = get_conditional_access_policies(token)

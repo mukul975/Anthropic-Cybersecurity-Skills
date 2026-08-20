@@ -136,7 +136,7 @@ def analyze_threats(blocked_msgs, delivered_threats, blocked_clicks, permitted_c
 def format_summary(findings, blocked_msgs, delivered, blocked_clicks, permitted_clicks):
     """Print email security summary."""
     print(f"\n{'='*60}")
-    print(f"  Proofpoint Email Security Report")
+    print("  Proofpoint Email Security Report")
     print(f"{'='*60}")
     print(f"  Blocked Messages  : {len(blocked_msgs)}")
     print(f"  Delivered Threats  : {len(delivered)}")

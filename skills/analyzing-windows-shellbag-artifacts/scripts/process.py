@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """Shellbag Forensic Analyzer - Parses SBECmd CSV output for investigation."""
-import csv, json, os, sys
+import csv
+import json
+import os
+import sys
 from datetime import datetime
-from collections import defaultdict
 
 def analyze_shellbags(csv_path: str, output_dir: str) -> str:
     os.makedirs(output_dir, exist_ok=True)

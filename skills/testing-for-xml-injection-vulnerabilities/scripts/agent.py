@@ -128,7 +128,7 @@ class XMLInjectionTestAgent:
         """Test if endpoint accepts XML when JSON is expected."""
         payload = original_json or {"username": "test", "password": "test"}
         xml_equiv = '<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///etc/passwd">]>'
-        xml_equiv += f'<root><username>&xxe;</username><password>test</password></root>'
+        xml_equiv += '<root><username>&xxe;</username><password>test</password></root>'
 
         resp = self._post_xml(endpoint, xml_equiv)
         if resp and resp.status_code in (200, 201):

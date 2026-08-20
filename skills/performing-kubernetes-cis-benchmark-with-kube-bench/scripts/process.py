@@ -105,7 +105,7 @@ def generate_report(data: dict, output_path: str = None) -> str:
         report += "\n## Failed Checks (Requires Remediation)\n\n"
         for c in failed:
             report += f"### {c['id']} - {c['description']}\n"
-            report += f"- **Status:** FAIL\n"
+            report += "- **Status:** FAIL\n"
             report += f"- **Scored:** {c['scored']}\n"
             if c['remediation']:
                 report += f"- **Remediation:** {c['remediation']}\n"

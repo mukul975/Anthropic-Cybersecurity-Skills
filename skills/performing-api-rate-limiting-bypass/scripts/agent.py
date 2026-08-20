@@ -198,7 +198,7 @@ def test_encoding_bypass(url, auth_header=None):
 def run_audit(args):
     """Execute API rate limiting bypass audit."""
     print(f"\n{'='*60}")
-    print(f"  API RATE LIMITING BYPASS TESTING")
+    print("  API RATE LIMITING BYPASS TESTING")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
 
@@ -207,7 +207,7 @@ def run_audit(args):
 
     detection = detect_rate_limit_headers(args.url, args.auth)
     report["rate_limit_detection"] = detection
-    print(f"--- RATE LIMIT DETECTION ---")
+    print("--- RATE LIMIT DETECTION ---")
     print(f"  URL: {detection.get('url','')}")
     print(f"  Has Rate Limiting: {detection.get('has_rate_limiting', False)}")
     for k, v in detection.get("rate_limit_headers", {}).items():

@@ -217,7 +217,7 @@ def audit_pod_security(namespace=None):
 def format_summary(ns_findings, pod_findings, namespaces):
     """Print audit summary."""
     print(f"\n{'='*60}")
-    print(f"  Pod Security Admission Audit Report")
+    print("  Pod Security Admission Audit Report")
     print(f"{'='*60}")
     print(f"  Namespaces      : {len(namespaces)}")
     psa_configured = sum(1 for ns in namespaces if ns["has_psa"])
@@ -231,13 +231,13 @@ def format_summary(ns_findings, pod_findings, namespaces):
         sev = f.get("severity", "INFO")
         severity_counts[sev] = severity_counts.get(sev, 0) + 1
 
-    print(f"\n  By Severity:")
+    print("\n  By Severity:")
     for sev in ["CRITICAL", "HIGH", "MEDIUM", "LOW", "INFO"]:
         count = severity_counts.get(sev, 0)
         if count > 0:
             print(f"    {sev:10s}: {count}")
 
-    print(f"\n  Namespace PSA Status:")
+    print("\n  Namespace PSA Status:")
     for ns in namespaces:
         if ns["name"] in ("kube-system", "kube-public", "kube-node-lease"):
             continue
@@ -245,7 +245,7 @@ def format_summary(ns_findings, pod_findings, namespaces):
         print(f"    {ns['name']:30s}: enforce={status:12s} audit={ns['audit'] or 'none':12s}")
 
     if pod_findings:
-        print(f"\n  Top Pod Violations:")
+        print("\n  Top Pod Violations:")
         for f in pod_findings[:15]:
             if f["severity"] in ("CRITICAL", "HIGH"):
                 print(f"    [{f['severity']:8s}] {f.get('namespace', '')}/"

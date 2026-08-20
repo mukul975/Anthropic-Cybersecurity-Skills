@@ -6,7 +6,6 @@ Generates XSOAR-compatible playbook YAML structures,
 validates playbook logic, and tracks automation metrics.
 """
 
-import json
 import yaml
 from datetime import datetime
 from typing import Optional

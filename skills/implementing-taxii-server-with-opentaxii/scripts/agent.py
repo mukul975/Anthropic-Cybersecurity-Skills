@@ -7,7 +7,6 @@ Supports both TAXII 1.1 and 2.0/2.1 endpoints.
 """
 import argparse
 import json
-import os
 import sys
 from datetime import datetime, timezone
 
@@ -193,7 +192,7 @@ def check_server_health(base_url):
 def format_summary(all_findings, base_url):
     """Print audit summary."""
     print(f"\n{'='*60}")
-    print(f"  OpenTAXII Server Audit Report")
+    print("  OpenTAXII Server Audit Report")
     print(f"{'='*60}")
     print(f"  Server       : {base_url}")
     print(f"  Findings     : {len(all_findings)}")

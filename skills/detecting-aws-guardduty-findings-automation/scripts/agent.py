@@ -155,7 +155,7 @@ def auto_archive_low_severity(session, detector_id, threshold=2.0):
 def run_audit(args):
     """Execute GuardDuty findings automation audit."""
     print(f"\n{'='*60}")
-    print(f"  AWS GUARDDUTY FINDINGS AUTOMATION")
+    print("  AWS GUARDDUTY FINDINGS AUTOMATION")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
 

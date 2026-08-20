@@ -6,8 +6,6 @@ Automates Macie configuration, job creation, and findings analysis.
 """
 
 import boto3
-import json
-import sys
 from datetime import datetime
 
 

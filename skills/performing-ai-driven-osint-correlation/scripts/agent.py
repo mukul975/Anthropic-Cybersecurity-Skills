@@ -12,10 +12,8 @@ import csv
 import json
 import os
 import re
-import sys
 from collections import defaultdict
 from datetime import datetime, timezone
-from pathlib import Path
 
 try:
     import requests
@@ -343,7 +341,7 @@ def generate_markdown_report(report, output_path):
 
     risk = report.get("risk_summary", {})
     md += "## Risk Summary\n\n"
-    md += f"| Risk Level | Count |\n|-----------|-------|\n"
+    md += "| Risk Level | Count |\n|-----------|-------|\n"
     md += f"| High | {risk.get('high_risk', 0)} |\n"
     md += f"| Medium | {risk.get('medium_risk', 0)} |\n"
     md += f"| Low | {risk.get('low_risk', 0)} |\n\n"

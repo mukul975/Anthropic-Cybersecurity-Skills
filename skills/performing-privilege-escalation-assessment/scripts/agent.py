@@ -216,7 +216,6 @@ class PrivescAssessmentAgent:
 
     def generate_report(self):
         """Run all enumeration checks and generate report."""
-        import os
         report = {
             "report_date": datetime.utcnow().isoformat(),
             "system_info": self.get_system_info(),

@@ -140,7 +140,7 @@ def audit_privileged_sp_roles(client):
 def run_audit(args):
     """Execute Azure service principal abuse detection audit."""
     print(f"\n{'='*60}")
-    print(f"  AZURE SERVICE PRINCIPAL ABUSE DETECTION")
+    print("  AZURE SERVICE PRINCIPAL ABUSE DETECTION")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
 

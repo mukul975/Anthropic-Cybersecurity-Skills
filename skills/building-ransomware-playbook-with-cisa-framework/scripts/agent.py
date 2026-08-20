@@ -264,10 +264,10 @@ if __name__ == "__main__":
         with open(sys.argv[2]) as f:
             controls = json.load(f)
         results = assess_readiness(controls)
-        print(f"\n--- Ransomware Readiness Assessment ---")
+        print("\n--- Ransomware Readiness Assessment ---")
         print(f"  Score: {results['score']}% ({results['implemented']}/{results['total_controls']})")
         if results["gaps"]:
-            print(f"\n  Critical Gaps:")
+            print("\n  Critical Gaps:")
             for gap in results["gaps"]:
                 print(f"    [{gap['priority']}] {gap['id']}: {gap['control']}")
         print(f"\n{json.dumps(results, indent=2)}")

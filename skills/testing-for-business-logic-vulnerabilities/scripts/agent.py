@@ -89,7 +89,7 @@ def test_coupon_reuse(base_url, token, coupon_endpoint="/api/cart/apply-coupon",
         })
         print(f"  [!] Coupon applied {success_count} times!")
     else:
-        print(f"  [+] Coupon properly limited")
+        print("  [+] Coupon properly limited")
     return findings
 
 
@@ -159,7 +159,7 @@ def test_self_referral(base_url, token, referral_endpoint="/api/referrals/invite
         resp = requests.post(url, headers=headers, json={"referral_email": email},
                              timeout=10, verify=False)
         if resp.status_code in (200, 201):
-            print(f"  [!] Self-referral accepted")
+            print("  [!] Self-referral accepted")
             return [{"type": "SELF_REFERRAL", "severity": "MEDIUM"}]
         else:
             print(f"  [+] Self-referral blocked (status {resp.status_code})")

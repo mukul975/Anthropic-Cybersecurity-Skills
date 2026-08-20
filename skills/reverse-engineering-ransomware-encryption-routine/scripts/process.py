@@ -17,10 +17,7 @@ import argparse
 import json
 import math
 import re
-import struct
-import sys
 from collections import Counter
-from pathlib import Path
 
 try:
     import pefile

@@ -177,7 +177,7 @@ def analyze_attack_summary(entries):
 def run_audit(args):
     """Execute ModSecurity audit log analysis."""
     print(f"\n{'='*60}")
-    print(f"  MODSECURITY AUDIT LOG ANALYSIS")
+    print("  MODSECURITY AUDIT LOG ANALYSIS")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
 
@@ -189,17 +189,17 @@ def run_audit(args):
 
     attack_summary = analyze_attack_summary(entries)
     report["attack_summary"] = attack_summary
-    print(f"--- ATTACK SUMMARY ---")
+    print("--- ATTACK SUMMARY ---")
     for cat, count in list(attack_summary["by_category"].items())[:10]:
         print(f"  {cat}: {count}")
     print(f"\n  Severity: {attack_summary['by_severity']}")
-    print(f"\n--- TOP ATTACKERS ---")
+    print("\n--- TOP ATTACKERS ---")
     for ip, count in list(attack_summary["top_attackers"].items())[:10]:
         print(f"  {ip}: {count} alerts")
 
     rule_freq = analyze_rule_frequency(entries)
     report["rule_frequency"] = rule_freq[:20]
-    print(f"\n--- TOP FIRING RULES ---")
+    print("\n--- TOP FIRING RULES ---")
     for r in rule_freq[:15]:
         print(f"  [{r['rule_id']}] {r['count']}x — {r['message'][:60]}")
 

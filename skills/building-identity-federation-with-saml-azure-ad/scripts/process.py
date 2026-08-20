@@ -9,7 +9,6 @@ Requirements:
     pip install msal requests cryptography
 """
 
-import json
 import sys
 from datetime import datetime, timezone
 

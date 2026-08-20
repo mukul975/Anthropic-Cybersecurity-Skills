@@ -210,7 +210,7 @@ def generate_report(links: list[dict], chain_findings: list[dict],
             lines.append(f"  [{f['severity']}] {f['description']}")
 
     if verify_result.get("error"):
-        lines.append(f"\n## in-toto-verify Error")
+        lines.append("\n## in-toto-verify Error")
         lines.append(f"  {verify_result['error']}")
 
     lines.append("\n" + "=" * 70)

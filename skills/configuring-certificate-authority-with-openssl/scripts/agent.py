@@ -92,13 +92,13 @@ def audit_certificate(cert_path):
 def run_audit(cert_path=None, generate=False, cn=None, org=None):
     """Execute CA operations."""
     print(f"\n{'='*60}")
-    print(f"  CERTIFICATE AUTHORITY AGENT")
+    print("  CERTIFICATE AUTHORITY AGENT")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
 
     if cert_path:
         info = audit_certificate(cert_path)
-        print(f"--- CERTIFICATE AUDIT ---")
+        print("--- CERTIFICATE AUDIT ---")
         print(f"  Subject: {info['subject']}")
         print(f"  Issuer: {info['issuer']}")
         print(f"  Valid: {info['not_before']} to {info['not_after']}")
@@ -110,7 +110,7 @@ def run_audit(cert_path=None, generate=False, cn=None, org=None):
 
     if generate:
         cert, key = generate_ca_certificate(cn=cn or "Internal Root CA", org=org or "Org")
-        print(f"--- CA CERTIFICATE GENERATED ---")
+        print("--- CA CERTIFICATE GENERATED ---")
         print(f"  Subject: {cert.subject.rfc4514_string()}")
         print(f"  Serial: {cert.serial_number}")
         return {"status": "generated", "subject": cert.subject.rfc4514_string()}

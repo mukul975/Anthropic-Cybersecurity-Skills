@@ -85,7 +85,7 @@ def audit_security_rules(rules):
 def run_audit(tsg_id, client_id, client_secret):
     """Execute Prisma Access zero trust audit."""
     print(f"\n{'='*60}")
-    print(f"  PRISMA ACCESS ZERO TRUST AUDIT")
+    print("  PRISMA ACCESS ZERO TRUST AUDIT")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
 

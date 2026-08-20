@@ -110,7 +110,7 @@ def parse_findings(raw_json):
 def format_summary(findings, stats, target):
     """Print human-readable scan summary."""
     print(f"\n{'='*60}")
-    print(f"  Semgrep SAST Scan Report")
+    print("  Semgrep SAST Scan Report")
     print(f"{'='*60}")
     print(f"  Target       : {target}")
     print(f"  Files Scanned: {stats.get('files_scanned_count', 0)}")
@@ -122,7 +122,7 @@ def format_summary(findings, stats, target):
         sev = f.get("severity", "WARNING")
         severity_counts[sev] = severity_counts.get(sev, 0) + 1
 
-    print(f"\n  By Severity:")
+    print("\n  By Severity:")
     for sev in ["ERROR", "WARNING", "INFO"]:
         count = severity_counts.get(sev, 0)
         if count > 0:
@@ -146,7 +146,7 @@ def format_summary(findings, stats, target):
         print(f"    {filepath:50s}: {len(items)} finding(s)")
 
     if findings:
-        print(f"\n  Critical/Error Findings:")
+        print("\n  Critical/Error Findings:")
         for f in findings[:15]:
             if f["severity"] == "ERROR":
                 cwe = f["cwe"][0] if f["cwe"] else ""

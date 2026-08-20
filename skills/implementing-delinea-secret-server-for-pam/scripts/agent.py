@@ -118,7 +118,7 @@ class SecretServerClient:
 def run_pam_audit(client):
     """Run a PAM security audit."""
     print(f"\n{'='*60}")
-    print(f"  DELINEA SECRET SERVER PAM AUDIT")
+    print("  DELINEA SECRET SERVER PAM AUDIT")
     print(f"  Generated: {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC")
     print(f"{'='*60}\n")
 

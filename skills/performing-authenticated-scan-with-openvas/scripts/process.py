@@ -7,11 +7,7 @@ the Greenbone Management Protocol (GMP) via python-gvm.
 
 import argparse
 import csv
-import json
 import sys
-import xml.etree.ElementTree as ET
-from datetime import datetime, timezone
-from pathlib import Path
 
 try:
     from gvm.connections import UnixSocketConnection

@@ -313,7 +313,7 @@ def test_pss_enforcement(report: PentestReport):
                 severity="MEDIUM",
                 details=f"Namespace '{ns_name}' lacks PSA enforce label",
                 impact="No built-in restrictions on pod security contexts",
-                remediation=f"Label namespace with pod-security.kubernetes.io/enforce=baseline or restricted"
+                remediation="Label namespace with pod-security.kubernetes.io/enforce=baseline or restricted"
             ))
         elif enforce == "privileged":
             report.findings.append(PentestFinding(
@@ -333,7 +333,7 @@ def print_report(report: PentestReport):
     print("=" * 70)
 
     if report.cluster_info:
-        print(f"\nCluster Info:")
+        print("\nCluster Info:")
         for k, v in report.cluster_info.items():
             print(f"  {k}: {v}")
 

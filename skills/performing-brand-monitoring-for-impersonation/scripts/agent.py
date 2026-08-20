@@ -8,7 +8,6 @@ crt.sh API and DNS resolution to identify potential phishing domains.
 """
 import argparse
 import json
-import os
 import socket
 import sys
 from datetime import datetime, timezone
@@ -117,7 +116,7 @@ def search_certificate_transparency(domain):
 def format_summary(domain, variants_count, resolved, ct_findings):
     """Print monitoring summary."""
     print(f"\n{'='*60}")
-    print(f"  Brand Impersonation Monitoring Report")
+    print("  Brand Impersonation Monitoring Report")
     print(f"{'='*60}")
     print(f"  Brand Domain       : {domain}")
     print(f"  Typosquat Variants : {variants_count}")
@@ -125,12 +124,12 @@ def format_summary(domain, variants_count, resolved, ct_findings):
     print(f"  CT Log Matches     : {len(ct_findings)}")
 
     if resolved:
-        print(f"\n  Active Typosquat Domains (resolving):")
+        print("\n  Active Typosquat Domains (resolving):")
         for r in resolved[:20]:
             print(f"    [{r['severity']:6s}] {r['domain']:40s} -> {r['ip']}")
 
     if ct_findings:
-        print(f"\n  Certificate Transparency Findings:")
+        print("\n  Certificate Transparency Findings:")
         for f in ct_findings[:15]:
             print(f"    {f['common_name']:40s} (issued: {f['not_before'][:10]})")
 

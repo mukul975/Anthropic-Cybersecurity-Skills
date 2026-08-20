@@ -41,7 +41,7 @@ def parse_semgrep_results(scan_data):
         }
         findings.append(finding)
         severity_counts[severity] = severity_counts.get(severity, 0) + 1
-    print(f"\n[*] Severity breakdown:")
+    print("\n[*] Severity breakdown:")
     for sev, count in sorted(severity_counts.items()):
         print(f"  {sev}: {count}")
     return findings

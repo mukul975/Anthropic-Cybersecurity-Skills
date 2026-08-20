@@ -8,7 +8,6 @@ creation logs, LSASS access patterns, and known command-line signatures.
 import argparse
 import json
 import re
-import sys
 from datetime import datetime
 
 try:

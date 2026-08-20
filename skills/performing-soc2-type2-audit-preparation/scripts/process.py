@@ -8,12 +8,10 @@ readiness assessment, and audit preparation for SOC 2 Type II examinations.
 
 import json
 import csv
-import os
 from datetime import datetime, timedelta
 from pathlib import Path
 from dataclasses import dataclass, field, asdict
 from enum import Enum
-from typing import Optional
 
 
 class TSCCategory(Enum):
@@ -204,7 +202,7 @@ class SOC2AuditPrep:
         if uncovered:
             print(f"  GAPS - Uncovered Criteria: {', '.join(sorted(uncovered))}")
         else:
-            print(f"  All applicable criteria covered")
+            print("  All applicable criteria covered")
 
         # Save control matrix
         matrix_path = self.output_dir / "control_matrix.json"
@@ -343,11 +341,11 @@ class SOC2AuditPrep:
 
         # Recommendation
         if pct >= 90:
-            print(f"\n  RECOMMENDATION: Ready for audit. Schedule with audit firm.")
+            print("\n  RECOMMENDATION: Ready for audit. Schedule with audit firm.")
         elif pct >= 70:
-            print(f"\n  RECOMMENDATION: Address remaining items within 2-4 weeks.")
+            print("\n  RECOMMENDATION: Address remaining items within 2-4 weeks.")
         else:
-            print(f"\n  RECOMMENDATION: Significant gaps remain. Delay audit until addressed.")
+            print("\n  RECOMMENDATION: Significant gaps remain. Delay audit until addressed.")
 
         # Save readiness report
         report = {

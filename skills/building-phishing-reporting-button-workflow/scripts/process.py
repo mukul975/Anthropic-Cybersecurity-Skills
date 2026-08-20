@@ -14,11 +14,8 @@ Usage:
 import argparse
 import json
 import re
-import hashlib
-import sys
 from dataclasses import dataclass, field, asdict
 from collections import Counter
-from datetime import datetime
 
 
 @dataclass
@@ -272,7 +269,7 @@ def main():
             print(f"Action: {result.recommended_action}")
             print(f"Auto-actionable: {'Yes' if result.auto_actionable else 'No'}")
             if result.indicators:
-                print(f"Indicators:")
+                print("Indicators:")
                 for ind in result.indicators:
                     print(f"  - {ind}")
 

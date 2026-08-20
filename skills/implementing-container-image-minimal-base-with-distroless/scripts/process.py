@@ -8,7 +8,6 @@ recommends distroless alternatives based on the application runtime.
 
 import json
 import subprocess
-import sys
 import argparse
 from datetime import datetime
 

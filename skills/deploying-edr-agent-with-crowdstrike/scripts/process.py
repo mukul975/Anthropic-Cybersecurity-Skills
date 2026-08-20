@@ -9,12 +9,10 @@ identify unmanaged endpoints, and generate deployment status reports.
 import json
 import sys
 import os
-import time
 import csv
 from datetime import datetime, timedelta
 from urllib.request import Request, urlopen
 from urllib.parse import urlencode
-from urllib.error import HTTPError
 
 
 FALCON_BASE_URL = os.environ.get("FALCON_BASE_URL", "https://api.crowdstrike.com")
@@ -225,7 +223,7 @@ if __name__ == "__main__":
         export_stale_hosts_csv(analysis["stale_hosts"], csv_path)
         print(f"Stale hosts CSV: {csv_path}")
 
-    print(f"\n--- Deployment Summary ---")
+    print("\n--- Deployment Summary ---")
     print(f"Total hosts: {analysis['total_hosts']}")
     print(f"Online: {analysis['status_breakdown']['online']}")
     print(f"Offline: {analysis['status_breakdown']['offline']}")

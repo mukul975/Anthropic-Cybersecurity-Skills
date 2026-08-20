@@ -93,20 +93,20 @@ def check_cipher_suites(host, port=443):
 def run_audit(host, port=443):
     """Execute TLS 1.3 configuration audit."""
     print(f"\n{'='*60}")
-    print(f"  TLS 1.3 CONFIGURATION AUDIT")
+    print("  TLS 1.3 CONFIGURATION AUDIT")
     print(f"  Target: {host}:{port}")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
 
     versions = check_tls_versions(host, port)
-    print(f"--- TLS VERSION SUPPORT ---")
+    print("--- TLS VERSION SUPPORT ---")
     for ver, info in versions.items():
         status = "SUPPORTED" if info.get("supported") else "NOT SUPPORTED"
         sev = info.get("severity", "")
         print(f"  {ver}: {status} {f'[{sev}]' if sev else ''}")
 
     cert = get_certificate_info(host, port)
-    print(f"\n--- CERTIFICATE ---")
+    print("\n--- CERTIFICATE ---")
     if "error" not in cert:
         print(f"  Subject: {cert['subject']}")
         print(f"  Issuer: {cert['issuer']}")
@@ -114,7 +114,7 @@ def run_audit(host, port=443):
         print(f"  Key size: {cert['key_size']}")
 
     cipher = check_cipher_suites(host, port)
-    print(f"\n--- CIPHER SUITE ---")
+    print("\n--- CIPHER SUITE ---")
     if "error" not in cipher:
         print(f"  Negotiated: {cipher['negotiated_cipher']}")
         print(f"  Protocol: {cipher['protocol']}")

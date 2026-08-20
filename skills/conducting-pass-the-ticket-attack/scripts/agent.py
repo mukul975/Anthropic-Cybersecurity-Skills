@@ -99,7 +99,7 @@ def generate_hunt_queries():
 def run_detection(log_file=None):
     """Execute Pass-the-Ticket detection analysis."""
     print(f"\n{'='*60}")
-    print(f"  PASS-THE-TICKET DETECTION ANALYSIS")
+    print("  PASS-THE-TICKET DETECTION ANALYSIS")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
 
@@ -116,7 +116,7 @@ def run_detection(log_file=None):
         print(f"  [{r['level'].upper()}] {r['title']}")
 
     queries = generate_hunt_queries()
-    print(f"\n--- HUNT QUERIES ---")
+    print("\n--- HUNT QUERIES ---")
     for platform, qlist in queries.items():
         print(f"  {platform.upper()}:")
         for q in qlist:

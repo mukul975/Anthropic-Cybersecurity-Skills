@@ -16,8 +16,6 @@ Usage:
     python process.py benchmark
 """
 
-import os
-import sys
 import json
 import time
 import hashlib
@@ -26,7 +24,7 @@ import logging
 import datetime
 import base64
 from pathlib import Path
-from typing import Dict, Optional, Tuple
+from typing import Dict, Optional
 
 from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PrivateKey, Ed25519PublicKey
 from cryptography.hazmat.primitives import serialization

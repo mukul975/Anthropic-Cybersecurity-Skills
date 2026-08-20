@@ -20,13 +20,10 @@ Environment:
 """
 
 import os
-import sys
 import json
 import struct
 import argparse
 import logging
-import base64
-import ctypes
 from pathlib import Path
 from typing import Dict, Optional, Tuple
 

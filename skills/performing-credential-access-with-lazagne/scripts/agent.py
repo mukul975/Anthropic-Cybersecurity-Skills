@@ -207,7 +207,7 @@ def check_credential_store_integrity():
 def format_summary(all_findings):
     """Print detection summary."""
     print(f"\n{'='*60}")
-    print(f"  LaZagne Credential Access Detection Report")
+    print("  LaZagne Credential Access Detection Report")
     print(f"{'='*60}")
 
     file_findings = [f for f in all_findings if f["type"] == "file_indicator"]

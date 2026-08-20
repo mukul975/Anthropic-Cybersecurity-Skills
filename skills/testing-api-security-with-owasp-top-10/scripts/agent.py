@@ -204,7 +204,7 @@ def main():
     parser.add_argument("-o", "--output", default="api_security_report.json")
     args = parser.parse_args()
 
-    print(f"[*] OWASP API Security Top 10 Assessment")
+    print("[*] OWASP API Security Top 10 Assessment")
     print(f"[*] Target: {args.base_url}")
     all_findings = []
     all_findings.extend(test_security_headers(args.base_url))

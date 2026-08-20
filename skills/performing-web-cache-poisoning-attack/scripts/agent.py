@@ -202,15 +202,15 @@ def print_report(report):
     print(f"Critical: {report['summary']['critical_findings']}")
     print(f"High: {report['summary']['high_findings']}")
     if report["summary"]["poisonable_headers"]:
-        print(f"\nPoisonable Headers:")
+        print("\nPoisonable Headers:")
         for h in report["summary"]["poisonable_headers"]:
             print(f"  - {h}")
-    print(f"\nUnkeyed Header Tests:")
+    print("\nUnkeyed Header Tests:")
     for f in report["unkeyed_headers"]:
         status = "POISON" if f.get("cached_poison") else ("REFLECTED" if f.get("reflected") else "SAFE")
         print(f"  {f['header']}: {status} [{f.get('risk', 'N/A')}]")
     if report["cache_deception"]:
-        print(f"\nCache Deception:")
+        print("\nCache Deception:")
         for f in report["cache_deception"]:
             print(f"  {f['path']}: CACHED ({f['content_type']})")
 

@@ -325,7 +325,7 @@ if __name__ == "__main__":
         print(f"    Possible families: {', '.join(fm.get('families', ['Unknown']))}")
 
         ea = report.get("encryption_analysis", {})
-        print(f"\n--- Encryption Analysis ---")
+        print("\n--- Encryption Analysis ---")
         print(f"  Overall entropy: {ea.get('overall_entropy', 0)}")
         print(f"  Fully encrypted: {ea.get('fully_encrypted', False)}")
         print(f"  ECB mode likely: {ea.get('ecb_likely', False)}")
@@ -333,18 +333,18 @@ if __name__ == "__main__":
         print(f"  Partial encryption: {partial.get('likely_partial', False)}")
 
         hc = report.get("header_check", {})
-        print(f"\n--- Header Check ---")
+        print("\n--- Header Check ---")
         print(f"  Known header: {hc.get('detected', False)}")
         print(f"  Note: {hc.get('note', '')}")
 
     if "feasibility" in report:
         f = report["feasibility"]
-        print(f"\n--- Decryption Feasibility ---")
+        print("\n--- Decryption Feasibility ---")
         print(f"  Assessment: {f['feasibility']}")
-        print(f"  Weaknesses:")
+        print("  Weaknesses:")
         for w in f.get("weaknesses", []):
             print(f"    [!] {w}")
-        print(f"  Strong points:")
+        print("  Strong points:")
         for s in f.get("strong_points", []):
             print(f"    [+] {s}")
         print(f"  Recommendation: {f['recommendation']}")

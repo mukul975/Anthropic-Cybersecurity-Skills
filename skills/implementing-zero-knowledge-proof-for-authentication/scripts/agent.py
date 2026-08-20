@@ -17,7 +17,7 @@ def generate_keypair():
     """Generate a ZKP key pair (private key x, public key y = g^x mod p)."""
     x = secrets.randbelow(SAFE_PRIME - 2) + 1
     y = pow(GENERATOR, x, SAFE_PRIME)
-    print(f"[*] Generated key pair")
+    print("[*] Generated key pair")
     print(f"  Public key (y): {hex(y)[:40]}...")
     return x, y
 
@@ -48,7 +48,7 @@ def zkp_password_register(password):
     pwd_hash = hashlib.pbkdf2_hmac("sha256", password.encode(), salt.encode(), 100000)
     x = int.from_bytes(pwd_hash, "big") % (SAFE_PRIME - 2) + 1
     y = pow(GENERATOR, x, SAFE_PRIME)
-    print(f"[*] Registered user (server stores salt + public key, never the password)")
+    print("[*] Registered user (server stores salt + public key, never the password)")
     return {"salt": salt, "public_key": y, "private_key": x}
 
 

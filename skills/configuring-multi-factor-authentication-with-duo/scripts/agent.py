@@ -99,20 +99,20 @@ def run_audit(ikey, skey, host):
     """Execute Duo MFA audit."""
     client = DuoAdminClient(ikey, skey, host)
     print(f"\n{'='*60}")
-    print(f"  DUO MFA CONFIGURATION AUDIT")
+    print("  DUO MFA CONFIGURATION AUDIT")
     print(f"  Host: {host}")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
 
     summary = client.get_info_summary()
     info = summary.get("response", {})
-    print(f"--- ACCOUNT SUMMARY ---")
+    print("--- ACCOUNT SUMMARY ---")
     print(f"  Users: {info.get('user_count', 0)}")
     print(f"  Integrations: {info.get('integration_count', 0)}")
 
     users = client.list_users()
     coverage = audit_mfa_coverage(users)
-    print(f"\n--- MFA COVERAGE ---")
+    print("\n--- MFA COVERAGE ---")
     print(f"  Enrollment rate: {coverage['enrollment_rate']}%")
     print(f"  Bypass mode: {coverage['bypass_mode']}")
     print(f"  No device: {len(coverage['no_device'])}")

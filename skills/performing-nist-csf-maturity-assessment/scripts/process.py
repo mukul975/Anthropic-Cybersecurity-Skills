@@ -7,11 +7,9 @@ between current and target profiles, and improvement roadmap generation.
 """
 
 import json
-import csv
 from datetime import datetime
 from pathlib import Path
 from dataclasses import dataclass, field, asdict
-from typing import Optional
 
 # CSF 2.0 Category structure
 CSF_CATEGORIES = {
@@ -173,7 +171,7 @@ class NISTCSFAssessment:
         for a in self.assessments:
             tier_dist[a.current_tier] += 1
 
-        print(f"\n  Current Tier Distribution:")
+        print("\n  Current Tier Distribution:")
         for tier, count in tier_dist.items():
             bar = "#" * (count * 3)
             print(f"    Tier {tier}: {count:>3} categories {bar}")
@@ -287,7 +285,7 @@ class NISTCSFAssessment:
         }
 
         print(f"\n  Organization: {self.organization}")
-        print(f"\n  Function Maturity Scores:")
+        print("\n  Function Maturity Scores:")
         for func, scores in func_scores.items():
             bar_current = "|" * int(scores["current"] * 5)
             bar_target = "." * int((scores["target"] - scores["current"]) * 5)

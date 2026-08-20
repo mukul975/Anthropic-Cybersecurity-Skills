@@ -113,7 +113,7 @@ def stride_coverage_check(threats: list) -> dict:
 def print_report(model: dict, coverage: dict, gaps: list, stride: dict) -> None:
     summary = model.get("summary", {})
     print(f"\n{'='*60}")
-    print(f"Threat Model Analysis Report")
+    print("Threat Model Analysis Report")
     print(f"{'='*60}")
     print(f"Title: {summary.get('title', 'Unknown')}")
     print(f"Owner: {summary.get('owner', 'Unknown')}")
@@ -125,7 +125,7 @@ def print_report(model: dict, coverage: dict, gaps: list, stride: dict) -> None:
     for d in diagrams:
         print(f"  - {d.get('title', 'Untitled')} ({d.get('diagramType', 'Unknown')} type)")
 
-    print(f"\nThreat Summary:")
+    print("\nThreat Summary:")
     print(f"  Total threats: {coverage['total_threats']}")
     print(f"  Mitigated: {coverage['mitigated_count']}")
     print(f"  Open: {coverage['open_count']}")
@@ -136,13 +136,13 @@ def print_report(model: dict, coverage: dict, gaps: list, stride: dict) -> None:
         mitigation_rate = coverage["mitigated_count"] / coverage["total_threats"] * 100
         print(f"  Mitigation rate: {mitigation_rate:.1f}%")
 
-    print(f"\nBy Severity:")
+    print("\nBy Severity:")
     for sev in ["Critical", "High", "Medium", "Low", "Unknown"]:
         count = coverage["by_severity"].get(sev, 0)
         if count:
             print(f"  {sev:12s}: {count}")
 
-    print(f"\nSTRIDE Coverage:")
+    print("\nSTRIDE Coverage:")
     for category, covered in stride.items():
         status = "COVERED" if covered else "MISSING"
         print(f"  {category:25s}: {status}")
@@ -153,7 +153,7 @@ def print_report(model: dict, coverage: dict, gaps: list, stride: dict) -> None:
             print(f"  [{gap['severity']}] {gap['threat_title']}")
             print(f"    Element: {gap['element']} | Diagram: {gap['diagram']}")
     else:
-        print(f"\nNo mitigation gaps found.")
+        print("\nNo mitigation gaps found.")
 
 
 def main():

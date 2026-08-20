@@ -219,7 +219,7 @@ def send_slack_alert(alert_data, webhook_url):
         logger.error("requests library not installed, cannot send Slack alert")
         return False
     payload = {
-        "text": f":rotating_light: *RANSOMWARE CANARY ALERT*",
+        "text": ":rotating_light: *RANSOMWARE CANARY ALERT*",
         "blocks": [
             {
                 "type": "header",

@@ -164,7 +164,7 @@ class AttackPathAnalyzer:
         print(f"Choke point ratio:    {total_choke / max(total_nodes, 1) * 100:.1f}%")
 
         if self.choke_points:
-            print(f"\nTop 10 Choke Points:")
+            print("\nTop 10 Choke Points:")
             for i, cp in enumerate(self.choke_points[:10], 1):
                 print(f"  {i}. {cp['entity_name']}")
                 print(f"     Type: {cp['entity_type']} | "
@@ -176,7 +176,7 @@ class AttackPathAnalyzer:
             categories = defaultdict(int)
             for cp in self.choke_points:
                 categories[cp["exposure_category"]] += 1
-            print(f"\nChoke Points by Category:")
+            print("\nChoke Points by Category:")
             for cat, count in sorted(categories.items(),
                                      key=lambda x: x[1], reverse=True):
                 print(f"  {cat}: {count}")

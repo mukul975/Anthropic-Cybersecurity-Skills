@@ -7,7 +7,6 @@ Usage:
     python process.py ntlm <log_file> [--window 300]
     python process.py dce_rpc <log_file> [--dc-ips 10.0.1.1,10.0.1.2]
 """
-import csv
 import sys
 import ipaddress
 from collections import defaultdict

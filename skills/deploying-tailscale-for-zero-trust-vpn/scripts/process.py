@@ -11,7 +11,6 @@ import subprocess
 import datetime
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Optional
 
 
 @dataclass
@@ -326,13 +325,13 @@ def generate_example_policy():
 
     # Export
     policy = gen.export_policy("tailscale_acl_policy.json")
-    print(f"\nGenerated ACL policy with:")
+    print("\nGenerated ACL policy with:")
     print(f"  Groups: {len(gen.groups)}")
     print(f"  Tags: {len(gen.tag_owners)}")
     print(f"  ACL Rules: {len(gen.acls)}")
     print(f"  SSH Rules: {len(gen.ssh_rules)}")
-    print(f"\nPolicy saved to: tailscale_acl_policy.json")
-    print(f"\nPolicy preview:")
+    print("\nPolicy saved to: tailscale_acl_policy.json")
+    print("\nPolicy preview:")
     print(json.dumps(policy, indent=2))
 
 

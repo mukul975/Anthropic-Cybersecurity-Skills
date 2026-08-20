@@ -8,7 +8,6 @@ and rule quality scoring.
 """
 
 import json
-import re
 import hashlib
 from datetime import datetime
 from typing import Optional

@@ -7,7 +7,6 @@ including scanning policies, content trust, RBAC, and TLS.
 """
 
 import json
-import sys
 import urllib.request
 import urllib.error
 import ssl

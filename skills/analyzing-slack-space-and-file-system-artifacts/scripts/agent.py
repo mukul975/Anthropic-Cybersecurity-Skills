@@ -7,7 +7,6 @@ import struct
 import argparse
 import subprocess
 from datetime import datetime, timedelta
-from pathlib import Path
 
 
 def parse_mft_with_analyzeMFT(mft_path, output_csv):

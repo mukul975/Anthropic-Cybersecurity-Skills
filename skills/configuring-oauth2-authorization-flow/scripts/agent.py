@@ -91,7 +91,7 @@ def test_token_endpoint(token_url, client_id, client_secret, grant_type="client_
 def run_audit(issuer_url, client_id=None, client_secret=None):
     """Execute OAuth 2.0 security audit."""
     print(f"\n{'='*60}")
-    print(f"  OAUTH 2.0 AUTHORIZATION FLOW AUDIT")
+    print("  OAUTH 2.0 AUTHORIZATION FLOW AUDIT")
     print(f"  Issuer: {issuer_url}")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
@@ -101,7 +101,7 @@ def run_audit(issuer_url, client_id=None, client_secret=None):
         print(f"  Error: {config['error']}")
         return config
 
-    print(f"--- DISCOVERED ENDPOINTS ---")
+    print("--- DISCOVERED ENDPOINTS ---")
     print(f"  Authorization: {config.get('authorization_endpoint', 'N/A')}")
     print(f"  Token: {config.get('token_endpoint', 'N/A')}")
     print(f"  JWKS: {config.get('jwks_uri', 'N/A')}")
@@ -115,7 +115,7 @@ def run_audit(issuer_url, client_id=None, client_secret=None):
     token_test = {}
     if client_id and client_secret and config.get("token_endpoint"):
         token_test = test_token_endpoint(config["token_endpoint"], client_id, client_secret)
-        print(f"\n--- TOKEN ENDPOINT TEST ---")
+        print("\n--- TOKEN ENDPOINT TEST ---")
         print(f"  Status: {token_test.get('status', 'N/A')}")
 
     return {"config": config, "findings": findings, "token_test": token_test}

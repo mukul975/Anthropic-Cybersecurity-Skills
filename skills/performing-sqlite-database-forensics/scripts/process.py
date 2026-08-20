@@ -11,8 +11,7 @@ import struct
 import os
 import sys
 import json
-from datetime import datetime, timedelta
-from pathlib import Path
+from datetime import datetime
 
 
 class SQLiteForensicAnalyzer:

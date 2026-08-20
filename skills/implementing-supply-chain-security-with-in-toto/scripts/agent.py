@@ -128,7 +128,7 @@ def verify_layout(tools, layout_path, layout_key_path, link_dir="."):
     print(f"[*] Verifying supply chain layout: {layout_path}")
     result = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
     if result.returncode == 0:
-        print(f"[+] Verification PASSED")
+        print("[+] Verification PASSED")
         return {"status": "PASS", "detail": "All steps verified successfully"}
     else:
         print(f"[!] Verification FAILED: {result.stderr[:300]}")
@@ -170,7 +170,7 @@ def audit_existing_links(link_dir="."):
 def format_summary(results):
     """Print supply chain audit summary."""
     print(f"\n{'='*60}")
-    print(f"  in-toto Supply Chain Security Report")
+    print("  in-toto Supply Chain Security Report")
     print(f"{'='*60}")
     if isinstance(results, list):
         print(f"  Link Files Found: {len(results)}")

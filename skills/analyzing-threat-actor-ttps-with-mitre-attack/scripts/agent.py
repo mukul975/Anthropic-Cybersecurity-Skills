@@ -8,7 +8,7 @@ and generates detection gap reports.
 import os
 import sys
 import json
-from collections import Counter, defaultdict
+from collections import defaultdict
 
 try:
     import requests

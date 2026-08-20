@@ -126,7 +126,7 @@ def run_security_hub_audit(region="us-east-1"):
     client = get_hub_client(region)
 
     print(f"\n{'='*60}")
-    print(f"  AWS SECURITY HUB AUDIT REPORT")
+    print("  AWS SECURITY HUB AUDIT REPORT")
     print(f"  Region: {region}")
     print(f"  Generated: {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC")
     print(f"{'='*60}\n")
@@ -137,12 +137,12 @@ def run_security_hub_audit(region="us-east-1"):
         print(f"  {s.get('arn', 'N/A')}: {s.get('status', 'N/A')}")
 
     summary = get_findings_summary(client)
-    print(f"\n--- FINDINGS SUMMARY ---")
+    print("\n--- FINDINGS SUMMARY ---")
     print(f"  Total Active: {summary.get('total', 0)}")
     for sev, count in summary.get("by_severity", {}).items():
         print(f"  {sev}: {count}")
 
-    print(f"\n--- TOP FAILED CONTROLS ---")
+    print("\n--- TOP FAILED CONTROLS ---")
     for control, count in summary.get("top_failed_controls", {}).items():
         print(f"  [{count:3d}] {control[:70]}")
 

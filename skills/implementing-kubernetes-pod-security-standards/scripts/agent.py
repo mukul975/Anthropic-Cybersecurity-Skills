@@ -116,9 +116,9 @@ def audit_pod_security(pods_path):
 def generate_namespace_labels(namespace, level="restricted"):
     """Generate PSA label patch for a namespace."""
     labels = {
-        f"pod-security.kubernetes.io/enforce": level,
-        f"pod-security.kubernetes.io/audit": level,
-        f"pod-security.kubernetes.io/warn": level,
+        "pod-security.kubernetes.io/enforce": level,
+        "pod-security.kubernetes.io/audit": level,
+        "pod-security.kubernetes.io/warn": level,
     }
     return {
         "command": f'kubectl label namespace {namespace} '

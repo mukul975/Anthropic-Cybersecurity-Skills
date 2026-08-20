@@ -213,7 +213,7 @@ class PaloAltoAuditor:
         report = self.generate_report()
 
         print(f"\n{'='*70}")
-        print(f"PALO ALTO NGFW SECURITY AUDIT REPORT")
+        print("PALO ALTO NGFW SECURITY AUDIT REPORT")
         print(f"{'='*70}")
         print(f"Host: {report['firewall_host']}")
         print(f"Date: {report['audit_date']}")

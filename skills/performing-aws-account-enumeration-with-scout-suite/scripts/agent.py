@@ -144,7 +144,7 @@ def extract_account_info(results):
 def format_summary(account_info, findings):
     """Print a human-readable summary."""
     print(f"\n{'='*60}")
-    print(f"  ScoutSuite AWS Security Audit Report")
+    print("  ScoutSuite AWS Security Audit Report")
     print(f"{'='*60}")
     print(f"  Account     : {account_info['account_id']}")
     print(f"  Partition   : {account_info['partition']}")
@@ -157,7 +157,7 @@ def format_summary(account_info, findings):
         sev = f["severity"]
         severity_counts[sev] = severity_counts.get(sev, 0) + 1
 
-    print(f"\n  Severity Breakdown:")
+    print("\n  Severity Breakdown:")
     for sev in ["CRITICAL", "HIGH", "MEDIUM", "INFO"]:
         count = severity_counts.get(sev, 0)
         if count > 0:
@@ -167,13 +167,13 @@ def format_summary(account_info, findings):
     for f in findings:
         by_service.setdefault(f["service"], []).append(f)
 
-    print(f"\n  Findings by Service:")
+    print("\n  Findings by Service:")
     for svc, items in sorted(by_service.items(), key=lambda x: -len(x[1])):
         danger = sum(1 for i in items if i["severity"] == "CRITICAL")
         warn = sum(1 for i in items if i["severity"] == "HIGH")
         print(f"    {svc:20s}: {len(items)} findings ({danger} critical, {warn} high)")
 
-    print(f"\n  Top Critical/High Findings:")
+    print("\n  Top Critical/High Findings:")
     for f in findings[:15]:
         if f["severity"] in ("CRITICAL", "HIGH"):
             print(f"    [{f['severity']:8s}] {f['service']:12s} | "

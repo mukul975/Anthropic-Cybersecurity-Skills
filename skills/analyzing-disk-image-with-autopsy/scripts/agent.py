@@ -6,7 +6,6 @@ import subprocess
 import os
 import sys
 import json
-import csv
 import datetime
 
 
@@ -162,10 +161,10 @@ def analyze_image(image_path, case_dir):
     os.makedirs(case_dir, exist_ok=True)
     results = {"image": image_path, "timestamp": datetime.datetime.utcnow().isoformat()}
 
-    print(f"[*] Image info...")
+    print("[*] Image info...")
     results["image_info"] = get_image_info(image_path)
 
-    print(f"[*] Partition layout...")
+    print("[*] Partition layout...")
     partitions = list_partitions(image_path)
     results["partitions"] = partitions
 
@@ -180,7 +179,7 @@ def analyze_image(image_path, case_dir):
             }
             print(f"    Total: {len(files)}, Deleted: {results[f'files_offset_{offset}']['deleted']}")
 
-            print(f"[*] Creating bodyfile for timeline...")
+            print("[*] Creating bodyfile for timeline...")
             bf_path = os.path.join(case_dir, f"bodyfile_{offset}.txt")
             create_bodyfile(image_path, offset, bf_path)
 

@@ -9,7 +9,6 @@ unauthorized ownership.
 
 import json
 import subprocess
-import sys
 from datetime import datetime, timedelta
 
 

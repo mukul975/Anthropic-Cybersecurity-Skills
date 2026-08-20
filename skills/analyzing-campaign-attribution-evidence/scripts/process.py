@@ -18,8 +18,6 @@ Usage:
 
 import argparse
 import json
-import sys
-from collections import defaultdict
 
 
 class AttributionEngine:

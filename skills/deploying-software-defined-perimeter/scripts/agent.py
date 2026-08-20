@@ -109,7 +109,7 @@ class SDPControllerClient:
 def run_audit(args):
     """Execute SDP deployment audit."""
     print(f"\n{'='*60}")
-    print(f"  SOFTWARE-DEFINED PERIMETER AUDIT")
+    print("  SOFTWARE-DEFINED PERIMETER AUDIT")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
 
@@ -128,7 +128,7 @@ def run_audit(args):
         mtls = check_tls_mutual_auth(args.mtls_host, args.mtls_port or 443,
                                       args.client_cert, args.client_key)
         report["mtls_check"] = mtls
-        print(f"\n--- MUTUAL TLS CHECK ---")
+        print("\n--- MUTUAL TLS CHECK ---")
         print(f"  Host: {mtls['host']}:{mtls['port']}")
         print(f"  mTLS Enforced: {mtls.get('mtls_enforced', 'unknown')}")
         if mtls.get("tls_version"):

@@ -8,7 +8,6 @@ across a GCP organization hierarchy.
 
 import json
 import subprocess
-import sys
 from datetime import datetime
 
 

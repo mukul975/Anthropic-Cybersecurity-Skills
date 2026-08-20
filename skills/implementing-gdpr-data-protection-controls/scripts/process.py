@@ -8,12 +8,10 @@ request tracking, breach notification management, and compliance reporting.
 
 import json
 import csv
-import os
 from datetime import datetime, timedelta
 from pathlib import Path
 from dataclasses import dataclass, field, asdict
 from enum import Enum
-from typing import Optional
 
 
 class LawfulBasis(Enum):
@@ -172,7 +170,7 @@ class GDPRComplianceManager:
         transfers = sum(1 for a in self.processing_activities if a.international_transfers)
         dpia_needed = sum(1 for a in self.processing_activities if a.dpia_required)
 
-        print(f"\n  ROPA Summary:")
+        print("\n  ROPA Summary:")
         print(f"    Total Processing Activities: {total}")
         print(f"    Special Category Processing: {special}")
         print(f"    International Transfers: {transfers}")
@@ -183,7 +181,7 @@ class GDPRComplianceManager:
         for a in self.processing_activities:
             basis_counts.setdefault(a.lawful_basis, 0)
             basis_counts[a.lawful_basis] += 1
-        print(f"\n  Lawful Basis Breakdown:")
+        print("\n  Lawful Basis Breakdown:")
         for basis, count in basis_counts.items():
             print(f"    {basis}: {count}")
 
@@ -244,7 +242,7 @@ class GDPRComplianceManager:
             type_counts.setdefault(d.request_type, 0)
             type_counts[d.request_type] += 1
 
-        print(f"\n  DSR Summary:")
+        print("\n  DSR Summary:")
         for rtype, count in type_counts.items():
             print(f"    {rtype}: {count}")
         print(f"    Total: {len(self.dsr_log)}")

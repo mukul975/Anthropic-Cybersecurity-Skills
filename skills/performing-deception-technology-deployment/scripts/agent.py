@@ -62,7 +62,7 @@ def generate_canary_files(output_dir: str, count: int = 5) -> list[dict]:
         token_id = secrets.token_hex(4)
 
         content = f"# CANARY FILE - Token: {token_id}\n"
-        content += f"# This file is a decoy. Any access triggers a security alert.\n"
+        content += "# This file is a decoy. Any access triggers a security alert.\n"
         content += f"# Description: {description}\n"
         content += f"# Generated: {datetime.now(timezone.utc).isoformat()}\n\n"
 
@@ -100,7 +100,7 @@ def generate_dns_canary_tokens(domain: str, count: int = 3) -> list[dict]:
             "token_id": f"DNS-{token_id[:8]}",
             "type": "dns_canary",
             "hostname": hostname,
-            "usage": f"Embed in config files, documents, or network shares",
+            "usage": "Embed in config files, documents, or network shares",
             "alert_on": "DNS resolution of hostname",
             "created": datetime.now(timezone.utc).isoformat(),
         })

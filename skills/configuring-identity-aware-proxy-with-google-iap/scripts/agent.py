@@ -84,13 +84,13 @@ def check_oauth_consent(project_id):
 def run_audit(project_id):
     """Execute IAP configuration audit."""
     print(f"\n{'='*60}")
-    print(f"  GOOGLE IAP CONFIGURATION AUDIT")
+    print("  GOOGLE IAP CONFIGURATION AUDIT")
     print(f"  Project: {project_id}")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
 
     settings = get_iap_settings(project_id)
-    print(f"--- IAP SETTINGS ---")
+    print("--- IAP SETTINGS ---")
     print(f"  {json.dumps(settings, indent=2)}")
 
     bindings = audit_iap_iam_policy(project_id)
@@ -106,7 +106,7 @@ def run_audit(project_id):
             print(f"  {t['name']}: CIDRs={t['cidrs']}")
 
     consent = check_oauth_consent(project_id)
-    print(f"\n--- OAUTH CONSENT ---")
+    print("\n--- OAUTH CONSENT ---")
     for req in consent["requirements"]:
         print(f"  - {req}")
 

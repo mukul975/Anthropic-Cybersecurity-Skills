@@ -57,7 +57,7 @@ def check_fleet_status(fleet_url, api_token):
 def run_audit(queries=None, fleet_url=None, api_token=None):
     """Execute osquery security audit."""
     print(f"\n{'='*60}")
-    print(f"  OSQUERY ENDPOINT MONITORING AUDIT")
+    print("  OSQUERY ENDPOINT MONITORING AUDIT")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
 

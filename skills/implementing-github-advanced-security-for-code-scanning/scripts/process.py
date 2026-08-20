@@ -11,7 +11,7 @@ import os
 import sys
 import urllib.request
 import urllib.error
-from datetime import datetime, timedelta
+from datetime import datetime
 from collections import defaultdict
 
 
@@ -151,15 +151,15 @@ def print_report(report: dict) -> None:
     )
     print(f"Coverage: {coverage:.1f}%")
     print(f"Total open alerts: {report['total_open_alerts']}")
-    print(f"\nSeverity Summary:")
+    print("\nSeverity Summary:")
     for sev in ["critical", "high", "medium", "low", "unknown"]:
         count = report["severity_summary"].get(sev, 0)
         if count > 0:
             print(f"  {sev.upper():12s}: {count}")
-    print(f"\nTop CWEs:")
+    print("\nTop CWEs:")
     for cwe, count in report.get("top_cwes", {}).items():
         print(f"  {cwe:15s}: {count}")
-    print(f"\nRepository Details:")
+    print("\nRepository Details:")
     for repo in sorted(report["repo_details"], key=lambda r: r["open_alerts"], reverse=True):
         mttr_str = (
             f"{repo['mttr']['avg_mttr_hours']}h" if repo["mttr"]["avg_mttr_hours"] else "N/A"

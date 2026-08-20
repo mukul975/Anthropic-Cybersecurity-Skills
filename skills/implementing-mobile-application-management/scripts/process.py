@@ -10,9 +10,7 @@ Usage:
 
 import argparse
 import json
-import sys
 from datetime import datetime
-from pathlib import Path
 
 BASELINE_TIER2 = {
     "pin_required": True,

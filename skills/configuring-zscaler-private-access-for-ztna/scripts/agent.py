@@ -84,7 +84,7 @@ def run_audit(client_id, client_secret, customer_id):
     """Execute ZPA ZTNA audit."""
     client = ZPAClient(client_id, client_secret, customer_id)
     print(f"\n{'='*60}")
-    print(f"  ZSCALER PRIVATE ACCESS ZTNA AUDIT")
+    print("  ZSCALER PRIVATE ACCESS ZTNA AUDIT")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
 

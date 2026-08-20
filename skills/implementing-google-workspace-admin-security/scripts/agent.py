@@ -141,7 +141,7 @@ def check_recovery_settings(service, domain):
 def run_workspace_audit(service, reports_service, domain):
     """Run comprehensive Google Workspace security audit."""
     print(f"\n{'='*60}")
-    print(f"  GOOGLE WORKSPACE SECURITY AUDIT")
+    print("  GOOGLE WORKSPACE SECURITY AUDIT")
     print(f"  Domain: {domain}")
     print(f"  Generated: {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC")
     print(f"{'='*60}\n")
@@ -173,7 +173,7 @@ def run_workspace_audit(service, reports_service, domain):
 
     events = get_login_audit_events(reports_service)
     suspicious = [e for e in events if e.get("event_name") == "login_failure"]
-    print(f"\n--- RECENT LOGIN EVENTS ---")
+    print("\n--- RECENT LOGIN EVENTS ---")
     print(f"  Total events: {len(events)}")
     print(f"  Failed logins: {len(suspicious)}")
 

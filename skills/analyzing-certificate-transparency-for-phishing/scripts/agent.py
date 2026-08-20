@@ -202,7 +202,7 @@ if __name__ == "__main__":
     for h in report["homoglyph_domains"][:10]:
         print(f"  [diff={h['char_differences']}] {h['domain']}")
 
-    print(f"\n--- Issuer Analysis ---")
+    print("\n--- Issuer Analysis ---")
     for issuer, count in sorted(report["issuer_analysis"]["issuers"].items(),
                                  key=lambda x: -x[1])[:5]:
         print(f"  {count:4d} | {issuer[:60]}")

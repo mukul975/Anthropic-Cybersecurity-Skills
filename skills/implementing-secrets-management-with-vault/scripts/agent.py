@@ -110,7 +110,7 @@ def delete_secret(client, path, mount_point="secret", versions=None, destroy=Fal
         client.secrets.kv.v2.delete_latest_version_of_secret(
             path=path, mount_point=mount_point
         )
-        print(f"[+] Latest version deleted")
+        print("[+] Latest version deleted")
         return {"path": path, "action": "delete_latest"}
 
 
