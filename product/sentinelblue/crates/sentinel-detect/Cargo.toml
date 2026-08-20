@@ -1,0 +1,15 @@
+[package]
+name = "sentinel-detect"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+rusqlite.workspace = true
+sentinel-db = { path = "../sentinel-db" }
+serde.workspace = true
+serde_json.workspace = true
+
+[dev-dependencies]
+tempfile.workspace = true

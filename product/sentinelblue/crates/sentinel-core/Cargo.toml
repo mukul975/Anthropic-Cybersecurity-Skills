@@ -1,0 +1,11 @@
+[package]
+name = "sentinel-core"
+description = "Core domain types and workspace helpers for SentinelBlue."
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+version.workspace = true
+
+[lib]
+path = "src/lib.rs"

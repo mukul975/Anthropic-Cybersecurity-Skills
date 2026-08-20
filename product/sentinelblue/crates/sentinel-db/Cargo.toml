@@ -1,0 +1,18 @@
+[package]
+name = "sentinel-db"
+description = "SQLite persistence and migrations for SentinelBlue."
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+version.workspace = true
+
+[dependencies]
+rusqlite.workspace = true
+serde_json.workspace = true
+
+[dev-dependencies]
+tempfile.workspace = true
+
+[lib]
+path = "src/lib.rs"

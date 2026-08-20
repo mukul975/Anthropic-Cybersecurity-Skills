@@ -1,0 +1,20 @@
+[package]
+name = "sentinel-ingest"
+description = "File telemetry ingestion and first-pass normalization for SentinelBlue."
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+version.workspace = true
+
+[dependencies]
+rusqlite.workspace = true
+sentinel-db = { path = "../sentinel-db" }
+serde_json.workspace = true
+sha2.workspace = true
+
+[dev-dependencies]
+tempfile.workspace = true
+
+[lib]
+path = "src/lib.rs"

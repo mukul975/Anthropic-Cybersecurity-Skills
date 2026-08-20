@@ -1,0 +1,28 @@
+[workspace]
+resolver = "3"
+members = [
+  "apps/desktop/src-tauri",
+  "crates/sentinel-api",
+  "crates/sentinel-core",
+  "crates/sentinel-db",
+  "crates/sentinel-detect",
+  "crates/sentinel-ingest",
+  "crates/sentinel-model",
+  "crates/sentinel-server",
+  "crates/sentinel-skill-indexer",
+]
+
+[workspace.package]
+edition = "2024"
+license = "Apache-2.0"
+repository = "https://github.com/mukul975/Anthropic-Cybersecurity-Skills"
+rust-version = "1.85"
+version = "0.1.0"
+
+[workspace.dependencies]
+rusqlite = { version = "0.32", features = ["bundled"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+serde_yaml = "0.9"
+sha2 = "0.10"
+tempfile = "3"

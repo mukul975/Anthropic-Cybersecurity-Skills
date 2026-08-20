@@ -1,0 +1,16 @@
+{
+  "timestamp": "2026-06-09T12:00:00Z",
+  "rule": {
+    "id": "100001",
+    "level": 8,
+    "description": "Suspicious command execution"
+  },
+  "agent": {
+    "id": "001",
+    "name": "demo-host"
+  },
+  "data": {
+    "srcip": "10.0.0.5",
+    "command": "powershell.exe -EncodedCommand <redacted>"
+  }
+}

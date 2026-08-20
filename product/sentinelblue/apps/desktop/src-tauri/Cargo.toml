@@ -1,0 +1,18 @@
+[package]
+name = "sentinelblue-desktop"
+description = "Tauri desktop shell for SentinelBlue."
+edition = "2024"
+license = "Apache-2.0"
+rust-version = "1.85"
+version = "0.1.0"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+sentinel-ingest = { path = "../../../crates/sentinel-ingest" }
+sentinel-server = { path = "../../../crates/sentinel-server" }
+serde.workspace = true
+serde_json.workspace = true
+tauri = { version = "2", features = [] }
+tauri-plugin-dialog = "2"
