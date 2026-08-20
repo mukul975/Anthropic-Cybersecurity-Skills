@@ -14,7 +14,7 @@ SNORT_BIN = os.environ.get("SNORT_BIN", "/usr/local/bin/snort")
 SNORT_CONF = os.environ.get("SNORT_CONF", "/usr/local/etc/snort/snort.lua")
 RULES_DIR = os.environ.get("SNORT_RULES_DIR", "/usr/local/etc/snort/rules")
 LOG_DIR = os.environ.get("SNORT_LOG_DIR", "/var/log/snort")
-DAQ_DIR = os.environ.get("SNORT_DAQ_DIR", DAQ_DIR)
+DAQ_DIR = os.environ.get("SNORT_DAQ_DIR", "/usr/local/lib/daq")
 
 
 def check_snort_installed():

@@ -146,7 +146,10 @@ def generate_monitoring_report(
         f"  Known Breaches Involving Domain: {len(breaches)}",
     ]
     for b in breaches[:5]:
-        lines.append(f"  - {b['name']} ({b['breach_date']}) - {b['pwn_count']:,} accounts")
+        lines.append(
+            f"  - {b.get('name', 'Unknown')} "
+            f"({b.get('breach_date', '?')}) - {b.get('pwn_count', 0):,} accounts"
+        )
 
     lines.extend([
         "",
