@@ -14,3 +14,21 @@ Thumbs.db
 launch/
 extract_attack.py
 AUDIT_REPORT.md
+data/
+.venv/
+
+# Browser automation receipts / cache (generated, ~3MB)
+.playwright-mcp/
+
+# Local working brief (not for the public fork)
+CLAUDE_CLEANUP_BRIEF.md
+
+# Offensive lab material — never commit to this public-fork repo
+security-lab/
+havoc-c2-lab/
+
+# Bypass-framing persona — keep out of git history
+cyberagent/skills/personas/gunner.md
+
+# Local bypass/safety-removal prompt workshop — not runtime
+control-room/

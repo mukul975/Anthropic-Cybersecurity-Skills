@@ -109,6 +109,45 @@ cd Anthropic-Cybersecurity-Skills
 
 Works immediately with Claude Code, GitHub Copilot, OpenAI Codex CLI, Cursor, Gemini CLI, and any [agentskills.io](https://agentskills.io)-compatible platform. 
 
+## Backend verification for live agent builds
+
+If you are using the bundled agent/runtime in this repo, do not trust backend changes by vibe alone.
+
+Verification rule:
+
+- force the backend explicitly with `AGENT_BACKEND`
+- run the end-to-end harness before calling a backend change good
+- treat provider quota blocks as **blocked**, not as false passes
+
+Quick local truth check:
+
+```bash
+.venv/bin/python tools/cyberagent-doctor.py
+```
+
+Full live verification:
+
+```bash
+.venv/bin/python tools/cyberagent-doctor.py --live
+```
+
+After committing, check whether the branch is still only local:
+
+```bash
+.venv/bin/python tools/publish-status.py
+```
+
+Push when the doctor is green, the working tree is clean, and the publish
+status says the branch is ready. Commit means saved locally; push means sent to
+GitHub.
+
+Named smoke scenarios:
+
+- `exact-load-skill`
+- `search-then-load`
+
+See [`tools/README.md`](tools/README.md) for the verification harness details.
+
 ## 🌍 GARS-2026 — Global Agentic AI Readiness Survey
 
 I'm running a global academic study measuring how ready security professionals,
