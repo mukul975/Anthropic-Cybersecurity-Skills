@@ -26,6 +26,10 @@ jobs:
       - name: Validate SKILL.md frontmatter
         run: python3 tools/validate-skill.py --all
 
+      - name: Validate skill quality with Python
+        run: |
+          python3 tools/skill_quality_validator.py --all
+
       - name: Check for duplicate skill names
         run: |
           python3 << 'EOF'

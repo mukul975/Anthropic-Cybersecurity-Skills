@@ -1,0 +1,2900 @@
+﻿
+Skill quality report:
+
+abusing-dpapi-for-credential-access
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+abusing-shadow-credentials-for-privesc
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+achieving-cmmc-level-2-compliance
+  WARN: Recommended section missing: Verification
+acquiring-disk-image-with-dd-and-dcfldd
+  WARN: Recommended section missing: Verification
+analyzing-active-directory-acl-abuse
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+analyzing-android-malware-with-apktool
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+analyzing-api-gateway-access-logs
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+analyzing-apt-group-with-mitre-navigator
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+analyzing-azure-activity-logs-for-threats
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+analyzing-bootkit-and-rootkit-samples
+  WARN: Recommended section missing: Verification
+analyzing-browser-forensics-with-hindsight
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+analyzing-campaign-attribution-evidence
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+Phishing
+  FAIL: Name 'Phishing' is not valid kebab-case
+  WARN: Directory name 'analyzing-certificate-transparency-for-phishing' does not match skill name 'Phishing'
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: {cert['crt_sh_url']}
+  FAIL: Duplicate skill name found: Phishing
+analyzing-cloud-storage-access-patterns
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+analyzing-cobalt-strike-beacon-configuration
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+analyzing-cobaltstrike-malleable-c2-profiles
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+analyzing-command-and-control-communication
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+analyzing-cyber-kill-chain
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+analyzing-disk-image-with-autopsy
+  WARN: Recommended section missing: Verification
+analyzing-dns-logs-for-exfiltration
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+analyzing-docker-container-forensics
+  WARN: Recommended section missing: Verification
+  FAIL: Referenced file does not exist: ./container-diff-linux-amd64
+Create Fake Materials: Fake Website
+  FAIL: Name 'Create Fake Materials: Fake Website' is not valid kebab-case
+  WARN: Directory name 'analyzing-email-headers-for-phishing-investigation' does not match skill name 'Create Fake Materials: Fake Website'
+  WARN: Recommended section missing: Verification
+  FAIL: Referenced file does not exist: [^"\']+
+  FAIL: Duplicate skill name found: Create Fake Materials: Fake Website
+analyzing-ethereum-smart-contract-vulnerabilities
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+analyzing-golang-malware-with-ghidra
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+analyzing-heap-spray-exploitation
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+Create Fake Materials: Fake Website
+  FAIL: Name 'Create Fake Materials: Fake Website' is not valid kebab-case
+  WARN: Directory name 'analyzing-indicators-of-compromise' does not match skill name 'Create Fake Materials: Fake Website'
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+  FAIL: Duplicate skill name found: Create Fake Materials: Fake Website
+analyzing-ios-app-security-with-objection
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+analyzing-kubernetes-audit-logs
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+analyzing-linux-audit-logs-for-intrusion
+  WARN: Recommended section missing: Output Format
+Transfer of funds
+  FAIL: Name 'Transfer of funds' is not valid kebab-case
+  WARN: Directory name 'analyzing-linux-elf-malware' does not match skill name 'Transfer of funds'
+  WARN: Recommended section missing: Verification
+  FAIL: Referenced file does not exist: ./suspect_binary
+  FAIL: Duplicate skill name found: Transfer of funds
+analyzing-linux-kernel-rootkits
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+analyzing-linux-system-artifacts
+  WARN: Recommended section missing: Verification
+analyzing-lnk-file-and-jump-list-artifacts
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+analyzing-macro-malware-in-office-documents
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+analyzing-malicious-pdf-with-peepdf
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+analyzing-malicious-url-with-urlscan
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+analyzing-malware-behavior-with-cuckoo-sandbox
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+analyzing-malware-family-relationships-with-malpedia
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+analyzing-malware-persistence-with-autoruns
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+analyzing-malware-sandbox-evasion-techniques
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+analyzing-memory-dumps-with-volatility
+  WARN: Recommended section missing: Verification
+analyzing-memory-forensics-with-lime-and-volatility
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+analyzing-mft-for-deleted-file-recovery
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+analyzing-network-covert-channels-in-malware
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+analyzing-network-flow-data-with-netflow
+  WARN: Weak tag: analyzing
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+analyzing-network-packets-with-scapy
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+analyzing-network-traffic-for-incidents
+  WARN: Recommended section missing: Verification
+analyzing-network-traffic-of-malware
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+analyzing-network-traffic-with-wireshark
+  WARN: Recommended section missing: Verification
+analyzing-office365-audit-logs-for-compromise
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+analyzing-outlook-pst-for-email-forensics
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+analyzing-packed-malware-with-upx-unpacker
+  WARN: Recommended section missing: Verification
+analyzing-pdf-malware-with-pdfid
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+analyzing-persistence-mechanisms-in-linux
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+analyzing-powershell-empire-artifacts
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+analyzing-powershell-script-block-logging
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+analyzing-prefetch-files-for-execution-history
+  WARN: Recommended section missing: Verification
+Remote Access Tools
+  FAIL: Name 'Remote Access Tools' is not valid kebab-case
+  WARN: Directory name 'analyzing-ransomware-encryption-mechanisms' does not match skill name 'Remote Access Tools'
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+  FAIL: Duplicate skill name found: Remote Access Tools
+Electronic Funds Transfer: Wire Transfer
+  FAIL: Name 'Electronic Funds Transfer: Wire Transfer' is not valid kebab-case
+  WARN: Directory name 'analyzing-ransomware-leak-site-intelligence' does not match skill name 'Electronic Funds Transfer: Wire Transfer'
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Duplicate skill name found: Electronic Funds Transfer: Wire Transfer
+Transfer of funds
+  FAIL: Name 'Transfer of funds' is not valid kebab-case
+  WARN: Directory name 'analyzing-ransomware-network-indicators' does not match skill name 'Transfer of funds'
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+  FAIL: Duplicate skill name found: Transfer of funds
+Structuring
+  FAIL: Name 'Structuring' is not valid kebab-case
+  WARN: Directory name 'analyzing-ransomware-payment-wallets' does not match skill name 'Structuring'
+  WARN: Recommended section missing: Output Format
+analyzing-sbom-for-supply-chain-vulnerabilities
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+analyzing-security-logs-with-splunk
+  WARN: Recommended section missing: Verification
+analyzing-slack-space-and-file-system-artifacts
+  WARN: Recommended section missing: Verification
+analyzing-supply-chain-malware-artifacts
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+analyzing-threat-actor-ttps-with-mitre-attack
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+analyzing-threat-actor-ttps-with-mitre-navigator
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+analyzing-threat-intelligence-feeds
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+analyzing-threat-landscape-with-misp
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+Phishing
+  FAIL: Name 'Phishing' is not valid kebab-case
+  WARN: Directory name 'analyzing-tls-certificate-transparency-logs' does not match skill name 'Phishing'
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Duplicate skill name found: Phishing
+Phishing
+  FAIL: Name 'Phishing' is not valid kebab-case
+  WARN: Directory name 'analyzing-typosquatting-domains-with-dnstwist' does not match skill name 'Phishing'
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+  FAIL: Duplicate skill name found: Phishing
+analyzing-uefi-bootkit-persistence
+  WARN: Recommended section missing: Verification
+analyzing-usb-device-connection-history
+  WARN: Recommended section missing: Verification
+analyzing-web-server-logs-for-intrusion
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+analyzing-windows-amcache-artifacts
+  WARN: Recommended section missing: Output Format
+analyzing-windows-event-logs-in-splunk
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+analyzing-windows-lnk-files-for-artifacts
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+analyzing-windows-prefetch-with-python
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+analyzing-windows-registry-for-artifacts
+  WARN: Recommended section missing: Verification
+analyzing-windows-shellbag-artifacts
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+assessing-vector-and-embedding-weaknesses
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: Mapping 'mitre_attack' has unexpected format: AML.T0024
+  WARN: Mapping 'nist_csf' has unexpected format: MEASURE-2.7
+attacking-entra-id-with-roadtools
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+attacking-oauth-with-device-code-phishing
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: ./TokenTactics/TokenTactics.psd1
+auditing-aws-s3-bucket-permissions
+  WARN: Tag is likely too short: s3
+  WARN: Recommended section missing: Verification
+  FAIL: Referenced file does not exist: ./prowler-s3-audit/
+auditing-azure-active-directory-configuration
+  WARN: Recommended section missing: Verification
+  FAIL: Referenced file does not exist: ./scoutsuite-azure-report
+  FAIL: Referenced file does not exist: ./scoutsuite-azure-report/azure-report.html
+auditing-cloud-with-cis-benchmarks
+  WARN: Recommended section missing: Verification
+  FAIL: Referenced file does not exist: ./cis-audit-azure-
+  FAIL: Referenced file does not exist: ./cis-audit-
+  FAIL: Referenced file does not exist: ./scout-report
+  FAIL: Referenced file does not exist: ./cis-audit-gcp-
+auditing-entra-id-with-aadinternals
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+auditing-foundry-smart-contract-security
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+auditing-gcp-iam-permissions
+  WARN: Recommended section missing: Verification
+Account Access Removal
+  FAIL: Name 'Account Access Removal' is not valid kebab-case
+  WARN: Directory name 'auditing-kubernetes-cluster-rbac' does not match skill name 'Account Access Removal'
+  WARN: Recommended section missing: Verification
+auditing-kubernetes-rbac-privilege-escalation
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: ./lib/policies/
+  FAIL: Referenced file does not exist: ./lib/policies/can_escalate.rego
+  FAIL: Referenced file does not exist: ./rbac-police
+auditing-mcp-servers-for-tool-poisoning
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: Mapping 'mitre_attack' has unexpected format: AML.T0010
+  WARN: Mapping 'nist_csf' has unexpected format: MANAGE-2.2
+auditing-terraform-infrastructure-for-security
+  WARN: Recommended section missing: Verification
+  FAIL: Referenced file does not exist: ./custom-checks/
+  FAIL: Referenced file does not exist: ./modules/
+  FAIL: Referenced file does not exist: ./terraform/
+  FAIL: Referenced file does not exist: ./policy/
+auditing-tls-certificate-transparency-logs
+  WARN: Recommended section missing: Verification
+auditing-uefi-firmware-with-chipsec
+  FAIL: Unknown subdomain 'hardware-firmware-security'
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+automating-ioc-enrichment
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+benchmarking-kubernetes-with-kube-bench
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+building-adversary-infrastructure-tracking-system
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+building-attack-pattern-library-from-cti-reports
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+building-automated-malware-submission-pipeline
+  WARN: Recommended section missing: Verification
+building-c2-infrastructure-with-sliver-framework
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+building-c2-redirector-infrastructure
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+building-cloud-siem-with-sentinel
+  WARN: Recommended section missing: Verification
+building-detection-rule-with-splunk-spl
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+building-detection-rules-with-sigma
+  WARN: Recommended section missing: Verification
+building-devsecops-pipeline-with-gitlab-ci
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+Access with Stolen Session Cookie
+  FAIL: Name 'Access with Stolen Session Cookie' is not valid kebab-case
+  WARN: Directory name 'building-identity-federation-with-saml-azure-ad' does not match skill name 'Access with Stolen Session Cookie'
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Duplicate skill name found: Access with Stolen Session Cookie
+Account Takeover
+  FAIL: Name 'Account Takeover' is not valid kebab-case
+  WARN: Directory name 'building-identity-governance-lifecycle-process' does not match skill name 'Account Takeover'
+  WARN: Recommended section missing: Verification
+  FAIL: Duplicate skill name found: Account Takeover
+building-incident-response-dashboard
+  WARN: Recommended section missing: Verification
+building-incident-response-playbook
+  WARN: Recommended section missing: Verification
+building-incident-timeline-with-timesketch
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+building-ioc-defanging-and-sharing-pipeline
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: ?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9]
+building-ioc-enrichment-pipeline-with-opencti
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+building-malware-incident-communication-template
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+building-patch-tuesday-response-process
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+Create Fake Materials: Fake Website
+  FAIL: Name 'Create Fake Materials: Fake Website' is not valid kebab-case
+  WARN: Directory name 'building-phishing-reporting-button-workflow' does not match skill name 'Create Fake Materials: Fake Website'
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+  FAIL: Duplicate skill name found: Create Fake Materials: Fake Website
+Transfer of funds
+  FAIL: Name 'Transfer of funds' is not valid kebab-case
+  WARN: Directory name 'building-ransomware-playbook-with-cisa-framework' does not match skill name 'Transfer of funds'
+  WARN: Recommended section missing: Output Format
+  FAIL: Duplicate skill name found: Transfer of funds
+building-red-team-c2-infrastructure-with-havoc
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: ./havoc
+  FAIL: Referenced file does not exist: ./profiles/havoc.yaotl
+building-role-mining-for-rbac-optimization
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+building-soc-escalation-matrix
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+building-soc-metrics-and-kpi-tracking
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+Transfer of funds
+  FAIL: Name 'Transfer of funds' is not valid kebab-case
+  WARN: Directory name 'building-soc-playbook-for-ransomware' does not match skill name 'Transfer of funds'
+  WARN: Recommended section missing: Verification
+  FAIL: Duplicate skill name found: Transfer of funds
+building-super-timelines-with-plaso
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+building-threat-actor-profile-from-osint
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+building-threat-feed-aggregation-with-misp
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+building-threat-hunt-hypothesis-framework
+  WARN: Recommended section missing: Verification
+building-threat-intelligence-enrichment-in-splunk
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+building-threat-intelligence-feed-integration
+  WARN: Recommended section missing: Verification
+building-threat-intelligence-platform
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+building-vulnerability-aging-and-sla-tracking
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+building-vulnerability-dashboard-with-defectdojo
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: ./dc-up-d.sh
+building-vulnerability-exception-tracking-system
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+building-vulnerability-scanning-workflow
+  WARN: Recommended section missing: Verification
+bypassing-authentication-with-forced-browsing
+  WARN: Recommended section missing: Verification
+coercing-authentication-with-coercer-petitpotam
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+collecting-indicators-of-compromise
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+collecting-open-source-intelligence
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+collecting-threat-intelligence-with-misp
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+collecting-volatile-evidence-from-compromised-host
+  WARN: Recommended section missing: Verification
+conducting-api-security-testing
+  WARN: Recommended section missing: Verification
+conducting-cloud-incident-response
+  WARN: Recommended section missing: Verification
+conducting-cloud-penetration-testing
+  WARN: Recommended section missing: Verification
+  FAIL: Referenced file does not exist: ./prowler-output
+  FAIL: Referenced file does not exist: ./scout-report
+conducting-cyber-risk-assessment-with-nist-800-30
+  WARN: Recommended section missing: Verification
+conducting-domain-persistence-with-dcsync
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+conducting-external-reconnaissance-with-osint
+  WARN: Recommended section missing: Verification
+conducting-full-scope-red-team-engagement
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+conducting-internal-network-penetration-test
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: ./linpeas.sh
+conducting-internal-reconnaissance-with-bloodhound-ce
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+conducting-malware-incident-response
+  WARN: Recommended section missing: Verification
+conducting-man-in-the-middle-attack-simulation
+  WARN: Recommended section missing: Verification
+conducting-memory-forensics-with-volatility
+  WARN: Recommended section missing: Verification
+  FAIL: Referenced file does not exist: ./avml
+conducting-mobile-app-penetration-test
+  WARN: Recommended section missing: Verification
+conducting-network-penetration-test
+  WARN: Recommended section missing: Verification
+conducting-pass-the-ticket-attack
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+Account Takeover: Exposed Login Credential
+  FAIL: Name 'Account Takeover: Exposed Login Credential' is not valid kebab-case
+  WARN: Directory name 'conducting-phishing-incident-response' does not match skill name 'Account Takeover: Exposed Login Credential'
+  WARN: Recommended section missing: Verification
+  FAIL: Duplicate skill name found: Account Takeover: Exposed Login Credential
+conducting-post-incident-lessons-learned
+  WARN: Recommended section missing: Verification
+Create Fake Materials: Fake Website
+  FAIL: Name 'Create Fake Materials: Fake Website' is not valid kebab-case
+  WARN: Directory name 'conducting-social-engineering-penetration-test' does not match skill name 'Create Fake Materials: Fake Website'
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Duplicate skill name found: Create Fake Materials: Fake Website
+Phone Number Spoofing: Official Phone Number Spoofing
+  FAIL: Name 'Phone Number Spoofing: Official Phone Number Spoofing' is not valid kebab-case
+  WARN: Directory name 'conducting-social-engineering-pretext-call' does not match skill name 'Phone Number Spoofing: Official Phone Number Spoofing'
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+Account Takeover: Exposed Login Credential
+  FAIL: Name 'Account Takeover: Exposed Login Credential' is not valid kebab-case
+  WARN: Directory name 'conducting-spearphishing-simulation-campaign' does not match skill name 'Account Takeover: Exposed Login Credential'
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Duplicate skill name found: Account Takeover: Exposed Login Credential
+conducting-wireless-network-penetration-test
+  WARN: Recommended section missing: Verification
+configuring-active-directory-tiered-model
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Output Format
+configuring-aws-verified-access-for-ztna
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+configuring-certificate-authority-with-openssl
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+configuring-host-based-intrusion-detection
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+configuring-hsm-for-key-storage
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+Steal Web Session Cookie
+  FAIL: Name 'Steal Web Session Cookie' is not valid kebab-case
+  WARN: Directory name 'configuring-identity-aware-proxy-with-google-iap' does not match skill name 'Steal Web Session Cookie'
+  WARN: Recommended section missing: Verification
+  FAIL: Duplicate skill name found: Steal Web Session Cookie
+Adversary-in-the-Middle
+  FAIL: Name 'Adversary-in-the-Middle' is not valid kebab-case
+  WARN: Directory name 'configuring-ldap-security-hardening' does not match skill name 'Adversary-in-the-Middle'
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Output Format
+configuring-microsegmentation-for-zero-trust
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+configuring-multi-factor-authentication-with-duo
+  WARN: Recommended section missing: Output Format
+configuring-network-segmentation-with-vlans
+  WARN: Recommended section missing: Verification
+Steal Web Session Cookie
+  FAIL: Name 'Steal Web Session Cookie' is not valid kebab-case
+  WARN: Directory name 'configuring-oauth2-authorization-flow' does not match skill name 'Steal Web Session Cookie'
+  WARN: Recommended section missing: Output Format
+  FAIL: Duplicate skill name found: Steal Web Session Cookie
+configuring-pfsense-firewall-rules
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+configuring-snort-ids-for-intrusion-detection
+  WARN: Recommended section missing: Verification
+  FAIL: Referenced file does not exist: ./bootstrap
+  FAIL: Referenced file does not exist: ./configure
+  FAIL: Referenced file does not exist: ./configure_cmake.sh
+configuring-suricata-for-network-monitoring
+  WARN: Recommended section missing: Verification
+  FAIL: Referenced file does not exist: ./configure
+  FAIL: Referenced file does not exist: ./autogen.sh
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+configuring-tls-1-3-for-secure-communications
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+configuring-windows-defender-advanced-settings
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+configuring-windows-event-logging-for-detection
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+configuring-zscaler-private-access-for-ztna
+  WARN: Recommended section missing: Verification
+containing-active-breach
+  WARN: Recommended section missing: Verification
+continuous-llm-red-teaming-with-promptfoo
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: Mapping 'mitre_attack' has unexpected format: AML.T0051
+  WARN: Mapping 'nist_csf' has unexpected format: MANAGE-4.1
+correlating-security-events-in-qradar
+  WARN: Recommended section missing: Verification
+correlating-threat-campaigns
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+defending-llms-with-guardrails
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: Mapping 'mitre_attack' has unexpected format: AML.T0054
+  WARN: Mapping 'nist_csf' has unexpected format: MANAGE-2.1
+deobfuscating-javascript-malware
+  WARN: Recommended section missing: Verification
+  FAIL: Referenced file does not exist: [A-Za-z0-9+/=]+
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+deobfuscating-powershell-obfuscated-malware
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: ?:nc(?:odedcommand
+deploying-active-directory-honeytokens
+  WARN: Weak tag: detection
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+deploying-cloud-deception-with-decoy-resources
+  WARN: Recommended section missing: Verification
+deploying-cloudflare-access-for-zero-trust
+  WARN: Recommended section missing: Verification
+Indicator Removal
+  FAIL: Name 'Indicator Removal' is not valid kebab-case
+  WARN: Weak tag: detection
+  WARN: Directory name 'deploying-decoy-files-for-ransomware-detection' does not match skill name 'Indicator Removal'
+  WARN: Recommended section missing: Output Format
+  FAIL: Duplicate skill name found: Indicator Removal
+deploying-edr-agent-with-crowdstrike
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+deploying-honeytokens-and-canarytokens
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+deploying-osquery-for-endpoint-monitoring
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+deploying-palo-alto-prisma-access-zero-trust
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+Electronic Funds Transfer: Wire Transfer
+  FAIL: Name 'Electronic Funds Transfer: Wire Transfer' is not valid kebab-case
+  WARN: Weak tag: detection
+  WARN: Directory name 'deploying-ransomware-canary-files' does not match skill name 'Electronic Funds Transfer: Wire Transfer'
+  WARN: Recommended section missing: Verification
+  FAIL: Duplicate skill name found: Electronic Funds Transfer: Wire Transfer
+deploying-software-defined-perimeter
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+deploying-tailscale-for-zero-trust-vpn
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+designing-adversary-engagement-with-mitre-engage
+  WARN: Recommended section missing: Verification
+detecting-ai-model-prompt-injection-attacks
+  WARN: Recommended section missing: Output Format
+detecting-anomalies-in-industrial-control-systems
+  WARN: Recommended section missing: Verification
+Steal Web Session Cookie
+  FAIL: Name 'Steal Web Session Cookie' is not valid kebab-case
+  WARN: Directory name 'detecting-anomalous-authentication-patterns' does not match skill name 'Steal Web Session Cookie'
+  WARN: Recommended section missing: Verification
+  FAIL: Duplicate skill name found: Steal Web Session Cookie
+detecting-api-enumeration-attacks
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+detecting-arp-poisoning-in-network-traffic
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+detecting-attacks-on-historian-servers
+  WARN: Recommended section missing: Verification
+detecting-attacks-on-scada-systems
+  WARN: Recommended section missing: Verification
+Account Manipulation: Account Linking
+  FAIL: Name 'Account Manipulation: Account Linking' is not valid kebab-case
+  WARN: Directory name 'detecting-aws-cloudtrail-anomalies' does not match skill name 'Account Manipulation: Account Linking'
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+Use Alternate Authentication Material: Application Access Token
+  FAIL: Name 'Use Alternate Authentication Material: Application Access Token' is not valid kebab-case
+  WARN: Directory name 'detecting-aws-credential-exposure-with-trufflehog' does not match skill name 'Use Alternate Authentication Material: Application Access Token'
+  WARN: Recommended section missing: Verification
+  FAIL: Referenced file does not exist: scripts/etl_config.py
+  FAIL: Duplicate skill name found: Use Alternate Authentication Material: Application Access Token
+detecting-aws-guardduty-findings-automation
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+detecting-aws-iam-privilege-escalation
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+detecting-azure-lateral-movement
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+detecting-azure-service-principal-abuse
+  WARN: Weak tag: detection
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+detecting-azure-storage-account-misconfigurations
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+detecting-beaconing-patterns-with-zeek
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+detecting-bluetooth-low-energy-attacks
+  WARN: Recommended section missing: Verification
+detecting-broken-object-property-level-authorization
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+Delete Relevant Emails
+  FAIL: Name 'Delete Relevant Emails' is not valid kebab-case
+  WARN: Directory name 'detecting-business-email-compromise' does not match skill name 'Delete Relevant Emails'
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+Electronic Funds Transfer: Wire Transfer
+  FAIL: Name 'Electronic Funds Transfer: Wire Transfer' is not valid kebab-case
+  WARN: Tag is likely too short: ai
+  WARN: Directory name 'detecting-business-email-compromise-with-ai' does not match skill name 'Electronic Funds Transfer: Wire Transfer'
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Duplicate skill name found: Electronic Funds Transfer: Wire Transfer
+detecting-cloud-threats-with-guardduty
+  WARN: Recommended section missing: Verification
+detecting-command-and-control-over-dns
+  WARN: Recommended section missing: Verification
+Account Manipulation
+  FAIL: Name 'Account Manipulation' is not valid kebab-case
+  WARN: Directory name 'detecting-compromised-cloud-credentials' does not match skill name 'Account Manipulation'
+  WARN: Recommended section missing: Verification
+  FAIL: Duplicate skill name found: Account Manipulation
+detecting-container-drift-at-runtime
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+detecting-container-escape-attempts
+  WARN: Weak tag: security
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+detecting-container-escape-with-falco-rules
+  WARN: Weak tag: detection
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+detecting-container-runtime-threats-with-falco
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+Brute Force: Password Cracking
+  FAIL: Name 'Brute Force: Password Cracking' is not valid kebab-case
+  WARN: Directory name 'detecting-credential-dumping-techniques' does not match skill name 'Brute Force: Password Cracking'
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+Convert to Cryptocurrency
+  FAIL: Name 'Convert to Cryptocurrency' is not valid kebab-case
+  WARN: Directory name 'detecting-cryptomining-in-cloud' does not match skill name 'Convert to Cryptocurrency'
+  WARN: Recommended section missing: Verification
+  FAIL: Duplicate skill name found: Convert to Cryptocurrency
+detecting-data-and-model-poisoning
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: Mapping 'mitre_attack' has unexpected format: AML.T0020
+  WARN: Mapping 'mitre_attack' has unexpected format: AML.T0018
+  WARN: Mapping 'nist_csf' has unexpected format: MEASURE-2.7
+  FAIL: Referenced file does not exist: ./models
+detecting-dcsync-attack-in-active-directory
+  WARN: Recommended section missing: Verification
+Electronic Funds Transfer: Wire Transfer
+  FAIL: Name 'Electronic Funds Transfer: Wire Transfer' is not valid kebab-case
+  WARN: Directory name 'detecting-deepfake-audio-in-vishing-attacks' does not match skill name 'Electronic Funds Transfer: Wire Transfer'
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+  FAIL: Duplicate skill name found: Electronic Funds Transfer: Wire Transfer
+detecting-dependency-confusion
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: ./reports
+detecting-dll-sideloading-attacks
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+detecting-dnp3-protocol-anomalies
+  WARN: Recommended section missing: Verification
+detecting-dns-exfiltration-with-dns-query-analysis
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+detecting-email-account-compromise
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+detecting-email-forwarding-rules-attack
+  WARN: Recommended section missing: Verification
+detecting-entra-offensive-tools-in-graph-logs
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+detecting-evasion-techniques-in-endpoint-logs
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+detecting-exfiltration-over-dns-with-zeek
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+detecting-fileless-attacks-on-endpoints
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+detecting-fileless-malware-techniques
+  WARN: Weak tag: detection
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+detecting-golden-ticket-attacks-in-kerberos-logs
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+detecting-golden-ticket-forgery
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+detecting-indirect-prompt-injection
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: Mapping 'mitre_attack' has unexpected format: AML.T0051.001
+  WARN: Mapping 'nist_csf' has unexpected format: MEASURE-2.7
+detecting-insider-data-exfiltration-via-dlp
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+detecting-insider-threat-behaviors
+  WARN: Recommended section missing: Verification
+detecting-insider-threat-with-ueba
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+detecting-kerberoasting-attacks
+  WARN: Recommended section missing: Verification
+detecting-lateral-movement-in-network
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+detecting-lateral-movement-with-splunk
+  WARN: Recommended section missing: Verification
+detecting-lateral-movement-with-zeek
+  WARN: Recommended section missing: Output Format
+detecting-living-off-the-land-attacks
+  WARN: Recommended section missing: Output Format
+detecting-living-off-the-land-with-lolbas
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+detecting-malicious-npm-packages
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: ./package/
+  FAIL: Referenced file does not exist: ./package
+  FAIL: Referenced file does not exist: ./some-pkg.tgz
+detecting-malicious-scheduled-tasks-with-sysmon
+  WARN: Weak tag: detection
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+detecting-mimikatz-execution-patterns
+  WARN: Recommended section missing: Verification
+detecting-misconfigured-azure-storage
+  WARN: Recommended section missing: Verification
+Abuse of Public-Facing API: Mobile API Abuse
+  FAIL: Name 'Abuse of Public-Facing API: Mobile API Abuse' is not valid kebab-case
+  WARN: Directory name 'detecting-mobile-malware-behavior' does not match skill name 'Abuse of Public-Facing API: Mobile API Abuse'
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+detecting-modbus-command-injection-attacks
+  WARN: Recommended section missing: Verification
+detecting-modbus-protocol-anomalies
+  WARN: Recommended section missing: Verification
+detecting-model-extraction-attacks
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: Mapping 'mitre_attack' has unexpected format: AML.T0024
+  WARN: Mapping 'nist_csf' has unexpected format: MEASURE-2.6
+detecting-network-anomalies-with-zeek
+  WARN: Recommended section missing: Verification
+  FAIL: Referenced file does not exist: ./configure
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+detecting-network-scanning-with-ids-signatures
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+detecting-ntlm-relay-with-event-correlation
+  WARN: Recommended section missing: Verification
+Browser Session Hijacking
+  FAIL: Name 'Browser Session Hijacking' is not valid kebab-case
+  WARN: Directory name 'detecting-oauth-token-theft' does not match skill name 'Browser Session Hijacking'
+  WARN: Recommended section missing: Output Format
+detecting-pass-the-hash-attacks
+  WARN: Recommended section missing: Verification
+detecting-pass-the-ticket-attacks
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+detecting-port-scanning-with-fail2ban
+  WARN: Recommended section missing: Verification
+detecting-privilege-escalation-attempts
+  WARN: Recommended section missing: Verification
+detecting-privilege-escalation-in-kubernetes-pods
+  WARN: Weak tag: detection
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+detecting-process-hollowing-technique
+  WARN: Recommended section missing: Verification
+detecting-process-injection-techniques
+  WARN: Weak tag: detection
+  WARN: Recommended section missing: Verification
+Account Takeover: Exposed Login Credential
+  FAIL: Name 'Account Takeover: Exposed Login Credential' is not valid kebab-case
+  WARN: Directory name 'detecting-qr-code-phishing-with-email-security' does not match skill name 'Account Takeover: Exposed Login Credential'
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+  FAIL: Duplicate skill name found: Account Takeover: Exposed Login Credential
+Indicator Removal
+  FAIL: Name 'Indicator Removal' is not valid kebab-case
+  WARN: Weak tag: detection
+  WARN: Directory name 'detecting-ransomware-encryption-behavior' does not match skill name 'Indicator Removal'
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+  FAIL: Duplicate skill name found: Indicator Removal
+Convert to Cryptocurrency
+  FAIL: Name 'Convert to Cryptocurrency' is not valid kebab-case
+  WARN: Weak tag: detection
+  WARN: Directory name 'detecting-ransomware-precursors-in-network' does not match skill name 'Convert to Cryptocurrency'
+  WARN: Recommended section missing: Verification
+  FAIL: Duplicate skill name found: Convert to Cryptocurrency
+detecting-rdp-brute-force-attacks
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+detecting-rootkit-activity
+  WARN: Weak tag: detection
+  WARN: Recommended section missing: Verification
+detecting-s3-data-exfiltration-attempts
+  WARN: Tag is likely too short: s3
+  WARN: Recommended section missing: Verification
+detecting-secure-boot-bypass
+  FAIL: Unknown subdomain 'hardware-firmware-security'
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: ./DBXUpdate.bin
+detecting-serverless-function-injection
+  WARN: Recommended section missing: Verification
+detecting-service-account-abuse
+  WARN: Recommended section missing: Verification
+detecting-shadow-api-endpoints
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+detecting-shadow-it-cloud-usage
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+Create Fake Materials: Fake Website
+  FAIL: Name 'Create Fake Materials: Fake Website' is not valid kebab-case
+  WARN: Directory name 'detecting-spearphishing-with-email-gateway' does not match skill name 'Create Fake Materials: Fake Website'
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+  FAIL: Duplicate skill name found: Create Fake Materials: Fake Website
+detecting-sql-injection-via-waf-logs
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+detecting-stuxnet-style-attacks
+  WARN: Recommended section missing: Verification
+detecting-supply-chain-attacks-in-ci-cd
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+detecting-suspicious-oauth-application-consent
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+detecting-suspicious-powershell-execution
+  WARN: Recommended section missing: Verification
+Account Takeover: Exposed Login Credential
+  FAIL: Name 'Account Takeover: Exposed Login Credential' is not valid kebab-case
+  WARN: Directory name 'detecting-t1003-credential-dumping-with-edr' does not match skill name 'Account Takeover: Exposed Login Credential'
+  WARN: Recommended section missing: Verification
+  FAIL: Duplicate skill name found: Account Takeover: Exposed Login Credential
+detecting-t1055-process-injection-with-sysmon
+  WARN: Recommended section missing: Verification
+detecting-t1548-abuse-elevation-control-mechanism
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+detecting-typosquatting-packages
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+detecting-typosquatting-packages-in-npm-pypi
+  WARN: Recommended section missing: Verification
+detecting-wmi-persistence
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+emulating-cloud-attacks-with-stratus-red-team
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+enumerating-cloud-with-cloudfox
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: ./loot/cloudfox-output/
+  FAIL: Referenced file does not exist: ./azure-loot
+  FAIL: Referenced file does not exist: ./loot
+eradicating-malware-from-infected-systems
+  WARN: Recommended section missing: Verification
+escaping-containers-to-host
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: ./cdk
+  FAIL: Referenced file does not exist: ./amicontained
+  FAIL: Referenced file does not exist: ./deepce.sh
+evaluating-threat-intelligence-platforms
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+executing-active-directory-attack-simulation
+  WARN: Recommended section missing: Verification
+executing-nist-rmf-authorization-to-operate
+  WARN: Recommended section missing: Verification
+Access with Stolen Session Cookie
+  FAIL: Name 'Access with Stolen Session Cookie' is not valid kebab-case
+  WARN: Directory name 'executing-phishing-simulation-campaign' does not match skill name 'Access with Stolen Session Cookie'
+  WARN: Recommended section missing: Verification
+  FAIL: Duplicate skill name found: Access with Stolen Session Cookie
+executing-red-team-engagement-planning
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+executing-red-team-exercise
+  WARN: Recommended section missing: Verification
+exploiting-active-directory-certificate-services-esc1
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+exploiting-active-directory-with-bloodhound
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+exploiting-adcs-with-certipy
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+exploiting-api-injection-vulnerabilities
+  WARN: Recommended section missing: Verification
+exploiting-aws-with-pacu
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+exploiting-bgp-hijacking-vulnerabilities
+  WARN: Recommended section missing: Verification
+exploiting-broken-function-level-authorization
+  WARN: Recommended section missing: Verification
+exploiting-broken-link-hijacking
+  WARN: Recommended section missing: Verification
+exploiting-constrained-delegation-abuse
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+exploiting-deeplink-vulnerabilities
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+exploiting-excessive-data-exposure-in-api
+  WARN: Recommended section missing: Verification
+exploiting-http-request-smuggling
+  WARN: Recommended section missing: Verification
+exploiting-idor-vulnerabilities
+  WARN: Recommended section missing: Verification
+exploiting-insecure-data-storage-in-mobile
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: ./databases/
+  FAIL: Referenced file does not exist: ./shared_prefs/
+exploiting-insecure-deserialization
+  WARN: Recommended section missing: Verification
+  FAIL: Referenced file does not exist: ./phpggc
+  FAIL: Referenced file does not exist: ./ysoserial.exe
+exploiting-ipv6-vulnerabilities
+  WARN: Recommended section missing: Verification
+exploiting-jwt-algorithm-confusion-attack
+  WARN: Recommended section missing: Verification
+exploiting-kerberoasting-with-impacket
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+exploiting-mass-assignment-in-rest-apis
+  WARN: Recommended section missing: Verification
+exploiting-ms17-010-eternalblue-vulnerability
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+exploiting-nopac-cve-2021-42278-42287
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+exploiting-nosql-injection-vulnerabilities
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+exploiting-oauth-misconfiguration
+  WARN: Recommended section missing: Verification
+exploiting-prototype-pollution-in-javascript
+  WARN: Recommended section missing: Verification
+exploiting-race-condition-vulnerabilities
+  WARN: Recommended section missing: Verification
+exploiting-server-side-request-forgery
+  WARN: Recommended section missing: Verification
+exploiting-smb-vulnerabilities-with-metasploit
+  WARN: Recommended section missing: Verification
+exploiting-sql-injection-vulnerabilities
+  WARN: Recommended section missing: Verification
+exploiting-sql-injection-with-sqlmap
+  WARN: Recommended section missing: Verification
+exploiting-template-injection-vulnerabilities
+  WARN: Recommended section missing: Verification
+  FAIL: Referenced file does not exist: "id",shell=True,stdout=-1
+  FAIL: Referenced file does not exist: "/etc/passwd"
+exploiting-type-juggling-vulnerabilities
+  WARN: Recommended section missing: Verification
+exploiting-vulnerabilities-with-metasploit-framework
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+exploiting-websocket-vulnerabilities
+  WARN: Recommended section missing: Verification
+exploiting-zerologon-vulnerability-cve-2020-1472
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+extracting-browser-history-artifacts
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+extracting-config-from-agent-tesla-rat
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+Account Takeover: Exposed API Key
+  FAIL: Name 'Account Takeover: Exposed API Key' is not valid kebab-case
+  WARN: Directory name 'extracting-credentials-from-memory-dump' does not match skill name 'Account Takeover: Exposed API Key'
+  WARN: Recommended section missing: Verification
+extracting-iocs-from-malware-samples
+  WARN: Weak tag: detection
+  WARN: Recommended section missing: Verification
+  FAIL: Referenced file does not exist: ?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9]
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+extracting-memory-artifacts-with-rekall
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+extracting-windows-event-logs-artifacts
+  WARN: Recommended section missing: Verification
+fleet-hunting-with-velociraptor
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+generating-and-analyzing-sboms
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+generating-forensic-timelines-with-hayabusa
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: ./collected_evtx
+  FAIL: Referenced file does not exist: ./hayabusa
+  FAIL: Referenced file does not exist: ./hayabusa-3.0.0-lin-x64-gnu
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+generating-threat-intelligence-reports
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+hardening-docker-containers-for-production
+  WARN: Weak tag: security
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+hardening-docker-daemon-configuration
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+hardening-linux-endpoint-with-cis-benchmark
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+hardening-windows-endpoint-with-cis-benchmark
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+hunting-advanced-persistent-threats
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+hunting-bootkits-in-efi-system-partition
+  FAIL: Unknown subdomain 'hardware-firmware-security'
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+Account Takeover
+  FAIL: Name 'Account Takeover' is not valid kebab-case
+  WARN: Directory name 'hunting-credential-stuffing-attacks' does not match skill name 'Account Takeover'
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Duplicate skill name found: Account Takeover
+hunting-evtx-with-chainsaw
+  WARN: Weak tag: detection
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: ./mappings/sigma-event-logs-all.yml
+  FAIL: Referenced file does not exist: ./rules
+  FAIL: Referenced file does not exist: ./SOFTWARE
+  FAIL: Referenced file does not exist: ./SRUDB.dat
+  FAIL: Referenced file does not exist: ./sigma/rules
+  FAIL: Referenced file does not exist: ./Amcache.hve
+  FAIL: Referenced file does not exist: ./target/release/chainsaw
+  FAIL: Referenced file does not exist: ./SYSTEM
+  FAIL: Referenced file does not exist: ./csv_out
+  FAIL: Referenced file does not exist: ./collected_evtx
+  FAIL: Referenced file does not exist: ./shimcache_analysis.csv
+  FAIL: Referenced file does not exist: ./shimcache_patterns.txt
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+hunting-for-anomalous-powershell-execution
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+hunting-for-beaconing-with-frequency-analysis
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+hunting-for-cobalt-strike-beacons
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+hunting-for-command-and-control-beaconing
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+hunting-for-data-exfiltration-indicators
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+hunting-for-data-staging-before-exfiltration
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+hunting-for-dcom-lateral-movement
+  WARN: Recommended section missing: Verification
+hunting-for-dcsync-attacks
+  WARN: Recommended section missing: Verification
+hunting-for-defense-evasion-via-timestomping
+  WARN: Recommended section missing: Output Format
+hunting-for-dns-based-persistence
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+hunting-for-dns-tunneling-with-zeek
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+hunting-for-domain-fronting-c2-traffic
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+hunting-for-lateral-movement-via-wmi
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+hunting-for-living-off-the-cloud-techniques
+  WARN: Recommended section missing: Verification
+hunting-for-living-off-the-land-binaries
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+hunting-for-lolbins-execution-in-endpoint-logs
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+hunting-for-ntlm-relay-attacks
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+hunting-for-persistence-mechanisms-in-windows
+  WARN: Recommended section missing: Verification
+hunting-for-persistence-via-wmi-subscriptions
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+hunting-for-process-injection-techniques
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+hunting-for-registry-persistence-mechanisms
+  WARN: Recommended section missing: Verification
+hunting-for-registry-run-key-persistence
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+hunting-for-scheduled-task-persistence
+  WARN: Recommended section missing: Verification
+hunting-for-shadow-copy-deletion
+  WARN: Recommended section missing: Verification
+Create Fake Materials: Fake Website
+  FAIL: Name 'Create Fake Materials: Fake Website' is not valid kebab-case
+  WARN: Directory name 'hunting-for-spearphishing-indicators' does not match skill name 'Create Fake Materials: Fake Website'
+  WARN: Recommended section missing: Verification
+  FAIL: Duplicate skill name found: Create Fake Materials: Fake Website
+hunting-for-startup-folder-persistence
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+hunting-for-supply-chain-compromise
+  WARN: Recommended section missing: Verification
+hunting-for-suspicious-scheduled-tasks
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+hunting-for-t1098-account-manipulation
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+hunting-for-unusual-network-connections
+  WARN: Recommended section missing: Verification
+hunting-for-unusual-service-installations
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+hunting-for-webshell-activity
+  WARN: Recommended section missing: Verification
+hunting-saas-sso-token-abuse
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-aes-encryption-for-data-at-rest
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-alert-fatigue-reduction
+  WARN: Recommended section missing: Verification
+Impersonate Account Holder
+  FAIL: Name 'Impersonate Account Holder' is not valid kebab-case
+  WARN: Directory name 'implementing-anti-phishing-training-program' does not match skill name 'Impersonate Account Holder'
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Duplicate skill name found: Impersonate Account Holder
+Convert to Cryptocurrency
+  FAIL: Name 'Convert to Cryptocurrency' is not valid kebab-case
+  WARN: Directory name 'implementing-anti-ransomware-group-policy' does not match skill name 'Convert to Cryptocurrency'
+  WARN: Recommended section missing: Output Format
+  FAIL: Duplicate skill name found: Convert to Cryptocurrency
+implementing-api-abuse-detection-with-rate-limiting
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-api-gateway-security-controls
+  WARN: Recommended section missing: Verification
+implementing-api-key-security-controls
+  WARN: Recommended section missing: Verification
+implementing-api-rate-limiting-and-throttling
+  WARN: Recommended section missing: Verification
+implementing-api-schema-validation-security
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: scripts/schema_security_check.py
+implementing-api-security-posture-management
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-api-security-testing-with-42crunch
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: ./openapi.yaml
+  FAIL: Referenced file does not exist: ./42c-conf.yaml
+implementing-api-threat-protection-with-apigee
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-application-whitelisting-with-applocker
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-aqua-security-for-container-scanning
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: ./k8s-manifests/
+  FAIL: Referenced file does not exist: ./terraform/
+implementing-attack-path-analysis-with-xm-cyber
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-attack-surface-management
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-aws-config-rules-for-compliance
+  WARN: Recommended section missing: Verification
+implementing-aws-iam-permission-boundaries
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-aws-macie-for-data-classification
+  WARN: Tag is likely too short: s3
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-aws-nitro-enclave-security
+  WARN: Recommended section missing: Verification
+implementing-aws-security-hub
+  WARN: Recommended section missing: Verification
+implementing-aws-security-hub-compliance
+  WARN: Recommended section missing: Verification
+Account Manipulation: Add Authorized User
+  FAIL: Name 'Account Manipulation: Add Authorized User' is not valid kebab-case
+  WARN: Directory name 'implementing-azure-ad-privileged-identity-management' does not match skill name 'Account Manipulation: Add Authorized User'
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-azure-defender-for-cloud
+  WARN: Recommended section missing: Verification
+implementing-beyondcorp-zero-trust-access-model
+  WARN: Recommended section missing: Verification
+implementing-bgp-security-with-rpki
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+Adversary-in-the-Browser: Malicious JavaScript Injection
+  FAIL: Name 'Adversary-in-the-Browser: Malicious JavaScript Injection' is not valid kebab-case
+  WARN: Directory name 'implementing-browser-isolation-for-zero-trust' does not match skill name 'Adversary-in-the-Browser: Malicious JavaScript Injection'
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-canary-tokens-for-network-intrusion
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-cisa-zero-trust-maturity-model
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+implementing-cloud-dlp-for-data-protection
+  WARN: Recommended section missing: Verification
+implementing-cloud-security-posture-management
+  WARN: Recommended section missing: Verification
+  FAIL: Referenced file does not exist: ./scoutsuite/azure/
+  FAIL: Referenced file does not exist: ./scoutsuite/aws/
+  FAIL: Referenced file does not exist: ./scoutsuite/gcp/
+  FAIL: Referenced file does not exist: ./prowler-results/azure/
+  FAIL: Referenced file does not exist: ./prowler-results/aws/
+  FAIL: Referenced file does not exist: ./prowler-results/gcp/
+implementing-cloud-trail-log-analysis
+  WARN: Recommended section missing: Verification
+implementing-cloud-vulnerability-posture-management
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-cloud-waf-rules
+  WARN: Recommended section missing: Verification
+implementing-cloud-workload-protection
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-code-signing-for-artifacts
+  WARN: Recommended section missing: Verification
+implementing-conditional-access-policies-azure-ad
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Output Format
+implementing-conduit-security-for-ot-remote-access
+  WARN: Recommended section missing: Verification
+implementing-container-image-minimal-base-with-distroless
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: ./cmd/server
+  FAIL: Referenced file does not exist: ./src
+implementing-container-network-policies-with-calico
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-continuous-security-validation-with-bas
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-data-loss-prevention-with-microsoft-purview
+  WARN: Recommended section missing: Verification
+implementing-ddos-mitigation-with-cloudflare
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-deception-based-detection-with-canarytoken
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+Account Manipulation
+  FAIL: Name 'Account Manipulation' is not valid kebab-case
+  WARN: Directory name 'implementing-delinea-secret-server-for-pam' does not match skill name 'Account Manipulation'
+  WARN: Recommended section missing: Verification
+  FAIL: Duplicate skill name found: Account Manipulation
+implementing-device-posture-assessment-in-zero-trust
+  WARN: Recommended section missing: Verification
+implementing-devsecops-security-scanning
+  WARN: Recommended section missing: Output Format
+implementing-diamond-model-analysis
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+implementing-digital-signatures-with-ed25519
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-disk-encryption-with-bitlocker
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-dmarc-dkim-spf-email-security
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-dragos-platform-for-ot-monitoring
+  WARN: Recommended section missing: Verification
+implementing-ebpf-security-monitoring
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-email-sandboxing-with-proofpoint
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+implementing-end-to-end-encryption-for-messaging
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-endpoint-detection-with-wazuh
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-endpoint-dlp-controls
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-envelope-encryption-with-aws-kms
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-epss-score-for-vulnerability-prioritization
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-file-integrity-monitoring-with-aide
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-fuzz-testing-in-cicd-with-aflplusplus
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: ./fuzz_harness_asan
+  FAIL: Referenced file does not exist: ./fuzz_harness
+implementing-gcp-binary-authorization
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-gcp-organization-policy-constraints
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-gcp-vpc-firewall-rules
+  WARN: Recommended section missing: Verification
+implementing-gdpr-data-protection-controls
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-gdpr-data-subject-access-request
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-github-advanced-security-for-code-scanning
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+Account Manipulation
+  FAIL: Name 'Account Manipulation' is not valid kebab-case
+  WARN: Directory name 'implementing-google-workspace-admin-security' does not match skill name 'Account Manipulation'
+  WARN: Recommended section missing: Verification
+  FAIL: Duplicate skill name found: Account Manipulation
+Create Fake Materials: Fake Website
+  FAIL: Name 'Create Fake Materials: Fake Website' is not valid kebab-case
+  WARN: Directory name 'implementing-google-workspace-phishing-protection' does not match skill name 'Create Fake Materials: Fake Website'
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+  FAIL: Duplicate skill name found: Create Fake Materials: Fake Website
+Account Takeover
+  FAIL: Name 'Account Takeover' is not valid kebab-case
+  WARN: Directory name 'implementing-google-workspace-sso-configuration' does not match skill name 'Account Takeover'
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Duplicate skill name found: Account Takeover
+implementing-hardware-security-key-authentication
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+Insider Access Abuse
+  FAIL: Name 'Insider Access Abuse' is not valid kebab-case
+  WARN: Directory name 'implementing-hashicorp-vault-dynamic-secrets' does not match skill name 'Insider Access Abuse'
+  WARN: Recommended section missing: Verification
+  FAIL: Duplicate skill name found: Insider Access Abuse
+implementing-hipaa-security-rule-safeguards
+  WARN: Recommended section missing: Verification
+Insider Access Abuse
+  FAIL: Name 'Insider Access Abuse' is not valid kebab-case
+  WARN: Weak tag: detection
+  WARN: Directory name 'implementing-honeypot-for-ransomware-detection' does not match skill name 'Insider Access Abuse'
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+  FAIL: Duplicate skill name found: Insider Access Abuse
+implementing-honeytokens-for-breach-detection
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-ics-firewall-with-tofino
+  WARN: Recommended section missing: Verification
+Account Takeover
+  FAIL: Name 'Account Takeover' is not valid kebab-case
+  WARN: Directory name 'implementing-identity-governance-with-sailpoint' does not match skill name 'Account Takeover'
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Output Format
+  FAIL: Duplicate skill name found: Account Takeover
+Phishing for Information
+  FAIL: Name 'Phishing for Information' is not valid kebab-case
+  WARN: Directory name 'implementing-identity-verification-for-zero-trust' does not match skill name 'Phishing for Information'
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-iec-62443-security-zones
+  WARN: Recommended section missing: Verification
+implementing-image-provenance-verification-with-cosign
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-immutable-backup-with-restic
+  WARN: Tag is likely too short: s3
+  WARN: Recommended section missing: Verification
+implementing-infrastructure-as-code-security-scanning
+  WARN: Recommended section missing: Verification
+  FAIL: Referenced file does not exist: ./k8s/
+  FAIL: Referenced file does not exist: ./charts/myapp/
+  FAIL: Referenced file does not exist: ./results
+  FAIL: Referenced file does not exist: ./terraform/
+implementing-iso-27001-information-security-management
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-just-in-time-access-provisioning
+  WARN: Recommended section missing: Output Format
+implementing-jwt-signing-and-verification
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-kubernetes-network-policy-with-calico
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-kubernetes-pod-security-standards
+  WARN: Weak tag: security
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-llm-guardrails-for-security
+  WARN: Recommended section missing: Output Format
+implementing-log-forwarding-with-fluentd
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-log-integrity-with-blockchain
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-memory-protection-with-dep-aslr
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+implementing-microsegmentation-with-guardicore
+  WARN: Recommended section missing: Verification
+  FAIL: Referenced file does not exist: ./gc-agent-installer.sh
+Create Fake Materials: Fake Website
+  FAIL: Name 'Create Fake Materials: Fake Website' is not valid kebab-case
+  WARN: Directory name 'implementing-mimecast-targeted-attack-protection' does not match skill name 'Create Fake Materials: Fake Website'
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+  FAIL: Duplicate skill name found: Create Fake Materials: Fake Website
+implementing-mitre-attack-coverage-mapping
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+implementing-mobile-application-management
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-mtls-for-zero-trust-services
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-nerc-cip-compliance-controls
+  WARN: Recommended section missing: Verification
+implementing-network-access-control
+  WARN: Recommended section missing: Verification
+implementing-network-access-control-with-cisco-ise
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-network-deception-with-honeypots
+  WARN: Weak tag: detection
+  WARN: Recommended section missing: Verification
+implementing-network-intrusion-prevention-with-suricata
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+implementing-network-policies-for-kubernetes
+  WARN: Weak tag: security
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+implementing-network-segmentation-for-ot
+  WARN: Recommended section missing: Verification
+implementing-network-segmentation-with-firewall-zones
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-network-traffic-analysis-with-arkime
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-network-traffic-baselining
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-next-generation-firewall-with-palo-alto
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-opa-gatekeeper-for-policy-enforcement
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-ot-incident-response-playbook
+  WARN: Recommended section missing: Verification
+implementing-ot-network-traffic-analysis-with-nozomi
+  WARN: Recommended section missing: Verification
+Account Takeover: Exposed Login Credential
+  FAIL: Name 'Account Takeover: Exposed Login Credential' is not valid kebab-case
+  WARN: Directory name 'implementing-pam-for-database-access' does not match skill name 'Account Takeover: Exposed Login Credential'
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Output Format
+  FAIL: Duplicate skill name found: Account Takeover: Exposed Login Credential
+Access with Stolen Session Cookie
+  FAIL: Name 'Access with Stolen Session Cookie' is not valid kebab-case
+  WARN: Directory name 'implementing-passwordless-auth-with-microsoft-entra' does not match skill name 'Access with Stolen Session Cookie'
+  WARN: Recommended section missing: Verification
+  FAIL: Duplicate skill name found: Access with Stolen Session Cookie
+implementing-passwordless-authentication-with-fido2
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Output Format
+implementing-patch-management-for-ot-systems
+  WARN: Recommended section missing: Verification
+implementing-patch-management-workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-pci-dss-compliance-controls
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-pod-security-admission-controller
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+implementing-policy-as-code-with-open-policy-agent
+  WARN: Recommended section missing: Verification
+Account Takeover: Exposed Login Credential
+  FAIL: Name 'Account Takeover: Exposed Login Credential' is not valid kebab-case
+  WARN: Directory name 'implementing-privileged-access-management-with-cyberark' does not match skill name 'Account Takeover: Exposed Login Credential'
+  WARN: Recommended section missing: Output Format
+  FAIL: Duplicate skill name found: Account Takeover: Exposed Login Credential
+implementing-privileged-access-workstation
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-privileged-session-monitoring
+  WARN: Recommended section missing: Output Format
+Account Manipulation: Change of Payment Details
+  FAIL: Name 'Account Manipulation: Change of Payment Details' is not valid kebab-case
+  WARN: Directory name 'implementing-proofpoint-email-security-gateway' does not match skill name 'Account Manipulation: Change of Payment Details'
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+implementing-purdue-model-network-segmentation
+  WARN: Recommended section missing: Verification
+Conversion to Physical Monetary Instruments: Cash
+  FAIL: Name 'Conversion to Physical Monetary Instruments: Cash' is not valid kebab-case
+  WARN: Directory name 'implementing-ransomware-backup-strategy' does not match skill name 'Conversion to Physical Monetary Instruments: Cash'
+  WARN: Recommended section missing: Verification
+  FAIL: Duplicate skill name found: Conversion to Physical Monetary Instruments: Cash
+Transfer of funds
+  FAIL: Name 'Transfer of funds' is not valid kebab-case
+  WARN: Weak tag: detection
+  WARN: Directory name 'implementing-ransomware-kill-switch-detection' does not match skill name 'Transfer of funds'
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+  FAIL: Duplicate skill name found: Transfer of funds
+implementing-rapid7-insightvm-for-scanning
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: ./agent_installer.sh
+  FAIL: Referenced file does not exist: ./Rapid7Setup-Linux64.bin
+implementing-rbac-hardening-for-kubernetes
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-rsa-key-pair-management
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-runtime-application-self-protection
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-runtime-security-with-tetragon
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+Account Takeover: Password Reset
+  FAIL: Name 'Account Takeover: Password Reset' is not valid kebab-case
+  WARN: Directory name 'implementing-saml-sso-with-okta' does not match skill name 'Account Takeover: Password Reset'
+  WARN: Recommended section missing: Output Format
+Account Takeover: Exposed Login Credential
+  FAIL: Name 'Account Takeover: Exposed Login Credential' is not valid kebab-case
+  WARN: Directory name 'implementing-scim-provisioning-with-okta' does not match skill name 'Account Takeover: Exposed Login Credential'
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Duplicate skill name found: Account Takeover: Exposed Login Credential
+implementing-secret-scanning-with-gitleaks
+  WARN: Recommended section missing: Verification
+  FAIL: Referenced file does not exist: scripts/deploy.sh
+  FAIL: Referenced file does not exist: ./gitleaks
+implementing-secrets-management-with-vault
+  WARN: Recommended section missing: Verification
+  FAIL: Referenced file does not exist: ./start.sh
+implementing-secrets-scanning-in-ci-cd
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-security-chaos-engineering
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-security-information-sharing-with-stix2
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+implementing-security-monitoring-with-datadog
+  WARN: Recommended section missing: Output Format
+implementing-semgrep-for-custom-sast-rules
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: ./custom-rules/
+implementing-siem-correlation-rules-for-apt
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-siem-use-case-tuning
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-siem-use-cases-for-detection
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+Indicator Removal
+  FAIL: Name 'Indicator Removal' is not valid kebab-case
+  WARN: Directory name 'implementing-sigstore-for-software-signing' does not match skill name 'Indicator Removal'
+  WARN: Recommended section missing: Verification
+  FAIL: Duplicate skill name found: Indicator Removal
+implementing-soar-automation-with-phantom
+  WARN: Recommended section missing: Verification
+Impersonate Official
+  FAIL: Name 'Impersonate Official' is not valid kebab-case
+  WARN: Directory name 'implementing-soar-playbook-for-phishing' does not match skill name 'Impersonate Official'
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-soar-playbook-with-palo-alto-xsoar
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+implementing-stix-taxii-feed-integration
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-supply-chain-security-with-in-toto
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: ./link-metadata/
+implementing-syslog-centralization-with-rsyslog
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-taxii-server-with-opentaxii
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: ./certs
+  FAIL: Referenced file does not exist: ./taxii_data.json
+  FAIL: Referenced file does not exist: ./medallion_config.json
+implementing-threat-intelligence-lifecycle-management
+  WARN: Weak tag: analysis
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-threat-modeling-with-mitre-attack
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+implementing-ticketing-system-for-incidents
+  WARN: Recommended section missing: Verification
+implementing-usb-device-control-policy
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-velociraptor-for-ir-collection
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: ./velociraptor-linux-amd64
+implementing-vulnerability-management-with-greenbone
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-vulnerability-remediation-sla
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-vulnerability-sla-breach-alerting
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-web-application-logging-with-modsecurity
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-zero-knowledge-proof-for-authentication
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-zero-standing-privilege-with-cyberark
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-zero-trust-dns-with-nextdns
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-zero-trust-for-saas-applications
+  WARN: Recommended section missing: Verification
+implementing-zero-trust-in-cloud
+  WARN: Recommended section missing: Verification
+implementing-zero-trust-network-access
+  WARN: Recommended section missing: Verification
+implementing-zero-trust-network-access-with-zscaler
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+implementing-zero-trust-with-beyondcorp
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+Insider Access Abuse
+  FAIL: Name 'Insider Access Abuse' is not valid kebab-case
+  WARN: Directory name 'implementing-zero-trust-with-hashicorp-boundary' does not match skill name 'Insider Access Abuse'
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Duplicate skill name found: Insider Access Abuse
+integrating-dast-with-owasp-zap-in-pipeline
+  WARN: Recommended section missing: Verification
+  FAIL: Referenced file does not exist: ./zap-reports
+  FAIL: Referenced file does not exist: ./.zap/rules.tsv
+integrating-sast-into-github-actions-pipeline
+  WARN: Recommended section missing: Verification
+intercepting-mobile-traffic-with-burpsuite
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+investigating-insider-threat-indicators
+  WARN: Weak tag: investigation
+  WARN: Recommended section missing: Verification
+Account Takeover: Exposed Login Credential
+  FAIL: Name 'Account Takeover: Exposed Login Credential' is not valid kebab-case
+  WARN: Directory name 'investigating-phishing-email-incident' does not match skill name 'Account Takeover: Exposed Login Credential'
+  WARN: Recommended section missing: Verification
+  FAIL: Duplicate skill name found: Account Takeover: Exposed Login Credential
+Conversion to Physical Monetary Instruments: Cash
+  FAIL: Name 'Conversion to Physical Monetary Instruments: Cash' is not valid kebab-case
+  WARN: Directory name 'investigating-ransomware-attack-artifacts' does not match skill name 'Conversion to Physical Monetary Instruments: Cash'
+  WARN: Recommended section missing: Verification
+  FAIL: Duplicate skill name found: Conversion to Physical Monetary Instruments: Cash
+Use Alternate Authentication Material: Application Access Token
+  FAIL: Name 'Use Alternate Authentication Material: Application Access Token' is not valid kebab-case
+  WARN: Directory name 'managing-cloud-identity-with-okta' does not match skill name 'Use Alternate Authentication Material: Application Access Token'
+  WARN: Recommended section missing: Verification
+  FAIL: Duplicate skill name found: Use Alternate Authentication Material: Application Access Token
+managing-intelligence-lifecycle
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+managing-third-party-vendor-risk
+  WARN: Recommended section missing: Verification
+mapping-attack-paths-with-bloodhound-ce
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: ./azurehound
+mapping-mitre-attack-techniques
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+migrating-to-post-quantum-cryptography
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: ./myapp
+modeling-threats-with-opencti
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+Brute Force:  Credential Stuffing
+  FAIL: Name 'Brute Force:  Credential Stuffing' is not valid kebab-case
+  WARN: Directory name 'monitoring-darkweb-sources' does not match skill name 'Brute Force:  Credential Stuffing'
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+monitoring-scada-modbus-traffic-anomalies
+  WARN: Recommended section missing: Verification
+moving-laterally-with-netexec
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+operating-havoc-c2
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: ./havoc
+operating-sliver-c2
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: ./sliver-server
+  FAIL: Referenced file does not exist: ./operator1.cfg
+  FAIL: Referenced file does not exist: ./sliver-client
+operationalizing-misp-threat-feeds
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: ./detections
+orchestrating-llm-attacks-with-pyrit
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: Mapping 'mitre_attack' has unexpected format: AML.T0051
+  WARN: Mapping 'mitre_attack' has unexpected format: AML.T0054
+  WARN: Mapping 'nist_csf' has unexpected format: MEASURE-2.7
+parsing-artifacts-with-eric-zimmerman-tools
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+Account Manipulation: Enable Account Features
+  FAIL: Name 'Account Manipulation: Enable Account Features' is not valid kebab-case
+  WARN: Directory name 'performing-access-recertification-with-saviynt' does not match skill name 'Account Manipulation: Enable Account Features'
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Duplicate skill name found: Account Manipulation: Enable Account Features
+performing-access-review-and-certification
+  WARN: Recommended section missing: Output Format
+performing-active-directory-bloodhound-analysis
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: ./BloodHound
+performing-active-directory-compromise-investigation
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-active-directory-forest-trust-attack
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-active-directory-penetration-test
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-active-directory-vulnerability-assessment
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+Account Takeover
+  FAIL: Name 'Account Takeover' is not valid kebab-case
+  WARN: Directory name 'performing-adversary-in-the-middle-phishing-detection' does not match skill name 'Account Takeover'
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+  FAIL: Duplicate skill name found: Account Takeover
+performing-agentless-vulnerability-scanning
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+PASS performing-ai-driven-osint-correlation
+performing-alert-triage-with-elastic-siem
+  WARN: Weak tag: detection
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+performing-android-app-static-analysis-with-mobsf
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-api-fuzzing-with-restler
+  WARN: Recommended section missing: Verification
+  FAIL: Referenced file does not exist: ./build-restler.py
+performing-api-inventory-and-discovery
+  WARN: Recommended section missing: Verification
+  FAIL: Referenced file does not exist: [^"\']+\.js[^"\']*
+performing-api-rate-limiting-bypass
+  WARN: Recommended section missing: Verification
+performing-api-security-testing-with-postman
+  WARN: Recommended section missing: Verification
+  FAIL: Referenced file does not exist: ./reports/security-test-results.xml
+  FAIL: Referenced file does not exist: ./reports/security-test-report.html
+performing-arp-spoofing-attack-simulation
+  WARN: Recommended section missing: Verification
+performing-asset-criticality-scoring-for-vulns
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-authenticated-scan-with-openvas
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+performing-authenticated-vulnerability-scan
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-automated-malware-analysis-with-cape
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-aws-account-enumeration-with-scout-suite
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: ./scout-report/
+performing-aws-privilege-escalation-assessment
+  WARN: Recommended section missing: Verification
+  FAIL: Referenced file does not exist: ./cloudfox-output/
+performing-bandwidth-throttling-attack-simulation
+  WARN: Recommended section missing: Verification
+performing-binary-exploitation-analysis
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: ./vulnerable_server
+  FAIL: Referenced file does not exist: ./setup.sh
+performing-blind-ssrf-exploitation
+  WARN: Recommended section missing: Verification
+performing-bluetooth-security-assessment
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+Email Spoofing
+  FAIL: Name 'Email Spoofing' is not valid kebab-case
+  WARN: Directory name 'performing-brand-monitoring-for-impersonation' does not match skill name 'Email Spoofing'
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-clickjacking-attack-test
+  WARN: Recommended section missing: Verification
+performing-cloud-asset-inventory-with-cartography
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-cloud-forensics-investigation
+  WARN: Recommended section missing: Verification
+performing-cloud-forensics-with-aws-cloudtrail
+  WARN: Tag is likely too short: s3
+  WARN: Recommended section missing: Verification
+performing-cloud-incident-containment-procedures
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-cloud-log-forensics-with-athena
+  WARN: Tag is likely too short: s3
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: [0-9]*
+performing-cloud-native-forensics-with-falco
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-cloud-native-threat-hunting-with-aws-detective
+  WARN: Missing section: When To Use
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Output Format
+performing-cloud-penetration-testing-with-pacu
+  WARN: Recommended section missing: Verification
+performing-cloud-storage-forensic-acquisition
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-container-escape-detection
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-container-image-hardening
+  WARN: Recommended section missing: Verification
+  FAIL: Referenced file does not exist: ./src/
+performing-container-security-scanning-with-trivy
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-content-security-policy-bypass
+  WARN: Recommended section missing: Verification
+Account Takeover
+  FAIL: Name 'Account Takeover' is not valid kebab-case
+  WARN: Directory name 'performing-credential-access-with-lazagne' does not match skill name 'Account Takeover'
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Duplicate skill name found: Account Takeover
+Access with Stolen Session Cookie
+  FAIL: Name 'Access with Stolen Session Cookie' is not valid kebab-case
+  WARN: Directory name 'performing-cryptographic-audit-of-application' does not match skill name 'Access with Stolen Session Cookie'
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Duplicate skill name found: Access with Stolen Session Cookie
+performing-csrf-attack-simulation
+  WARN: Recommended section missing: Verification
+performing-cve-prioritization-with-kev-catalog
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-dark-web-monitoring-for-threats
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-deception-technology-deployment
+  WARN: Weak tag: detection
+  WARN: Recommended section missing: Verification
+performing-directory-traversal-testing
+  WARN: Recommended section missing: Verification
+performing-disk-forensics-investigation
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+performing-dmarc-policy-enforcement-rollout
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-dns-enumeration-and-zone-transfer
+  WARN: Recommended section missing: Verification
+performing-dns-tunneling-detection
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-docker-bench-security-assessment
+  WARN: Weak tag: security
+  WARN: Weak tag: assessment
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: ./results
+performing-dynamic-analysis-of-android-app
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-dynamic-analysis-with-any-run
+  WARN: Recommended section missing: Verification
+performing-endpoint-forensics-investigation
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-endpoint-vulnerability-remediation
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+Account Manipulation: Enable Account Features
+  FAIL: Name 'Account Manipulation: Enable Account Features' is not valid kebab-case
+  WARN: Directory name 'performing-entitlement-review-with-sailpoint-iiq' does not match skill name 'Account Manipulation: Enable Account Features'
+  WARN: Recommended section missing: Verification
+  FAIL: Duplicate skill name found: Account Manipulation: Enable Account Features
+performing-external-network-penetration-test
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: ./linpeas.sh
+performing-false-positive-reduction-in-siem
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-file-carving-with-foremost
+  WARN: Recommended section missing: Verification
+Account Takeover: Exposed Login Credential
+  FAIL: Name 'Account Takeover: Exposed Login Credential' is not valid kebab-case
+  WARN: Directory name 'performing-firmware-extraction-with-binwalk' does not match skill name 'Account Takeover: Exposed Login Credential'
+  WARN: Recommended section missing: Verification
+  FAIL: Duplicate skill name found: Account Takeover: Exposed Login Credential
+performing-firmware-malware-analysis
+  WARN: Recommended section missing: Verification
+performing-fuzzing-with-aflplusplus
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-gcp-penetration-testing-with-gcpbucketbrute
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-gcp-security-assessment-with-forseti
+  WARN: Recommended section missing: Verification
+  FAIL: Referenced file does not exist: ./scoutsuite-gcp-report/gcp-report.html
+  FAIL: Referenced file does not exist: ./scoutsuite-gcp-report
+performing-graphql-depth-limit-attack
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-graphql-introspection-attack
+  WARN: Recommended section missing: Verification
+performing-graphql-security-assessment
+  WARN: Recommended section missing: Verification
+performing-hardware-security-module-integration
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-hash-cracking-with-hashcat
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-http-parameter-pollution-attack
+  WARN: Recommended section missing: Verification
+performing-ics-asset-discovery-with-claroty
+  WARN: Recommended section missing: Verification
+performing-indicator-lifecycle-management
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+Account Takeover
+  FAIL: Name 'Account Takeover' is not valid kebab-case
+  WARN: Directory name 'performing-initial-access-with-evilginx3' does not match skill name 'Account Takeover'
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: ./bin/evilginx
+  FAIL: Referenced file does not exist: ./phishlets
+  FAIL: Duplicate skill name found: Account Takeover
+performing-insider-threat-investigation
+  WARN: Recommended section missing: Verification
+performing-ioc-enrichment-automation
+  WARN: Recommended section missing: Verification
+performing-ios-app-security-assessment
+  WARN: Recommended section missing: Verification
+performing-iot-security-assessment
+  WARN: Recommended section missing: Verification
+performing-ip-reputation-analysis-with-shodan
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-jwt-none-algorithm-attack
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-kerberoasting-attack
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-kubernetes-cis-benchmark-with-kube-bench
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-kubernetes-etcd-security-assessment
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-kubernetes-penetration-testing
+  WARN: Weak tag: security
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-lateral-movement-detection
+  WARN: Weak tag: detection
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+performing-lateral-movement-with-wmiexec
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-linux-log-forensics-investigation
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-log-analysis-for-forensic-investigation
+  WARN: Recommended section missing: Verification
+performing-log-source-onboarding-in-siem
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-malware-hash-enrichment-with-virustotal
+  WARN: Weak tag: detection
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+performing-malware-ioc-extraction
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: ?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9]
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+performing-malware-persistence-investigation
+  WARN: Recommended section missing: Verification
+performing-malware-triage-with-yara
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+performing-memory-forensics-with-volatility3
+  WARN: Recommended section missing: Verification
+performing-memory-forensics-with-volatility3-plugins
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+performing-mobile-app-certificate-pinning-bypass
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-mobile-device-forensics-with-cellebrite
+  WARN: Recommended section missing: Verification
+performing-network-forensics-with-wireshark
+  WARN: Recommended section missing: Verification
+performing-network-packet-capture-analysis
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-network-traffic-analysis-with-tshark
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-network-traffic-analysis-with-zeek
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+performing-nist-csf-maturity-assessment
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+Device Fingerprint Spoofing
+  FAIL: Name 'Device Fingerprint Spoofing' is not valid kebab-case
+  WARN: Directory name 'performing-oauth-scope-minimization-review' does not match skill name 'Device Fingerprint Spoofing'
+  WARN: Recommended section missing: Verification
+  FAIL: Duplicate skill name found: Device Fingerprint Spoofing
+performing-oil-gas-cybersecurity-assessment
+  WARN: Recommended section missing: Verification
+performing-open-source-intelligence-gathering
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-osint-with-spiderfoot
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-ot-network-security-assessment
+  WARN: Recommended section missing: Verification
+performing-ot-vulnerability-assessment-with-claroty
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+performing-ot-vulnerability-scanning-safely
+  WARN: Recommended section missing: Verification
+performing-packet-injection-attack
+  WARN: Recommended section missing: Verification
+Gather Customer Information
+  FAIL: Name 'Gather Customer Information' is not valid kebab-case
+  WARN: Directory name 'performing-paste-site-monitoring-for-credentials' does not match skill name 'Gather Customer Information'
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+Impersonate Account Holder
+  FAIL: Name 'Impersonate Account Holder' is not valid kebab-case
+  WARN: Directory name 'performing-phishing-simulation-with-gophish' does not match skill name 'Impersonate Account Holder'
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: ./gophish
+  FAIL: Duplicate skill name found: Impersonate Account Holder
+performing-physical-intrusion-assessment
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-plc-firmware-security-analysis
+  WARN: Recommended section missing: Verification
+performing-post-quantum-cryptography-migration
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-power-grid-cybersecurity-assessment
+  WARN: Recommended section missing: Verification
+performing-privacy-impact-assessment
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-privilege-escalation-assessment
+  WARN: Recommended section missing: Verification
+performing-privilege-escalation-on-linux
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-privileged-account-access-review
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-privileged-account-discovery
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Output Format
+performing-purple-team-atomic-testing
+  WARN: Recommended section missing: Verification
+performing-purple-team-exercise
+  WARN: Recommended section missing: Verification
+Account Takeover
+  FAIL: Name 'Account Takeover' is not valid kebab-case
+  WARN: Directory name 'performing-ransomware-response' does not match skill name 'Account Takeover'
+  WARN: Recommended section missing: Verification
+  FAIL: Duplicate skill name found: Account Takeover
+Conversion to Physical Monetary Instruments: Cash
+  FAIL: Name 'Conversion to Physical Monetary Instruments: Cash' is not valid kebab-case
+  WARN: Directory name 'performing-ransomware-tabletop-exercise' does not match skill name 'Conversion to Physical Monetary Instruments: Cash'
+  WARN: Recommended section missing: Verification
+  FAIL: Duplicate skill name found: Conversion to Physical Monetary Instruments: Cash
+Account Takeover: Exposed Login Credential
+  FAIL: Name 'Account Takeover: Exposed Login Credential' is not valid kebab-case
+  WARN: Directory name 'performing-red-team-phishing-with-gophish' does not match skill name 'Account Takeover: Exposed Login Credential'
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Duplicate skill name found: Account Takeover: Exposed Login Credential
+performing-red-team-with-covenant
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-s7comm-protocol-security-analysis
+  WARN: Recommended section missing: Verification
+performing-sca-dependency-scanning-with-snyk
+  WARN: Recommended section missing: Verification
+performing-scada-hmi-security-assessment
+  WARN: Recommended section missing: Verification
+performing-second-order-sql-injection
+  WARN: Recommended section missing: Verification
+performing-security-headers-audit
+  WARN: Recommended section missing: Verification
+performing-serverless-function-security-review
+  WARN: Recommended section missing: Verification
+  FAIL: Referenced file does not exist: ./prowler-lambda/
+  FAIL: Referenced file does not exist: ./serverless-project/
+performing-service-account-audit
+  WARN: Recommended section missing: Output Format
+Device Fingerprint Spoofing
+  FAIL: Name 'Device Fingerprint Spoofing' is not valid kebab-case
+  WARN: Directory name 'performing-service-account-credential-rotation' does not match skill name 'Device Fingerprint Spoofing'
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Duplicate skill name found: Device Fingerprint Spoofing
+performing-soap-web-service-security-testing
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-soc-tabletop-exercise
+  WARN: Recommended section missing: Verification
+performing-soc2-type2-audit-preparation
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-sqlite-database-forensics
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-ssl-certificate-lifecycle-management
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-ssl-stripping-attack
+  WARN: Recommended section missing: Verification
+performing-ssl-tls-inspection-configuration
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-ssl-tls-security-assessment
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-ssrf-vulnerability-exploitation
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-static-malware-analysis-with-pe-studio
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+performing-steganography-detection
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+performing-subdomain-enumeration-with-subfinder
+  WARN: Recommended section missing: Verification
+  FAIL: Referenced file does not exist: ./results/
+performing-supply-chain-attack-simulation
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-thick-client-application-penetration-test
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-threat-emulation-with-atomic-red-team
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-threat-hunting-with-elastic-siem
+  WARN: Recommended section missing: Verification
+performing-threat-hunting-with-yara-rules
+  WARN: Recommended section missing: Output Format
+performing-threat-intelligence-sharing-with-misp
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-threat-landscape-assessment-for-sector
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+performing-threat-modeling-with-owasp-threat-dragon
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-timeline-reconstruction-with-plaso
+  WARN: Recommended section missing: Verification
+performing-user-behavior-analytics
+  WARN: Recommended section missing: Verification
+performing-vlan-hopping-attack
+  WARN: Recommended section missing: Verification
+performing-vulnerability-scanning-with-nessus
+  WARN: Recommended section missing: Verification
+performing-web-application-firewall-bypass
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+performing-web-application-penetration-test
+  WARN: Recommended section missing: Verification
+performing-web-application-scanning-with-nikto
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-web-application-vulnerability-triage
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: scripts/process.py
+performing-web-cache-deception-attack
+  WARN: Recommended section missing: Verification
+performing-web-cache-poisoning-attack
+  WARN: Recommended section missing: Verification
+performing-wifi-password-cracking-with-aircrack
+  WARN: Recommended section missing: Verification
+performing-windows-artifact-analysis-with-eric-zimmerman-tools
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+performing-wireless-network-penetration-test
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-wireless-security-assessment-with-kismet
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+performing-yara-rule-development-for-detection
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+post-exploiting-microsoft-graph-with-graphrunner
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+prioritizing-vulnerabilities-with-cvss-scoring
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+processing-stix-taxii-feeds
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+profiling-threat-actor-groups
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+recovering-deleted-files-with-photorec
+  WARN: Recommended section missing: Verification
+Remote Access Tools
+  FAIL: Name 'Remote Access Tools' is not valid kebab-case
+  WARN: Directory name 'recovering-from-ransomware-attack' does not match skill name 'Remote Access Tools'
+  WARN: Recommended section missing: Verification
+  FAIL: Duplicate skill name found: Remote Access Tools
+red-teaming-llms-with-garak
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: Mapping 'mitre_attack' has unexpected format: AML.T0051
+  WARN: Mapping 'mitre_attack' has unexpected format: AML.T0054
+  WARN: Mapping 'nist_csf' has unexpected format: MEASURE-2.7
+relaying-ntlm-for-adcs-esc8
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+remediating-s3-bucket-misconfiguration
+  WARN: Recommended section missing: Verification
+reverse-engineering-android-malware-with-jadx
+  WARN: Recommended section missing: Verification
+reverse-engineering-dotnet-malware-with-dnspy
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+reverse-engineering-ios-app-with-frida
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+reverse-engineering-malware-with-ghidra
+  WARN: Recommended section missing: Verification
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+Remote Access Tools
+  FAIL: Name 'Remote Access Tools' is not valid kebab-case
+  WARN: Directory name 'reverse-engineering-ransomware-encryption-routine' does not match skill name 'Remote Access Tools'
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Duplicate skill name found: Remote Access Tools
+reverse-engineering-rust-malware
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+scanning-container-images-with-grype
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+scanning-containers-with-trivy-in-cicd
+  WARN: Recommended section missing: Verification
+  FAIL: Referenced file does not exist: ./Dockerfile
+  FAIL: Referenced file does not exist: ./security-policies
+scanning-docker-images-with-trivy
+  WARN: Weak tag: security
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: ./terraform/
+  FAIL: Referenced file does not exist: ./helm-chart/
+scanning-iac-and-images-with-trivy
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: ./policies
+  FAIL: Referenced file does not exist: ./infra
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+scanning-infrastructure-with-nessus
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+scanning-kubernetes-manifests-with-kubesec
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+scanning-network-with-nmap-advanced
+  WARN: Recommended section missing: Verification
+securing-agentic-ai-tool-invocation
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: Mapping 'mitre_attack' has unexpected format: AML.T0053
+  WARN: Mapping 'nist_csf' has unexpected format: GOVERN-1.3
+securing-api-gateway-with-aws-waf
+  WARN: Recommended section missing: Verification
+Account Manipulation: Change Account Details
+  FAIL: Name 'Account Manipulation: Change Account Details' is not valid kebab-case
+  WARN: Directory name 'securing-aws-iam-permissions' does not match skill name 'Account Manipulation: Change Account Details'
+  WARN: Recommended section missing: Verification
+securing-aws-lambda-execution-roles
+  WARN: Recommended section missing: Verification
+securing-azure-with-microsoft-defender
+  WARN: Recommended section missing: Verification
+securing-container-registry-images
+  WARN: Recommended section missing: Verification
+securing-container-registry-with-harbor
+  WARN: Weak tag: security
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+securing-github-actions-workflows
+  WARN: Recommended section missing: Verification
+securing-helm-chart-deployments
+  WARN: Missing section: Workflow
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: ./mychart
+  FAIL: Referenced file does not exist: ./charts/mychart
+securing-historian-server-in-ot-environment
+  WARN: Recommended section missing: Verification
+securing-kubernetes-on-cloud
+  WARN: Recommended section missing: Verification
+securing-remote-access-to-ot-environment
+  WARN: Recommended section missing: Verification
+securing-serverless-functions
+  WARN: Recommended section missing: Verification
+  FAIL: Referenced file does not exist: ./lambda-package/
+testing-android-intents-for-vulnerabilities
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+testing-api-authentication-weaknesses
+  WARN: Recommended section missing: Verification
+testing-api-for-broken-object-level-authorization
+  WARN: Recommended section missing: Verification
+testing-api-for-mass-assignment-vulnerability
+  WARN: Recommended section missing: Verification
+testing-api-security-with-owasp-top-10
+  WARN: Recommended section missing: Verification
+testing-cors-misconfiguration
+  WARN: Recommended section missing: Verification
+testing-for-broken-access-control
+  WARN: Recommended section missing: Verification
+testing-for-business-logic-vulnerabilities
+  WARN: Recommended section missing: Verification
+testing-for-email-header-injection
+  WARN: Recommended section missing: Verification
+testing-for-host-header-injection
+  WARN: Recommended section missing: Verification
+testing-for-json-web-token-vulnerabilities
+  WARN: Recommended section missing: Verification
+testing-for-open-redirect-vulnerabilities
+  WARN: Recommended section missing: Verification
+testing-for-sensitive-data-exposure
+  WARN: Recommended section missing: Verification
+  FAIL: Referenced file does not exist: ./testssl.sh
+testing-for-system-prompt-leakage
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: Mapping 'mitre_attack' has unexpected format: AML.T0057
+  WARN: Mapping 'nist_csf' has unexpected format: MEASURE-2.7
+testing-for-xml-injection-vulnerabilities
+  WARN: Recommended section missing: Verification
+testing-for-xss-vulnerabilities
+  WARN: Recommended section missing: Verification
+testing-for-xss-vulnerabilities-with-burpsuite
+  WARN: Recommended section missing: Verification
+testing-for-xxe-injection-vulnerabilities
+  WARN: Recommended section missing: Verification
+testing-jwt-token-security
+  WARN: Recommended section missing: Verification
+testing-mobile-api-authentication
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+testing-oauth2-implementation-flaws
+  WARN: Recommended section missing: Verification
+testing-prompt-injection-in-rag-pipelines
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: Mapping 'mitre_attack' has unexpected format: AML.T0051
+  WARN: Mapping 'nist_csf' has unexpected format: MEASURE-2.7
+Conversion to Physical Monetary Instruments: Cash
+  FAIL: Name 'Conversion to Physical Monetary Instruments: Cash' is not valid kebab-case
+  WARN: Directory name 'testing-ransomware-recovery-procedures' does not match skill name 'Conversion to Physical Monetary Instruments: Cash'
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Duplicate skill name found: Conversion to Physical Monetary Instruments: Cash
+testing-websocket-api-security
+  WARN: Recommended section missing: Verification
+Stage Capabilities: SEO Poisoning
+  FAIL: Name 'Stage Capabilities: SEO Poisoning' is not valid kebab-case
+  WARN: Directory name 'tracking-threat-actor-infrastructure' does not match skill name 'Stage Capabilities: SEO Poisoning'
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  WARN: High-risk skill missing explicit authorization/scope/lab-use safety language
+triaging-security-alerts-in-splunk
+  WARN: Recommended section missing: Verification
+triaging-security-incident
+  WARN: Recommended section missing: Verification
+triaging-security-incident-with-ir-playbook
+  WARN: Recommended section missing: Verification
+triaging-vulnerabilities-with-ssvc-framework
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+triaging-windows-with-kape
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+Conversion to Physical Monetary Instruments: Cash
+  FAIL: Name 'Conversion to Physical Monetary Instruments: Cash' is not valid kebab-case
+  WARN: Directory name 'validating-backup-integrity-for-recovery' does not match skill name 'Conversion to Physical Monetary Instruments: Cash'
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Duplicate skill name found: Conversion to Physical Monetary Instruments: Cash
+validating-tpm-measured-boot-attestation
+  FAIL: Unknown subdomain 'hardware-firmware-security'
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+verifying-build-provenance-with-slsa-sigstore
+  WARN: Recommended section missing: Verification
+  WARN: Recommended section missing: Output Format
+  FAIL: Referenced file does not exist: ./mybin
+  FAIL: Referenced file does not exist: ./mybin.intoto.jsonl
+  FAIL: Referenced file does not exist: ./myartifact
+  FAIL: Referenced file does not exist: ./myartifact.sigstore.json
+
+Summary:
+  Skills checked: 817
+  Skills with FAILs: 172
+  Skills with WARNs: 816
