@@ -78,6 +78,10 @@ Brand impersonation attacks exploit consumer trust through lookalike domains, fa
 
 - Python 3.9+ with `dnstwist`, `requests`, `beautifulsoup4`, `Levenshtein`, `tweepy` libraries
 - API keys: VirusTotal, Google Safe Browsing, Twitter/X API, Shodan
+- Optional TweetClaw path: an Xquik account, active subscription, and
+  `XQUIK_API_KEY`. Xquik does not document a no-cost allowance for metered X reads.
+  Review the [REST API overview](https://docs.xquik.com/api-reference/overview)
+  and [billing guide](https://docs.xquik.com/guides/billing) before collection.
 - List of brand assets: domains, trademarks, logos, executive names
 - Certificate Transparency monitoring (Certstream or crt.sh)
 - Understanding of domain registration and TLD landscape
@@ -245,9 +249,10 @@ report = monitor.generate_monitoring_report()
 Use [TweetClaw](https://github.com/Xquik-dev/tweetclaw) when the team already
 uses OpenClaw and approves public X evidence collection. TweetClaw supplies
 source evidence. This skill still owns correlation, risk scoring, escalation,
-and takedown decisions. Create the key in the
-[Xquik dashboard](https://dashboard.xquik.com), then expose it as
-`XQUIK_API_KEY` in the local shell.
+and takedown decisions. Without TweetClaw, the rest of this impersonation
+workflow runs unchanged. Follow the
+[Xquik REST API overview](https://docs.xquik.com/api-reference/overview) for
+API-key setup, then expose `XQUIK_API_KEY` in the local shell.
 
 Install the official plugin and configure the key outside the agent chat:
 
