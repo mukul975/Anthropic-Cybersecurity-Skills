@@ -175,7 +175,7 @@ sudo python scripts/agent.py --check-chipsec --output secureboot_report.json
 | efitools (efi-readvar) | Dump PK/KEK/db/dbx | https://git.kernel.org/pub/scm/linux/kernel/git/jejb/efitools.git |
 | dbxtool | Inspect and apply dbx updates | https://github.com/rhboot/dbxtool |
 | CHIPSEC | Firmware / Secure Boot variable assessment | https://github.com/chipsec/chipsec |
-| sbsigntool / pesign | EFI binary signature verification | https://github.com/jejb/sbsigntools |
+| sbsigntool / pesign | EFI binary signature verification | https://git.kernel.org/pub/scm/linux/kernel/git/jejb/sbsigntools.git |
 | UEFI Revocation List | Official dbx update files | https://uefi.org/revocationlistfile |
 | Microsoft KB CVE-2023-24932 | Secure Boot bypass guidance | https://support.microsoft.com/topic/kb5025885 |
 | ESET BlackLotus analysis | Bootkit technical writeup | https://www.welivesecurity.com/2023/03/01/blacklotus-uefi-bootkit-myth-confirmed/ |

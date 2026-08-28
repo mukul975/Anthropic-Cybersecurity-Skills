@@ -137,7 +137,7 @@ Build a working theory by correlating PECmd (execution time) with MFTECmd (file 
 | MFTECmd | $MFT, $J, $Boot, $SDS, $LogFile | https://github.com/EricZimmerman/MFTECmd |
 | PECmd | Prefetch | https://github.com/EricZimmerman/PECmd |
 | RECmd | Registry hives | https://github.com/EricZimmerman/RECmd |
-| SBECmd | ShellBags | https://github.com/EricZimmerman/Shellbags |
+| SBECmd | ShellBags | https://ericzimmerman.github.io/ |
 | AmcacheParser | Amcache.hve | https://github.com/EricZimmerman/AmcacheParser |
 | AppCompatCacheParser | ShimCache | https://github.com/EricZimmerman/AppCompatCacheParser |
 | LECmd / JLECmd | LNK / Jump Lists | https://ericzimmerman.github.io/ |

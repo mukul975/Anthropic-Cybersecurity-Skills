@@ -36,5 +36,5 @@
 - **Description**: Static analysis with crypto-specific rules
 
 ### CryptoGuard
-- **URL**: https://github.com/AkshayaVS/CryptoGuard
+- **URL**: https://github.com/CryptoGuardOSS/cryptoguard
 - **Description**: Specialized cryptographic misuse detector

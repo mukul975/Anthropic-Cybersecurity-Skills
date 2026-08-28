@@ -10,7 +10,7 @@
 ## AD Recovery
 - Microsoft: AD Forest Recovery Guide - https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/ad-forest-recovery-guide
 - DSInternals: https://github.com/MichaelGrafnetter/DSInternals
-- krbtgt reset guidance: https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/forest-recovery-guide/ad-forest-recovery-resetting-the-krbtgt-password
+- krbtgt reset guidance: https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/ad-forest-recovery-resetting-the-krbtgt-password
 
 ## MITRE ATT&CK (Recovery Validation)
 - T1053: Scheduled Task/Job (persistence to check)

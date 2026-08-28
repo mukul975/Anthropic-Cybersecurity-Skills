@@ -35,5 +35,5 @@
 ### References
 
 - IEC 62443: https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards
-- NIST SP 800-82: https://csrc.nist.gov/publications/detail/sp/800-82/rev-3/final
+- NIST SP 800-82: https://csrc.nist.gov/pubs/sp/800/82/r3/final
 - CISA ICS Security: https://www.cisa.gov/topics/industrial-control-systems

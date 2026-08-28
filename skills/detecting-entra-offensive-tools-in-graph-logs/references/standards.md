@@ -17,7 +17,7 @@
 
 ## Supporting References
 
-- AADGraphActivityLogs (Microsoft Learn) — https://learn.microsoft.com/entra/identity/monitoring-health/concept-aad-graph-activity-logs
+- AADGraphActivityLogs (Microsoft Learn) — https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/aadgraphactivitylogs
 - MicrosoftGraphActivityLogs overview — https://learn.microsoft.com/graph/microsoft-graph-activity-logs-overview
 - Invictus-IR detection writeup — https://www.invictus-ir.com/news/the-missing-link-aadgraphactivitylogs-finally-arrives
 - MITRE T1078.004 — https://attack.mitre.org/techniques/T1078/004/

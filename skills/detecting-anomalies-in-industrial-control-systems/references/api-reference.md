@@ -53,5 +53,5 @@ client.close()
 ## External References
 
 - [pymodbus Docs](https://pymodbus.readthedocs.io/)
-- [ICS-CERT Advisories](https://www.cisa.gov/ics-advisories)
-- [NIST SP 800-82 Guide to ICS Security](https://csrc.nist.gov/publications/detail/sp/800-82/rev-3/final)
+- [ICS-CERT Advisories](https://www.cisa.gov/news-events/ics-advisories)
+- [NIST SP 800-82 Guide to ICS Security](https://csrc.nist.gov/pubs/sp/800/82/r3/final)
