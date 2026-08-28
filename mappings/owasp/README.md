@@ -1,4 +1,4 @@
-# OWASP Top 10 (2025) Mapping
+# OWASP Top 10 (2021) Mapping
 
 This directory maps the cybersecurity skills in this repository to the [OWASP Top 10](https://owasp.org/www-project-top-ten/) categories for web application security risks.
 
@@ -6,9 +6,9 @@ This directory maps the cybersecurity skills in this repository to the [OWASP To
 
 The OWASP Top 10 represents the most critical security risks to web applications. This mapping connects hands-on skills to each risk category, enabling teams to build targeted training programs for secure development and application security testing.
 
-## OWASP Top 10 2025 Skill Mapping
+## OWASP Top 10 2021 Skill Mapping
 
-### A01:2025 -- Broken Access Control
+### A01:2021 -- Broken Access Control
 
 Restrictions on what authenticated users are allowed to do are not properly enforced.
 
@@ -21,7 +21,7 @@ Restrictions on what authenticated users are allowed to do are not properly enfo
 
 **Example skills:** Implementing RBAC, testing for IDOR vulnerabilities, configuring OAuth 2.0 securely, enforcing API authorization policies.
 
-### A02:2025 -- Cryptographic Failures
+### A02:2021 -- Cryptographic Failures
 
 Failures related to cryptography that lead to exposure of sensitive data.
 
@@ -34,7 +34,7 @@ Failures related to cryptography that lead to exposure of sensitive data.
 
 **Example skills:** Configuring TLS 1.3, implementing envelope encryption with KMS, securing JWT tokens, certificate pinning.
 
-### A03:2025 -- Injection
+### A03:2021 -- Injection
 
 User-supplied data is sent to an interpreter as part of a command or query without proper validation.
 
@@ -47,7 +47,7 @@ User-supplied data is sent to an interpreter as part of a command or query witho
 
 **Example skills:** Exploiting and remediating SQL injection, testing for stored/reflected XSS, configuring parameterized queries, SAST pipeline integration.
 
-### A04:2025 -- Insecure Design
+### A04:2021 -- Insecure Design
 
 Risks related to design and architectural flaws, calling for more use of threat modeling and secure design patterns.
 
@@ -60,7 +60,7 @@ Risks related to design and architectural flaws, calling for more use of threat 
 
 **Example skills:** Conducting threat modeling with STRIDE, implementing secure design patterns, defining trust boundaries, security architecture review.
 
-### A05:2025 -- Security Misconfiguration
+### A05:2021 -- Security Misconfiguration
 
 Missing or incorrect security hardening across the application stack.
 
@@ -73,7 +73,7 @@ Missing or incorrect security hardening across the application stack.
 
 **Example skills:** Auditing AWS S3 bucket permissions, hardening Kubernetes clusters, configuring security headers, CIS benchmark compliance.
 
-### A06:2025 -- Vulnerable and Outdated Components
+### A06:2021 -- Vulnerable and Outdated Components
 
 Using components with known vulnerabilities or that are no longer maintained.
 
@@ -86,7 +86,7 @@ Using components with known vulnerabilities or that are no longer maintained.
 
 **Example skills:** Running Trivy container scans, implementing SCA in CI/CD, generating and analyzing SBOMs, CVE prioritization with CVSS/EPSS.
 
-### A07:2025 -- Identification and Authentication Failures
+### A07:2021 -- Identification and Authentication Failures
 
 Weaknesses in authentication and session management.
 
@@ -99,7 +99,7 @@ Weaknesses in authentication and session management.
 
 **Example skills:** Implementing FIDO2/WebAuthn, configuring adaptive MFA, securing API authentication, detecting credential stuffing attacks.
 
-### A08:2025 -- Software and Data Integrity Failures
+### A08:2021 -- Software and Data Integrity Failures
 
 Failures related to code and infrastructure that do not protect against integrity violations.
 
@@ -112,7 +112,7 @@ Failures related to code and infrastructure that do not protect against integrit
 
 **Example skills:** Implementing Sigstore for container signing, securing CI/CD pipelines, verifying software supply chain integrity, content trust enforcement.
 
-### A09:2025 -- Security Logging and Monitoring Failures
+### A09:2021 -- Security Logging and Monitoring Failures
 
 Insufficient logging, detection, monitoring, and active response.
 
@@ -125,7 +125,7 @@ Insufficient logging, detection, monitoring, and active response.
 
 **Example skills:** Analyzing security logs with Splunk, writing Sigma detection rules, configuring SIEM correlation rules, implementing centralized logging.
 
-### A10:2025 -- Server-Side Request Forgery (SSRF)
+### A10:2021 -- Server-Side Request Forgery (SSRF)
 
 Fetching a remote resource without validating the user-supplied URL.
 
