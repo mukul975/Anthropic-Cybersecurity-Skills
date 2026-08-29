@@ -1,6 +1,6 @@
 ---
 name: implementing-beyondcorp-zero-trust-access-model
-description: Implement Google BeyondCorp zero trust access model using Cloud IAP, Access Context Manager, Endpoint Verification, Chrome Enterprise Premium, and BeyondCorp Enterprise Connectors to enforce identity- and device-aware access for VPN-less application access. Use when replacing VPN, enforcing device posture checks, or securing remote/hybrid access to GCP-hosted or on-prem apps across the full BeyondCorp Enterprise stack including Connectors and Endpoint Verification. Do not use for raw network-level protocols or for the narrower IAP enforcement-point plus Access Context Manager access-level and policy-audit workflow - use implementing-zero-trust-with-beyondcorp.
+description: Implement Google BeyondCorp zero trust access model using Cloud IAP, Access Context Manager, Endpoint Verification, Chrome Enterprise Premium, and BeyondCorp Enterprise Connectors to enforce identity- and device-aware access for VPN-less application access. Use when replacing VPN, enforcing device posture checks, or securing remote/hybrid access to GCP-hosted or on-prem apps across the full BeyondCorp Enterprise stack including Connectors and Endpoint Verification. Do not use for raw network-level protocols or for the narrower IAP enforcement-point plus Access Context Manager access-level and policy-audit workflow - use configuring-identity-aware-proxy-with-google-iap.
 domain: cybersecurity
 subdomain: zero-trust-architecture
 tags:

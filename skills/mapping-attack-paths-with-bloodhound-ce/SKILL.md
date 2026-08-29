@@ -1,6 +1,6 @@
 ---
 name: mapping-attack-paths-with-bloodhound-ce
-description: Collect Active Directory data with SharpHound and Entra ID data with AzureHound, ingest into BloodHound Community Edition, and analyze on-prem, cloud, and hybrid attack paths using built-in queries and custom Cypher. Use when mapping privilege-escalation chains toward domain/tenant compromise during authorized red-team or penetration-test engagements. Do not use for internal-network reconnaissance and collection with BloodHound CE - use conducting-internal-reconnaissance-with-bloodhound-ce.
+description: Collect Active Directory data with SharpHound and Entra ID data with AzureHound, ingest into BloodHound Community Edition, and analyze on-prem, cloud, and hybrid attack paths using built-in queries and custom Cypher. Use when mapping privilege-escalation chains toward domain/tenant compromise during authorized red-team or penetration-test engagements. Do not use for internal-network reconnaissance and collection with BloodHound CE - use performing-active-directory-bloodhound-analysis.
 domain: cybersecurity
 subdomain: red-teaming
 tags:

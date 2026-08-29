@@ -1,6 +1,6 @@
 ---
 name: performing-windows-artifact-analysis-with-eric-zimmerman-tools
-description: Performs comprehensive end-to-end Windows forensic artifact analysis using Eric Zimmerman's EZ Tools suite (KAPE, MFTECmd, PECmd, EvtxECmd, LECmd, JLECmd, RECmd, Timeline Explorer), covering KAPE artifact collection, registry hives, prefetch, event logs, filesystem metadata, and LNK and jump-list parsing to build a timeline of program execution, file access, and persistence. Use when running a full DFIR investigation from collection through timeline building. Do not use for just the parser step that normalizes specific artifacts into CSV/JSON - use parsing-artifacts-with-eric-zimmerman-tools.
+description: Performs comprehensive end-to-end Windows forensic artifact analysis using Eric Zimmerman's EZ Tools suite (KAPE, MFTECmd, PECmd, EvtxECmd, LECmd, JLECmd, RECmd, Timeline Explorer), covering KAPE artifact collection, registry hives, prefetch, event logs, filesystem metadata, and LNK and jump-list parsing to build a timeline of program execution, file access, and persistence. Use when running a full DFIR investigation from collection through timeline building. Do not use for just the parser step that normalizes specific artifacts into CSV/JSON - use triaging-windows-with-kape.
 domain: cybersecurity
 subdomain: digital-forensics
 tags:
@@ -72,6 +72,16 @@ C:\Tools\KAPE\kape.exe   # CLI version
 
 # Sync latest EZ Tools binaries
 C:\Tools\KAPE\Get-KAPEUpdate.ps1
+```
+
+**Standalone EZ Tools Download and Update (Get-ZimmermanTools):**
+
+Outside of KAPE, the official `Get-ZimmermanTools` downloader fetches and updates the entire EZ Tools suite. Run it periodically so the parsers handle the latest artifact formats. The 2025+ releases run on .NET and work natively on Linux as well as Windows.
+
+```powershell
+# Download/update all .NET tools into C:\Tools\EZ
+.\Get-ZimmermanTools.ps1 -Dest C:\Tools\EZ
+# Source: https://github.com/EricZimmerman/Get-ZimmermanTools
 ```
 
 **Running KAPE Collection and Processing:**
@@ -186,6 +196,24 @@ SBECmd.exe -d "C:\Cases\Evidence\Registry" --csv C:\Cases\Output --csvf Shellbag
 
 # Parse shellbags from a live system (requires admin)
 SBECmd.exe --live --csv C:\Cases\Output --csvf LiveShellbags_output.csv
+```
+
+### AmcacheParser - Amcache.hve Parser
+
+AmcacheParser parses `Amcache.hve` for application execution history and metadata (including SHA1 hashes of executables). The `-i` flag includes unassociated file entries that are otherwise omitted, broadening coverage of programs present on the system.
+
+```powershell
+# Parse Amcache.hve, including unassociated file entries (-i)
+AmcacheParser.exe -f "C:\Cases\Evidence\Windows\AppCompat\Programs\Amcache.hve" --csv C:\Cases\Output -i
+```
+
+### AppCompatCacheParser - ShimCache Parser
+
+AppCompatCacheParser parses ShimCache (AppCompatCache) from the `SYSTEM` registry hive, providing evidence of program presence and execution ordering.
+
+```powershell
+# Parse ShimCache from the SYSTEM hive
+AppCompatCacheParser.exe -f "C:\Cases\Evidence\Windows\System32\config\SYSTEM" --csv C:\Cases\Output
 ```
 
 ### Timeline Explorer - Visual Analysis

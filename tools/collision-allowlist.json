@@ -107,24 +107,10 @@
     },
     {
       "pair": [
-        "testing-for-json-web-token-vulnerabilities",
-        "testing-jwt-token-security"
-      ],
-      "reason": "Focused header-injection and signature-forgery attack playbook versus a broader JWT assessment across API Bearer tokens, SSO, and OAuth/OIDC. Merge candidate."
-    },
-    {
-      "pair": [
         "implementing-ebpf-security-monitoring",
         "implementing-runtime-security-with-tetragon"
       ],
       "reason": "Tetragon observability with JSON event export to a SIEM versus in-kernel enforcement that blocks dangerous syscalls in Kubernetes."
-    },
-    {
-      "pair": [
-        "parsing-artifacts-with-eric-zimmerman-tools",
-        "performing-windows-artifact-analysis-with-eric-zimmerman-tools"
-      ],
-      "reason": "Narrow parser step normalizing MFT/registry/prefetch into CSV/JSON versus end-to-end investigation adding KAPE collection, EvtxECmd, and timeline building. Merge candidate."
     },
     {
       "pair": [
@@ -160,13 +146,6 @@
         "testing-oauth2-implementation-flaws"
       ],
       "reason": "Opportunistic OAuth/OIDC misconfiguration exploitation versus a systematic Burp Suite plus EsPReSSO implementation-flaw testing workflow."
-    },
-    {
-      "pair": [
-        "implementing-beyondcorp-zero-trust-access-model",
-        "implementing-zero-trust-with-beyondcorp"
-      ],
-      "reason": "Full BeyondCorp Enterprise stack (Endpoint Verification, Connectors, VPN replacement) versus the narrower IAP enforcement-point plus Access Context Manager workflow. Merge candidate."
     },
     {
       "pair": [
@@ -212,34 +191,6 @@
     },
     {
       "pair": [
-        "detecting-dcsync-attack-in-active-directory",
-        "hunting-for-dcsync-attacks"
-      ],
-      "reason": "Standing detection rules and replication-permission auditing versus proactive threat-hunting/IR/purple-team sweeps. Both key off Event ID 4662; merge candidate."
-    },
-    {
-      "pair": [
-        "performing-network-forensics-with-wireshark",
-        "performing-network-packet-capture-analysis"
-      ],
-      "reason": "Wireshark/tshark credential and C2 extraction versus multi-tool tcpdump-inclusive PCAP evidence workflows. Merge candidate."
-    },
-    {
-      "pair": [
-        "conducting-wireless-network-penetration-test",
-        "performing-wireless-network-penetration-test"
-      ],
-      "reason": "'conducting' is the methodology-driven WiFi engagement (rogue RADIUS enterprise attacks, segmentation findings); 'performing' is the hands-on command playbook (WPS/Reaver, Kismet, Bettercap phases). Merge candidate."
-    },
-    {
-      "pair": [
-        "performing-wifi-password-cracking-with-aircrack",
-        "performing-wireless-network-penetration-test"
-      ],
-      "reason": "aircrack skill is narrow handshake/PMKID capture and offline PSK cracking; the wireless pentest covers evil twins, rogue APs, WPS, and segmentation."
-    },
-    {
-      "pair": [
         "detecting-ntlm-relay-with-event-correlation",
         "hunting-for-ntlm-relay-attacks"
       ],
@@ -251,13 +202,6 @@
         "auditing-uefi-firmware-with-chipsec"
       ],
       "reason": "Post-breach bootkit investigation/attribution (BlackLotus, LoJax) versus clean-system CHIPSEC platform-security baseline/hardening audit."
-    },
-    {
-      "pair": [
-        "exploiting-kerberoasting-with-impacket",
-        "performing-kerberoasting-attack"
-      ],
-      "reason": "'exploiting' is the Impacket GetUserSPNs.py command walkthrough; 'performing' is the tool-agnostic four-phase methodology. Merge candidate."
     },
     {
       "pair": [
@@ -317,13 +261,6 @@
     },
     {
       "pair": [
-        "exploiting-websocket-vulnerabilities",
-        "testing-websocket-api-security"
-      ],
-      "reason": "General web-application WebSocket exploitation in a pen test versus API-focused WebSocket testing with Burp Suite and wscat. Merge candidate."
-    },
-    {
-      "pair": [
         "analyzing-apt-group-with-mitre-navigator",
         "analyzing-threat-actor-ttps-with-mitre-navigator"
       ],
@@ -373,24 +310,10 @@
     },
     {
       "pair": [
-        "conducting-internal-reconnaissance-with-bloodhound-ce",
-        "performing-active-directory-bloodhound-analysis"
-      ],
-      "reason": "BloodHound Community Edition graph DB with SharpHound+AzureHound Entra collection versus tool-agnostic BloodHound AD enumeration/auditing. Merge candidate."
-    },
-    {
-      "pair": [
         "exploiting-active-directory-with-bloodhound",
         "performing-active-directory-bloodhound-analysis"
       ],
       "reason": "Offensive privilege-escalation path exploitation versus tool-agnostic BloodHound path enumeration/auditing."
-    },
-    {
-      "pair": [
-        "implementing-aws-security-hub",
-        "implementing-aws-security-hub-compliance"
-      ],
-      "reason": "Single-account centralized findings dashboard with Audit Manager evidence versus multi-account AWS Organizations compliance monitoring with Prowler. Merge candidate."
     },
     {
       "pair": [

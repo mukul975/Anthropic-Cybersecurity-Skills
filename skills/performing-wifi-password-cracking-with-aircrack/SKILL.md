@@ -1,6 +1,6 @@
 ---
 name: performing-wifi-password-cracking-with-aircrack
-description: 'Captures WPA/WPA2 4-way handshakes and PMKIDs then performs offline passphrase cracking with aircrack-ng, hashcat, and hcxtools during authorized wireless assessments to evaluate PSK strength and wireless security posture. Use when the focus is narrowly capturing and cracking wireless handshakes or PMKIDs to assess passphrase strength. Do not use for a full wireless pentest covering evil twins, rogue APs, WPS, and segmentation - use performing-wireless-network-penetration-test.'
+description: 'Captures WPA/WPA2 4-way handshakes and PMKIDs then performs offline passphrase cracking with aircrack-ng, hashcat, and hcxtools during authorized wireless assessments to evaluate PSK strength and wireless security posture. Use when the focus is narrowly capturing and cracking wireless handshakes or PMKIDs to assess passphrase strength. Do not use for a full wireless pentest covering evil twins, rogue APs, WPS, and segmentation - use conducting-wireless-network-penetration-test.'
 domain: cybersecurity
 subdomain: network-security
 tags:

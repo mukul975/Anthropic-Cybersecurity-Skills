@@ -1,6 +1,6 @@
 ---
 name: detecting-dcsync-attack-in-active-directory
-description: Detect DCSync attacks (MITRE T1003.006) where adversaries abuse Active Directory replication privileges to extract password hashes, by auditing Event ID 4662 for the DS-Replication-Get-Changes GUIDs and flagging non-domain-controller accounts issuing DsGetNCChanges RPC calls. Use when building standing detection rules or auditing AD replication permissions for credential theft via Mimikatz lsadump::dcsync or Impacket secretsdump. Do not use for proactive threat-hunting sweeps or purple-team DCSync exercises - use hunting-for-dcsync-attacks.
+description: Detect DCSync attacks (MITRE T1003.006) where adversaries abuse Active Directory replication privileges to extract password hashes, by auditing Event ID 4662 for the DS-Replication-Get-Changes GUIDs and flagging non-domain-controller accounts issuing DsGetNCChanges RPC calls. Use when building standing detection rules or auditing AD replication permissions for credential theft via Mimikatz lsadump::dcsync or Impacket secretsdump. Do not use for proactive threat-hunting sweeps or purple-team DCSync exercises - use conducting-domain-persistence-with-dcsync.
 domain: cybersecurity
 subdomain: threat-hunting
 tags:
@@ -55,11 +55,12 @@ mitre_attack:
 
 1. **Identify Legitimate Replication Sources**: Document all domain controllers in the environment by hostname, IP, and computer account. Only these should perform directory replication.
 2. **Enable Required Auditing**: Configure Advanced Audit Policy to capture Event ID 4662 on domain controllers with specific GUID monitoring for replication rights.
-3. **Monitor Replication Rights Access**: Track access to three critical GUIDs -- DS-Replication-Get-Changes (1131f6aa-9c07-11d1-f79f-00c04fc2dcd2), DS-Replication-Get-Changes-All (1131f6ad-9c07-11d1-f79f-00c04fc2dcd2), and DS-Replication-Get-Changes-In-Filtered-Set (89e95b76-444d-4c62-991a-0facbeda640c).
+3. **Monitor Replication Rights Access**: Track access to three critical GUIDs -- DS-Replication-Get-Changes (1131f6aa-9c07-11d1-f79f-00c04fc2dcd2), DS-Replication-Get-Changes-All (1131f6ad-9c07-11d1-f79f-00c04fc2dcd2), and DS-Replication-Get-Changes-In-Filtered-Set (89e95b76-444d-4c62-991a-0facbeda640c). Constrain 4662 events to `AccessMask 0x100` (Control Access) to isolate extended-rights checks and cut noise from ordinary object reads.
 4. **Detect Non-DC Replication Requests**: Alert when any account NOT associated with a domain controller requests replication rights.
 5. **Correlate with Network Traffic**: DCSync generates replication traffic (MS-DRSR/RPC) from the attacker's machine to the DC. Monitor for DrsGetNCChanges RPC calls from non-DC IP addresses.
 6. **Investigate Source Context**: Examine the process, user account, and machine originating the replication request.
 7. **Check for Credential Abuse**: After DCSync detection, audit for subsequent use of extracted hashes (pass-the-hash, golden ticket creation).
+8. **Respond and Contain**: Disable the compromised account(s), reset the krbtgt account password twice (the KRBTGT hash is the prime DCSync target and enables Golden Ticket forgery), and investigate lateral movement.
 
 ## Key Concepts
 
@@ -73,6 +74,7 @@ mitre_attack:
 | MS-DRSR | Microsoft Directory Replication Service Remote Protocol |
 | KRBTGT Hash | Key target of DCSync enabling Golden Ticket attacks |
 | Event ID 4662 | Directory service object access audit event |
+| AccessMask 0x100 | Control Access right on 4662 -- filters events to extended-rights verification |
 
 ## Tools & Systems
 
@@ -156,4 +158,5 @@ Timestamp: [Event time]
 Legitimate DC: [Yes/No]
 Known Service Account: [Yes/No]
 Risk Assessment: [Critical - non-DC replication detected]
+Recommended Action: [Disable account, reset krbtgt twice, investigate lateral movement]
 ```

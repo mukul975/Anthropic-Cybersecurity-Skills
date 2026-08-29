@@ -1,6 +1,6 @@
 ---
 name: performing-active-directory-bloodhound-analysis
-description: Use BloodHound and SharpHound (or AzureHound) to enumerate Active Directory relationships and graph attack paths from a compromised user to Domain Admin. Use when performing tool-agnostic AD red-team reconnaissance, mapping privilege-escalation chains from group memberships, ACLs, and trusts, or auditing AD for exploitable misconfigurations. Do not use for a BloodHound Community Edition deployment with AzureHound Entra ID collection - use conducting-internal-reconnaissance-with-bloodhound-ce.
+description: Use BloodHound and SharpHound (or AzureHound) to enumerate Active Directory relationships and graph attack paths from a compromised user to Domain Admin. Use when performing tool-agnostic AD red-team reconnaissance, mapping privilege-escalation chains from group memberships, ACLs, and trusts, or auditing AD for exploitable misconfigurations. Do not use for a BloodHound Community Edition deployment with AzureHound Entra ID collection - use exploiting-active-directory-with-bloodhound.
 domain: cybersecurity
 subdomain: red-teaming
 tags:
@@ -117,11 +117,20 @@ Invoke-AzureHound
 ### BloodHound CE (v5+)
 
 ```bash
-# Start BloodHound CE with Docker
+# Option A: pipe the compose file straight into docker compose
 curl -L https://ghst.ly/getbhce | docker compose -f - up
 
+# Option B: save the compose file, pull images, and run detached
+curl -L https://ghst.ly/getbhce -o docker-compose.yml
+docker compose pull
+docker compose up -d
+
 # Access web interface at https://localhost:8080
-# Default credentials: admin / bloodhound
+# BloodHound CE generates a random admin password on first start -
+# retrieve it from the container logs (username is admin):
+docker compose logs | grep "Initial Password"
+
+# Change the default admin password immediately after first login
 # Upload ZIP file via GUI: Upload Data > Select File
 ```
 
@@ -198,6 +207,11 @@ MATCH p=(d1:Domain)-[:TrustedBy]->(d2:Domain) RETURN d1.name, d2.name
 
 -- Find service accounts with admin access
 MATCH (u:User {hasspn:true})-[:AdminTo]->(c:Computer) RETURN u.name, c.name
+
+-- Find LAPS-managed computers whose local admin password is readable by non-admins
+MATCH (c:Computer {haslaps:true})
+MATCH p=(u:User)-[:ReadLAPSPassword]->(c)
+RETURN p
 ```
 
 ## Step 4: Common Attack Paths
@@ -226,7 +240,27 @@ User (owned) -> GenericWrite on GPO -> Modify GPO -> Scheduled Task on OU Comput
 Code Execution as SYSTEM
 ```
 
-## Step 5: Remediation Recommendations
+## Step 5: Attack Path Prioritization and OPSEC Scoring
+
+Not every path BloodHound surfaces is worth executing. Before touching the
+environment, score the candidate paths and build an execution plan that
+balances speed against detection risk.
+
+Score each identified attack path by:
+
+- **Number of hops** - shorter chains are higher priority (fewer steps, fewer chances to trip a detection)
+- **Stealth requirements** - avoid noisy techniques (session enumeration, Kerberoasting bursts, coercion) where a quieter path exists
+- **Tool availability** - confirm you have a working technique/tool for each edge in the chain before committing to it
+- **Likelihood of detection** - weigh EDR/SIEM coverage at each step; a single monitored hop can burn the whole path
+
+Then:
+
+1. Rank paths by the combined score and select the highest-value, lowest-risk chain first
+2. Create an execution plan that names the required tool for each hop
+3. Plan OPSEC considerations per technique (timing, host selection, cleanup)
+4. Keep a fallback path ready in case a preferred hop is blocked or detected
+
+## Step 6: Remediation Recommendations
 
 | Finding | Risk | Remediation |
 |---|---|---|
