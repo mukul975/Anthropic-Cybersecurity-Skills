@@ -285,380 +285,44 @@ falsepositives:
 
 ### Step 4: SMB Signing Enforcement Audit
 
-```powershell
-# PowerShell: Audit SMB Signing Status Across Domain
-# SMB signing prevents NTLM relay to SMB services
-
-# Check local SMB signing configuration
-Write-Host "=== LOCAL SMB SIGNING STATUS ==="
-$smbServer = Get-SmbServerConfiguration
-Write-Host "[*] SMB Server RequireSecuritySignature: $($smbServer.RequireSecuritySignature)"
-Write-Host "[*] SMB Server EnableSecuritySignature: $($smbServer.EnableSecuritySignature)"
-
-$smbClient = Get-SmbClientConfiguration
-Write-Host "[*] SMB Client RequireSecuritySignature: $($smbClient.RequireSecuritySignature)"
-Write-Host "[*] SMB Client EnableSecuritySignature: $($smbClient.EnableSecuritySignature)"
-
-# Check via registry (works on older systems)
-$serverSigning = Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanManServer\Parameters" `
-    -Name "RequireSecuritySignature" -ErrorAction SilentlyContinue
-$clientSigning = Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanManWorkstation\Parameters" `
-    -Name "RequireSecuritySignature" -ErrorAction SilentlyContinue
-
-Write-Host "`n=== REGISTRY VALUES ==="
-Write-Host "[*] Server RequireSecuritySignature: $($serverSigning.RequireSecuritySignature) (1=Required, 0=Not Required)"
-Write-Host "[*] Client RequireSecuritySignature: $($clientSigning.RequireSecuritySignature) (1=Required, 0=Not Required)"
-```
-
-```powershell
-# PowerShell: Domain-Wide SMB Signing Audit
-# Scan all domain computers for SMB signing enforcement
-
-$domainComputers = Get-ADComputer -Filter * -Properties OperatingSystem |
-    Where-Object { $_.OperatingSystem -like "*Windows*" -and $_.Enabled -eq $true } |
-    Select-Object -ExpandProperty DNSHostName
-
-$results = @()
-foreach ($computer in $domainComputers) {
-    try {
-        $session = New-CimSession -ComputerName $computer -ErrorAction Stop
-        $smbConfig = Get-SmbServerConfiguration -CimSession $session -ErrorAction Stop
-        $results += [PSCustomObject]@{
-            Computer = $computer
-            RequireSigning = $smbConfig.RequireSecuritySignature
-            EnableSigning = $smbConfig.EnableSecuritySignature
-            Status = if ($smbConfig.RequireSecuritySignature) { "ENFORCED" } else { "VULNERABLE" }
-        }
-        Remove-CimSession $session
-    } catch {
-        $results += [PSCustomObject]@{
-            Computer = $computer
-            RequireSigning = "ERROR"
-            EnableSigning = "ERROR"
-            Status = "UNREACHABLE"
-        }
-    }
-}
-
-# Display results sorted by vulnerability
-$results | Sort-Object Status | Format-Table -AutoSize
-
-# Export vulnerable hosts
-$vulnerable = $results | Where-Object { $_.Status -eq "VULNERABLE" }
-Write-Host "`n[!] VULNERABLE HOSTS (SMB Signing Not Required): $($vulnerable.Count)"
-$vulnerable | Export-Csv -Path "smb_signing_audit.csv" -NoTypeInformation
-```
-
-```powershell
-# PowerShell: Audit LDAP Signing Status on Domain Controllers
-# LDAP signing prevents NTLM relay to LDAP/LDAPS services
-
-# Check LDAP signing requirement on domain controllers
-$dcs = Get-ADDomainController -Filter * | Select-Object -ExpandProperty HostName
-
-foreach ($dc in $dcs) {
-    # Check LDAP server signing requirement
-    $ldapSigning = Invoke-Command -ComputerName $dc -ScriptBlock {
-        $regPath = "HKLM:\SYSTEM\CurrentControlSet\Services\NTDS\Parameters"
-        $value = Get-ItemProperty -Path $regPath -Name "LDAPServerIntegrity" -ErrorAction SilentlyContinue
-        return $value.LDAPServerIntegrity
-    } -ErrorAction SilentlyContinue
-
-    $status = switch ($ldapSigning) {
-        0 { "NONE (Vulnerable)" }
-        1 { "Negotiate Signing (Default - Vulnerable to relay)" }
-        2 { "Require Signing (Secure)" }
-        default { "Unknown/Error" }
-    }
-    Write-Host "[*] $dc LDAP Signing: $status"
-
-    # Check LDAP channel binding
-    $channelBinding = Invoke-Command -ComputerName $dc -ScriptBlock {
-        $regPath = "HKLM:\SYSTEM\CurrentControlSet\Services\NTDS\Parameters"
-        $value = Get-ItemProperty -Path $regPath -Name "LdapEnforceChannelBinding" -ErrorAction SilentlyContinue
-        return $value.LdapEnforceChannelBinding
-    } -ErrorAction SilentlyContinue
-
-    $cbStatus = switch ($channelBinding) {
-        0 { "Disabled (Vulnerable)" }
-        1 { "When Supported" }
-        2 { "Always Required (Secure)" }
-        default { "Not Configured (Vulnerable)" }
-    }
-    Write-Host "[*] $dc LDAP Channel Binding: $cbStatus"
-}
-```
-
-```spl
-# Splunk: Monitor for SMB sessions without signing
-# Requires Zeek SMB logging or packet capture analysis
-
-index=network sourcetype="zeek:smb_mapping:json" OR sourcetype="bro:smb_mapping:json"
-| where NOT security_mode="signing_required"
-| stats count dc(id_orig_h) as unique_clients by id_resp_h security_mode
-| sort -unique_clients
-| rename id_resp_h as smb_server
-| table smb_server security_mode unique_clients count
-```
+SMB signing prevents NTLM relay to SMB services and must be set to "Required" (not
+just "Enabled"). LDAP signing and channel binding provide the equivalent protection
+for LDAP/LDAPS on domain controllers. Audit both across the domain and treat any host
+where `RequireSecuritySignature` is False as vulnerable. Full PowerShell audit scripts
+(local + domain-wide SMB, LDAP signing/channel binding on DCs) and the Zeek-based
+Splunk unsigned-SMB monitor: see [references/signing-audit-scripts.md](references/signing-audit-scripts.md).
 
 ### Step 5: NTLM Downgrade Detection
 
-```spl
-# Splunk: Detect NTLMv1 Authentication (Downgrade from NTLMv2)
-# NTLMv1 is weaker and easier to relay/crack -- should not be in use
-
-index=wineventlog EventCode=4624 LogonType=3
-    LmPackageName="NTLM V1"
-| where TargetUserName != "ANONYMOUS LOGON"
-    AND NOT match(TargetUserName, ".*\\$$")
-| stats count values(ComputerName) as targets
-    values(IpAddress) as source_ips
-    by TargetUserName LmPackageName
-| table TargetUserName LmPackageName source_ips targets count
-| sort -count
-```
-
-```spl
-# Splunk: Detect NTLM Downgrade Attack Pattern
-# NTLMv1 appearing after a period of only NTLMv2 suggests active downgrade
-
-index=wineventlog EventCode=4624 LogonType=3
-    AuthenticationPackageName="NTLM"
-| where TargetUserName != "ANONYMOUS LOGON"
-| bin _time span=1h
-| stats count(eval(LmPackageName="NTLM V1")) as ntlmv1_count
-    count(eval(LmPackageName="NTLM V2")) as ntlmv2_count
-    by _time
-| where ntlmv1_count > 0
-| eval ntlmv1_ratio = round(ntlmv1_count / (ntlmv1_count + ntlmv2_count) * 100, 2)
-| table _time ntlmv1_count ntlmv2_count ntlmv1_ratio
-| sort -_time
-```
-
-```kql
--- Microsoft Sentinel KQL: NTLMv1 Downgrade Detection
-
-SecurityEvent
-| where EventID == 4624 and LogonType == 3
-| where AuthenticationPackageName == "NTLM"
-| where LmPackageName == "NTLM V1"
-| where TargetUserName !endswith "$"
-| where TargetUserName != "ANONYMOUS LOGON"
-| project TimeGenerated, Computer, TargetUserName, WorkstationName,
-    IpAddress, LmPackageName, LogonProcessName
-| sort by TimeGenerated desc
-```
-
-```powershell
-# PowerShell: Detect NTLMv1 Authentication Events on Local System
-
-$ntlmv1Events = Get-WinEvent -LogName Security -FilterXPath @"
-*[System[(EventID=4624)]]
- and
-*[EventData[Data[@Name='LmPackageName']='NTLM V1']]
-"@ -MaxEvents 500 -ErrorAction SilentlyContinue
-
-if ($ntlmv1Events.Count -gt 0) {
-    Write-Host "[!] WARNING: $($ntlmv1Events.Count) NTLMv1 authentication events detected!" -ForegroundColor Red
-    $ntlmv1Events | ForEach-Object {
-        $xml = [xml]$_.ToXml()
-        $eventData = $xml.Event.EventData.Data
-        [PSCustomObject]@{
-            Time         = $_.TimeCreated
-            TargetUser   = ($eventData | Where-Object { $_.Name -eq "TargetUserName" }).'#text'
-            Workstation  = ($eventData | Where-Object { $_.Name -eq "WorkstationName" }).'#text'
-            SourceIP     = ($eventData | Where-Object { $_.Name -eq "IpAddress" }).'#text'
-            LmPackage    = ($eventData | Where-Object { $_.Name -eq "LmPackageName" }).'#text'
-        }
-    } | Format-Table -AutoSize
-} else {
-    Write-Host "[+] No NTLMv1 authentication events found (Good)" -ForegroundColor Green
-}
-
-# Audit GPO settings for NTLM restriction
-Write-Host "`n=== NTLM RESTRICTION POLICY ==="
-$ntlmPolicy = Get-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Lsa" `
-    -Name "LmCompatibilityLevel" -ErrorAction SilentlyContinue
-
-$level = switch ($ntlmPolicy.LmCompatibilityLevel) {
-    0 { "Send LM & NTLM responses (Most Vulnerable)" }
-    1 { "Send LM & NTLM - use NTLMv2 session security if negotiated" }
-    2 { "Send NTLM response only" }
-    3 { "Send NTLMv2 response only (Recommended minimum)" }
-    4 { "Send NTLMv2 response only, refuse LM" }
-    5 { "Send NTLMv2 response only, refuse LM & NTLM (Most Secure)" }
-    default { "Not configured (defaults to 3 on modern Windows)" }
-}
-Write-Host "[*] LmCompatibilityLevel: $($ntlmPolicy.LmCompatibilityLevel) - $level"
-```
+NTLMv1 is weaker and easier to relay/crack than NTLMv2 and should not be in use.
+Watch for `LmPackageName="NTLM V1"` on Event 4624 LogonType 3, and for NTLMv1 appearing
+after a period of only NTLMv2 (active downgrade). Also audit `LmCompatibilityLevel`
+(target 5 = NTLMv2 only, refuse LM & NTLM). Splunk, Sentinel KQL, and local PowerShell
+downgrade-detection queries: see [references/downgrade-coercion-dashboard-queries.md](references/downgrade-coercion-dashboard-queries.md).
 
 ### Step 6: NTLM Audit and Restriction Policy Configuration
 
-```powershell
-# PowerShell: Enable NTLM Auditing via Group Policy Registry Settings
-# Must be applied via GPO for domain-wide coverage
-
-# Audit all NTLM authentication in this domain
-# GPO: Computer Configuration > Policies > Windows Settings > Security Settings >
-#      Local Policies > Security Options >
-#      Network Security: Restrict NTLM: Audit NTLM authentication in this domain = Enable all
-
-# Registry equivalent (apply via GPO preferences or startup script)
-# Domain Controller setting:
-# Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters" `
-#     -Name "AuditNTLMInDomain" -Value 7 -Type DWord
-
-# Audit incoming NTLM traffic on all servers:
-# Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Lsa\MSV1_0" `
-#     -Name "AuditReceivingNTLMTraffic" -Value 2 -Type DWord
-
-# After enabling auditing, NTLM events appear in:
-# Applications and Services Logs > Microsoft > Windows > NTLM > Operational
-
-# Query NTLM operational log for audit events
-Get-WinEvent -LogName "Microsoft-Windows-NTLM/Operational" -MaxEvents 200 -ErrorAction SilentlyContinue |
-    Where-Object { $_.Id -in @(8001, 8002, 8003, 8004) } |
-    Select-Object TimeCreated, Id,
-        @{N='EventType'; E={
-            switch ($_.Id) {
-                8001 { "NTLM client blocked audit" }
-                8002 { "NTLM server blocked audit" }
-                8003 { "NTLM server blocked in domain" }
-                8004 { "NTLM authentication to DC audit" }
-            }
-        }},
-        @{N='Detail'; E={$_.Message.Substring(0, [Math]::Min(300, $_.Message.Length))}} |
-    Format-Table -AutoSize
-```
-
-```spl
-# Splunk: Monitor NTLM Audit Events (Event ID 8004)
-# Shows all NTLM authentications passing through domain controllers
-
-index=wineventlog source="WinEventLog:Microsoft-Windows-NTLM/Operational"
-    EventCode=8004
-| rex field=Message "Calling client name:\s+(?<client_name>[^\r\n]+)"
-| rex field=Message "Calling client IP:\s+(?<client_ip>[^\r\n]+)"
-| rex field=Message "Server name:\s+(?<server_name>[^\r\n]+)"
-| stats count dc(server_name) as unique_servers by client_name client_ip
-| sort -count
-| table client_name client_ip unique_servers count
-```
+Before restricting NTLM, enable auditing domain-wide (GPO: Restrict NTLM: Audit NTLM
+authentication in this domain = Enable all) so all NTLM pass-through is logged as
+Event 8004 in the NTLM/Operational log. Review that baseline to find every service
+still depending on NTLM before enforcing restrictions. GPO/registry settings and the
+PowerShell + Splunk 8004 audit queries: see [references/signing-audit-scripts.md](references/signing-audit-scripts.md).
 
 ### Step 7: PetitPotam and Coercion Attack Detection
 
-```spl
-# Splunk: Detect PetitPotam / EFSCoerce Attack
-# Monitor for machine account NTLM authentications relayed to other services
-
-index=wineventlog EventCode=4624 LogonType=3
-    AuthenticationPackageName="NTLM"
-    TargetUserName="*$"
-| where match(TargetUserName, "^[A-Z0-9\\-]+\\$$")
-| eval is_dc = if(match(TargetUserName, "(DC|DCSERVER|DOMCTRL)"), "Yes", "No")
-| where IpAddress != "127.0.0.1" AND IpAddress != "::1"
-| stats count values(ComputerName) as target_hosts
-    values(IpAddress) as source_ips by TargetUserName
-| where count > 2 OR mvcount(source_ips) > 1
-| table TargetUserName source_ips target_hosts count
-| sort -count
-```
-
-```kql
--- Microsoft Sentinel KQL: PetitPotam / Coercion Attack Detection
--- Detects domain controller machine account authenticating from unexpected IPs
-
-let dc_accounts = SecurityEvent
-| where EventID == 4624 and LogonType == 3
-| where TargetUserName endswith "$"
-| where Computer startswith "DC"
-| distinct TargetUserName;
-
-SecurityEvent
-| where EventID == 4624 and LogonType == 3
-| where AuthenticationPackageName == "NTLM"
-| where TargetUserName in (dc_accounts)
-| where IpAddress != "127.0.0.1" and IpAddress != "::1"
-| extend SourceHostExpected = iff(
-    Computer == replace_string(TargetUserName, "$", ""), true, false)
-| where SourceHostExpected == false
-| project TimeGenerated, Computer, TargetUserName, IpAddress,
-    WorkstationName, LogonProcessName, AuthenticationPackageName
-| sort by TimeGenerated desc
-```
-
-```yaml
-# Sigma Rule: NTLM Relay - Computer Account Authentication from Unexpected Source
-title: Potential NTLM Relay of Computer Account Credentials
-id: 5e6f7a8b-9c0d-1e2f-3a4b-5c6d7e8f9a0b
-status: stable
-description: >
-  Detects a computer account (ending in $) authenticating via NTLM LogonType 3
-  where the source IP does not match the computer's known IP, indicating possible
-  NTLM relay of coerced machine authentication (PetitPotam, DFSCoerce, PrinterBug).
-references:
-    - https://www.crowdstrike.com/en-us/blog/how-to-detect-domain-controller-account-relay-attacks-with-crowdstrike-identity-protection/
-    - https://www.fox-it.com/nl-en/research-blog/detecting-and-hunting-for-the-petitpotam-ntlm-relay-attack/
-    - https://www.nccgroup.com/research-blog/detecting-and-hunting-for-the-petitpotam-ntlm-relay-attack/
-logsource:
-    product: windows
-    service: security
-detection:
-    selection:
-        EventID: 4624
-        LogonType: 3
-        AuthenticationPackageName: NTLM
-        TargetUserName|endswith: '$'
-    filter_localhost:
-        IpAddress:
-            - '127.0.0.1'
-            - '::1'
-            - '-'
-    condition: selection and not filter_localhost
-level: high
-tags:
-    - attack.credential_access
-    - attack.t1557.001
-    - attack.t1187
-falsepositives:
-    - Legitimate NTLM authentication from machine accounts during failover
-    - Cluster service machine account authentication
-```
+Coercion techniques (PetitPotam/MS-EFSRPC, DFSCoerce, PrinterBug) force a machine
+account -- often a domain controller -- to authenticate to the attacker for relay. The
+signal is a machine account (`TargetUserName` ending in `$`) authenticating via NTLM
+LogonType 3 from an IP that does not match its own host, especially relayed to AD CS or
+LDAP. Splunk, Sentinel KQL, and the Sigma rule for coerced machine-account relay: see
+[references/downgrade-coercion-dashboard-queries.md](references/downgrade-coercion-dashboard-queries.md).
 
 ### Step 8: Build Comprehensive Correlation Dashboard
 
-```spl
-# Splunk: NTLM Relay Detection Dashboard -- Combined Correlation Query
-
-# Panel 1: IP-Hostname Mismatches (Core Relay Indicator)
-index=wineventlog EventCode=4624 LogonType=3 AuthenticationPackageName="NTLM"
-| where TargetUserName != "ANONYMOUS LOGON" AND NOT match(TargetUserName, ".*\\$$")
-| eval mismatch=if(lower(WorkstationName) != lower(mvindex(split(IpAddress, "."), 0)),
-    "POSSIBLE_MISMATCH", "OK")
-| where mismatch="POSSIBLE_MISMATCH"
-| stats count by TargetUserName WorkstationName IpAddress ComputerName
-
-# Panel 2: NTLMv1 Downgrade Events
-index=wineventlog EventCode=4624 LmPackageName="NTLM V1"
-| timechart span=1h count by ComputerName
-
-# Panel 3: Machine Account Relay (PetitPotam Indicator)
-index=wineventlog EventCode=4624 LogonType=3 AuthenticationPackageName="NTLM"
-    TargetUserName="*$"
-| stats count values(IpAddress) as relay_sources by TargetUserName ComputerName
-
-# Panel 4: NTLM Authentication Volume Anomaly
-index=wineventlog EventCode=4624 LogonType=3 AuthenticationPackageName="NTLM"
-| timechart span=15m count
-| streamstats window=20 avg(count) as avg_count stdev(count) as stdev_count
-| eval upper_bound=avg_count + (3 * stdev_count)
-| where count > upper_bound
-
-# Panel 5: SMB Signing Status (from audit results)
-| inputlookup smb_signing_audit.csv
-| stats count by Status
-| table Status count
-```
+Combine the detections above into one dashboard: IP-hostname mismatches (core indicator),
+NTLMv1 downgrade events, machine-account relay (PetitPotam), NTLM volume anomalies, and
+SMB signing status from the audit CSV. The full multi-panel Splunk dashboard query: see
+[references/downgrade-coercion-dashboard-queries.md](references/downgrade-coercion-dashboard-queries.md).
 
 ## Key Concepts
 

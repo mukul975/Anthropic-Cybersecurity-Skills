@@ -1,26 +1,4 @@
 {
   "_comment": "Pre-existing lint failures, grandfathered so CI can gate new work today. This file may only shrink. Never add a slug by hand -- fix the skill, then run: python tools/lint-descriptions.py --update-baseline",
-  "_total_grandfathered": 20,
-  "body-max-lines": [
-    "building-automated-malware-submission-pipeline",
-    "building-identity-governance-lifecycle-process",
-    "detecting-anomalous-authentication-patterns",
-    "detecting-attacks-on-scada-systems",
-    "detecting-command-and-control-over-dns",
-    "detecting-living-off-the-land-attacks",
-    "detecting-modbus-command-injection-attacks",
-    "detecting-ntlm-relay-with-event-correlation",
-    "hunting-for-dcom-lateral-movement",
-    "implementing-data-loss-prevention-with-microsoft-purview",
-    "implementing-google-workspace-admin-security",
-    "implementing-hashicorp-vault-dynamic-secrets",
-    "implementing-iec-62443-security-zones",
-    "implementing-passwordless-auth-with-microsoft-entra",
-    "implementing-zero-trust-with-hashicorp-boundary",
-    "performing-graphql-introspection-attack",
-    "performing-ics-asset-discovery-with-claroty",
-    "performing-oauth-scope-minimization-review",
-    "performing-ot-network-security-assessment",
-    "performing-purple-team-atomic-testing"
-  ]
+  "_total_grandfathered": 0
 }

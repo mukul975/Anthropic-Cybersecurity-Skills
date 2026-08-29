@@ -231,107 +231,12 @@ Configure DLP policies that detect and protect sensitive content across Microsof
 
 Extend DLP protection to managed Windows and macOS endpoints to control file operations:
 
-- **Verify device onboarding**: Confirm devices are onboarded to Microsoft Purview endpoint DLP through Microsoft Intune or the local onboarding script:
-  ```powershell
-  # Check onboarding status via Intune Graph API
-  # GET https://graph.microsoft.com/beta/deviceManagement/managedDevices
-  # Filter for complianceState and dlpOnboardingStatus
+- **Verify device onboarding** through Microsoft Intune or the local onboarding script (on Windows, registry `OnboardingState` should be 1).
+- **Configure endpoint DLP global settings**: unallowed apps and Bluetooth apps, network share groups, and allowed/blocked sensitive service domains.
+- **Create endpoint-specific DLP rules** controlling copy-to-USB, copy-to-network-share, clipboard, print, cloud upload, and unallowed Bluetooth apps for sensitive content.
+- **Configure printer groups and USB device exceptions** to permit approved printers and encrypted USB devices by vendor/product ID.
 
-  # Local verification on Windows endpoint
-  # Check registry key:
-  # HKLM\SOFTWARE\Microsoft\Windows Advanced Threat Protection\Status
-  # OnboardingState should be 1
-  ```
-- **Configure endpoint DLP settings**: Define global settings that control which applications and file types endpoint DLP monitors:
-  ```powershell
-  # Configure unallowed apps (browsers, cloud sync clients)
-  Set-PolicyConfig -EndpointDlpGlobalSettings `
-    -UnallowedApps @(
-      @{Name="Chrome"; Executable="chrome.exe"},
-      @{Name="Firefox"; Executable="firefox.exe"},
-      @{Name="PersonalDropbox"; Executable="Dropbox.exe"}
-    )
-
-  # Configure unallowed Bluetooth apps
-  Set-PolicyConfig -EndpointDlpGlobalSettings `
-    -UnallowedBluetoothApps @(
-      @{Name="BluetoothFileTransfer"; Executable="fsquirt.exe"}
-    )
-
-  # Configure network share groups
-  Set-PolicyConfig -EndpointDlpGlobalSettings `
-    -NetworkShareGroups @(
-      @{
-        Name = "Authorized Shares";
-        NetworkPaths = @("\\server01\approved$", "\\server02\secure$")
-      }
-    )
-
-  # Configure sensitive service domains (allowed cloud destinations)
-  Set-PolicyConfig -EndpointDlpGlobalSettings `
-    -SensitiveServiceDomains @(
-      @{
-        Name = "Approved Cloud Storage";
-        Domains = @("sharepoint.com", "onedrive.com")
-        MatchType = "Allow"
-      },
-      @{
-        Name = "Blocked Cloud Storage";
-        Domains = @("dropbox.com", "box.com", "drive.google.com")
-        MatchType = "Block"
-      }
-    )
-  ```
-- **Create endpoint-specific DLP rules**: Define rules that control copy-to-USB, print, upload, and clipboard operations for sensitive content:
-  ```powershell
-  # Add endpoint location to existing policy
-  Set-DlpCompliancePolicy -Identity "Financial Data Protection" `
-    -EndpointDlpLocation "All"
-
-  # Create endpoint-specific rule
-  New-DlpComplianceRule -Name "Block USB Copy of Financial Data" `
-    -Policy "Financial Data Protection" `
-    -ContentContainsSensitiveInformation @{
-      Name = "Credit Card Number";
-      MinCount = 1;
-      MinConfidence = 85
-    } `
-    -EndpointDlpRestrictions @(
-      @{Setting="CopyToRemovableMedia"; Value="Block"},
-      @{Setting="CopyToNetworkShare"; Value="Audit"},
-      @{Setting="CopyToClipboard"; Value="Block"},
-      @{Setting="Print"; Value="Warn"},
-      @{Setting="UploadToCloudService"; Value="Block"},
-      @{Setting="UnallowedBluetoothApp"; Value="Block"}
-    ) `
-    -NotifyUser "LastModifier" `
-    -GenerateIncidentReport "SiteAdmin"
-  ```
-- **Configure printer groups and USB device exceptions**: Allow specific printers and approved USB devices while blocking unauthorized removable media:
-  ```powershell
-  # Define authorized USB devices by vendor/product ID
-  Set-PolicyConfig -EndpointDlpGlobalSettings `
-    -RemovableMediaGroups @(
-      @{
-        Name = "Approved Encrypted USBs";
-        Devices = @(
-          @{VendorId="0781"; ProductId="5583"; SerialNumber="*"}  # SanDisk Extreme
-        )
-      }
-    )
-
-  # Define authorized printers
-  Set-PolicyConfig -EndpointDlpGlobalSettings `
-    -PrinterGroups @(
-      @{
-        Name = "Corporate Printers";
-        Printers = @(
-          @{PrinterName="*Corporate*"; PrinterType="Corporate"},
-          @{PrinterName="PDF Printer"; PrinterType="Print to PDF"}
-        )
-      }
-    )
-  ```
+See [references/endpoint-dlp-configuration.md](references/endpoint-dlp-configuration.md) for the full PowerShell (`Set-PolicyConfig` global settings, endpoint rule creation, and printer/USB device group definitions).
 
 ### Step 4: Configure Auto-Labeling Policies
 
@@ -418,52 +323,7 @@ Use Activity Explorer and the DLP alerts dashboard to monitor policy effectivene
       TimeWindow = "00:05:00"
     }
   ```
-- **Query DLP events via Microsoft Graph API**: Programmatically retrieve DLP alerts and policy match details for integration with SIEM or custom dashboards:
-  ```python
-  import requests
-
-  # Authenticate with Microsoft Graph (client credentials flow)
-  token_url = "https://login.microsoftonline.com/{tenant_id}/oauth2/v2.0/token"
-  token_response = requests.post(token_url, data={
-      "client_id": client_id,
-      "client_secret": client_secret,
-      "scope": "https://graph.microsoft.com/.default",
-      "grant_type": "client_credentials"
-  })
-  access_token = token_response.json()["access_token"]
-
-  headers = {"Authorization": f"Bearer {access_token}"}
-
-  # Retrieve DLP alerts
-  alerts_url = "https://graph.microsoft.com/v1.0/security/alerts_v2"
-  params = {
-      "$filter": "serviceSource eq 'microsoftDataLossPrevention'",
-      "$top": 50,
-      "$orderby": "createdDateTime desc"
-  }
-  response = requests.get(alerts_url, headers=headers, params=params)
-  alerts = response.json().get("value", [])
-
-  for alert in alerts:
-      print(f"Alert: {alert['title']}")
-      print(f"  Severity: {alert['severity']}")
-      print(f"  Status: {alert['status']}")
-      print(f"  Created: {alert['createdDateTime']}")
-      print(f"  User: {alert.get('userStates', [{}])[0].get('userPrincipalName', 'N/A')}")
-  ```
-- **Retrieve DLP policy match details for compliance reporting**: Use the unified audit log to extract granular DLP match data including the matched content, SIT type, and confidence level:
-  ```powershell
-  # Search unified audit log for DLP policy matches
-  Search-UnifiedAuditLog -StartDate (Get-Date).AddDays(-7) `
-    -EndDate (Get-Date) `
-    -RecordType "DLP" `
-    -ResultSize 1000 |
-    Select-Object CreationDate, UserIds, Operations,
-      @{N='PolicyName';E={($_.AuditData | ConvertFrom-Json).PolicyDetails.PolicyName}},
-      @{N='RuleName';E={($_.AuditData | ConvertFrom-Json).PolicyDetails.Rules.RuleName}},
-      @{N='SITMatched';E={($_.AuditData | ConvertFrom-Json).SensitiveInfoDetections.SensitiveType}} |
-    Export-Csv -Path "DLP_Audit_Report.csv" -NoTypeInformation
-  ```
+- **Retrieve DLP events programmatically**: query DLP alerts via the Microsoft Graph Security API (`security/alerts_v2`) and extract granular match metadata from the unified audit log (RecordType "DLP") for SIEM integration and compliance reporting. See [references/dlp-monitoring-and-reporting.md](references/dlp-monitoring-and-reporting.md) for the Graph API Python client and the `Search-UnifiedAuditLog` PowerShell export.
 
 ## Key Concepts
 
