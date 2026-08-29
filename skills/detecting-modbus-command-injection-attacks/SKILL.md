@@ -1,6 +1,6 @@
 ---
 name: detecting-modbus-command-injection-attacks
-description: Detect command injection against Modbus TCP/RTU in ICS/SCADA environments by monitoring unauthorized writes, anomalous function codes, malformed frames, and deviations from communication baselines using ICS-aware IDS and deep packet inspection. Use when deploying IDS for Modbus OT networks, investigating unauthorized PLC register/coil changes, or responding to FrostyGoop-style Modbus attacks.
+description: Detect command injection against Modbus TCP/RTU in ICS/SCADA environments by monitoring unauthorized writes, anomalous function codes, malformed frames, and deviations from communication baselines using ICS-aware IDS and deep packet inspection. Use when deploying IDS for Modbus OT networks, investigating unauthorized PLC register/coil changes, or responding to FrostyGoop-style Modbus attacks. Do not use for broad Modbus traffic baselining and anomaly monitoring covering reconnaissance and denial-of-service - use monitoring-scada-modbus-traffic-anomalies.
 domain: cybersecurity
 subdomain: ot-ics-security
 tags:

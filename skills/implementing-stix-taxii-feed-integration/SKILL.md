@@ -1,10 +1,6 @@
 ---
 name: implementing-stix-taxii-feed-integration
-description: Implements a STIX 2.1/TAXII 2.1 threat-intelligence feed consumer and
-  producer in Python, covering TAXII server discovery, collection polling, parsing
-  STIX bundles with the stix2 library, and standing up a local TAXII server with Medallion.
-  Use when integrating a STIX/TAXII CTI feed into a SIEM or TIP, writing a TAXII client
-  to poll for new indicators, or setting up TAXII collections for indicator exchange.
+description: Implements a STIX 2.1/TAXII 2.1 threat-intelligence feed consumer and producer in Python, covering TAXII server discovery, collection polling, parsing STIX bundles with the stix2 library, and standing up a local TAXII server with Medallion. Use when integrating a STIX/TAXII CTI feed into a SIEM or TIP, writing a TAXII client to poll for new indicators, or setting up TAXII collections for indicator exchange. Do not use for a Docker-based OpenTAXII server deployment focused on hosting and organization-to-organization sharing - use implementing-taxii-server-with-opentaxii.
 domain: cybersecurity
 subdomain: threat-intelligence
 tags:

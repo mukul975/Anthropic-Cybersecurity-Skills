@@ -1,14 +1,6 @@
 ---
 name: executing-phishing-simulation-campaign
-description: 'Executes authorized phishing simulation campaigns to assess an organization''s
-  susceptibility to email-based social engineering attacks. The tester designs realistic
-  phishing scenarios, builds credential harvesting infrastructure, sends targeted
-  phishing emails, and tracks open rates, click-through rates, and credential submission
-  rates to measure human security awareness. Activates for requests involving phishing
-  simulation, social engineering assessment, email security testing, or security awareness
-  measurement.
-
-  '
+description: Executes authorized phishing simulation campaigns to assess an organization's susceptibility to email-based social engineering, designing realistic phishing scenarios, building credential-harvesting infrastructure, sending targeted phishing emails, and tracking open rates, click-through rates, and credential submission rates to measure human security awareness. Use when running a tool-agnostic phishing simulation or social-engineering penetration-testing assessment not tied to a specific platform. Do not use for GoPhish-specific admin panel and campaign setup - use performing-phishing-simulation-with-gophish.
 domain: cybersecurity
 subdomain: penetration-testing
 tags:

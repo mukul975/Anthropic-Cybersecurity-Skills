@@ -1,14 +1,6 @@
 ---
 name: conducting-wireless-network-penetration-test
-description: 'Conducts authorized wireless network penetration tests to assess the
-  security of WiFi infrastructure by testing for weak encryption protocols, captive
-  portal bypasses, evil twin attacks, WPA2/WPA3 handshake capture, rogue access point
-  detection, and client-side attacks. The tester evaluates wireless authentication,
-  network segmentation, and the effectiveness of wireless intrusion detection systems.
-  Activates for requests involving wireless pentest, WiFi security assessment, WPA2/WPA3
-  testing, or rogue access point detection.
-
-  '
+description: 'Conducts authorized wireless network penetration tests assessing WiFi infrastructure through weak-encryption testing, captive portal bypass, evil twin attacks, WPA2/WPA3 handshake capture, WPA2-Enterprise rogue RADIUS credential capture, rogue access point detection, and post-compromise wireless-to-wired segmentation testing. Use when scoping a full methodology-driven WiFi engagement evaluating authentication, network segmentation, and WIDS/WIPS effectiveness. Do not use for the WPS/Reaver and Kismet command walkthrough of the same wireless pentest - use performing-wireless-network-penetration-test.'
 domain: cybersecurity
 subdomain: penetration-testing
 tags:

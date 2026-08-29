@@ -1,11 +1,6 @@
 ---
 name: analyzing-tls-certificate-transparency-logs
-description: 'Queries Certificate Transparency logs via crt.sh and pycrtsh to detect
-  phishing domains, unauthorized certificate issuance, and shadow IT. Monitors newly
-  issued certificates for typosquatting and brand impersonation using Levenshtein
-  distance. Use for proactive phishing domain detection and certificate monitoring.
-
-  '
+description: Queries Certificate Transparency logs via crt.sh and pycrtsh to detect phishing domains, unauthorized certificate issuance, and shadow IT, scoring newly issued certificates for typosquatting and brand impersonation using Levenshtein distance. Use when performing proactive phishing domain detection and certificate monitoring through scripted crt.sh and pycrtsh queries. Do not use for real-time Certstream log streaming and lookalike-domain takedown monitoring - use analyzing-certificate-transparency-for-phishing.
 domain: cybersecurity
 subdomain: security-operations
 tags:

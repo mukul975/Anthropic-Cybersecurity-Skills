@@ -1,9 +1,6 @@
 ---
 name: performing-active-directory-bloodhound-analysis
-description: Use BloodHound and SharpHound (or AzureHound) to enumerate Active Directory
-  relationships and graph attack paths from a compromised user to Domain Admin. Use
-  when performing AD red-team reconnaissance, mapping privilege-escalation chains
-  from group memberships, ACLs, and trusts, or auditing AD for exploitable misconfigurations.
+description: Use BloodHound and SharpHound (or AzureHound) to enumerate Active Directory relationships and graph attack paths from a compromised user to Domain Admin. Use when performing tool-agnostic AD red-team reconnaissance, mapping privilege-escalation chains from group memberships, ACLs, and trusts, or auditing AD for exploitable misconfigurations. Do not use for a BloodHound Community Edition deployment with AzureHound Entra ID collection - use conducting-internal-reconnaissance-with-bloodhound-ce.
 domain: cybersecurity
 subdomain: red-teaming
 tags:

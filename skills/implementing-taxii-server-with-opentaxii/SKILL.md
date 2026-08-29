@@ -1,10 +1,6 @@
 ---
 name: implementing-taxii-server-with-opentaxii
-description: Deploy and configure a TAXII 2.1 server (Medallion) with Docker, publish
-  and consume STIX 2.1 bundles across collections, and integrate the feed with SIEM/SOAR
-  platforms for automated indicator exchange between organizations. Use when standing
-  up a TAXII server to share threat intel, configuring collections for CTI feeds,
-  or automating STIX indicator ingestion into a SIEM/SOAR.
+description: Deploy and configure a TAXII 2.1 server (Medallion) with Docker, publish and consume STIX 2.1 bundles across collections, and integrate the feed with SIEM/SOAR platforms for automated indicator exchange between organizations. Use when standing up a TAXII server to share threat intel, configuring collections for CTI feeds, or automating STIX indicator ingestion into a SIEM/SOAR. Do not use for writing a Python stix2 client to consume and parse feeds into a SIEM or TIP - use implementing-stix-taxii-feed-integration.
 domain: cybersecurity
 subdomain: threat-intelligence
 tags:

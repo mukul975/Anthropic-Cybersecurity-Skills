@@ -1,13 +1,6 @@
 ---
 name: implementing-policy-as-code-with-open-policy-agent
-description: 'Implements policy-as-code enforcement with Open Policy Agent (OPA)
-  and Gatekeeper for Kubernetes and CI/CD pipelines, covering writing Rego policies,
-  deploying OPA Gatekeeper as a Kubernetes admission controller, testing policies
-  in development, and integrating policy evaluation into deployment pipelines. Use
-  when writing Rego policies, deploying Gatekeeper admission control, or gating
-  CI/CD pipelines with policy-as-code checks.
-
-  '
+description: Implements policy-as-code enforcement with Open Policy Agent (OPA) and Gatekeeper across Kubernetes and CI/CD pipelines, covering writing Rego policies, deploying OPA Gatekeeper as a Kubernetes admission controller, testing policies in development, and integrating policy evaluation into deployment pipelines. Use when writing Rego policies, deploying Gatekeeper admission control, or gating CI/CD pipelines with policy-as-code checks. Do not use for a focused OPA Gatekeeper Kubernetes admission-controller deployment with ConstraintTemplates - use implementing-opa-gatekeeper-for-policy-enforcement.
 domain: cybersecurity
 subdomain: devsecops
 tags:

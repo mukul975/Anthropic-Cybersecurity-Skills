@@ -1,12 +1,6 @@
 ---
 name: performing-purple-team-atomic-testing
-description: 'Executes Atomic Red Team tests mapped to MITRE ATT&CK via Invoke-AtomicRedTeam
-  PowerShell, generates ATT&CK Navigator coverage heatmaps, correlates results against
-  Sigma rules, and runs detection validation loops to measure blue team visibility.
-  Use for purple team exercises, atomic test execution, ATT&CK coverage assessment,
-  or detection engineering validation.
-
-  '
+description: Executes Atomic Red Team tests mapped to MITRE ATT&CK via Invoke-AtomicRedTeam PowerShell, generates ATT&CK Navigator coverage heatmaps, correlates results against Sigma rules, and runs detection validation loops to measure blue team visibility. Use for purple team exercises that pair Invoke-AtomicRedTeam atomic execution with Sigma rule correlation and Navigator coverage scoring. Do not use for running atomics from the atomic-operator Python framework - use performing-threat-emulation-with-atomic-red-team.
 domain: cybersecurity
 subdomain: purple-team
 tags:

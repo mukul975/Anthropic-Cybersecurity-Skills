@@ -1,11 +1,6 @@
 ---
 name: verifying-build-provenance-with-slsa-sigstore
-description: Verifies artifact signatures and SLSA provenance using Sigstore's
-  cosign (verify, verify-attestation, verify-blob-attestation) and slsa-verifier
-  (verify-artifact), enforcing keyless OIDC builder identity and source repo against
-  SLSA Build levels. Use in CI/CD before deploying artifacts, when consuming third-party
-  attestations, establishing a SLSA Build L3 pipeline, or confirming provenance
-  during incident response or admission control.
+description: Verifies artifact signatures and SLSA provenance using Sigstore's cosign (verify, verify-attestation, verify-blob-attestation) and slsa-verifier (verify-artifact), enforcing keyless OIDC builder identity and source repo against SLSA Build levels. Use when verifying artifacts in CI/CD before deployment, consuming third-party attestations, establishing a SLSA Build L3 pipeline, or confirming provenance during incident response or admission control. Do not use for producing image signatures and attestations or enforcing them at Kubernetes admission - use implementing-image-provenance-verification-with-cosign.
 domain: cybersecurity
 subdomain: supply-chain-security
 tags:

@@ -1,10 +1,6 @@
 ---
 name: testing-for-json-web-token-vulnerabilities
-description: Tests JWT implementations for algorithm confusion, "none" algorithm bypass,
-  kid/jku parameter injection, and weak secret exploitation using jwt_tool and Burp Suite's
-  JWT Editor extension, aiming to achieve authentication bypass and privilege escalation.
-  Use when assessing JWT-based auth/session management, OAuth2/OIDC token handling, or
-  SSO systems during a security engagement.
+description: Tests JWT implementations for algorithm confusion (RS256 to HS256), none-algorithm bypass, kid parameter injection, jku and x5u header injection, and weak-secret cracking using jwt_tool, hashcat, and Burp Suite's JWT Editor extension, aiming to achieve authentication bypass and privilege escalation. Use when you need a step-by-step attack playbook covering JWT header-injection and signature-forgery techniques during a web or API security engagement. Do not use for a broad JWT assessment spanning OAuth, OIDC, SSO, and microservice token handling - use testing-jwt-token-security.
 domain: cybersecurity
 subdomain: web-application-security
 tags:

@@ -1,6 +1,6 @@
 ---
 name: detecting-dns-exfiltration-with-dns-query-analysis
-description: Detect data exfiltration via DNS tunneling (tools like iodine, dnscat2, dns2tcp) by analyzing query entropy, subdomain length, query volume to single domains, TXT/CNAME/NULL record abuse, and oversized response payloads using passive DNS monitoring and statistical/ML methods. Use when hunting for covert DNS-based data exfiltration or building a passive DNS anomaly detection capability.
+description: Detect data exfiltration via DNS tunneling (tools like iodine, dnscat2, dns2tcp) by analyzing query entropy, subdomain length, query volume to single domains, TXT/CNAME/NULL record abuse, and oversized response payloads using passive DNS monitoring and statistical/ML methods. Use when hunting for covert DNS-based data exfiltration with tool-agnostic passive DNS query-log analysis or building a passive DNS anomaly detection capability. Do not use for Zeek-dns.log-based DNS tunneling threat hunting - use hunting-for-dns-tunneling-with-zeek.
 domain: cybersecurity
 subdomain: network-security
 tags:

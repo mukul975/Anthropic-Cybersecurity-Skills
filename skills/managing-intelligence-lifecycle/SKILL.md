@@ -1,14 +1,6 @@
 ---
 name: managing-intelligence-lifecycle
-description: 'Manages the end-to-end cyber threat intelligence lifecycle from planning
-  and direction through collection, processing, analysis, dissemination, and feedback
-  to ensure intelligence products meet stakeholder requirements and continuously improve.
-  Use when establishing or maturing a CTI program, defining intelligence requirements
-  with business stakeholders, or building feedback loops between intelligence consumers
-  and producers. Activates for requests involving CTI program maturity, intelligence
-  requirements, PIRs, or intelligence lifecycle management.
-
-  '
+description: Manages the end-to-end cyber threat intelligence lifecycle from planning and direction through collection, processing, analysis, dissemination, and feedback to ensure intelligence products meet stakeholder requirements and continuously improve. Use when establishing or maturing a CTI program, defining intelligence requirements and PIRs with business stakeholders, or building feedback loops between intelligence consumers and producers under NIST SP 800-150. Do not use for engineering the collection-to-dissemination data pipeline and normalization workflow - use implementing-threat-intelligence-lifecycle-management.
 domain: cybersecurity
 subdomain: threat-intelligence
 tags:

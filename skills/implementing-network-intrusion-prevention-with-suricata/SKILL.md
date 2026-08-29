@@ -1,10 +1,6 @@
 ---
 name: implementing-network-intrusion-prevention-with-suricata
-description: Deploys and configures Suricata as an inline network intrusion prevention system,
-  covering IPS mode setup (NFQueue), custom rule writing, Emerging Threats ruleset
-  management, performance tuning, and logging integration. Use when deploying real-time
-  inline traffic inspection to actively block malicious traffic, or when tuning
-  Suricata rules and performance for production IDS/IPS deployment.
+description: 'Deploys Suricata as an inline network intrusion prevention system covering IPS mode setup with NFQueue and AF_PACKET bridge, drop and reject rule writing, Emerging Threats ruleset management, threshold and suppress tuning, and logging integration. Use when deploying real-time inline blocking of malicious traffic and tuning drop rules and performance for a production IPS. Do not use for passive IDS monitoring and protocol metadata logging with visibility as the goal - use configuring-suricata-for-network-monitoring.'
 domain: cybersecurity
 subdomain: network-security
 tags:

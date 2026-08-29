@@ -1,8 +1,6 @@
 ---
 name: testing-jwt-token-security
-description: Assessing JSON Web Token implementations for cryptographic weaknesses,
-  algorithm confusion attacks, and authorization bypass vulnerabilities during security
-  engagements.
+description: Assesses JSON Web Token implementations for cryptographic weaknesses, algorithm-confusion attacks, weak HMAC secrets, and authorization-bypass flaws using jwt_tool, PyJWT, hashcat, and Burp Suite's JWT extension, including review of sensitive claims and PII in the payload. Use when evaluating JWT usage broadly across API Bearer tokens, cookies, SSO, OAuth 2.0 and OpenID Connect flows, and inter-service microservice authentication. Do not use for a focused header-injection and signature-forgery attack playbook (kid, jku, x5u) - use testing-for-json-web-token-vulnerabilities.
 domain: cybersecurity
 subdomain: web-application-security
 tags:

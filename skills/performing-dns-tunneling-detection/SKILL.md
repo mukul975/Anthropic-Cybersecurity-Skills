@@ -1,12 +1,6 @@
 ---
 name: performing-dns-tunneling-detection
-description: 'Detects DNS tunneling by computing Shannon entropy of DNS query names,
-  analyzing query length distributions, inspecting TXT record payloads, and identifying
-  high subdomain cardinality. Uses scapy for packet capture analysis and statistical
-  methods to distinguish legitimate DNS from covert channels. Use when hunting for
-  data exfiltration.
-
-  '
+description: Detects DNS tunneling by computing Shannon entropy of DNS query names, analyzing query length distributions, inspecting TXT record payloads, and identifying high subdomain cardinality. Uses scapy for packet capture analysis and statistical methods to distinguish legitimate DNS from covert channels. Use when hunting for data exfiltration in raw packet captures with scapy. Do not use for passive DNS query-log or statistical/ML exfiltration analysis - use detecting-dns-exfiltration-with-dns-query-analysis.
 domain: cybersecurity
 subdomain: security-operations
 tags:

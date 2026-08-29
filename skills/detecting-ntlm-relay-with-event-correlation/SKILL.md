@@ -1,6 +1,6 @@
 ---
 name: detecting-ntlm-relay-with-event-correlation
-description: Detect NTLM relay attacks (T1557.001) by correlating Windows Event 4624 LogonType 3 for IP-to-hostname mismatches, identifying Responder/LLMNR poisoning artifacts, auditing SMB/LDAP signing, and flagging NTLMv2-to-NTLMv1 downgrades. Use for hunting credential relay in NTLM-enabled AD, investigating auth-source anomalies, building SIEM correlation rules, or responding to PetitPotam/DFSCoerce/PrinterBug alerts.
+description: Detect NTLM relay attacks (T1557.001) by correlating Windows Event 4624 LogonType 3 for IP-to-hostname mismatches, identifying Responder/LLMNR poisoning artifacts, auditing SMB/LDAP signing, and flagging NTLMv2-to-NTLMv1 downgrades across Splunk SPL, Sentinel KQL, Sigma rules, and PowerShell audits. Use when building multi-platform SIEM correlation rules and dashboards for credential relay in NTLM-enabled AD or responding to PetitPotam/DFSCoerce/PrinterBug alerts. Do not use for the lightweight Python-script hunt emitting a JSON relay report - use hunting-for-ntlm-relay-attacks.
 domain: cybersecurity
 subdomain: threat-hunting
 tags:

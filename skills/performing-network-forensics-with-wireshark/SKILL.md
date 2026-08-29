@@ -1,6 +1,6 @@
 ---
 name: performing-network-forensics-with-wireshark
-description: Capture and analyze network traffic using Wireshark and tshark to reconstruct network events from PCAP/PCAPNG files, extract transferred files and credentials, and identify command-and-control communications. Use when analyzing captured traffic from a security incident, reconstructing data exfiltration, or finding network indicators of compromise during malware analysis.
+description: Capture and analyze network traffic using Wireshark and tshark to reconstruct network events from PCAP/PCAPNG files, extract transferred files and credentials, and identify command-and-control communications. Use when analyzing captured traffic with Wireshark and tshark to reconstruct data exfiltration, extract credentials, or find network indicators of compromise during malware analysis. Do not use for tcpdump-based multi-tool PCAP evidence workflows proving incident facts - use performing-network-packet-capture-analysis.
 domain: cybersecurity
 subdomain: digital-forensics
 tags:
