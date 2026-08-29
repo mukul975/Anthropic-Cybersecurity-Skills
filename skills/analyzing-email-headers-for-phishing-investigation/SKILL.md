@@ -1,10 +1,6 @@
 ---
 name: analyzing-email-headers-for-phishing-investigation
-description: Parse and analyze email headers (Received chain, Return-Path, Message-ID)
-  to trace the true origin of a phishing email and validate SPF, DKIM, and DMARC
-  results to confirm or rule out sender spoofing. Use when triaging a suspicious or
-  reported email, investigating a phishing incident, or verifying whether a message's
-  sender domain was spoofed.
+description: Parse and analyze email headers (Received chain, Return-Path, Message-ID) to trace the true origin of a phishing email and validate SPF, DKIM, and DMARC results to confirm or rule out sender spoofing. Use when triaging a suspicious or reported email, investigating a phishing incident, or verifying whether a message's sender domain was spoofed. Do not use for deploying SPF, DKIM, and DMARC email authentication controls - use implementing-dmarc-dkim-spf-email-security.
 domain: cybersecurity
 subdomain: digital-forensics
 tags:

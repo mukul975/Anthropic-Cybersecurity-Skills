@@ -1,11 +1,6 @@
 ---
 name: implementing-soar-playbook-with-palo-alto-xsoar
-description: Build automated incident response playbooks in Cortex XSOAR (Demisto)
-  using its YAML playbook structure, integration commands, and task types to orchestrate
-  phishing, malware, account-compromise, and DDoS response workflows across SOC tools.
-  Use when authoring or wiring up an XSOAR playbook, adding custom XSOAR integration
-  commands or Python automation scripts, or reducing manual SOC response time via
-  orchestration.
+description: Build automated incident response playbooks in Cortex XSOAR (Demisto) using its YAML playbook structure, integration commands, and task types to orchestrate phishing, malware, account-compromise, and DDoS response workflows across SOC tools. Use when authoring or wiring up an XSOAR playbook, adding custom XSOAR integration commands or Python automation scripts, or reducing manual SOC response time via orchestration. Do not use for a phishing-specific SOAR response playbook - use implementing-soar-playbook-for-phishing.
 domain: cybersecurity
 subdomain: soc-operations
 tags:

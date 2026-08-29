@@ -1,10 +1,6 @@
 ---
 name: analyzing-web-server-logs-for-intrusion
-description: Parse Apache and Nginx access logs to detect SQL injection attempts,
-  local file inclusion, directory traversal, web scanner fingerprints, and brute-force
-  patterns. Uses regex-based pattern matching against OWASP attack signatures, GeoIP
-  enrichment for source attribution, and statistical anomaly detection for request
-  frequency and response size outliers.
+description: 'Parse Apache and Nginx access logs to detect SQL injection attempts, local file inclusion, directory traversal, web scanner fingerprints, and brute-force patterns. Uses regex-based pattern matching against OWASP attack signatures, GeoIP enrichment for source attribution, and statistical anomaly detection for request frequency and response size outliers. Use when investigating intrusions or attack attempts recorded in web server access logs. Do not use for actively testing a web application for directory traversal - use performing-directory-traversal-testing.'
 domain: cybersecurity
 subdomain: security-operations
 tags:

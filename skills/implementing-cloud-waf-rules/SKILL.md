@@ -1,12 +1,6 @@
 ---
 name: implementing-cloud-waf-rules
-description: 'Deploys and tunes Web Application Firewall rules on AWS WAF, Azure WAF,
-  and Cloudflare, covering managed rule sets, custom business-logic rules, rate limiting,
-  bot management, and false-positive reduction. Use when deploying new apps behind
-  a cloud WAF, when pentests reveal injection/XSS flaws, when facing bot or credential-stuffing
-  traffic, or when compliance (e.g. PCI-DSS) mandates a WAF.
-
-  '
+description: Deploys and tunes Web Application Firewall rules on AWS WAF, Azure WAF, and Cloudflare, covering managed rule sets, custom business-logic rules, rate limiting, bot management, and false-positive reduction. Use when deploying new apps behind a cloud WAF, when pentests reveal injection/XSS flaws, when facing bot or credential-stuffing traffic, or when compliance (e.g. PCI-DSS) mandates a WAF. Do not use for protecting AWS API Gateway endpoints specifically - use securing-api-gateway-with-aws-waf.
 domain: cybersecurity
 subdomain: cloud-security
 tags:

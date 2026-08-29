@@ -1,8 +1,6 @@
 ---
 name: testing-cors-misconfiguration
-description: Identifying and exploiting Cross-Origin Resource Sharing misconfigurations
-  that allow unauthorized cross-domain data access and credential theft during security
-  assessments.
+description: Identifying and exploiting Cross-Origin Resource Sharing misconfigurations that allow unauthorized cross-domain data access and credential theft during security assessments. Use when reviewing CORS response headers, wildcard or reflected Origin policies, and credentialed cross-origin requests during a web application penetration test. Do not use for broad review of all HTTP security response headers - use performing-security-headers-audit.
 domain: cybersecurity
 subdomain: web-application-security
 tags:

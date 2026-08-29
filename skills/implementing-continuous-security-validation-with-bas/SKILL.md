@@ -1,10 +1,6 @@
 ---
 name: implementing-continuous-security-validation-with-bas
-description: Deploys Breach and Attack Simulation (BAS) platforms such as SafeBreach,
-  AttackIQ, Picus, Cymulate, Pentera, or SCYTHE to continuously validate endpoint,
-  network, email-gateway, SIEM, and incident-response effectiveness by safely emulating
-  MITRE ATT&CK techniques. Use when moving beyond point-in-time pentesting to continuous
-  control validation, or standing up automated adversary emulation.
+description: Deploys Breach and Attack Simulation (BAS) platforms such as SafeBreach, AttackIQ, Picus, Cymulate, Pentera, or SCYTHE to continuously validate endpoint, network, email-gateway, SIEM, and incident-response effectiveness by safely emulating MITRE ATT&CK techniques. Use when moving beyond point-in-time pentesting to continuous control validation, or standing up automated adversary emulation. Do not use for mapping attack paths and choke points across the environment - use implementing-attack-path-analysis-with-xm-cyber.
 domain: cybersecurity
 subdomain: vulnerability-management
 tags:

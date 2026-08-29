@@ -1,11 +1,6 @@
 ---
 name: detecting-shadow-it-cloud-usage
-description: Detect unauthorized SaaS and cloud service usage (shadow IT) by parsing
-  proxy access logs, DNS query logs, and firewall/netflow data with Python pandas
-  to aggregate traffic by domain, classify domains against known SaaS categories,
-  and score risk by data volume and user count. Use when auditing an organization
-  for unsanctioned cloud/SaaS usage or generating a shadow IT discovery report
-  with remediation recommendations.
+description: Detect unauthorized SaaS and cloud service usage (shadow IT) by parsing proxy access logs, DNS query logs, and firewall/netflow data with Python pandas to aggregate traffic by domain, classify domains against known SaaS categories, and score risk by data volume and user count. Use when auditing an organization for unsanctioned cloud/SaaS usage or generating a shadow IT discovery report with remediation recommendations. Do not use for enforcing zero-trust access controls over sanctioned SaaS applications - use implementing-zero-trust-for-saas-applications.
 domain: cybersecurity
 subdomain: cloud-security
 tags:

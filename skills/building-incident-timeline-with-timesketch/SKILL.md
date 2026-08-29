@@ -1,10 +1,6 @@
 ---
 name: building-incident-timeline-with-timesketch
-description: Build collaborative forensic incident timelines using Timesketch to ingest,
-  normalize, and analyze multi-source event data (including Plaso output) for attack
-  chain reconstruction and investigation documentation. Use when reconstructing the
-  sequence of events during an incident investigation or when multiple analysts need
-  to jointly tag, annotate, and search a shared DFIR timeline.
+description: Build collaborative forensic incident timelines using Timesketch to ingest, normalize, and analyze multi-source event data (including Plaso output) for attack chain reconstruction and investigation documentation. Use when reconstructing the sequence of events during an incident investigation or when multiple analysts need to jointly tag, annotate, and search a shared DFIR timeline. Do not use for generating the raw super timeline from disk and system artifacts with Plaso before ingestion - use building-super-timelines-with-plaso.
 domain: cybersecurity
 subdomain: incident-response
 tags:

@@ -1,12 +1,6 @@
 ---
 name: implementing-log-integrity-with-blockchain
-description: >-
-  Builds an append-only log integrity chain using SHA-256 hash chaining, where
-  each entry incorporates the previous entry's hash so tampering invalidates all
-  subsequent hashes; covers log ingestion (syslog/JSON/plain text), chain
-  verification, pinpoint tamper detection, and checkpoint anchoring to external
-  timestamping services. Use for tamper-evident log storage for compliance or
-  forensics, or to verify whether log entries were altered.
+description: 'Builds an append-only log integrity chain using SHA-256 hash chaining, where each entry incorporates the previous entry''s hash so tampering invalidates all subsequent hashes; covers log ingestion (syslog/JSON/plain text), chain verification, pinpoint tamper detection, and checkpoint anchoring to external timestamping services. Use when building tamper-evident log storage for compliance or forensics, or to verify whether log entries were altered. Do not use for investigating Linux system logs during a forensic case - use performing-linux-log-forensics-investigation.'
 domain: cybersecurity
 subdomain: security-operations
 tags:

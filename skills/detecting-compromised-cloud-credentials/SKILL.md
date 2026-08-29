@@ -1,12 +1,6 @@
 ---
 name: detecting-compromised-cloud-credentials
-description: 'Detect compromised cloud credentials across AWS, Azure, and GCP by analyzing
-  anomalous API activity, impossible-travel patterns, and credential-stuffing indicators
-  using GuardDuty, Microsoft Defender for Identity, and Google SCC Event Threat Detection.
-  Use when investigating alerts about cloud API activity from unfamiliar locations,
-  responding to an exposed-credential notification, or scoping a credential compromise.
-
-  '
+description: Detect compromised cloud credentials across AWS, Azure, and GCP by analyzing anomalous API activity, impossible-travel patterns, and credential-stuffing indicators using GuardDuty, Microsoft Defender for Identity, and Google SCC Event Threat Detection. Use when investigating alerts about cloud API activity from unfamiliar locations, responding to an exposed-credential notification, or scoping a credential compromise. Do not use for on-premises or generic anomalous authentication pattern detection - use detecting-anomalous-authentication-patterns.
 domain: cybersecurity
 subdomain: cloud-security
 tags:

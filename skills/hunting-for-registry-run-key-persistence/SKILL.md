@@ -1,7 +1,6 @@
 ---
 name: hunting-for-registry-run-key-persistence
-description: Detect MITRE ATT&CK T1547.001 registry Run key persistence by analyzing
-  Sysmon Event ID 13 logs and registry queries to identify malicious auto-start entries.
+description: Detect MITRE ATT&CK T1547.001 registry Run key persistence by analyzing Sysmon Event ID 13 logs and registry queries to identify malicious auto-start entries. Use when hunting specifically for Run/RunOnce key auto-start entries or triaging Sysmon Event ID 13 registry-value writes. Do not use for broader registry persistence beyond Run keys such as Winlogon, IFEO, or COM hijacking - use hunting-for-registry-persistence-mechanisms.
 domain: cybersecurity
 subdomain: threat-hunting
 tags:

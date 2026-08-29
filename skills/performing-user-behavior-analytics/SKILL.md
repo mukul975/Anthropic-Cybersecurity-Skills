@@ -1,12 +1,6 @@
 ---
 name: performing-user-behavior-analytics
-description: 'Performs User and Entity Behavior Analytics (UEBA) to detect anomalous
-  user activities including impossible travel, unusual access patterns, privilege
-  abuse, and insider threats using SIEM-based behavioral baselines and statistical
-  analysis. Use when SOC teams need to identify compromised accounts or insider threats
-  through deviation from established behavioral norms.
-
-  '
+description: Performs User and Entity Behavior Analytics (UEBA) to detect anomalous user activities including impossible travel, unusual access patterns, privilege abuse, and insider threats using SIEM-based behavioral baselines and statistical analysis. Use when SOC teams need to identify compromised accounts or insider threats through deviation from established behavioral norms. Do not use for DLP-based insider data exfiltration detection - use detecting-insider-data-exfiltration-via-dlp.
 domain: cybersecurity
 subdomain: soc-operations
 tags:

@@ -1,12 +1,6 @@
 ---
 name: configuring-pfsense-firewall-rules
-description: 'Configures pfSense firewall rules, NAT policies, IPsec/OpenVPN tunnels,
-  and traffic shaping to enforce network segmentation and control traffic between
-  zones such as DMZ, internal, guest, and IoT. Use when deploying a pfSense perimeter
-  or internal firewall, setting up port-forwarding NAT, configuring site-to-site
-  or remote-access VPNs, or applying QoS/bandwidth policies.
-
-  '
+description: Configures pfSense firewall rules, NAT policies, IPsec/OpenVPN tunnels, and traffic shaping to enforce network segmentation and control traffic between zones such as DMZ, internal, guest, and IoT. Use when deploying a pfSense perimeter or internal firewall, setting up port-forwarding NAT, configuring site-to-site or remote-access VPNs, or applying QoS/bandwidth policies. Do not use for 802.1Q VLAN segmentation on managed switches - use configuring-network-segmentation-with-vlans.
 domain: cybersecurity
 subdomain: network-security
 tags:

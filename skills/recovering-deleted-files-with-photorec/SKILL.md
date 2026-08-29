@@ -1,9 +1,6 @@
 ---
 name: recovering-deleted-files-with-photorec
-description: Recovers deleted files from disk images and storage media using PhotoRec's
-  file signature-based carving engine, which works regardless of file system damage
-  or corruption. Use when recovering deleted or lost files from a forensic disk
-  image, damaged storage device, or corrupted file system during evidence recovery.
+description: Recovers deleted files from disk images and storage media using PhotoRec's file signature-based carving engine, which works regardless of file system damage or corruption. Use when recovering deleted or lost files from a forensic disk image, damaged storage device, or corrupted file system during evidence recovery. Do not use for signature-based file carving with Foremost - use performing-file-carving-with-foremost.
 domain: cybersecurity
 subdomain: digital-forensics
 tags:

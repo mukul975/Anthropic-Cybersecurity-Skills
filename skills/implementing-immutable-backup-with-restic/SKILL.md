@@ -1,12 +1,6 @@
 ---
 name: implementing-immutable-backup-with-restic
-description: 'Implements ransomware-resistant backups using restic with S3-compatible
-  Object Lock (AWS S3, MinIO, Backblaze B2), automating backup creation, integrity
-  checks via restic check --read-data, retention enforcement, and restore testing.
-  Use when building immutable backup infrastructure, adding a WORM copy to a
-  3-2-1-1-0 strategy, or automating scheduled backup-verification workflows.
-
-  '
+description: Implements ransomware-resistant backups using restic with S3-compatible Object Lock (AWS S3, MinIO, Backblaze B2), automating backup creation, integrity checks via restic check --read-data, retention enforcement, and restore testing. Use when building immutable backup infrastructure, adding a WORM copy to a 3-2-1-1-0 strategy, or automating scheduled backup-verification workflows. Do not use for designing the overall 3-2-1-1-0 backup strategy - use implementing-ransomware-backup-strategy.
 domain: cybersecurity
 subdomain: ransomware-defense
 tags:

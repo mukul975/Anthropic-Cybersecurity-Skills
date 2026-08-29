@@ -1,8 +1,6 @@
 ---
 name: bypassing-authentication-with-forced-browsing
-description: Discovering and accessing unprotected pages, APIs, and administrative
-  interfaces by enumerating URLs and bypassing authentication controls during authorized
-  security assessments.
+description: Discovering and accessing unprotected pages, APIs, and administrative interfaces by enumerating URLs and bypassing authentication controls during authorized security assessments. Use when brute-forcing hidden directories, forced-browsing to unlinked admin panels, or checking that restricted URLs enforce authentication. Do not use for broad broken access control testing across authenticated roles and functions - use testing-for-broken-access-control.
 domain: cybersecurity
 subdomain: web-application-security
 tags:

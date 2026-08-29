@@ -1,12 +1,6 @@
 ---
 name: implementing-network-segmentation-for-ot
-description: 'Implements OT network segmentation using VLANs, OT-aware firewalls, data diodes,
-  and IEC 62443 zone/conduit architecture, with a traffic-baseline-driven design
-  tool for migrating flat Purdue-model networks without disrupting operations. Use
-  when segmenting a flat OT network into Purdue levels, deploying an IT/OT DMZ, or
-  isolating safety instrumented systems from basic process control systems.
-
-  '
+description: Implements OT network segmentation using VLANs, OT-aware firewalls, data diodes, and IEC 62443 zone/conduit architecture, with a traffic-baseline-driven design tool for migrating flat Purdue-model networks without disrupting operations. Use when segmenting a flat OT network into Purdue levels, deploying an IT/OT DMZ, or isolating safety instrumented systems from basic process control systems. Do not use for IEC 62443-3-2 risk-based zone and conduit design - use implementing-iec-62443-security-zones.
 domain: cybersecurity
 subdomain: ot-ics-security
 tags:

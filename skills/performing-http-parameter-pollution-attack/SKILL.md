@@ -1,10 +1,6 @@
 ---
 name: performing-http-parameter-pollution-attack
-description: Executes HTTP Parameter Pollution attacks that inject duplicate request
-  parameters to bypass input validation, WAF rules, and other security controls when
-  front-end and back-end systems parse duplicate parameters differently. Use during
-  web application penetration testing to test for parameter parsing inconsistencies
-  or WAF/validation bypass.
+description: Executes HTTP Parameter Pollution attacks that inject duplicate request parameters to bypass input validation, WAF rules, and other security controls when front-end and back-end systems parse duplicate parameters differently. Use when testing for parameter parsing inconsistencies or WAF/validation bypass during web application penetration testing. Do not use for general WAF evasion of exploit payloads through encoding and obfuscation - use performing-web-application-firewall-bypass.
 domain: cybersecurity
 subdomain: web-application-security
 tags:

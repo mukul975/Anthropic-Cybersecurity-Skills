@@ -1,13 +1,6 @@
 ---
 name: conducting-cloud-penetration-testing
-description: 'This skill outlines methodologies for performing authorized penetration
-  testing against AWS, Azure, and GCP cloud environments. It covers understanding
-  the shared responsibility model for testing scope, leveraging cloud-specific attack
-  tools like Pacu and ScoutSuite, exploiting IAM misconfigurations, testing for SSRF
-  to cloud metadata services, and reporting findings aligned to MITRE ATT&CK Cloud
-  matrix.
-
-  '
+description: Outlines methodologies for performing authorized penetration testing against AWS, Azure, and GCP cloud environments, covering the shared responsibility model for testing scope, leveraging cloud-specific attack tools like Pacu and ScoutSuite, exploiting IAM misconfigurations, testing for SSRF to cloud metadata services, and reporting findings aligned to MITRE ATT&CK Cloud matrix. Use when planning or executing an authorized multi-cloud penetration test across AWS, Azure, or GCP. Do not use for a Pacu-driven AWS exploitation workflow specifically - use performing-cloud-penetration-testing-with-pacu.
 domain: cybersecurity
 subdomain: cloud-security
 tags:

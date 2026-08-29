@@ -1,11 +1,6 @@
 ---
 name: implementing-honeytokens-for-breach-detection
-description: 'Deploys canary tokens and honeytokens (fake AWS credentials, DNS canaries,
-  document beacons, database records) that trigger alerts when accessed by attackers.
-  Uses the Canarytokens API and custom webhook integrations for breach detection.
-  Use when building deception-based early warning systems for intrusion detection.
-
-  '
+description: 'Deploys canary tokens and honeytokens (fake AWS credentials, DNS canaries, document beacons, database records) that trigger alerts when accessed by attackers. Uses the Canarytokens API and custom webhook integrations for breach detection. Use when building deception-based early warning systems for intrusion detection. Do not use for canarytoken-specific deception detection setup - use implementing-deception-based-detection-with-canarytoken.'
 domain: cybersecurity
 subdomain: security-operations
 tags:

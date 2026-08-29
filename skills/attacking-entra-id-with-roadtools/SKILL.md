@@ -1,10 +1,6 @@
 ---
 name: attacking-entra-id-with-roadtools
-description: Enumerate Microsoft Entra ID (Azure AD) tenants with ROADrecon and
-  acquire, exchange, and abuse tokens (including primary refresh tokens) with roadtx.
-  Use for authorized red-team enumeration of a tenant's directory objects or for
-  token-based identity attacks against Entra ID you are explicitly authorized to
-  test.
+description: Enumerate Microsoft Entra ID (Azure AD) tenants with ROADrecon and acquire, exchange, and abuse tokens (including primary refresh tokens) with roadtx. Use for authorized red-team enumeration of a tenant's directory objects or for token-based identity attacks against Entra ID you are explicitly authorized to test. Do not use for OAuth device-code or illicit-consent phishing token theft - use attacking-oauth-with-device-code-phishing.
 domain: cybersecurity
 subdomain: identity-access-management
 tags:

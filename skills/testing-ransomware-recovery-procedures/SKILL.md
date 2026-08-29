@@ -1,10 +1,6 @@
 ---
 name: testing-ransomware-recovery-procedures
-description: Tests and validates ransomware recovery procedures - backup restore operations
-  (e.g. with Restic), RTO/RPO target verification, recovery sequencing, and clean-restore
-  validation - to confirm organizational resilience against destructive ransomware attacks.
-  Use when validating that recovery plans work under realistic conditions, measuring
-  RTO/RPO against business requirements, or testing restore integrity after simulated encryption.
+description: Tests and validates ransomware recovery procedures - backup restore operations (e.g. with Restic), RTO/RPO target verification, recovery sequencing, and clean-restore validation - to confirm organizational resilience against destructive ransomware attacks. Use when validating that recovery plans work under realistic conditions, measuring RTO/RPO against business requirements, or testing restore integrity after simulated encryption. Do not use for designing and implementing the ransomware backup strategy itself - use implementing-ransomware-backup-strategy.
 domain: cybersecurity
 subdomain: incident-response
 tags:

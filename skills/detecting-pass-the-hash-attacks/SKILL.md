@@ -1,6 +1,6 @@
 ---
 name: detecting-pass-the-hash-attacks
-description: Detect Pass-the-Hash (T1550.002) attacks by analyzing NTLM authentication patterns, flagging Type 3 logons using NTLM where Kerberos would be expected, and correlating with credential-dumping indicators. Use when threat hunting for lateral movement via stolen NTLM hashes, triaging EDR/SIEM alerts on suspicious NTLM logons, scoping compromise during incident response, or validating detection coverage in a purple team exercise.
+description: Detect Pass-the-Hash (T1550.002) attacks by analyzing NTLM authentication patterns, flagging Type 3 logons using NTLM where Kerberos would be expected, and correlating with credential-dumping indicators. Use when threat hunting for lateral movement via stolen NTLM hashes, triaging EDR/SIEM alerts on suspicious NTLM logons, scoping compromise during incident response, or validating detection coverage in a purple team exercise. Do not use for detecting Mimikatz credential-dumping execution - use detecting-mimikatz-execution-patterns.
 domain: cybersecurity
 subdomain: threat-hunting
 tags:

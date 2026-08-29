@@ -1,10 +1,6 @@
 ---
 name: implementing-pam-for-database-access
-description: Deploy privileged access management for database systems including Oracle,
-  SQL Server, PostgreSQL, and MySQL, covering session proxy configuration, credential
-  vaulting, query auditing, dynamic credential generation, and least-privilege database
-  roles. Use when securing DBA access, implementing database PAM controls, or auditing
-  privileged database sessions.
+description: Deploy privileged access management for database systems including Oracle, SQL Server, PostgreSQL, and MySQL, covering session proxy configuration, credential vaulting, query auditing, dynamic credential generation, and least-privilege database roles. Use when securing DBA access, implementing database PAM controls, or auditing privileged database sessions. Do not use for enterprise-wide CyberArk PAM deployment - use implementing-privileged-access-management-with-cyberark.
 domain: cybersecurity
 subdomain: identity-access-management
 tags:

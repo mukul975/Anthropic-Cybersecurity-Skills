@@ -1,6 +1,6 @@
 ---
 name: implementing-zero-knowledge-proof-for-authentication
-description: Implements the Schnorr identification protocol and a simplified Zero-Knowledge Password Proof (ZKPP) over the discrete logarithm problem, letting a prover authenticate by demonstrating knowledge of a secret without ever revealing it to the server. Use when designing or building password-less or password-secret-free authentication, or when a server must verify a user's credential without learning or storing the underlying secret.
+description: Implements the Schnorr identification protocol and a simplified Zero-Knowledge Password Proof (ZKPP) over the discrete logarithm problem, letting a prover authenticate by demonstrating knowledge of a secret without ever revealing it to the server. Use when designing or building password-less or password-secret-free authentication, or when a server must verify a user's credential without learning or storing the underlying secret. Do not use for token-based authentication with signed JWTs - use implementing-jwt-signing-and-verification.
 domain: cybersecurity
 subdomain: cryptography
 tags:

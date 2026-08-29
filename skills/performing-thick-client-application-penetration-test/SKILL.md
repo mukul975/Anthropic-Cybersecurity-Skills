@@ -1,8 +1,6 @@
 ---
 name: performing-thick-client-application-penetration-test
-description: Conduct a thick client application penetration test to identify insecure
-  local storage, hardcoded credentials, DLL hijacking, memory manipulation, and insecure
-  API communication in desktop applications using dnSpy, Procmon, and Burp Suite.
+description: Conduct a thick client application penetration test to identify insecure local storage, hardcoded credentials, DLL hijacking, memory manipulation, and insecure API communication in desktop applications using dnSpy, Procmon, and Burp Suite. Use when assessing a Windows or desktop thick client application for client-side and binary security flaws. Do not use for intercepting and testing mobile application traffic with Burp Suite - use intercepting-mobile-traffic-with-burpsuite.
 domain: cybersecurity
 subdomain: penetration-testing
 tags:

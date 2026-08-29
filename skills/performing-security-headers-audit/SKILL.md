@@ -1,7 +1,6 @@
 ---
 name: performing-security-headers-audit
-description: Auditing HTTP security headers including CSP, HSTS, X-Frame-Options,
-  and cookie attributes to identify missing or misconfigured browser-level protections.
+description: Auditing HTTP security headers including CSP, HSTS, X-Frame-Options, and cookie attributes to identify missing or misconfigured browser-level protections. Use when reviewing response headers to report missing or weak browser-side hardening controls. Do not use for actively bypassing a CSP to execute XSS - use performing-content-security-policy-bypass.
 domain: cybersecurity
 subdomain: web-application-security
 tags:

@@ -1,6 +1,6 @@
 ---
 name: continuous-llm-red-teaming-with-promptfoo
-description: Wires Promptfoo and DeepTeam into CI/CD for automated, repeatable red-teaming of LLM apps against OWASP LLM Top 10, OWASP Agentic, and MITRE ATLAS presets, failing the build when jailbreak or injection vulnerabilities regress. Use for continuous adversarial testing in CI/CD, a merge-blocking security gate, or comparing model/prompt versions for compliance reporting.
+description: Wires Promptfoo and DeepTeam into CI/CD for automated, repeatable red-teaming of LLM apps against OWASP LLM Top 10, OWASP Agentic, and MITRE ATLAS presets, failing the build when jailbreak or injection vulnerabilities regress. Use when running continuous adversarial testing in CI/CD, enforcing a merge-blocking security gate, or comparing model/prompt versions for compliance reporting. Do not use for one-off baseline LLM vulnerability scanning with garak probe suites - use red-teaming-llms-with-garak.
 domain: cybersecurity
 subdomain: ai-security
 tags:

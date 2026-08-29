@@ -1,15 +1,6 @@
 ---
 name: performing-ios-app-security-assessment
-description: 'Performs comprehensive iOS application security assessments using Frida
-  for dynamic instrumentation, Objection for runtime exploration, SSL pinning bypass
-  for traffic interception, keychain extraction for credential analysis, and IPA static
-  analysis for binary-level review. Use when conducting authorized iOS penetration
-  tests, evaluating mobile app security posture against OWASP MASTG, or assessing
-  iOS app data protection and transport security controls. Activates for requests
-  involving iOS app pentesting, Frida-based iOS instrumentation, mobile app SSL pinning
-  bypass, or IPA reverse engineering.
-
-  '
+description: 'Performs comprehensive iOS application security assessments using Frida for dynamic instrumentation, Objection for runtime exploration, SSL pinning bypass for traffic interception, keychain extraction for credential analysis, and IPA static analysis for binary-level review. Use when conducting authorized iOS penetration tests, evaluating mobile app security posture against OWASP MASTG, or assessing iOS app data protection and transport security controls. Activates for requests involving iOS app pentesting, Frida-based iOS instrumentation, mobile app SSL pinning bypass, or IPA reverse engineering. Do not use for focused runtime inspection with only the Objection toolkit - use analyzing-ios-app-security-with-objection.'
 domain: cybersecurity
 subdomain: mobile-security
 author: mukul975

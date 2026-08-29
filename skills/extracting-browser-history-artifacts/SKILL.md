@@ -1,10 +1,6 @@
 ---
 name: extracting-browser-history-artifacts
-description: Extracts and analyzes browser history, cookies, cache, downloads, and
-  bookmarks from Chrome, Firefox, and Edge using sqlite3, DB Browser for SQLite,
-  Hindsight, and NirSoft tools (BrowsingHistoryView, ChromeCacheView, MZCacheView).
-  Use when performing digital forensics or incident response on a disk image or
-  live system and you need timeline evidence of a user's web activity.
+description: Extracts and analyzes browser history, cookies, cache, downloads, and bookmarks from Chrome, Firefox, and Edge using sqlite3, DB Browser for SQLite, Hindsight, and NirSoft tools (BrowsingHistoryView, ChromeCacheView, MZCacheView). Use when performing digital forensics or incident response on a disk image or live system and you need timeline evidence of a user's web activity. Do not use for deep Chromium-profile analysis with the Hindsight tool - use analyzing-browser-forensics-with-hindsight.
 domain: cybersecurity
 subdomain: digital-forensics
 tags:

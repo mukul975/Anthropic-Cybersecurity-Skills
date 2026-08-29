@@ -1,6 +1,6 @@
 ---
 name: performing-network-traffic-analysis-with-zeek
-description: Deploy Zeek (formerly Bro) as a passive network security monitor to generate structured logs of protocol metadata (HTTP, DNS, TLS, SSH, SMTP, FTP, and more), write custom detection scripts, and integrate outputs with SIEM platforms. Use when standing up continuous, high-fidelity network traffic monitoring for threat detection, anomaly identification, or forensic investigation beyond what raw PCAP analysis provides.
+description: Deploy Zeek (formerly Bro) as a passive network security monitor to generate structured logs of protocol metadata (HTTP, DNS, TLS, SSH, SMTP, FTP, and more), write custom detection scripts, and integrate outputs with SIEM platforms. Use when standing up continuous, high-fidelity network traffic monitoring for threat detection, anomaly identification, or forensic investigation beyond what raw PCAP analysis provides. Do not use for writing anomaly-detection analytics on top of existing Zeek logs - use detecting-network-anomalies-with-zeek.
 domain: cybersecurity
 subdomain: network-security
 tags:

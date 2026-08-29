@@ -1,10 +1,6 @@
 ---
 name: detecting-arp-poisoning-in-network-traffic
-description: Detect Layer 2 ARP poisoning/spoofing by deploying ARPWatch, Dynamic ARP
-  Inspection (DAI), Wireshark packet analysis, and custom Python monitoring scripts
-  that flag gratuitous ARP floods, IP-to-MAC mapping changes, and duplicate IP addresses.
-  Use when investigating suspected man-in-the-middle interception or session hijacking
-  on a local network segment, or when building layer-2 anomaly detection for a SOC.
+description: Detect Layer 2 ARP poisoning/spoofing by deploying ARPWatch, Dynamic ARP Inspection (DAI), Wireshark packet analysis, and custom Python monitoring scripts that flag gratuitous ARP floods, IP-to-MAC mapping changes, and duplicate IP addresses. Use when investigating suspected man-in-the-middle interception or session hijacking on a local network segment, or when building layer-2 anomaly detection for a SOC. Do not use for staging offensive ARP spoofing attacks - use performing-arp-spoofing-attack-simulation.
 domain: cybersecurity
 subdomain: network-security
 tags:

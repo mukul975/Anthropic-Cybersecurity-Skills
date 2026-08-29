@@ -1,12 +1,6 @@
 ---
 name: hunting-for-dcom-lateral-movement
-description: 'Hunt for DCOM-based lateral movement (MITRE ATT&CK T1021.003) by detecting
-  abuse of MMC20.Application, ShellBrowserWindow, and ShellWindows COM objects via
-  Sysmon Event ID 1/3 correlation, WMI event analysis, and RPC endpoint mapper traffic
-  on port 135. Use when investigating suspicious mmc.exe/dllhost.exe child processes,
-  building T1021.003 detections, or auditing DCOM exposure during purple-team exercises.
-
-  '
+description: Hunt for DCOM-based lateral movement (MITRE ATT&CK T1021.003) by detecting abuse of MMC20.Application, ShellBrowserWindow, and ShellWindows COM objects via Sysmon Event ID 1/3 correlation, WMI event analysis, and RPC endpoint mapper traffic on port 135. Use when investigating suspicious mmc.exe/dllhost.exe child processes, building T1021.003 detections, or auditing DCOM exposure during purple-team exercises. Do not use for hunting WMI-based lateral movement - use hunting-for-lateral-movement-via-wmi.
 domain: cybersecurity
 subdomain: threat-hunting
 tags:

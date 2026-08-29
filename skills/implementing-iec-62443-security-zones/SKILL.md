@@ -1,13 +1,6 @@
 ---
 name: implementing-iec-62443-security-zones
-description: 'Designs security zones and conduits for industrial control systems
-  (IACS) per IEC 62443-3-2 — risk-based zone partitioning, Security Level target
-  (SL-T) assignment, conduit controls, and firewall microsegmentation validated
-  against the Purdue Reference Model. Use when designing OT network zones for a
-  new facility, retrofitting zones into a flat OT network, or upgrading VLAN-only
-  segmentation for IEC 62443-3-2 compliance.
-
-  '
+description: Designs security zones and conduits for industrial control systems (IACS) per IEC 62443-3-2 — risk-based zone partitioning, Security Level target (SL-T) assignment, conduit controls, and firewall microsegmentation validated against the Purdue Reference Model. Use when designing OT network zones for a new facility, retrofitting zones into a flat OT network, or upgrading VLAN-only segmentation for IEC 62443-3-2 compliance. Do not use for Purdue-model hierarchical network segmentation - use implementing-purdue-model-network-segmentation.
 domain: cybersecurity
 subdomain: ot-ics-security
 tags:

@@ -1,12 +1,6 @@
 ---
 name: implementing-google-workspace-admin-security
-description: 'Hardens a Google Workspace tenant via Admin Console configuration:
-  phishing-resistant MFA enforcement, DLP policies, email authentication (SPF/DKIM/DMARC),
-  OAuth third-party app control, and external sharing restrictions. Use when hardening
-  a Google Workspace or G Suite tenant, enforcing MFA and OAuth app controls, or
-  configuring cloud office security administration.
-
-  '
+description: Hardens a Google Workspace tenant via Admin Console configuration - phishing-resistant MFA enforcement, DLP policies, email authentication (SPF/DKIM/DMARC), OAuth third-party app control, and external sharing restrictions. Use when hardening a Google Workspace or G Suite tenant, enforcing MFA and OAuth app controls, or configuring cloud office security administration. Do not use for Google Workspace phishing and malware defense tuning - use implementing-google-workspace-phishing-protection.
 domain: cybersecurity
 subdomain: identity-access-management
 tags:

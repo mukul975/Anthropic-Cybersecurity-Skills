@@ -1,11 +1,6 @@
 ---
 name: performing-dmarc-policy-enforcement-rollout
-description: Execute a phased DMARC rollout by inventorying sending sources, configuring
-  SPF/DKIM alignment, and progressing DNS policy from p=none monitoring through p=quarantine
-  to p=reject enforcement, ensuring all legitimate email sources authenticate before
-  unauthorized senders are blocked. Use when deploying or advancing an organization's
-  DMARC anti-spoofing posture, or when meeting bulk-sender authentication requirements
-  from Google and Yahoo.
+description: Execute a phased DMARC rollout by inventorying sending sources, configuring SPF/DKIM alignment, and progressing DNS policy from p=none monitoring through p=quarantine to p=reject enforcement, ensuring all legitimate email sources authenticate before unauthorized senders are blocked. Use when deploying or advancing an organization's DMARC anti-spoofing posture, or when meeting bulk-sender authentication requirements from Google and Yahoo. Do not use for initial SPF, DKIM, and DMARC DNS record configuration - use implementing-dmarc-dkim-spf-email-security.
 domain: cybersecurity
 subdomain: phishing-defense
 tags:

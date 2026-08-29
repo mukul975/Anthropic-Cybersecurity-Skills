@@ -1,11 +1,6 @@
 ---
 name: triaging-vulnerabilities-with-ssvc-framework
-description: Triages and prioritizes vulnerabilities with CISA's Stakeholder-Specific
-  Vulnerability Categorization (SSVC) decision tree, weighing exploitation status
-  (via the CISA KEV catalog and FIRST EPSS API), technical impact, automatability,
-  and mission prevalence to output Track/Track*/Attend/Act decisions. Use when
-  prioritizing vulnerability scan results (OpenVAS, Nessus, Qualys) for remediation
-  planning beyond raw CVSS scores.
+description: Triages and prioritizes vulnerabilities with CISA's Stakeholder-Specific Vulnerability Categorization (SSVC) decision tree, weighing exploitation status (via the CISA KEV catalog and FIRST EPSS API), technical impact, automatability, and mission prevalence to output Track/Track*/Attend/Act decisions. Use when prioritizing vulnerability scan results (OpenVAS, Nessus, Qualys) for remediation planning beyond raw CVSS scores. Do not use for KEV plus EPSS multi-factor prioritization scoring - use performing-cve-prioritization-with-kev-catalog.
 domain: cybersecurity
 subdomain: vulnerability-management
 tags:

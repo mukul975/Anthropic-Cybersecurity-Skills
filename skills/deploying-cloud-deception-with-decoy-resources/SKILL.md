@@ -1,18 +1,6 @@
 ---
 name: deploying-cloud-deception-with-decoy-resources
-description: >-
-  Deploy cloud-native deception across AWS, Azure, and GCP using decoy (honey) resources
-  whose only purpose is to generate a high-fidelity alert the instant an attacker touches
-  them: canary IAM access keys, permission-less decoy users/roles/service principals,
-  honey object-storage buckets, and decoy secrets in Secrets Manager / Key Vault / Secret
-  Manager. Wires detection through CloudTrail + EventBridge, Azure Sentinel honeytoken
-  watchlists + Defender, and GCP Cloud Audit Logs, so any use of a decoy is routed to the
-  SOC with near-zero false positives. Use when protecting cloud accounts and data stores,
-  when an org has only on-prem honeypots and needs cloud coverage, when seeding fake AWS
-  keys to catch credential theft and code-leak exposure, or when detecting cloud
-  reconnaissance and lateral movement. Keywords: cloud deception, canary token AWS, honey
-  S3 bucket, decoy IAM credentials, CloudTrail alert, GuardDuty, Sentinel honeytoken,
-  decoy secret, honey service account, cloud honeypot, breach detection.
+description: 'Deploy cloud-native deception across AWS, Azure, and GCP using decoy (honey) resources whose only purpose is to generate a high-fidelity alert the instant an attacker touches them - canary IAM access keys, permission-less decoy users/roles/service principals, honey object-storage buckets, and decoy secrets in Secrets Manager, Key Vault, or Secret Manager. Wires detection through CloudTrail + EventBridge, Azure Sentinel + Defender, and GCP Cloud Audit Logs so any use of a decoy is routed to the SOC with near-zero false positives. Use when protecting cloud accounts and data stores, extending on-prem honeypots to cloud coverage, seeding fake AWS keys to catch credential theft and code-leak exposure, or detecting cloud reconnaissance and lateral movement. Do not use for on-prem network honeypots or a general deception program rollout - use performing-deception-technology-deployment.'
 domain: cybersecurity
 subdomain: deception-technology
 tags:

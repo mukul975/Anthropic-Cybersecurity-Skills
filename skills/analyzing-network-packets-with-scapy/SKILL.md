@@ -1,6 +1,6 @@
 ---
 name: analyzing-network-packets-with-scapy
-description: Use Scapy to craft, send, sniff, and dissect TCP/UDP/ICMP/DNS packets, analyze pcap files, implement SYN scans, and detect anomalous traffic such as fragmented or malformed packets. Use when performing authorized network reconnaissance, protocol-level forensic analysis, or building traffic anomaly detection during security testing.
+description: Use Scapy to craft, send, sniff, and dissect TCP/UDP/ICMP/DNS packets, analyze pcap files, implement SYN scans, and detect anomalous traffic such as fragmented or malformed packets. Use when performing authorized network reconnaissance, protocol-level forensic analysis, or building traffic anomaly detection during security testing. Do not use for staging packet injection or spoofing attacks to test network defenses - use performing-packet-injection-attack.
 domain: cybersecurity
 subdomain: network-security
 tags:

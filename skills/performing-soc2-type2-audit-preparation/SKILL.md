@@ -1,14 +1,6 @@
 ---
 name: performing-soc2-type2-audit-preparation
-description: 'Automates SOC 2 Type II audit preparation including gap assessment against
-  AICPA Trust Services Criteria (CC1-CC9), evidence collection from cloud providers
-  and identity systems, control testing validation, remediation tracking, and continuous
-  compliance monitoring. Covers all five TSC categories (Security, Availability, Processing
-  Integrity, Confidentiality, Privacy) with automated evidence gathering from AWS,
-  Azure, GCP, Okta, GitHub, and Jira. Use when preparing for or maintaining SOC 2
-  Type II certification.
-
-  '
+description: 'Automates SOC 2 Type II audit preparation including gap assessment against AICPA Trust Services Criteria (CC1-CC9), evidence collection from cloud providers and identity systems, control testing validation, remediation tracking, and continuous compliance monitoring. Covers all five TSC categories (Security, Availability, Processing Integrity, Confidentiality, Privacy) with automated evidence gathering from AWS, Azure, GCP, Okta, GitHub, and Jira. Use when preparing for or maintaining SOC 2 Type II certification. Do not use for recertifying user access entitlements as an IAM control - use performing-access-review-and-certification.'
 domain: cybersecurity
 subdomain: governance-risk-compliance
 tags:

@@ -1,11 +1,6 @@
 ---
 name: securing-agentic-ai-tool-invocation
-description: Implements defense-in-depth controls at an AI agent's tool-invocation
-  boundary using tool allowlisting, least-privilege identity binding, NeMo Guardrails
-  policy enforcement, human-in-the-loop approval, and audit logging. Use when hardening
-  an agent that calls tools with real side effects (email, payments, file writes,
-  code execution), mapping OWASP Agentic AI Top 10 controls, or bounding prompt-injection
-  blast radius.
+description: Implements defense-in-depth controls at an AI agent's tool-invocation boundary using tool allowlisting, least-privilege identity binding, NeMo Guardrails policy enforcement, human-in-the-loop approval, and audit logging. Use when hardening an agent that calls tools with real side effects (email, payments, file writes, code execution), mapping OWASP Agentic AI Top 10 controls, or bounding prompt-injection blast radius. Do not use for auditing external MCP servers for poisoned or shadowed tool descriptions - use auditing-mcp-servers-for-tool-poisoning.
 domain: cybersecurity
 subdomain: ai-security
 tags:

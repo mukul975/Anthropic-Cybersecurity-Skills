@@ -1,6 +1,6 @@
 ---
 name: analyzing-ransomware-network-indicators
-description: Identify ransomware-related network indicators, including C2 beaconing patterns, TOR exit node connections, data exfiltration flows, and encryption key exchange, by analyzing Zeek conn.log and NetFlow data. Use when threat hunting for active ransomware network activity or investigating suspected pre-encryption exfiltration during incident response.
+description: Identify ransomware-related network indicators, including C2 beaconing patterns, TOR exit node connections, data exfiltration flows, and encryption key exchange, by analyzing Zeek conn.log and NetFlow data. Use when threat hunting for active ransomware network activity or investigating suspected pre-encryption exfiltration during incident response. Do not use for detecting early ransomware precursors before encryption - use detecting-ransomware-precursors-in-network.
 domain: cybersecurity
 subdomain: threat-hunting
 tags:

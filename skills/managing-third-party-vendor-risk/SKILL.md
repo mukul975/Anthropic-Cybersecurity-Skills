@@ -1,12 +1,6 @@
 ---
 name: managing-third-party-vendor-risk
-description: >-
-  Build and run a third-party/vendor risk management (TPRM) program aligned to NIST SP
-  800-161 C-SCRM: inventory and tier vendors, issue SIG/CAIQ questionnaires, review
-  SOC 2/ISO 27001 evidence, set contractual right-to-audit clauses, monitor vendors
-  continuously, and offboard securely. Use when assessing a new vendor, standing up a
-  vendor-risk program, tiering a portfolio, reviewing a SOC 2/CAIQ, or writing security
-  terms into a contract.
+description: Build and run a third-party/vendor risk management (TPRM) program aligned to NIST SP 800-161 C-SCRM - inventory and tier vendors, issue SIG/CAIQ questionnaires, review SOC 2/ISO 27001 evidence, set contractual right-to-audit clauses, monitor vendors continuously, and offboard securely. Use when assessing a new vendor, standing up a vendor-risk program, tiering a portfolio, reviewing a SOC 2/CAIQ, or writing security terms into a contract. Do not use for building an organization's own ISO 27001 ISMS - use implementing-iso-27001-information-security-management.
 domain: cybersecurity
 subdomain: compliance-governance
 tags:

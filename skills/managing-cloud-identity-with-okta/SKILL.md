@@ -1,11 +1,6 @@
 ---
 name: managing-cloud-identity-with-okta
-description: >-
-  Implement Okta as a centralized cloud identity provider: configure SSO with AWS,
-  Azure, and GCP, deploy phishing-resistant MFA with Okta FastPass, automate user
-  provisioning/deprovisioning, and enforce adaptive access policies on device posture
-  and risk signals. Use when standing up Okta SSO, rolling out FastPass MFA, automating
-  identity lifecycle, or building risk-based conditional access for cloud environments.
+description: Implement Okta as a centralized cloud identity provider by configuring SSO with AWS, Azure, and GCP, deploying phishing-resistant MFA with Okta FastPass, automating user provisioning/deprovisioning, and enforcing adaptive access policies on device posture and risk signals. Use when standing up Okta SSO, rolling out FastPass MFA, automating identity lifecycle, or building risk-based conditional access for cloud environments. Do not use for SCIM user provisioning automation specifically - use implementing-scim-provisioning-with-okta.
 domain: cybersecurity
 subdomain: cloud-security
 tags:

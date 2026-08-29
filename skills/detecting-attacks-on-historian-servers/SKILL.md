@@ -1,13 +1,6 @@
 ---
 name: detecting-attacks-on-historian-servers
-description: 'Detect cyber attacks on OT historian servers (OSIsoft PI, Ignition, GE
-  Proficy, Wonderware InSQL) using a Python detector that flags unauthorized queries,
-  data manipulation, and lateral-movement indicators as historians pivot between IT
-  and OT networks. Use when monitoring historians bridging IT/OT zones for compromise,
-  investigating historian-specific CVE exploitation, or validating historian data integrity
-  after a suspected OT incident.
-
-  '
+description: Detect cyber attacks on OT historian servers (OSIsoft PI, Ignition, GE Proficy, Wonderware InSQL) using a Python detector that flags unauthorized queries, data manipulation, and lateral-movement indicators as historians pivot between IT and OT networks. Use when monitoring historians bridging IT/OT zones for compromise, investigating historian-specific CVE exploitation, or validating historian data integrity after a suspected OT incident. Do not use for hardening or securing historian servers - use securing-historian-server-in-ot-environment.
 domain: cybersecurity
 subdomain: ot-ics-security
 tags:

@@ -1,14 +1,6 @@
 ---
 name: performing-insider-threat-investigation
-description: 'Investigates insider threat incidents involving employees, contractors,
-  or trusted partners who misuse authorized access to steal data, sabotage systems,
-  or violate security policies, combining digital forensics, user behavior analytics,
-  and HR/legal coordination to build an evidence-based case. Use when DLP alerts flag
-  large data transfers to personal cloud storage or USB devices, when UBA detects
-  anomalous access patterns for a user account, or when investigating employee data
-  theft, privilege misuse, or internal threat detection requests.
-
-  '
+description: Investigates insider threat incidents involving employees, contractors, or trusted partners who misuse authorized access to steal data, sabotage systems, or violate security policies, combining digital forensics, user behavior analytics, and HR/legal coordination to build an evidence-based case. Use when DLP alerts flag large data transfers to personal cloud storage or USB devices, when UBA detects anomalous access patterns for a user account, or when investigating employee data theft, privilege misuse, or internal threat detection requests. Do not use for the earlier detection and triage of insider threat indicators before a formal investigation - use investigating-insider-threat-indicators.
 domain: cybersecurity
 subdomain: incident-response
 tags:

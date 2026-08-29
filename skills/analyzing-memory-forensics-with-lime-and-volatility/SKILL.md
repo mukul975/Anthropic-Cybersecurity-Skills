@@ -1,12 +1,6 @@
 ---
 name: analyzing-memory-forensics-with-lime-and-volatility
-description: 'Performs Linux memory acquisition using LiME (Linux Memory Extractor)
-  kernel module and analysis with Volatility 3 framework. Extracts process lists,
-  network connections, bash history, loaded kernel modules, and injected code from
-  Linux memory images. Use when performing incident response on compromised Linux
-  systems.
-
-  '
+description: 'Performs Linux memory acquisition using LiME (Linux Memory Extractor) kernel module and analysis with Volatility 3 framework. Extracts process lists, network connections, bash history, loaded kernel modules, and injected code from Linux memory images. Use when performing incident response on compromised Linux systems. Do not use for analyzing Windows memory dumps with Volatility - use analyzing-memory-dumps-with-volatility.'
 domain: cybersecurity
 subdomain: security-operations
 tags:

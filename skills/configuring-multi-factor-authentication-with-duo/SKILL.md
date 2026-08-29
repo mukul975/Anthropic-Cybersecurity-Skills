@@ -1,10 +1,6 @@
 ---
 name: configuring-multi-factor-authentication-with-duo
-description: Deploys Cisco Duo multi-factor authentication across enterprise applications,
-  VPN, RDP, and SSH access points, covering Duo Authentication Proxy setup, adaptive
-  authentication policies, device trust assessment, and phishing-resistant WebAuthn/FIDO2
-  deployment aligned with NIST 800-63B AAL2/AAL3. Use when adding or hardening MFA
-  for remote access, VPN, or privileged logins with Duo.
+description: Deploys Cisco Duo multi-factor authentication across enterprise applications, VPN, RDP, and SSH access points, covering Duo Authentication Proxy setup, adaptive authentication policies, device trust assessment, and phishing-resistant WebAuthn/FIDO2 deployment aligned with NIST 800-63B AAL2/AAL3. Use when adding or hardening MFA for remote access, VPN, or privileged logins with Duo. Do not use for full passwordless FIDO2/WebAuthn server deployment - use implementing-passwordless-authentication-with-fido2.
 domain: cybersecurity
 subdomain: identity-access-management
 tags:

@@ -1,8 +1,6 @@
 ---
 name: performing-second-order-sql-injection
-description: Detect and exploit second-order SQL injection vulnerabilities where malicious
-  input is stored in a database and later executed in an unsafe SQL query during a
-  different application operation.
+description: Detect and exploit second-order SQL injection vulnerabilities where malicious input is stored in a database and later executed in an unsafe SQL query during a different application operation. Use when injected input is stored first and only triggers SQL execution in a later, separate operation. Do not use for automated first-order SQL injection with sqlmap - use exploiting-sql-injection-with-sqlmap.
 domain: cybersecurity
 subdomain: web-application-security
 tags:

@@ -1,10 +1,6 @@
 ---
 name: extracting-config-from-agent-tesla-rat
-description: Extracts embedded configuration from Agent Tesla RAT samples, including
-  SMTP/FTP/Telegram exfiltration credentials, keylogger settings, and C2 endpoints,
-  via .NET decompilation and memory analysis. Use when analyzing a suspected or
-  confirmed Agent Tesla sample and you need to recover its exfiltration channel
-  and C2 configuration for threat intelligence or incident response.
+description: Extracts embedded configuration from Agent Tesla RAT samples, including SMTP/FTP/Telegram exfiltration credentials, keylogger settings, and C2 endpoints, via .NET decompilation and memory analysis. Use when analyzing a suspected or confirmed Agent Tesla sample and you need to recover its exfiltration channel and C2 configuration for threat intelligence or incident response. Do not use for general .NET malware reverse engineering with dnSpy - use reverse-engineering-dotnet-malware-with-dnspy.
 domain: cybersecurity
 subdomain: malware-analysis
 tags:

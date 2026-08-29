@@ -1,6 +1,6 @@
 ---
 name: detecting-network-anomalies-with-zeek
-description: Deploy and configure Zeek (formerly Bro) to passively analyze network traffic, generate structured connection/DNS/HTTP/SSL/file logs, detect anomalous behavior, and write custom scripts for organization-specific threats. Use for passive monitoring at network choke points, feeding SIEM/threat hunting with protocol metadata, or retrospective log analysis during incident response; not a substitute for inline IDS/IPS or host agents.
+description: Deploy and configure Zeek (formerly Bro) to passively analyze network traffic, generate structured connection/DNS/HTTP/SSL/file logs, detect anomalous behavior, and write custom scripts for organization-specific threats. Use when standing up passive monitoring at network choke points, feeding SIEM and threat hunting with protocol metadata, or doing retrospective log analysis during incident response. Do not use for guided Zeek traffic-analysis investigation workflows - use performing-network-traffic-analysis-with-zeek.
 domain: cybersecurity
 subdomain: network-security
 tags:

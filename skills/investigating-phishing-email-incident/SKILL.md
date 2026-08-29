@@ -1,12 +1,6 @@
 ---
 name: investigating-phishing-email-incident
-description: 'Investigates phishing email incidents from initial user report through
-  header analysis, URL/attachment detonation, impacted user identification, and containment
-  actions using SOC tools like Splunk, Microsoft Defender, and sandbox analysis platforms.
-  Use when a reported phishing email requires full incident investigation to determine
-  scope and impact.
-
-  '
+description: Investigates phishing email incidents from initial user report through header analysis, URL/attachment detonation, impacted user identification, and containment actions using SOC tools like Splunk, Microsoft Defender, and sandbox analysis platforms. Use when a reported phishing email requires full incident investigation to determine scope and impact. Do not use for building the user phishing-report button and intake workflow - use building-phishing-reporting-button-workflow.
 domain: cybersecurity
 subdomain: soc-operations
 tags:

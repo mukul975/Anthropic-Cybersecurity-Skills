@@ -1,11 +1,6 @@
 ---
 name: implementing-next-generation-firewall-with-palo-alto
-description: Configures and deploys Palo Alto Networks next-generation firewalls end-to-end,
-  covering App-ID application-aware policies, User-ID identity-based enforcement,
-  zone-based security rules, SSL decryption for encrypted traffic visibility, and
-  Content-ID threat prevention profiles. Use when moving an enterprise from
-  port-based firewall rules to application- and identity-aware NGFW policy on
-  Palo Alto hardware.
+description: Configures and deploys Palo Alto Networks next-generation firewalls end-to-end, covering App-ID application-aware policies, User-ID identity-based enforcement, zone-based security rules, SSL decryption for encrypted traffic visibility, and Content-ID threat prevention profiles. Use when moving an enterprise from port-based firewall rules to application- and identity-aware NGFW policy on Palo Alto hardware. Do not use for cloud-delivered Prisma Access zero-trust remote access - use deploying-palo-alto-prisma-access-zero-trust.
 domain: cybersecurity
 subdomain: network-security
 tags:

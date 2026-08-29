@@ -1,12 +1,6 @@
 ---
 name: securing-github-actions-workflows
-description: 'Hardens GitHub Actions workflows against supply chain attacks, credential
-  theft, and privilege escalation: pinning actions to SHA digests, minimizing GITHUB_TOKEN
-  permissions, protecting secrets, preventing script injection in workflow expressions,
-  and requiring reviewers for workflow changes. Use when hardening GitHub Actions
-  workflows that handle secrets, deploy to production, or run with elevated permissions.
-
-  '
+description: Hardens GitHub Actions workflows against supply chain attacks, credential theft, and privilege escalation by pinning actions to SHA digests, minimizing GITHUB_TOKEN permissions, protecting secrets, preventing script injection in workflow expressions, and requiring reviewers for workflow changes. Use when hardening GitHub Actions workflows that handle secrets, deploy to production, or run with elevated permissions. Do not use for detecting supply-chain attacks unfolding in CI/CD pipelines - use detecting-supply-chain-attacks-in-ci-cd.
 domain: cybersecurity
 subdomain: devsecops
 tags:

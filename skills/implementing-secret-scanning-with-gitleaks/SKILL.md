@@ -1,12 +1,6 @@
 ---
 name: implementing-secret-scanning-with-gitleaks
-description: 'This skill covers implementing Gitleaks for detecting and preventing
-  hardcoded secrets in git repositories. It addresses configuring pre-commit hooks,
-  CI/CD pipeline integration, custom rule authoring for organization-specific secrets,
-  baseline management for existing repositories, and remediation workflows for exposed
-  credentials.
-
-  '
+description: Implements Gitleaks for detecting and preventing hardcoded secrets in git repositories, covering pre-commit hooks, CI/CD pipeline integration, custom rule authoring for organization-specific secrets, baseline management for existing repositories, and remediation workflows for exposed credentials. Use when scanning git repositories and commit history for hardcoded secrets with Gitleaks and blocking new secrets via pre-commit and CI. Do not use for TruffleHog-based detection of exposed AWS credentials - use detecting-aws-credential-exposure-with-trufflehog.
 domain: cybersecurity
 subdomain: devsecops
 tags:

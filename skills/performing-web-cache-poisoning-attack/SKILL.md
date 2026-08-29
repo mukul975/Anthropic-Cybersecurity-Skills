@@ -1,8 +1,6 @@
 ---
 name: performing-web-cache-poisoning-attack
-description: Exploiting web cache mechanisms to serve malicious content to other users
-  by poisoning cached responses through unkeyed headers and parameters during authorized
-  security tests.
+description: Exploiting web cache mechanisms to serve malicious content to other users by poisoning cached responses through unkeyed headers and parameters during authorized security tests. Use when unkeyed request inputs influence a cached response that is then served to other users. Do not use for path-normalization cache deception that captures authenticated content - use performing-web-cache-deception-attack.
 domain: cybersecurity
 subdomain: web-application-security
 tags:

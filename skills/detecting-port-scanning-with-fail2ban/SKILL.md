@@ -1,10 +1,6 @@
 ---
 name: detecting-port-scanning-with-fail2ban
-description: 'Configures Fail2ban with custom filters and actions to detect port scanning
-  activity, SSH brute force attempts, and network reconnaissance, automatically banning
-  offending IP addresses and alerting security teams to suspicious network probing.
-
-  '
+description: Configures Fail2ban with custom filters and actions to detect port scanning activity, SSH brute force attempts, and network reconnaissance, automatically banning offending IP addresses and alerting security teams to suspicious network probing. Use when auto-banning IPs that trigger port scans or SSH brute-force attempts via log-based Fail2ban filters. Do not use for IDS/IPS signature-based scan detection with Snort or Suricata - use detecting-network-scanning-with-ids-signatures.
 domain: cybersecurity
 subdomain: network-security
 tags:

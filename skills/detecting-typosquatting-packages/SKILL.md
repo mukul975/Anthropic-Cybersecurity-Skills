@@ -1,6 +1,6 @@
 ---
 name: detecting-typosquatting-packages
-description: Flag misspelled, brandjacked, and typosquatted package names across npm, PyPI, and crates.io before installation, using edit-distance, keyboard-proximity, and known-target corpus matching with typomania, Microsoft OSSGadget's oss-find-squats, and pypi-scan. Use before adding a new dependency, as a CI/CD gate on pull requests, when reviewing an AI-generated ("slopsquatting") dependency list, or when auditing a lockfile diff for a swapped package.
+description: Flag misspelled, brandjacked, and typosquatted package names across npm, PyPI, and crates.io before installation, using edit-distance, keyboard-proximity, and known-target corpus matching with typomania, Microsoft OSSGadget's oss-find-squats, and pypi-scan. Use when adding a new dependency, gating pull requests in CI/CD, when reviewing an AI-generated ("slopsquatting") dependency list, or when auditing a lockfile diff for a swapped package. Do not use for registry-API metadata typosquatting analysis limited to npm and PyPI - use detecting-typosquatting-packages-in-npm-pypi.
 domain: cybersecurity
 subdomain: supply-chain-security
 tags:

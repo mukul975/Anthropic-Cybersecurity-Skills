@@ -1,11 +1,6 @@
 ---
 name: implementing-siem-use-case-tuning
-description: Tune SIEM detection rules in Splunk and Elastic to reduce false positives
-  by analyzing alert volumes, creating context-aware exclusion lists, adjusting
-  thresholds against environmental baselines, and measuring precision/recall efficacy
-  metrics. Use when a SOC is drowning in noisy alerts and needs to tune correlation
-  searches or detection rules, or when measuring and reporting alert-to-incident
-  conversion rates.
+description: 'Tune SIEM detection rules in Splunk and Elastic to reduce false positives by analyzing alert volumes, creating context-aware exclusion lists, adjusting thresholds against environmental baselines, and measuring precision/recall efficacy metrics. Use when a SOC is drowning in noisy alerts and needs to tune correlation searches or detection rules, or when measuring and reporting alert-to-incident conversion rates. Do not use for broad alert fatigue reduction programs beyond SIEM rule tuning - use implementing-alert-fatigue-reduction.'
 domain: cybersecurity
 subdomain: security-operations
 tags:

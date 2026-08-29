@@ -1,12 +1,6 @@
 ---
 name: implementing-siem-use-cases-for-detection
-description: 'Implements SIEM detection use cases by designing correlation rules,
-  threshold alerts, and behavioral analytics mapped to MITRE ATT&CK techniques across
-  Splunk, Elastic, and Sentinel. Use when SOC teams need to expand detection coverage,
-  formalize use case lifecycle management, or build a detection library aligned to
-  organizational threat profile.
-
-  '
+description: Implements SIEM detection use cases by designing correlation rules, threshold alerts, and behavioral analytics mapped to MITRE ATT&CK techniques across Splunk, Elastic, and Sentinel. Use when SOC teams need to expand detection coverage, formalize use case lifecycle management, or build a detection library aligned to organizational threat profile. Do not use for authoring individual vendor-agnostic Sigma detection rules - use building-detection-rules-with-sigma.
 domain: cybersecurity
 subdomain: soc-operations
 tags:

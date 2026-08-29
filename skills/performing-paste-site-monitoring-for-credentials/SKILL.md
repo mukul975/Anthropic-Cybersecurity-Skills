@@ -1,8 +1,6 @@
 ---
 name: performing-paste-site-monitoring-for-credentials
-description: Monitor paste sites like Pastebin and GitHub Gists for leaked credentials,
-  API keys, and sensitive data dumps using automated scraping and keyword matching
-  to detect breaches early.
+description: Monitor paste sites like Pastebin and GitHub Gists for leaked credentials, API keys, and sensitive data dumps using automated scraping and keyword matching to detect breaches early. Use when watching public paste sites for leaks of your organization's credentials or secrets. Do not use for monitoring dark web forums and marketplaces - use monitoring-darkweb-sources.
 domain: cybersecurity
 subdomain: threat-intelligence
 tags:

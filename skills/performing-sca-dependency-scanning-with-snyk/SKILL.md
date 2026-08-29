@@ -1,12 +1,6 @@
 ---
 name: performing-sca-dependency-scanning-with-snyk
-description: 'This skill covers implementing Software Composition Analysis (SCA) using
-  Snyk to detect vulnerable open-source dependencies in CI/CD pipelines. It addresses
-  scanning package manifests and lockfiles, automated fix pull request generation,
-  license compliance checking, continuous monitoring of deployed applications, and
-  integration with GitHub, GitLab, and Jenkins pipelines.
-
-  '
+description: Implements Software Composition Analysis (SCA) using Snyk to detect vulnerable open-source dependencies in CI/CD pipelines, covering scanning of package manifests and lockfiles, automated fix pull request generation, license compliance checking, continuous monitoring of deployed applications, and integration with GitHub, GitLab, and Jenkins pipelines. Use when scanning third-party open-source dependencies for known CVEs with Snyk and generating automated fix PRs. Do not use for standing up a general multi-scanner DevSecOps scanning pipeline - use implementing-devsecops-security-scanning.
 domain: cybersecurity
 subdomain: devsecops
 tags:

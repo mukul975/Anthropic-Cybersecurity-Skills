@@ -1,12 +1,6 @@
 ---
 name: analyzing-bootkit-and-rootkit-samples
-description: 'Analyzes bootkit and advanced rootkit malware infecting the Master
-  Boot Record (MBR), Volume Boot Record (VBR), or UEFI firmware for below-OS persistence,
-  covering boot sector analysis, UEFI module inspection, and anti-rootkit detection.
-  Use when compromise survives OS reinstallation or antivirus/EDR fails to detect
-  malware despite clear infection signs.
-
-  '
+description: Analyzes bootkit and advanced rootkit malware infecting the Master Boot Record (MBR), Volume Boot Record (VBR), or UEFI firmware for below-OS persistence, covering boot sector analysis, UEFI module inspection, and anti-rootkit detection. Use when compromise survives OS reinstallation or antivirus/EDR fails to detect malware despite clear infection signs. Do not use for hunting UEFI bootkit persistence artifacts in the EFI system partition of a live or imaged host - use analyzing-uefi-bootkit-persistence.
 domain: cybersecurity
 subdomain: malware-analysis
 tags:

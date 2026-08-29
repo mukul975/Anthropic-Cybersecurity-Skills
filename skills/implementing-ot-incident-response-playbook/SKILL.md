@@ -1,13 +1,6 @@
 ---
 name: implementing-ot-incident-response-playbook
-description: 'Develops OT-specific incident response playbooks using a SANS PICERL-based Python
-  engine that classifies incident severity (safety, process, access, recon) and
-  coordinates IT SOC, OT engineering, and plant operations, aligned with IEC 62443
-  and NIST SP 800-82. Use when building ICS/SCADA incident response procedures for
-  the first time, preparing for OT ransomware scenarios, or aligning IR with IEC
-  62443/NERC CIP reporting requirements.
-
-  '
+description: Develops OT-specific incident response playbooks using a SANS PICERL-based Python engine that classifies incident severity (safety, process, access, recon) and coordinates IT SOC, OT engineering, and plant operations, aligned with IEC 62443 and NIST SP 800-82. Use when building ICS/SCADA incident response procedures for the first time, preparing for OT ransomware scenarios, or aligning IR with IEC 62443/NERC CIP reporting requirements. Do not use for building a general SOC ransomware response playbook - use building-soc-playbook-for-ransomware.
 domain: cybersecurity
 subdomain: ot-ics-security
 tags:

@@ -1,13 +1,6 @@
 ---
 name: implementing-privileged-session-monitoring
-description: 'Implements privileged session monitoring and recording using PAM
-  solutions, focusing on CyberArk Privileged Session Manager (PSM) and open-source
-  alternatives, covering session recording configuration, keystroke logging, real-time
-  monitoring, risk-based session analysis, and compliance audit trail generation.
-  Use when configuring CyberArk PSM, recording administrator sessions, or building
-  compliance audit trails for privileged access.
-
-  '
+description: Implements privileged session monitoring and recording using PAM solutions, focusing on CyberArk Privileged Session Manager (PSM) and open-source alternatives, covering session recording configuration, keystroke logging, real-time monitoring, risk-based session analysis, and compliance audit trail generation. Use when configuring CyberArk PSM, recording administrator sessions, or building compliance audit trails for privileged access. Do not use for full CyberArk credential vaulting and rotation setup - use implementing-privileged-access-management-with-cyberark.
 domain: cybersecurity
 subdomain: identity-access-management
 tags:

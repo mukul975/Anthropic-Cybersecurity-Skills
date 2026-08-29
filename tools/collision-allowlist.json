@@ -447,6 +447,13 @@
         "hunting-for-command-and-control-beaconing"
       ],
       "reason": "Pure statistical timing/jitter frequency analysis versus beaconing detection that also weighs domain reputation and enrichment."
+    },
+    {
+      "pair": [
+        "implementing-api-abuse-detection-with-rate-limiting",
+        "implementing-api-rate-limiting-and-throttling"
+      ],
+      "reason": "Detecting and blocking abusive API traffic patterns (scraping, credential stuffing, volumetric abuse) versus implementing standard rate-limiting and throttling quotas."
     }
   ]
 }

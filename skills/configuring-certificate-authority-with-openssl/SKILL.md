@@ -1,11 +1,6 @@
 ---
 name: configuring-certificate-authority-with-openssl
-description: Build a two-tier PKI Certificate Authority hierarchy (offline Root CA
-  plus issuing Intermediate CA) using OpenSSL and the Python cryptography library,
-  covering certificate extensions, CRL distribution points, OCSP responder
-  configuration, and certificate policy management. Use when standing up an internal
-  CA, issuing or revoking X.509 certificates, or designing PKI trust hierarchies for
-  TLS, code-signing, or client-authentication use cases.
+description: Build a two-tier PKI Certificate Authority hierarchy (offline Root CA plus issuing Intermediate CA) using OpenSSL and the Python cryptography library, covering certificate extensions, CRL distribution points, OCSP responder configuration, and certificate policy management. Use when standing up an internal CA, issuing or revoking X.509 certificates, or designing PKI trust hierarchies for TLS, code-signing, or client-authentication use cases. Do not use for automating the issuance, renewal, and revocation lifecycle of individual certificates - use performing-ssl-certificate-lifecycle-management.
 domain: cybersecurity
 subdomain: cryptography
 tags:

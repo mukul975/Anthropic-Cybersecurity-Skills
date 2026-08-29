@@ -1,12 +1,6 @@
 ---
 name: configuring-network-segmentation-with-vlans
-description: 'Designs and implements VLAN-based (802.1Q) network segmentation on
-  managed switches to isolate zones such as corporate, servers, DMZ, guest, and
-  IoT, and to limit lateral movement paths. Use when segmenting an enterprise network
-  into isolated security zones, meeting compliance mandates (PCI-DSS, HIPAA, SOC
-  2) for network isolation, or reducing blast radius from a security incident.
-
-  '
+description: Designs and implements VLAN-based (802.1Q) network segmentation on managed switches to isolate zones such as corporate, servers, DMZ, guest, and IoT, and to limit lateral movement paths. Use when segmenting an enterprise network into isolated security zones, meeting compliance mandates (PCI-DSS, HIPAA, SOC 2) for network isolation, or reducing blast radius from a security incident. Do not use for firewall-zone and inter-zone ACL microsegmentation design - use implementing-network-segmentation-with-firewall-zones.
 domain: cybersecurity
 subdomain: network-security
 tags:

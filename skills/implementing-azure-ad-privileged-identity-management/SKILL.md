@@ -1,10 +1,6 @@
 ---
 name: implementing-azure-ad-privileged-identity-management
-description: Configure Microsoft Entra Privileged Identity Management (PIM) to convert
-  standing privileged assignments into eligible, time-bound roles requiring justification,
-  MFA, and approval, covering Entra roles, Azure resource roles, and PIM for Groups,
-  plus access reviews. Use for role-assignment audits, just-in-time admin activation,
-  or Zero Trust identity governance in Entra/Azure AD.
+description: Configure Microsoft Entra Privileged Identity Management (PIM) to convert standing privileged assignments into eligible, time-bound roles requiring justification, MFA, and approval, covering Entra roles, Azure resource roles, and PIM for Groups, plus access reviews. Use for role-assignment audits, just-in-time admin activation, or Zero Trust identity governance in Entra/Azure AD. Do not use for CyberArk cloud zero-standing-privilege provisioning - use implementing-zero-standing-privilege-with-cyberark.
 domain: cybersecurity
 subdomain: identity-access-management
 tags:

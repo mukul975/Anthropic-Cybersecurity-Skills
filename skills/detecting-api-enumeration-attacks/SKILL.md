@@ -1,11 +1,6 @@
 ---
 name: detecting-api-enumeration-attacks
-description: Detect API enumeration attacks (BOLA/IDOR, OWASP API1:2023) by writing SIEM
-  detection rules that flag sequential or UUID identifier iteration, parameter tampering,
-  and mixed 200/401/403 response patterns from API gateway and WAF logs. Use when
-  investigating suspected object-level authorization abuse, building threat-hunting
-  queries for API access-control bypass, or hardening API logging/rate-limiting against
-  enumeration.
+description: Detect API enumeration attacks (BOLA/IDOR, OWASP API1:2023) by writing SIEM detection rules that flag sequential or UUID identifier iteration, parameter tampering, and mixed 200/401/403 response patterns from API gateway and WAF logs. Use when investigating suspected object-level authorization abuse, building threat-hunting queries for API access-control bypass, or hardening API logging/rate-limiting against enumeration. Do not use for actively testing or exploiting object-level authorization on live endpoints - use testing-api-for-broken-object-level-authorization.
 domain: cybersecurity
 subdomain: api-security
 tags:

@@ -1,10 +1,6 @@
 ---
 name: building-phishing-reporting-button-workflow
-description: Implement a phishing report button (Microsoft 365 built-in Report button
-  or third-party like KnowBe4/Cofense) in email clients with a SOAR-driven automated
-  triage workflow that classifies reported emails, extracts IOCs, takes remediation
-  actions, and gives feedback to reporters. Use when deploying user-reported phishing
-  intake or automating triage of the resulting reporting mailbox.
+description: Implement a phishing report button (Microsoft 365 built-in Report button or third-party like KnowBe4/Cofense) in email clients with a SOAR-driven automated triage workflow that classifies reported emails, extracts IOCs, takes remediation actions, and gives feedback to reporters. Use when deploying user-reported phishing intake or automating triage of the resulting reporting mailbox. Do not use for hands-on forensic investigation of a specific reported phishing email - use investigating-phishing-email-incident.
 domain: cybersecurity
 subdomain: phishing-defense
 tags:

@@ -1,10 +1,6 @@
 ---
 name: performing-yara-rule-development-for-detection
-description: Develops precise YARA and YARA-X rules for malware detection by identifying
-  unique strings, byte sequences, PE header traits, and behavioral indicators in
-  unpacked malware artifacts while minimizing false positives. Use when building
-  detection signatures for threat hunting, classifying malware families, or authoring
-  rules from IOCs such as C2 URLs, mutex names, and encryption constants.
+description: Develops precise YARA and YARA-X rules for malware detection by identifying unique strings, byte sequences, PE header traits, and behavioral indicators in unpacked malware artifacts while minimizing false positives. Use when building detection signatures for threat hunting, classifying malware families, or authoring rules from IOCs such as C2 URLs, mutex names, and encryption constants. Do not use for rapid signature-based triage and classification of samples with existing YARA rules - use performing-malware-triage-with-yara.
 domain: cybersecurity
 subdomain: malware-analysis
 tags:

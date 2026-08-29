@@ -1,6 +1,6 @@
 ---
 name: conducting-external-reconnaissance-with-osint
-description: Conduct external recon using OSINT techniques to map an organization's external attack surface without touching target systems, gathering DNS records, certificate transparency logs, search results, social media, code repositories, and breach databases into a target profile. Use for the passive info-gathering phase of a pentest, external footprinting, or collecting employee/email intel for a social engineering campaign.
+description: Conduct external recon using OSINT techniques to map an organization's external attack surface without touching target systems, gathering DNS records, certificate transparency logs, search results, social media, code repositories, and breach databases into a target profile. Use when running the passive info-gathering phase of a pentest, external footprinting, or collecting employee and email intel for a social engineering campaign. Do not use for broad open-source intelligence investigation not tied to pentest external footprinting - use performing-open-source-intelligence-gathering.
 domain: cybersecurity
 subdomain: penetration-testing
 tags:

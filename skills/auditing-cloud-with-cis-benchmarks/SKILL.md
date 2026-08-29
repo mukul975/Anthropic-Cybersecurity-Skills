@@ -1,6 +1,6 @@
 ---
 name: auditing-cloud-with-cis-benchmarks
-description: Audit AWS, Azure, and GCP environments against the CIS Foundations Benchmarks by running automated scans with tools like Prowler and ScoutSuite, interpreting failed controls, and tracking remediation for continuous compliance. Use when conducting a cloud security audit, validating CIS benchmark compliance (CIS v5 AWS, v4 Azure, v4 GCP), or setting up continuous cloud compliance monitoring.
+description: Audit AWS, Azure, and GCP environments against the CIS Foundations Benchmarks by running automated scans with tools like Prowler and ScoutSuite, interpreting failed controls, and tracking remediation for continuous compliance. Use when conducting a cloud security audit, validating CIS benchmark compliance (CIS v5 AWS, v4 Azure, v4 GCP), or setting up continuous cloud compliance monitoring. Do not use for CIS benchmark hardening of a Windows endpoint operating system - use hardening-windows-endpoint-with-cis-benchmark.
 domain: cybersecurity
 subdomain: cloud-security
 tags:

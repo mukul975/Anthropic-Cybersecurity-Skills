@@ -1,12 +1,6 @@
 ---
 name: performing-ransomware-response
-description: 'Executes a structured ransomware incident response from detection through
-  containment, forensic analysis, decryption assessment, recovery, and post-incident
-  hardening, covering ransom negotiation, backup integrity verification, and regulatory
-  notification. Use when actively responding to a ransomware outbreak or crypto-ransomware
-  infection, or deciding on ransom payment and containment steps.
-
-  '
+description: Executes a structured ransomware incident response from detection through containment, forensic analysis, decryption assessment, recovery, and post-incident hardening, covering ransom negotiation, backup integrity verification, and regulatory notification. Use when actively responding to a ransomware outbreak or crypto-ransomware infection, or deciding on ransom payment and containment steps. Do not use for verifying backup integrity and recoverability in isolation - use validating-backup-integrity-for-recovery.
 domain: cybersecurity
 subdomain: incident-response
 tags:

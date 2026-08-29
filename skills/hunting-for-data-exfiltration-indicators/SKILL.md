@@ -1,6 +1,6 @@
 ---
 name: hunting-for-data-exfiltration-indicators
-description: Hunt for data exfiltration by analyzing Zeek and Suricata network telemetry for unusual data flows, DNS tunneling via large/frequent TXT queries, uploads to personal cloud storage, and encrypted-channel abuse, correlated against threat intel on destination domains. Use when hunting for data theft in a compromised environment, investigating unusual outbound data volumes, or determining what data was stolen during incident response.
+description: Hunt for data exfiltration by analyzing Zeek and Suricata network telemetry for unusual data flows, DNS tunneling via large/frequent TXT queries, uploads to personal cloud storage, and encrypted-channel abuse, correlated against threat intel on destination domains. Use when hunting for data theft in a compromised environment, investigating unusual outbound data volumes, or determining what data was stolen during incident response. Do not use for dedicated DNS tunneling detection with Zeek - use hunting-for-dns-tunneling-with-zeek.
 domain: cybersecurity
 subdomain: threat-hunting
 tags:
