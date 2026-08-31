@@ -52,7 +52,7 @@ Each skill maps to the frameworks that fit its subject — ATT&CK and NIST CSF a
 | [NIST CSF 2.0](https://www.nist.gov/cyberframework) | 2.0 | 6 functions · 22 categories · 106 subcategories | Organizational security posture |
 | [MITRE ATLAS](https://atlas.mitre.org) | 2026.07 | 101 techniques · 77 sub-techniques | AI/ML adversarial threats |
 | [MITRE D3FEND](https://d3fend.mitre.org) | v1.4.0 | 270 techniques | Defensive countermeasures |
-| [NIST AI RMF](https://airc.nist.gov/AI_RMF) | 1.0 | 4 functions (Govern/Map/Measure/Manage) | AI risk management |
+| [NIST AI RMF](https://airc.nist.gov/AI_RMF_Knowledge_Base/AI_RMF) | 1.0 | 4 functions (Govern/Map/Measure/Manage) | AI risk management |
 | [MITRE F3 (Fight Fraud Framework)](https://ctid.mitre.org/fraud/) | v1.1 (2026-04-09) | 8 tactics · 123 techniques · 94 fraud-relevant skills | Cyber-enabled financial fraud TTPs |
 
 **Example — each skill maps only to the frameworks relevant to it (one may hit all six, another just a couple):**
@@ -268,7 +268,7 @@ Step-by-step execution guide with specific commands and decision points.
 How to confirm the skill was executed successfully.
 ```
 
-Frontmatter fields: `name` (kebab-case, 1–64 chars), `description` (keyword-rich for agent discovery), `domain`, `subdomain`, `tags`,  `atlas_techniques` (MITRE ATLAS IDs), `d3fend_techniques` (MITRE D3FEND IDs), `nist_ai_rmf` (NIST AI RMF references), `nist_csf` (NIST CSF 2.0 categories).  MITRE ATT&CK technique mappings are documented in each skill's `references/standards.md` file and in the ATT&CK Navigator layer included with releases. 
+Frontmatter fields: `name` (kebab-case, 1–64 chars), `description` (keyword-rich for agent discovery), `domain`, `subdomain`, `tags`,  `atlas_techniques` (MITRE ATLAS IDs), `d3fend_techniques` (MITRE D3FEND IDs), `nist_ai_rmf` (NIST AI RMF references), `nist_csf` (NIST CSF 2.0 categories).  MITRE ATT&CK technique mappings are documented in each skill's `references/standards.md` file and in the ATT&CK Navigator layer at `mappings/attack-navigator-layer.json`. 
 
 <details>
 <summary><strong>📊 MITRE ATT&CK Enterprise coverage — all 15 tactics</strong></summary>
@@ -293,7 +293,7 @@ Frontmatter fields: `name` (kebab-case, 1–64 chars), `description` (keyword-ri
 | Exfiltration | TA0010 | Strong | DNS exfiltration, DLP controls, data loss detection |
 | Impact | TA0040 | Strong | Ransomware defense, encryption analysis, recovery |
 
-An **ATT&CK Navigator layer file** is included in the [v1.0.0 release assets](https://github.com/mukul975/Anthropic-Cybersecurity-Skills/releases/tag/v1.0.0) for visual coverage mapping. 
+An **ATT&CK Navigator layer file** is available at [`mappings/attack-navigator-layer.json`](mappings/attack-navigator-layer.json) for visual coverage mapping. 
 
 > **Note:** ATT&CK v19 lands April 28, 2026 — splitting Defense Evasion (TA0005) into two new tactics: *Stealth* and *Impair Defenses*.  Skill mappings will be updated in a forthcoming release.
 
@@ -382,6 +382,9 @@ All platforms that support the [agentskills.io](https://agentskills.io) standard
 
 | Version | Date | Highlights |
 |---|---|---|
+| [v1.3.0](https://github.com/mukul975/Anthropic-Cybersecurity-Skills/releases/tag/v1.3.0) | June 22, 2026 | Latest tagged release |
+| [v1.2.0](https://github.com/mukul975/Anthropic-Cybersecurity-Skills/releases/tag/v1.2.0) | April 6, 2026 | Five-framework coverage |
+| [v1.1.0](https://github.com/mukul975/Anthropic-Cybersecurity-Skills/releases/tag/v1.1.0) | March 21, 2026 | 753 skills |
 | [v1.0.0](https://github.com/mukul975/Anthropic-Cybersecurity-Skills/releases/tag/v1.0.0) | March 11, 2026 | 734 skills · 26 domains · MITRE ATT&CK + NIST CSF 2.0 mapping · ATT&CK Navigator layer |
 
 Skills have continued to grow on `main` since v1.0.0 — the library now contains **818 skills** with **6-framework mapping**  (MITRE ATLAS, D3FEND, NIST AI RMF, and the MITRE Fight Fraud Framework added post-release).  Check [Releases](https://github.com/mukul975/Anthropic-Cybersecurity-Skills/releases) for the latest tagged version.
