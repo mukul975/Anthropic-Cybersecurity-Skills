@@ -72,7 +72,7 @@ When adding new skills, the index must be regenerated:
 
 ```bash
 # If a script exists (check repository):
-python3 generate_index.py
+python3 tools/generate-index.py
 
 # Otherwise, manually verify:
 jq '.skills | length' index.json  # Should match skill directory count
@@ -122,15 +122,15 @@ nist_csf:
 mitre_attack:
   - T1555.004
   - T1078.002
-mitre_atlas:
-  - AML.P1.003
-mitre_d3fend:
-  - D3-CAA
-  - D3-PCA
+atlas_techniques:
+  - AML.T0047
+d3fend_techniques:
+  - D3-MA
+  - D3-PSMD
 nist_ai_rmf:
-  - GOV-1
+  - MEASURE-2.6
 mitre_f3:
-  - FI-B-003
+  - F1020.002
 ---
 
 # Skill Title
@@ -208,10 +208,10 @@ Each skill can map to multiple frameworks. Key mappings:
 |-----------|-------|---------|
 | **MITRE ATT&CK** | Adversarial tactics/techniques | T1555.004 (Credentials from Password Stores) |
 | **NIST CSF 2.0** | Cybersecurity functions & categories | DE.CM (Detect - Monitor) |
-| **MITRE ATLAS** | AI/ML system attacks | AML.P (AI Preparation) |
-| **MITRE D3FEND** | Defensive techniques | D3-CAA (Capture Analysis Analytics) |
-| **NIST AI RMF** | AI risk management | GOV (Governance) |
-| **MITRE F3** | Fraud-specific techniques | FI-B (Fraud Impact) |
+| **MITRE ATLAS** | AI/ML system attacks | AML.T0047 |
+| **MITRE D3FEND** | Defensive techniques | D3-MA |
+| **NIST AI RMF** | AI risk management | MEASURE-2.6 (Measure function) |
+| **MITRE F3** | Fraud-specific techniques | F1020.002 (Fake Website) |
 
 ### Subdomains (Choose One)
 
@@ -278,14 +278,14 @@ mitre_attack:
   - T1055.001               # Sub-technique
 nist_csf:
   - DE.CM-01                # NIST Cybersecurity Framework 2.0
-mitre_atlas:
-  - AML.P1.003              # MITRE ATLAS for AI/ML
-mitre_d3fend:
-  - D3-CAA                  # MITRE D3FEND defensive technique ID
+atlas_techniques:
+  - AML.T0047              # MITRE ATLAS for AI/ML
+d3fend_techniques:
+  - D3-MA                  # MITRE D3FEND defensive technique ID
 nist_ai_rmf:
-  - GOV-1                   # NIST AI Risk Management Framework
+  - MEASURE-2.6                   # NIST AI Risk Management Framework
 mitre_f3:
-  - FI-B-003                # MITRE Fight Fraud Framework
+  - F1020.002               # MITRE Fight Fraud Framework technique ID
 ```
 
 ## Common Tasks
@@ -317,14 +317,14 @@ mitre_f3:
      - T1234.567
    nist_csf:
      - DE.CM-01
-   mitre_atlas:
-     - AML.P1.003
-   mitre_d3fend:
-     - D3-CAA
+   atlas_techniques:
+     - AML.T0047
+   d3fend_techniques:
+     - D3-MA
    nist_ai_rmf:
-     - GOV-1
+     - MEASURE-2.6
    mitre_f3:
-     - FI-B-003
+     - F1020.002
    ---
    
    # Skill Title
@@ -361,7 +361,7 @@ mitre_f3:
 
 6. **Regenerate index** (if automation exists):
    ```bash
-   python3 generate_index.py  # Updates index.json
+   python3 tools/generate-index.py  # Updates index.json
    ```
 
 7. **Submit PR**:
@@ -386,7 +386,7 @@ If a skill maps to new frameworks or techniques change:
 
 2. **Regenerate index** (if automation exists):
    ```bash
-   python3 generate_index.py
+   python3 tools/generate-index.py
    ```
 
 3. **Verify mapping coverage**:
@@ -443,9 +443,9 @@ jq '[.skills[] | .subdomain] | group_by(.) | map({subdomain: .[0], count: length
 
 ### AI/ML Attack Skills
 
-- Use MITRE ATLAS techniques (AML.P1, AML.E1, etc.)
+- Use MITRE ATLAS techniques (AML.T0047, AML.T0051, etc.)
 - Include model/system type (LLM, transformer, computer vision, etc.)
-- Note NIST AI RMF alignment (GOV, MAP, MEASURE, MANAGE)
+- Note NIST AI RMF alignment (GOVERN, MAP, MEASURE, MANAGE)
 
 ## Gotchas & Known Issues
 
@@ -528,7 +528,7 @@ done
 - **NIST Cybersecurity Framework**: https://csrc.nist.gov/projects/cybersecurity-framework (controls)
 - **MITRE ATLAS**: https://atlas.mitre.org (AI/ML attacks)
 - **MITRE D3FEND**: https://d3fend.mitre.org (defensive techniques)
-- **NIST AI RMF**: https://nvlabs.nist.gov/display/AIRFF (AI risk management)
+- **NIST AI RMF**: https://airc.nist.gov/ (AI risk management)
 - **Contributing Guide**: `CONTRIBUTING.md` in repo
 - **Security Policy**: `SECURITY.md` — dual-use & ethical use
 - **Code of Conduct**: `CODE_OF_CONDUCT.md`
@@ -542,5 +542,5 @@ done
 | Search by technique | `grep -r "T1055" skills/` |
 | Search by subdomain | `grep "subdomain: red-teaming" skills/*/SKILL.md` |
 | Validate skill | `python3 tools/validate-skill.py skills/my-skill/` |
-| Regenerate index | `python3 generate_index.py` (if exists) |
-| View mapping coverage | Open `mappings/mitre-attack/attack-navigator-layer.json` in ATT&CK Navigator |
+| Regenerate index | `python3 tools/generate-index.py` |
+| View mapping coverage | Open `mappings/attack-navigator-layer.json` in ATT&CK Navigator |
