@@ -1,11 +1,6 @@
 ---
 name: implementing-identity-governance-with-sailpoint
-description: Deploys SailPoint IdentityNow or IdentityIQ for identity governance and
-  administration, covering identity lifecycle management, access request workflows,
-  certification campaigns, role mining, separation-of-duties (SOD) policy enforcement,
-  and compliance reporting. Use when standing up or tuning an identity governance
-  program, automating access certifications, or enforcing SOD policies across
-  enterprise IAM.
+description: Deploys SailPoint IdentityNow or IdentityIQ for identity governance and administration, covering identity lifecycle management, access request workflows, certification campaigns, role mining, separation-of-duties (SOD) policy enforcement, and compliance reporting. Use when standing up or tuning an identity governance program, automating access certifications, or enforcing SOD policies across enterprise IAM. Do not use for running a one-off entitlement review campaign - use performing-entitlement-review-with-sailpoint-iiq.
 domain: cybersecurity
 subdomain: identity-access-management
 tags:

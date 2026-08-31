@@ -1,6 +1,6 @@
 ---
 name: detecting-dnp3-protocol-anomalies
-description: Detect anomalies in DNP3 communications used in SCADA/ICS systems by monitoring unauthorized control commands, firmware update attempts, protocol violations, and deviations from baseline traffic using deep packet inspection and machine learning approaches. Use when securing energy-sector or other OT/ICS networks, investigating suspicious DNP3 master/outstation activity, or building an anomaly-based IDS for industrial control traffic.
+description: Detect anomalies in DNP3 communications used in SCADA/ICS systems by monitoring unauthorized control commands, firmware update attempts, protocol violations, and deviations from baseline traffic using deep packet inspection and machine learning approaches. Use when securing energy-sector or other OT/ICS networks, investigating suspicious DNP3 master/outstation activity, or building an anomaly-based IDS for industrial control traffic. Do not use for broad multi-protocol ICS anomaly detection - use detecting-anomalies-in-industrial-control-systems.
 domain: cybersecurity
 subdomain: ot-ics-security
 tags:

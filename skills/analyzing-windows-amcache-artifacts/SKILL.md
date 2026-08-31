@@ -1,12 +1,6 @@
 ---
 name: analyzing-windows-amcache-artifacts
-description: 'Parses the Windows Amcache.hve registry hive with Eric Zimmerman''s
-  AmcacheParser and Timeline Explorer to extract evidence of program execution, application
-  installation, and driver loading, including SHA-1 hash correlation with threat
-  intel and timeline reconstruction. Use for Amcache forensics, program execution
-  evidence gathering, or application compatibility cache investigations in DFIR work.
-
-  '
+description: Parses the Windows Amcache.hve registry hive with Eric Zimmerman's AmcacheParser and Timeline Explorer to extract evidence of program execution, application installation, and driver loading, including SHA-1 hash correlation with threat intel and timeline reconstruction. Use when performing Amcache forensics, gathering program execution evidence, or investigating application compatibility cache in DFIR work. Do not use for the broader suite of Windows artifacts across Eric Zimmerman tools - use performing-windows-artifact-analysis-with-eric-zimmerman-tools.
 domain: cybersecurity
 subdomain: digital-forensics
 tags:

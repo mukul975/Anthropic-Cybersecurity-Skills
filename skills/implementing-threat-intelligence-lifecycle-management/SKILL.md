@@ -1,11 +1,6 @@
 ---
 name: implementing-threat-intelligence-lifecycle-management
-description: Build out a full CTI program around the six-phase threat intelligence
-  lifecycle (direction, collection, processing, analysis, dissemination, feedback),
-  including defining intelligence requirements, building a collection pipeline, normalizing
-  data, and tracking dissemination feedback. Use when standing up or maturing a threat
-  intelligence program, defining intelligence requirements, or designing collection-to-dissemination
-  workflows for a CTI team.
+description: Build out a full CTI program around the six-phase threat intelligence lifecycle (direction, collection, processing, analysis, dissemination, feedback), including defining intelligence requirements, building a collection pipeline, normalizing data, and tracking dissemination feedback. Use when standing up or maturing a threat intelligence program, engineering the collection-to-dissemination data pipeline, or designing data normalization workflows for a CTI team. Do not use for stakeholder-driven PIR definition and NIST SP 800-150 feedback-loop governance - use managing-intelligence-lifecycle.
 domain: cybersecurity
 subdomain: threat-intelligence
 tags:

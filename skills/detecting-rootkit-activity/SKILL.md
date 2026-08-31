@@ -1,12 +1,6 @@
 ---
 name: detecting-rootkit-activity
-description: 'Detects rootkit presence on compromised systems by identifying hidden
-  processes, hooked system calls, modified kernel structures, and covert network
-  connections using Volatility memory forensics, cross-view detection, and tools
-  like GMER, rkhunter, chkrootkit, and RootkitRevealer. Use when standard tools
-  (Task Manager, netstat, AV/EDR) show nothing abnormal but compromise is suspected.
-
-  '
+description: Detects rootkit presence on compromised systems by identifying hidden processes, hooked system calls, modified kernel structures, and covert network connections using Volatility memory forensics, cross-view detection, and tools like GMER, rkhunter, chkrootkit, and RootkitRevealer. Use when standard tools (Task Manager, netstat, AV/EDR) show nothing abnormal but compromise is suspected. Do not use for reverse engineering Linux kernel rootkit modules specifically - use analyzing-linux-kernel-rootkits.
 domain: cybersecurity
 subdomain: malware-analysis
 tags:

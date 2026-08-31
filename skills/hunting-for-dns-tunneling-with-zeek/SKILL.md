@@ -1,10 +1,6 @@
 ---
 name: hunting-for-dns-tunneling-with-zeek
-description: Detects DNS tunneling and covert-channel data exfiltration by analyzing
-  Zeek dns.log for high-entropy subdomain queries, excessive query volume, abnormally
-  long query lengths, and unusual DNS record types (TXT/NULL/CNAME). Use when hunting
-  for DNS-based data exfiltration or C2 covert channels in network traffic, or when
-  triaging suspicious DNS query volume/patterns surfaced by Zeek logs.
+description: Detects DNS tunneling and covert-channel data exfiltration by analyzing Zeek dns.log for high-entropy subdomain queries, excessive query volume, abnormally long query lengths, and unusual DNS record types (TXT/NULL/CNAME). Use when proactively hunting for DNS-based data exfiltration or C2 covert channels in Zeek network traffic, or when triaging suspicious DNS query volume/patterns surfaced by Zeek logs. Do not use for detection or investigation of active DNS exfiltration in Zeek dns.log - use detecting-exfiltration-over-dns-with-zeek.
 domain: cybersecurity
 subdomain: threat-hunting
 tags:

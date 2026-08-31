@@ -1,13 +1,6 @@
 ---
 name: implementing-nerc-cip-compliance-controls
-description: 'Implements NERC CIP controls for Bulk Electric System (BES) cyber systems: asset
-  categorization (CIP-002), electronic security perimeters (CIP-005), system security
-  management (CIP-007), configuration management (CIP-010), and supply chain risk
-  (CIP-013), including 2025 MFA updates. Use when a registered entity must achieve
-  or maintain NERC CIP compliance, prepare for a Regional Entity audit, or categorize
-  newly commissioned BES cyber systems.
-
-  '
+description: Implements NERC CIP controls for Bulk Electric System (BES) cyber systems - asset categorization (CIP-002), electronic security perimeters (CIP-005), system security management (CIP-007), configuration management (CIP-010), and supply chain risk (CIP-013), including 2025 MFA updates. Use when a registered entity must achieve or maintain NERC CIP compliance, prepare for a Regional Entity audit, or categorize newly commissioned BES cyber systems. Do not use for assessing power grid cybersecurity posture - use performing-power-grid-cybersecurity-assessment.
 domain: cybersecurity
 subdomain: ot-ics-security
 tags:

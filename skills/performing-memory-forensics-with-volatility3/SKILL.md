@@ -1,11 +1,6 @@
 ---
 name: performing-memory-forensics-with-volatility3
-description: Analyze volatile memory (RAM) dumps using the Volatility 3 framework
-  to extract running processes, network connections, loaded modules, credentials,
-  and encryption keys, and to detect process hollowing, DLL injection, or hidden
-  processes/rootkits. Use during incident response on a compromised or suspect system
-  when disk-based forensics alone is insufficient and volatile evidence of malware
-  or intrusion must be recovered from memory.
+description: Analyzes an existing RAM dump with the Volatility 3 framework — installing volatility3, loading ISF symbol tables, and running plugins over raw, ELF, or crash-dump formats to extract processes, network connections, loaded modules, credentials, and encryption keys and to detect process hollowing, DLL injection, and hidden processes or rootkits. Use when working a single acquired dump and you need a straightforward Volatility 3 plugin walkthrough during incident response. Do not use for cross-platform Windows, Linux, and macOS memory-resident malware hunting - use analyzing-memory-dumps-with-volatility.
 domain: cybersecurity
 subdomain: digital-forensics
 tags:

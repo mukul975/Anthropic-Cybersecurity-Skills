@@ -1,12 +1,6 @@
 ---
 name: implementing-aws-security-hub
-description: 'Deploy AWS Security Hub as a centralized CSPM platform, backed by AWS
-  Config, aggregating findings from GuardDuty, Inspector, Macie, and third-party tools;
-  enable CIS Foundations, PCI-DSS, and NIST standards; automate remediation via EventBridge/Systems
-  Manager; and produce Audit Manager evidence. Use for a centralized findings dashboard
-  or compliance audit evidence; not for threat detection or container scanning.
-
-  '
+description: Deploy AWS Security Hub as a centralized CSPM platform, backed by AWS Config, aggregating findings from GuardDuty, Inspector, Macie, and third-party tools, enabling CIS Foundations, PCI-DSS, and NIST standards, automating remediation via EventBridge and Systems Manager, and producing Audit Manager evidence. Use when standing up a centralized security findings dashboard or gathering audit evidence for an account. Do not use for multi-account AWS Organizations compliance monitoring and executive compliance dashboards - use implementing-aws-config-rules-for-compliance.
 domain: cybersecurity
 subdomain: cloud-security
 tags:
@@ -151,6 +145,48 @@ aws events put-rule \
   }'
 ```
 
+Attach a Lambda function as the EventBridge target to fully automate the fix.
+This example enables S3 Block Public Access on the offending bucket and marks
+the finding RESOLVED via `batch_update_findings`.
+
+```python
+# remediate_s3.py - Lambda handler for S3 public-access findings
+import boto3
+
+def lambda_handler(event, context):
+    s3 = boto3.client('s3')
+    securityhub = boto3.client('securityhub')
+
+    for finding in event['detail']['findings']:
+        title = finding.get('Title', '')
+        if 'S3' in title and 'public' in title.lower():
+            bucket_arn = finding['Resources'][0]['Id']
+            bucket_name = bucket_arn.split(':::')[-1]
+
+            s3.put_public_access_block(
+                Bucket=bucket_name,
+                PublicAccessBlockConfiguration={
+                    'BlockPublicAcls': True,
+                    'IgnorePublicAcls': True,
+                    'BlockPublicPolicy': True,
+                    'RestrictPublicBuckets': True
+                }
+            )
+
+            securityhub.batch_update_findings(
+                FindingIdentifiers=[{
+                    'Id': finding['Id'],
+                    'ProductArn': finding['ProductArn']
+                }],
+                Workflow={'Status': 'RESOLVED'},
+                Note={
+                    'Text': 'Auto-remediated: Block Public Access enabled',
+                    'UpdatedBy': 'security-hub-auto-remediation'
+                }
+            )
+    return {'statusCode': 200}
+```
+
 ### Step 5: Monitor Compliance Scores and Generate Reports
 
 Track security scores across standards, monitor compliance drift over time, and generate reports for audit evidence.
@@ -168,6 +204,61 @@ aws securityhub get-findings \
   }' \
   --sort-criteria '{"Field": "SeverityLabel", "SortOrder": "desc"}' \
   --max-items 50
+```
+
+Build custom insights to track organization-specific priorities. Insights are
+saved groupings of findings by an attribute, giving repeatable at-a-glance views.
+
+```bash
+# Insight: publicly accessible resources with failed critical/high controls
+aws securityhub create-insight \
+  --name "Publicly Accessible Resources" \
+  --filters '{
+    "ResourceType": [
+      {"Value": "AwsS3Bucket", "Comparison": "EQUALS"},
+      {"Value": "AwsEc2SecurityGroup", "Comparison": "EQUALS"},
+      {"Value": "AwsRdsDbInstance", "Comparison": "EQUALS"}
+    ],
+    "ComplianceStatus": [{"Value": "FAILED", "Comparison": "EQUALS"}],
+    "SeverityLabel": [{"Value": "CRITICAL", "Comparison": "EQUALS"}, {"Value": "HIGH", "Comparison": "EQUALS"}]
+  }' \
+  --group-by-attribute "ResourceType"
+
+# Insight: unencrypted resources grouped by account
+aws securityhub create-insight \
+  --name "Unencrypted Resources Across Accounts" \
+  --filters '{
+    "Title": [{"Value": "encryption", "Comparison": "CONTAINS"}],
+    "ComplianceStatus": [{"Value": "FAILED", "Comparison": "EQUALS"}]
+  }' \
+  --group-by-attribute "AwsAccountId"
+```
+
+Export findings for reporting, alert routing, and integration with an external
+SIEM or GRC platform.
+
+```bash
+# Export active findings to a JSON file for GRC/reporting
+aws securityhub get-findings \
+  --filters '{"RecordState": [{"Value": "ACTIVE", "Comparison": "EQUALS"}]}' \
+  --max-items 1000 --output json > security-hub-findings-export.json
+
+# Push a daily summary to the security team via SNS
+aws sns publish \
+  --topic-arn arn:aws:sns:us-east-1:111122223333:security-alerts \
+  --subject "Security Hub Daily Summary" \
+  --message file://daily-summary.json
+
+# Forward critical findings to a SIEM via an EventBridge API destination
+aws events put-targets \
+  --rule SecurityHubAutoRemediate \
+  --targets '[{
+    "Id": "splunk-hec",
+    "Arn": "arn:aws:events:us-east-1:111122223333:api-destination/splunk-hec",
+    "HttpParameters": {
+      "HeaderParameters": {"Authorization": "Splunk HEC_TOKEN"}
+    }
+  }]'
 ```
 
 ## Key Concepts

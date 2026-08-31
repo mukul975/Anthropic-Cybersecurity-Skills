@@ -1,6 +1,6 @@
 ---
 name: detecting-model-extraction-attacks
-description: Detect MITRE ATLAS AML.T0024 attacks (model stealing, inversion, membership inference) performed via inference-API abuse, by monitoring per-principal query volume/distribution, rate-limiting and perturbing outputs, and red-teaming your model's extractability. Use for a public or partner inference API needing cloning/inversion/membership-inference detection, or a pre-deployment red-team exercise to measure extraction risk.
+description: Detect MITRE ATLAS AML.T0024 attacks (model stealing, inversion, membership inference) performed via inference-API abuse, by monitoring per-principal query volume/distribution, rate-limiting and perturbing outputs, and red-teaming your model's extractability. Use when operating a public or partner inference API needing cloning/inversion/membership-inference detection, or running a pre-deployment red-team exercise to measure extraction risk. Do not use for assessing a RAG vector store for embedding inversion, cross-tenant leakage, and knowledge-base poisoning - use assessing-vector-and-embedding-weaknesses.
 domain: cybersecurity
 subdomain: ai-security
 tags:

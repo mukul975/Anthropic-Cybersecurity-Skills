@@ -1,13 +1,6 @@
 ---
 name: implementing-canary-tokens-for-network-intrusion
-description: 'Deploys DNS, HTTP, and AWS API key canary tokens across network infrastructure
-  to detect unauthorized access and lateral movement. Integrates with webhook alerting
-  (Slack, Teams, email, generic HTTP) for real-time intrusion notifications. Provides
-  automated token generation, placement strategies, and monitoring for enterprise
-  network environments. Use when building deception-based network intrusion detection
-  with Canarytokens.org and Thinkst Canary platforms.
-
-  '
+description: 'Deploys DNS, HTTP, and AWS API key canary tokens across network infrastructure to detect unauthorized access and lateral movement. Integrates with webhook alerting (Slack, Teams, email, generic HTTP) for real-time intrusion notifications. Provides automated token generation, placement strategies, and monitoring for enterprise network environments. Use when building deception-based network intrusion detection with Canarytokens.org and Thinkst Canary platforms. Do not use for broad honeytoken breach-detection deployment across credentials and documents - use implementing-honeytokens-for-breach-detection.'
 domain: cybersecurity
 subdomain: security-operations
 tags:

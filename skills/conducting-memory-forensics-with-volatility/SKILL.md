@@ -1,13 +1,6 @@
 ---
 name: conducting-memory-forensics-with-volatility
-description: 'Performs memory forensics analysis using Volatility 3 to extract evidence
-  of malware execution, process injection, network connections, and credential theft
-  from RAM dumps captured during incident response. Covers memory acquisition, process
-  analysis, DLL inspection, and malware detection. Activates for requests involving
-  memory forensics, RAM analysis, Volatility framework, memory dump investigation,
-  volatile evidence analysis, or live memory acquisition.
-
-  '
+description: Performs a full incident-response memory-forensics workflow with Volatility 3, beginning with live memory acquisition (WinPmem, Magnet RAM Capture, AVML) and chain of custody, then process analysis, DLL inspection, network connections, credential-theft and malware detection, through a forensic report. Use when an endpoint is contained during an active incident and volatile evidence must be captured and preserved before shutdown. Do not use for analysis of an already-existing dump without the acquisition and IR wrapper - use performing-memory-forensics-with-volatility3.
 domain: cybersecurity
 subdomain: incident-response
 tags:

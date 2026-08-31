@@ -1,11 +1,6 @@
 ---
 name: performing-content-security-policy-bypass
-description: Analyze Content-Security-Policy headers and bypass them to achieve cross-site
-  scripting by exploiting unsafe-inline/unsafe-eval, whitelisted JSONP endpoints, base-uri
-  and form-action gaps, and nonce/hash weaknesses, then exfiltrate data even without
-  script-src control. Use during web application security assessments or bug bounty
-  hunting when XSS is found but blocked by CSP, or when auditing CSP header configuration
-  for weaknesses.
+description: Analyze Content-Security-Policy headers and bypass them to achieve cross-site scripting by exploiting unsafe-inline/unsafe-eval, whitelisted JSONP endpoints, base-uri and form-action gaps, and nonce/hash weaknesses, then exfiltrate data even without script-src control. Use when XSS is found but blocked by CSP, or when auditing CSP header configuration for weaknesses. Do not use for finding the XSS injection points in the first place - use testing-for-xss-vulnerabilities.
 domain: cybersecurity
 subdomain: web-application-security
 tags:

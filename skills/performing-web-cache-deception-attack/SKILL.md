@@ -1,11 +1,6 @@
 ---
 name: performing-web-cache-deception-attack
-description: Executes web cache deception attacks by exploiting path normalization
-  discrepancies between CDN/reverse-proxy caching layers (Cloudflare, Akamai, Varnish,
-  Nginx) and origin servers to cache and retrieve sensitive authenticated content.
-  Use when testing applications behind CDNs for cache-key misconfigurations, during
-  bug bounty hunting on aggressively cached sites, or when assessing sensitive data
-  exposure through cache layer misconfiguration.
+description: Executes web cache deception attacks by exploiting path normalization discrepancies between CDN/reverse-proxy caching layers (Cloudflare, Akamai, Varnish, Nginx) and origin servers to cache and retrieve sensitive authenticated content. Use when testing applications behind CDNs for cache-key misconfigurations or assessing sensitive data exposure through the cache layer. Do not use for poisoning cached responses via unkeyed headers and parameters - use performing-web-cache-poisoning-attack.
 domain: cybersecurity
 subdomain: web-application-security
 tags:

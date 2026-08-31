@@ -1,13 +1,6 @@
 ---
 name: implementing-application-whitelisting-with-applocker
-description: 'Implements application whitelisting using Windows AppLocker to restrict
-  unauthorized software execution on endpoints, reducing attack surface from malware,
-  unauthorized tools, and shadow IT. Use when enforcing application control policies,
-  meeting compliance requirements for software restriction, or preventing execution
-  of unsigned or untrusted binaries. Activates for requests involving AppLocker, application
-  whitelisting, software restriction, or executable control.
-
-  '
+description: 'Implements application whitelisting using Windows AppLocker to restrict unauthorized software execution on endpoints, reducing attack surface from malware, unauthorized tools, and shadow IT. Use when enforcing application control policies, meeting compliance requirements for software restriction, or preventing execution of unsigned or untrusted binaries. Activates for requests involving AppLocker, application whitelisting, software restriction, or executable control. Do not use for ransomware-specific Group Policy controls - use implementing-anti-ransomware-group-policy.'
 domain: cybersecurity
 subdomain: endpoint-security
 tags:

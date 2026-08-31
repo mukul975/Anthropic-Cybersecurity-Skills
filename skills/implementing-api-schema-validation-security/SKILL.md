@@ -1,10 +1,6 @@
 ---
 name: implementing-api-schema-validation-security
-description: Implements API schema validation using OpenAPI Specification and JSON
-  Schema documents, enforced both at the API gateway (runtime) and during development
-  (shift-left), to lock down request/response contracts and reject unknown properties.
-  Use when preventing injection attacks (SQLi, XSS, XXE), blocking mass assignment,
-  or stopping data leakage through unvalidated API responses.
+description: Implements API schema validation using OpenAPI Specification and JSON Schema documents, enforced both at the API gateway (runtime) and during development (shift-left), to lock down request/response contracts and reject unknown properties. Use when preventing injection attacks (SQLi, XSS, XXE), blocking mass assignment, or stopping data leakage through unvalidated API responses. Do not use for running 42Crunch audit and conformance scans against OpenAPI definitions - use implementing-api-security-testing-with-42crunch.
 domain: cybersecurity
 subdomain: api-security
 tags:

@@ -1,6 +1,6 @@
 ---
 name: hunting-for-shadow-copy-deletion
-description: Runs a hypothesis-driven threat hunt for Volume Shadow Copy deletion (T1490) by querying SIEM/EDR telemetry for vssadmin, wmic shadowcopy, and PowerShell shadow-copy-deletion commands. Use when hunting for ransomware preparation or anti-forensics activity, after threat intel flags active campaigns, or when alerts trigger on shadow-copy deletion commands.
+description: Runs a hypothesis-driven threat hunt for Volume Shadow Copy deletion (T1490) by querying SIEM/EDR telemetry for vssadmin, wmic shadowcopy, and PowerShell shadow-copy-deletion commands. Use when hunting for ransomware preparation or anti-forensics activity, after threat intel flags active campaigns, or when alerts trigger on shadow-copy deletion commands. Do not use for hunting timestamp-manipulation anti-forensics - use hunting-for-defense-evasion-via-timestomping.
 domain: cybersecurity
 subdomain: threat-hunting
 tags:

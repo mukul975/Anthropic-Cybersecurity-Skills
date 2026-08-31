@@ -1,12 +1,6 @@
 ---
 name: implementing-delinea-secret-server-for-pam
-description: 'Implements Delinea Secret Server for privileged access management,
-  covering secret vault configuration, role-based access policies, automated password
-  rotation, session recording, and Active Directory/cloud integration. Use when centralizing
-  privileged credential management, replacing spreadsheet-based secrets, automating
-  password rotation, or meeting PAM compliance (SOX, PCI-DSS, HIPAA, NIST 800-53).
-
-  '
+description: Implements Delinea Secret Server for privileged access management, covering secret vault configuration, role-based access policies, automated password rotation, session recording, and Active Directory/cloud integration. Use when centralizing privileged credential management, replacing spreadsheet-based secrets, automating password rotation, or meeting PAM compliance (SOX, PCI-DSS, HIPAA, NIST 800-53). Do not use for CyberArk-based PAM deployments - use implementing-privileged-access-management-with-cyberark.
 domain: cybersecurity
 subdomain: identity-access-management
 tags:

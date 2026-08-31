@@ -1,14 +1,6 @@
 ---
 name: conducting-network-penetration-test
-description: 'Conducts comprehensive network penetration tests against authorized
-  target environments by performing host discovery, port scanning, service enumeration,
-  vulnerability identification, and controlled exploitation to assess the security
-  posture of network infrastructure. The tester follows PTES methodology from reconnaissance
-  through post-exploitation and reporting. Activates for requests involving network
-  pentest, infrastructure security assessment, internal network testing, or external
-  perimeter testing.
-
-  '
+description: 'Conducts comprehensive network penetration tests against authorized internal or external infrastructure through host discovery, port scanning, service enumeration, vulnerability identification, controlled exploitation, and post-exploitation pivoting following PTES methodology with Nmap, Metasploit, CrackMapExec, and Impacket. Use when scoping a general network or internal infrastructure pentest across the full reconnaissance-through-reporting lifecycle. Do not use for an assessment scoped only to internet-facing perimeter assets with OSINT and subdomain enumeration - use performing-external-network-penetration-test.'
 domain: cybersecurity
 subdomain: penetration-testing
 tags:

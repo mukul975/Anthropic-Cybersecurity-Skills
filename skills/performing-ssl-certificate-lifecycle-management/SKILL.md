@@ -1,10 +1,6 @@
 ---
 name: performing-ssl-certificate-lifecycle-management
-description: Automates the full SSL/TLS certificate lifecycle, including generating
-  Certificate Signing Requests, issuing, deploying, monitoring, renewing, and revoking
-  X.509 certificates, using Python and ACME protocol tools. Use when managing certificate
-  issuance or renewal, preventing certificate-expiry outages, or building automated
-  PKI/ACME workflows.
+description: Automates the full SSL/TLS certificate lifecycle, including generating Certificate Signing Requests, issuing, deploying, monitoring, renewing, and revoking X.509 certificates, using Python and ACME protocol tools. Use when managing certificate issuance or renewal, preventing certificate-expiry outages, or building automated PKI/ACME workflows. Do not use for standing up the CA/PKI trust hierarchy that issues certificates - use configuring-certificate-authority-with-openssl.
 domain: cybersecurity
 subdomain: cryptography
 tags:

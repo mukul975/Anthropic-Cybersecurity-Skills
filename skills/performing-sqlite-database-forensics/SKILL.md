@@ -1,11 +1,6 @@
 ---
 name: performing-sqlite-database-forensics
-description: Performs forensic analysis of SQLite databases by examining B-tree page
-  structures, recovering deleted records from freelist pages and Write-Ahead Log (WAL)
-  files, decoding encoded timestamps, and extracting evidence from browser history,
-  messaging apps, and mobile device databases. Use when recovering deleted or unallocated
-  data from a SQLite database during digital forensics or mobile/browser evidence
-  analysis.
+description: Performs forensic analysis of SQLite databases by examining B-tree page structures, recovering deleted records from freelist pages and Write-Ahead Log (WAL) files, decoding encoded timestamps, and extracting evidence from browser history, messaging apps, and mobile device databases. Use when recovering deleted or unallocated data from a SQLite database during digital forensics or mobile/browser evidence analysis. Do not use for extracting and normalizing browser history artifacts across browsers - use extracting-browser-history-artifacts.
 domain: cybersecurity
 subdomain: digital-forensics
 tags:

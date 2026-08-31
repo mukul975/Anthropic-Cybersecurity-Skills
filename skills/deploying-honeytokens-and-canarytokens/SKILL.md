@@ -1,6 +1,6 @@
 ---
 name: deploying-honeytokens-and-canarytokens
-description: Plants Canarytokens-based decoy artifacts (honey credentials, DNS tokens, web-bug URLs, AWS keys, documents, kubeconfigs) using Thinkst's open-source Canarytokens project and alerts via email or webhook when a token is touched. Use for high-fidelity intrusion detection in low-telemetry areas like file shares or credential stores, or to catch credential dumping and data-theft staging.
+description: 'Plants Canarytokens-based decoy artifacts (honey credentials, DNS tokens, web-bug URLs, AWS keys, documents, kubeconfigs) using Thinkst''s open-source Canarytokens project and alerts via email or webhook when a token is touched. Use when standing up high-fidelity intrusion detection in low-telemetry areas like file shares or credential stores, or to catch credential dumping and data-theft staging. Do not use for a general honeytoken breach-detection program not tied to the Canarytokens project - use implementing-honeytokens-for-breach-detection.'
 domain: cybersecurity
 subdomain: deception-technology
 tags:

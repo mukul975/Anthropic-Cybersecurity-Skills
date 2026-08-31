@@ -1,10 +1,6 @@
 ---
 name: testing-for-broken-access-control
-description: Systematically tests web applications and APIs for broken access control
-  (OWASP A01:2021), including privilege escalation, missing function-level checks, insecure
-  direct object references, and multi-tenant data leakage, using Burp Suite with the
-  Authorize extension. Use during authorized penetration tests or RBAC/multi-tenant
-  authorization audits.
+description: Systematically tests web applications and APIs for broken access control (OWASP A01-2021), including privilege escalation, missing function-level checks, insecure direct object references, and multi-tenant data leakage, using Burp Suite with the Authorize extension. Use during authorized penetration tests or RBAC/multi-tenant authorization audits. Do not use for focused exploitation of a single insecure direct object reference - use exploiting-idor-vulnerabilities.
 domain: cybersecurity
 subdomain: web-application-security
 tags:

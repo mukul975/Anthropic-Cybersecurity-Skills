@@ -1,17 +1,6 @@
 ---
 name: executing-nist-rmf-authorization-to-operate
-description: >-
-  Drive a federal system through the NIST Risk Management Framework (SP 800-37 Rev 2)
-  to an Authorization to Operate (ATO): Prepare, Categorize (FIPS 199), Select a control
-  baseline (FIPS 200 / SP 800-53 Rev 5), Implement, Assess (SP 800-53A), Authorize, and
-  Monitor continuously. Use when a system needs an ATO or a renewal, when working a
-  FISMA/FedRAMP authorization package, when building or reviewing an SSP, SAR, or POA&M,
-  when categorizing a system as Low/Moderate/High impact, when selecting or tailoring a
-  control baseline, or when standing up continuous monitoring (ConMon) after authorization.
-  Covers ATO, conditional ATO (cATO), and the artifacts assessors expect. Keywords: NIST
-  RMF, 800-37, ATO, authorization to operate, FISMA, FedRAMP, SSP, SAR, POA&M, FIPS 199,
-  FIPS 200, 800-53, 800-53A, control baseline, security categorization, continuous
-  monitoring, authorizing official, system boundary, ongoing authorization.
+description: Drive a federal system through the NIST Risk Management Framework (SP 800-37 Rev 2) to an Authorization to Operate (ATO) - Prepare, Categorize (FIPS 199), Select a control baseline (FIPS 200 / SP 800-53 Rev 5), Implement, Assess (SP 800-53A), Authorize, and Monitor continuously. Use when a system needs an ATO or a renewal, when working a FISMA/FedRAMP authorization package, when building or reviewing an SSP, SAR, or POA&M, when categorizing a system as Low/Moderate/High impact, when selecting or tailoring a control baseline, or when standing up continuous monitoring (ConMon) after authorization. Covers ATO, conditional ATO (cATO), and the artifacts assessors expect. Keywords - NIST RMF, 800-37, ATO, authorization to operate, FISMA, FedRAMP, SSP, SAR, POA&M, FIPS 199, FIPS 200, 800-53, 800-53A, control baseline, security categorization, continuous monitoring. Do not use for a standalone NIST 800-30 risk assessment or risk register - use conducting-cyber-risk-assessment-with-nist-800-30.
 domain: cybersecurity
 subdomain: compliance-governance
 tags:

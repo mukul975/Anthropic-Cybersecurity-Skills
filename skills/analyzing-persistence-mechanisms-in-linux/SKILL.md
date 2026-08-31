@@ -1,6 +1,6 @@
 ---
 name: analyzing-persistence-mechanisms-in-linux
-description: Scan Linux systems for persistence mechanisms including crontab/systemd entries, LD_PRELOAD injection, shell profile modifications (.bashrc, .profile), and SSH authorized_keys backdoors, then correlate findings with auditd logs into an installation timeline. Use during incident response or threat hunting to detect or confirm how an adversary maintained access to a compromised Linux host.
+description: Scan Linux systems for persistence mechanisms including crontab/systemd entries, LD_PRELOAD injection, shell profile modifications (.bashrc, .profile), and SSH authorized_keys backdoors, then correlate findings with auditd logs into an installation timeline. Use when responding to an incident or threat hunting to detect or confirm how an adversary maintained access to a compromised Linux host. Do not use for general Linux forensic artifact collection and triage - use analyzing-linux-system-artifacts.
 domain: cybersecurity
 subdomain: threat-hunting
 tags:

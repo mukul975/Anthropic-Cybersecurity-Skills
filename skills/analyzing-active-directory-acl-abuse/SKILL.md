@@ -1,7 +1,6 @@
 ---
 name: analyzing-active-directory-acl-abuse
-description: Detect dangerous ACL misconfigurations in Active Directory using ldap3
-  to identify GenericAll, WriteDACL, and WriteOwner abuse paths
+description: Analyze Active Directory DACLs with the ldap3 Python library to find misconfigured ACEs that grant non-privileged principals dangerous rights (GenericAll, WriteDACL, WriteOwner, GenericWrite) over sensitive objects, parsing nTSecurityDescriptor blobs into SDDL to surface ACL-based attack paths. Use when defensively auditing AD permissions or triaging the ACEs behind a BloodHound finding. Do not use for offensive collection and graph-based path mapping - use exploiting-active-directory-with-bloodhound.
 domain: cybersecurity
 subdomain: identity-security
 tags:

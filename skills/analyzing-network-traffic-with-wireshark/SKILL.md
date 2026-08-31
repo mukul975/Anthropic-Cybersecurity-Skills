@@ -1,10 +1,6 @@
 ---
 name: analyzing-network-traffic-with-wireshark
-description: 'Captures and analyzes network packet data using Wireshark and tshark
-  to identify malicious traffic patterns, diagnose protocol issues, extract artifacts,
-  and support incident response investigations on authorized network segments.
-
-  '
+description: Captures and analyzes network packet data using Wireshark and tshark to identify malicious traffic patterns, diagnose protocol issues, extract artifacts, and support incident response investigations on authorized network segments. Use when interactively capturing and inspecting live or saved packet traffic to spot malicious patterns or troubleshoot protocols. Do not use for running a full forensic network investigation methodology with Wireshark - use performing-network-forensics-with-wireshark.
 domain: cybersecurity
 subdomain: network-security
 tags:

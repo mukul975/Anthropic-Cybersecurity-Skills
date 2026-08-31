@@ -1,13 +1,6 @@
 ---
 name: detecting-stuxnet-style-attacks
-description: 'Detects sophisticated cyber-physical attacks that follow the Stuxnet
-  pattern of modifying PLC logic while spoofing sensor readings to hide the
-  manipulation, using PLC logic integrity monitoring (Claroty xDome, Nozomi
-  Guardian) and physics-based process anomaly detection. Use when hunting for
-  IT-to-OT lateral movement or discrepancies between PLC program state and
-  physical process behavior in ICS/SCADA environments.
-
-  '
+description: Detects sophisticated cyber-physical attacks that follow the Stuxnet pattern of modifying PLC logic while spoofing sensor readings to hide the manipulation, using PLC logic integrity monitoring (Claroty xDome, Nozomi Guardian) and physics-based process anomaly detection. Use when hunting for IT-to-OT lateral movement or discrepancies between PLC program state and physical process behavior in ICS/SCADA environments. Do not use for deploying general Nozomi OT network monitoring - use implementing-ot-network-traffic-analysis-with-nozomi.
 domain: cybersecurity
 subdomain: ot-ics-security
 tags:

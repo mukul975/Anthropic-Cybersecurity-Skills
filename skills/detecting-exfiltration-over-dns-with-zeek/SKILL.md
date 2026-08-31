@@ -1,9 +1,6 @@
 ---
 name: detecting-exfiltration-over-dns-with-zeek
-description: Detect DNS-based data exfiltration by analyzing Zeek dns.log for high-entropy
-  subdomains, oversized TXT/NULL records, and anomalous query volume or patterns. Use when
-  investigating suspected DNS tunneling, covert C2 over DNS, or data exfiltration hidden
-  in DNS queries against network traffic captured by Zeek.
+description: Detect DNS-based data exfiltration by analyzing Zeek dns.log for high-entropy subdomains, oversized TXT/NULL records, and anomalous query volume or patterns. Use when investigating suspected DNS tunneling, covert C2 over DNS, or data exfiltration hidden in DNS queries against network traffic captured by Zeek. Do not use for tool-agnostic passive DNS query-log or statistical/ML exfiltration analysis - use detecting-dns-exfiltration-with-dns-query-analysis.
 domain: cybersecurity
 subdomain: network-security
 tags:

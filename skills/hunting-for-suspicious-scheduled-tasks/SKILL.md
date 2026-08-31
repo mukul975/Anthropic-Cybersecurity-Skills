@@ -1,6 +1,6 @@
 ---
 name: hunting-for-suspicious-scheduled-tasks
-description: Hunts for adversary persistence and execution via Windows scheduled tasks (T1053.005) by analyzing Security Event ID 4698 task-creation events, suspicious task properties, and unusual execution patterns from schtasks.exe/at.exe. Use after detecting schtasks or at.exe in process creation logs, during incident response to enumerate persistence on compromised hosts, or when Event ID 4698 fires for an unusual task.
+description: Hunts for adversary persistence and execution via Windows scheduled tasks (T1053.005) by analyzing Security Event ID 4698 task-creation events, suspicious task properties, and unusual execution patterns from schtasks.exe/at.exe. Use after detecting schtasks or at.exe in process creation logs, during incident response to enumerate persistence on compromised hosts, or when Event ID 4698 fires for an unusual task. Do not use for broad hypothesis-driven scheduled-task persistence hunting across the environment - use hunting-for-scheduled-task-persistence.
 domain: cybersecurity
 subdomain: threat-hunting
 tags:

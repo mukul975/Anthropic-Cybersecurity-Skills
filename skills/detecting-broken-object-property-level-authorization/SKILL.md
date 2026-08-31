@@ -1,10 +1,6 @@
 ---
 name: detecting-broken-object-property-level-authorization
-description: Detect and test for OWASP API3:2023 Broken Object Property Level Authorization
-  (BOPLA), covering excessive data exposure in API responses and mass assignment via
-  injected request-body properties. Use when reviewing API responses/requests for
-  over-exposed or over-writable object fields, or building detection rules and test
-  cases for property-level authorization gaps that object-level checks miss.
+description: Detect and test for OWASP API3:2023 Broken Object Property Level Authorization (BOPLA), covering excessive data exposure in API responses and mass assignment via injected request-body properties. Use when reviewing API responses/requests for over-exposed or over-writable object fields, or building detection rules and test cases for property-level authorization gaps that object-level checks miss. Do not use for object-level (BOLA/IDOR) authorization testing - use testing-api-for-broken-object-level-authorization.
 domain: cybersecurity
 subdomain: api-security
 tags:

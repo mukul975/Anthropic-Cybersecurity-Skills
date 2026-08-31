@@ -1,11 +1,6 @@
 ---
 name: tracking-threat-actor-infrastructure
-description: Discovers and maps adversary-controlled infrastructure (C2 servers,
-  phishing domains, exploit-kit hosts, bulletproof hosting) by pivoting across passive
-  DNS, certificate transparency logs, Shodan/Censys scans, WHOIS records, and network
-  fingerprints (JARM/JA3S). Use when tracking threat actor infrastructure, expanding
-  a known IOC into related assets, or producing STIX-based threat intelligence during
-  a CTI investigation.
+description: Discovers and maps adversary-controlled infrastructure (C2 servers, phishing domains, exploit-kit hosts, bulletproof hosting) by pivoting across passive DNS, certificate transparency logs, Shodan/Censys scans, WHOIS records, and network fingerprints (JARM/JA3S). Use when tracking threat actor infrastructure, expanding a known IOC into related assets, or producing STIX-based threat intelligence during a CTI investigation. Do not use for building a persistent system or database to track adversary infrastructure over time - use building-adversary-infrastructure-tracking-system.
 domain: cybersecurity
 subdomain: threat-intelligence
 tags:

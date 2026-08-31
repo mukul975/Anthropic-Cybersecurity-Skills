@@ -1,12 +1,6 @@
 ---
 name: implementing-log-forwarding-with-fluentd
-description: >-
-  Configures Fluent Bit as an endpoint log forwarder and Fluentd as the central
-  aggregator for centralized log collection, routing, filtering, and enrichment,
-  covering input plugins for syslog/file-tailing/application logs and output
-  routing to Elasticsearch, S3, and Splunk. Use when setting up centralized log
-  aggregation across distributed infrastructure or generating Fluent Bit/Fluentd
-  configuration files for a new log pipeline.
+description: 'Configures Fluent Bit as an endpoint log forwarder and Fluentd as the central aggregator for centralized log collection, routing, filtering, and enrichment, covering input plugins for syslog/file-tailing/application logs and output routing to Elasticsearch, S3, and Splunk. Use when setting up centralized log aggregation across distributed infrastructure or generating Fluent Bit/Fluentd configuration files for a new log pipeline. Do not use for rsyslog-based encrypted syslog centralization - use implementing-syslog-centralization-with-rsyslog.'
 domain: cybersecurity
 subdomain: security-operations
 tags:

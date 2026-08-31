@@ -1,10 +1,6 @@
 ---
 name: implementing-privileged-access-management-with-cyberark
-description: Deploy CyberArk Privileged Access Management to discover, vault, rotate,
-  and monitor privileged credentials across enterprise infrastructure, covering
-  vault architecture, session isolation, credential rotation policies, and integration
-  with NIST 800-53 access control requirements. Use when standing up CyberArk PAM,
-  vaulting privileged credentials, or designing credential rotation policies.
+description: Deploy CyberArk Privileged Access Management to discover, vault, rotate, and monitor privileged credentials across enterprise infrastructure, covering vault architecture, session isolation, credential rotation policies, and integration with NIST 800-53 access control requirements. Use when standing up CyberArk PAM, vaulting privileged credentials, or designing credential rotation policies. Do not use for Delinea Secret Server PAM deployments - use implementing-delinea-secret-server-for-pam.
 domain: cybersecurity
 subdomain: identity-access-management
 tags:

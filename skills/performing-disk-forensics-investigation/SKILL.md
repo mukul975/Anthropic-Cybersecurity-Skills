@@ -1,12 +1,6 @@
 ---
 name: performing-disk-forensics-investigation
-description: 'Conduct disk forensics investigations using forensic imaging, file system
-  analysis, and timeline reconstruction, with tools such as FTK Imager, Autopsy, and
-  The Sleuth Kit, for evidence acquisition, deleted file recovery, and artifact examination.
-  Use when a security incident requires forensic analysis of persistent storage or
-  when evidence must be preserved for legal or HR proceedings.
-
-  '
+description: Conduct disk forensics investigations using forensic imaging, file system analysis, and timeline reconstruction, with tools such as FTK Imager, Autopsy, and The Sleuth Kit, for evidence acquisition, deleted file recovery, and artifact examination. Use when a security incident requires forensic analysis of persistent storage or when evidence must be preserved for legal or HR proceedings. Do not use for live endpoint memory acquisition and compromise-scope analysis - use performing-endpoint-forensics-investigation.
 domain: cybersecurity
 subdomain: incident-response
 tags:

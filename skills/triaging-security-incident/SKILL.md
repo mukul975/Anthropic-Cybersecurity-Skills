@@ -1,10 +1,6 @@
 ---
 name: triaging-security-incident
-description: 'Performs initial triage of security incidents using the NIST SP
-  800-61r3 and SANS PICERL frameworks, classifying incident type, assigning priority
-  by business impact, and routing to the appropriate response team. Use when a
-  SIEM/EDR alert needs human classification, concurrent alerts must be prioritized,
-  or a user report or threat-intel IOC match requires initial incident categorization.'
+description: Performs initial triage of security incidents using the NIST SP 800-61r3 and SANS PICERL frameworks, classifying incident type, assigning priority by business impact, and routing to the appropriate response team. Use when a SIEM/EDR alert needs human classification, concurrent alerts must be prioritized, or a user report or threat-intel IOC match requires initial incident categorization. Do not use for triage driven by structured IR playbooks and SIEM case-management queries - use building-incident-response-playbook.
 domain: cybersecurity
 subdomain: incident-response
 tags:
@@ -147,6 +143,125 @@ If severity is P1 or P2, initiate immediate containment actions while awaiting f
 - Disable compromised user accounts in Active Directory or identity provider
 - Block identified malicious IPs/domains at firewall and DNS sinkhole
 - Preserve volatile evidence (memory dump) before any remediation
+
+## Implementation: Tooling Commands
+
+The workflow above is framework-driven; the commands below operationalize each step against common SOC tooling (Splunk, TheHive, VirusTotal/AbuseIPDB, PagerDuty).
+
+### Pull and acknowledge new alerts (Splunk + TheHive)
+
+```bash
+# Splunk: list new critical/high notable events
+index=notable status=new severity IN ("critical","high")
+| table _time, rule_name, src, dest, severity, description
+| sort -_time
+
+# Acknowledge the notable in SIEM to prevent duplicate triage
+curl -X POST "https://splunk.local:8089/services/notable_update" \
+  -H "Authorization: Bearer $SPLUNK_TOKEN" \
+  -d "ruleUIDs=$RULE_UID&status=1&comment=Triage+initiated+by+analyst"
+
+# TheHive: list new alerts awaiting triage
+curl -s -H "Authorization: Bearer $THEHIVE_API_KEY" \
+  "https://thehive.local/api/v1/query?name=list-alerts" \
+  -H "Content-Type: application/json" \
+  -d '{"query":[{"_name":"listAlert"},{"_name":"filter","_field":"status","_value":"New"}]}'
+```
+
+### Enrich indicators (VirusTotal + AbuseIPDB)
+
+```bash
+# VirusTotal: IP and file-hash reputation
+curl -s "https://www.virustotal.com/api/v3/ip_addresses/$SRC_IP" \
+  -H "x-apikey: $VT_API_KEY" | jq '.data.attributes.last_analysis_stats'
+curl -s "https://www.virustotal.com/api/v3/files/$FILE_HASH" \
+  -H "x-apikey: $VT_API_KEY" | jq '.data.attributes.last_analysis_stats'
+
+# AbuseIPDB: source IP reputation over the last 90 days
+curl -s "https://api.abuseipdb.com/api/v2/check?ipAddress=$SRC_IP&maxAgeInDays=90" \
+  -H "Key: $ABUSEIPDB_KEY" -H "Accept: application/json" | jq '.data'
+```
+
+### Score severity programmatically
+
+Turns the impact matrix from Step 3 into a reproducible score (max 16):
+
+```python
+python3 -c "
+severity_score = 0
+# Asset criticality: Critical=4, High=3, Medium=2, Low=1
+severity_score += 4  # Critical server
+# Data sensitivity: PII/PHI=4, PCI=3, Confidential=2, Public=1
+severity_score += 3  # PCI data
+# Scope: Enterprise=4, Department=3, Single system=2, Single user=1
+severity_score += 2  # Single system
+# Threat status: Active=4, Recent=3, Historical=2, Potential=1
+severity_score += 4  # Active threat
+
+if severity_score >= 12: print('CRITICAL - P1')
+elif severity_score >= 9: print('HIGH - P2')
+elif severity_score >= 6: print('MEDIUM - P3')
+else: print('LOW - P4')
+print(f'Score: {severity_score}/16')
+"
+```
+
+### Open and update the case (TheHive)
+
+```bash
+# Create the incident case with playbook and affected-system metadata
+curl -X POST "https://thehive.local/api/v1/case" \
+  -H "Authorization: Bearer $THEHIVE_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "IR-2025-XXX: [Incident Type] - [Brief Description]",
+    "description": "Triage summary and initial findings",
+    "severity": 3, "tlp": 2, "pap": 2,
+    "tags": ["ransomware", "triage-complete"],
+    "customFields": {
+      "playbook": {"string": "ransomware_v2"},
+      "affected_systems": {"integer": 5}
+    }
+  }'
+
+# Update the case with triage decision and severity justification
+curl -X PATCH "https://thehive.local/api/v1/case/$CASE_ID" \
+  -H "Authorization: Bearer $THEHIVE_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "status": "InProgress",
+    "customFields": {
+      "triage_analyst": {"string": "analyst_name"},
+      "severity_justification": {"string": "Critical asset + active threat + PCI data"}
+    }
+  }'
+```
+
+### Escalate by severity (PagerDuty)
+
+```bash
+# Check on-call before paging
+curl -s "https://pagerduty.com/api/v2/oncalls?schedule_ids[]=$SCHEDULE_ID" \
+  -H "Authorization: Token token=$PD_TOKEN" | jq '.oncalls[].user.summary'
+
+# Page by severity tier:
+#   P1/Critical: IR lead + senior analysts + CISO
+#   P2/High:     IR lead + available analysts
+#   P3/Medium:   next available analyst
+#   P4/Low:      queue for business hours
+curl -X POST "https://events.pagerduty.com/v2/enqueue" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "routing_key": "'$PD_ROUTING_KEY'",
+    "event_action": "trigger",
+    "payload": {
+      "summary": "P1 Security Incident: Ransomware detected on PROD-DB-01",
+      "severity": "critical",
+      "source": "SIEM-Splunk",
+      "custom_details": {"incident_id": "IR-2025-042", "playbook": "ransomware_v2"}
+    }
+  }'
+```
 
 ## Key Concepts
 

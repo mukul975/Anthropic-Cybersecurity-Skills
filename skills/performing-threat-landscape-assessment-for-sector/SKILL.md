@@ -1,12 +1,6 @@
 ---
 name: performing-threat-landscape-assessment-for-sector
-description: >-
-  Conducts a sector-specific threat landscape assessment (financial,
-  healthcare, energy, government, etc.) by profiling targeting threat actors,
-  mapping attack vectors and MITRE ATT&CK TTPs with the attackcti/pandas
-  Python stack, and analyzing exploited CVEs and incident trends from ISAC
-  and vendor reports. Use when producing CTI for risk management or
-  board-level reporting on an industry's threat exposure.
+description: Conducts a sector-specific threat landscape assessment (financial, healthcare, energy, government, etc.) by profiling targeting threat actors, mapping attack vectors and MITRE ATT&CK TTPs with the attackcti/pandas Python stack, and analyzing exploited CVEs and incident trends from ISAC and vendor reports. Use when producing CTI for risk management or board-level reporting on an industry's threat exposure. Do not use for interactive analysis of the threat landscape from a MISP instance - use analyzing-threat-landscape-with-misp.
 domain: cybersecurity
 subdomain: threat-intelligence
 tags:

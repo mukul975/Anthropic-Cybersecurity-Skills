@@ -1,13 +1,6 @@
 ---
 name: implementing-runtime-security-with-tetragon
-description: >-
-  Implements eBPF-based runtime observability and in-kernel enforcement in Kubernetes with
-  Cilium Tetragon, monitoring process execution, file access, network connections, and
-  syscalls, and blocking dangerous calls at the kernel level. Use when deploying Tetragon to
-  detect or block syscalls such as ptrace, mount, and unshare, enforcing kernel-level policy,
-  or adding low-overhead runtime detection to a cluster. Keywords: Tetragon, Cilium, eBPF,
-  TracingPolicy, kprobe, enforcement, process lineage. Do not use for Falco-based detection -
-  use detecting-container-runtime-threats-with-falco.
+description: Implements eBPF-based runtime observability and in-kernel enforcement in Kubernetes with Cilium Tetragon, monitoring process execution, file access, network connections, and syscalls with TracingPolicy kprobes and process lineage, and blocking dangerous calls such as ptrace, mount, and unshare at the kernel level. Use when deploying Tetragon to detect or block syscalls and enforce low-overhead kernel-level policy in a cluster; for Falco-based detection instead see detecting-container-runtime-threats-with-falco. Do not use for host-and-SIEM-focused eBPF observability with JSON event export - use implementing-ebpf-security-monitoring.
 domain: cybersecurity
 subdomain: container-security
 tags:

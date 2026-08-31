@@ -1,10 +1,6 @@
 ---
 name: hunting-for-process-injection-techniques
-description: Detects process injection techniques (MITRE T1055) — including
-  CreateRemoteThread injection, process hollowing, and DLL injection — by analyzing
-  Sysmon Event IDs 8 (CreateRemoteThread) and 10 (ProcessAccess) alongside EDR process
-  telemetry. Use when hunting for in-memory code injection or defense evasion via
-  legitimate process abuse on Windows endpoints.
+description: Detects process injection techniques (MITRE T1055) - including CreateRemoteThread injection, process hollowing, and DLL injection - by analyzing Sysmon Event IDs 8 (CreateRemoteThread) and 10 (ProcessAccess) alongside EDR process telemetry. Use when hunting for in-memory code injection or defense evasion via legitimate process abuse on Windows endpoints, correlating Sysmon with EDR data. Do not use for full Sysmon Event ID 1/7/8/10/25 coverage and Sysmon config validation - use detecting-t1055-process-injection-with-sysmon.
 domain: cybersecurity
 subdomain: threat-hunting
 tags:

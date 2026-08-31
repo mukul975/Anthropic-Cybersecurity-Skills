@@ -1,9 +1,6 @@
 ---
 name: performing-hardware-security-module-integration
-description: Integrates Hardware Security Modules (HSMs) via the PKCS#11 interface
-  using python-pkcs11, performing key generation, signing, encryption, verification,
-  and token/slot queries against SoftHSM2, AWS CloudHSM, or YubiHSM2. Use when implementing
-  HSM-backed key management or validating HSM configuration for FIPS 140-2/3 compliance.
+description: Integrates Hardware Security Modules (HSMs) via the PKCS#11 interface using python-pkcs11, performing key generation, signing, encryption, verification, and token/slot queries against SoftHSM2, AWS CloudHSM, or YubiHSM2. Use when implementing HSM-backed key management or validating HSM configuration for FIPS 140-2/3 compliance. Do not use for basic PKCS#11 key storage configuration and development against SoftHSM2 - use configuring-hsm-for-key-storage.
 domain: cybersecurity
 subdomain: cryptography
 tags:

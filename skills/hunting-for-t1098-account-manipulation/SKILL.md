@@ -1,6 +1,6 @@
 ---
 name: hunting-for-t1098-account-manipulation
-description: Hunts for MITRE ATT&CK T1098 account manipulation - shadow admin creation, SID history injection, group membership changes, and credential modifications - by analyzing Windows Security Event Log IDs 4738, 4728, 4732, 4756, 4670, and 5136. Use when investigating suspected privilege persistence in Active Directory, after detecting anomalous group/credential changes, or during incident response to trace account tampering.
+description: Hunts for MITRE ATT&CK T1098 account manipulation - shadow admin creation, SID history injection, group membership changes, and credential modifications - by analyzing Windows Security Event Log IDs 4738, 4728, 4732, 4756, 4670, and 5136. Use when investigating suspected privilege persistence in Active Directory, after detecting anomalous group/credential changes, or during incident response to trace account tampering. Do not use for full Active Directory compromise incident investigation - use performing-active-directory-compromise-investigation.
 domain: cybersecurity
 subdomain: threat-hunting
 tags:

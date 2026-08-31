@@ -1,10 +1,6 @@
 ---
 name: implementing-network-traffic-analysis-with-arkime
-description: Queries Arkime (formerly Moloch) full packet capture via its API to search sessions,
-  download PCAPs, detect C2 beaconing through connection interval/jitter stats,
-  spot DNS tunneling via query-length analysis, and flag known-bad TLS certificate
-  issuers, using the bundled scripts/agent.py. Use when investigating suspicious
-  network flows or doing full-packet-capture forensics against an Arkime deployment.
+description: Queries Arkime (formerly Moloch) full packet capture via its API to search sessions, download PCAPs, detect C2 beaconing through connection interval/jitter stats, spot DNS tunneling via query-length analysis, and flag known-bad TLS certificate issuers, using the bundled scripts/agent.py. Use when investigating suspicious network flows or doing full-packet-capture forensics against an Arkime deployment. Do not use for metadata-based traffic analysis with Zeek logs - use performing-network-traffic-analysis-with-zeek.
 domain: cybersecurity
 subdomain: network-security
 tags:

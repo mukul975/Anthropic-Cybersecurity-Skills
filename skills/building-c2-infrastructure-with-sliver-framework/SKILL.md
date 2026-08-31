@@ -1,6 +1,6 @@
 ---
 name: building-c2-infrastructure-with-sliver-framework
-description: Deploy and harden a Sliver C2 team server (BishopFox's Go-based adversary emulation framework) with multi-protocol listeners (mTLS, HTTP/S, DNS, WireGuard), redirectors, domain fronting, and multi-operator support for authorized red-team operations. Use when standing up resilient C2 for a red-team engagement or generating beacon/session implants that must survive blue-team detection.
+description: Deploy and harden a Sliver C2 team server (BishopFox's Go-based adversary emulation framework) with multi-protocol listeners (mTLS, HTTP/S, DNS, WireGuard), redirectors, domain fronting, and multi-operator support for authorized red-team operations. Use when standing up resilient C2 for a red-team engagement or generating beacon/session implants that must survive blue-team detection. Do not use for generating Sliver implants and running post-exploitation once the server is up - use operating-sliver-c2.
 domain: cybersecurity
 subdomain: red-teaming
 tags:

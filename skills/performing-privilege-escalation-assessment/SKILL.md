@@ -1,13 +1,6 @@
 ---
 name: performing-privilege-escalation-assessment
-description: 'Performs privilege escalation assessments on compromised Linux and Windows
-  systems to identify paths from low-privilege access to root or SYSTEM-level control.
-  The tester enumerates misconfigurations, vulnerable services, kernel exploits, SUID
-  binaries, unquoted service paths, and credential stores to demonstrate the full
-  impact of an initial compromise. Activates for requests involving privilege escalation
-  testing, local exploitation, post-compromise escalation, or OS-level security assessment.
-
-  '
+description: 'Performs privilege escalation assessments on compromised Linux and Windows systems to identify paths from low-privilege access to root or SYSTEM-level control, enumerating misconfigurations, vulnerable services, kernel exploits, SUID binaries, unquoted service paths, and credential stores to demonstrate the full impact of an initial compromise. Use when a request involves privilege escalation testing, local exploitation, post-compromise escalation, or OS-level security assessment. Do not use for a Linux-only privilege escalation walkthrough - use performing-privilege-escalation-on-linux.'
 domain: cybersecurity
 subdomain: penetration-testing
 tags:

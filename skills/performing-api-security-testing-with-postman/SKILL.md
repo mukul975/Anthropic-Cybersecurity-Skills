@@ -1,12 +1,6 @@
 ---
 name: performing-api-security-testing-with-postman
-description: 'Uses Postman to build structured API security test collections covering
-  the OWASP API Security Top 10—authentication bypass, authorization flaws, injection,
-  and data exposure—with multi-role environments, automated test scripts, and OWASP
-  ZAP/Newman integration for CI/CD. Use when building repeatable Postman-based API
-  security regression tests or automating OWASP API Top 10 coverage in a pipeline.
-
-  '
+description: Uses Postman to build structured API security test collections covering the OWASP API Security Top 10—authentication bypass, authorization flaws, injection, and data exposure—with multi-role environments, automated test scripts, and OWASP ZAP/Newman integration for CI/CD. Use when building repeatable Postman-based API security regression tests or automating OWASP API Top 10 coverage in a pipeline. Do not use for tool-agnostic OWASP API Top 10 testing methodology - use testing-api-security-with-owasp-top-10.
 domain: cybersecurity
 subdomain: api-security
 tags:

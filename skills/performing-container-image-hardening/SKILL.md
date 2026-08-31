@@ -1,13 +1,6 @@
 ---
 name: performing-container-image-hardening
-description: 'Harden container images by minimizing attack surface, stripping unnecessary
-  packages, implementing multi-stage builds, configuring non-root users, and applying
-  CIS Docker Benchmark recommendations to produce secure, production-ready images.
-  Use when building production container images, when compliance requires CIS Docker
-  Benchmark adherence, or when shrinking image size to reduce vulnerability exposure
-  from unused packages.
-
-  '
+description: Harden container images by minimizing attack surface, stripping unnecessary packages, implementing multi-stage builds, configuring non-root users, and applying CIS Docker Benchmark recommendations to produce secure, production-ready images. Use when building production container images, when compliance requires CIS Docker Benchmark adherence, or when shrinking image size to reduce vulnerability exposure from unused packages. Do not use for hardening the Docker runtime and daemon of a production host - use hardening-docker-containers-for-production.
 domain: cybersecurity
 subdomain: devsecops
 tags:

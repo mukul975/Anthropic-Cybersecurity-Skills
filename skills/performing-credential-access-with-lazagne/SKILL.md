@@ -1,8 +1,6 @@
 ---
 name: performing-credential-access-with-lazagne
-description: Extract stored credentials from compromised endpoints using the LaZagne
-  post-exploitation tool to recover passwords from browsers, databases, system vaults,
-  and applications during authorized red team operations.
+description: Extract stored credentials from compromised endpoints using the LaZagne post-exploitation tool to recover passwords from browsers, databases, system vaults, and applications during authorized red team operations. Use when recovering stored passwords broadly from browsers, databases, system vaults, and applications on a compromised endpoint during authorized red team operations. Do not use for extracting and decrypting Windows DPAPI-protected secrets specifically - use abusing-dpapi-for-credential-access.
 domain: cybersecurity
 subdomain: red-teaming
 tags:

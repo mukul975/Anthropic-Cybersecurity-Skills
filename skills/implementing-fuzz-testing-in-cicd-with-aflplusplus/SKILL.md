@@ -1,6 +1,6 @@
 ---
 name: implementing-fuzz-testing-in-cicd-with-aflplusplus
-description: Integrates AFL++ coverage-guided fuzzing into CI/CD pipelines, covering harness construction, AFL++/AddressSanitizer/CmpLog instrumentation builds, and persistent-mode fuzzing to discover memory-corruption and input-handling vulnerabilities in C/C++ code. Use when adding automated fuzz testing to a build pipeline or hunting for memory-safety bugs in native/compiled applications.
+description: Integrates AFL++ coverage-guided fuzzing into CI/CD pipelines, covering harness construction, AFL++/AddressSanitizer/CmpLog instrumentation builds, and persistent-mode fuzzing to discover memory-corruption and input-handling vulnerabilities in C/C++ code. Use when adding automated fuzz testing to a build pipeline or wiring continuous fuzzing into CI for native/compiled applications. Do not use for interactive local campaign running, corpus minimization, and crash triage - use performing-fuzzing-with-aflplusplus.
 domain: cybersecurity
 subdomain: devsecops
 tags:

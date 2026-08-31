@@ -1,10 +1,6 @@
 ---
 name: hunting-for-ntlm-relay-attacks
-description: Detects NTLM relay attacks (MITRE T1557.001) by analyzing Windows Event
-  ID 4624 logon type 3 with NTLMSSP authentication, flagging IP-to-hostname mismatches,
-  Responder/LLMNR poisoning signatures, SMB signing status, and anomalous cross-domain
-  authentication patterns. Use when investigating credential-relay activity in Active
-  Directory or building detections for NTLM relay and coercion-based attacks.
+description: 'Detects NTLM relay attacks (MITRE T1557.001) with a Python-based hunt over Windows Event ID 4624 logon type 3 NTLMSSP logons, flagging IP-to-hostname mismatches, Responder/LLMNR poisoning signatures, machine-account relay, named-pipe access, and SMB signing status, and emitting a JSON relay report. Use when running a scripted threat hunt for credential-relay activity in Active Directory and needing a JSON findings output. Do not use for building multi-platform Splunk, Sentinel, and Sigma SIEM correlation rules and dashboards - use detecting-ntlm-relay-with-event-correlation.'
 domain: cybersecurity
 subdomain: threat-hunting
 tags:

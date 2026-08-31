@@ -1,6 +1,6 @@
 ---
 name: analyzing-outlook-pst-for-email-forensics
-description: Parse Microsoft Outlook PST and OST files using libpff and pst-utils to extract message content, headers, attachments, deleted items, and MAPI metadata, including recovery of items from the Recoverable Items folder. Use when conducting email forensic investigations, legal e-discovery, or incident response that requires reconstructing communication patterns or tracing message routing from Outlook archives.
+description: Parse Microsoft Outlook PST and OST files using libpff and pst-utils to extract message content, headers, attachments, deleted items, and MAPI metadata, including recovery of items from the Recoverable Items folder. Use when conducting email forensic investigations, legal e-discovery, or incident response that requires reconstructing communication patterns or tracing message routing from Outlook archives. Do not use for tracing phishing email origin through header and SPF/DKIM/DMARC analysis - use analyzing-email-headers-for-phishing-investigation.
 domain: cybersecurity
 subdomain: digital-forensics
 tags:

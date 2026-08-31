@@ -1,13 +1,6 @@
 ---
 name: securing-kubernetes-on-cloud
-description: 'Hardens managed Kubernetes clusters on EKS, AKS, and GKE by implementing
-  Pod Security Standards, network policies, workload identity (IRSA for EKS, Workload
-  Identity for GKE, Managed Identities for AKS), RBAC scoping, image admission controls,
-  and runtime security monitoring. Use when deploying a new managed Kubernetes cluster
-  with security requirements or hardening an existing EKS, AKS, or GKE cluster after
-  an audit or pentest finding.
-
-  '
+description: Hardens managed Kubernetes clusters on EKS, AKS, and GKE by implementing Pod Security Standards, network policies, workload identity (IRSA for EKS, Workload Identity for GKE, Managed Identities for AKS), RBAC scoping, image admission controls, and runtime security monitoring. Use when deploying a new managed Kubernetes cluster with security requirements or hardening an existing EKS, AKS, or GKE cluster after an audit or pentest finding. Do not use for running the CIS Kubernetes benchmark with kube-bench - use performing-kubernetes-cis-benchmark-with-kube-bench.
 domain: cybersecurity
 subdomain: cloud-security
 tags:

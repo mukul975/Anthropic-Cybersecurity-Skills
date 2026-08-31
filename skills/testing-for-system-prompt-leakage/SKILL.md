@@ -1,10 +1,6 @@
 ---
 name: testing-for-system-prompt-leakage
-description: Extracts LLM system prompts using direct requests, jailbreak/instruction-override
-  framing, translation/encoding tricks, and few-shot replay, combining manual payloads with
-  automated garak and Promptfoo scanners to surface embedded secrets, routing logic, and
-  policy leakage (OWASP LLM07:2025). Use during LLM application red-team engagements or
-  when validating that no credentials or authorization logic live in the system prompt.
+description: Extracts LLM system prompts using direct requests, jailbreak/instruction-override framing, translation/encoding tricks, and few-shot replay, combining manual payloads with automated garak and Promptfoo scanners to surface embedded secrets, routing logic, and policy leakage (OWASP LLM07:2025). Use when running an LLM application red-team engagement or validating that no credentials or authorization logic live in the system prompt. Do not use for broad continuous CI/CD red-team coverage across the OWASP LLM Top 10 - use continuous-llm-red-teaming-with-promptfoo.
 domain: cybersecurity
 subdomain: ai-security
 tags:

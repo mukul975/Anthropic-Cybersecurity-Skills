@@ -1,8 +1,6 @@
 ---
 name: performing-brand-monitoring-for-impersonation
-description: Monitor for brand impersonation attacks across domains, social media,
-  mobile apps, and dark web channels to detect phishing campaigns, fake sites, and
-  unauthorized brand usage targeting your organization.
+description: Monitor for brand impersonation attacks across domains, social media, mobile apps, and dark web channels to detect phishing campaigns, fake sites, and unauthorized brand usage targeting your organization. Use when watching for impersonation of your brand, logos, or executives to catch phishing and fake sites early. Do not use for generating and scanning lookalike or typosquatting domain permutations - use analyzing-typosquatting-domains-with-dnstwist.
 domain: cybersecurity
 subdomain: threat-intelligence
 tags:

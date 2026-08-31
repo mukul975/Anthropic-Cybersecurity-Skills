@@ -1,10 +1,6 @@
 ---
 name: implementing-network-segmentation-with-firewall-zones
-description: Designs and implements network segmentation using firewall security zones, VLANs,
-  inter-zone ACLs, and workload-level microsegmentation to restrict east-west lateral
-  movement and enforce least-privilege access. Use when architecting security zones,
-  writing inter-zone firewall policies, or meeting PCI DSS/HIPAA/NIST 800-53/zero-trust
-  segmentation requirements for dynamic or traditional network environments.
+description: Designs and implements network segmentation using firewall security zones, VLANs, inter-zone ACLs, and workload-level microsegmentation to restrict east-west lateral movement and enforce least-privilege access. Use when architecting security zones, writing inter-zone firewall policies, or meeting PCI DSS/HIPAA/NIST 800-53/zero-trust segmentation requirements for dynamic or traditional network environments. Do not use for 802.1Q VLAN segmentation on managed switches - use configuring-network-segmentation-with-vlans.
 domain: cybersecurity
 subdomain: network-security
 tags:

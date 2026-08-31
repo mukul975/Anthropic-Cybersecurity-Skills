@@ -1,12 +1,6 @@
 ---
 name: performing-fuzzing-with-aflplusplus
-description: 'Performs coverage-guided fuzzing of compiled binaries with AFL++, instrumenting
-  targets via afl-cc/afl-clang-fast, minimizing corpora with afl-cmin and afl-tmin,
-  running parallel campaigns with afl-fuzz, and triaging crashes with CASR or GDB
-  scripts. Use for binary fuzzing, crash and memory-corruption discovery, coverage-guided
-  testing, or running AFL++ fuzzing campaigns.
-
-  '
+description: Performs coverage-guided fuzzing of compiled binaries with AFL++, instrumenting targets via afl-cc/afl-clang-fast, minimizing corpora with afl-cmin and afl-tmin, running parallel campaigns with afl-fuzz, and triaging crashes with CASR or GDB scripts. Use when running hands-on binary fuzzing, crash and memory-corruption discovery, corpus minimization, or parallel AFL++ campaigns interactively. Do not use for wiring automated fuzzing into a CI/CD build pipeline - use implementing-fuzz-testing-in-cicd-with-aflplusplus.
 domain: cybersecurity
 subdomain: application-security
 tags:

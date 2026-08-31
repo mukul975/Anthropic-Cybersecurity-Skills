@@ -1,11 +1,6 @@
 ---
 name: performing-web-application-firewall-bypass
-description: Bypasses Web Application Firewall protections using encoding tricks,
-  HTTP method manipulation, parameter pollution, and payload obfuscation to smuggle
-  SQL injection, XSS, and other exploit payloads past WAF detection rules. Use when
-  a confirmed vulnerability is blocked by a WAF, during penetration tests or red
-  team engagements requiring bypass of perimeter security controls, or when evaluating
-  WAF rule effectiveness and bypass resistance.
+description: Bypasses Web Application Firewall protections using encoding tricks, HTTP method manipulation, parameter pollution, and payload obfuscation to smuggle SQL injection, XSS, and other exploit payloads past WAF detection rules. Use when a confirmed vulnerability is blocked by a WAF, during red team engagements needing perimeter bypass, or when evaluating WAF rule effectiveness. Do not use for the specific duplicate-parameter pollution technique on its own - use performing-http-parameter-pollution-attack.
 domain: cybersecurity
 subdomain: web-application-security
 tags:

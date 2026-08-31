@@ -1,11 +1,6 @@
 ---
 name: hunting-for-living-off-the-cloud-techniques
-description: Hunts for adversary abuse of legitimate cloud services (Azure, AWS, GCP,
-  and SaaS platforms) for command-and-control, data staging, and exfiltration, i.e.
-  "living off the cloud" tradecraft that blends in with normal cloud API and service
-  activity. Use when threat hunting for cloud-native C2 channels, abnormal use of
-  storage/SaaS services for data staging, or exfiltration hidden in legitimate cloud
-  traffic.
+description: Hunts for adversary abuse of legitimate cloud services (Azure, AWS, GCP, and SaaS platforms) for command-and-control, data staging, and exfiltration, i.e. "living off the cloud" tradecraft that blends in with normal cloud API and service activity. Use when threat hunting for cloud-native C2 channels, abnormal use of storage/SaaS services for data staging, or exfiltration hidden in legitimate cloud traffic. Do not use for detecting on-host living-off-the-land binary abuse - use detecting-living-off-the-land-attacks.
 domain: cybersecurity
 subdomain: threat-hunting
 tags:

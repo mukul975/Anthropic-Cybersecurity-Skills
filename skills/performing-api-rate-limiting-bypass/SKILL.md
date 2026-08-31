@@ -1,13 +1,6 @@
 ---
 name: performing-api-rate-limiting-bypass
-description: 'Tests API rate limiting for bypass vulnerabilities using Python (requests/aiohttp)
-  and Burp Suite Turbo Intruder to manipulate headers (e.g. X-Forwarded-For spoofing),
-  IPs, HTTP methods, API versions, and encodings, mapping findings to OWASP API4:2023
-  Unrestricted Resource Consumption. Use when assessing, under written authorization,
-  whether rate limits can be bypassed to enable brute force or resource-exhaustion
-  attacks.
-
-  '
+description: Tests API rate limiting for bypass vulnerabilities using Python (requests/aiohttp) and Burp Suite Turbo Intruder to manipulate headers (e.g. X-Forwarded-For spoofing), IPs, HTTP methods, API versions, and encodings, mapping findings to OWASP API4:2023 Unrestricted Resource Consumption. Use when assessing, under written authorization, whether rate limits can be bypassed to enable brute force or resource-exhaustion attacks. Do not use for implementing or configuring defensive rate limiting - use implementing-api-rate-limiting-and-throttling.
 domain: cybersecurity
 subdomain: api-security
 tags:

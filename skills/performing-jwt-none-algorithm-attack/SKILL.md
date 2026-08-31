@@ -1,10 +1,6 @@
 ---
 name: performing-jwt-none-algorithm-attack
-description: Execute and test the JWT none algorithm attack, crafting tokens with
-  the alg header set to none using PyJWT and an intercepting proxy (Burp Suite/mitmproxy)
-  to bypass signature verification and forge arbitrary claims. Use during authorized
-  penetration tests or security assessments of applications that use JWT for authentication
-  or authorization, to validate that the server rejects unsigned tokens.
+description: Execute and test the JWT none algorithm attack, crafting tokens with the alg header set to none using PyJWT and an intercepting proxy (Burp Suite/mitmproxy) to bypass signature verification and forge arbitrary claims. Use when running authorized penetration tests or security assessments of applications that use JWT for authentication or authorization, to validate that the server rejects unsigned tokens. Do not use for RS256-to-HS256 key confusion attacks - use exploiting-jwt-algorithm-confusion-attack.
 domain: cybersecurity
 subdomain: api-security
 tags:

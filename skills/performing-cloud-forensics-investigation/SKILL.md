@@ -1,10 +1,6 @@
 ---
 name: performing-cloud-forensics-investigation
-description: Collect and analyze cloud forensic evidence using AWS CLI, Azure CLI, or gcloud
-  to snapshot volumes, capture instance metadata and security group configurations, and preserve
-  cloud-native logs (CloudTrail, Activity Log, Audit Log). Use when investigating a suspected
-  breach in AWS, Azure, or GCP, tracing unauthorized access through API logs, or analyzing a
-  compromised VM, container, or serverless function.
+description: Collect and analyze cloud forensic evidence using AWS CLI, Azure CLI, or gcloud to snapshot volumes, capture instance metadata and security group configurations, and preserve cloud-native logs (CloudTrail, Activity Log, Audit Log). Use when investigating a suspected breach in AWS, Azure, or GCP, tracing unauthorized access through API logs, or analyzing a compromised VM, container, or serverless function. Do not use for coordinating operational cloud incident response - use conducting-cloud-incident-response.
 domain: cybersecurity
 subdomain: digital-forensics
 tags:

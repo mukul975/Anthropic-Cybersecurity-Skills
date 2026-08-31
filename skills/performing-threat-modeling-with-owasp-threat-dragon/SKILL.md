@@ -1,11 +1,6 @@
 ---
 name: performing-threat-modeling-with-owasp-threat-dragon
-description: >-
-  Uses OWASP Threat Dragon (web or desktop) to build data flow diagrams,
-  identify threats with STRIDE, LINDDUN, CIA, DIE, or PLOT4ai methodologies
-  via its auto-generation rule engine, and produce PDF threat model reports.
-  Use during secure design review of an application architecture to build a
-  formal threat model and document mitigations for GRC compliance.
+description: Uses OWASP Threat Dragon (web or desktop) to build data flow diagrams, identify threats with STRIDE, LINDDUN, CIA, DIE, or PLOT4ai methodologies via its auto-generation rule engine, and produce PDF threat model reports. Use when performing a secure design review of an application architecture to build a formal threat model and document mitigations for GRC compliance. Do not use for threat modeling that maps system components to adversary techniques in MITRE ATT&CK - use implementing-threat-modeling-with-mitre-attack.
 domain: cybersecurity
 subdomain: devsecops
 tags:

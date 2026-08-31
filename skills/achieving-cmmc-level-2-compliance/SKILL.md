@@ -1,17 +1,6 @@
 ---
 name: achieving-cmmc-level-2-compliance
-description: >-
-  Prepare a defense-contractor environment for CMMC Level 2 certification: scope CUI
-  and FCI, implement the 110 NIST SP 800-171 Rev 2 security requirements across 14
-  families, compute the SPRS score with the DoD Assessment Methodology, manage a
-  compliant POA&M, and ready the organization for a C3PAO assessment. Use when an
-  organization handles Controlled Unclassified Information (CUI) under a DoD contract,
-  when a contract carries DFARS clause 252.204-7012/7019/7020/7021, when preparing for
-  or responding to a CMMC assessment, when computing or improving an SPRS score, when
-  building a System Security Plan or POA&M for 800-171, or when scoping which systems
-  are in the CUI boundary. Keywords: CMMC, CMMC Level 2, NIST 800-171, SP 800-171 Rev 2,
-  CUI, FCI, SPRS, DFARS 7012, C3PAO, POA&M, System Security Plan, DoD Assessment
-  Methodology, 110 controls, defense industrial base, DIB, FedRAMP equivalency.
+description: Prepare a defense-contractor environment for CMMC Level 2 certification - scope CUI and FCI, implement the 110 NIST SP 800-171 Rev 2 security requirements across 14 families, compute the SPRS score with the DoD Assessment Methodology, manage a compliant POA&M, and ready the organization for a C3PAO assessment. Use when an organization handles Controlled Unclassified Information (CUI) under a DoD contract, when a contract carries DFARS clause 252.204-7012/7019/7020/7021, when preparing for or responding to a CMMC assessment, when computing or improving an SPRS score, when building a System Security Plan or POA&M for 800-171, or when scoping which systems are in the CUI boundary. Keywords - CMMC, NIST 800-171, SP 800-171 Rev 2, CUI, FCI, SPRS, DFARS 7012, C3PAO, POA&M, System Security Plan, DoD Assessment Methodology, defense industrial base, DIB, FedRAMP equivalency. Do not use for federal FISMA/FedRAMP RMF authorization-to-operate packages - use executing-nist-rmf-authorization-to-operate.
 domain: cybersecurity
 subdomain: compliance-governance
 tags:

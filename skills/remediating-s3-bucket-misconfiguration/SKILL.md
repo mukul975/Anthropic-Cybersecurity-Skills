@@ -1,13 +1,6 @@
 ---
 name: remediating-s3-bucket-misconfiguration
-description: 'Provides step-by-step procedures for remediating Amazon S3 bucket
-  misconfigurations that expose sensitive data: enabling S3 Block Public Access,
-  auditing bucket policies and ACLs, enforcing encryption, configuring access logging,
-  and deploying automated remediation with AWS Config and Lambda. Use when AWS Config
-  or Security Hub flags public or unencrypted S3 buckets, or preparing audit evidence
-  for storage security controls.
-
-  '
+description: Provides step-by-step procedures for remediating Amazon S3 bucket misconfigurations that expose sensitive data, including enabling S3 Block Public Access, auditing bucket policies and ACLs, enforcing encryption, configuring access logging, and deploying automated remediation with AWS Config and Lambda. Use when AWS Config or Security Hub flags public or unencrypted S3 buckets, or preparing audit evidence for storage security controls. Do not use for auditing and discovering S3 permission issues - use auditing-aws-s3-bucket-permissions.
 domain: cybersecurity
 subdomain: cloud-security
 tags:

@@ -1,8 +1,6 @@
 ---
 name: performing-external-network-penetration-test
-description: Conduct a comprehensive external network penetration test to identify
-  vulnerabilities in internet-facing infrastructure using PTES methodology, reconnaissance,
-  scanning, exploitation, and reporting.
+description: 'Conduct an external network penetration test targeting internet-facing infrastructure like firewalls, web, mail, DNS, and VPN gateways through OSINT and subdomain reconnaissance, external scanning, perimeter exploitation, and reporting following PTES and OSSTMM. Use when the scope is limited to the internet-facing perimeter reached from outside the network. Do not use for internal network or general infrastructure penetration testing with post-exploitation pivoting - use conducting-network-penetration-test.'
 domain: cybersecurity
 subdomain: penetration-testing
 tags:

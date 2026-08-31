@@ -1,10 +1,6 @@
 ---
 name: performing-indicator-lifecycle-management
-description: Tracks IOCs through discovery, enrichment/validation (VirusTotal, Shodan,
-  passive DNS), deployment to SIEM/IDS watchlists, hit-rate and false-positive monitoring,
-  confidence-score decay, and automated expiration using MISP/OpenCTI and STIX. Use
-  when building or maintaining a threat intelligence indicator lifecycle process,
-  aging out stale IOCs, or reducing analyst fatigue from low-quality indicators.
+description: Tracks IOCs through discovery, enrichment/validation (VirusTotal, Shodan, passive DNS), deployment to SIEM/IDS watchlists, hit-rate and false-positive monitoring, confidence-score decay, and automated expiration using MISP/OpenCTI and STIX. Use when building or maintaining a threat intelligence indicator lifecycle process, aging out stale IOCs, or reducing analyst fatigue from low-quality indicators. Do not use for building an automated IOC enrichment pipeline in OpenCTI - use building-ioc-enrichment-pipeline-with-opencti.
 domain: cybersecurity
 subdomain: threat-intelligence
 tags:

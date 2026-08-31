@@ -1,8 +1,6 @@
 ---
 name: testing-for-host-header-injection
-description: Test web applications for HTTP Host header injection vulnerabilities
-  to identify password reset poisoning, web cache poisoning, SSRF, and virtual host
-  routing manipulation risks.
+description: Test web applications for HTTP Host header injection vulnerabilities to identify password reset poisoning, web cache poisoning, SSRF, and virtual host routing manipulation risks. Use when auditing how an application trusts the Host header in password reset links, absolute URLs, and routing during a penetration test. Do not use for a dedicated cache-key manipulation attack against caching layers - use performing-web-cache-poisoning-attack.
 domain: cybersecurity
 subdomain: web-application-security
 tags:

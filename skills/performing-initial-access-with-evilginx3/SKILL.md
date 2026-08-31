@@ -1,8 +1,6 @@
 ---
 name: performing-initial-access-with-evilginx3
-description: Perform authorized initial access using EvilGinx3 adversary-in-the-middle
-  phishing framework to capture session tokens and bypass multi-factor authentication
-  during red team engagements.
+description: Perform authorized initial access using EvilGinx3 adversary-in-the-middle phishing framework to capture session tokens and bypass multi-factor authentication during red team engagements. Use when capturing session tokens and bypassing MFA for initial access with EvilGinx3 during authorized red team engagements. Do not use for detecting adversary-in-the-middle phishing defensively - use performing-adversary-in-the-middle-phishing-detection.
 domain: cybersecurity
 subdomain: red-teaming
 tags:

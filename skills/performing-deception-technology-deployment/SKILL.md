@@ -1,12 +1,6 @@
 ---
 name: performing-deception-technology-deployment
-description: 'Deploys deception technology including honeypots, honeytokens, and decoy
-  systems to detect attackers who have bypassed perimeter defenses, providing high-fidelity
-  alerts with near-zero false positive rates. Use when SOC teams need early warning
-  of lateral movement, credential abuse, or internal reconnaissance by deploying convincing
-  traps across the network.
-
-  '
+description: Deploys deception technology including honeypots, honeytokens, and decoy systems to detect attackers who have bypassed perimeter defenses, providing high-fidelity alerts with near-zero false positive rates. Use when SOC teams need early warning of lateral movement, credential abuse, or internal reconnaissance by deploying convincing traps across the network. Do not use for planting Active Directory honeytoken accounts specifically - use deploying-active-directory-honeytokens.
 domain: cybersecurity
 subdomain: soc-operations
 tags:

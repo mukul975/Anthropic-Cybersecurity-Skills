@@ -1,13 +1,6 @@
 ---
 name: hunting-for-anomalous-powershell-execution
-description: 'Hunt for malicious PowerShell activity by analyzing Script Block Logging
-  (Event 4104), Module Logging (Event 4103), and process creation events. The analyst
-  parses Windows Event Log EVTX files to detect obfuscated commands, AMSI bypass attempts,
-  encoded payloads, credential dumping keywords, and suspicious download cradles.
-  Activates for requests involving PowerShell threat hunting, script block analysis,
-  encoded command detection, or AMSI bypass identification.
-
-  '
+description: Hunt for malicious PowerShell activity by analyzing Script Block Logging (Event 4104), Module Logging (Event 4103), and process creation events. The analyst parses Windows Event Log EVTX files to detect obfuscated commands, AMSI bypass attempts, encoded payloads, credential dumping keywords, and suspicious download cradles. Use when threat hunting across multiple PowerShell log sources for encoded commands, AMSI bypass, or credential-dumping activity. Do not use for focused parsing and reconstruction of Event ID 4104 script block logs with python-evtx - use analyzing-powershell-script-block-logging.
 domain: cybersecurity
 subdomain: threat-hunting
 tags:

@@ -1,11 +1,6 @@
 ---
 name: implementing-network-traffic-baselining
-description: Builds network traffic baselines from NetFlow/IPFIX CSV or JSON exports using Python
-  pandas, computing hourly/daily volume distributions, per-host and protocol/port
-  statistics, and top-talker profiles, then flags outliers via z-score and IQR anomaly
-  detection. Use when a SOC analyst needs to establish normal traffic patterns and
-  surface deviations such as data exfiltration spikes, beaconing, or unusual port
-  usage from historical flow data.
+description: Builds network traffic baselines from NetFlow/IPFIX CSV or JSON exports using Python pandas, computing hourly/daily volume distributions, per-host and protocol/port statistics, and top-talker profiles, then flags outliers via z-score and IQR anomaly detection. Use when a SOC analyst needs to establish normal traffic patterns and surface deviations such as data exfiltration spikes, beaconing, or unusual port usage from historical flow data. Do not use for decoding raw NetFlow v9/IPFIX records with the netflow library - use analyzing-network-flow-data-with-netflow.
 domain: cybersecurity
 subdomain: network-security
 tags:

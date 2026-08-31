@@ -1,8 +1,6 @@
 ---
 name: conducting-post-incident-lessons-learned
-description: Facilitate structured post-incident reviews to identify root causes,
-  document what worked and failed, and produce actionable recommendations to improve
-  future incident response.
+description: Facilitate structured post-incident reviews to identify root causes, document what worked and failed, and produce actionable recommendations to improve future incident response. Use when running a post-incident review or after-action retrospective once an incident is resolved, capturing root causes and lessons to improve future response. Do not use for authoring the incident response playbooks and runbooks themselves - use building-incident-response-playbook.
 domain: cybersecurity
 subdomain: incident-response
 tags:

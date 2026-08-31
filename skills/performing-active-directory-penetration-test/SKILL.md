@@ -1,10 +1,6 @@
 ---
 name: performing-active-directory-penetration-test
-description: Conduct a focused Active Directory penetration test using BloodHound,
-  Impacket, Certipy, Rubeus, and NetExec to enumerate domain objects, discover attack
-  paths, exploit Kerberos weaknesses, escalate privileges via ADCS/DCSync, and demonstrate
-  domain compromise. Use when running an authorized AD pentest from a standard domain
-  user foothold toward Domain Admin or Enterprise Admin.
+description: Conduct a focused Active Directory penetration test using BloodHound, Impacket, Certipy, Rubeus, and NetExec to enumerate domain objects, discover attack paths, exploit Kerberos weaknesses, escalate privileges via ADCS and DCSync, and demonstrate domain compromise. Use when running an authorized AD pentest from a standard domain user foothold toward Domain Admin or Enterprise Admin. Do not use for a focused ADCS certificate-template abuse workflow with Certipy - use exploiting-adcs-with-certipy.
 domain: cybersecurity
 subdomain: penetration-testing
 tags:

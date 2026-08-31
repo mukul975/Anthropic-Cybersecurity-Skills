@@ -1,10 +1,6 @@
 ---
 name: extracting-credentials-from-memory-dump
-description: Extracts cached credentials, password hashes, Kerberos tickets, and
-  authentication tokens from Windows memory dumps using Volatility 3, Mimikatz,
-  and pypykatz. Use when performing memory forensics or incident response on an
-  LSASS or full memory dump and you need to recover credentials or Kerberos material
-  for investigation.
+description: Extracts cached credentials, password hashes, Kerberos tickets, and authentication tokens from Windows memory dumps using Volatility 3, Mimikatz, and pypykatz. Use when performing memory forensics or incident response on an LSASS or full memory dump and you need to recover credentials or Kerberos material for investigation. Do not use for general-purpose memory dump analysis with Volatility - use analyzing-memory-dumps-with-volatility.
 domain: cybersecurity
 subdomain: digital-forensics
 tags:

