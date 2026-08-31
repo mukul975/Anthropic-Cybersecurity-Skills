@@ -49,7 +49,7 @@
 
 ## References
 
-- OWASP SOAP Testing: https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/12-API_Testing/01-Testing_GraphQL
+- OWASP SOAP Testing: https://owasp.org/www-project-web-security-testing-guide/
 - PortSwigger XXE: https://portswigger.net/web-security/xxe
 - zeep Documentation: https://docs.python-zeep.org/en/master/
 - WS-Security Specification: https://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0.pdf

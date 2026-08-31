@@ -63,5 +63,5 @@ ls atomic-red-team/atomics/T1059.001/
 ### References
 
 - Atomic Red Team: https://github.com/redcanaryco/atomic-red-team
-- atomic-operator: https://github.com/redcanaryco/atomic-operator
+- atomic-operator: https://github.com/swimlane/atomic-operator
 - ATT&CK Navigator: https://mitre-attack.github.io/attack-navigator/

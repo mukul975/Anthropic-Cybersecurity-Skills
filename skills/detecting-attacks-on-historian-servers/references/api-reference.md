@@ -45,4 +45,4 @@
 - [OSIsoft PI Web API Reference](https://docs.aveva.com/bundle/pi-web-api-reference)
 - [Ignition Gateway API](https://docs.inductiveautomation.com/docs/8.1/platform/gateway)
 - [CISA ICS-CERT: Historian Security](https://www.cisa.gov/ics)
-- [NIST SP 800-82 Rev 3](https://csrc.nist.gov/publications/detail/sp/800-82/rev-3/final)
+- [NIST SP 800-82 Rev 3](https://csrc.nist.gov/pubs/sp/800/82/r3/final)

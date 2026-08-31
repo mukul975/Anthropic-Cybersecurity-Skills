@@ -50,5 +50,5 @@
 
 - [pymodbus Documentation](https://pymodbus.readthedocs.io/)
 - [MITRE ATT&CK for ICS](https://attack.mitre.org/matrices/ics/)
-- [CISA ICS Advisories](https://www.cisa.gov/ics-advisories)
-- [NIST SP 800-82 Rev 3](https://csrc.nist.gov/publications/detail/sp/800-82/rev-3/final)
+- [CISA ICS Advisories](https://www.cisa.gov/news-events/ics-advisories)
+- [NIST SP 800-82 Rev 3](https://csrc.nist.gov/pubs/sp/800/82/r3/final)

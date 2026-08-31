@@ -69,4 +69,4 @@ sessions | where protocol == modbus | select src_ip, dst_ip, function_code
 
 - Nozomi Guardian API Docs: https://www.nozominetworks.com/resources/
 - IEC 62443-3-3: https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards
-- NIST SP 800-82 Rev 3: https://csrc.nist.gov/publications/detail/sp/800-82/rev-3/final
+- NIST SP 800-82 Rev 3: https://csrc.nist.gov/pubs/sp/800/82/r3/final

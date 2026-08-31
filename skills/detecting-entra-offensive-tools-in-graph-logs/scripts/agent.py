@@ -13,7 +13,7 @@ Defensive/blue-team tool. Use with appropriate Log Analytics read permissions.
 
 References:
   - Azure Monitor Query API  https://learn.microsoft.com/rest/api/loganalytics/dataaccess/query/get
-  - AADGraphActivityLogs      https://learn.microsoft.com/entra/identity/monitoring-health/concept-aad-graph-activity-logs
+  - AADGraphActivityLogs      https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/aadgraphactivitylogs
 """
 import argparse
 import json
