@@ -10,10 +10,10 @@
 
 [![GARS-2026 Survey](https://img.shields.io/badge/GARS--2026-Take%20the%20Survey-E8B84B?style=for-the-badge&logo=googleforms&logoColor=black)](https://mahipal.engineer/survey?utm_source=github_badge&utm_medium=readme&utm_campaign=gars2026)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg?style=flat-square)](LICENSE)
-[![Skills](https://img.shields.io/badge/skills-817-brightgreen?style=flat-square)](#ce-quil-contient-29-domaines-de-securite)
-[![Frameworks](https://img.shields.io/badge/frameworks-6-orange?style=flat-square)](#six-frameworks-une-seule-bibliotheque-de-competences)
+[![Skills](https://img.shields.io/badge/skills-817-brightgreen?style=flat-square)](#ce-quil-contient--29-domaines-de-sécurité)
+[![Frameworks](https://img.shields.io/badge/frameworks-6-orange?style=flat-square)](#six-frameworks-une-seule-bibliothèque-de-compétences)
 [![MITRE F3](https://img.shields.io/badge/MITRE-F3_v1.1-blue?style=flat-square)](https://ctid.mitre.org/fraud/)
-[![Domains](https://img.shields.io/badge/domains-29-9cf?style=flat-square)](#ce-quil-contient-29-domaines-de-securite)
+[![Domains](https://img.shields.io/badge/domains-29-9cf?style=flat-square)](#ce-quil-contient--29-domaines-de-sécurité)
 [![Platforms](https://img.shields.io/badge/platforms-26%2B-blueviolet?style=flat-square)](#plateformes-compatibles)
 [![Last Commit](https://img.shields.io/github/last-commit/mukul975/Anthropic-Cybersecurity-Skills?style=flat-square)](https://github.com/mukul975/Anthropic-Cybersecurity-Skills/commits/main)
 [![agentskills.io](https://img.shields.io/badge/standard-agentskills.io-ff6600?style=flat-square)](https://agentskills.io)
@@ -24,7 +24,7 @@
 
 **817 compétences cybersécurité de niveau production · 29 domaines de sécurité · 6 correspondances de frameworks · 26+ plateformes IA**
 
-[Démarrage rapide](#demarrage-rapide) · [Contenu](#ce-quil-contient-29-domaines-de-securite) · [Frameworks](#six-frameworks-une-seule-bibliotheque-de-competences) · [Plateformes](#plateformes-compatibles) · [Contribuer](#contribuer)
+[Démarrage rapide](#démarrage-rapide) · [Contenu](#ce-quil-contient--29-domaines-de-sécurité) · [Frameworks](#six-frameworks-une-seule-bibliothèque-de-compétences) · [Plateformes](#plateformes-compatibles) · [Contribuer](#contribuer)
 
 </div>
 
