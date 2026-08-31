@@ -1,12 +1,6 @@
 ---
 name: securing-historian-server-in-ot-environment
-description: 'Audits and hardens process historian servers (OSIsoft PI, Honeywell PHD,
-  GE Proficy, AVEVA Historian) in OT environments: Purdue-level network placement,
-  interface access control, secure DMZ replication via data diodes or PI-to-PI connectors,
-  SQL injection prevention, and process data integrity. Use when auditing or hardening
-  a historian server, or designing secure OT-to-IT data replication through a DMZ.
-
-  '
+description: Audits and hardens process historian servers (OSIsoft PI, Honeywell PHD, GE Proficy, AVEVA Historian) in OT environments - Purdue-level network placement, interface access control, secure DMZ replication via data diodes or PI-to-PI connectors, SQL injection prevention, and process data integrity. Use when auditing or hardening a historian server, or designing secure OT-to-IT data replication through a DMZ. Do not use for detecting active attacks against historian servers - use detecting-attacks-on-historian-servers.
 domain: cybersecurity
 subdomain: ot-ics-security
 tags:

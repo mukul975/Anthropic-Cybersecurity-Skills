@@ -1,6 +1,6 @@
 ---
 name: analyzing-apt-group-with-mitre-navigator
-description: Query ATT&CK data with attackcti, mitreattack-python, and stix2, then build MITRE ATT&CK Navigator layers and multi-layer heatmap overlays mapping one or more APT groups' TTPs for detection-gap analysis. Use to compare threat-actor technique coverage, find gaps in detection engineering, or produce Navigator visualizations for threat-intel reporting.
+description: Query ATT&CK data with attackcti, mitreattack-python, and stix2, then build MITRE ATT&CK Navigator layers and multi-layer heatmap overlays mapping one or more APT groups' TTPs for detection-gap analysis. Use when comparing multiple threat-actor technique sets in overlaid Navigator layers, finding detection-engineering gaps, or producing Navigator visualizations for threat-intel reporting. Do not use for profiling a single APT group with the attackcti library alone - use analyzing-threat-actor-ttps-with-mitre-navigator.
 domain: cybersecurity
 subdomain: threat-intelligence
 tags:

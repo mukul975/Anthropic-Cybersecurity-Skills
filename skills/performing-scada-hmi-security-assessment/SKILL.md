@@ -1,11 +1,6 @@
 ---
 name: performing-scada-hmi-security-assessment
-description: 'Perform security assessments of SCADA Human-Machine Interface (HMI)
-  systems to identify vulnerabilities in web-based HMIs, thin-client configurations,
-  authentication mechanisms, and communication channels between HMI and PLCs, aligned
-  with IEC 62443 and NIST SP 800-82 guidelines.
-
-  '
+description: Perform security assessments of SCADA Human-Machine Interface (HMI) systems to identify vulnerabilities in web-based HMIs, thin-client configurations, authentication mechanisms, and communication channels between HMI and PLCs, aligned with IEC 62443 and NIST SP 800-82 guidelines. Use when assessing SCADA HMI systems for vulnerabilities in web-based HMIs, thin clients, authentication, or HMI-to-PLC channels. Do not use for detecting active attacks against SCADA systems - use detecting-attacks-on-scada-systems.
 domain: cybersecurity
 subdomain: ot-ics-security
 tags:

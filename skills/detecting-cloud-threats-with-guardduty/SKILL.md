@@ -1,12 +1,6 @@
 ---
 name: detecting-cloud-threats-with-guardduty
-description: 'Deploy and operationalize Amazon GuardDuty, covering protection plans
-  for S3, EKS, EC2 runtime monitoring, and Lambda, interpreting finding severity, and
-  building automated response with EventBridge and Lambda. Use when establishing threat
-  detection for AWS accounts, investigating findings on compromised instances or credential
-  abuse, or building automated incident-response playbooks.
-
-  '
+description: Deploy and operationalize Amazon GuardDuty, covering protection plans for S3, EKS, EC2 runtime monitoring, and Lambda, interpreting finding severity, and building automated response with EventBridge and Lambda. Use when establishing threat detection for AWS accounts, investigating findings on compromised instances or credential abuse, or building automated incident-response playbooks. Do not use for building EventBridge and Lambda automated remediation pipelines for findings - use detecting-aws-guardduty-findings-automation.
 domain: cybersecurity
 subdomain: cloud-security
 tags:

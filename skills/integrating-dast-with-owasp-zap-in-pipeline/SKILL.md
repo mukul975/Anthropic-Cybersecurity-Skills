@@ -1,6 +1,6 @@
 ---
 name: integrating-dast-with-owasp-zap-in-pipeline
-description: Integrates OWASP ZAP (Zed Attack Proxy) into GitHub Actions and GitLab CI pipelines, covering baseline, full, and API scan configuration against running applications, ZAP finding interpretation, scan policy tuning, and DAST quality gates. Use when testing running web apps or REST/GraphQL APIs for XSS, SQLi, CSRF, and auth/authz flaws, or when SAST alone is insufficient and runtime DAST is required for compliance or release gating.
+description: Integrates OWASP ZAP (Zed Attack Proxy) into GitHub Actions and GitLab CI pipelines, covering baseline, full, and API scan configuration against running applications, ZAP finding interpretation, scan policy tuning, and DAST quality gates. Use when testing running web apps or REST/GraphQL APIs for XSS, SQLi, CSRF, and auth/authz flaws, or when SAST alone is insufficient and runtime DAST is required for compliance or release gating. Do not use for static SAST code scanning of source in CI - use integrating-sast-into-github-actions-pipeline.
 domain: cybersecurity
 subdomain: devsecops
 tags:

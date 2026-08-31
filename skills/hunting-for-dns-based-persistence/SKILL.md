@@ -1,11 +1,6 @@
 ---
 name: hunting-for-dns-based-persistence
-description: Hunts for DNS-based persistence mechanisms such as DNS hijacking, dangling
-  CNAME records enabling subdomain takeover, wildcard DNS abuse, and unauthorized zone
-  or NS delegation changes, using passive DNS history (SecurityTrails API), Route53/Azure
-  DNS/Cloudflare audit logs, and zone transfer analysis. Use when investigating suspected
-  DNS hijacking or subdomain takeover, or when threat hunting for DNS record tampering
-  that persists across credential rotations and endpoint reimaging.
+description: Hunts for DNS-based persistence mechanisms such as DNS hijacking, dangling CNAME records enabling subdomain takeover, wildcard DNS abuse, and unauthorized zone or NS delegation changes, using passive DNS history (SecurityTrails API), Route53/Azure DNS/Cloudflare audit logs, and zone transfer analysis. Use when investigating suspected DNS hijacking or subdomain takeover, or when threat hunting for DNS record tampering that persists across credential rotations and endpoint reimaging. Do not use for offensive DNS enumeration and zone transfer testing - use performing-dns-enumeration-and-zone-transfer.
 domain: cybersecurity
 subdomain: threat-hunting
 tags:

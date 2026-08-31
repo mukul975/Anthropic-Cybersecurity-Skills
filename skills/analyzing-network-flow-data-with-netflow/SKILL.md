@@ -1,10 +1,6 @@
 ---
 name: analyzing-network-flow-data-with-netflow
-description: Parse NetFlow v9 and IPFIX records to detect volumetric anomalies, port
-  scanning, data exfiltration, and C2 beaconing patterns. Uses the Python netflow
-  library to decode flow records, builds traffic baselines, and applies statistical
-  analysis to identify flows with abnormal byte counts, connection durations, and
-  periodic timing patterns.
+description: Parse NetFlow v9 and IPFIX records to detect volumetric anomalies, port scanning, data exfiltration, and C2 beaconing patterns, using the Python netflow library to decode flow records, build traffic baselines, and apply statistical analysis to flows with abnormal byte counts, connection durations, and periodic timing. Use when decoding raw NetFlow or IPFIX exports to hunt anomalous flows during monitoring or incident response. Do not use for building statistical traffic baselines and z-score/IQR outlier detection from flow CSV or JSON exports - use implementing-network-traffic-baselining.
 domain: cybersecurity
 subdomain: network-security
 tags:

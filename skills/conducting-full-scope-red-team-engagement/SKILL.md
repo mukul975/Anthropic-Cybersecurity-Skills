@@ -1,6 +1,6 @@
 ---
 name: conducting-full-scope-red-team-engagement
-description: Plan and execute a comprehensive, MITRE ATT&CK-aligned red team engagement spanning threat modeling, reconnaissance, initial access, and post-exploitation to evaluate an organization's detection, prevention, and response against APT-style behavior. Use when scoping or running a full-scope, objective-based engagement, or purple-teaming against a specific threat actor's TTPs.
+description: Plan and execute a comprehensive, MITRE ATT&CK-aligned red team engagement spanning threat modeling, reconnaissance, initial access, and post-exploitation to evaluate an organization's detection, prevention, and response against APT-style behavior. Use when scoping or running a full-scope, objective-based engagement, or purple-teaming against a specific threat actor's TTPs. Do not use for building the pre-engagement scope, rules of engagement, and threat profile - use executing-red-team-engagement-planning.
 domain: cybersecurity
 subdomain: red-teaming
 tags:

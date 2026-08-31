@@ -1,10 +1,6 @@
 ---
 name: detecting-business-email-compromise
-description: Detect Business Email Compromise (BEC) fraud, where attackers impersonate
-  executives or vendors to trick employees into wire transfers or data disclosure without
-  malicious links, using email gateway rules, behavioral analytics, and financial process
-  controls. Use when investigating a suspected executive/vendor impersonation email or
-  building detection rules for social-engineering fund-transfer fraud.
+description: Detect Business Email Compromise (BEC) fraud, where attackers impersonate executives or vendors to trick employees into wire transfers or data disclosure without malicious links, using email gateway rules, behavioral analytics, and financial process controls. Use when investigating a suspected executive/vendor impersonation email or building detection rules for social-engineering fund-transfer fraud. Do not use for AI and NLP-powered BEC detection using writing-style and behavioral models - use detecting-business-email-compromise-with-ai.
 domain: cybersecurity
 subdomain: phishing-defense
 tags:

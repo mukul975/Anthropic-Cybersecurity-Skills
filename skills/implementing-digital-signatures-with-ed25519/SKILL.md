@@ -1,6 +1,6 @@
 ---
 name: implementing-digital-signatures-with-ed25519
-description: Implements digital signatures using the Ed25519 algorithm (Curve25519), covering key-pair generation, signing, signature verification, and security tradeoffs versus RSA and ECDSA. Use when adding message or artifact signing and authentication-integrity checks to a system, or when advising on Ed25519 key properties and validation criteria.
+description: Implements digital signatures using the Ed25519 algorithm (Curve25519), covering key-pair generation, signing, signature verification, and security tradeoffs versus RSA and ECDSA. Use when adding message or artifact signing and authentication-integrity checks to a system, or when advising on Ed25519 key properties and validation criteria. Do not use for signing and verifying JWT tokens for authentication - use implementing-jwt-signing-and-verification.
 domain: cybersecurity
 subdomain: cryptography
 tags:

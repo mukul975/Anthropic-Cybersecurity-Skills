@@ -1,8 +1,6 @@
 ---
 name: detecting-network-scanning-with-ids-signatures
-description: Detect network reconnaissance and port scanning using Suricata and Snort
-  IDS signatures, threshold-based detection rules, and traffic anomaly analysis to
-  identify Nmap, Masscan, and custom scanning activity.
+description: Detect network reconnaissance and port scanning using Suricata and Snort IDS signatures, threshold-based detection rules, and traffic anomaly analysis to identify Nmap, Masscan, and custom scanning activity. Use when writing or tuning IDS signatures to catch port scanning and reconnaissance from Nmap and Masscan. Do not use for full Snort 3 deployment, preprocessor configuration, and ruleset tuning - use configuring-snort-ids-for-intrusion-detection.
 domain: cybersecurity
 subdomain: network-security
 tags:

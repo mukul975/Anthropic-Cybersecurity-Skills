@@ -1,10 +1,6 @@
 ---
 name: building-ransomware-playbook-with-cisa-framework
-description: Builds a structured ransomware incident response playbook aligned with
-  the CISA StopRansomware Guide and NIST Cybersecurity Framework, covering preparation,
-  detection, containment, eradication, recovery, and post-incident phases with actionable
-  checklists. Use when creating or updating a ransomware playbook, running a CISA-aligned
-  readiness assessment, or validating response steps during a tabletop exercise.
+description: Builds a structured ransomware incident response playbook aligned with the CISA StopRansomware Guide and NIST Cybersecurity Framework, covering preparation, detection, containment, eradication, recovery, and post-incident phases with actionable checklists. Use when creating or updating a ransomware playbook, running a CISA-aligned readiness assessment, or validating response steps during a tabletop exercise. Do not use for building a SOC operational ransomware playbook - use building-soc-playbook-for-ransomware.
 domain: cybersecurity
 subdomain: ransomware-defense
 tags:

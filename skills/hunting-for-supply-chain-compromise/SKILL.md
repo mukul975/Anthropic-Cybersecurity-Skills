@@ -1,6 +1,6 @@
 ---
 name: hunting-for-supply-chain-compromise
-description: Runs a hypothesis-driven threat hunt for supply-chain compromise (T1195) by querying SIEM/EDR logs for trojanized software updates, compromised dependencies, unauthorized code modifications, and tampered build artifacts. Use when hunting after threat intel flags a compromised vendor/dependency, scoping a build-pipeline compromise, or reviewing update/build integrity.
+description: Runs a hypothesis-driven threat hunt for supply-chain compromise (T1195) by querying SIEM/EDR logs for trojanized software updates, compromised dependencies, unauthorized code modifications, and tampered build artifacts. Use when hunting after threat intel flags a compromised vendor/dependency, scoping a build-pipeline compromise, or reviewing update/build integrity. Do not use for hands-on forensic analysis of a captured trojanized sample or build artifact - use analyzing-supply-chain-malware-artifacts.
 domain: cybersecurity
 subdomain: threat-hunting
 tags:

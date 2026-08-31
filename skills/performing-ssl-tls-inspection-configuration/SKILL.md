@@ -1,12 +1,6 @@
 ---
 name: performing-ssl-tls-inspection-configuration
-description: >-
-  Configure SSL/TLS break-and-inspect on next-generation firewalls and forward
-  proxies to decrypt, inspect, and re-encrypt HTTPS traffic for malware and
-  exfiltration detection, including deploying trusted CA certificates,
-  managing exemptions for certificate-pinned apps, and privacy compliance. Use
-  when setting up or auditing TLS inspection on network security devices to
-  close the encrypted-traffic blind spot.
+description: Configure SSL/TLS break-and-inspect on next-generation firewalls and forward proxies to decrypt, inspect, and re-encrypt HTTPS traffic for malware and exfiltration detection, including deploying trusted CA certificates, managing exemptions for certificate-pinned apps, and privacy compliance. Use when setting up or auditing TLS inspection on network security devices to close the encrypted-traffic blind spot. Do not use for managing certificate issuance, renewal, and expiry across their lifecycle - use performing-ssl-certificate-lifecycle-management.
 domain: cybersecurity
 subdomain: network-security
 tags:

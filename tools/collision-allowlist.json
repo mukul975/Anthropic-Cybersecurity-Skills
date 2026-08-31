@@ -20,6 +20,440 @@
         "hardening-windows-endpoint-with-cis-benchmark"
       ],
       "reason": "Same CIS Benchmark methodology, different operating systems. The controls, tooling and audit commands do not overlap, so both must exist; each description must name the OS explicitly and point at the other."
+    },
+    {
+      "pair": [
+        "detecting-exfiltration-over-dns-with-zeek",
+        "hunting-for-dns-tunneling-with-zeek"
+      ],
+      "reason": "Both analyze Zeek dns.log, but detecting-exfiltration-over-dns-with-zeek is detection/investigation of active DNS exfiltration while hunting-for-dns-tunneling-with-zeek is proactive threat hunting for tunneling covert channels."
+    },
+    {
+      "pair": [
+        "detecting-dns-exfiltration-with-dns-query-analysis",
+        "hunting-for-dns-tunneling-with-zeek"
+      ],
+      "reason": "Tool-agnostic passive DNS query-log statistical/ML analysis versus Zeek-dns.log-based DNS tunneling threat hunting."
+    },
+    {
+      "pair": [
+        "detecting-dns-exfiltration-with-dns-query-analysis",
+        "performing-dns-tunneling-detection"
+      ],
+      "reason": "Passive DNS query-log statistical/ML analysis versus tunneling detection in raw packet captures with scapy."
+    },
+    {
+      "pair": [
+        "detecting-dns-exfiltration-with-dns-query-analysis",
+        "detecting-exfiltration-over-dns-with-zeek"
+      ],
+      "reason": "Tool-agnostic passive DNS query-log analysis versus Zeek dns.log analysis."
+    },
+    {
+      "pair": [
+        "analyzing-dns-logs-for-exfiltration",
+        "hunting-for-dns-tunneling-with-zeek"
+      ],
+      "reason": "SIEM (Splunk) DGA and C2-beacon detection versus Zeek-dns.log-based DNS tunneling threat hunting."
+    },
+    {
+      "pair": [
+        "detecting-modbus-command-injection-attacks",
+        "monitoring-scada-modbus-traffic-anomalies"
+      ],
+      "reason": "Targeted detection of Modbus command-injection and unauthorized-write attacks with an ICS-aware IDS versus broad Modbus traffic baselining and anomaly monitoring."
+    },
+    {
+      "pair": [
+        "implementing-opa-gatekeeper-for-policy-enforcement",
+        "implementing-policy-as-code-with-open-policy-agent"
+      ],
+      "reason": "Focused OPA Gatekeeper Kubernetes admission-controller deployment versus broader OPA/Rego policy-as-code spanning CI/CD pipelines and deployment gating."
+    },
+    {
+      "pair": [
+        "analyzing-powershell-script-block-logging",
+        "hunting-for-anomalous-powershell-execution"
+      ],
+      "reason": "Focused parsing of Event ID 4104 script-block logs with python-evtx versus broader PowerShell hunting across Module Logging (4103) and process-creation events."
+    },
+    {
+      "pair": [
+        "analyzing-memory-dumps-with-volatility",
+        "conducting-memory-forensics-with-volatility"
+      ],
+      "reason": "Works an already-acquired memory image hunting memory-resident malware versus the full IR workflow starting with live acquisition and chain of custody."
+    },
+    {
+      "pair": [
+        "analyzing-memory-dumps-with-volatility",
+        "performing-memory-forensics-with-volatility3"
+      ],
+      "reason": "Cross-platform memory-resident and fileless malware hunting with YARA versus a single-dump Volatility 3 plugin walkthrough."
+    },
+    {
+      "pair": [
+        "conducting-memory-forensics-with-volatility",
+        "performing-memory-forensics-with-volatility3"
+      ],
+      "reason": "Live acquisition, chain of custody and forensic reporting versus analyzing an already-existing dump with Volatility 3 plugins. Merge candidate."
+    },
+    {
+      "pair": [
+        "detecting-credential-dumping-techniques",
+        "detecting-t1003-credential-dumping-with-edr"
+      ],
+      "reason": "Sysmon Event ID 10 and Splunk/Elastic SIEM detection rules versus EDR-telemetry hunting (CrowdStrike/Defender/SentinelOne) across all T1003 sub-techniques."
+    },
+    {
+      "pair": [
+        "testing-for-json-web-token-vulnerabilities",
+        "testing-jwt-token-security"
+      ],
+      "reason": "Focused header-injection and signature-forgery attack playbook versus a broader JWT assessment across API Bearer tokens, SSO, and OAuth/OIDC. Merge candidate."
+    },
+    {
+      "pair": [
+        "implementing-ebpf-security-monitoring",
+        "implementing-runtime-security-with-tetragon"
+      ],
+      "reason": "Tetragon observability with JSON event export to a SIEM versus in-kernel enforcement that blocks dangerous syscalls in Kubernetes."
+    },
+    {
+      "pair": [
+        "parsing-artifacts-with-eric-zimmerman-tools",
+        "performing-windows-artifact-analysis-with-eric-zimmerman-tools"
+      ],
+      "reason": "Narrow parser step normalizing MFT/registry/prefetch into CSV/JSON versus end-to-end investigation adding KAPE collection, EvtxECmd, and timeline building. Merge candidate."
+    },
+    {
+      "pair": [
+        "hunting-for-scheduled-task-persistence",
+        "hunting-for-suspicious-scheduled-tasks"
+      ],
+      "reason": "Broad proactive hypothesis-driven hunt for T1053 scheduled-task persistence across the environment versus reactive triage of a specific unusual task from Security Event 4698."
+    },
+    {
+      "pair": [
+        "detecting-malicious-scheduled-tasks-with-sysmon",
+        "hunting-for-suspicious-scheduled-tasks"
+      ],
+      "reason": "Sysmon-specific detection engineering (Event ID 1/11 with parent processes) versus hunting from Windows Security Event 4698 logs alone without Sysmon."
+    },
+    {
+      "pair": [
+        "detecting-malicious-scheduled-tasks-with-sysmon",
+        "hunting-for-scheduled-task-persistence"
+      ],
+      "reason": "Sysmon-telemetry correlation detection versus a generic hypothesis-driven persistence hunt run against any SIEM/EDR data source."
+    },
+    {
+      "pair": [
+        "analyzing-supply-chain-malware-artifacts",
+        "hunting-for-supply-chain-compromise"
+      ],
+      "reason": "Hands-on forensic reverse-analysis of captured supply-chain artifacts versus proactive hypothesis-driven SIEM/EDR log hunting for T1195 compromise."
+    },
+    {
+      "pair": [
+        "exploiting-oauth-misconfiguration",
+        "testing-oauth2-implementation-flaws"
+      ],
+      "reason": "Opportunistic OAuth/OIDC misconfiguration exploitation versus a systematic Burp Suite plus EsPReSSO implementation-flaw testing workflow."
+    },
+    {
+      "pair": [
+        "implementing-beyondcorp-zero-trust-access-model",
+        "implementing-zero-trust-with-beyondcorp"
+      ],
+      "reason": "Full BeyondCorp Enterprise stack (Endpoint Verification, Connectors, VPN replacement) versus the narrower IAP enforcement-point plus Access Context Manager workflow. Merge candidate."
+    },
+    {
+      "pair": [
+        "implementing-stix-taxii-feed-integration",
+        "implementing-taxii-server-with-opentaxii"
+      ],
+      "reason": "Python stix2 client integration into a SIEM/TIP versus Docker-based OpenTAXII server deployment for hosting and inter-org sharing."
+    },
+    {
+      "pair": [
+        "performing-phishing-simulation-with-gophish",
+        "performing-red-team-phishing-with-gophish"
+      ],
+      "reason": "GoPhish web-admin-panel GUI awareness campaigns versus scripted red-team automation via the Python gophish library."
+    },
+    {
+      "pair": [
+        "executing-phishing-simulation-campaign",
+        "performing-phishing-simulation-with-gophish"
+      ],
+      "reason": "Tool-agnostic pen-test phishing-campaign methodology versus GoPhish-specific admin-panel and campaign setup."
+    },
+    {
+      "pair": [
+        "analyzing-certificate-transparency-for-phishing",
+        "analyzing-tls-certificate-transparency-logs"
+      ],
+      "reason": "Real-time Certstream lookalike-domain takedown monitoring versus scripted crt.sh/pycrtsh typosquatting scoring with Levenshtein distance."
+    },
+    {
+      "pair": [
+        "analyzing-certificate-transparency-for-phishing",
+        "auditing-tls-certificate-transparency-logs"
+      ],
+      "reason": "Detecting external phishing/lookalike domains impersonating your brand versus auditing certificate issuance and subdomains for domains you own."
+    },
+    {
+      "pair": [
+        "performing-serverless-function-security-review",
+        "securing-serverless-functions"
+      ],
+      "reason": "Assessing/auditing deployed functions to report weaknesses versus hardening/deploying with least-privilege controls."
+    },
+    {
+      "pair": [
+        "detecting-dcsync-attack-in-active-directory",
+        "hunting-for-dcsync-attacks"
+      ],
+      "reason": "Standing detection rules and replication-permission auditing versus proactive threat-hunting/IR/purple-team sweeps. Both key off Event ID 4662; merge candidate."
+    },
+    {
+      "pair": [
+        "performing-network-forensics-with-wireshark",
+        "performing-network-packet-capture-analysis"
+      ],
+      "reason": "Wireshark/tshark credential and C2 extraction versus multi-tool tcpdump-inclusive PCAP evidence workflows. Merge candidate."
+    },
+    {
+      "pair": [
+        "conducting-wireless-network-penetration-test",
+        "performing-wireless-network-penetration-test"
+      ],
+      "reason": "'conducting' is the methodology-driven WiFi engagement (rogue RADIUS enterprise attacks, segmentation findings); 'performing' is the hands-on command playbook (WPS/Reaver, Kismet, Bettercap phases). Merge candidate."
+    },
+    {
+      "pair": [
+        "performing-wifi-password-cracking-with-aircrack",
+        "performing-wireless-network-penetration-test"
+      ],
+      "reason": "aircrack skill is narrow handshake/PMKID capture and offline PSK cracking; the wireless pentest covers evil twins, rogue APs, WPS, and segmentation."
+    },
+    {
+      "pair": [
+        "detecting-ntlm-relay-with-event-correlation",
+        "hunting-for-ntlm-relay-attacks"
+      ],
+      "reason": "Multi-platform SIEM correlation build (Splunk/Sentinel/Sigma) versus a lightweight Python scripted hunt emitting a JSON relay report."
+    },
+    {
+      "pair": [
+        "analyzing-uefi-bootkit-persistence",
+        "auditing-uefi-firmware-with-chipsec"
+      ],
+      "reason": "Post-breach bootkit investigation/attribution (BlackLotus, LoJax) versus clean-system CHIPSEC platform-security baseline/hardening audit."
+    },
+    {
+      "pair": [
+        "exploiting-kerberoasting-with-impacket",
+        "performing-kerberoasting-attack"
+      ],
+      "reason": "'exploiting' is the Impacket GetUserSPNs.py command walkthrough; 'performing' is the tool-agnostic four-phase methodology. Merge candidate."
+    },
+    {
+      "pair": [
+        "conducting-network-penetration-test",
+        "performing-external-network-penetration-test"
+      ],
+      "reason": "'conducting' is the general internal/external infrastructure pentest with pivoting; 'performing-external' is perimeter-only, internet-facing with OSINT/subdomain recon."
+    },
+    {
+      "pair": [
+        "configuring-suricata-for-network-monitoring",
+        "implementing-network-intrusion-prevention-with-suricata"
+      ],
+      "reason": "Passive IDS monitoring/protocol visibility versus inline IPS blocking (NFQueue, drop rules, production tuning)."
+    },
+    {
+      "pair": [
+        "implementing-image-provenance-verification-with-cosign",
+        "implementing-sigstore-for-software-signing"
+      ],
+      "reason": "cosign scopes to container-image provenance plus Kubernetes admission enforcement; sigstore covers keyless signing across images, binaries, and blobs."
+    },
+    {
+      "pair": [
+        "implementing-image-provenance-verification-with-cosign",
+        "verifying-build-provenance-with-slsa-sigstore"
+      ],
+      "reason": "cosign produces image signatures/attestations and admission enforcement; the SLSA skill verifies SLSA build provenance and builder identity with slsa-verifier before deploy."
+    },
+    {
+      "pair": [
+        "implementing-threat-intelligence-lifecycle-management",
+        "managing-intelligence-lifecycle"
+      ],
+      "reason": "Engineering the collection-to-dissemination data pipeline and normalization versus stakeholder PIR definition and NIST SP 800-150 feedback-loop governance. Merge candidate."
+    },
+    {
+      "pair": [
+        "detecting-lateral-movement-with-splunk",
+        "performing-lateral-movement-detection"
+      ],
+      "reason": "Splunk-only SPL hunting on a single SIEM versus tool-agnostic multi-source correlation across Sysmon, NetFlow/Zeek, and endpoint telemetry."
+    },
+    {
+      "pair": [
+        "detecting-t1055-process-injection-with-sysmon",
+        "hunting-for-process-injection-techniques"
+      ],
+      "reason": "Full Sysmon Event ID 1/7/8/10/25 coverage and config validation versus correlating Sysmon Event IDs 8 and 10 with EDR process telemetry."
+    },
+    {
+      "pair": [
+        "implementing-fuzz-testing-in-cicd-with-aflplusplus",
+        "performing-fuzzing-with-aflplusplus"
+      ],
+      "reason": "Wiring automated AFL++ fuzzing into a build pipeline versus hands-on interactive campaigns, corpus minimization, and crash triage. Merge candidate."
+    },
+    {
+      "pair": [
+        "exploiting-websocket-vulnerabilities",
+        "testing-websocket-api-security"
+      ],
+      "reason": "General web-application WebSocket exploitation in a pen test versus API-focused WebSocket testing with Burp Suite and wscat. Merge candidate."
+    },
+    {
+      "pair": [
+        "analyzing-apt-group-with-mitre-navigator",
+        "analyzing-threat-actor-ttps-with-mitre-navigator"
+      ],
+      "reason": "Multi-group overlay heatmaps with attackcti+mitreattack-python+stix2 versus single-named-group profiling with attackcti alone."
+    },
+    {
+      "pair": [
+        "analyzing-threat-actor-ttps-with-mitre-attack",
+        "analyzing-threat-actor-ttps-with-mitre-navigator"
+      ],
+      "reason": "Framework-wide IOC-to-technique correlation across Enterprise/Mobile/ICS matrices versus attackcti-driven layer generation profiling one named APT group."
+    },
+    {
+      "pair": [
+        "analyzing-malicious-pdf-with-peepdf",
+        "analyzing-pdf-malware-with-pdfid"
+      ],
+      "reason": "peepdf deep interactive object-tree/stream dissection versus pdfid fast first-pass keyword/object triage that routes onward."
+    },
+    {
+      "pair": [
+        "detecting-fileless-attacks-on-endpoints",
+        "detecting-fileless-malware-techniques"
+      ],
+      "reason": "Building endpoint/EDR detection rules versus in-memory malware-analysis investigation of LOLBin/WMI abuse."
+    },
+    {
+      "pair": [
+        "performing-purple-team-atomic-testing",
+        "performing-threat-emulation-with-atomic-red-team"
+      ],
+      "reason": "Invoke-AtomicRedTeam PowerShell with Sigma correlation and Navigator heatmaps versus driving atomics from the atomic-operator Python framework."
+    },
+    {
+      "pair": [
+        "analyzing-cobalt-strike-beacon-configuration",
+        "analyzing-cobaltstrike-malleable-c2-profiles"
+      ],
+      "reason": "Carving config blobs from PE/memory samples versus parsing standalone profile text into network detection signatures."
+    },
+    {
+      "pair": [
+        "analyzing-security-logs-with-splunk",
+        "building-detection-rule-with-splunk-spl"
+      ],
+      "reason": "Ad hoc SPL incident investigation and timeline reconstruction versus authoring and scheduling saved SPL correlation searches."
+    },
+    {
+      "pair": [
+        "conducting-internal-reconnaissance-with-bloodhound-ce",
+        "performing-active-directory-bloodhound-analysis"
+      ],
+      "reason": "BloodHound Community Edition graph DB with SharpHound+AzureHound Entra collection versus tool-agnostic BloodHound AD enumeration/auditing. Merge candidate."
+    },
+    {
+      "pair": [
+        "exploiting-active-directory-with-bloodhound",
+        "performing-active-directory-bloodhound-analysis"
+      ],
+      "reason": "Offensive privilege-escalation path exploitation versus tool-agnostic BloodHound path enumeration/auditing."
+    },
+    {
+      "pair": [
+        "implementing-aws-security-hub",
+        "implementing-aws-security-hub-compliance"
+      ],
+      "reason": "Single-account centralized findings dashboard with Audit Manager evidence versus multi-account AWS Organizations compliance monitoring with Prowler. Merge candidate."
+    },
+    {
+      "pair": [
+        "detecting-golden-ticket-attacks-in-kerberos-logs",
+        "detecting-golden-ticket-forgery"
+      ],
+      "reason": "Broad Splunk+KQL DC-log TGT-anomaly/forged-PAC hunting versus Event ID 4769 RC4-downgrade detection with Splunk+Elastic."
+    },
+    {
+      "pair": [
+        "configuring-zscaler-private-access-for-ztna",
+        "implementing-zero-trust-network-access-with-zscaler"
+      ],
+      "reason": "Hands-on App Connector/app-segment/posture-policy deployment versus the higher-level ZTNA brokering architecture via the Zero Trust Exchange. Merge candidate."
+    },
+    {
+      "pair": [
+        "monitoring-darkweb-sources",
+        "performing-dark-web-monitoring-for-threats"
+      ],
+      "reason": "Commercial OSINT tooling (Recorded Future/SpiderFoot) coverage versus standing up your own Tor-based collection infrastructure."
+    },
+    {
+      "pair": [
+        "hunting-for-living-off-the-land-binaries",
+        "hunting-for-lolbins-execution-in-endpoint-logs"
+      ],
+      "reason": "Broad EDR/SIEM LOLBins rule-building versus endpoint process-creation telemetry hunting (T1218)."
+    },
+    {
+      "pair": [
+        "exploiting-jwt-algorithm-confusion-attack",
+        "testing-for-json-web-token-vulnerabilities"
+      ],
+      "reason": "Single algorithm-confusion exploit walkthrough (RS256 to HS256, alg none, kid/jku/x5u) versus a broad JWT implementation test suite spanning many attack classes with jwt_tool, hashcat, and Burp."
+    },
+    {
+      "pair": [
+        "detecting-living-off-the-land-attacks",
+        "hunting-for-lolbins-execution-in-endpoint-logs"
+      ],
+      "reason": "Live process-creation LOLBin detection engineering versus retrospective log-based LOLBin hunting over collected endpoint telemetry."
+    },
+    {
+      "pair": [
+        "performing-disk-forensics-investigation",
+        "performing-endpoint-forensics-investigation"
+      ],
+      "reason": "Standalone disk imaging and file-system/timeline analysis of storage media versus live endpoint memory acquisition and compromise-scope investigation."
+    },
+    {
+      "pair": [
+        "hunting-for-beaconing-with-frequency-analysis",
+        "hunting-for-command-and-control-beaconing"
+      ],
+      "reason": "Pure statistical timing/jitter frequency analysis versus beaconing detection that also weighs domain reputation and enrichment."
+    },
+    {
+      "pair": [
+        "implementing-api-abuse-detection-with-rate-limiting",
+        "implementing-api-rate-limiting-and-throttling"
+      ],
+      "reason": "Detecting and blocking abusive API traffic patterns (scraping, credential stuffing, volumetric abuse) versus implementing standard rate-limiting and throttling quotas."
     }
   ]
 }

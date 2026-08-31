@@ -1,11 +1,6 @@
 ---
 name: analyzing-memory-dumps-with-volatility
-description: 'Analyzes RAM memory dumps from compromised systems using the Volatility framework to identify malicious processes,
-  injected code, network connections, loaded modules, and extracted credentials. Supports Windows, Linux, and macOS memory
-  forensics. Activates for requests involving memory forensics, RAM analysis, volatile data examination, process injection
-  detection, or memory-resident malware investigation.
-
-  '
+description: Analyzes RAM memory dumps from compromised systems using the Volatility framework to identify malicious processes, injected code, network connections, loaded modules, and extracted credentials across Windows, Linux, and macOS, with YARA scanning of an already-captured dump. Use when examining a memory image that has already been acquired to hunt memory-resident or fileless malware, process injection, or rootkits on any OS. Do not use for the incident-response workflow that begins with live memory acquisition and chain of custody - use conducting-memory-forensics-with-volatility.
 domain: cybersecurity
 subdomain: malware-analysis
 tags:

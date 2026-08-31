@@ -1,6 +1,6 @@
 ---
 name: detecting-dll-sideloading-attacks
-description: Detect DLL side-loading and search-order hijacking (MITRE T1574) where adversaries plant malicious DLLs for legitimate signed applications to load, by analyzing Sysmon Event ID 7 DLL-load events, checking signatures/hashes against known-good versions, and flagging path anomalies with EDR tools like CrowdStrike, MDE, or SentinelOne. Use when investigating EDR alerts on unsigned DLLs, hunting for APT persistence via trojanized applications, or triaging incidents involving DLL hijacking.
+description: Detect DLL side-loading and search-order hijacking (MITRE T1574) where adversaries plant malicious DLLs for legitimate signed applications to load, by analyzing Sysmon Event ID 7 DLL-load events, checking signatures/hashes against known-good versions, and flagging path anomalies with EDR tools like CrowdStrike, MDE, or SentinelOne. Use when investigating EDR alerts on unsigned DLLs, hunting for APT persistence via trojanized applications, or triaging incidents involving DLL hijacking. Do not use for detecting process injection with Sysmon - use detecting-t1055-process-injection-with-sysmon.
 domain: cybersecurity
 subdomain: threat-hunting
 tags:

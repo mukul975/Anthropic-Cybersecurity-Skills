@@ -1,12 +1,6 @@
 ---
 name: implementing-purdue-model-network-segmentation
-description: 'Implement network segmentation based on the Purdue Enterprise Reference
-  Architecture (PERA) model, separating ICS networks into hierarchical security
-  zones from Level 0 physical process through Level 5 enterprise and enforcing strict
-  traffic control through IEC 62443-aligned DMZs between OT and IT domains. Use when
-  designing ICS/SCADA network zones or segmenting OT from IT networks.
-
-  '
+description: Implement network segmentation based on the Purdue Enterprise Reference Architecture (PERA) model, separating ICS networks into hierarchical security zones from Level 0 physical process through Level 5 enterprise and enforcing strict traffic control through IEC 62443-aligned DMZs between OT and IT domains. Use when designing ICS/SCADA network zones or segmenting OT from IT networks. Do not use for IEC 62443-3-2 risk-based zone and conduit assignment - use implementing-iec-62443-security-zones.
 domain: cybersecurity
 subdomain: ot-ics-security
 tags:

@@ -1,13 +1,6 @@
 ---
 name: implementing-hardware-security-key-authentication
-description: 'Builds a FIDO2/WebAuthn relying party server with the python-fido2
-  library, covering registration and authentication ceremonies, YubiKey enrollment,
-  resident key (discoverable credential/passkey) workflows, and user verification
-  policies. Use when implementing phishing-resistant MFA with hardware security keys,
-  building a WebAuthn relying party, enrolling YubiKeys for a workforce, or migrating
-  password-based authentication to passkeys.
-
-  '
+description: 'Builds a FIDO2/WebAuthn relying party server with the python-fido2 library, covering registration and authentication ceremonies, YubiKey enrollment, resident key (discoverable credential/passkey) workflows, and user verification policies. Use when implementing phishing-resistant MFA with hardware security keys, building a WebAuthn relying party, enrolling YubiKeys for a workforce, or migrating password-based authentication to passkeys. Do not use for rolling out passwordless FIDO2 sign-in across an identity provider - use implementing-passwordless-authentication-with-fido2.'
 domain: cybersecurity
 subdomain: identity-and-access-management
 tags:

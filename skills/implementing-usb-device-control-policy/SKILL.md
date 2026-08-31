@@ -1,12 +1,6 @@
 ---
 name: implementing-usb-device-control-policy
-description: 'Implements USB device control policies to restrict unauthorized removable
-  media access on endpoints, preventing data exfiltration and malware introduction
-  via USB devices. Use when deploying device control via Group Policy, Intune, or
-  EDR platforms to enforce USB restrictions. Activates for requests involving USB
-  control, removable media policy, device control, or data loss prevention via USB.
-
-  '
+description: 'Implements USB device control policies to restrict unauthorized removable media access on endpoints, preventing data exfiltration and malware introduction via USB devices. Use when deploying device control via Group Policy, Intune, or EDR platforms to enforce USB restrictions. Activates for requests involving USB control, removable media policy, device control, or data loss prevention via USB. Do not use for forensic analysis of USB connection history - use analyzing-usb-device-connection-history.'
 domain: cybersecurity
 subdomain: endpoint-security
 tags:

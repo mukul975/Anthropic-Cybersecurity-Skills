@@ -1,11 +1,6 @@
 ---
 name: implementing-attack-path-analysis-with-xm-cyber
-description: Deploys XM Cyber's continuous exposure management platform to build
-  attack graphs that chain vulnerabilities, misconfigurations, identity risks, and
-  credential weaknesses toward critical assets, identifying the small fraction of
-  exposures sitting on converging "choke points". Use when mapping attack paths
-  across an environment or prioritizing remediation within a continuous threat exposure
-  management (CTEM) program.
+description: Deploys XM Cyber's continuous exposure management platform to build attack graphs that chain vulnerabilities, misconfigurations, identity risks, and credential weaknesses toward critical assets, identifying the small fraction of exposures sitting on converging choke points. Use when mapping attack paths across an environment or prioritizing remediation within a continuous threat exposure management (CTEM) program. Do not use for manually pentesting an internal network to find attack paths - use conducting-internal-network-penetration-test.
 domain: cybersecurity
 subdomain: vulnerability-management
 tags:

@@ -1,11 +1,6 @@
 ---
 name: implementing-mtls-for-zero-trust-services
-description: 'Configures mutual TLS (mTLS) authentication between microservices using
-  Python cryptography library for certificate generation and ssl module for TLS verification.
-  Validates certificate chains, checks expiration, and audits mTLS deployment status.
-  Use when implementing zero-trust service-to-service authentication.
-
-  '
+description: 'Configures mutual TLS (mTLS) authentication between microservices using Python cryptography library for certificate generation and ssl module for TLS verification. Validates certificate chains, checks expiration, and audits mTLS deployment status. Use when implementing zero-trust service-to-service authentication. Do not use for assessing TLS/SSL configuration security of an endpoint - use performing-ssl-tls-security-assessment.'
 domain: cybersecurity
 subdomain: security-operations
 tags:

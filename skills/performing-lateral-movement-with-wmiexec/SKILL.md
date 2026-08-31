@@ -1,8 +1,6 @@
 ---
 name: performing-lateral-movement-with-wmiexec
-description: Perform lateral movement across Windows networks using WMI-based remote
-  execution techniques including Impacket wmiexec.py, CrackMapExec, and native WMI
-  commands for stealthy post-exploitation during red team engagements.
+description: Perform lateral movement across Windows networks using WMI-based remote execution techniques including Impacket wmiexec.py, CrackMapExec, and native WMI commands for stealthy post-exploitation during red team engagements. Use when moving laterally across Windows hosts via WMI-based remote execution during red team post-exploitation. Do not use for detecting lateral movement in Splunk logs - use detecting-lateral-movement-with-splunk.
 domain: cybersecurity
 subdomain: red-teaming
 tags:

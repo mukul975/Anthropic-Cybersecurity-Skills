@@ -1,12 +1,6 @@
 ---
 name: performing-ssl-tls-security-assessment
-description: >-
-  Assess SSL/TLS server configurations using the sslyze Python scanning
-  library to evaluate supported protocol versions, cipher suite strength,
-  certificate chain validation, HSTS enforcement, OCSP stapling, and known
-  vulnerabilities such as Heartbleed and ROBOT. Use when conducting a security
-  assessment of a server's TLS configuration or verifying remediation of
-  cipher/certificate weaknesses.
+description: Assess SSL/TLS server configurations using the sslyze Python scanning library to evaluate supported protocol versions, cipher suite strength, certificate chain validation, HSTS enforcement, OCSP stapling, and known vulnerabilities such as Heartbleed and ROBOT. Use when conducting a security assessment of a server's TLS configuration or verifying remediation of cipher/certificate weaknesses. Do not use for configuring and hardening TLS 1.3 on servers - use configuring-tls-1-3-for-secure-communications.
 domain: cybersecurity
 subdomain: network-security
 tags:

@@ -1,6 +1,6 @@
 ---
 name: performing-phishing-simulation-with-gophish
-description: Deploy and run authorized phishing awareness campaigns with GoPhish, covering admin panel setup, SMTP sending profiles, email template and landing page creation, target user groups, and campaign reporting to measure click and credential-submission rates. Use when planning or executing a phishing simulation for employee security-awareness testing or measuring susceptibility to social engineering.
+description: Deploy and run authorized phishing awareness campaigns through the GoPhish web admin panel, covering SMTP sending profiles, email template and landing page creation, target user groups, and campaign reporting to measure click and credential-submission rates. Use when planning or executing a GoPhish security-awareness phishing simulation through its GUI to measure employee susceptibility to social engineering. Do not use for scripted red-team GoPhish automation via the Python gophish library - use performing-red-team-phishing-with-gophish.
 domain: cybersecurity
 subdomain: phishing-defense
 tags:

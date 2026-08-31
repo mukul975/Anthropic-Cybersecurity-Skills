@@ -1,11 +1,6 @@
 ---
 name: validating-tpm-measured-boot-attestation
-description: Verifies TPM 2.0 measured-boot integrity and remote attestation with
-  tpm2-tools -- reading PCRs (tpm2_pcrread), replaying the boot event log, generating
-  and checking signed quotes (tpm2_quote/tpm2_checkquote), and sealing secrets to
-  a PCR policy. Use to confirm a system booted trusted firmware/kernel for Zero
-  Trust device posture, detect boot-chain tampering via PCR drift, or build a golden-value
-  baseline for fleet attestation.
+description: 'Verifies TPM 2.0 measured-boot integrity and remote attestation with tpm2-tools -- reading PCRs (tpm2_pcrread), replaying the boot event log, generating and checking signed quotes (tpm2_quote/tpm2_checkquote), and sealing secrets to a PCR policy. Use when confirming a system booted trusted firmware/kernel for Zero Trust device posture, detecting boot-chain tampering via PCR drift, or building a golden-value baseline for fleet attestation. Do not use for detecting Secure Boot bypasses and revoked bootloaders via dbx - use detecting-secure-boot-bypass.'
 domain: cybersecurity
 subdomain: hardware-firmware-security
 tags:

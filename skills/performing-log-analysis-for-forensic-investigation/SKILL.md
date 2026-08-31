@@ -1,7 +1,6 @@
 ---
 name: performing-log-analysis-for-forensic-investigation
-description: Collect, parse, and correlate system, application, and security logs
-  to reconstruct events and establish timelines during forensic investigations.
+description: Collect, parse, and correlate system, application, and security logs to reconstruct events and establish timelines during forensic investigations. Use when investigating an incident by gathering and cross-referencing log evidence across hosts to reconstruct what happened. Do not use for building cross-source forensic super-timelines with Plaso - use performing-timeline-reconstruction-with-plaso.
 domain: cybersecurity
 subdomain: digital-forensics
 tags:

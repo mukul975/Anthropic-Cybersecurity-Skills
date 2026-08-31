@@ -1,10 +1,6 @@
 ---
 name: configuring-oauth2-authorization-flow
-description: Configures secure OAuth 2.0 authorization flows, including Authorization
-  Code with PKCE, Client Credentials, and Device Authorization Grant, covering flow
-  selection, PKCE implementation, token lifecycle management, and scope design per
-  OAuth 2.1. Use when implementing or hardening OAuth 2.0 authentication/authorization
-  for web, mobile, SPA, or machine-to-machine clients.
+description: Configures secure OAuth 2.0 authorization flows, including Authorization Code with PKCE, Client Credentials, and Device Authorization Grant, covering flow selection, PKCE implementation, token lifecycle management, and scope design per OAuth 2.1. Use when implementing or hardening OAuth 2.0 authentication/authorization for web, mobile, SPA, or machine-to-machine clients. Do not use for testing OAuth 2.0 implementations for security flaws - use testing-oauth2-implementation-flaws.
 domain: cybersecurity
 subdomain: identity-access-management
 tags:

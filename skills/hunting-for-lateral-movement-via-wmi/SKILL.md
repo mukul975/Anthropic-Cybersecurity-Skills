@@ -1,11 +1,6 @@
 ---
 name: hunting-for-lateral-movement-via-wmi
-description: Detects WMI-based lateral movement (e.g. wmic process call create,
-  Win32_Process.Create()) by analyzing Windows Event ID 4688 and Sysmon Event ID 1 for
-  WmiPrvSE.exe spawning suspicious child processes like cmd.exe or powershell.exe, plus
-  WMI-Activity/Operational events 5857/5860/5861 for subscription-based persistence. Use
-  when hunting for remote code execution via WMI or investigating lateral movement across
-  Windows hosts.
+description: Detects WMI-based lateral movement (e.g. wmic process call create, Win32_Process.Create()) by analyzing Windows Event ID 4688 and Sysmon Event ID 1 for WmiPrvSE.exe spawning suspicious child processes like cmd.exe or powershell.exe, plus WMI-Activity/Operational events 5857/5860/5861 for subscription-based persistence. Use when hunting for remote code execution via WMI or investigating lateral movement across Windows hosts. Do not use for hunting DCOM-based lateral movement - use hunting-for-dcom-lateral-movement.
 domain: cybersecurity
 subdomain: threat-hunting
 tags:

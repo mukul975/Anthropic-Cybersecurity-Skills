@@ -1,7 +1,6 @@
 ---
 name: hunting-for-spearphishing-indicators
-description: Hunt for spearphishing campaign indicators across email logs, endpoint
-  telemetry, and network data to detect targeted email attacks.
+description: Hunt for spearphishing campaign indicators across email logs, endpoint telemetry, and network data to detect targeted email attacks. Use when hunting for spearphishing (MITRE T1566) across historical email, endpoint, and network telemetry after a suspected targeted campaign. Do not use for real-time inbound blocking at the email gateway - use detecting-spearphishing-with-email-gateway.
 domain: cybersecurity
 subdomain: threat-hunting
 tags:

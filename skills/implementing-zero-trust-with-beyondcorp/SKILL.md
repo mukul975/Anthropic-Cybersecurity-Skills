@@ -1,6 +1,6 @@
 ---
 name: implementing-zero-trust-with-beyondcorp
-description: Configures Google BeyondCorp Enterprise Identity-Aware Proxy (IAP) as the access enforcement point for web applications, defining Access Context Manager access levels from device trust and network attributes, and auditing the resulting policies for compliance. Use when eliminating perimeter/VPN trust for GCP resources or internal apps, or when setting up identity- and device-posture-based access controls on Google Cloud.
+description: Configures Google BeyondCorp Enterprise Identity-Aware Proxy (IAP) as the access enforcement point for web applications, defining Access Context Manager access levels from device trust and network attributes, and auditing the resulting policies for compliance. Use when eliminating perimeter/VPN trust for GCP resources or internal apps, or when setting up identity- and device-posture-based access controls on Google Cloud. Do not use for the broader BeyondCorp Enterprise rollout adding Endpoint Verification, Chrome Enterprise Premium, and Connectors for on-prem apps - use implementing-beyondcorp-zero-trust-access-model.
 domain: cybersecurity
 subdomain: zero-trust
 tags:

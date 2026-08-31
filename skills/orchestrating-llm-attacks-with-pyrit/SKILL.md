@@ -1,6 +1,6 @@
 ---
 name: orchestrating-llm-attacks-with-pyrit
-description: Build automated multi-turn adversarial attacks against conversational LLM targets using Microsoft PyRIT's RedTeamingOrchestrator, CrescendoOrchestrator (gradual escalation), and TreeOfAttacksWithPruningOrchestrator (adaptive branching), with scorer feedback loops and persisted conversation memory. Use when single-shot LLM scanning is insufficient and you need multi-turn, scorer-driven AI red-team campaigns against a chatbot or agent.
+description: Build automated multi-turn adversarial attacks against conversational LLM targets using Microsoft PyRIT's RedTeamingOrchestrator, CrescendoOrchestrator (gradual escalation), and TreeOfAttacksWithPruningOrchestrator (adaptive branching), with scorer feedback loops and persisted conversation memory. Use when single-shot LLM scanning is insufficient and you need multi-turn, scorer-driven AI red-team campaigns against a chatbot or agent. Do not use for single-shot probe-suite baseline scanning of an LLM endpoint - use red-teaming-llms-with-garak.
 domain: cybersecurity
 subdomain: ai-security
 tags:

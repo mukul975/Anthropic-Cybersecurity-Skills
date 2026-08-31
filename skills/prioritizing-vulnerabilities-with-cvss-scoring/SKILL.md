@@ -1,8 +1,6 @@
 ---
 name: prioritizing-vulnerabilities-with-cvss-scoring
-description: The Common Vulnerability Scoring System (CVSS) is the industry standard
-  framework maintained by FIRST (Forum of Incident Response and Security Teams) for
-  assessing vulnerability severity. CVSS v4.0 (r
+description: Score and prioritize vulnerabilities with CVSS v4.0, calculating base scores, interpreting vector strings, and combining severity with contextual signals like EPSS and CISA KEV for defensible remediation ordering. Use when triaging vulnerabilities by severity. Do not use for exploit-probability-driven ranking - use implementing-epss-score-for-vulnerability-prioritization.
 domain: cybersecurity
 subdomain: vulnerability-management
 tags:

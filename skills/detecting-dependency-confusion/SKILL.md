@@ -1,6 +1,6 @@
 ---
 name: detecting-dependency-confusion
-description: Detect and prevent dependency confusion (public-over-private package name resolution) in npm, PyPI, and Maven by enumerating claimable internal package names with tools like `confused` and OWASP `dep-scan`, then enforcing source restrictions via `.npmrc`, `pip.conf`/`pyproject.toml`, and Maven `settings.xml`. Use when onboarding a repo to a supply-chain security program, auditing lockfiles/manifests for confusable dependencies, or after an incident that may have leaked internal package names.
+description: Detect and prevent dependency confusion (public-over-private package name resolution) in npm, PyPI, and Maven by enumerating claimable internal package names with tools like `confused` and OWASP `dep-scan`, then enforcing source restrictions via `.npmrc`, `pip.conf`/`pyproject.toml`, and Maven `settings.xml`. Use when onboarding a repo to a supply-chain security program, auditing lockfiles/manifests for confusable dependencies, or after an incident that may have leaked internal package names. Do not use for offensively simulating a supply chain attack - use performing-supply-chain-attack-simulation.
 domain: cybersecurity
 subdomain: supply-chain-security
 tags:

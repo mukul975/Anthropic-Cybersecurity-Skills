@@ -1,11 +1,6 @@
 ---
 name: detecting-qr-code-phishing-with-email-security
-description: Detect and prevent QR code phishing (quishing) attacks that embed
-  malicious URLs inside QR code images to bypass link-based email security,
-  using image-based threat detection, OCR/QR decoding, and mobile-side scanning
-  (Microsoft Defender for O365, Proofpoint TAP, Barracuda Multimodal AI). Use
-  when configuring gateway rules against QR phishing or investigating suspicious
-  emails containing QR codes.
+description: Detect and prevent QR code phishing (quishing) attacks that embed malicious URLs inside QR code images to bypass link-based email security, using image-based threat detection, OCR/QR decoding, and mobile-side scanning (Microsoft Defender for O365, Proofpoint TAP, Barracuda Multimodal AI). Use when configuring gateway rules against QR phishing or investigating suspicious emails containing QR codes. Do not use for general attachment and URL sandbox detonation with Proofpoint - use implementing-email-sandboxing-with-proofpoint.
 domain: cybersecurity
 subdomain: phishing-defense
 tags:

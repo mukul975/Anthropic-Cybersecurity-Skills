@@ -1,6 +1,6 @@
 ---
 name: performing-network-traffic-analysis-with-tshark
-description: Automate network traffic analysis using tshark (Wireshark CLI) and pyshark to compute protocol distribution statistics, detect suspicious flows such as port scans and beaconing, extract IOCs (IPs, domains, URLs), and identify DNS tunneling patterns from PCAP files. Use when scripted or repeatable analysis of packet captures is needed rather than interactive inspection.
+description: Automate network traffic analysis using tshark (Wireshark CLI) and pyshark to compute protocol distribution statistics, detect suspicious flows such as port scans and beaconing, extract IOCs (IPs, domains, URLs), and identify DNS tunneling patterns from PCAP files. Use when scripted or repeatable analysis of packet captures is needed rather than interactive inspection. Do not use for interactive GUI-driven packet inspection and manual protocol dissection - use analyzing-network-traffic-with-wireshark.
 domain: cybersecurity
 subdomain: network-security
 tags:

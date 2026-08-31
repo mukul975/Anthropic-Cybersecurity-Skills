@@ -1,6 +1,6 @@
 ---
 name: detecting-modbus-protocol-anomalies
-description: Detect anomalies in Modbus/TCP and Modbus RTU industrial traffic via function code monitoring, register range validation, timing analysis, and deep packet inspection, using Zeek's Modbus analyzer, Suricata IDS with OT rules, and Python Markov chain models of normal transaction sequences. Use for deploying Modbus IDS in OT environments, baselining polling patterns, investigating suspicious Modbus traffic, or building function code allowlists.
+description: Detect anomalies in Modbus/TCP and Modbus RTU industrial traffic via function code monitoring, register range validation, timing analysis, and deep packet inspection, using Zeek's Modbus analyzer, Suricata IDS with OT rules, and Python Markov chain models of normal transaction sequences. Use when deploying Modbus IDS in OT environments, baselining polling patterns, investigating suspicious Modbus traffic, or building function code allowlists. Do not use for continuous SCADA-focused Modbus traffic monitoring - use monitoring-scada-modbus-traffic-anomalies.
 domain: cybersecurity
 subdomain: ot-ics-security
 tags:

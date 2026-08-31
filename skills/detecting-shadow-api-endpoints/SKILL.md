@@ -1,11 +1,6 @@
 ---
 name: detecting-shadow-api-endpoints
-description: Discover and inventory shadow API endpoints that operate outside
-  documented OpenAPI/Swagger specs, using traffic analysis against API gateways
-  (Kong, AWS API Gateway, Envoy), cloud configuration scanning, and source code
-  repository mining for undocumented routes. Use when assessing API attack surface,
-  auditing for forgotten test environments or deprecated API versions still
-  running, or building an API registration governance policy.
+description: Discover and inventory shadow API endpoints that operate outside documented OpenAPI/Swagger specs, using traffic analysis against API gateways (Kong, AWS API Gateway, Envoy), cloud configuration scanning, and source code repository mining for undocumented routes. Use when assessing API attack surface, auditing for forgotten test environments or deprecated API versions still running, or building an API registration governance policy. Do not use for full organization-wide API inventory and discovery across all endpoint types - use performing-api-inventory-and-discovery.
 domain: cybersecurity
 subdomain: api-security
 tags:

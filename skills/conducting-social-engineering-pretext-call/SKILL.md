@@ -1,8 +1,6 @@
 ---
 name: conducting-social-engineering-pretext-call
-description: Plan and execute authorized vishing (voice phishing) pretext calls to
-  assess employee susceptibility to social engineering and evaluate security awareness
-  controls.
+description: Plan and execute authorized vishing (voice phishing) pretext calls to assess employee susceptibility to social engineering and evaluate security awareness controls. Use when planning or running authorized voice-phishing pretext calls to test employee susceptibility. Do not use for a broad multi-vector social-engineering penetration test - use conducting-social-engineering-penetration-test.
 domain: cybersecurity
 subdomain: red-teaming
 tags:

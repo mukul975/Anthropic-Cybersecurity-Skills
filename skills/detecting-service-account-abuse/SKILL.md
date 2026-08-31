@@ -1,11 +1,6 @@
 ---
 name: detecting-service-account-abuse
-description: Detect abuse of service accounts by hunting for anomalous interactive
-  logons, privilege escalation, and lateral movement using EDR/SIEM telemetry
-  (CrowdStrike Falcon, Microsoft Defender, Splunk, Elastic Security, Sysmon,
-  Velociraptor) and Sigma detection rules. Use when hunting for service-account
-  misuse or investigating a service account performing unexpected interactive
-  logons.
+description: Detect abuse of service accounts by hunting for anomalous interactive logons, privilege escalation, and lateral movement using EDR/SIEM telemetry (CrowdStrike Falcon, Microsoft Defender, Splunk, Elastic Security, Sysmon, Velociraptor) and Sigma detection rules. Use when hunting for service-account misuse or investigating a service account performing unexpected interactive logons. Do not use for deploying the CrowdStrike EDR agent - use deploying-edr-agent-with-crowdstrike.
 domain: cybersecurity
 subdomain: threat-hunting
 tags:

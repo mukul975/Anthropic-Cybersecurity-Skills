@@ -1,12 +1,6 @@
 ---
 name: implementing-aws-security-hub
-description: 'Deploy AWS Security Hub as a centralized CSPM platform, backed by AWS
-  Config, aggregating findings from GuardDuty, Inspector, Macie, and third-party tools;
-  enable CIS Foundations, PCI-DSS, and NIST standards; automate remediation via EventBridge/Systems
-  Manager; and produce Audit Manager evidence. Use for a centralized findings dashboard
-  or compliance audit evidence; not for threat detection or container scanning.
-
-  '
+description: Deploy AWS Security Hub as a centralized CSPM platform, backed by AWS Config, aggregating findings from GuardDuty, Inspector, Macie, and third-party tools, enabling CIS Foundations, PCI-DSS, and NIST standards, automating remediation via EventBridge and Systems Manager, and producing Audit Manager evidence. Use when standing up a centralized security findings dashboard or gathering audit evidence for an account. Do not use for multi-account AWS Organizations compliance monitoring and executive compliance dashboards - use implementing-aws-security-hub-compliance.
 domain: cybersecurity
 subdomain: cloud-security
 tags:

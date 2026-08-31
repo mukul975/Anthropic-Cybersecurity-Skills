@@ -1,6 +1,6 @@
 ---
 name: integrating-sast-into-github-actions-pipeline
-description: Integrates CodeQL and Semgrep SAST scanning into GitHub Actions, covering scans on pull requests/pushes, rule tuning to cut false positives, SARIF upload to GitHub Advanced Security, and merge-blocking quality gates for high-severity findings. Use when adding automated code vulnerability detection to CI, enforcing consistent SAST org-wide, or producing SOC 2/PCI DSS/NIST SSDF compliance evidence.
+description: Integrates CodeQL and Semgrep SAST scanning into GitHub Actions, covering scans on pull requests/pushes, rule tuning to cut false positives, SARIF upload to GitHub Advanced Security, and merge-blocking quality gates for high-severity findings. Use when adding automated code vulnerability detection to CI, enforcing consistent SAST org-wide, or producing SOC 2/PCI DSS/NIST SSDF compliance evidence. Do not use for configuring the full GitHub Advanced Security platform including secret scanning and Dependabot - use implementing-github-advanced-security-for-code-scanning.
 domain: cybersecurity
 subdomain: devsecops
 tags:

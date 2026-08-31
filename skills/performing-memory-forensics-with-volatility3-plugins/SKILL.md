@@ -1,8 +1,6 @@
 ---
 name: performing-memory-forensics-with-volatility3-plugins
-description: Analyze memory dumps using Volatility3 plugins to detect injected code,
-  rootkits, credential theft, and malware artifacts in Windows, Linux, and macOS memory
-  images.
+description: Analyze memory dumps using Volatility3 plugins to detect injected code, rootkits, credential theft, and malware artifacts in Windows, Linux, and macOS memory images. Use when investigating a memory image with Volatility3 for injected code, rootkits, credential theft, or malware artifacts. Do not use for memory analysis with the legacy Volatility 2 framework - use analyzing-memory-dumps-with-volatility.
 domain: cybersecurity
 subdomain: malware-analysis
 tags:

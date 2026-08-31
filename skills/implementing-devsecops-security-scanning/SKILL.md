@@ -1,12 +1,6 @@
 ---
 name: implementing-devsecops-security-scanning
-description: 'Integrates SAST, DAST, and SCA into CI/CD pipelines using Semgrep for
-  SAST, Trivy for SCA and container scanning, OWASP ZAP for DAST, and Gitleaks for
-  secrets detection. Use when setting up automated security scanning in CI/CD, shifting
-  security left, meeting compliance mandates (SOC 2, PCI-DSS, ISO 27001), or gating
-  deployments on critical vulnerabilities.
-
-  '
+description: 'Integrates SAST, DAST, and SCA into CI/CD pipelines using Semgrep for SAST, Trivy for SCA and container scanning, OWASP ZAP for DAST, and Gitleaks for secrets detection. Use when setting up automated security scanning in CI/CD, shifting security left, meeting compliance mandates (SOC 2, PCI-DSS, ISO 27001), or gating deployments on critical vulnerabilities. Do not use for standalone DAST scanning of a running app with OWASP ZAP - use integrating-dast-with-owasp-zap-in-pipeline.'
 domain: cybersecurity
 subdomain: application-security
 tags:

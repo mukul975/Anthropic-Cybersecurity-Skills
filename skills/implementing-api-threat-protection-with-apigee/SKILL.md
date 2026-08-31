@@ -1,10 +1,6 @@
 ---
 name: implementing-api-threat-protection-with-apigee
-description: Implements API threat protection using Google Apigee reverse-proxy
-  policies, including JSON/XML threat protection, OAuth 2.0 enforcement, SpikeArrest
-  rate limiting, regex-based threat detection, and Advanced API Security for detecting
-  malicious clients. Use when shielding APIs proxied through Apigee against OWASP
-  API Security Top 10 threats and malicious client abuse patterns.
+description: Implements API threat protection using Google Apigee reverse-proxy policies, including JSON/XML threat protection, OAuth 2.0 enforcement, SpikeArrest rate limiting, regex-based threat detection, and Advanced API Security for detecting malicious clients. Use when shielding APIs proxied through Apigee against OWASP API Security Top 10 threats and malicious client abuse patterns. Do not use for vendor-agnostic API gateway security controls - use implementing-api-gateway-security-controls.
 domain: cybersecurity
 subdomain: api-security
 tags:

@@ -1,18 +1,6 @@
 ---
 name: implementing-hipaa-security-rule-safeguards
-description: >-
-  Implement the HIPAA Security Rule (45 CFR Part 164 Subpart C) to protect electronic
-  protected health information (ePHI): conduct the required risk analysis, deploy the
-  administrative, physical, and technical safeguards, handle required vs addressable
-  implementation specifications, execute Business Associate Agreements, and stand up
-  breach-notification readiness. Use when an organization is a HIPAA covered entity or
-  business associate, when protecting ePHI, when preparing for an OCR audit or responding
-  to a breach, when performing a HIPAA Security Risk Analysis, when drafting or reviewing a
-  BAA, or when mapping security controls to the §164.308/310/312/314/316 safeguards. Notes
-  the 2025 NPRM proposed changes (not yet final). Keywords: HIPAA, HIPAA Security Rule,
-  ePHI, PHI, 45 CFR 164, risk analysis, administrative safeguards, physical safeguards,
-  technical safeguards, addressable, required, Business Associate Agreement, BAA, OCR,
-  breach notification, HITECH, covered entity, business associate.
+description: Implement the HIPAA Security Rule (45 CFR Part 164 Subpart C) to protect electronic protected health information (ePHI) - conduct the required risk analysis, deploy the administrative, physical, and technical safeguards, handle required vs addressable implementation specifications, execute Business Associate Agreements, and stand up breach-notification readiness. Use when an organization is a HIPAA covered entity or business associate, when protecting ePHI, when preparing for an OCR audit or responding to a breach, when performing a HIPAA Security Risk Analysis, when drafting or reviewing a BAA, or when mapping security controls to the §164.308/310/312/314/316 safeguards. Notes the 2025 NPRM proposed changes (not yet final). Keywords - HIPAA, HIPAA Security Rule, ePHI, PHI, 45 CFR 164, risk analysis, addressable, required, Business Associate Agreement, BAA, OCR, breach notification, HITECH. Do not use for EU GDPR personal-data privacy compliance - use conducting-gdpr-compliance-assessment.
 domain: cybersecurity
 subdomain: compliance-governance
 tags:

@@ -1,8 +1,6 @@
 ---
 name: performing-dark-web-monitoring-for-threats
-description: Dark web monitoring involves systematically scanning Tor hidden services,
-  underground forums, paste sites, and dark web marketplaces to identify threats targeting
-  an organization, including leaked cre
+description: Stand up dark-web monitoring across Tor hidden services, underground forums, paste sites, and marketplaces to surface leaked credentials, breach data, threat-actor chatter, and planned attacks, with Tor-based collection, automated brand and credential-leak alerting, and intelligence analysis. Use when standing up your own Tor-based monitoring for organizational exposure on the dark web. Do not use for paste-site credential monitoring alone (use performing-paste-site-monitoring-for-credentials) or commercial-tool dark-web coverage with Recorded Future and SpiderFoot - use monitoring-darkweb-sources.
 domain: cybersecurity
 subdomain: threat-intelligence
 tags:

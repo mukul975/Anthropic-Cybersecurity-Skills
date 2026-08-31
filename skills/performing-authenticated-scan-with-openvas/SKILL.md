@@ -1,10 +1,6 @@
 ---
 name: performing-authenticated-scan-with-openvas
-description: Configure and execute authenticated (credentialed) vulnerability scans using OpenVAS/Greenbone
-  Vulnerability Management (GVM) with SSH, SMB, or ESXi credentials to detect local
-  vulnerabilities, missing patches, and misconfigurations on target hosts. Use when
-  a host-level scan needs to log into systems for deep inspection, since authenticated
-  scans typically surface 10-50x more findings than unauthenticated scans.
+description: Configure and execute authenticated (credentialed) vulnerability scans using OpenVAS/Greenbone Vulnerability Management (GVM) with SSH, SMB, or ESXi credentials to detect local vulnerabilities, missing patches, and misconfigurations on target hosts. Use when a host-level scan needs to log into systems for deep inspection, since authenticated scans typically surface 10-50x more findings than unauthenticated scans. Do not use for scanner-agnostic credentialed scanning across Nessus, Qualys, or InsightVM - use performing-authenticated-vulnerability-scan.
 domain: cybersecurity
 subdomain: vulnerability-management
 tags:

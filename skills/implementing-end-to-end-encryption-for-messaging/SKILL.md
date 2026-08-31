@@ -1,6 +1,6 @@
 ---
 name: implementing-end-to-end-encryption-for-messaging
-description: Implements a simplified Signal Protocol-style end-to-end encryption scheme for messaging, covering key exchange, forward secrecy, and the core cryptographic components so no server or intermediary can decrypt messages. Use when designing or building E2EE messaging, or evaluating forward-secrecy and key-management tradeoffs for a messaging system.
+description: Implements a simplified Signal Protocol-style end-to-end encryption scheme for messaging, covering key exchange, forward secrecy, and the core cryptographic components so no server or intermediary can decrypt messages. Use when designing or building E2EE messaging, or evaluating forward-secrecy and key-management tradeoffs for a messaging system. Do not use for encrypting files or data stores at rest rather than messages in transit - use implementing-aes-encryption-for-data-at-rest.
 domain: cybersecurity
 subdomain: cryptography
 tags:

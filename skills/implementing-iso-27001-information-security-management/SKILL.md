@@ -1,12 +1,6 @@
 ---
 name: implementing-iso-27001-information-security-management
-description: >-
-  Guides implementation of an ISO/IEC 27001:2022 Information Security Management
-  System (ISMS) end to end: gap analysis and scoping, risk assessment methodology,
-  Annex A control selection, Statement of Applicability (SoA) creation, and
-  continuous improvement. Use when scoping a new ISMS, preparing for ISO 27001
-  certification or audit, or selecting and documenting Annex A controls for a
-  compliance program.
+description: Guides implementation of an ISO/IEC 27001:2022 Information Security Management System (ISMS) end to end - gap analysis and scoping, risk assessment methodology, Annex A control selection, Statement of Applicability (SoA) creation, and continuous improvement. Use when scoping a new ISMS, preparing for ISO 27001 certification or audit, or selecting and documenting Annex A controls for a compliance program. Do not use for a standalone NIST 800-30 risk assessment methodology - use conducting-cyber-risk-assessment-with-nist-800-30.
 domain: cybersecurity
 subdomain: compliance-governance
 tags:

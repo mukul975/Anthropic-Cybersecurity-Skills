@@ -1,10 +1,6 @@
 ---
 name: analyzing-malicious-pdf-with-peepdf
-description: Perform static analysis of malicious PDF documents using peepdf, pdfid,
-  and pdf-parser to extract embedded JavaScript, shellcode, and suspicious objects.
-  Use when triaging a suspicious PDF attachment from a phishing email, analyzing a
-  PDF-based exploit document, or building detection signatures for weaponized PDF
-  threats.
+description: Perform deep interactive static analysis of malicious PDF documents using peepdf, pdfid, and pdf-parser to extract and decode embedded JavaScript, shellcode, and suspicious objects by walking the object tree and stream filters. Use when performing hands-on interactive dissection of a suspicious PDF attachment, analyzing a PDF-based exploit document, or building detection signatures for weaponized PDF threats. Do not use for fast first-pass keyword triage and object counting with PDFiD - use analyzing-pdf-malware-with-pdfid.
 domain: cybersecurity
 subdomain: malware-analysis
 tags:

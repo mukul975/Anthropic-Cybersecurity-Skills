@@ -1,10 +1,6 @@
 ---
 name: conducting-man-in-the-middle-attack-simulation
-description: 'Simulates man-in-the-middle attacks using Ettercap, mitmproxy, and Bettercap
-  in authorized environments to intercept, analyze, and modify network traffic for
-  testing encryption enforcement, certificate validation, and detection capabilities.
-
-  '
+description: Simulates man-in-the-middle attacks using Ettercap, mitmproxy, and Bettercap in authorized environments to intercept, analyze, and modify network traffic for testing encryption enforcement, certificate validation, and detection capabilities. Use when running an authorized MITM engagement to test TLS enforcement, certificate validation, and interception detection. Do not use for the specific layer-2 ARP cache poisoning technique - use performing-arp-spoofing-attack-simulation.
 domain: cybersecurity
 subdomain: network-security
 tags:

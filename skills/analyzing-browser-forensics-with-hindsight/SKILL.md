@@ -1,6 +1,6 @@
 ---
 name: analyzing-browser-forensics-with-hindsight
-description: Parse Chromium-based browser databases with Hindsight to extract and correlate browsing history, downloads, cookies, cached content, autofill data, saved passwords, and extensions from Chrome, Edge, Brave, Opera, and Vivaldi into a unified timeline (XLSX, JSON, or SQLite output). Use during incident response, insider-threat investigations, or criminal cases when you need to reconstruct a user's web activity from a browser profile.
+description: Parse Chromium-based browser databases with Hindsight to extract and correlate browsing history, downloads, cookies, cached content, autofill data, saved passwords, and extensions from Chrome, Edge, Brave, Opera, and Vivaldi into a unified timeline (XLSX, JSON, or SQLite output). Use when responding to an incident, investigating insider threats, or working criminal cases and you need to reconstruct a user's web activity from a browser profile. Do not use for general multi-browser history extraction with sqlite and NirSoft tools - use extracting-browser-history-artifacts.
 domain: cybersecurity
 subdomain: digital-forensics
 tags:

@@ -1,12 +1,6 @@
 ---
 name: performing-threat-hunting-with-elastic-siem
-description: 'Performs proactive threat hunting in Elastic Security SIEM using KQL/EQL
-  queries, detection rules, and Timeline investigation to identify threats that evade
-  automated detection. Use when SOC teams need to hunt for specific ATT&CK techniques,
-  investigate anomalous behaviors, or validate detection coverage gaps using Elasticsearch
-  and Kibana Security.
-
-  '
+description: Performs proactive threat hunting in Elastic Security SIEM using KQL/EQL queries, detection rules, and Timeline investigation to identify threats that evade automated detection. Use when SOC teams need to hunt for specific ATT&CK techniques, investigate anomalous behaviors, or validate detection coverage gaps using Elasticsearch and Kibana Security. Do not use for triaging existing Elastic SIEM alerts - use performing-alert-triage-with-elastic-siem.
 domain: cybersecurity
 subdomain: soc-operations
 tags:

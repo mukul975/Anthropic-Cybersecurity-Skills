@@ -1,6 +1,6 @@
 ---
 name: performing-mobile-device-forensics-with-cellebrite
-description: Acquire and analyze mobile device data using Cellebrite UFED Touch/4PC, UFED Physical Analyzer, and open-source alternatives (ALEAPP, iLEAPP, MEAT, libimobiledevice) to extract communications, call logs, location data, and application artifacts. Use when extracting or recovering deleted evidence from smartphones or tablets during criminal, corporate, or employee-misuse investigations.
+description: Acquire and analyze mobile device data using Cellebrite UFED Touch/4PC, UFED Physical Analyzer, and open-source alternatives (ALEAPP, iLEAPP, MEAT, libimobiledevice) to extract communications, call logs, location data, and application artifacts. Use when extracting or recovering deleted evidence from smartphones or tablets during criminal, corporate, or employee-misuse investigations. Do not use for low-level forensic analysis of individual SQLite database files pulled from a device - use performing-sqlite-database-forensics.
 domain: cybersecurity
 subdomain: digital-forensics
 tags:

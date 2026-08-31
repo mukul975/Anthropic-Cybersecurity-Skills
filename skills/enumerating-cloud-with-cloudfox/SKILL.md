@@ -1,10 +1,6 @@
 ---
 name: enumerating-cloud-with-cloudfox
-description: Run CloudFox's read-only Describe/List/Get enumeration (all-checks,
-  role-trusts, secrets, endpoints, and permissions commands) to map AWS and Azure attack
-  paths and surface exploitable misconfigurations. Use immediately after obtaining a cloud
-  credential to build situational awareness, find exposed resources and secrets, or map
-  sts:AssumeRole trust relationships for lateral-movement/privilege-escalation planning.
+description: Run CloudFox's read-only Describe/List/Get enumeration (all-checks, role-trusts, secrets, endpoints, and permissions commands) to map AWS and Azure attack paths and surface exploitable misconfigurations, including mapping sts:AssumeRole trust relationships for lateral-movement and privilege-escalation planning. Use when you have just obtained a cloud credential and need read-only situational awareness, exposed resources and secrets, or attack-path mapping. Do not use for actively executing and validating AWS privilege-escalation paths - use performing-aws-privilege-escalation-assessment.
 domain: cybersecurity
 subdomain: cloud-security
 tags:

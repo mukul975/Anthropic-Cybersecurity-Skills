@@ -1,10 +1,6 @@
 ---
 name: scanning-iac-and-images-with-trivy
-description: Scans container images, Infrastructure-as-Code (Terraform, CloudFormation,
-  Kubernetes manifests, Dockerfile, Helm), filesystems, git repos, and SBOMs with Trivy's
-  vuln, misconfig, secret, and license scanners. Use when building a CI/CD security
-  gate that scans images before push, IaC before apply, or SBOMs for supply-chain
-  weaknesses, and fails the build on policy violations.
+description: Scans container images, Infrastructure-as-Code (Terraform, CloudFormation, Kubernetes manifests, Dockerfile, Helm), filesystems, git repos, and SBOMs with Trivy's vuln, misconfig, secret, and license scanners. Use when building a CI/CD security gate that scans images before push, IaC before apply, or SBOMs for supply-chain weaknesses, and fails the build on policy violations. Do not use for Trivy scanning limited to container images alone - use performing-container-security-scanning-with-trivy.
 domain: cybersecurity
 subdomain: devsecops
 tags:

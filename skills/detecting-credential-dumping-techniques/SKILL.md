@@ -1,6 +1,6 @@
 ---
 name: detecting-credential-dumping-techniques
-description: Detect LSASS credential dumping, SAM database extraction, and NTDS.dit theft (e.g. via Mimikatz) using Sysmon Event ID 10 process-access logging, Windows Security logs, and SIEM correlation rules. Use when hunting for credential-theft activity on Windows/Active Directory hosts or triaging EDR alerts on LSASS access.
+description: Detect LSASS credential dumping, SAM database export, and NTDS.dit theft (e.g. via Mimikatz, procdump, comsvcs.dll MiniDump) by building Sysmon Event ID 10 process-access detection rules, analyzing GrantedAccess bitmasks and calling processes in Windows Security logs, and correlating in Splunk or Elastic SIEM. Use when engineering Sysmon and SIEM detection rules or hunting queries for credential-theft activity on Windows and Active Directory hosts. Do not use for EDR-telemetry-driven hunting across all T1003 sub-techniques - use detecting-t1003-credential-dumping-with-edr.
 domain: cybersecurity
 subdomain: threat-detection
 tags:

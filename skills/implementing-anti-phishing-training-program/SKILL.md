@@ -1,6 +1,6 @@
 ---
 name: implementing-anti-phishing-training-program
-description: Guides designing, deploying, and measuring an anti-phishing security awareness program - baseline phishing simulations, interactive training modules, just-in-time learning, and metric tracking - using platforms like KnowBe4, Proofpoint Security Awareness, or Cofense. Use when building or maturing a phishing awareness program, establishing training controls for compliance, or measuring phishing susceptibility and reporting rates over time.
+description: Guides designing, deploying, and measuring an anti-phishing security awareness program - baseline phishing simulations, interactive training modules, just-in-time learning, and metric tracking - using platforms like KnowBe4, Proofpoint Security Awareness, or Cofense. Use when building or maturing a phishing awareness program, establishing training controls for compliance, or measuring phishing susceptibility and reporting rates over time. Do not use for running a one-off phishing simulation campaign - use executing-phishing-simulation-campaign.
 domain: cybersecurity
 subdomain: phishing-defense
 tags:

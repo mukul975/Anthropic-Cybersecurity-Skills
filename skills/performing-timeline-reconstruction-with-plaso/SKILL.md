@@ -1,12 +1,6 @@
 ---
 name: performing-timeline-reconstruction-with-plaso
-description: >-
-  Builds comprehensive forensic super-timelines using Plaso (log2timeline and
-  psort) to correlate events across file system metadata, event logs, browser
-  history, and registry artifacts into a unified chronological view. Use
-  during complex forensic investigations that need cross-source event
-  correlation, or when standard log analysis is insufficient to establish the
-  sequence of activities for reporting findings.
+description: Builds comprehensive forensic super-timelines using Plaso (log2timeline and psort) to correlate events across file system metadata, event logs, browser history, and registry artifacts into a unified chronological view. Use during complex forensic investigations that need cross-source event correlation, or when standard log analysis is insufficient to establish the sequence of activities for reporting findings. Do not use for the step-by-step guided Plaso super-timeline build workflow - use building-super-timelines-with-plaso.
 domain: cybersecurity
 subdomain: digital-forensics
 tags:

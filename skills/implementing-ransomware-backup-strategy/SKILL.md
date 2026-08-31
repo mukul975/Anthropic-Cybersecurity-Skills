@@ -1,12 +1,6 @@
 ---
 name: implementing-ransomware-backup-strategy
-description: 'Designs a ransomware-resilient backup strategy using the 3-2-1-1-0
-  methodology (3 copies, 2 media types, 1 offsite, 1 immutable/air-gapped, 0 restore
-  errors), configuring RPO/RTO-aligned schedules, isolating backup credentials, and
-  automating restore testing. Use when planning ransomware backup resilience or air-gapped/immutable
-  backup architecture.
-
-  '
+description: Designs a ransomware-resilient backup strategy using the 3-2-1-1-0 methodology (3 copies, 2 media types, 1 offsite, 1 immutable/air-gapped, 0 restore errors), configuring RPO/RTO-aligned schedules, isolating backup credentials, and automating restore testing. Use when planning ransomware backup resilience or air-gapped/immutable backup architecture. Do not use for validating or testing backup integrity for recovery - use validating-backup-integrity-for-recovery.
 domain: cybersecurity
 subdomain: ransomware-defense
 tags:

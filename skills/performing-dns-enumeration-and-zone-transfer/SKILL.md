@@ -1,10 +1,6 @@
 ---
 name: performing-dns-enumeration-and-zone-transfer
-description: 'Enumerates DNS records, attempts zone transfers, brute-forces subdomains,
-  and maps DNS infrastructure during authorized reconnaissance to identify attack
-  surface, misconfigurations, and information disclosure in target domains.
-
-  '
+description: Enumerates DNS records, attempts zone transfers, brute-forces subdomains, and maps DNS infrastructure during authorized reconnaissance to identify attack surface, misconfigurations, and information disclosure in target domains. Use when actively querying DNS records, testing zone transfers, and brute-forcing subdomains during authorized recon. Do not use for passive subdomain enumeration via OSINT sources with subfinder - use performing-subdomain-enumeration-with-subfinder.
 domain: cybersecurity
 subdomain: network-security
 tags:

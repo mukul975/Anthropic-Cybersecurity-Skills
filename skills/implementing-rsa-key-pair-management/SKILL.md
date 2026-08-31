@@ -1,10 +1,6 @@
 ---
 name: implementing-rsa-key-pair-management
-description: Generates, stores, rotates, and manages RSA key pairs following NIST
-  SP 800-57 guidelines, covering serialization formats (PEM, DER, PKCS#8), passphrase
-  protection, and key strength validation. Use when creating or rotating RSA keys
-  for signatures, key exchange, or encryption, or when auditing existing keys for
-  proper storage and NIST-compliant strength.
+description: Generates, stores, rotates, and manages RSA key pairs following NIST SP 800-57 guidelines, covering serialization formats (PEM, DER, PKCS#8), passphrase protection, and key strength validation. Use when creating or rotating RSA keys for signatures, key exchange, or encryption, or when auditing existing keys for proper storage and NIST-compliant strength. Do not use for storing keys inside a hardware security module boundary - use configuring-hsm-for-key-storage.
 domain: cybersecurity
 subdomain: cryptography
 tags:

@@ -1,13 +1,6 @@
 ---
 name: securing-aws-lambda-execution-roles
-description: 'Hardens AWS Lambda execution roles by writing least-privilege IAM policies,
-  applying permission boundaries, restricting resource-based policies, validating
-  permissions with IAM Access Analyzer, and enforcing role scoping through SCPs. Use
-  when deploying new Lambda functions, remediating overly permissive Lambda roles found
-  in an audit, or building reusable least-privilege IAM role templates for serverless
-  teams.
-
-  '
+description: Hardens AWS Lambda execution roles by writing least-privilege IAM policies, applying permission boundaries, restricting resource-based policies, validating permissions with IAM Access Analyzer, and enforcing role scoping through SCPs. Use when deploying new Lambda functions, remediating overly permissive Lambda roles found in an audit, or building reusable least-privilege IAM role templates for serverless teams. Do not use for broader serverless function security beyond IAM roles - use securing-serverless-functions.
 domain: cybersecurity
 subdomain: cloud-security
 tags:

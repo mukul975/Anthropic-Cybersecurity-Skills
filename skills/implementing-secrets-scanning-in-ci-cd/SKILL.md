@@ -1,7 +1,6 @@
 ---
 name: implementing-secrets-scanning-in-ci-cd
-description: Integrate gitleaks and trufflehog into CI/CD pipelines to detect leaked
-  secrets before deployment
+description: Add automated secrets scanning to CI/CD pipelines with gitleaks and trufflehog to catch API keys, tokens, and passwords committed to source, gating deployments on high-severity findings using regex, entropy, git-history, and optional live-verification scans. Use when wiring a secrets-detection gate into a build pipeline. Do not use for a single-tool gitleaks-only setup - use implementing-secret-scanning-with-gitleaks.
 domain: cybersecurity
 subdomain: devsecops
 tags:

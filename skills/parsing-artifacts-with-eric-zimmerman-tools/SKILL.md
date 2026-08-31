@@ -1,6 +1,6 @@
 ---
 name: parsing-artifacts-with-eric-zimmerman-tools
-description: Parse Windows forensic artifacts—$MFT/$J (MFTECmd), Prefetch (PECmd), registry hives (RECmd), shellbags, and Amcache—into normalized CSV/JSON with Eric Zimmerman's EZ Tools, then load results into Timeline Explorer for analysis. Use during DFIR/incident-response investigations, after triage collection (e.g. with KAPE), to establish program execution, file/folder access, and persistence evidence from acquired forensic images.
+description: Parse Windows forensic artifacts — $MFT/$J with MFTECmd, Prefetch with PECmd, registry hives with RECmd, plus shellbags and Amcache — into normalized CSV/JSON with Eric Zimmerman's EZ Tools, then load results into Timeline Explorer. Use when you need the artifact-parsing step during DFIR, after triage collection such as KAPE, to normalize acquired artifacts and establish program execution, file and folder access, and persistence evidence. Do not use for the broader end-to-end investigation adding KAPE collection, event logs, and LNK and jump-list analysis - use performing-windows-artifact-analysis-with-eric-zimmerman-tools.
 domain: cybersecurity
 subdomain: digital-forensics
 tags:

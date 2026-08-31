@@ -1,10 +1,6 @@
 ---
 name: performing-privilege-escalation-on-linux
-description: Guides manual enumeration and automated tooling to escalate from a low-privilege
-  Linux user to root by exploiting misconfigurations, vulnerable services, kernel exploits,
-  and weak permissions, mapped to MITRE ATT&CK. Use during authorized red team engagements
-  or penetration tests once initial low-privilege access on a Linux host is obtained
-  and root-level access is needed.
+description: Guides manual enumeration and automated tooling to escalate from a low-privilege Linux user to root by exploiting misconfigurations, vulnerable services, kernel exploits, and weak permissions, mapped to MITRE ATT&CK. Use when escalating from low-privilege Linux access to root during authorized red team engagements or penetration tests once a foothold is obtained. Do not use for a general or Windows privilege-escalation assessment - use performing-privilege-escalation-assessment.
 domain: cybersecurity
 subdomain: red-teaming
 tags:

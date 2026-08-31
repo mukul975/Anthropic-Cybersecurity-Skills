@@ -1,12 +1,6 @@
 ---
 name: securing-serverless-functions
-description: 'Hardens serverless compute platforms (AWS Lambda, Azure Functions, Google
-  Cloud Functions): least-privilege IAM roles, dependency vulnerability scanning,
-  secrets management integration, input validation, function URL authentication, and
-  runtime monitoring. Use when deploying serverless functions with sensitive access,
-  auditing for overly permissive roles, or adding functions to a DevSecOps pipeline.
-
-  '
+description: Hardens serverless compute platforms across AWS Lambda, Azure Functions, and Google Cloud Functions with least-privilege IAM roles, dependency vulnerability scanning, secrets management integration, input validation, function URL authentication, and runtime monitoring. Use when deploying serverless functions with sensitive access, hardening overly permissive roles, or adding functions to a DevSecOps pipeline. Do not use for assessing existing functions to identify and report vulnerabilities - use performing-serverless-function-security-review.
 domain: cybersecurity
 subdomain: cloud-security
 tags:

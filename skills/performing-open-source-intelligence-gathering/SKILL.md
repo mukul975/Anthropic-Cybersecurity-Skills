@@ -1,8 +1,6 @@
 ---
 name: performing-open-source-intelligence-gathering
-description: Open Source Intelligence (OSINT) gathering is the first active phase
-  of a red team engagement, where operators collect publicly available information
-  about the target organization to identify attack s
+description: Run the OSINT phase of an authorized red-team engagement, collecting public information about the target (attack surface, social-engineering targets, technology stack, and credential exposures) to shape initial-access strategy and reduce operational risk. Use when gathering reconnaissance before an authorized engagement. Do not use for automated OSINT collection with SpiderFoot - use performing-osint-with-spiderfoot.
 domain: cybersecurity
 subdomain: red-teaming
 tags:

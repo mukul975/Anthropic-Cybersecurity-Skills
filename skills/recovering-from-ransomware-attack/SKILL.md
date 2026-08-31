@@ -1,13 +1,6 @@
 ---
 name: recovering-from-ransomware-attack
-description: 'Executes structured ransomware incident recovery following NIST/CISA
-  frameworks: environment isolation, forensic evidence preservation, clean infrastructure
-  rebuild, prioritized restoration from verified backups, credential reset, and
-  Active Directory/database recovery in dependency order. Use when recovering from
-  a ransomware attack, performing post-encryption restoration, or executing disaster
-  recovery after ransomware encryption.
-
-  '
+description: Executes structured ransomware incident recovery following NIST/CISA frameworks including environment isolation, forensic evidence preservation, clean infrastructure rebuild, prioritized restoration from verified backups, credential reset, and Active Directory/database recovery in dependency order. Use when recovering from a ransomware attack, performing post-encryption restoration, or executing disaster recovery after ransomware encryption. Do not use for validating backup integrity before recovery - use validating-backup-integrity-for-recovery.
 domain: cybersecurity
 subdomain: ransomware-defense
 tags:

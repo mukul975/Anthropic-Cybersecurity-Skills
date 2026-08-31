@@ -1,10 +1,6 @@
 ---
 name: performing-access-review-and-certification
-description: Designs and runs access review and certification campaigns-scoping,
-  reviewer selection, risk-based prioritization, micro-certification, and remediation
-  tracking-to verify user access matches job roles for SOX, HIPAA, and PCI DSS compliance.
-  Use when planning or executing periodic access recertification or preparing evidence
-  for an IAM compliance audit.
+description: Designs and runs access review and certification campaigns-scoping, reviewer selection, risk-based prioritization, micro-certification, and remediation tracking-to verify user access matches job roles for SOX, HIPAA, and PCI DSS compliance. Use when planning or executing periodic access recertification or preparing evidence for an IAM compliance audit. Do not use for Saviynt-specific recertification campaign configuration - use performing-access-recertification-with-saviynt.
 domain: cybersecurity
 subdomain: identity-access-management
 tags:

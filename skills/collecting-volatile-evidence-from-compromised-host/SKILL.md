@@ -1,6 +1,6 @@
 ---
 name: collecting-volatile-evidence-from-compromised-host
-description: Collect volatile forensic evidence from a compromised host by following the order of volatility, preserving memory, network connections, running processes, and system state with documented chain of custody before they are lost. Use before isolating, shutting down, or remediating a compromised host, especially when fileless or memory-resident malware is suspected, root cause analysis is needed, or the evidence must hold up in legal proceedings.
+description: Collect volatile forensic evidence from a compromised host by following the order of volatility, preserving memory, network connections, running processes, and system state with documented chain of custody before they are lost. Use when preserving volatile evidence before isolating, shutting down, or remediating a compromised host, especially when fileless or memory-resident malware is suspected, root cause analysis is needed, or the evidence must hold up in legal proceedings. Do not use for deep analysis of an already-acquired memory image - use conducting-memory-forensics-with-volatility.
 domain: cybersecurity
 subdomain: incident-response
 tags:

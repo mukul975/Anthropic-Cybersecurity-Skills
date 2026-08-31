@@ -1,6 +1,6 @@
 ---
 name: deploying-software-defined-perimeter
-description: Deploys a Software-Defined Perimeter per the CSA v2.0 specification, configuring Single Packet Authorization, mutual TLS, and SDP controller/gateway components to enforce zero trust network access. Use when building or hardening zero trust network architecture, implementing SPA-based "invisible" infrastructure that cloaks services from unauthenticated scanning, or meeting compliance requirements for zero trust network access.
+description: Deploys a Software-Defined Perimeter per the CSA v2.0 specification, configuring Single Packet Authorization, mutual TLS, and SDP controller/gateway components to enforce zero trust network access. Use when building or hardening zero trust network architecture, implementing SPA-based "invisible" infrastructure that cloaks services from unauthenticated scanning, or meeting compliance requirements for zero trust network access. Do not use for service-to-service mTLS authentication - use implementing-mtls-for-zero-trust-services.
 domain: cybersecurity
 subdomain: zero-trust-architecture
 tags:

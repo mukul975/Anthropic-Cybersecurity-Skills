@@ -1,11 +1,6 @@
 ---
 name: implementing-api-rate-limiting-and-throttling
-description: 'Implements API rate limiting and throttling with token bucket, sliding
-  window, and fixed window algorithms, configuring per-user, per-IP, and per-endpoint
-  limits via Redis-backed counters, API gateway plugins, or middleware, and returning
-  proper HTTP 429 responses with Retry-After headers. Use when setting up request
-  quota management or preventing brute force, credential stuffing, and resource exhaustion
-  attacks against APIs.'
+description: Implements API rate limiting and throttling with token bucket, sliding window, and fixed window algorithms, configuring per-user, per-IP, and per-endpoint limits via Redis-backed counters, API gateway plugins, or middleware, and returning proper HTTP 429 responses with Retry-After headers. Use when setting up request quota management or preventing brute force, credential stuffing, and resource exhaustion attacks against APIs. Do not use for adaptive abuse and attack detection layered on top of rate limits - use implementing-api-abuse-detection-with-rate-limiting.
 domain: cybersecurity
 subdomain: api-security
 tags:

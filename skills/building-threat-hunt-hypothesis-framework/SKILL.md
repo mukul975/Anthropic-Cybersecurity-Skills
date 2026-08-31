@@ -1,6 +1,6 @@
 ---
 name: building-threat-hunt-hypothesis-framework
-description: Build a systematic threat-hunt workflow that turns threat intelligence and ATT&CK gap analysis into testable hypotheses, then executes and validates them via EDR/SIEM queries (CrowdStrike, Defender, Splunk, Elastic, Sysmon, Velociraptor, Sigma) and documents findings in a standardized hunt report. Use when planning or running a proactive threat hunt or scoping compromise from an intel- or anomaly-driven lead.
+description: Build a systematic threat-hunt workflow that turns threat intelligence and ATT&CK gap analysis into testable hypotheses, then executes and validates them via EDR/SIEM queries (CrowdStrike, Defender, Splunk, Elastic, Sysmon, Velociraptor, Sigma) and documents findings in a standardized hunt report. Use when planning or running a proactive threat hunt or scoping compromise from an intel- or anomaly-driven lead. Do not use for hunting a single specific PowerShell execution TTP - use detecting-suspicious-powershell-execution.
 domain: cybersecurity
 subdomain: threat-hunting
 tags:

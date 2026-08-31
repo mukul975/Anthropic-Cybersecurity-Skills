@@ -1,6 +1,6 @@
 ---
 name: operating-havoc-c2
-description: Deploy a Havoc C2 team server with Yaotl malleable profiles, generate evasive Demon agents using indirect syscalls and sleep obfuscation, and run post-exploitation and pivoting operations. Use during authorized, rules-of-engagement-bound red-team engagements for adversary emulation requiring a full C2 lifecycle (server setup, evasive implant generation, tasking, and lateral pivoting).
+description: Deploy a Havoc C2 team server with Yaotl malleable profiles, generate evasive Demon agents using indirect syscalls and sleep obfuscation, and run post-exploitation and pivoting operations. Use when running authorized, rules-of-engagement-bound red-team engagements needing a full C2 lifecycle spanning server setup, evasive implant generation, tasking, and lateral pivoting. Do not use for the Sliver C2 framework - use operating-sliver-c2.
 domain: cybersecurity
 subdomain: red-teaming
 tags:

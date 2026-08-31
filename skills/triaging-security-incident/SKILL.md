@@ -1,10 +1,6 @@
 ---
 name: triaging-security-incident
-description: 'Performs initial triage of security incidents using the NIST SP
-  800-61r3 and SANS PICERL frameworks, classifying incident type, assigning priority
-  by business impact, and routing to the appropriate response team. Use when a
-  SIEM/EDR alert needs human classification, concurrent alerts must be prioritized,
-  or a user report or threat-intel IOC match requires initial incident categorization.'
+description: Performs initial triage of security incidents using the NIST SP 800-61r3 and SANS PICERL frameworks, classifying incident type, assigning priority by business impact, and routing to the appropriate response team. Use when a SIEM/EDR alert needs human classification, concurrent alerts must be prioritized, or a user report or threat-intel IOC match requires initial incident categorization. Do not use for triage driven by structured IR playbooks and SIEM case-management queries - use triaging-security-incident-with-ir-playbook.
 domain: cybersecurity
 subdomain: incident-response
 tags:

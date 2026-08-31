@@ -1,7 +1,6 @@
 ---
 name: performing-graphql-depth-limit-attack
-description: Execute and test GraphQL depth limit attacks using deeply nested recursive
-  queries to identify denial-of-service vulnerabilities in GraphQL APIs.
+description: Execute and test GraphQL depth limit attacks using deeply nested recursive queries to identify denial-of-service vulnerabilities in GraphQL APIs. Use when testing GraphQL endpoints for query-depth or complexity limits and nested-query resource exhaustion. Do not use for a broad GraphQL security assessment across schema, auth, and injection - use performing-graphql-security-assessment.
 domain: cybersecurity
 subdomain: api-security
 tags:

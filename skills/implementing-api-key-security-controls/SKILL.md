@@ -1,11 +1,6 @@
 ---
 name: implementing-api-key-security-controls
-description: 'Implements secure API key generation with sufficient entropy, server-side
-  hashing (SHA-256/bcrypt) instead of plaintext storage, per-key scoping to endpoints/IPs/rate
-  limits, zero-downtime rotation, and automated leak monitoring across GitHub repos,
-  logs, and client-side code. Use when designing API key formats, building key rotation
-  or revocation workflows, or protecting server-to-server API credentials from leakage,
-  brute force, and abuse.'
+description: Implements secure API key generation with sufficient entropy, server-side hashing (SHA-256/bcrypt) instead of plaintext storage, per-key scoping to endpoints/IPs/rate limits, zero-downtime rotation, and automated leak monitoring across GitHub repos, logs, and client-side code. Use when designing API key formats, building key rotation or revocation workflows, or protecting server-to-server API credentials from leakage, brute force, and abuse. Do not use for general application secrets storage and dynamic secret rotation with a vault - use implementing-secrets-management-with-vault.
 domain: cybersecurity
 subdomain: api-security
 tags:

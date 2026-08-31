@@ -1,6 +1,6 @@
 ---
 name: detecting-anomalies-in-industrial-control-systems
-description: Deploys anomaly detection for OT/ICS environments using machine learning on OT network baselines, physics-based process models, and Modbus/DNP3/OPC UA traffic analysis to flag deviations, rogue devices, and mismatches against historian data. Use for continuous OT monitoring, baselining deterministic SCADA polling, or investigating alerts from Nozomi Guardian/Dragos needing deeper protocol analysis.
+description: Deploys anomaly detection for OT/ICS environments using machine learning on OT network baselines, physics-based process models, and Modbus/DNP3/OPC UA traffic analysis to flag deviations, rogue devices, and mismatches against historian data. Use when continuously monitoring OT, baselining deterministic SCADA polling, or investigating alerts from Nozomi Guardian/Dragos needing deeper protocol analysis. Do not use for DNP3-specific protocol anomaly detection - use detecting-dnp3-protocol-anomalies.
 domain: cybersecurity
 subdomain: ot-ics-security
 tags:

@@ -1,6 +1,6 @@
 ---
 name: analyzing-threat-actor-ttps-with-mitre-attack
-description: Systematically map threat actor behavior and observed IOCs to the MITRE ATT&CK framework, build technique coverage heatmaps with the ATT&CK Navigator, identify detection gaps, and produce actionable threat intelligence reports across the Enterprise, Mobile, and ICS matrices. Use when analyzing threat actor TTPs, correlating IOCs to specific ATT&CK techniques, or assessing defensive detection coverage against adversary behavior.
+description: Systematically map threat actor behavior and observed IOCs to the MITRE ATT&CK framework, build technique coverage heatmaps with the ATT&CK Navigator, identify detection gaps, and produce actionable threat intelligence reports across the Enterprise, Mobile, and ICS matrices. Use when correlating IOCs to specific ATT&CK techniques, analyzing threat actor TTPs framework-wide, or assessing defensive coverage across multiple ATT&CK matrices. Do not use for attackcti-driven Navigator layer generation profiling a single named APT group - use analyzing-threat-actor-ttps-with-mitre-navigator.
 domain: cybersecurity
 subdomain: threat-intelligence
 tags:
