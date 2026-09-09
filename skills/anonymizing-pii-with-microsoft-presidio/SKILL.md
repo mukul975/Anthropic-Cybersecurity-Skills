@@ -70,7 +70,7 @@ pattern/deny-list recognizers you register yourself.
 - A spaCy model for the analyzer's default NLP engine:
   `python -m spacy download en_core_web_lg`.
 - Docker, only if you want the REST API deployment instead of the Python SDK.
-- No paid licence or account is required — Presidio is MIT-licensed and fully
+- No paid license or account is required — Presidio is MIT-licensed and fully
   self-hosted; there is no managed/cloud offering to sign up for.
 
 ## Key Concepts
@@ -178,7 +178,9 @@ titles_recognizer = PatternRecognizer(supported_entity="TITLE", deny_list=["Mr."
 from presidio_anonymizer import AnonymizerEngine, DeanonymizeEngine
 from presidio_anonymizer.entities import OperatorConfig
 
-crypto_key = "WmZq4t7w!z%C&F)J"  # 16/24/32-byte AES key, from a secrets manager in real use
+import os
+
+crypto_key = os.environ["PII_ANONYMIZATION_KEY"]  # 16/24/32-byte AES key loaded from a secrets manager, never hardcoded
 
 anonymized = anonymizer.anonymize(
     text=text, analyzer_results=results,
