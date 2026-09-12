@@ -188,7 +188,8 @@ class ForensicLogAnalyzer:
         timeline_path = self.output_dir / f"{self.case_id}_timeline.csv"
         if timeline:
             with open(timeline_path, "w", newline="") as f:
-                writer = csv.DictWriter(f, fieldnames=list(timeline[0].keys()))
+                fieldnames = sorted({k for event in timeline for k in event})
+                writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
                 writer.writeheader()
                 for event in timeline[:10000]:
                     writer.writerow({k: str(v)[:200] for k, v in event.items()})

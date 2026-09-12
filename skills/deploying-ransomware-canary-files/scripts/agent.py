@@ -278,7 +278,13 @@ def send_syslog_alert(alert_data, syslog_server="127.0.0.1", syslog_port=514):
         return False
 
 
-class CanaryFileHandler(FileSystemEventHandler):
+# When watchdog is not installed, FileSystemEventHandler is undefined at
+# module load; fall back to object so importing the module never raises. The
+# handler is only instantiated inside the watchdog-guarded monitoring path.
+_CanaryHandlerBase = FileSystemEventHandler if HAS_WATCHDOG else object
+
+
+class CanaryFileHandler(_CanaryHandlerBase):
     """Watchdog event handler for canary file monitoring."""
 
     def __init__(self, canary_files, config):
