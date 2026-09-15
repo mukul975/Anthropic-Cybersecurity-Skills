@@ -62,12 +62,12 @@ def generate_regex_protection_policy():
     <DisplayName>SQL Injection and XSS Protection</DisplayName>
     <Source>request</Source>
     <QueryParam name="*">
-        <Pattern>[\s]*((delete)|(exec)|(drop\s*table)|(insert)|(shutdown)|(update))</Pattern>
+        <Pattern>[\\s]*((delete)|(exec)|(drop\\s*table)|(insert)|(shutdown)|(update))</Pattern>
         <Pattern>&lt;\\s*script\\b[^&gt;]*&gt;</Pattern>
     </QueryParam>
     <JSONPayload>
         <JSONPath>$.*</JSONPath>
-        <Pattern>[\s]*((delete)|(exec)|(drop\s*table)|(insert)|(shutdown)|(update))</Pattern>
+        <Pattern>[\\s]*((delete)|(exec)|(drop\\s*table)|(insert)|(shutdown)|(update))</Pattern>
     </JSONPayload>
 </RegularExpressionProtection>"""
 

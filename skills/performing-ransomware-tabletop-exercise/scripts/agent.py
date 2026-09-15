@@ -19,7 +19,7 @@ SCENARIO_PHASES = [
     },
     {
         "phase": "containment",
-        "inject": "Ransomware has spread to 3 file servers. Active encryption observed on \\fs01\shared. Lateral movement detected via PsExec.",
+        "inject": "Ransomware has spread to 3 file servers. Active encryption observed on \\fs01\\shared. Lateral movement detected via PsExec.",
         "expected_actions": ["network_segmentation", "disable_compromised_accounts", "block_c2_domains", "preserve_shadow_copies"],
         "time_pressure_minutes": 30,
     },
