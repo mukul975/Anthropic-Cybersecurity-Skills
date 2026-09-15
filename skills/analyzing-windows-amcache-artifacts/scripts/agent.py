@@ -17,10 +17,10 @@ except ImportError:
     HAS_REGIPY = False
 
 
-AMCACHE_FILE_KEY = "Root\InventoryApplicationFile"
-AMCACHE_APP_KEY = "Root\InventoryApplication"
-AMCACHE_DEVICE_KEY = "Root\InventoryDevicePnp"
-AMCACHE_DRIVER_KEY = "Root\InventoryDriverBinary"
+AMCACHE_FILE_KEY = "Root\\InventoryApplicationFile"
+AMCACHE_APP_KEY = "Root\\InventoryApplication"
+AMCACHE_DEVICE_KEY = "Root\\InventoryDevicePnp"
+AMCACHE_DRIVER_KEY = "Root\\InventoryDriverBinary"
 
 SUSPICIOUS_PATHS = [
     "\\temp\\", "\\tmp\\", "\\appdata\\local\\temp",

@@ -295,7 +295,7 @@ def generate_splunk_queries() -> dict[str, str]:
 
     # General LOLBin network activity
     queries["lolbin_network_activity"] = """index=sysmon EventCode=3
-| where match(Image, "(?i)(certutil|mshta|rundll32|regsvr32|msiexec|bitsadmin|cmstp|wmic)\.exe$")
+| where match(Image, "(?i)(certutil|mshta|rundll32|regsvr32|msiexec|bitsadmin|cmstp|wmic)\\.exe$")
 | stats count values(DestinationIp) as dest_ips values(DestinationPort) as dest_ports by Image Computer User
 | where count > 0
 | sort -count"""
@@ -317,8 +317,8 @@ def generate_splunk_queries() -> dict[str, str]:
 
     # LOLBin with suspicious parent
     queries["lolbin_suspicious_parent"] = """index=sysmon EventCode=1
-| where match(Image, "(?i)(certutil|mshta|rundll32|regsvr32|bitsadmin)\.exe$")
-| where match(ParentImage, "(?i)(winword|excel|powerpnt|outlook|wmiprvse|w3wp)\.exe$")
+| where match(Image, "(?i)(certutil|mshta|rundll32|regsvr32|bitsadmin)\\.exe$")
+| where match(ParentImage, "(?i)(winword|excel|powerpnt|outlook|wmiprvse|w3wp)\\.exe$")
 | table _time Computer User Image CommandLine ParentImage"""
 
     return queries
