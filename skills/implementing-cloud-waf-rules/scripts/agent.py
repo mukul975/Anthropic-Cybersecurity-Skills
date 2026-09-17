@@ -155,7 +155,7 @@ def run_waf_audit(region="us-east-1", scope="REGIONAL"):
     client = get_waf_client(region, scope)
 
     print(f"\n{'='*60}")
-    print(f"  AWS WAF CONFIGURATION AUDIT")
+    print("  AWS WAF CONFIGURATION AUDIT")
     print(f"  Region: {region} | Scope: {scope}")
     print(f"  Generated: {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC")
     print(f"{'='*60}\n")
@@ -176,7 +176,7 @@ def run_waf_audit(region="us-east-1", scope="REGIONAL"):
         except ClientError:
             pass
 
-    print(f"\n--- AVAILABLE MANAGED RULE GROUPS ---")
+    print("\n--- AVAILABLE MANAGED RULE GROUPS ---")
     for mrg in MANAGED_RULE_GROUPS:
         print(f"  {mrg['name']}: {mrg['description']}")
 

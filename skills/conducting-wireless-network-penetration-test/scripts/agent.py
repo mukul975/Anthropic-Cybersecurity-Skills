@@ -10,7 +10,7 @@ from datetime import datetime
 
 from scapy.all import (
     Dot11, Dot11Beacon, Dot11Elt, Dot11ProbeReq, Dot11Auth,
-    sniff, RadioTap, sendp, conf,
+    sniff, RadioTap, sendp,
 )
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")

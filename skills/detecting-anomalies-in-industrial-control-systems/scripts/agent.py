@@ -131,7 +131,7 @@ def query_historian_anomalies(historian_url, api_key, tag_name, hours=24):
 def run_audit(args):
     """Execute ICS anomaly detection audit."""
     print(f"\n{'='*60}")
-    print(f"  ICS ANOMALY DETECTION AUDIT")
+    print("  ICS ANOMALY DETECTION AUDIT")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
 
@@ -140,7 +140,7 @@ def run_audit(args):
     if args.modbus_host:
         device = scan_modbus_device(args.modbus_host, args.modbus_port or 502)
         report["modbus_device"] = device
-        print(f"--- MODBUS DEVICE SCAN ---")
+        print("--- MODBUS DEVICE SCAN ---")
         print(f"  Host: {device['host']}:{device['port']}")
         if device.get("holding_registers_0_9"):
             print(f"  Registers 0-9: {device['holding_registers_0_9']}")
@@ -150,7 +150,7 @@ def run_audit(args):
     if args.scan_host:
         seg_results = check_ics_network_segmentation(args.scan_host)
         report["segmentation_check"] = seg_results
-        print(f"\n--- NETWORK SEGMENTATION CHECK ---")
+        print("\n--- NETWORK SEGMENTATION CHECK ---")
         for r in seg_results:
             status = "ACCESSIBLE" if r["accessible"] else "BLOCKED"
             print(f"  {r['protocol']} (:{r['port']}): {status}")

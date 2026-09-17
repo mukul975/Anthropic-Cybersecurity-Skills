@@ -280,7 +280,7 @@ def run_hunt(input_path: str, output_dir: str) -> None:
         }, f, indent=2)
 
     with open(output_path / "hunt_report.md", "w", encoding="utf-8") as f:
-        f.write(f"# Process Hollowing Hunt Report\n\n")
+        f.write("# Process Hollowing Hunt Report\n\n")
         f.write(f"**Date**: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
         f.write(f"**Findings**: {len(findings)}\n\n")
         for finding in sorted(findings, key=lambda x: x["risk_score"], reverse=True)[:20]:

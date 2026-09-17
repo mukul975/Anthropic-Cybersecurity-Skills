@@ -176,15 +176,15 @@ if __name__ == "__main__":
     report = generate_intelligence_report(victims, target_org=query)
     analysis = report["analysis"]
 
-    print(f"\n--- Top Groups ---")
+    print("\n--- Top Groups ---")
     for g, c in list(analysis["top_groups"].items())[:5]:
         print(f"  {g:20s} {c} victims")
 
-    print(f"\n--- Top Sectors ---")
+    print("\n--- Top Sectors ---")
     for s, c in list(analysis["top_sectors"].items())[:5]:
         print(f"  {s:30s} {c}")
 
-    print(f"\n--- Top Countries ---")
+    print("\n--- Top Countries ---")
     for co, c in list(analysis["top_countries"].items())[:5]:
         print(f"  {co:20s} {c}")
 

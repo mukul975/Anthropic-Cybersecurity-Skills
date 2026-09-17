@@ -6,11 +6,9 @@ Generates Boundary Terraform configurations, validates access policies,
 and monitors session activity for compliance reporting.
 """
 
-import json
 import datetime
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Optional
 
 
 @dataclass

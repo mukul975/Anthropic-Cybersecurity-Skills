@@ -216,7 +216,7 @@ def format_summary(image, trivy_findings, dockle_findings, dockerfile_findings):
     """Print combined audit summary."""
     all_findings = trivy_findings + dockle_findings + dockerfile_findings
     print(f"\n{'='*60}")
-    print(f"  Container Image Hardening Audit")
+    print("  Container Image Hardening Audit")
     print(f"{'='*60}")
     print(f"  Image          : {image}")
     print(f"  Vulnerabilities: {len(trivy_findings)} (Trivy)")
@@ -229,20 +229,20 @@ def format_summary(image, trivy_findings, dockle_findings, dockerfile_findings):
         sev = f.get("severity", "UNKNOWN")
         severity_counts[sev] = severity_counts.get(sev, 0) + 1
 
-    print(f"\n  By Severity:")
+    print("\n  By Severity:")
     for sev in ["CRITICAL", "HIGH", "MEDIUM", "LOW", "UNKNOWN"]:
         count = severity_counts.get(sev, 0)
         if count > 0:
             print(f"    {sev:10s}: {count}")
 
     if trivy_findings:
-        print(f"\n  Top Vulnerabilities:")
+        print("\n  Top Vulnerabilities:")
         for f in trivy_findings[:10]:
             print(f"    {f['vulnerability_id']:16s} | {f['severity']:8s} | "
                   f"{f['pkg_name']}:{f['installed_version']} -> {f.get('fixed_version', 'N/A')}")
 
     if dockerfile_findings:
-        print(f"\n  Dockerfile Issues:")
+        print("\n  Dockerfile Issues:")
         for f in dockerfile_findings:
             print(f"    [{f['severity']:8s}] Line {f.get('line', 0):3d}: {f['check']}")
 

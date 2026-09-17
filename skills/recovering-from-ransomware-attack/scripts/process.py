@@ -10,7 +10,6 @@ Tracks recovery progress across multiple systems and phases:
 """
 
 import json
-import sys
 from dataclasses import dataclass, field, asdict
 from datetime import datetime, timedelta
 from pathlib import Path

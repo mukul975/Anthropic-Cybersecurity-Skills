@@ -4,7 +4,6 @@ Provides containment procedures for AWS, Azure, and GCP environments.
 """
 
 import json
-import os
 from datetime import datetime, timezone
 from pathlib import Path
 

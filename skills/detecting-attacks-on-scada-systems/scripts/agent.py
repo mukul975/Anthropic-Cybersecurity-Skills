@@ -87,7 +87,7 @@ def detect_modbus_anomalies(host, port=502, unit_id=1):
                 "check": "Bulk coil read",
                 "status": "accessible",
                 "severity": "MEDIUM",
-                "detail": f"100 coils readable from address 0",
+                "detail": "100 coils readable from address 0",
             })
 
     except Exception as e:
@@ -154,7 +154,7 @@ def query_scada_siem(siem_url, api_key, hours=24):
 def run_audit(args):
     """Execute SCADA attack detection audit."""
     print(f"\n{'='*60}")
-    print(f"  SCADA SYSTEM ATTACK DETECTION")
+    print("  SCADA SYSTEM ATTACK DETECTION")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
 
@@ -173,14 +173,14 @@ def run_audit(args):
     if args.modbus_host:
         modbus = detect_modbus_anomalies(args.modbus_host, args.modbus_port or 502)
         report["modbus_audit"] = modbus
-        print(f"\n--- MODBUS ANOMALY DETECTION ---")
+        print("\n--- MODBUS ANOMALY DETECTION ---")
         for f in modbus.get("findings", []):
             print(f"  [{f.get('severity','')}] {f['check']}: {f.get('detail','')[:80]}")
 
     if args.s7_host:
         s7 = detect_s7comm_access(args.s7_host)
         report["s7comm_check"] = s7
-        print(f"\n--- S7COMM ACCESS CHECK ---")
+        print("\n--- S7COMM ACCESS CHECK ---")
         print(f"  Accessible: {s7.get('accessible', False)}")
         if s7.get("finding"):
             print(f"  [{s7['severity']}] {s7['finding']}")

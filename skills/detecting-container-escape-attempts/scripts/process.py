@@ -366,7 +366,7 @@ def main():
 
     with open("escape_risk_report.json", "w") as f:
         json.dump(report, f, indent=2)
-    print(f"\n[*] Report saved to escape_risk_report.json")
+    print("\n[*] Report saved to escape_risk_report.json")
 
     if critical > 0:
         print(f"\n[!] {critical} containers with CRITICAL escape risk!")

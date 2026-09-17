@@ -8,10 +8,8 @@ with Slack, Microsoft Teams, email, and generic HTTP endpoints.
 """
 
 import os
-import sys
 import json
 import uuid
-import hashlib
 import argparse
 import logging
 import smtplib
@@ -21,7 +19,6 @@ from datetime import datetime, timezone
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from pathlib import Path
-from urllib.parse import urlparse
 
 import requests
 

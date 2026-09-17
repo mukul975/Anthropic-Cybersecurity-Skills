@@ -80,7 +80,7 @@ def run_recon(neo4j_uri, neo4j_user, neo4j_password):
     """Run BloodHound reconnaissance queries."""
     driver = GraphDatabase.driver(neo4j_uri, auth=(neo4j_user, neo4j_password))
     print(f"\n{'='*60}")
-    print(f"  BLOODHOUND CE RECONNAISSANCE")
+    print("  BLOODHOUND CE RECONNAISSANCE")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
 

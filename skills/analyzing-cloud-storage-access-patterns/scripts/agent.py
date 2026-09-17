@@ -17,7 +17,7 @@ def query_cloudtrail_s3_events(bucket_name, hours_back=24):
     start_time = (datetime.utcnow() - timedelta(hours=hours_back)).strftime("%Y-%m-%dT%H:%M:%SZ")
     cmd = [
         "aws", "cloudtrail", "lookup-events",
-        "--lookup-attributes", f"AttributeKey=ResourceType,AttributeValue=AWS::S3::Object",
+        "--lookup-attributes", "AttributeKey=ResourceType,AttributeValue=AWS::S3::Object",
         "--start-time", start_time,
         "--output", "json",
     ]

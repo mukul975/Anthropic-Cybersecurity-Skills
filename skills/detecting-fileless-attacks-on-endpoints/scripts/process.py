@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 """Fileless Attack Detector - Scans PowerShell logs for fileless attack indicators."""
 
-import json, csv, re, sys, os
+import json
+import csv
+import re
+import sys
+import os
 from collections import Counter
 from datetime import datetime
 

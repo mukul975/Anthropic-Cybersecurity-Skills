@@ -9,10 +9,8 @@ opportunities without requiring the BloodHound GUI.
 
 import json
 import os
-import sys
 from collections import defaultdict
 from dataclasses import dataclass, field
-from typing import Optional
 
 
 @dataclass
@@ -302,7 +300,7 @@ class BloodHoundAnalyzer:
         lines.append("=" * 70)
         lines.append("BLOODHOUND ACTIVE DIRECTORY ANALYSIS REPORT")
         lines.append("=" * 70)
-        lines.append(f"\nDomain Statistics:")
+        lines.append("\nDomain Statistics:")
         lines.append(f"  Users:     {len(self.users)}")
         lines.append(f"  Computers: {len(self.computers)}")
         lines.append(f"  Groups:    {len(self.groups)}")

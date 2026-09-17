@@ -2,7 +2,6 @@
 """Splunk SOAR phishing playbook automation via REST API."""
 
 import argparse
-import email
 import json
 import re
 import time

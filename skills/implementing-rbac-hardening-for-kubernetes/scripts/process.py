@@ -12,7 +12,6 @@ import subprocess
 import sys
 import argparse
 from datetime import datetime
-from collections import defaultdict
 
 
 DANGEROUS_VERBS = {"*", "create", "update", "patch", "delete"}

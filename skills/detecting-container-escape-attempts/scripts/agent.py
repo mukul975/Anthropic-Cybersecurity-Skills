@@ -9,9 +9,7 @@ import argparse
 import json
 import re
 import subprocess
-import sys
 from datetime import datetime
-from pathlib import Path
 
 ESCAPE_VECTORS = {
     "nsenter": {"severity": "CRITICAL", "mitre": "T1611", "desc": "Namespace escape via nsenter"},

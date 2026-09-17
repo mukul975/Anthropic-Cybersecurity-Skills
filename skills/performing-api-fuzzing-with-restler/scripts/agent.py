@@ -131,7 +131,7 @@ def generate_custom_dictionary(output_path):
 def run_audit(args):
     """Execute RESTler fuzzing audit workflow."""
     print(f"\n{'='*60}")
-    print(f"  RESTLER API FUZZING AUDIT")
+    print("  RESTLER API FUZZING AUDIT")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
 
@@ -140,7 +140,7 @@ def run_audit(args):
     if args.results_dir:
         summary = parse_run_summary(args.results_dir)
         report["summary"] = summary
-        print(f"--- FUZZING SUMMARY ---")
+        print("--- FUZZING SUMMARY ---")
         print(f"  Total requests: {summary.get('total_requests', 0)}")
         print(f"  2xx responses: {summary.get('valid_2xx', 0)}")
         print(f"  5xx errors: {summary.get('server_errors_5xx', 0)}")
@@ -159,13 +159,13 @@ def run_audit(args):
     if args.gen_dict:
         dict_result = generate_custom_dictionary(args.gen_dict)
         report["dictionary"] = dict_result
-        print(f"\n--- GENERATED DICTIONARY ---")
+        print("\n--- GENERATED DICTIONARY ---")
         print(f"  Path: {dict_result['dictionary_path']}")
 
     if args.compile_spec and args.restler_path:
         comp = compile_spec(args.restler_path, args.compile_spec)
         report["compilation"] = comp
-        print(f"\n--- COMPILATION ---")
+        print("\n--- COMPILATION ---")
         print(f"  Status: {comp['status']}")
 
     return report

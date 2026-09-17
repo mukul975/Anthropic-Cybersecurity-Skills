@@ -12,7 +12,6 @@ import os
 import re
 import ssl
 import socket
-import sys
 from datetime import datetime, timezone
 
 try:
@@ -222,7 +221,7 @@ def format_summary(code_findings, tls_findings, files_scanned, target):
     """Print audit summary."""
     all_findings = code_findings + tls_findings
     print(f"\n{'='*60}")
-    print(f"  Cryptographic Audit Report")
+    print("  Cryptographic Audit Report")
     print(f"{'='*60}")
     print(f"  Target         : {target}")
     print(f"  Files Scanned  : {files_scanned}")
@@ -234,7 +233,7 @@ def format_summary(code_findings, tls_findings, files_scanned, target):
         sev = f.get("severity", "INFO")
         severity_counts[sev] = severity_counts.get(sev, 0) + 1
 
-    print(f"\n  By Severity:")
+    print("\n  By Severity:")
     for sev in ["CRITICAL", "HIGH", "MEDIUM", "LOW", "INFO"]:
         count = severity_counts.get(sev, 0)
         if count > 0:
@@ -244,17 +243,17 @@ def format_summary(code_findings, tls_findings, files_scanned, target):
         by_rule = {}
         for f in code_findings:
             by_rule.setdefault(f["rule"], []).append(f)
-        print(f"\n  Code Issues by Rule:")
+        print("\n  Code Issues by Rule:")
         for rule, items in sorted(by_rule.items(), key=lambda x: -len(x[1])):
             print(f"    {rule:25s}: {len(items)} ({items[0]['severity']})")
 
-        print(f"\n  Top Code Findings:")
+        print("\n  Top Code Findings:")
         for f in code_findings[:15]:
             if f["severity"] in ("CRITICAL", "HIGH"):
                 print(f"    [{f['severity']:8s}] {f['file']}:{f['line']} - {f['description']}")
 
     if tls_findings:
-        print(f"\n  TLS Audit Results:")
+        print("\n  TLS Audit Results:")
         for f in tls_findings:
             print(f"    [{f['severity']:8s}] {f.get('check', '')}: "
                   f"{f.get('value', f.get('description', ''))}")

@@ -11,7 +11,6 @@ import argparse
 from datetime import datetime, timedelta
 
 import boto3
-from botocore.exceptions import ClientError
 
 
 CLOUDTRAIL_DDL = """
@@ -794,7 +793,7 @@ def main():
 
     if "summary" in report:
         print(f"\n{'='*60}")
-        print(f"INVESTIGATION SUMMARY")
+        print("INVESTIGATION SUMMARY")
         print(f"{'='*60}")
         summary = report["summary"]
         print(f"Total findings: {summary.get('total_findings', 0)}")

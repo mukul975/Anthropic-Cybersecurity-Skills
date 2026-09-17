@@ -172,7 +172,7 @@ def format_summary(safe_findings, acct_findings, plat_findings, safes, accounts)
     """Print audit summary."""
     all_findings = safe_findings + acct_findings + plat_findings
     print(f"\n{'='*60}")
-    print(f"  CyberArk PAM Audit Report")
+    print("  CyberArk PAM Audit Report")
     print(f"{'='*60}")
     print(f"  Safes        : {len(safes)}")
     print(f"  Accounts     : {len(accounts)}")
@@ -183,14 +183,14 @@ def format_summary(safe_findings, acct_findings, plat_findings, safes, accounts)
         sev = f.get("severity", "INFO")
         severity_counts[sev] = severity_counts.get(sev, 0) + 1
 
-    print(f"\n  By Severity:")
+    print("\n  By Severity:")
     for sev in ["CRITICAL", "HIGH", "MEDIUM", "LOW", "INFO"]:
         count = severity_counts.get(sev, 0)
         if count:
             print(f"    {sev:10s}: {count}")
 
     if all_findings:
-        print(f"\n  Top Issues:")
+        print("\n  Top Issues:")
         for f in all_findings[:15]:
             if f["severity"] in ("CRITICAL", "HIGH"):
                 print(f"    [{f['severity']:8s}] {f['check']}: "

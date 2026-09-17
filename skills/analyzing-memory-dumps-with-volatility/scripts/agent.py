@@ -239,5 +239,5 @@ if __name__ == "__main__":
                   f"{c['local_addr']}:{c['local_port']} -> "
                   f"{c['foreign_addr']}:{c['foreign_port']}")
     else:
-        print(f"\n[DEMO] Usage: python agent.py <memory.dmp>")
+        print("\n[DEMO] Usage: python agent.py <memory.dmp>")
         print("[*] Provide a memory dump for forensic analysis.")

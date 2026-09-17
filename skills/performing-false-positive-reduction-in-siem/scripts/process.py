@@ -6,7 +6,6 @@ Analyzes alert data to identify false positive patterns,
 recommend tuning actions, and track FP reduction metrics.
 """
 
-import json
 from datetime import datetime
 from collections import Counter
 
@@ -139,17 +138,17 @@ if __name__ == "__main__":
     print("=" * 70)
 
     metrics = analyzer.get_overall_metrics()
-    print(f"\nOverall Metrics:")
+    print("\nOverall Metrics:")
     for k, v in metrics.items():
         print(f"  {k}: {v}")
 
-    print(f"\nPer-Rule FP Rates:")
+    print("\nPer-Rule FP Rates:")
     print(f"{'Rule':<35} {'Total':<8} {'FP':<6} {'TP':<6} {'FP Rate':<10} {'Precision':<10} {'Needs Tuning'}")
     print("-" * 90)
     for r in analyzer.get_fp_rates():
         flag = "*** YES ***" if r["needs_tuning"] else "No"
         print(f"{r['rule_name']:<35} {r['total']:<8} {r['false_positives']:<6} {r['true_positives']:<6} {r['fp_rate']:<10} {r['precision']:<10} {flag}")
 
-    print(f"\nTuning Recommendations:")
+    print("\nTuning Recommendations:")
     for rec in analyzer.generate_recommendations():
         print(f"  [{rec['priority'].upper()}] {rec['rule']}: {rec['action']} (FP: {rec['fp_rate']}%)")

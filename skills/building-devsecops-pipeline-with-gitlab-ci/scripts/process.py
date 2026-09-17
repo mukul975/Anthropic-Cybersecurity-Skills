@@ -121,18 +121,18 @@ def generate_report(base_url: str, token: str, group_id: str) -> dict:
 
 def print_report(report: dict) -> None:
     print(f"\n{'='*65}")
-    print(f"GitLab DevSecOps Security Report")
+    print("GitLab DevSecOps Security Report")
     print(f"Instance: {report['gitlab_instance']}")
     print(f"Generated: {report['generated_at']}")
     print(f"{'='*65}")
     print(f"\nTotal Projects: {report['total_projects']}")
 
-    print(f"\nScanner Coverage:")
+    print("\nScanner Coverage:")
     for scanner, count in sorted(report["scanner_coverage"].items()):
         pct = count / report["total_projects"] * 100 if report["total_projects"] > 0 else 0
         print(f"  {scanner:25s}: {count:3d}/{report['total_projects']} ({pct:.0f}%)")
 
-    print(f"\nVulnerability Summary:")
+    print("\nVulnerability Summary:")
     for sev in ["critical", "high", "medium", "low", "info", "unknown"]:
         count = report["severity_totals"].get(sev, 0)
         if count > 0:
@@ -141,7 +141,7 @@ def print_report(report: dict) -> None:
     total = sum(report["severity_totals"].values())
     print(f"  {'TOTAL':12s}: {total}")
 
-    print(f"\nTop 10 Projects by Open Vulnerabilities:")
+    print("\nTop 10 Projects by Open Vulnerabilities:")
     sorted_projects = sorted(
         report["project_details"], key=lambda p: p["open_vulnerabilities"], reverse=True
     )

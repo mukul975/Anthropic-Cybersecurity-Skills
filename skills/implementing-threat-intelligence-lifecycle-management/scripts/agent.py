@@ -12,8 +12,7 @@ import hashlib
 import json
 import os
 import re
-import sys
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timezone
 
 try:
     import requests
@@ -170,7 +169,7 @@ def calculate_confidence(ioc, enrichment=None):
 def format_summary(iocs, enriched_count):
     """Print lifecycle report."""
     print(f"\n{'='*60}")
-    print(f"  Threat Intelligence Lifecycle Report")
+    print("  Threat Intelligence Lifecycle Report")
     print(f"{'='*60}")
     print(f"  Total IOCs    : {len(iocs)}")
     print(f"  Enriched      : {enriched_count}")
@@ -179,20 +178,20 @@ def format_summary(iocs, enriched_count):
     for ioc in iocs:
         t = ioc.get("type", "unknown")
         by_type[t] = by_type.get(t, 0) + 1
-    print(f"\n  By Type:")
+    print("\n  By Type:")
     for t, count in sorted(by_type.items(), key=lambda x: -x[1]):
         print(f"    {t:12s}: {count}")
 
     high_conf = [i for i in iocs if i.get("confidence", 0) >= 80]
     med_conf = [i for i in iocs if 50 <= i.get("confidence", 0) < 80]
     low_conf = [i for i in iocs if i.get("confidence", 0) < 50]
-    print(f"\n  By Confidence:")
+    print("\n  By Confidence:")
     print(f"    High (>=80) : {len(high_conf)}")
     print(f"    Medium      : {len(med_conf)}")
     print(f"    Low (<50)   : {len(low_conf)}")
 
     if high_conf:
-        print(f"\n  High-Confidence IOCs:")
+        print("\n  High-Confidence IOCs:")
         for i in high_conf[:15]:
             print(f"    [{i['type']:8s}] {i['value'][:50]:50s} (confidence: {i.get('confidence', 0)})")
 
@@ -228,7 +227,7 @@ def main():
 
     enriched_count = 0
     if args.enrich and vt_key:
-        print(f"[*] Enriching IOCs via VirusTotal...")
+        print("[*] Enriching IOCs via VirusTotal...")
         for ioc in iocs[:100]:  # Rate limit
             enrichment = enrich_ioc_virustotal(ioc["value"], ioc["type"], vt_key)
             if enrichment:

@@ -15,10 +15,8 @@ Usage:
 import argparse
 import json
 import re
-import sys
 import xml.etree.ElementTree as ET
 from dataclasses import dataclass, field, asdict
-from collections import defaultdict
 
 try:
     import dns.resolver

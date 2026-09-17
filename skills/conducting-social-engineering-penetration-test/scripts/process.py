@@ -9,12 +9,9 @@ Usage:
     python process.py --gophish-url https://localhost:3333 --api-key <key> --output ./results
 """
 
-import json
-import csv
 import argparse
 import datetime
 from pathlib import Path
-from typing import Optional
 
 try:
     import requests

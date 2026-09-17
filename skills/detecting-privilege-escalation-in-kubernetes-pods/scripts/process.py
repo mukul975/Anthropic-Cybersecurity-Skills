@@ -98,7 +98,7 @@ def print_report(findings: list):
         print("No privilege escalation risks found.")
         return
 
-    print(f"\n=== Kubernetes Privilege Escalation Scan ===")
+    print("\n=== Kubernetes Privilege Escalation Scan ===")
     print(f"Total findings: {len(findings)}\n")
 
     severity_order = {"CRITICAL": 0, "HIGH": 1, "MEDIUM": 2, "LOW": 3}

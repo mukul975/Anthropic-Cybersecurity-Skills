@@ -7,10 +7,7 @@ verifying firewall rules, and mapping discovered hosts to Purdue levels.
 """
 import argparse
 import json
-import os
 import socket
-import subprocess
-import sys
 from datetime import datetime, timezone
 
 
@@ -139,7 +136,7 @@ def format_summary(zone_findings, protocol_findings, zone_map):
     """Print audit summary."""
     all_findings = zone_findings + protocol_findings
     print(f"\n{'='*60}")
-    print(f"  Purdue Model Network Segmentation Audit")
+    print("  Purdue Model Network Segmentation Audit")
     print(f"{'='*60}")
 
     for level, info in sorted(PURDUE_LEVELS.items()):
@@ -155,7 +152,7 @@ def format_summary(zone_findings, protocol_findings, zone_map):
         severity_counts[sev] = severity_counts.get(sev, 0) + 1
 
     if all_findings:
-        print(f"\n  Critical/High Issues:")
+        print("\n  Critical/High Issues:")
         for f in all_findings:
             if f["severity"] in ("CRITICAL", "HIGH"):
                 print(f"    [{f['severity']:8s}] {f['check']}: {f.get('detail', '')[:50]}")

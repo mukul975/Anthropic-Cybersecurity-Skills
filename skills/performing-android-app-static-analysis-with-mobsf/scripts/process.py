@@ -12,10 +12,7 @@ Usage:
 import argparse
 import json
 import sys
-import time
-import hashlib
 from pathlib import Path
-from urllib.parse import urljoin
 
 try:
     import requests
@@ -41,7 +38,7 @@ class MobSFScanner:
         if not apk_file.exists():
             raise FileNotFoundError(f"APK not found: {apk_path}")
 
-        if not apk_file.suffix.lower() in (".apk", ".aab", ".zip", ".ipa"):
+        if apk_file.suffix.lower() not in (".apk", ".aab", ".zip", ".ipa"):
             raise ValueError(f"Unsupported file type: {apk_file.suffix}")
 
         with open(apk_path, "rb") as f:

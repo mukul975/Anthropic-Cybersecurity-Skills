@@ -9,7 +9,6 @@ For authorized red team engagements only.
 
 import json
 import sys
-import os
 from datetime import datetime
 
 

@@ -7,7 +7,6 @@ admin share access, PsExec-style service creation, Pass-the-Hash,
 and anomalous internal host-to-host connections.
 """
 
-import csv
 import json
 import os
 import re

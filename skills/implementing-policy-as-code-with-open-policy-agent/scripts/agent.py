@@ -54,7 +54,7 @@ def eval_policy_cli(opa_bin, policy_path, input_path, data_path=None, query="dat
     try:
         return json.loads(result.stdout)
     except json.JSONDecodeError:
-        print(f"[!] Failed to parse OPA output", file=sys.stderr)
+        print("[!] Failed to parse OPA output", file=sys.stderr)
         return None
 
 
@@ -141,7 +141,7 @@ def extract_violations(eval_result, violation_key="violations"):
 def format_summary(violations, test_results, policy_path, input_path):
     """Print evaluation summary."""
     print(f"\n{'='*60}")
-    print(f"  OPA Policy Evaluation Report")
+    print("  OPA Policy Evaluation Report")
     print(f"{'='*60}")
     print(f"  Policy    : {policy_path}")
     print(f"  Input     : {input_path or 'N/A'}")
@@ -160,11 +160,11 @@ def format_summary(violations, test_results, policy_path, input_path):
                 sev = v.get("severity", v.get("level", "HIGH"))
             severity_counts[sev] = severity_counts.get(sev, 0) + 1
 
-        print(f"\n  Violations by Severity:")
+        print("\n  Violations by Severity:")
         for sev, count in sorted(severity_counts.items()):
             print(f"    {sev:10s}: {count}")
 
-        print(f"\n  Violation Details:")
+        print("\n  Violation Details:")
         for v in violations[:20]:
             if isinstance(v, dict):
                 msg = v.get("msg", v.get("message", str(v)))

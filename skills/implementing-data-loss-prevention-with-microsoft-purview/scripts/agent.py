@@ -278,10 +278,10 @@ def generate_compliance_report(auth_client, days_back=30, output_dir="."):
     print(f"\nPolicy Health Findings: {len(health_findings)}")
     for finding in health_findings:
         print(f"  [{finding['severity']}] {finding['finding']}: {finding['detail']}")
-    print(f"\nTop Triggered Policies:")
+    print("\nTop Triggered Policies:")
     for entry in alert_summary.get("top_policies", [])[:5]:
         print(f"  - {entry['policy']}: {entry['count']} alerts")
-    print(f"\nTop Affected Users:")
+    print("\nTop Affected Users:")
     for entry in alert_summary.get("top_users", [])[:5]:
         print(f"  - {entry['user']}: {entry['count']} alerts")
     print("=" * 70)

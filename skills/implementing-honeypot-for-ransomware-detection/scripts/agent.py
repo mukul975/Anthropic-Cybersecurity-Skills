@@ -151,7 +151,7 @@ def generate_honeypot_share_config(share_name="FinanceArchive", share_path="/srv
             "guest_ok": False,
             "valid_users": "@domain_users",
             "vfs_objects": "full_audit",
-            "full_audit_prefix": f"%u|%I|%S",
+            "full_audit_prefix": "%u|%I|%S",
             "full_audit_success": "open opendir write rename unlink mkdir rmdir",
             "full_audit_failure": "open",
             "full_audit_facility": "LOCAL7",

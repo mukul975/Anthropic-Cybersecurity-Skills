@@ -16,12 +16,10 @@ Usage:
 """
 
 import argparse
-import json
 import os
 import sys
 import time
 from datetime import datetime
-from pathlib import Path
 
 import requests
 import defusedxml.ElementTree as ET

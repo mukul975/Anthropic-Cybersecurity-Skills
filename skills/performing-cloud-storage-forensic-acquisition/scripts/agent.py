@@ -224,7 +224,7 @@ def verify_integrity(evidence_log):
 def format_summary(evidence_log, verified, failed):
     """Print acquisition summary."""
     print(f"\n{'='*60}")
-    print(f"  Cloud Storage Forensic Acquisition Report")
+    print("  Cloud Storage Forensic Acquisition Report")
     print(f"{'='*60}")
     ok = sum(1 for e in evidence_log if e.get("status") == "OK")
     err = sum(1 for e in evidence_log if e.get("status") == "FAIL")

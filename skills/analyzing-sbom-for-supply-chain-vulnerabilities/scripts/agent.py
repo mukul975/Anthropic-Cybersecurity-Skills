@@ -11,7 +11,6 @@ import sys
 import json
 import time
 import argparse
-from pathlib import Path
 from datetime import datetime
 from collections import defaultdict
 
@@ -241,7 +240,7 @@ def query_nvd_by_cpe(cpe_name, api_key=None):
     try:
         resp = requests.get(NVD_CVE_API, params=params, headers=headers, timeout=30)
         if resp.status_code == 403:
-            print(f"    [WARN] NVD API rate limited. Waiting...", file=sys.stderr)
+            print("    [WARN] NVD API rate limited. Waiting...", file=sys.stderr)
             time.sleep(NVD_RATE_LIMIT_NO_KEY * 2)
             resp = requests.get(NVD_CVE_API, params=params, headers=headers, timeout=30)
         resp.raise_for_status()
@@ -331,10 +330,10 @@ def correlate_cves(components, api_key=None, skip_nvd=False):
     print(f"\n[INFO] Correlating {total} components against NVD CVE database...")
     if not api_key:
         print(f"  [NOTE] No NVD API key. Rate limited to 1 request per {rate_limit}s.")
-        print(f"  Get a free key at: https://nvd.nist.gov/developers/request-an-api-key")
+        print("  Get a free key at: https://nvd.nist.gov/developers/request-an-api-key")
 
     if skip_nvd:
-        print(f"  [NOTE] NVD queries skipped (--skip-nvd flag). Using offline mode.")
+        print("  [NOTE] NVD queries skipped (--skip-nvd flag). Using offline mode.")
         return components
 
     for idx, comp in enumerate(components):
@@ -575,7 +574,7 @@ def generate_report(components, dependencies, graph_analysis, license_info,
 
         hubs = graph_analysis.get("high_risk_hubs", [])
         if hubs:
-            report_lines.append(f"\n  HIGH-RISK HUBS (vulnerable + many dependents):")
+            report_lines.append("\n  HIGH-RISK HUBS (vulnerable + many dependents):")
             for hub in hubs[:5]:
                 report_lines.append(
                     f"    {hub['ref']}: {hub['dependents']} dependents, "
@@ -672,7 +671,7 @@ def compare_sboms(sbom_path_old, sbom_path_new, api_key=None):
             })
 
     print(f"\n{'='*60}")
-    print(f"SBOM DIFF REPORT")
+    print("SBOM DIFF REPORT")
     print(f"{'='*60}")
     print(f"Old: {sbom_path_old} ({len(comps_old)} components)")
     print(f"New: {sbom_path_new} ({len(comps_new)} components)")
@@ -749,7 +748,7 @@ def main():
     elif args.command == "licenses":
         (components, _), _ = parse_sbom(args.sbom_path)
         info = check_license_compliance(components)
-        print(f"\nLicense Distribution:")
+        print("\nLicense Distribution:")
         for lic, count in sorted(info["license_distribution"].items(),
                                   key=lambda x: x[1], reverse=True):
             print(f"  {lic}: {count}")

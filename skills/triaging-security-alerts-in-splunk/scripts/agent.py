@@ -140,7 +140,7 @@ def enrich_with_asset_identity(service, src_ip=None, username=None):
 
 def get_triage_metrics(service, days=30):
     """Get triage performance metrics."""
-    query = f"""| `notable`
+    query = """| `notable`
 | where status_end > 0
 | eval triage_time = status_end - _time
 | stats avg(triage_time) AS avg_sec, median(triage_time) AS med_sec,

@@ -14,7 +14,6 @@ import ssl
 import sys
 import os
 from datetime import datetime
-from pathlib import Path
 
 
 def check_port_open(host: str, port: int, timeout: float = 5.0) -> bool:
@@ -80,7 +79,7 @@ def generate_infrastructure_report(config: dict) -> str:
     """Generate a health report for the C2 infrastructure."""
     report_lines = [
         "=" * 60,
-        f"Sliver C2 Infrastructure Health Report",
+        "Sliver C2 Infrastructure Health Report",
         f"Generated: {datetime.now().isoformat()}",
         "=" * 60,
         ""

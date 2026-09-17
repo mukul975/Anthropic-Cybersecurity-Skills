@@ -210,6 +210,6 @@ if __name__ == "__main__":
             header = parse_prefetch_header(target)
             print(f"  {json.dumps(header, indent=2)}")
     else:
-        print(f"\n[DEMO] Usage:")
-        print(f"  python agent.py <prefetch_dir>    # Analyze all .pf files")
-        print(f"  python agent.py <file.pf>         # Analyze single prefetch file")
+        print("\n[DEMO] Usage:")
+        print("  python agent.py <prefetch_dir>    # Analyze all .pf files")
+        print("  python agent.py <file.pf>         # Analyze single prefetch file")

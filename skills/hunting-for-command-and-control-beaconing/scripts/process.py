@@ -10,7 +10,6 @@ import csv
 import argparse
 import datetime
 import math
-import re
 from collections import defaultdict
 from pathlib import Path
 
@@ -348,7 +347,7 @@ def run_hunt(input_path: str, output_dir: str) -> None:
         }, f, indent=2)
 
     with open(output_path / "hunt_report.md", "w", encoding="utf-8") as f:
-        f.write(f"# C2 Beaconing Hunt Report\n\n")
+        f.write("# C2 Beaconing Hunt Report\n\n")
         f.write(f"**Date**: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
         f.write(f"**Connections Analyzed**: {len(normalized)}\n\n")
         f.write("## Beaconing Detections\n\n")

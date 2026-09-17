@@ -168,7 +168,7 @@ def generate_injection_collection(base_url, endpoints):
 def run_audit(args):
     """Execute Postman API security testing audit."""
     print(f"\n{'='*60}")
-    print(f"  POSTMAN API SECURITY TESTING")
+    print("  POSTMAN API SECURITY TESTING")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
 
@@ -177,13 +177,13 @@ def run_audit(args):
     if args.collection:
         newman = run_newman_collection(args.collection, args.environment)
         report["newman_run"] = {"exit_code": newman["exit_code"]}
-        print(f"--- NEWMAN EXECUTION ---")
+        print("--- NEWMAN EXECUTION ---")
         print(f"  Exit code: {newman['exit_code']}")
 
         if os.path.exists("newman-results.json"):
             parsed = parse_newman_results("newman-results.json")
             report["test_results"] = parsed
-            print(f"\n--- TEST RESULTS ---")
+            print("\n--- TEST RESULTS ---")
             print(f"  Total requests: {parsed['total_requests']}")
             print(f"  Total assertions: {parsed['total_assertions']}")
             print(f"  Failed: {parsed['failed_assertions']}")
@@ -202,7 +202,7 @@ def run_audit(args):
         with open(output_path, "w") as f_out:
             json.dump(collection, f_out, indent=2)
         report["bola_collection"] = output_path
-        print(f"\n--- GENERATED BOLA COLLECTION ---")
+        print("\n--- GENERATED BOLA COLLECTION ---")
         print(f"  Path: {output_path}")
         print(f"  Tests: {len(collection['item'])}")
 

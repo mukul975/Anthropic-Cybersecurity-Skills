@@ -41,7 +41,7 @@ def check_ldaps(server_ip):
         conn = Connection(server, auto_bind=True)
         conn.unbind()
         return {"check": "LDAPS", "port": 636, "available": True, "severity": "INFO"}
-    except Exception as e:
+    except Exception:
         return {"check": "LDAPS", "available": False, "severity": "HIGH",
                 "recommendation": "Enable LDAPS by installing a certificate on the domain controller"}
 
@@ -94,18 +94,18 @@ def audit_anonymous_access(server_ip):
 def run_audit(server_ip, domain=None, username=None, password=None):
     """Execute LDAP security hardening audit."""
     print(f"\n{'='*60}")
-    print(f"  LDAP SECURITY HARDENING AUDIT")
+    print("  LDAP SECURITY HARDENING AUDIT")
     print(f"  Target: {server_ip}")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
 
     signing = check_ldap_signing(server_ip)
-    print(f"--- LDAP SIGNING ---")
+    print("--- LDAP SIGNING ---")
     print(f"  Anonymous bind: {signing.get('anonymous_bind', 'N/A')}")
     print(f"  Severity: {signing.get('severity', 'N/A')}")
 
     ldaps = check_ldaps(server_ip)
-    print(f"\n--- LDAPS (TLS) ---")
+    print("\n--- LDAPS (TLS) ---")
     print(f"  Available: {ldaps.get('available', 'N/A')}")
     print(f"  Severity: {ldaps.get('severity', 'N/A')}")
 
@@ -117,7 +117,7 @@ def run_audit(server_ip, domain=None, username=None, password=None):
 
     if domain and username and password:
         binding = check_channel_binding(server_ip, domain, username, password)
-        print(f"\n--- CHANNEL BINDING ---")
+        print("\n--- CHANNEL BINDING ---")
         print(f"  {binding.get('check', '')}: {binding.get('severity', '')}")
 
     return {"signing": signing, "ldaps": ldaps, "anonymous": anon}

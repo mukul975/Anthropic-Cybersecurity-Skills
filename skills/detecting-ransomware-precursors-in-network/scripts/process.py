@@ -12,17 +12,14 @@ Analyzes network logs (Zeek format) to detect ransomware precursor patterns:
 Reads Zeek TSV logs and generates structured alerts.
 """
 
-import csv
 import json
-import math
 import os
 import sys
 import statistics
 from collections import defaultdict
 from dataclasses import dataclass, field, asdict
-from datetime import datetime, timedelta
+from datetime import datetime
 from pathlib import Path
-from typing import Optional
 
 
 @dataclass
@@ -404,7 +401,7 @@ class RansomwarePrecursorEngine:
         for alert in self.alerts:
             by_category[alert.category].append(alert)
 
-        lines.append(f"\nAlert Categories:")
+        lines.append("\nAlert Categories:")
         for cat, cat_alerts in sorted(by_category.items()):
             lines.append(f"  - {cat}: {len(cat_alerts)}")
 
@@ -419,7 +416,7 @@ class RansomwarePrecursorEngine:
             lines.append(f"  Destination: {alert.dest_ip}")
             lines.append(f"  MITRE: {alert.mitre_technique}")
             lines.append(f"  Description: {alert.description}")
-            lines.append(f"  Evidence:")
+            lines.append("  Evidence:")
             for e in alert.evidence:
                 lines.append(f"    - {e}")
 

@@ -26,7 +26,7 @@ def check_id_ransomware(sample_path):
 
 def query_nomoreransom(ransomware_family):
     """Check No More Ransom Project for available decryptors."""
-    url = f"https://www.nomoreransom.org/en/decryption-tools.html"
+    url = "https://www.nomoreransom.org/en/decryption-tools.html"
     resp = requests.get(url, timeout=30)
     if ransomware_family.lower() in resp.text.lower():
         logger.info("Decryptor may be available for %s on No More Ransom", ransomware_family)

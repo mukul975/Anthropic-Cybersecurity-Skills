@@ -4,11 +4,8 @@
 
 import argparse
 import base64
-import hashlib
 import json
 import logging
-import socket
-import struct
 import sys
 from datetime import datetime, timezone
 

@@ -9,7 +9,6 @@ import os
 import sys
 import json
 import datetime
-import hashlib
 import re
 
 try:

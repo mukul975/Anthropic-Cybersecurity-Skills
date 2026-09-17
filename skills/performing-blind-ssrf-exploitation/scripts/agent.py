@@ -11,7 +11,6 @@ written permission to test. Unauthorized SSRF testing is illegal.
 """
 import argparse
 import json
-import os
 import sys
 import time
 import urllib.parse
@@ -166,14 +165,14 @@ def format_summary(results, target_url):
     """Print scan summary."""
     vulnerable = [r for r in results if r.get("vulnerable")]
     print(f"\n{'='*60}")
-    print(f"  SSRF Scan Report")
+    print("  SSRF Scan Report")
     print(f"{'='*60}")
     print(f"  Target       : {target_url}")
     print(f"  Payloads     : {len(results)}")
     print(f"  Vulnerable   : {len(vulnerable)}")
 
     if vulnerable:
-        print(f"\n  Confirmed/Suspected Vulnerabilities:")
+        print("\n  Confirmed/Suspected Vulnerabilities:")
         for v in vulnerable:
             print(f"    [{v['category']:20s}] {v['payload']}")
             for ind in v.get("indicators", []):
@@ -183,7 +182,7 @@ def format_summary(results, target_url):
     for r in vulnerable:
         by_category.setdefault(r["category"], []).append(r)
     if by_category:
-        print(f"\n  Findings by Category:")
+        print("\n  Findings by Category:")
         for cat, items in by_category.items():
             print(f"    {cat:25s}: {len(items)} finding(s)")
 

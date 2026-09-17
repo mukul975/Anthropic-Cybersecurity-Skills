@@ -7,10 +7,8 @@ from endpoint devices for OneDrive, Google Drive, and Dropbox.
 """
 
 import sqlite3
-import os
 import sys
 import json
-import hashlib
 from datetime import datetime
 from pathlib import Path
 

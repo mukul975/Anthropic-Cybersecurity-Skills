@@ -107,7 +107,7 @@ def generate_report_template():
 def run_analysis(incident_file):
     """Execute post-incident lessons learned analysis."""
     print(f"\n{'='*60}")
-    print(f"  POST-INCIDENT LESSONS LEARNED")
+    print("  POST-INCIDENT LESSONS LEARNED")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
 
@@ -117,7 +117,7 @@ def run_analysis(incident_file):
             incident_data = json.load(f)
 
     metrics = calculate_metrics(incident_data)
-    print(f"--- RESPONSE METRICS ---")
+    print("--- RESPONSE METRICS ---")
     for k, v in metrics.items():
         print(f"  {k}: {v} minutes")
 
@@ -132,7 +132,7 @@ def run_analysis(incident_file):
         print(f"  [{item['priority']}] {item['area']}: {item['action']}")
 
     template = generate_report_template()
-    print(f"\n--- REPORT SECTIONS ---")
+    print("\n--- REPORT SECTIONS ---")
     for s in template["sections"]:
         print(f"  - {s['title']}")
 

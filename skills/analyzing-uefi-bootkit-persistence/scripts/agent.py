@@ -10,7 +10,6 @@ import sys
 import subprocess
 import re
 import math
-import json
 from collections import Counter
 from pathlib import Path
 

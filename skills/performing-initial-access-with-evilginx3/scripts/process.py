@@ -11,7 +11,6 @@ import sys
 import os
 import re
 from datetime import datetime
-from pathlib import Path
 
 
 def parse_evilginx_session(session_data: str) -> dict:

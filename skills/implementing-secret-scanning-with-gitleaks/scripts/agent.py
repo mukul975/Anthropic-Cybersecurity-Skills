@@ -116,13 +116,13 @@ def parse_findings(raw_json):
 def format_summary(findings, target):
     """Print human-readable summary of secrets found."""
     print(f"\n{'='*60}")
-    print(f"  Gitleaks Secret Scan Report")
+    print("  Gitleaks Secret Scan Report")
     print(f"{'='*60}")
     print(f"  Target    : {target}")
     print(f"  Secrets   : {len(findings)}")
 
     if not findings:
-        print(f"  Status    : CLEAN - No secrets detected")
+        print("  Status    : CLEAN - No secrets detected")
         print(f"{'='*60}")
         return
 
@@ -131,7 +131,7 @@ def format_summary(findings, target):
         rule = f["rule_id"]
         by_rule.setdefault(rule, []).append(f)
 
-    print(f"\n  Findings by Rule:")
+    print("\n  Findings by Rule:")
     for rule, items in sorted(by_rule.items(), key=lambda x: -len(x[1])):
         print(f"    {rule:40s}: {len(items)} occurrence(s)")
 
@@ -143,7 +143,7 @@ def format_summary(findings, target):
     for filepath, items in sorted(by_file.items(), key=lambda x: -len(x[1]))[:10]:
         print(f"    {filepath} ({len(items)} secret(s))")
 
-    print(f"\n  Top Findings:")
+    print("\n  Top Findings:")
     for f in findings[:15]:
         print(f"    [{f['rule_id']:30s}] {f['file']}:{f['line']} "
               f"(commit: {f['commit']}, secret: {f['secret']})")
@@ -208,7 +208,7 @@ def main():
     if findings:
         print(f"\n[!] {len(findings)} secret(s) detected - remediation required")
     else:
-        print(f"\n[+] No secrets detected")
+        print("\n[+] No secrets detected")
 
 
 if __name__ == "__main__":

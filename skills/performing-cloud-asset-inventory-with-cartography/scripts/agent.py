@@ -31,7 +31,7 @@ def run_cartography(profile=None, neo4j_uri="bolt://localhost:7687",
         cmd.extend(["--aws-requested-syncs", "ec2,iam,s3,rds,lambda,ecs"])
     env = dict(os.environ)
     env["NEO4J_PASSWORD"] = neo4j_password
-    print(f"[*] Running Cartography sync...")
+    print("[*] Running Cartography sync...")
     result = subprocess.run(cmd, capture_output=True, text=True, timeout=900, env=env)
     if result.returncode != 0:
         print(f"[!] Cartography error: {result.stderr[:300]}", file=sys.stderr)
@@ -158,7 +158,7 @@ def find_unencrypted_resources(driver):
 def format_summary(ec2_instances, s3_buckets, security_findings):
     """Print inventory summary."""
     print(f"\n{'='*60}")
-    print(f"  Cartography Cloud Asset Inventory")
+    print("  Cartography Cloud Asset Inventory")
     print(f"{'='*60}")
     print(f"  EC2 Instances    : {len(ec2_instances)}")
     print(f"  S3 Buckets       : {len(s3_buckets)}")
@@ -173,7 +173,7 @@ def format_summary(ec2_instances, s3_buckets, security_findings):
         for f in security_findings:
             sev = f.get("severity", "INFO")
             severity_counts[sev] = severity_counts.get(sev, 0) + 1
-        print(f"\n  Security Findings:")
+        print("\n  Security Findings:")
         for sev in ["CRITICAL", "HIGH", "MEDIUM"]:
             count = severity_counts.get(sev, 0)
             if count:

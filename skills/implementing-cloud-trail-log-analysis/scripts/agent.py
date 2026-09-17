@@ -128,7 +128,7 @@ def run_cloudtrail_analysis(region="us-east-1", hours=24):
     client = get_cloudtrail_client(region)
 
     print(f"\n{'='*60}")
-    print(f"  CLOUDTRAIL SECURITY ANALYSIS")
+    print("  CLOUDTRAIL SECURITY ANALYSIS")
     print(f"  Region: {region} | Lookback: {hours}h")
     print(f"  Generated: {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC")
     print(f"{'='*60}\n")
@@ -140,7 +140,7 @@ def run_cloudtrail_analysis(region="us-east-1", hours=24):
         print(f"    User: {d['user']} | IP: {d['source_ip']} | Time: {d['time']}")
 
     auth = detect_failed_auth(client, hours)
-    print(f"\n--- FAILED AUTHENTICATION ---")
+    print("\n--- FAILED AUTHENTICATION ---")
     print(f"  Total failures: {auth['total_failed']}")
     print(f"  Top IPs: {auth['by_source_ip']}")
     print(f"  Top Users: {auth['by_username']}")

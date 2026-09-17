@@ -170,7 +170,7 @@ def generate_report(iam_data: dict, escalation: list, access: dict, pacu_results
         f"  Accessible: {', '.join(access.get('accessible_services', []))}",
         f"  Denied: {', '.join(access.get('denied_services', []))}",
         "",
-        f"IAM ENUMERATION:",
+        "IAM ENUMERATION:",
         f"  Users Found: {len(iam_data.get('users', []))}",
         f"  Roles Found: {len(iam_data.get('roles', []))}",
         "",

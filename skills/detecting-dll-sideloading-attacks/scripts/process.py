@@ -10,7 +10,6 @@ import csv
 import argparse
 import datetime
 import re
-from collections import defaultdict
 from pathlib import Path
 
 KNOWN_SIDELOAD_TARGETS = {
@@ -116,7 +115,7 @@ def detect_sideloading(event: dict) -> dict | None:
         for pattern in SUSPICIOUS_DLL_PATHS:
             if re.search(pattern, image_path, re.IGNORECASE):
                 risk += 20
-                indicators.append(f"Host application in suspicious path")
+                indicators.append("Host application in suspicious path")
                 break
 
     if not indicators:

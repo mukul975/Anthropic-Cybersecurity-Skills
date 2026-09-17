@@ -227,7 +227,7 @@ def check_network_segmentation(target_ip, ports=None):
 def format_summary(all_findings):
     """Print PCI DSS audit summary."""
     print(f"\n{'='*60}")
-    print(f"  PCI DSS v4.0 Compliance Audit Report")
+    print("  PCI DSS v4.0 Compliance Audit Report")
     print(f"{'='*60}")
 
     pass_count = sum(1 for f in all_findings if f["status"] == "PASS")
@@ -244,7 +244,7 @@ def format_summary(all_findings):
         req = f.get("requirement", "unknown")
         by_req.setdefault(req, []).append(f)
 
-    print(f"\n  Results by Requirement:")
+    print("\n  Results by Requirement:")
     for req in sorted(by_req.keys()):
         items = by_req[req]
         failed = sum(1 for i in items if i["status"] == "FAIL")
@@ -253,7 +253,7 @@ def format_summary(all_findings):
         print(f"    Req {req:8s}: [{status:4s}] {passed} passed, {failed} failed")
 
     if fail_count > 0:
-        print(f"\n  Failed Checks:")
+        print("\n  Failed Checks:")
         for f in all_findings:
             if f["status"] == "FAIL":
                 print(f"    [{f['severity']:8s}] Req {f['requirement']}: {f['check']} - {f.get('detail', '')}")

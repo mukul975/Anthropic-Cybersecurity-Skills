@@ -13,11 +13,10 @@ import hashlib
 import datetime
 import json
 import ssl
-import socket
 import urllib.request
 import urllib.error
-from typing import Dict, List, Optional, Tuple
-from dataclasses import dataclass, field
+from typing import Dict, List
+from dataclasses import dataclass
 
 
 @dataclass

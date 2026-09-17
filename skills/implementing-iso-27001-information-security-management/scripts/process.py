@@ -8,8 +8,6 @@ management, and audit readiness checks for ISO/IEC 27001:2022 implementation.
 
 import json
 import csv
-import os
-import sys
 from datetime import datetime, timedelta
 from typing import Optional
 from pathlib import Path
@@ -268,7 +266,7 @@ class ISO27001ComplianceManager:
             json.dump(results, f, indent=2)
 
         print(f"\nTotal Controls Assessed: {results['total_controls']}")
-        print(f"\nCategory Breakdown:")
+        print("\nCategory Breakdown:")
         for cat, data in results["categories"].items():
             print(f"  {cat}: {data['total']} controls")
         print(f"\nNew 2022 Controls: {results['summary']['new_2022_controls']}")
@@ -303,7 +301,7 @@ class ISO27001ComplianceManager:
             risk_summary.setdefault(entry.risk_level, 0)
             risk_summary[entry.risk_level] += 1
 
-        print(f"\n  Risk Summary:")
+        print("\n  Risk Summary:")
         for level, count in sorted(risk_summary.items()):
             print(f"    {level}: {count}")
         print(f"\n  Risk Register saved to: {register_path}")
@@ -452,11 +450,11 @@ class ISO27001ComplianceManager:
                 print(f"    {icon} {item}")
 
         if readiness_pct < 80:
-            print(f"\n  WARNING: Readiness below 80%. Address gaps before scheduling Stage 1 audit.")
+            print("\n  WARNING: Readiness below 80%. Address gaps before scheduling Stage 1 audit.")
         elif readiness_pct < 100:
-            print(f"\n  NOTICE: Some items pending. Complete before Stage 2 audit.")
+            print("\n  NOTICE: Some items pending. Complete before Stage 2 audit.")
         else:
-            print(f"\n  READY: All checks passed. Proceed with certification audit.")
+            print("\n  READY: All checks passed. Proceed with certification audit.")
 
         # Save readiness report
         report = {
@@ -493,7 +491,7 @@ class ISO27001ComplianceManager:
             type_counts.setdefault(f.finding_type, 0)
             type_counts[f.finding_type] += 1
 
-        print(f"\n  Finding Summary:")
+        print("\n  Finding Summary:")
         for ftype, count in type_counts.items():
             print(f"    {ftype}: {count}")
 
@@ -561,19 +559,19 @@ class ISO27001ComplianceManager:
             f"{(implemented / applicable * 100):.1f}%" if applicable > 0 else "N/A"
         )
 
-        print(f"\n  Risk Register:")
+        print("\n  Risk Register:")
         print(f"    Total Risks: {dashboard['risk_register']['total_risks']}")
         print(f"    Open Risks: {dashboard['risk_register']['open_risks']}")
         for level, count in dashboard["risk_register"]["by_level"].items():
             print(f"    {level}: {count}")
 
-        print(f"\n  Statement of Applicability:")
+        print("\n  Statement of Applicability:")
         print(f"    Total Controls: {dashboard['soa']['total_controls']}")
         print(f"    Applicable: {dashboard['soa']['applicable']}")
         print(f"    Fully Implemented: {dashboard['soa']['fully_implemented']}")
         print(f"    Compliance Rate: {dashboard['soa']['compliance_rate']}")
 
-        print(f"\n  Audit Findings:")
+        print("\n  Audit Findings:")
         print(f"    Total: {dashboard['audit_findings']['total']}")
         print(f"    Open: {dashboard['audit_findings']['open']}")
         print(f"    Major NCRs: {dashboard['audit_findings']['major_ncrs']}")

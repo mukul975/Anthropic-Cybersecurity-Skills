@@ -8,9 +8,7 @@ attack path reports. For authorized red team engagements only.
 
 import json
 import sys
-import os
 from datetime import datetime
-from collections import defaultdict
 
 
 def load_bloodhound_data(filepath: str) -> dict:
@@ -49,7 +47,7 @@ def analyze_users(data: dict) -> dict:
             if props.get("hasspn", False):
                 analysis["kerberoastable"].append(name)
 
-            if not props.get("dontreqpreauth", True) is False:
+            if props.get("dontreqpreauth", True) is not False:
                 if props.get("dontreqpreauth", False):
                     analysis["asreproastable"].append(name)
 

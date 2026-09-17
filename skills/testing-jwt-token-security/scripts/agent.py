@@ -128,7 +128,7 @@ def forge_token(secret, claims, algorithm="HS256"):
 
 def test_expired_token(token, target_url):
     """Test if expired tokens are still accepted."""
-    print(f"\n[*] Testing expired token acceptance...")
+    print("\n[*] Testing expired token acceptance...")
     parts = token.split(".")
     payload = json.loads(base64.urlsafe_b64decode(parts[1] + "=="))
     if "exp" in payload and payload["exp"] < datetime.now(timezone.utc).timestamp():
@@ -149,7 +149,7 @@ def test_expired_token(token, target_url):
 
 def test_token_after_logout(token, target_url, logout_url):
     """Test if token is still valid after logout."""
-    print(f"\n[*] Testing token validity after logout...")
+    print("\n[*] Testing token validity after logout...")
     headers = {"Authorization": f"Bearer {token}"}
     try:
         pre = requests.get(target_url, headers=headers, timeout=10, verify=not os.environ.get("SKIP_TLS_VERIFY", "").lower() == "true")  # Set SKIP_TLS_VERIFY=true for self-signed certs in lab environments
@@ -159,10 +159,10 @@ def test_token_after_logout(token, target_url, logout_url):
         requests.post(logout_url, headers=headers, timeout=10, verify=not os.environ.get("SKIP_TLS_VERIFY", "").lower() == "true")  # Set SKIP_TLS_VERIFY=true for self-signed certs in lab environments
         post = requests.get(target_url, headers=headers, timeout=10, verify=not os.environ.get("SKIP_TLS_VERIFY", "").lower() == "true")  # Set SKIP_TLS_VERIFY=true for self-signed certs in lab environments
         if post.status_code == 200:
-            print(f"  [!] VULNERABLE: Token still valid after logout")
+            print("  [!] VULNERABLE: Token still valid after logout")
             return [{"type": "NO_TOKEN_REVOCATION", "severity": "HIGH"}]
         else:
-            print(f"  [+] Token properly revoked after logout")
+            print("  [+] Token properly revoked after logout")
     except requests.RequestException:
         pass
     return []
@@ -170,7 +170,7 @@ def test_token_after_logout(token, target_url, logout_url):
 
 def check_jwks_endpoint(base_url):
     """Check for JWKS and OpenID configuration endpoints."""
-    print(f"\n[*] Checking for JWKS/OIDC endpoints...")
+    print("\n[*] Checking for JWKS/OIDC endpoints...")
     endpoints = [
         "/.well-known/jwks.json", "/.well-known/openid-configuration",
         "/oauth/certs", "/auth/keys", "/.well-known/keys",

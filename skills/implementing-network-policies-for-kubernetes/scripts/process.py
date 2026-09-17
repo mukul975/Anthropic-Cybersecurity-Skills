@@ -9,7 +9,7 @@ and identifies namespaces without proper segmentation.
 import subprocess
 import json
 import sys
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 
 
 @dataclass
@@ -93,7 +93,7 @@ def main():
     findings = audit_network_policies()
 
     print(f"\n{'='*60}")
-    print(f"NETWORK POLICY AUDIT REPORT")
+    print("NETWORK POLICY AUDIT REPORT")
     print(f"{'='*60}")
     print(f"Total Findings: {len(findings)}")
 

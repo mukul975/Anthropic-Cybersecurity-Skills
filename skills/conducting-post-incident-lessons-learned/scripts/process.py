@@ -148,26 +148,26 @@ class LessonsLearnedReport:
 
     def generate_markdown(self) -> str:
         m = self.report["metrics"]
-        md = f"# Post-Incident Lessons Learned Report\n\n"
+        md = "# Post-Incident Lessons Learned Report\n\n"
         md += f"## Incident: {self.incident_id}\n"
         md += f"**Report Date:** {self.report['report_date']}\n\n"
         md += f"## Summary\n{self.report['incident_summary']}\n\n"
 
-        md += f"## Response Metrics\n"
-        md += f"| Metric | Value |\n|--------|-------|\n"
+        md += "## Response Metrics\n"
+        md += "| Metric | Value |\n|--------|-------|\n"
         for k, v in m.items():
             label = k.replace("_", " ").title()
             md += f"| {label} | {v} |\n"
 
-        md += f"\n## What Worked Well\n"
+        md += "\n## What Worked Well\n"
         for item in self.report["what_worked"]:
             md += f"- {item}\n"
 
-        md += f"\n## What Needs Improvement\n"
+        md += "\n## What Needs Improvement\n"
         for item in self.report["what_failed"]:
             md += f"- {item}\n"
 
-        md += f"\n## Root Cause Analysis\n"
+        md += "\n## Root Cause Analysis\n"
         rca = self.report["root_cause_analysis"]
         if rca:
             md += f"**Method:** {rca.get('method', 'N/A')}\n\n"
@@ -176,9 +176,9 @@ class LessonsLearnedReport:
                 md += f"  **Answer:** {why['answer']}\n\n"
             md += f"**Root Cause:** {rca.get('root_cause', 'N/A')}\n"
 
-        md += f"\n## Action Items\n"
-        md += f"| Title | Owner | Priority | Deadline | Status |\n"
-        md += f"|-------|-------|----------|----------|--------|\n"
+        md += "\n## Action Items\n"
+        md += "| Title | Owner | Priority | Deadline | Status |\n"
+        md += "|-------|-------|----------|----------|--------|\n"
         for ai in self.report["action_items"]:
             md += f"| {ai['title']} | {ai['owner']} | {ai['priority']} | {ai['deadline']} | {ai['status']} |\n"
 

@@ -9,7 +9,6 @@ import json
 import csv
 import argparse
 import datetime
-import re
 from pathlib import Path
 
 HIGH_VALUE_TARGETS = {

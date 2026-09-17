@@ -6,9 +6,6 @@ Tracks log source onboarding progress, validates data quality,
 and generates configuration templates for common SIEM platforms.
 """
 
-import json
-from datetime import datetime
-from typing import Optional
 
 
 class LogSource:
@@ -188,10 +185,10 @@ if __name__ == "__main__":
     for s in report["sources"]:
         print(f"{s['name']:<30} {s['status']:<15} {s['progress']:<10} {s['daily_volume_gb']:<12} {s['next_step']}")
 
-    print(f"\nCIM Compliance - Palo Alto Firewall:")
+    print("\nCIM Compliance - Palo Alto Firewall:")
     print(f"  Coverage: {cim_result['coverage_pct']}%")
     print(f"  Compliant: {cim_result['compliant']}")
     print(f"  Missing: {cim_result['missing_fields']}")
 
-    print(f"\nSample inputs.conf for Palo Alto Firewall:")
+    print("\nSample inputs.conf for Palo Alto Firewall:")
     print(sources[0].generate_splunk_inputs_conf())

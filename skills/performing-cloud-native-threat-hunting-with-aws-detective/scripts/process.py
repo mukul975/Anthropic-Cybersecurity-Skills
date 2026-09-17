@@ -10,7 +10,6 @@ import boto3
 import json
 import sys
 import os
-from datetime import datetime, timedelta
 
 
 def _collect_all_pages(client_method, result_key, **kwargs):

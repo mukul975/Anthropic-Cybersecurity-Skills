@@ -156,11 +156,11 @@ def generate_zero_trust_scorecard(findings):
 def run_zero_trust_assessment(region="us-east-1"):
     """Run comprehensive zero trust assessment."""
     print(f"\n{'='*60}")
-    print(f"  ZERO TRUST CLOUD ARCHITECTURE ASSESSMENT")
+    print("  ZERO TRUST CLOUD ARCHITECTURE ASSESSMENT")
     print(f"  Generated: {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC")
     print(f"{'='*60}\n")
 
-    print(f"--- ZERO TRUST PILLARS ---")
+    print("--- ZERO TRUST PILLARS ---")
     for p in ZERO_TRUST_PILLARS:
         print(f"  {p['pillar']}: {p['description']}")
         for c in p["checks"]:
@@ -186,7 +186,7 @@ def run_zero_trust_assessment(region="us-east-1"):
             print(f"    [{f['pillar']}] {f.get('check', 'N/A')}: {f['detail']}")
 
     scorecard = generate_zero_trust_scorecard(findings)
-    print(f"\n--- ZERO TRUST SCORECARD ---")
+    print("\n--- ZERO TRUST SCORECARD ---")
     for pillar, scores in scorecard.items():
         bar = "#" * int(scores["score"] / 5)
         print(f"  {pillar:<15} {scores['score']:>5.1f}% [{scores['maturity']}] {bar}")

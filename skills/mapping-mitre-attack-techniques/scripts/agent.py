@@ -202,4 +202,4 @@ if __name__ == "__main__":
     layer = generate_navigator_layer(all_techniques, detected_ids, "Detection Coverage")
     with open("attack_navigator_layer.json", "w") as f:
         json.dump(layer, f, indent=2)
-    print(f"\n[*] Navigator layer saved to attack_navigator_layer.json")
+    print("\n[*] Navigator layer saved to attack_navigator_layer.json")

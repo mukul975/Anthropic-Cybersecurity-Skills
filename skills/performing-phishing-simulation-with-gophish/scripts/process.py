@@ -18,9 +18,6 @@ import sys
 import csv
 import os
 from datetime import datetime, timezone
-from pathlib import Path
-from dataclasses import dataclass, field
-from typing import Optional
 from collections import defaultdict
 
 try:

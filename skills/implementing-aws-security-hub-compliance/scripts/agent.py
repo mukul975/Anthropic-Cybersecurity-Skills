@@ -122,7 +122,7 @@ def run_compliance_report(region="us-east-1"):
     hub_client, s3_client = get_clients(region)
 
     print(f"\n{'='*60}")
-    print(f"  AWS SECURITY HUB COMPLIANCE REPORT")
+    print("  AWS SECURITY HUB COMPLIANCE REPORT")
     print(f"  Region: {region}")
     print(f"  Generated: {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC")
     print(f"{'='*60}\n")
@@ -130,20 +130,20 @@ def run_compliance_report(region="us-east-1"):
     findings = get_compliance_findings(hub_client)
     analysis = analyze_compliance_gaps(findings)
 
-    print(f"--- FINDINGS BY SEVERITY ---")
+    print("--- FINDINGS BY SEVERITY ---")
     for sev in ["CRITICAL", "HIGH", "MEDIUM", "LOW"]:
         count = analysis["by_severity"].get(sev, 0)
         bar = "#" * min(count, 40)
         print(f"  {sev:<12} {count:>4} {bar}")
 
-    print(f"\n--- TOP FAILED CONTROLS ---")
+    print("\n--- TOP FAILED CONTROLS ---")
     for control, count in list(analysis["by_control"].items())[:10]:
         detail = analysis["control_details"].get(control, {})
         acct_count = len(detail.get("accounts", []))
         print(f"  [{count:3d}] {control[:60]}")
         print(f"        Severity: {detail.get('severity', 'N/A')} | Accounts: {acct_count}")
 
-    print(f"\n--- TOP AFFECTED ACCOUNTS ---")
+    print("\n--- TOP AFFECTED ACCOUNTS ---")
     for acct, count in list(analysis["by_account"].items())[:5]:
         print(f"  {acct}: {count} failed controls")
 

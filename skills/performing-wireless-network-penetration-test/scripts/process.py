@@ -8,8 +8,6 @@ Usage:
     python process.py --scan-file scan-01.csv --authorized-aps authorized.txt --output ./results
 """
 
-import csv
-import json
 import argparse
 import datetime
 from pathlib import Path

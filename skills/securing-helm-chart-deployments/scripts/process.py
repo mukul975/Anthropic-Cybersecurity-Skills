@@ -4,7 +4,6 @@ Helm Chart Security Scanner - Render Helm templates and scan
 for security misconfigurations in Kubernetes manifests.
 """
 
-import json
 import subprocess
 import sys
 import argparse

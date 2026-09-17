@@ -10,7 +10,6 @@ import json
 import csv
 import sys
 import os
-import xml.etree.ElementTree as ET
 from collections import defaultdict, Counter
 from datetime import datetime
 
@@ -234,7 +233,7 @@ if __name__ == "__main__":
     export_blocked_apps_csv(analysis, blocked_csv)
     print(f"Blocked apps CSV: {blocked_csv}")
 
-    print(f"\n--- AppLocker Audit Summary ---")
+    print("\n--- AppLocker Audit Summary ---")
     print(f"Total events: {analysis['total_events']}")
     print(f"Blocked: {analysis['blocked_events']}")
     print(f"Audit-blocked: {analysis['audit_block_events']}")

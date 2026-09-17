@@ -15,12 +15,8 @@ Usage:
 """
 
 import argparse
-import csv
 import json
-import sys
-from collections import defaultdict
 from datetime import datetime, timedelta
-from pathlib import Path
 
 import pandas as pd
 import yaml
@@ -327,7 +323,7 @@ def main():
         plan = planner.create_deployment_plan(patches, assets)
         planner.export_plan(plan, args.output)
 
-        print(f"\n=== Deployment Plan ===")
+        print("\n=== Deployment Plan ===")
         for ring in plan["rings"]:
             print(f"  {ring['name']}: {ring['host_count']} hosts, "
                   f"soak: {ring['soak_hours']}h, start: {ring['start_date'][:10]}")

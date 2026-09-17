@@ -130,7 +130,7 @@ def detect_suspicious_files(changes):
     for f in changes["changed"]:
         for pattern in suspicious_changes:
             if pattern in f.lower():
-                findings.append({"type": "CHANGED", "path": f, "reason": f"Critical file modified"})
+                findings.append({"type": "CHANGED", "path": f, "reason": "Critical file modified"})
                 break
     return findings
 
@@ -235,4 +235,4 @@ if __name__ == "__main__":
         containers = list_containers()
         for c in containers:
             print(f"  {c.get('ID', '?')[:12]}  {c.get('Names', '?')}  {c.get('Status', '?')}")
-        print(f"\n[DEMO] Usage: python agent.py <container_id>")
+        print("\n[DEMO] Usage: python agent.py <container_id>")

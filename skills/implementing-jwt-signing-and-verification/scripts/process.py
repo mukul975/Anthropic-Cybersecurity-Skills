@@ -16,11 +16,7 @@ Usage:
 """
 
 import os
-import sys
 import json
-import time
-import hmac
-import hashlib
 import base64
 import argparse
 import logging
@@ -186,14 +182,14 @@ def attack_demo():
 
     # Create legitimate token
     token = create_jwt("RS256", priv_pem, "user123", "myapp", expiry_seconds=3600)
-    print(f"[1] Legitimate RS256 token created")
+    print("[1] Legitimate RS256 token created")
 
     # Verify legitimate token
     result = verify_jwt(token, pub_pem, ["RS256"], issuer="myapp")
     print(f"    Verification: {result['valid']}")
 
     # Attack 1: Algorithm Confusion (RS256 -> HS256)
-    print(f"\n[2] Attack: Algorithm Confusion (RS256 -> HS256)")
+    print("\n[2] Attack: Algorithm Confusion (RS256 -> HS256)")
     try:
         malicious_token = jwt.encode(
             {"sub": "admin", "iss": "myapp", "exp": datetime.datetime.utcnow() + datetime.timedelta(hours=1)},
@@ -205,7 +201,7 @@ def attack_demo():
         print(f"    Defense: Attack blocked -> {e}")
 
     # Attack 2: None Algorithm
-    print(f"\n[3] Attack: None Algorithm")
+    print("\n[3] Attack: None Algorithm")
     header = base64.urlsafe_b64encode(json.dumps({"alg": "none", "typ": "JWT"}).encode()).rstrip(b"=").decode()
     payload = base64.urlsafe_b64encode(json.dumps({"sub": "admin", "iss": "myapp"}).encode()).rstrip(b"=").decode()
     none_token = f"{header}.{payload}."
@@ -213,18 +209,18 @@ def attack_demo():
     print(f"    Defense: None algorithm rejected -> {result}")
 
     # Attack 3: Expired Token
-    print(f"\n[4] Attack: Expired Token Replay")
+    print("\n[4] Attack: Expired Token Replay")
     expired_token = create_jwt("RS256", priv_pem, "user123", "myapp", expiry_seconds=-10)
     result = verify_jwt(expired_token, pub_pem, ["RS256"], issuer="myapp")
     print(f"    Defense: Expired token rejected -> {result}")
 
     # Attack 4: Wrong Issuer
-    print(f"\n[5] Attack: Wrong Issuer")
+    print("\n[5] Attack: Wrong Issuer")
     wrong_issuer_token = create_jwt("RS256", priv_pem, "user123", "evil-app")
     result = verify_jwt(wrong_issuer_token, pub_pem, ["RS256"], issuer="myapp")
     print(f"    Defense: Wrong issuer rejected -> {result}")
 
-    print(f"\n[OK] All attacks successfully defended")
+    print("\n[OK] All attacks successfully defended")
 
 
 def main():

@@ -90,7 +90,7 @@ def analyze_results(call_results):
 def run_planning(targets_file=None, results_file=None):
     """Execute pretext call planning and analysis."""
     print(f"\n{'='*60}")
-    print(f"  SOCIAL ENGINEERING PRETEXT CALL PLANNER")
+    print("  SOCIAL ENGINEERING PRETEXT CALL PLANNER")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
 
@@ -113,7 +113,7 @@ def run_planning(targets_file=None, results_file=None):
         with open(results_file, "r") as f:
             results = json.load(f)
         metrics = analyze_results(results)
-        print(f"\n--- CAMPAIGN METRICS ---")
+        print("\n--- CAMPAIGN METRICS ---")
         for k, v in metrics.items():
             print(f"  {k}: {v}")
 

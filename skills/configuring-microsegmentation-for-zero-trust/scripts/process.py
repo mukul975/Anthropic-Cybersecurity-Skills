@@ -8,11 +8,9 @@ validates policies against observed traffic, and generates segmentation reports.
 
 import json
 import csv
-import sys
 from collections import defaultdict
 from datetime import datetime
 from pathlib import Path
-from typing import Optional
 
 
 def parse_flow_data(flow_file: str) -> list:

@@ -15,10 +15,9 @@ Usage:
 import argparse
 import json
 import re
-import sys
 import math
 from dataclasses import dataclass, field, asdict
-from datetime import datetime, timedelta
+from datetime import datetime
 from collections import defaultdict
 
 
@@ -111,7 +110,7 @@ def detect_aitm_signins(signins: list) -> AiTMAnalysis:
             if event.get("isFromAnonymousProxy", False):
                 analysis.indicators.append(AiTMIndicator(
                     indicator_type="anonymous_proxy",
-                    description=f"Sign-in from anonymous proxy/VPN",
+                    description="Sign-in from anonymous proxy/VPN",
                     severity="high",
                     confidence=0.7,
                     user=user,

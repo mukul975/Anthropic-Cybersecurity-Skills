@@ -159,14 +159,14 @@ class PurpleTeamAgent:
         print(f"Detected:              {metrics.get('detected', 0)} ({metrics.get('coverage_pct', 0)}%)")
         print(f"Gaps:                  {metrics.get('gaps', 0)}")
         print(f"Avg Detection Latency: {metrics.get('avg_latency_seconds', 0)}s")
-        print(f"\nDetailed Results:")
+        print("\nDetailed Results:")
         for r in self.results:
             status = "PASS" if r["detected"] else "FAIL"
             latency = f"{r['latency_seconds']}s" if r["latency_seconds"] else "N/A"
             print(f"  [{status}] {r['attack_id']} {r['name']} (Latency: {latency})")
 
         if gaps:
-            print(f"\nDetection Gaps:")
+            print("\nDetection Gaps:")
             for g in gaps:
                 print(f"  - {g['attack_id']} {g['name']}: {g['notes']}")
 

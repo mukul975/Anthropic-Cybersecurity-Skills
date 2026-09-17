@@ -10,7 +10,6 @@ import subprocess
 import json
 import sys
 import csv
-import io
 from datetime import datetime
 from pathlib import Path
 

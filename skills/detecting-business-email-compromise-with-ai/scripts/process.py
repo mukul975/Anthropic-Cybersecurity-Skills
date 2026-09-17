@@ -13,10 +13,8 @@ Usage:
 import argparse
 import json
 import re
-import sys
-import math
 from dataclasses import dataclass, field, asdict
-from collections import defaultdict, Counter
+from collections import defaultdict
 
 
 @dataclass

@@ -7,10 +7,8 @@ import struct
 import hashlib
 import math
 import os
-import sys
 import subprocess
 import re
-import json
 from collections import Counter
 from pathlib import Path
 

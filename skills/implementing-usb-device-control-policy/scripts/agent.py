@@ -158,7 +158,7 @@ def list_connected_usb_devices():
 def format_summary(findings, devices):
     """Print audit summary."""
     print(f"\n{'='*60}")
-    print(f"  USB Device Control Policy Audit")
+    print("  USB Device Control Policy Audit")
     print(f"{'='*60}")
     print(f"  Connected Devices: {len(devices)}")
     print(f"  Policy Findings  : {len(findings)}")
@@ -174,12 +174,12 @@ def format_summary(findings, devices):
     print(f"  Failed : {fail_count}")
 
     if devices:
-        print(f"\n  Connected USB Devices:")
+        print("\n  Connected USB Devices:")
         for d in devices:
             print(f"    {d.get('name', 'Unknown'):40s} | {d.get('id', d.get('instance_id', 'N/A'))}")
 
     if findings:
-        print(f"\n  Policy Checks:")
+        print("\n  Policy Checks:")
         for f in findings:
             icon = "OK" if f["status"] == "PASS" else "!!" if f["status"] == "FAIL" else "--"
             print(f"    [{icon}] {f['check']}: {f.get('detail', '')[:50]}")

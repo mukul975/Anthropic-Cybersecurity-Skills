@@ -192,12 +192,12 @@ def print_report(networks, handshake, crack_result):
     print(f"  File: {handshake.get('capture_file')}")
     if crack_result:
         if crack_result.get("cracked"):
-            print(f"\nPassword Cracked: YES")
+            print("\nPassword Cracked: YES")
             print(f"  Key: {crack_result.get('key', crack_result.get('result', 'N/A'))}")
             print(f"  Tool: {crack_result['tool']}")
-            print(f"  Risk: CRITICAL - Weak passphrase")
+            print("  Risk: CRITICAL - Weak passphrase")
         else:
-            print(f"\nPassword Cracked: NO (passphrase resists dictionary attack)")
+            print("\nPassword Cracked: NO (passphrase resists dictionary attack)")
 
 
 if __name__ == "__main__":

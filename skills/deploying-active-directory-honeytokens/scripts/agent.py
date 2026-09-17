@@ -16,18 +16,13 @@ References:
     - APT29a Blog: Deploying Honeytokens in AD
 """
 
-import os
 import json
 import uuid
 import base64
-import hashlib
 import argparse
 import secrets
-import string
-import subprocess
-from datetime import datetime, timedelta
+from datetime import datetime
 from pathlib import Path
-from typing import Any
 
 # ---------------------------------------------------------------------------
 # Constants
@@ -308,7 +303,7 @@ try {{
     Write-Host "[!] Trap account may already exist: $_" -ForegroundColor Yellow
 }}
 
-{"" if not enable_sacl else f"""
+{"" if not enable_sacl else """
 # Set SACL on the SYSVOL folder to audit any read access
 $FolderAcl = Get-Acl $GPOPath
 $AuditRule = New-Object System.Security.AccessControl.FileSystemAuditRule(
@@ -639,7 +634,7 @@ level: critical""",
                 "level": "high",
                 "description": "Directory service read on honeytoken account DACL detected. "
                                "Indicates AD reconnaissance or enumeration.",
-                "detection_logic": f"EventID 4662 AND ObjectName contains honeytoken DN",
+                "detection_logic": "EventID 4662 AND ObjectName contains honeytoken DN",
                 "rule": f"""title: Honeytoken AD Object Accessed
 id: {uuid.uuid4()}
 status: production

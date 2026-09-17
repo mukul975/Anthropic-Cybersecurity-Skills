@@ -8,7 +8,7 @@ anti-spoofing controls.
 
 from scapy.all import (
     IP, TCP, UDP, ICMP, DNS, DNSQR, Raw,
-    sr1, send, fragment, conf,
+    sr1, send, conf,
 )
 import json
 import sys

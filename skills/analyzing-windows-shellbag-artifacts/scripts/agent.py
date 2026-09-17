@@ -7,11 +7,8 @@ directory browsing patterns, and evidence of accessed network shares.
 
 import os
 import sys
-import json
 import struct
-import hashlib
 import datetime
-from collections import defaultdict
 
 try:
     import Registry

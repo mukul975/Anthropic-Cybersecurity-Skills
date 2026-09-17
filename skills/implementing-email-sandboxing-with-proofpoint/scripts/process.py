@@ -16,9 +16,8 @@ import argparse
 import json
 import sys
 import os
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timezone
 from collections import defaultdict
-from dataclasses import dataclass, field, asdict
 
 try:
     import requests

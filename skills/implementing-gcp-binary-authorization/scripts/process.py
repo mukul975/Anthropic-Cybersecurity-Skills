@@ -8,7 +8,6 @@ creation for container image supply chain security.
 
 import json
 import subprocess
-import sys
 
 
 def run_gcloud(args):
@@ -36,7 +35,7 @@ def check_binauthz_status(project_id):
         print(f"[!] Error fetching policy: {err}")
         return None
 
-    print(f"[+] Current policy retrieved")
+    print("[+] Current policy retrieved")
     return policy
 
 
@@ -77,7 +76,7 @@ def verify_attestation(project_id, image_url, attestor):
         print(f"[+] Image has {len(attestations)} attestation(s)")
         return True
     else:
-        print(f"[!] No attestations found for image")
+        print("[!] No attestations found for image")
         return False
 
 
@@ -101,7 +100,7 @@ def create_attestation(project_id, image_url, attestor, key_info):
         print(f"[!] Error creating attestation: {err}")
         return False
 
-    print(f"[+] Attestation created successfully")
+    print("[+] Attestation created successfully")
     return True
 
 
@@ -154,7 +153,7 @@ def audit_policy_compliance(project_id):
                 "recommendation": "Remove overly broad whitelist patterns"
             })
 
-    print(f"\n[*] Policy Compliance Audit Results:")
+    print("\n[*] Policy Compliance Audit Results:")
     if findings:
         for f in findings:
             print(f"  [{f['severity']}] {f['finding']}")

@@ -90,7 +90,7 @@ def run_audit(profile=None, region="us-east-1"):
     """Execute HSM key storage audit."""
     session = boto3.Session(profile_name=profile, region_name=region)
     print(f"\n{'='*60}")
-    print(f"  HSM KEY STORAGE AUDIT")
+    print("  HSM KEY STORAGE AUDIT")
     print(f"  Region: {region}")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")

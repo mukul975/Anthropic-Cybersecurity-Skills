@@ -108,9 +108,9 @@ def apply_psa_labels(namespace: str, level: str, version: str = "latest"):
     labels = [
         f"pod-security.kubernetes.io/enforce={level}",
         f"pod-security.kubernetes.io/enforce-version={version}",
-        f"pod-security.kubernetes.io/audit=restricted",
+        "pod-security.kubernetes.io/audit=restricted",
         f"pod-security.kubernetes.io/audit-version={version}",
-        f"pod-security.kubernetes.io/warn=restricted",
+        "pod-security.kubernetes.io/warn=restricted",
         f"pod-security.kubernetes.io/warn-version={version}",
     ]
     cmd = ["label", "--overwrite", "namespace", namespace] + labels

@@ -133,14 +133,14 @@ def analyze_registry_snapshot(entries):
         for susp_path in SUSPICIOUS_PATHS:
             if susp_path.lower() in data_lower:
                 severity = "high"
-                indicators.append(f"suspicious_path")
+                indicators.append("suspicious_path")
                 break
         for lolbin in LOLBINS:
             if lolbin.lower() in data_lower:
                 severity = "high"
                 indicators.append(f"lolbin:{lolbin}")
                 break
-        if not Path(value_data.strip('"').split(" ")[0]).suffix.lower() in (".exe", ".dll", ".bat", ".cmd", ".ps1", ".vbs", ".js", ".hta", ".scr", ".com", ""):
+        if Path(value_data.strip('"').split(" ")[0]).suffix.lower() not in (".exe", ".dll", ".bat", ".cmd", ".ps1", ".vbs", ".js", ".hta", ".scr", ".com", ""):
             pass
         is_known = any(kg.lower() in (value_name or "").lower() for kg in KNOWN_GOOD_VALUES)
         if is_known:

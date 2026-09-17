@@ -184,17 +184,17 @@ def main():
     if args.action in ("create_dns", "full_deploy"):
         token = create_dns_canarytoken(args.email, "Production honeytoken", args.webhook)
         report["tokens"]["dns"] = token
-        print(f"[+] DNS canary token created")
+        print("[+] DNS canary token created")
 
     if args.action in ("create_aws", "full_deploy"):
         token = create_aws_key_token(args.email, "AWS credential honeytoken", args.webhook)
         report["tokens"]["aws"] = token
-        print(f"[+] AWS credential token created")
+        print("[+] AWS credential token created")
 
     if args.action in ("create_web", "full_deploy"):
         token = create_web_bug_token(args.email, "Web beacon honeytoken", args.webhook)
         report["tokens"]["web_bug"] = token
-        print(f"[+] Web bug token created")
+        print("[+] Web bug token created")
 
     with open(args.output, "w") as f:
         json.dump(report, f, indent=2, default=str)

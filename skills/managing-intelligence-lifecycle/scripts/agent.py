@@ -141,7 +141,7 @@ def generate_report(pirs: list, coverage: dict, products: dict, maturity: dict) 
         f"  Covered: {coverage['covered_pirs']}",
         f"  Gaps: {len(coverage['gaps'])}",
         "",
-        f"INTELLIGENCE PRODUCTS:",
+        "INTELLIGENCE PRODUCTS:",
         f"  Active Products: {products['total_products']}",
         f"  Overdue: {len(products['overdue_products'])}",
         f"  Avg Feedback Score: {products['avg_feedback_score']}/5.0",

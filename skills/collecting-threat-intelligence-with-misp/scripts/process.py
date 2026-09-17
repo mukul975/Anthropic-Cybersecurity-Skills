@@ -22,7 +22,6 @@ import argparse
 import json
 import csv
 import sys
-import os
 from datetime import datetime, timedelta
 from typing import Optional
 
@@ -208,7 +207,7 @@ class MISPCollector:
             stix_bundle.get("objects", []) if isinstance(stix_bundle, dict) else []
         )
 
-        print(f"[+] Exported STIX 2.1 bundle")
+        print("[+] Exported STIX 2.1 bundle")
         return stix_bundle
 
     def export_csv(self, iocs: list, output_path: str) -> str:
@@ -240,7 +239,7 @@ class MISPCollector:
             date_from=(datetime.now() - timedelta(days=days)).strftime("%Y-%m-%d"),
         )
 
-        print(f"[+] Generated Suricata rules")
+        print("[+] Generated Suricata rules")
         return rules
 
     def get_correlation_summary(self, event_id: int) -> dict:

@@ -5,12 +5,9 @@ including DCSync, Golden Ticket, Kerberoasting, and lateral movement.
 """
 
 import json
-import csv
-import os
-import re
 import xml.etree.ElementTree as ET
-from datetime import datetime, timedelta
-from collections import defaultdict, Counter
+from datetime import datetime
+from collections import defaultdict
 from pathlib import Path
 
 

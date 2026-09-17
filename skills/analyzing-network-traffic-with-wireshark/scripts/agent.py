@@ -217,4 +217,4 @@ if __name__ == "__main__":
         for s in suspicious:
             print(f"  [!] {s['type']}: {s['description']} ({s['count']} occurrences)")
     else:
-        print(f"\n[DEMO] Usage: python agent.py <capture.pcap>")
+        print("\n[DEMO] Usage: python agent.py <capture.pcap>")

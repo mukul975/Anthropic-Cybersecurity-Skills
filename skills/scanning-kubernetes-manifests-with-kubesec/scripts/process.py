@@ -154,7 +154,7 @@ def generate_report(results: list[dict], output_format: str = "text") -> str:
 
     if results:
         scores = [r.get("score", 0) for r in results]
-        lines.append(f"\nScore Statistics:")
+        lines.append("\nScore Statistics:")
         lines.append(f"  Average: {sum(scores) / len(scores):.1f}")
         lines.append(f"  Min: {min(scores)}")
         lines.append(f"  Max: {max(scores)}")

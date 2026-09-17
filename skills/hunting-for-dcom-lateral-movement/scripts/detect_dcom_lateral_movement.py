@@ -19,8 +19,7 @@ import argparse
 import json
 import sys
 import os
-from datetime import datetime, timedelta
-from collections import defaultdict
+from datetime import datetime
 
 try:
     import Evtx.Evtx as evtx
@@ -467,7 +466,7 @@ def main():
         else:
             print(output)
     else:
-        print(f"\n[*] DCOM Lateral Movement Detection Report")
+        print("\n[*] DCOM Lateral Movement Detection Report")
         print(f"[*] Scan Time: {all_results['scan_time']}")
         print(f"[*] Events Analyzed: {all_results['total_events_parsed']}")
 
@@ -476,7 +475,7 @@ def main():
         print_correlated(correlated)
 
         print(f"\n{'=' * 80}")
-        print(f"  SUMMARY")
+        print("  SUMMARY")
         print(f"{'=' * 80}")
         s = all_results["summary"]
         print(f"  Process Creation Detections: {s['process_detections']}")

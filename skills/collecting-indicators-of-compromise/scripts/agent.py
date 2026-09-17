@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """IOC Collection Agent - Extracts, enriches, and exports indicators of compromise."""
 
-import json
 import re
 import logging
 import argparse

@@ -116,7 +116,7 @@ def run_security_audit(uri, user, password):
                     if len(records) > 5:
                         print(f"    ... and {len(records) - 5} more")
                 else:
-                    print(f"  [OK] No issues found")
+                    print("  [OK] No issues found")
             except Exception as e:
                 print(f"  [ERROR] {e}")
                 results[check_name] = {"error": str(e)}

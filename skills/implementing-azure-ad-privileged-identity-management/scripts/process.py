@@ -9,7 +9,6 @@ Requirements:
     pip install msal requests pandas
 """
 
-import json
 import sys
 from datetime import datetime, timezone
 
@@ -102,10 +101,10 @@ class EntraPIMAuditor:
     def get_pim_activation_history(self, days=30):
         """Retrieve PIM role activation audit events."""
         result = self._graph_get(
-            f"/auditLogs/directoryAudits?"
-            f"$filter=category eq 'RoleManagement' and "
-            f"activityDisplayName eq 'Add member to role completed (PIM activation)'"
-            f"&$top=100"
+            "/auditLogs/directoryAudits?"
+            "$filter=category eq 'RoleManagement' and "
+            "activityDisplayName eq 'Add member to role completed (PIM activation)'"
+            "&$top=100"
         )
         activations = []
         for event in result.get("value", []):

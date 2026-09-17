@@ -152,7 +152,7 @@ def main():
         save_pem(ca_key, ca_cert,
                  f"{args.output_dir}/ca-key.pem", f"{args.output_dir}/ca.pem")
         report["results"]["ca"] = {"subject": ca_cert.subject.rfc4514_string()}
-        print(f"[+] CA certificate generated")
+        print("[+] CA certificate generated")
 
     if args.action in ("issue_cert", "full_setup"):
         ca_key_path = f"{args.output_dir}/ca-key.pem"

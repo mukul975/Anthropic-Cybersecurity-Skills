@@ -157,7 +157,7 @@ def main():
     if result["config"]["smtp"]["smtp_server"]:
         print(f"[*] SMTP C2: {result['config']['smtp']['smtp_server']}")
     if result["config"]["telegram"]["bot_token"]:
-        print(f"[*] Telegram bot found")
+        print("[*] Telegram bot found")
 
     report = {"timestamp": datetime.now(timezone.utc).isoformat(), "analysis": result}
 

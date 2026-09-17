@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """Threat Intelligence Feed Integration Agent - Ingests STIX/TAXII and open-source TI feeds."""
 
-import json
 import logging
 import os
 import argparse

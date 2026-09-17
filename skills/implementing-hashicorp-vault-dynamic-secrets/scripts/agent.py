@@ -168,24 +168,24 @@ def revoke_lease(client, lease_id):
 def run_vault_audit(client):
     """Run Vault dynamic secrets audit."""
     print(f"\n{'='*60}")
-    print(f"  HASHICORP VAULT DYNAMIC SECRETS AUDIT")
+    print("  HASHICORP VAULT DYNAMIC SECRETS AUDIT")
     print(f"  Generated: {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC")
     print(f"{'='*60}\n")
 
     health = client.sys.read_health_status(method="GET")
-    print(f"--- VAULT STATUS ---")
+    print("--- VAULT STATUS ---")
     print(f"  Initialized: {health.get('initialized')}")
     print(f"  Sealed: {health.get('sealed')}")
     print(f"  Version: {health.get('version')}")
 
     mounts = client.sys.list_mounted_secrets_engines()
-    print(f"\n--- SECRETS ENGINES ---")
+    print("\n--- SECRETS ENGINES ---")
     for path, config in mounts.get("data", mounts).items():
         if isinstance(config, dict):
             print(f"  {path}: {config.get('type', 'unknown')}")
 
     auth_methods = client.sys.list_auth_methods()
-    print(f"\n--- AUTH METHODS ---")
+    print("\n--- AUTH METHODS ---")
     for path, config in auth_methods.get("data", auth_methods).items():
         if isinstance(config, dict):
             print(f"  {path}: {config.get('type', 'unknown')}")

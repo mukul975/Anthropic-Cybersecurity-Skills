@@ -10,11 +10,9 @@ import json
 import socket
 import ssl
 import os
-import hashlib
-import subprocess
 import time
 from datetime import datetime
-from dataclasses import dataclass, field, asdict
+from dataclasses import dataclass, asdict
 from typing import Optional
 from urllib.request import urlopen, Request
 from urllib.error import URLError, HTTPError

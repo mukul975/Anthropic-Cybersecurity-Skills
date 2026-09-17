@@ -146,12 +146,12 @@ def get_macie_findings(region="us-east-1", max_results=50):
 def run_dlp_report(project_id=None, region="us-east-1"):
     """Generate a DLP discovery report."""
     print(f"\n{'='*60}")
-    print(f"  CLOUD DLP DATA PROTECTION REPORT")
+    print("  CLOUD DLP DATA PROTECTION REPORT")
     print(f"  Generated: {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC")
     print(f"{'='*60}\n")
 
     if boto3:
-        print(f"--- AWS MACIE STATUS ---")
+        print("--- AWS MACIE STATUS ---")
         macie_status = enable_macie(region)
         print(f"  Macie: {macie_status}")
         findings = get_macie_findings(region)
@@ -160,7 +160,7 @@ def run_dlp_report(project_id=None, region="us-east-1"):
             print(f"  [{f.get('severity', 'N/A')}] {f.get('title', 'N/A')} - {f.get('bucket', 'N/A')}")
 
     if dlp_v2 and project_id:
-        print(f"\n--- GCP DLP SCAN ---")
+        print("\n--- GCP DLP SCAN ---")
         sample = "Contact John Doe at john@example.com, SSN 123-45-6789, CC 4111-1111-1111-1111"
         findings = scan_text_with_gcp_dlp(project_id, sample)
         if findings:

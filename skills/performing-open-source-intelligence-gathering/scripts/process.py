@@ -27,8 +27,6 @@ import socket
 import sys
 from datetime import datetime
 from pathlib import Path
-from typing import Any
-from urllib.parse import urlparse
 
 try:
     import dns.resolver
@@ -450,7 +448,7 @@ def generate_report(domain: str, results: dict, output_dir: Path):
         for path in robots_txt.get("disallowed_paths", []):
             report += f"- `{path}`\n"
 
-    report += f"""
+    report += """
 ---
 
 ## 7. Recommendations for Attack Planning

@@ -30,7 +30,7 @@ def check_hibp_breaches(domain, api_key=None):
         headers["hibp-api-key"] = api_key
     try:
         resp = requests.get(
-            f"https://haveibeenpwned.com/api/v3/breaches",
+            "https://haveibeenpwned.com/api/v3/breaches",
             headers=headers, timeout=15,
         )
         resp.raise_for_status()
@@ -161,7 +161,7 @@ def search_threat_intel_feeds(domain):
 def format_summary(all_findings, domain):
     """Print monitoring summary."""
     print(f"\n{'='*60}")
-    print(f"  Dark Web Threat Monitoring Report")
+    print("  Dark Web Threat Monitoring Report")
     print(f"{'='*60}")
     print(f"  Target Domain: {domain}")
     print(f"  Total Findings: {len(all_findings)}")
@@ -172,7 +172,7 @@ def format_summary(all_findings, domain):
         by_type[t] = by_type.get(t, 0) + 1
 
     if by_type:
-        print(f"\n  By Type:")
+        print("\n  By Type:")
         for t, count in by_type.items():
             print(f"    {t:20s}: {count}")
 

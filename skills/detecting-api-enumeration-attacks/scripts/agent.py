@@ -145,7 +145,7 @@ def query_waf_logs(waf_url, api_key, hours=24):
 def run_audit(args):
     """Execute API enumeration detection audit."""
     print(f"\n{'='*60}")
-    print(f"  API ENUMERATION ATTACK DETECTION")
+    print("  API ENUMERATION ATTACK DETECTION")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
 

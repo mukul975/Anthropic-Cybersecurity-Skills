@@ -150,7 +150,7 @@ def calculate_sla_metrics(incidents):
 def run_ticketing_audit(snow_client=None, hive_client=None):
     """Run ticketing system audit."""
     print(f"\n{'='*60}")
-    print(f"  INCIDENT TICKETING SYSTEM AUDIT")
+    print("  INCIDENT TICKETING SYSTEM AUDIT")
     print(f"  Generated: {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC")
     print(f"{'='*60}\n")
 
@@ -163,7 +163,7 @@ def run_ticketing_audit(snow_client=None, hive_client=None):
             print(f"  [{inc.get('priority', 'N/A')}] {inc.get('number')}: "
                   f"{inc.get('short_description', '')[:50]}")
         metrics = calculate_sla_metrics(incidents)
-        print(f"\n--- SLA METRICS ---")
+        print("\n--- SLA METRICS ---")
         print(f"  Total open: {metrics['total']}")
         print(f"  SLA compliance: {metrics['sla_compliance_pct']}%")
         report["servicenow"] = {"open": len(incidents), "metrics": metrics}

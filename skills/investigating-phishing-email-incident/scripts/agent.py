@@ -171,7 +171,7 @@ def generate_ioc_list(headers: dict, urls: list[str], attachments: list[dict]) -
 def generate_report(headers: dict, urls: list[str], iocs: dict) -> str:
     """Generate phishing investigation report."""
     lines = [
-        f"PHISHING INCIDENT REPORT",
+        "PHISHING INCIDENT REPORT",
         "=" * 50,
         f"Report Generated: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}",
         "",

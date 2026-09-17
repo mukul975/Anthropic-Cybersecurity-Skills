@@ -175,7 +175,7 @@ IR_ARTIFACT_SETS = {
 def format_summary(client_id, artifacts, flow_context, results_summary):
     """Print collection summary."""
     print(f"\n{'='*60}")
-    print(f"  Velociraptor IR Collection Report")
+    print("  Velociraptor IR Collection Report")
     print(f"{'='*60}")
     print(f"  Client ID   : {client_id}")
     print(f"  Flow ID     : {flow_context.get('session_id', 'N/A')}")

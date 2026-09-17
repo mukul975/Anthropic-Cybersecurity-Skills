@@ -15,8 +15,7 @@ Usage:
 import argparse
 import csv
 import json
-import sys
-from datetime import datetime, timedelta
+from datetime import datetime
 
 
 class IOCLifecycleManager:

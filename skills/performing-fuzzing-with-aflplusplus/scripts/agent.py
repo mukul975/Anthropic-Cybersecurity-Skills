@@ -132,7 +132,7 @@ def run_whatsup(output_dir):
 def run_audit(args):
     """Execute AFL++ fuzzing campaign audit."""
     print(f"\n{'='*60}")
-    print(f"  AFL++ FUZZING CAMPAIGN AUDIT")
+    print("  AFL++ FUZZING CAMPAIGN AUDIT")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
 
@@ -141,7 +141,7 @@ def run_audit(args):
     if args.output_dir:
         stats = parse_fuzzer_stats(args.output_dir)
         report["fuzzer_stats"] = stats
-        print(f"--- FUZZER STATS ---")
+        print("--- FUZZER STATS ---")
         print(f"  Executions: {stats.get('execs_done', 0):,}")
         print(f"  Exec/sec: {stats.get('execs_per_sec', 0)}")
         print(f"  Paths: {stats.get('paths_total', 0)}")
@@ -160,7 +160,7 @@ def run_audit(args):
         inst = instrument_target(args.instrument_src, args.instrument_out,
                                   sanitizer=args.sanitizer)
         report["instrumentation"] = inst
-        print(f"\n--- INSTRUMENTATION ---")
+        print("\n--- INSTRUMENTATION ---")
         print(f"  {'SUCCESS' if inst['success'] else 'FAILED'}: {inst['source']}")
 
     return report

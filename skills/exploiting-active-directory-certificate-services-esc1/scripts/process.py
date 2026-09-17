@@ -8,9 +8,7 @@ and generates an assessment report. For authorized red team engagements only.
 
 import json
 import sys
-import os
 from datetime import datetime
-from pathlib import Path
 
 
 ESC1_DANGEROUS_EKUS = [

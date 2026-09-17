@@ -13,17 +13,14 @@ import sys
 import json
 import ssl
 import socket
-import struct
 import argparse
 import logging
 import subprocess
-import hashlib
 import re
 from datetime import datetime, timezone
 from pathlib import Path
 from collections import defaultdict
 
-import requests
 
 # ---------------------------------------------------------------------------
 # Logging
@@ -1498,7 +1495,7 @@ Examples:
     if args.action in ("test_mldsa", "full_assessment"):
         mldsa_result = test_mldsa_support()
         report["mldsa_validation"] = mldsa_result
-        print(f"[+] ML-DSA (FIPS 204) validation:")
+        print("[+] ML-DSA (FIPS 204) validation:")
         for level, result in mldsa_result.get("levels", {}).items():
             status = "PASS" if result.get("supported") else "FAIL"
             err = result.get("error", "")
@@ -1508,7 +1505,7 @@ Examples:
     if args.action in ("check_openssl", "full_assessment"):
         ossl = check_openssl_pqc_support()
         report["openssl_pqc"] = ossl
-        print(f"[+] OpenSSL PQC support check:")
+        print("[+] OpenSSL PQC support check:")
         print(f"    Version: {ossl.get('openssl_version', 'unknown')}")
         print(f"    PQC ready: {ossl.get('pqc_ready', False)}")
         if ossl.get("pqc_kem_algorithms"):
@@ -1541,7 +1538,7 @@ Examples:
         if scan_results:
             roadmap = generate_migration_roadmap(scan_results, agility)
             report["migration_roadmap"] = roadmap
-            print(f"\n[+] Migration Roadmap")
+            print("\n[+] Migration Roadmap")
             print(f"    {roadmap['executive_summary']}")
             print(f"\n    NIST Timeline: deprecation by {NIST_MIGRATION_DEADLINES['deprecation']}, "
                   f"removal by {NIST_MIGRATION_DEADLINES['disallowed']}")
@@ -1550,7 +1547,7 @@ Examples:
                 for action in phase["actions"]:
                     print(f"      [{action['priority']}] {action['action']}")
             if roadmap["quick_wins"]:
-                print(f"\n    Quick Wins:")
+                print("\n    Quick Wins:")
                 for qw in roadmap["quick_wins"]:
                     print(f"      - {qw['action']}")
         else:

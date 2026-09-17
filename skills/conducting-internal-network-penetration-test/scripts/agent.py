@@ -96,7 +96,7 @@ def check_common_vulns(target):
 def run_pentest(target, dc_ip=None, domain=None, username=None, password=None):
     """Execute internal network penetration test."""
     print(f"\n{'='*60}")
-    print(f"  INTERNAL NETWORK PENETRATION TEST")
+    print("  INTERNAL NETWORK PENETRATION TEST")
     print(f"  Target: {target}")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
@@ -107,19 +107,19 @@ def run_pentest(target, dc_ip=None, domain=None, username=None, password=None):
         print(f"  Port {p['port']}/{p['service']}: {p['status']}")
 
     smb = check_smb_signing(target)
-    print(f"\n--- SMB SIGNING ---")
+    print("\n--- SMB SIGNING ---")
     print(f"  Signing required: {smb.get('smb_signing_required', 'N/A')}")
     print(f"  Relay vulnerable: {smb.get('vulnerable_to_relay', 'N/A')}")
 
     llmnr = check_llmnr_nbns()
-    print(f"\n--- LLMNR/NBT-NS ---")
+    print("\n--- LLMNR/NBT-NS ---")
     print(f"  Risk: {llmnr['risk']}")
     print(f"  Severity: {llmnr['severity']}")
 
     ad_info = {}
     if dc_ip and domain and username and password:
         ad_info = enumerate_ad_info(dc_ip, domain, username, password)
-        print(f"\n--- AD ENUMERATION ---")
+        print("\n--- AD ENUMERATION ---")
         print(f"  Total hosts: {ad_info.get('total_hosts', 0)}")
         print(f"  Admin accounts: {ad_info.get('admin_accounts', [])}")
 

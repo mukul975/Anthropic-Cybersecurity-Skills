@@ -173,7 +173,7 @@ def classify_api_risk(endpoints):
 def run_audit(args):
     """Execute API inventory and discovery audit."""
     print(f"\n{'='*60}")
-    print(f"  API INVENTORY AND DISCOVERY AUDIT")
+    print("  API INVENTORY AND DISCOVERY AUDIT")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
 
@@ -190,7 +190,7 @@ def run_audit(args):
     if args.swagger_url:
         spec = parse_swagger_spec(args.swagger_url)
         report["swagger_spec"] = spec
-        print(f"\n--- SWAGGER SPEC ANALYSIS ---")
+        print("\n--- SWAGGER SPEC ANALYSIS ---")
         print(f"  API: {spec.get('api_title','')} v{spec.get('api_version','')}")
         print(f"  Endpoints: {spec.get('total_endpoints',0)}")
         print(f"  Deprecated: {spec.get('deprecated_endpoints',0)}")

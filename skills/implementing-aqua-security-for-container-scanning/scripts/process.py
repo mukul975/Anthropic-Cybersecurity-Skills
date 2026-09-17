@@ -8,7 +8,6 @@ vulnerability reports across multiple container images.
 
 import json
 import os
-import sys
 import subprocess
 from datetime import datetime
 from collections import defaultdict
@@ -111,19 +110,19 @@ def generate_fleet_report(images: list) -> dict:
 
 def print_fleet_report(report: dict) -> None:
     print(f"\n{'='*60}")
-    print(f"Container Fleet Vulnerability Report")
+    print("Container Fleet Vulnerability Report")
     print(f"Generated: {report['generated_at']}")
     print(f"{'='*60}")
     print(f"Images scanned: {report['total_images']}")
     print(f"Total vulnerabilities: {report['total_vulnerabilities']}")
     print(f"Total critical: {report['total_critical']}")
     print(f"Total fixable: {report['total_fixable']}")
-    print(f"\nSeverity Breakdown:")
+    print("\nSeverity Breakdown:")
     for sev in ["CRITICAL", "HIGH", "MEDIUM", "LOW", "UNKNOWN"]:
         count = report["severity_summary"].get(sev, 0)
         if count:
             print(f"  {sev:12s}: {count}")
-    print(f"\nImages by Risk (sorted by critical count):")
+    print("\nImages by Risk (sorted by critical count):")
     for img in sorted(
         report["image_reports"],
         key=lambda x: x["severity_counts"].get("CRITICAL", 0),

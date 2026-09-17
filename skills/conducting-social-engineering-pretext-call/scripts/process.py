@@ -6,12 +6,10 @@ Tracks vishing (pretext call) campaign results, calculates susceptibility
 metrics, and generates reports for security awareness improvement.
 """
 
-import json
-import os
 import csv
 from datetime import datetime
 from collections import defaultdict
-from dataclasses import dataclass, field, asdict
+from dataclasses import dataclass
 
 
 @dataclass
@@ -115,7 +113,7 @@ class VishingCampaignTracker:
         lines.append(f"Date: {datetime.now().strftime('%Y-%m-%d')}")
         lines.append("=" * 70)
 
-        lines.append(f"\nOVERALL METRICS:")
+        lines.append("\nOVERALL METRICS:")
         lines.append(f"  Total Calls Made:           {metrics['total_calls']}")
         lines.append(f"  Calls Answered:              {metrics['calls_answered']}")
         lines.append(f"  Answer Rate:                 {metrics['answer_rate']:.1f}%")
@@ -132,7 +130,7 @@ class VishingCampaignTracker:
         lines.append(f"\n  OVERALL RISK RATING: {risk}")
 
         # Department breakdown
-        lines.append(f"\nDEPARTMENT BREAKDOWN:")
+        lines.append("\nDEPARTMENT BREAKDOWN:")
         lines.append("-" * 70)
         for dept, stats in metrics["department_breakdown"].items():
             total = stats["total"]
@@ -145,14 +143,14 @@ class VishingCampaignTracker:
             )
 
         # Pretext effectiveness
-        lines.append(f"\nPRETEXT EFFECTIVENESS:")
+        lines.append("\nPRETEXT EFFECTIVENESS:")
         lines.append("-" * 70)
         for pretext, stats in metrics["pretext_effectiveness"].items():
             success_rate = stats["success"] / stats["total"] * 100 if stats["total"] else 0
             lines.append(f"  {pretext:<30} Success: {success_rate:.1f}% ({stats['success']}/{stats['total']})")
 
         # Recommendations
-        lines.append(f"\nRECOMMENDATIONS:")
+        lines.append("\nRECOMMENDATIONS:")
         lines.append("-" * 70)
         if metrics["credential_disclosure_rate"] > 10:
             lines.append("  [CRITICAL] Implement mandatory caller verification procedures")
@@ -221,7 +219,7 @@ def main():
 
     print(tracker.generate_report())
     tracker.export_csv("vishing_results.csv")
-    print(f"\n[+] Results exported to vishing_results.csv")
+    print("\n[+] Results exported to vishing_results.csv")
 
 
 if __name__ == "__main__":

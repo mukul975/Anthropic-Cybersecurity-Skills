@@ -6,7 +6,6 @@ import json
 import logging
 import argparse
 import struct
-import time
 from datetime import datetime, timezone
 from collections import defaultdict
 from pathlib import Path

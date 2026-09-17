@@ -80,7 +80,7 @@ def assess_conditional_access(policies_path):
                 "issue": "Grant controls use OR (should be AND)",
                 "severity": "HIGH",
             })
-        if not policy.get("state", "").lower() in ("enabled", "on"):
+        if policy.get("state", "").lower() not in ("enabled", "on"):
             findings.append({
                 "policy": policy.get("name", ""),
                 "issue": "Policy not enabled",

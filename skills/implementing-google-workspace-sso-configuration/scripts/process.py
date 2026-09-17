@@ -11,11 +11,10 @@ Requirements:
 """
 
 import base64
-import json
 import sys
 import zlib
 from datetime import datetime, timezone
-from urllib.parse import urlencode, parse_qs, urlparse
+from urllib.parse import urlencode
 
 try:
     import requests

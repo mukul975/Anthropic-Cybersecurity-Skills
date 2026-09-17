@@ -8,7 +8,6 @@ escape detection reports from Falco JSON event streams.
 import argparse
 import json
 import subprocess
-import sys
 from datetime import datetime
 
 ESCAPE_RULE_TAGS = ["container", "escape", "T1611", "T1610", "namespace",

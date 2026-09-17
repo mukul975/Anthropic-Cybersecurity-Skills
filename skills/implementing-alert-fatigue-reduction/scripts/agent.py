@@ -111,7 +111,7 @@ def generate_tuning_recommendations(noisy_rules):
 def build_fatigue_report(service, num_analysts=6):
     """Build comprehensive alert fatigue reduction report."""
     print(f"\n{'='*60}")
-    print(f"  ALERT FATIGUE REDUCTION ANALYSIS")
+    print("  ALERT FATIGUE REDUCTION ANALYSIS")
     print(f"  Generated: {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC")
     print(f"{'='*60}\n")
 
@@ -120,7 +120,7 @@ def build_fatigue_report(service, num_analysts=6):
     capacity = calculate_analyst_capacity(service, num_analysts)
 
     if capacity:
-        print(f"--- ANALYST CAPACITY ---")
+        print("--- ANALYST CAPACITY ---")
         print(f"  Avg Daily Alerts:      {capacity['avg_daily']:.0f}")
         print(f"  Peak Daily Alerts:     {capacity['peak_daily']:.0f}")
         print(f"  Alerts/Analyst/Shift:  {capacity['per_analyst']}")
@@ -139,7 +139,7 @@ def build_fatigue_report(service, num_analysts=6):
               f"reduction={p['estimated_alert_reduction']}")
 
     tuning = generate_tuning_recommendations(noisy)
-    print(f"\n--- TUNING RECOMMENDATIONS ---")
+    print("\n--- TUNING RECOMMENDATIONS ---")
     for t in tuning[:5]:
         print(f"  {t['rule_name']} (FP: {t['fp_rate']}%):")
         for a in t["actions"]:

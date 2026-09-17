@@ -14,8 +14,6 @@ Supports Veeam, AWS Backup, and Azure Backup via API integration.
 
 import json
 import subprocess
-import sys
-import os
 import socket
 import ssl
 import datetime

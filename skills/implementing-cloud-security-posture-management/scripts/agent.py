@@ -121,22 +121,22 @@ def generate_posture_report(findings):
     pass_rate = round((1 - fail_count / max(len(findings), 1)) * 100, 1)
 
     print(f"\n{'='*60}")
-    print(f"  CSPM POSTURE REPORT")
+    print("  CSPM POSTURE REPORT")
     print(f"  Generated: {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC")
     print(f"{'='*60}\n")
 
-    print(f"--- SUMMARY ---")
+    print("--- SUMMARY ---")
     print(f"  Total Checks: {len(findings)}")
     print(f"  Failed: {fail_count}")
     print(f"  Pass Rate: {pass_rate}%\n")
 
-    print(f"--- BY SEVERITY ---")
+    print("--- BY SEVERITY ---")
     for sev in ["CRITICAL", "HIGH", "MEDIUM", "LOW"]:
         count = severity_counts.get(sev, 0)
         bar = "#" * count
         print(f"  {sev:<10} {count:>3} {bar}")
 
-    print(f"\n--- FAILED CHECKS ---")
+    print("\n--- FAILED CHECKS ---")
     for f in findings:
         if f.get("status") == "FAIL":
             print(f"  [{f['severity']}] {f['check']}: {f.get('resource', 'N/A')}")

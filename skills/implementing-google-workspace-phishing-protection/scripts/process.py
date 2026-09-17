@@ -12,7 +12,6 @@ Usage:
 
 import argparse
 import json
-import sys
 from dataclasses import dataclass, field, asdict
 
 try:

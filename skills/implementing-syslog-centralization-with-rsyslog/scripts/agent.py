@@ -125,7 +125,7 @@ def generate_tls_certificates(output_dir, server_cn, client_cns):
     subprocess.run([
         "openssl", "req", "-x509", "-newkey", "rsa:4096", "-keyout", ca_key,
         "-out", ca_cert, "-days", "3650", "-nodes",
-        "-subj", f"/CN=Syslog CA/O=SOC/C=US",
+        "-subj", "/CN=Syslog CA/O=SOC/C=US",
     ], capture_output=True, check=True, timeout=120)
     logger.info("Generated CA certificate: %s", ca_cert)
 

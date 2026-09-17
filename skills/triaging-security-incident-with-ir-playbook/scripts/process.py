@@ -19,7 +19,6 @@ import logging
 import os
 import sys
 from datetime import datetime, timezone
-from typing import Optional
 
 try:
     import requests
@@ -96,7 +95,7 @@ class IOCEnricher:
         if self.abuseipdb_key:
             try:
                 resp = requests.get(
-                    f"https://api.abuseipdb.com/api/v2/check",
+                    "https://api.abuseipdb.com/api/v2/check",
                     params={"ipAddress": ip_address, "maxAgeInDays": 90},
                     headers={"Key": self.abuseipdb_key, "Accept": "application/json"},
                     timeout=10,
@@ -355,7 +354,7 @@ def main():
     report_path = os.path.join(args.output_dir, f"triage_report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json")
     generate_triage_report(alert_data, enrichment, severity, playbook, report_path)
 
-    print(f"\nTriage Complete")
+    print("\nTriage Complete")
     print(f"Severity: {severity['severity']} ({severity['priority']})")
     print(f"Playbook: {playbook['playbook']}")
     print(f"Response SLA: {severity['response_time_sla']}")

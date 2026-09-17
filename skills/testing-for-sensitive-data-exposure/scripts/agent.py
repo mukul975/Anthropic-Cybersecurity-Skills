@@ -147,16 +147,16 @@ def check_tls_config(host):
         else:
             location = resp.headers.get("Location", "")
             if location.startswith("https://"):
-                print(f"  [+] HTTP redirects to HTTPS")
+                print("  [+] HTTP redirects to HTTPS")
     except requests.RequestException:
-        print(f"  [+] HTTP not accessible (HTTPS only)")
+        print("  [+] HTTP not accessible (HTTPS only)")
 
     try:
         resp = requests.get(f"https://{host}/", timeout=5, verify=False)
         hsts = resp.headers.get("Strict-Transport-Security", "")
         if not hsts:
             findings.append({"type": "MISSING_HSTS", "host": host, "severity": "MEDIUM"})
-            print(f"  [!] Missing HSTS header")
+            print("  [!] Missing HSTS header")
         else:
             print(f"  [+] HSTS: {hsts}")
     except requests.RequestException:

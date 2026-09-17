@@ -16,7 +16,6 @@ Usage:
     python process.py rotate --keystore ./keys --passphrase "MyKeyPass"
 """
 
-import os
 import sys
 import json
 import hashlib
@@ -26,7 +25,7 @@ import datetime
 from pathlib import Path
 from typing import Dict, Optional, Tuple
 
-from cryptography.hazmat.primitives.asymmetric import rsa, padding, utils
+from cryptography.hazmat.primitives.asymmetric import rsa, padding
 from cryptography.hazmat.primitives import hashes, serialization
 from cryptography.hazmat.backends import default_backend
 from cryptography.exceptions import InvalidSignature

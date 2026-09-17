@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 """Mimikatz Detection - Analyzes logs for T1003.001 indicators."""
 
-import json, csv, argparse, datetime, re
-from collections import defaultdict
+import json
+import csv
+import argparse
+import datetime
+import re
 from pathlib import Path
 
 DETECTION_PATTERNS = [
@@ -63,7 +66,7 @@ def run_hunt(input_path, output_dir):
     with open(Path(output_dir) / f"{slug}_findings.json", "w", encoding="utf-8") as f:
         json.dump({"hunt_id": f"TH-{datetime.date.today()}", "total_events": len(events), "findings": findings}, f, indent=2)
     with open(Path(output_dir) / "hunt_report.md", "w", encoding="utf-8") as f:
-        f.write(f"# Mimikatz Hunt Report\n\n")
+        f.write("# Mimikatz Hunt Report\n\n")
         f.write(f"**Date**: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
         f.write(f"**Findings**: {len(findings)}\n\n")
         for finding in sorted(findings, key=lambda x: x["risk_score"], reverse=True)[:20]:

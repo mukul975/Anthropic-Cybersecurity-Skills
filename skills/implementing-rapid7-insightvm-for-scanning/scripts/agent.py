@@ -146,7 +146,7 @@ def get_scan_report(base_url, user, password, scan_id):
 def format_summary(sites, vulns=None, scan_report=None):
     """Print summary."""
     print(f"\n{'='*60}")
-    print(f"  Rapid7 InsightVM Report")
+    print("  Rapid7 InsightVM Report")
     print(f"{'='*60}")
 
     if sites:
@@ -165,7 +165,7 @@ def format_summary(sites, vulns=None, scan_report=None):
             print(f"    {sev:15s}: {severity_counts[sev]}")
 
     if scan_report:
-        print(f"\n  Scan Report:")
+        print("\n  Scan Report:")
         print(f"    Status    : {scan_report.get('status', 'N/A')}")
         print(f"    Assets    : {scan_report.get('assets_discovered', 0)}")
 

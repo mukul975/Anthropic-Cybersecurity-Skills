@@ -312,7 +312,7 @@ def main():
           f"| Misconfigs: {len(scan_result.misconfigurations)}")
 
     if quality_gate["passed"]:
-        print(f"[PASS] Quality gate passed.")
+        print("[PASS] Quality gate passed.")
     else:
         print(f"[FAIL] Quality gate failed. {quality_gate['blocking_vulnerabilities']} blocking vulns.")
         for d in quality_gate["blocking_details"][:10]:

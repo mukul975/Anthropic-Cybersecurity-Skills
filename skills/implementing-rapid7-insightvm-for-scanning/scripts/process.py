@@ -17,12 +17,10 @@ Usage:
 """
 
 import argparse
-import json
 import os
 import sys
 import time
 import urllib3
-from datetime import datetime
 
 import pandas as pd
 import requests
@@ -250,7 +248,7 @@ def cmd_export_report(api, site_id, output_file):
         df.to_csv(output_file, index=False)
         print(f"\n[+] Report exported to {output_file}")
         print(f"    Total findings: {len(all_findings)}")
-        print(f"\n    Severity Distribution:")
+        print("\n    Severity Distribution:")
         print(df["severity"].value_counts().to_string())
     else:
         print("[!] No findings to export.")

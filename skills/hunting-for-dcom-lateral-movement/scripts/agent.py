@@ -7,8 +7,7 @@ import argparse
 import os
 import sys
 import subprocess
-from collections import defaultdict
-from datetime import datetime, timedelta
+from datetime import datetime
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger(__name__)
@@ -294,7 +293,7 @@ def generate_report(all_findings, dcom_audit, output_path):
     logger.info("Report saved to %s", output_path)
 
     s = report["summary"]
-    print(f"\nDCOM LATERAL MOVEMENT DETECTION REPORT")
+    print("\nDCOM LATERAL MOVEMENT DETECTION REPORT")
     print(f"  Total findings: {s['total_findings']}")
     print(f"  Critical: {s['critical']}, High: {s['high']}, Medium: {s['medium']}, Low: {s['low']}")
     if s["critical"] > 0:

@@ -55,7 +55,7 @@ def audit_devices(devices):
                 "issue": "Key expiry disabled — device never requires re-authentication",
                 "severity": "HIGH",
             })
-        if not dev.get("updateAvailable", False) is False and dev.get("updateAvailable"):
+        if dev.get("updateAvailable", False) is not False and dev.get("updateAvailable"):
             findings.append({
                 "device": hostname,
                 "issue": "Tailscale update available but not installed",
@@ -98,7 +98,7 @@ def audit_acl(acl_data):
 def run_audit(api_key, tailnet):
     """Execute Tailscale zero trust audit."""
     print(f"\n{'='*60}")
-    print(f"  TAILSCALE ZERO TRUST VPN AUDIT")
+    print("  TAILSCALE ZERO TRUST VPN AUDIT")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
 
@@ -127,7 +127,7 @@ def run_audit(api_key, tailnet):
 
     dns = client.list_dns()
     report["dns_config"] = dns
-    print(f"\n--- DNS CONFIG ---")
+    print("\n--- DNS CONFIG ---")
     for ns in dns.get("dns", []):
         print(f"  Nameserver: {ns}")
 

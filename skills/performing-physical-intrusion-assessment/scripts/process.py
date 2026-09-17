@@ -6,11 +6,9 @@ Tracks physical intrusion testing attempts, documents findings,
 and generates assessment reports with remediation recommendations.
 """
 
-import json
-import os
 from datetime import datetime
 from collections import defaultdict
-from dataclasses import dataclass, field, asdict
+from dataclasses import dataclass
 
 
 @dataclass
@@ -110,7 +108,7 @@ class PhysicalAssessmentTracker:
         lines.append(f"Date: {datetime.now().strftime('%Y-%m-%d')}")
         lines.append("=" * 70)
 
-        lines.append(f"\nSUMMARY:")
+        lines.append("\nSUMMARY:")
         lines.append(f"  Total Attempts:       {metrics['total_attempts']}")
         lines.append(f"  Successful Entries:    {metrics['successful_entries']}")
         lines.append(f"  Success Rate:          {metrics['success_rate']:.1f}%")
@@ -127,19 +125,19 @@ class PhysicalAssessmentTracker:
         )
         lines.append(f"\n  OVERALL RISK: {risk}")
 
-        lines.append(f"\nTECHNIQUE EFFECTIVENESS:")
+        lines.append("\nTECHNIQUE EFFECTIVENESS:")
         lines.append("-" * 70)
         for tech, stats in metrics["technique_breakdown"].items():
             rate = stats["success"] / stats["total"] * 100 if stats["total"] else 0
             lines.append(f"  {tech:<25} {rate:>5.1f}% ({stats['success']}/{stats['total']})")
 
-        lines.append(f"\nAREA ACCESS:")
+        lines.append("\nAREA ACCESS:")
         lines.append("-" * 70)
         for area, stats in metrics["area_breakdown"].items():
             rate = stats["success"] / stats["total"] * 100 if stats["total"] else 0
             lines.append(f"  {area:<25} {rate:>5.1f}% ({stats['success']}/{stats['total']})")
 
-        lines.append(f"\nDETAILED FINDINGS:")
+        lines.append("\nDETAILED FINDINGS:")
         lines.append("-" * 70)
         for a in sorted(self.attempts, key=lambda x: {"critical": 0, "high": 1, "medium": 2, "low": 3}.get(x.severity, 4)):
             status = "SUCCESS" if a.successful else "FAILED"
@@ -152,7 +150,7 @@ class PhysicalAssessmentTracker:
             if a.notes:
                 lines.append(f"    Notes: {a.notes}")
 
-        lines.append(f"\nREMEDIATIONS:")
+        lines.append("\nREMEDIATIONS:")
         lines.append("-" * 70)
         if metrics["success_rate"] > 50:
             lines.append("  [CRITICAL] Physical access controls require immediate review")

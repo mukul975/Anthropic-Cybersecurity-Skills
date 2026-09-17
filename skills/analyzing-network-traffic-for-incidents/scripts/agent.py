@@ -202,4 +202,4 @@ if __name__ == "__main__":
         report = generate_incident_report(pcap, beacons, lateral, exfil, dns)
         print(f"\n[*] Report summary: {json.dumps(report['findings'], indent=2)}")
     else:
-        print(f"\n[DEMO] Usage: python agent.py <capture.pcap>")
+        print("\n[DEMO] Usage: python agent.py <capture.pcap>")

@@ -6,7 +6,6 @@ Builds and analyzes detection coverage maps against the
 MITRE ATT&CK framework for SOC detection gap analysis.
 """
 
-import json
 from datetime import datetime
 
 
@@ -189,7 +188,7 @@ if __name__ == "__main__":
             bar = "#" * int(data["pct"] / 5) + "." * (20 - int(data["pct"] / 5))
             print(f"{tactic:<30} {data['covered']:<10} {data['total']:<8} [{bar}] {data['pct']}%")
 
-    print(f"\nDetection Gaps (Score < 50):")
+    print("\nDetection Gaps (Score < 50):")
     for gap in cmap.get_gaps():
         print(f"  [{gap['current_score']:>3}] {gap['technique_id']} - {gap['technique_name']} ({gap['tactic']})")
 

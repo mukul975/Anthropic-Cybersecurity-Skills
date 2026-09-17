@@ -7,7 +7,7 @@ import argparse
 from collections import Counter, defaultdict
 from datetime import datetime
 
-from scapy.all import rdpcap, DNS, DNSQR
+from scapy.all import rdpcap, DNSQR
 
 
 def shannon_entropy(data):

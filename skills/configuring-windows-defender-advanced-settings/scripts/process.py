@@ -217,17 +217,17 @@ if __name__ == "__main__":
     generate_report(settings, findings, report_path)
     print(f"Audit report: {report_path}")
 
-    print(f"\n--- Defender Configuration Audit ---")
+    print("\n--- Defender Configuration Audit ---")
     print(f"Compliance Score: {findings['score']}%")
     print(f"Compliant settings: {len(findings['compliant'])}")
     print(f"Non-compliant: {len(findings['non_compliant'])}")
-    print(f"\nASR Rules:")
+    print("\nASR Rules:")
     print(f"  Block mode: {len(findings['asr_rules']['enabled_block'])}")
     print(f"  Audit mode: {len(findings['asr_rules']['enabled_audit'])}")
     print(f"  Disabled: {len(findings['asr_rules']['disabled'])}")
     print(f"  Not configured: {len(findings['asr_rules']['missing'])}")
 
     if findings["non_compliant"]:
-        print(f"\nNon-compliant settings requiring remediation:")
+        print("\nNon-compliant settings requiring remediation:")
         for item in findings["non_compliant"]:
             print(f"  [{item['severity'].upper()}] {item['setting']}: expected={item['expected']}, actual={item['actual']}")

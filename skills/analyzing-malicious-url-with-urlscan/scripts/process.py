@@ -20,7 +20,6 @@ import time
 import os
 import hashlib
 from datetime import datetime, timezone
-from pathlib import Path
 from dataclasses import dataclass, field, asdict
 
 try:
@@ -327,7 +326,7 @@ def format_report(result: URLScanResult) -> str:
             lines.append(f"  - {ind}")
         lines.append("")
 
-    lines.append(f"[INFRASTRUCTURE]")
+    lines.append("[INFRASTRUCTURE]")
     lines.append(f"  Domains contacted: {len(result.domains_contacted)}")
     lines.append(f"  IPs contacted: {len(result.ips_contacted)}")
     lines.append(f"  Resource hashes: {len(result.resource_hashes)}")

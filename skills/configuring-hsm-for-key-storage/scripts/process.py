@@ -29,7 +29,7 @@ import logging
 import subprocess
 import platform
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, Optional
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger(__name__)

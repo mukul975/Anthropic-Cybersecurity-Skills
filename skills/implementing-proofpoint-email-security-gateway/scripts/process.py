@@ -15,9 +15,7 @@ Usage:
 import argparse
 import json
 import re
-import sys
 from dataclasses import dataclass, field, asdict
-from typing import Optional
 
 try:
     import dns.resolver
@@ -267,7 +265,7 @@ def format_report(title: str, data: dict) -> str:
     for key, value in data.items():
         if key == 'issues':
             if value:
-                lines.append(f"\n  [ISSUES]")
+                lines.append("\n  [ISSUES]")
                 for i, issue in enumerate(value, 1):
                     lines.append(f"    {i}. {issue}")
         elif isinstance(value, list):

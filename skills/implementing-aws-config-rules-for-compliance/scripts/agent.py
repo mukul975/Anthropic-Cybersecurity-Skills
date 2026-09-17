@@ -118,23 +118,23 @@ def run_compliance_audit(region="us-east-1"):
     client = get_config_client(region)
 
     print(f"\n{'='*60}")
-    print(f"  AWS CONFIG COMPLIANCE AUDIT")
+    print("  AWS CONFIG COMPLIANCE AUDIT")
     print(f"  Region: {region}")
     print(f"  Generated: {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC")
     print(f"{'='*60}\n")
 
     recorder = check_recorder_status(client)
-    print(f"--- CONFIG RECORDER ---")
+    print("--- CONFIG RECORDER ---")
     print(f"  Status: {'RECORDING' if recorder.get('recording') else 'STOPPED'}")
     print(f"  Last Status: {recorder.get('lastStatus', 'N/A')}\n")
 
     summary = get_compliance_summary(client)
-    print(f"--- COMPLIANCE SUMMARY ---")
+    print("--- COMPLIANCE SUMMARY ---")
     print(f"  Compliant:     {summary.get('compliant', 0)}")
     print(f"  Non-Compliant: {summary.get('non_compliant', 0)}")
     print(f"  Compliance:    {summary.get('compliance_pct', 0)}%\n")
 
-    print(f"--- NON-COMPLIANT DETAILS ---")
+    print("--- NON-COMPLIANT DETAILS ---")
     try:
         rules_resp = client.describe_config_rules()
         for rule in rules_resp.get("ConfigRules", []):

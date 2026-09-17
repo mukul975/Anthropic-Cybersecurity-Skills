@@ -145,7 +145,7 @@ def prioritize_defenses(profile):
 def run_threat_model(industry, existing_detections=None):
     """Run full threat modeling exercise for an industry."""
     print(f"\n{'='*60}")
-    print(f"  MITRE ATT&CK THREAT MODEL")
+    print("  MITRE ATT&CK THREAT MODEL")
     print(f"  Industry: {industry}")
     print(f"  Generated: {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC")
     print(f"{'='*60}\n")
@@ -158,24 +158,24 @@ def run_threat_model(industry, existing_detections=None):
     for actor in profile["threat_actors"]:
         print(f"  {actor['name']}: {actor['technique_count']} techniques")
 
-    print(f"\n--- TECHNIQUE SUMMARY ---")
+    print("\n--- TECHNIQUE SUMMARY ---")
     print(f"  Total technique usage: {len(profile['all_techniques'])}")
     print(f"  Unique techniques:     {len(profile['unique_techniques'])}")
 
-    print(f"\n--- TACTIC DISTRIBUTION ---")
+    print("\n--- TACTIC DISTRIBUTION ---")
     for tac, count in sorted(profile["tactic_coverage"].items(), key=lambda x: -x[1]):
         bar = "#" * min(count, 30)
         print(f"  {tac:<30} {bar} ({count})")
 
     coverage = assess_detection_coverage(profile, existing_detections or [])
-    print(f"\n--- DETECTION COVERAGE ---")
+    print("\n--- DETECTION COVERAGE ---")
     print(f"  Coverage: {coverage['coverage_pct']}%")
     print(f"  Gaps: {len(coverage['gaps'])} techniques undetected")
     if coverage["priority_gaps"]:
         print(f"  Priority gaps: {', '.join(coverage['priority_gaps'][:5])}")
 
     priorities = prioritize_defenses(profile)
-    print(f"\n--- DEFENSE PRIORITIES ---")
+    print("\n--- DEFENSE PRIORITIES ---")
     for p in priorities[:10]:
         print(f"  [{p['priority']}] {p['technique']} {p['name']} (used by {p['actor_count']} actors)")
 

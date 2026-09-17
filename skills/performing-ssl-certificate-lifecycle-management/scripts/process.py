@@ -16,9 +16,7 @@ Usage:
     python process.py verify-chain --cert ./server.crt --ca-bundle ./ca-bundle.crt
 """
 
-import os
 import ssl
-import sys
 import json
 import socket
 import argparse

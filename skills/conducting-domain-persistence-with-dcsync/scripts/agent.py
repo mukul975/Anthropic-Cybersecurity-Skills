@@ -108,7 +108,7 @@ def generate_sigma_rule():
 def run_audit(server, domain, username, password, log_file=None):
     """Run DCSync persistence audit."""
     print(f"\n{'='*60}")
-    print(f"  DCSYNC PERSISTENCE AUDIT")
+    print("  DCSYNC PERSISTENCE AUDIT")
     print(f"  Domain: {domain} | Server: {server}")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
@@ -125,7 +125,7 @@ def run_audit(server, domain, username, password, log_file=None):
             print(f"  [{e['severity']}] {e['account']} at {e['timestamp']}")
 
     sigma = generate_sigma_rule()
-    print(f"\n--- SIGMA RULE ---")
+    print("\n--- SIGMA RULE ---")
     print(f"  {sigma['title']}")
     print(f"  Level: {sigma['level']}")
 

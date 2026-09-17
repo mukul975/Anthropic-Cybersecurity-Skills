@@ -89,7 +89,7 @@ def search_alienvault_otx(group_name, otx_key=None):
     if otx_key:
         headers["X-OTX-API-KEY"] = otx_key
     try:
-        resp = requests.get(f"https://otx.alienvault.com/api/v1/pulses/search",
+        resp = requests.get("https://otx.alienvault.com/api/v1/pulses/search",
                             params={"q": group_name, "limit": 10}, headers=headers, timeout=15)
         if resp.status_code == 200:
             pulses = resp.json().get("results", [])

@@ -9,7 +9,6 @@ import json
 import csv
 import argparse
 import datetime
-import math
 from collections import defaultdict
 from pathlib import Path
 
@@ -226,7 +225,7 @@ def run_hunt(input_path: str, output_dir: str) -> None:
         }, f, indent=2)
 
     with open(output_path / "hunt_report.md", "w", encoding="utf-8") as f:
-        f.write(f"# Data Exfiltration Hunt Report\n\n")
+        f.write("# Data Exfiltration Hunt Report\n\n")
         f.write(f"**Date**: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
         f.write(f"**Volume Anomalies**: {len(vol_findings)}\n")
         f.write(f"**Cloud Exfil**: {len(cloud_findings)}\n")

@@ -69,7 +69,7 @@ def run_audit(api_token, account_id):
     """Execute Cloudflare Access audit."""
     client = CloudflareAccessClient(api_token, account_id)
     print(f"\n{'='*60}")
-    print(f"  CLOUDFLARE ACCESS ZERO TRUST AUDIT")
+    print("  CLOUDFLARE ACCESS ZERO TRUST AUDIT")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
 

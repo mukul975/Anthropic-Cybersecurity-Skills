@@ -193,7 +193,7 @@ def print_report(parsed, iocs):
     print(f"Campaigns:       {len(cats['campaigns'])}")
     print(f"Relationships:   {len(cats['relationships'])}")
     print(f"Parse Errors:    {len(parsed['parse_errors'])}")
-    print(f"\nExtracted IOCs:")
+    print("\nExtracted IOCs:")
     for ioc_type, values in iocs.items():
         if values:
             print(f"  {ioc_type}: {len(values)}")

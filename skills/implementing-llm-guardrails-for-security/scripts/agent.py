@@ -210,7 +210,7 @@ class OutputGuard:
         ]
         for indicator_pat in system_prompt_indicators:
             if re.search(indicator_pat, response):
-                violations.append(f"potential_system_prompt_leak: matched indicator pattern")
+                violations.append("potential_system_prompt_leak: matched indicator pattern")
                 break
 
         # Check for PII in output

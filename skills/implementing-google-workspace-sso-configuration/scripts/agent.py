@@ -91,7 +91,7 @@ def generate_saml_config(idp_entity_id, sso_url, slo_url, cert_path, domain):
         "saml_settings": {
             "idp_entity_id": idp_entity_id,
             "sp_entity_id": f"google.com/a/{domain}",
-            "acs_url": f"https://accounts.google.com/samlrp/acs?rpid=RPID",
+            "acs_url": "https://accounts.google.com/samlrp/acs?rpid=RPID",
             "name_id_format": "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
         },
     }

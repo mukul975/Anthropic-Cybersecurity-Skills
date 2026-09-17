@@ -221,9 +221,9 @@ if __name__ == "__main__":
 
         indicators = generate_phishing_indicators(headers, auth, hops, url_mismatches, attachments)
         if indicators:
-            print(f"\n[!] PHISHING INDICATORS:")
+            print("\n[!] PHISHING INDICATORS:")
             for ind in indicators:
                 print(f"  - {ind}")
     else:
-        print(f"\n[DEMO] Usage: python agent.py <email.eml>")
+        print("\n[DEMO] Usage: python agent.py <email.eml>")
         print("[*] Provide an EML file for phishing analysis.")

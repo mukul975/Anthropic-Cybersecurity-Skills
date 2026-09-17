@@ -7,7 +7,6 @@ S3 bucket access restriction, and forensic snapshot creation using boto3.
 """
 import argparse
 import json
-import os
 import sys
 from datetime import datetime, timezone
 
@@ -237,7 +236,7 @@ def restrict_s3_bucket(session, bucket_name):
 def format_summary(all_actions):
     """Print containment summary."""
     print(f"\n{'='*60}")
-    print(f"  Cloud Incident Containment Report")
+    print("  Cloud Incident Containment Report")
     print(f"{'='*60}")
 
     success = sum(1 for a in all_actions if a.get("status") == "OK")
@@ -246,7 +245,7 @@ def format_summary(all_actions):
     print(f"  Success  : {success}")
     print(f"  Failed   : {failed}")
 
-    print(f"\n  Actions Taken:")
+    print("\n  Actions Taken:")
     for a in all_actions:
         icon = "OK" if a["status"] == "OK" else "!!" if a["status"] == "FAIL" else "--"
         print(f"    [{icon}] {a['action']:30s} {a.get('detail', '')[:50]}")

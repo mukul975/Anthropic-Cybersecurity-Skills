@@ -143,7 +143,7 @@ def analyze_historian_logs(log_entries):
 def run_audit(args):
     """Execute historian server attack detection audit."""
     print(f"\n{'='*60}")
-    print(f"  HISTORIAN SERVER ATTACK DETECTION")
+    print("  HISTORIAN SERVER ATTACK DETECTION")
     print(f"  Generated: {datetime.utcnow().isoformat()} UTC")
     print(f"{'='*60}\n")
 
@@ -162,14 +162,14 @@ def run_audit(args):
     if args.pi_host:
         pi = check_pi_web_api(args.pi_host, args.pi_user, args.pi_pass)
         report["pi_web_api"] = pi
-        print(f"\n--- PI WEB API CHECK ---")
+        print("\n--- PI WEB API CHECK ---")
         for c in pi.get("checks", []):
             print(f"  [{c.get('severity','INFO')}] {c['check']}: {c['status']}")
 
     if args.ignition_host:
         ign = check_ignition_gateway(args.ignition_host, args.ignition_port or 8088)
         report["ignition_gateway"] = ign
-        print(f"\n--- IGNITION GATEWAY CHECK ---")
+        print("\n--- IGNITION GATEWAY CHECK ---")
         print(f"  Accessible: {ign.get('gateway_accessible', False)}")
         if ign.get("finding"):
             print(f"  [{ign['severity']}] {ign['finding']}")

@@ -152,19 +152,19 @@ def generate_nac_policy_check():
 def run_nac_audit(radius_log=None, switch_ip=None, community="public"):
     """Run NAC security audit."""
     print(f"\n{'='*60}")
-    print(f"  NETWORK ACCESS CONTROL AUDIT")
+    print("  NETWORK ACCESS CONTROL AUDIT")
     print(f"  Generated: {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC")
     print(f"{'='*60}\n")
 
     policies = generate_nac_policy_check()
-    print(f"--- NAC POLICY CHECKLIST ---")
+    print("--- NAC POLICY CHECKLIST ---")
     for p in policies:
         print(f"  [ ] {p['check']}: {p['requirement']} ({p['standard']})")
 
     if radius_log:
         events = parse_radius_log(radius_log)
         analysis = analyze_auth_events(events)
-        print(f"\n--- RADIUS AUTH ANALYSIS ---")
+        print("\n--- RADIUS AUTH ANALYSIS ---")
         print(f"  Total Events:  {analysis['total_events']}")
         print(f"  Successes:     {analysis['successes']}")
         print(f"  Failures:      {analysis['failures']}")

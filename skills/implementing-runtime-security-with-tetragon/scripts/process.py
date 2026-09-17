@@ -11,8 +11,8 @@ import json
 import sys
 import subprocess
 import argparse
-from datetime import datetime, timedelta
-from collections import Counter, defaultdict
+from datetime import datetime
+from collections import Counter
 from pathlib import Path
 
 
@@ -267,7 +267,7 @@ def generate_report(events: list[dict], output_format: str = "text") -> str:
     for p in policies:
         lines.append(f"  - {p['name']} (kprobes: {p['kprobes']}, tracepoints: {p['tracepoints']})")
 
-    lines.append(f"\n## Event Summary")
+    lines.append("\n## Event Summary")
     lines.append(f"  Total Events: {summary['total_events']}")
     lines.append("  Event Types:")
     for etype, count in summary["event_types"].items():

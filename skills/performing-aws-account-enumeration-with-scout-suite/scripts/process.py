@@ -9,7 +9,6 @@ summary reports for AWS security posture assessment.
 import json
 import subprocess
 import sys
-import os
 from datetime import datetime
 from pathlib import Path
 from collections import defaultdict
@@ -120,13 +119,13 @@ def generate_report(findings_summary, service_summary, output_file=None):
     warning_count = len(findings_summary["warning"])
     good_count = len(findings_summary["good"])
 
-    report_lines.append(f"\n## Executive Summary")
+    report_lines.append("\n## Executive Summary")
     report_lines.append(f"  Critical Findings : {danger_count}")
     report_lines.append(f"  Warning Findings  : {warning_count}")
     report_lines.append(f"  Passing Checks    : {good_count}")
 
     # Service breakdown
-    report_lines.append(f"\n## Service Breakdown")
+    report_lines.append("\n## Service Breakdown")
     report_lines.append(f"{'Service':<20} {'Danger':<10} {'Warning':<10} {'Good':<10}")
     report_lines.append("-" * 50)
     for service, counts in sorted(service_summary.items()):
@@ -136,7 +135,7 @@ def generate_report(findings_summary, service_summary, output_file=None):
 
     # Critical findings detail
     if findings_summary["danger"]:
-        report_lines.append(f"\n## Critical Findings (Requires Immediate Action)")
+        report_lines.append("\n## Critical Findings (Requires Immediate Action)")
         report_lines.append("-" * 50)
         for finding in sorted(findings_summary["danger"], key=lambda x: x["flagged_items"], reverse=True):
             report_lines.append(f"\n  [{finding['service'].upper()}] {finding['id']}")
@@ -147,7 +146,7 @@ def generate_report(findings_summary, service_summary, output_file=None):
 
     # Warning findings
     if findings_summary["warning"]:
-        report_lines.append(f"\n## Warning Findings")
+        report_lines.append("\n## Warning Findings")
         report_lines.append("-" * 50)
         for finding in sorted(findings_summary["warning"], key=lambda x: x["flagged_items"], reverse=True)[:20]:
             report_lines.append(f"\n  [{finding['service'].upper()}] {finding['id']}")

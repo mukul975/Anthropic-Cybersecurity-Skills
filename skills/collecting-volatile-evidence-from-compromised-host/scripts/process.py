@@ -28,7 +28,6 @@ import socket
 import subprocess
 import sys
 from datetime import datetime, timezone
-from pathlib import Path
 
 try:
     import psutil
@@ -409,7 +408,7 @@ def main():
     collector.collect_environment_variables()
 
     evidence_dir = collector.finalize()
-    print(f"\nEvidence collection complete")
+    print("\nEvidence collection complete")
     print(f"Output directory: {evidence_dir}")
     print(f"Total items: {len(collector.evidence_manifest)}")
 

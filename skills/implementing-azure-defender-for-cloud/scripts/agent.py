@@ -129,20 +129,20 @@ def run_defender_audit(subscription_id):
     client = get_security_client(subscription_id)
 
     print(f"\n{'='*60}")
-    print(f"  MICROSOFT DEFENDER FOR CLOUD AUDIT")
+    print("  MICROSOFT DEFENDER FOR CLOUD AUDIT")
     print(f"  Subscription: {subscription_id}")
     print(f"  Generated: {datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC")
     print(f"{'='*60}\n")
 
     plans = get_pricing_tiers(client)
-    print(f"--- DEFENDER PLANS ---")
+    print("--- DEFENDER PLANS ---")
     for p in plans:
         tier_icon = "[ON]" if p["tier"] == "Standard" else "[OFF]"
         print(f"  {tier_icon} {p['name']}: {p['tier']}"
               f"{' (' + p['sub_plan'] + ')' if p['sub_plan'] else ''}")
 
     scores = get_secure_score(client)
-    print(f"\n--- SECURE SCORE ---")
+    print("\n--- SECURE SCORE ---")
     for s in scores:
         bar = "#" * int(s["percentage"] / 2)
         print(f"  {s['name']}: {s['current']}/{s['max']} ({s['percentage']}%) {bar}")
@@ -163,7 +163,7 @@ def run_defender_audit(subscription_id):
         print(f"  [{a['severity']}] {a['name']} ({a['time']})")
 
     compliance = get_regulatory_compliance(client)
-    print(f"\n--- REGULATORY COMPLIANCE ---")
+    print("\n--- REGULATORY COMPLIANCE ---")
     for c in compliance:
         if "error" not in c:
             print(f"  {c['name']}: {c['state']} (P:{c['passed']} F:{c['failed']} S:{c['skipped']})")

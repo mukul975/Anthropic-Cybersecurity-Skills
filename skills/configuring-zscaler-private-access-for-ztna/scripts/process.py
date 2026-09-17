@@ -9,9 +9,7 @@ Requirements:
     pip install requests
 """
 
-import json
 import sys
-import time
 from datetime import datetime, timezone
 from typing import Any
 

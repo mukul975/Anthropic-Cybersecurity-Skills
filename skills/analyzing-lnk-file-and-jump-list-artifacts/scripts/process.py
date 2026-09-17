@@ -10,9 +10,7 @@ import struct
 import os
 import sys
 import json
-import csv
 from datetime import datetime, timedelta
-from pathlib import Path
 
 
 FILETIME_EPOCH = datetime(1601, 1, 1)
