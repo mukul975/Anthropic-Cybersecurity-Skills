@@ -65,6 +65,10 @@ jobs:
       - name: Detect skill collisions
         run: python3 tools/detect-collisions.py --max-unreviewed 55
 
+      - name: Validate skill quality with Python
+        run: |
+          python3 tools/skill_quality_validator.py --all
+
       - name: Check for duplicate skill names
         run: |
           python3 << 'EOF'
