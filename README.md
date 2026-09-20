@@ -52,7 +52,7 @@ Each skill maps to the frameworks that fit its subject — ATT&CK and NIST CSF a
 | [NIST CSF 2.0](https://www.nist.gov/cyberframework) | 2.0 | 6 functions · 22 categories · 106 subcategories | Organizational security posture |
 | [MITRE ATLAS](https://atlas.mitre.org) | 2026.07 | 101 techniques · 77 sub-techniques | AI/ML adversarial threats |
 | [MITRE D3FEND](https://d3fend.mitre.org) | v1.4.0 | 270 techniques | Defensive countermeasures |
-| [NIST AI RMF](https://airc.nist.gov/AI_RMF) | 1.0 | 4 functions (Govern/Map/Measure/Manage) | AI risk management |
+| [NIST AI RMF](https://www.nist.gov/itl/ai-risk-management-framework) | 1.0 | 4 functions (Govern/Map/Measure/Manage) | AI risk management |
 | [MITRE F3 (Fight Fraud Framework)](https://ctid.mitre.org/fraud/) | v1.1 (2026-04-09) | 8 tactics · 123 techniques · 94 fraud-relevant skills | Cyber-enabled financial fraud TTPs |
 
 **Example — each skill maps only to the frameworks relevant to it (one may hit all six, another just a couple):**
