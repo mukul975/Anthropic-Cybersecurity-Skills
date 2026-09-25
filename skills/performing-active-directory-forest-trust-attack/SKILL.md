@@ -6,7 +6,7 @@ description: Enumerate and audit Active Directory forest trust relationships usi
   multi-forest AD environments or auditing forest trusts for cross-forest privilege
   escalation and trust ticket forgery exposure.
 domain: cybersecurity
-subdomain: red-team
+subdomain: red-teaming
 tags:
 - active-directory
 - forest-trust

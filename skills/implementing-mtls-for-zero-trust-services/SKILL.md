@@ -7,7 +7,7 @@ description: 'Configures mutual TLS (mTLS) authentication between microservices 
 
   '
 domain: cybersecurity
-subdomain: security-operations
+subdomain: soc-operations
 tags:
 - mtls
 - zero-trust

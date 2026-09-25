@@ -6,7 +6,7 @@ description: Automates GoPhish phishing simulation campaigns using the Python go
   such as open rates, click rates, and credential submission statistics. Use when
   running an authorized phishing simulation or security awareness assessment via GoPhish.
 domain: cybersecurity
-subdomain: security-operations
+subdomain: soc-operations
 tags:
 - red-teaming
 - phishing-simulation

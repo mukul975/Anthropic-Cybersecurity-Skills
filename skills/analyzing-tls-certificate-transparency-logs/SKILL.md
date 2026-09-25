@@ -7,7 +7,7 @@ description: 'Queries Certificate Transparency logs via crt.sh and pycrtsh to de
 
   '
 domain: cybersecurity
-subdomain: security-operations
+subdomain: soc-operations
 tags:
 - certificate-transparency
 - ct-logs

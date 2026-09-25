@@ -9,7 +9,7 @@ description: 'Implements security monitoring using Datadog Cloud SIEM, Cloud Sec
 
   '
 domain: cybersecurity
-subdomain: security-operations
+subdomain: soc-operations
 tags:
 - siem
 - security-monitoring

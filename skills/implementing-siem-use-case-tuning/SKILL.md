@@ -7,7 +7,7 @@ description: Tune SIEM detection rules in Splunk and Elastic to reduce false pos
   searches or detection rules, or when measuring and reporting alert-to-incident
   conversion rates.
 domain: cybersecurity
-subdomain: security-operations
+subdomain: soc-operations
 tags:
 - siem
 - detection-engineering

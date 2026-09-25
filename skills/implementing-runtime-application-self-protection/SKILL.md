@@ -4,7 +4,7 @@ description: Deploy Runtime Application Self-Protection (RASP) agents to detect 
   block attacks from within application runtime, covering OpenRASP integration, attack
   pattern detection, and security policy configuration for Java and Python web applications.
 domain: cybersecurity
-subdomain: application-security
+subdomain: web-application-security
 tags:
 - rasp
 - application-security

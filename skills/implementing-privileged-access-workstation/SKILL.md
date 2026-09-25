@@ -7,7 +7,7 @@ description: Design and implement Privileged Access Workstations (PAWs) using th
   admin endpoints, designing a tiered administration model, or securing privileged
   administrative operations.
 domain: cybersecurity
-subdomain: identity-and-access-management
+subdomain: identity-access-management
 tags:
 - privileged-access
 - PAW

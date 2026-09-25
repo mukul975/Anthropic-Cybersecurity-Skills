@@ -44,7 +44,7 @@ This repo contains **818 structured cybersecurity skills** spanning **34 securit
 
 ## Six frameworks, one skill library
 
-Each skill maps to the frameworks that fit its subject — ATT&CK and NIST CSF are near-universal, while ATLAS, AI RMF, D3FEND, and F3 apply where they're relevant. **Framework coverage across the 817 skills:** MITRE ATT&CK **805** · NIST CSF 2.0 **804** · MITRE D3FEND **139** · NIST AI RMF **97** · MITRE F3 **94** · MITRE ATLAS **93**.
+Each skill maps to the frameworks that fit its subject — ATT&CK and NIST CSF are near-universal, while ATLAS, AI RMF, D3FEND, and F3 apply where they're relevant. **Framework coverage across the 818 skills:** MITRE ATT&CK **806** · NIST CSF 2.0 **805** · MITRE D3FEND **139** · NIST AI RMF **97** · MITRE F3 **94** · MITRE ATLAS **93**.
 
 | Framework | Version | Framework scope | What it maps |
 |---|---|---|---|
@@ -74,7 +74,7 @@ F3 v1.1 adds **two fraud-specific tactics** that ATT&CK does not enumerate:
 
 Fraud-specific techniques use `F1XXX` IDs (e.g. `F1005.003` Add Beneficiary, `F1025.003` Wire Transfer, `F1007` Adversary-in-the-Browser); reused ATT&CK techniques keep their `T1XXX` IDs. Mappings live in each skill's `mitre_f3:` frontmatter block — all 123 F3 v1.1 technique IDs were verified against the upstream STIX bundle. See [`docs/mitre-f3-mapping.md`](docs/mitre-f3-mapping.md) for the schema.
 
-### MITRE ATT&CK v19.1 — 805/817 skills mapped
+### MITRE ATT&CK v19.1 — 806/818 skills mapped
 
 Every skill carries a `mitre_attack` frontmatter list validated against **MITRE ATT&CK v19.1** (the latest release) using the official `mitreattack-python` library — 290 distinct techniques and sub-techniques (146 base + 144 sub) across Enterprise, ICS, and Mobile. Zero revoked or deprecated IDs. v19.1's restructured Defense Evasion (now split into **Stealth** and **Defense Impairment**) is reflected below.
 
@@ -173,7 +173,7 @@ Existing security tool repos give you wordlists, payloads, or exploit code. None
 | AI Security | 14 | LLM red-teaming (garak/PyRIT) · prompt injection · MCP/agentic security · guardrails |
 | Mobile Security | 13 | Android/iOS analysis · mobile pentesting · MDM forensics |
 | Ransomware Defense | 13 | Precursor detection · response · recovery · encryption analysis |
-| Compliance & Governance | 10 | NIST 800-30/RMF · CMMC · HIPAA · TPRM · CIS benchmarks |
+| Compliance & Governance | 11 | NIST 800-30/RMF · CMMC · HIPAA · TPRM · CIS benchmarks |
 | Supply Chain Security | 8 | SBOMs · dependency confusion · malicious-package triage · SLSA/Sigstore |
 | Threat Detection | 7 | Credential dumping · golden-ticket forgery · pass-the-ticket · LOLBAS · UEBA insider signals |
 | Hardware & Firmware Security | 6 | CHIPSEC/UEFI audit · Secure Boot bypass · TPM attestation · bootkit hunting |
@@ -184,7 +184,7 @@ Existing security tool repos give you wordlists, payloads, or exploit code. None
 | Data Protection | 1 | Data loss prevention with Microsoft Purview |
 | Purple Team | 1 | Atomic Red Team purple-team testing |
 
-*817 skills across 34 domains. Counts come from the `subdomain` field in each skill's frontmatter.*
+*818 skills across 34 domains. Counts come from the `subdomain` field in each skill's frontmatter.*
 
 ## How AI agents use these skills
 

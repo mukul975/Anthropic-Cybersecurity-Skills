@@ -8,7 +8,7 @@ description: 'Detects DNS tunneling by computing Shannon entropy of DNS query na
 
   '
 domain: cybersecurity
-subdomain: security-operations
+subdomain: soc-operations
 tags:
 - dns-tunneling
 - exfiltration-detection

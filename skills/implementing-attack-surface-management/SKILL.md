@@ -9,7 +9,7 @@ description: 'Implements external attack surface management (EASM) using Shodan,
 
   '
 domain: cybersecurity
-subdomain: offensive-security
+subdomain: penetration-testing
 tags:
 - attack-surface
 - reconnaissance

@@ -7,7 +7,7 @@ description: Configure rsyslog for centralized log collection with TLS encryptio
   syslog pipeline, hardening rsyslog client/server configs for high-availability log
   infrastructure, or troubleshooting TLS-based syslog forwarding.
 domain: cybersecurity
-subdomain: security-operations
+subdomain: soc-operations
 tags:
 - syslog
 - rsyslog

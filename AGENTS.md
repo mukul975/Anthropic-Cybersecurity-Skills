@@ -4,7 +4,7 @@ Instructions for AI agents working in this repository.
 
 ## What this repository is
 
-A library of 817 cybersecurity skills. Each skill is a directory under `skills/` containing a `SKILL.md` — YAML frontmatter plus a Markdown procedure — following the [agentskills.io](https://agentskills.io) standard.
+A library of 818 cybersecurity skills. Each skill is a directory under `skills/` containing a `SKILL.md` — YAML frontmatter plus a Markdown procedure — following the [agentskills.io](https://agentskills.io) standard.
 
 The layout is flat: `skills/<skill-name>/SKILL.md`. Do not nest skills by domain; agents discover them by scanning `skills/*/SKILL.md`.
 

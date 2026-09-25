@@ -7,7 +7,7 @@ description: 'Deploys canary tokens and honeytokens (fake AWS credentials, DNS c
 
   '
 domain: cybersecurity
-subdomain: security-operations
+subdomain: soc-operations
 tags:
 - deception-technology
 - honeytokens

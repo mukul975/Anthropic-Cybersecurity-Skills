@@ -4,7 +4,7 @@ This document defines what belongs in this repository and what does not.
 
 It exists so the answer is available *before* the work is done rather than after it. Several of the pull requests I have had to decline were good work aimed at the wrong repository, and that is a documentation failure on my side, not a failure on the contributor's.
 
-This repository is a catalogue. It holds cybersecurity procedures — 817 of them today — written so that an AI agent can read one and carry out a security task competently. Everything that ships here serves that one purpose. Work that does not serve it is out of scope regardless of how good it is, and is usually better off in its own repository, where it can be versioned, released and credited on its own terms.
+This repository is a catalogue. It holds cybersecurity procedures — 818 of them today — written so that an AI agent can read one and carry out a security task competently. Everything that ships here serves that one purpose. Work that does not serve it is out of scope regardless of how good it is, and is usually better off in its own repository, where it can be versioned, released and credited on its own terms.
 
 ## These rules apply going forward
 
@@ -29,11 +29,11 @@ skills/your-skill-name/
 └── assets/           # optional: template.md, filled-in checklists
 ```
 
-The namespace is flat and global. `skills/` is not nested by category; the category lives in the `subdomain` frontmatter field, which must be one of the values accepted by `tools/validate-skill.py`. All 817 skills today carry `SKILL.md`, `references/` and `scripts/`; 816 carry a `LICENSE` and 421 also carry `assets/`. The most common supporting files are `references/api-reference.md` (810 skills) and `scripts/agent.py` (809).
+The namespace is flat and global. `skills/` is not nested by category; the category lives in the `subdomain` frontmatter field, which must be one of the values accepted by `tools/validate-skill.py`. All 818 skills today carry `SKILL.md`, `references/` and `scripts/`; 817 carry a `LICENSE` and 288 also carry `assets/`. The most common supporting files are `references/api-reference.md` (811 skills) and `scripts/agent.py` (809).
 
 A submission is a skill when all of the following hold.
 
-**It is a procedure, not a subject.** By convention the directory name is a gerund phrase naming the task — `analyzing-…`, `detecting-…`, `implementing-…`, `hunting-…`, `performing-…` — and 807 of the 817 current names follow it. CI enforces kebab-case, not the gerund, so treat this as the house style rather than a gate. Background material about a topic belongs in a skill's `references/`, not in a directory of its own.
+**It is a procedure, not a subject.** By convention the directory name is a gerund phrase naming the task — `analyzing-…`, `detecting-…`, `implementing-…`, `hunting-…`, `performing-…` — and 811 of the 818 current names follow it. CI enforces kebab-case, not the gerund, so treat this as the house style rather than a gate. Background material about a topic belongs in a skill's `references/`, not in a directory of its own.
 
 **It is atomic.** One procedure per skill. A body carrying three unrelated workflows is either three skills, or one skill and two reference files.
 
@@ -63,7 +63,7 @@ Offensive skills are in scope on exactly the same terms as everything else, subj
 
 **Editor, IDE and per-contributor configuration.** `.vscode/` settings, local linter configs and vendor extension settings encode one contributor's environment on everyone else. Agent instruction files are the single exception and they are maintainer-owned — `.github/copilot-instructions.md` exists and is maintained in place. Changes to that class of file should start as an issue, not as a new parallel file.
 
-**Product-shaped skills.** A skill may absolutely be tool-specific: 247 of the 817 names carry a `-with-<tool>` qualifier, and `scanning-docker-images-with-trivy` is exactly right, because the flags, the output formats and the failure modes genuinely differ by tool. What does not belong is a directory whose *subject* is a product rather than a task — a feature tour, an onboarding walkthrough, or an integration write-up for one vendor's service. The test: if the vendor vanished tomorrow and nothing of the procedure survived, it was a product page. When a skill does name a commercial tool, the vendor-link rules in CONTRIBUTING.md apply.
+**Product-shaped skills.** A skill may absolutely be tool-specific: 247 of the 818 names carry a `-with-<tool>` qualifier, and `scanning-docker-images-with-trivy` is exactly right, because the flags, the output formats and the failure modes genuinely differ by tool. What does not belong is a directory whose *subject* is a product rather than a task — a feature tour, an onboarding walkthrough, or an integration write-up for one vendor's service. The test: if the vendor vanished tomorrow and nothing of the procedure survived, it was a product page. When a skill does name a commercial tool, the vendor-link rules in CONTRIBUTING.md apply.
 
 **Bulk imports.** A pull request adding many skills at once cannot be reviewed for technical accuracy at the depth this catalogue needs, and one wrong procedure blocks all the others. One skill per pull request; see CONTRIBUTING.md.
 

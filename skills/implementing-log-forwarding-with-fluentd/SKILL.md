@@ -8,7 +8,7 @@ description: >-
   aggregation across distributed infrastructure or generating Fluent Bit/Fluentd
   configuration files for a new log pipeline.
 domain: cybersecurity
-subdomain: security-operations
+subdomain: soc-operations
 tags:
 - fluentd
 - fluent-bit

@@ -91,7 +91,7 @@ A PR that adds more than one skill directory will be asked to split. It is not a
 
 ## Overlap with an existing skill
 
-The catalogue currently has 55 unreviewed near-duplicate description pairs, involving 94 of the 817 skills. Overlapping descriptions are not a cosmetic problem: when two descriptions look alike, the agent picks the wrong one, and both skills get less useful.
+The catalogue currently has 55 unreviewed near-duplicate description pairs, involving 94 of the 818 skills. Overlapping descriptions are not a cosmetic problem: when two descriptions look alike, the agent picks the wrong one, and both skills get less useful.
 
 Until that backlog is worked down, **a new skill that overlaps an existing one will usually be asked to extend the existing skill instead.** Adding depth to `performing-firmware-extraction-with-binwalk` is worth more to this catalogue right now than a second firmware-extraction skill beside it. That redirect is about where the work lands, not about its quality — an extension PR carries the same authorship and gets the same credit.
 
@@ -148,7 +148,7 @@ The failure mode to guard against is a generated procedure that was never execut
 
 ## Subdomains
 
-Choose the most appropriate subdomain for your skill. `tools/validate-skill.py` is the source of truth; these 34 are the canonical values. A handful of older aliases are still accepted for existing skills and are listed beside their canonical form — the validator prints a warning for them, and new skills should use the canonical value.
+Choose the most appropriate subdomain for your skill. `tools/validate-skill.py` is the source of truth; these 34 are the canonical values. All current skills already use the canonical value. A handful of older aliases remain accepted by the validator as a safety net and are listed beside their canonical form — the validator prints a warning for any that reappear, so new skills should use the canonical value.
 
 - `ai-security`
 - `api-security`

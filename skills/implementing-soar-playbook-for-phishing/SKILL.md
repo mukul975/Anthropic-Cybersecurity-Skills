@@ -6,7 +6,7 @@ description: Automates phishing incident response by calling the Splunk SOAR (Ph
   playbook, ingesting a suspected phishing report into SOAR, or automating containment
   and triage for phishing incidents.
 domain: cybersecurity
-subdomain: security-operations
+subdomain: soc-operations
 tags:
 - soar
 - splunk-phantom

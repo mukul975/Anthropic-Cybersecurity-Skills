@@ -8,7 +8,7 @@ description: 'Performs Linux memory acquisition using LiME (Linux Memory Extract
 
   '
 domain: cybersecurity
-subdomain: security-operations
+subdomain: soc-operations
 tags:
 - memory-forensics
 - linux-forensics

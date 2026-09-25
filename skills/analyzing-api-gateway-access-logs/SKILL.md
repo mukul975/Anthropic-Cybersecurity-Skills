@@ -7,7 +7,7 @@ description: 'Parses API Gateway access logs (AWS API Gateway, Kong, Nginx) to d
 
   '
 domain: cybersecurity
-subdomain: security-operations
+subdomain: soc-operations
 tags:
 - api-security
 - access-log-analysis

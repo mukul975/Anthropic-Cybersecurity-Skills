@@ -8,7 +8,7 @@ description: 'Integrates SAST, DAST, and SCA into CI/CD pipelines using Semgrep 
 
   '
 domain: cybersecurity
-subdomain: application-security
+subdomain: web-application-security
 tags:
 - devsecops
 - SAST
