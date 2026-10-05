@@ -119,15 +119,24 @@ class WazuhDetectionAgent:
             "location": "test",
             "event": log_line,
         })
-        if not data:
+        if not isinstance(data, dict) or data.get("error") != 0:
             return {"error": "Logtest failed"}
-        result = data.get("data", {})
+        result = data.get("data")
+        if not isinstance(result, dict):
+            return {"error": "Invalid logtest response"}
+        output = result.get("output")
+        if not isinstance(output, dict):
+            return {"error": "Invalid logtest output"}
+        decoder = output.get("decoder", {})
+        rule = output.get("rule", {})
+        if not isinstance(decoder, dict) or not isinstance(rule, dict):
+            return {"error": "Invalid logtest detection metadata"}
         return {
-            "decoder": result.get("decoder", {}).get("name"),
-            "rule_id": result.get("rule", {}).get("id"),
-            "rule_description": result.get("rule", {}).get("description"),
-            "rule_level": result.get("rule", {}).get("level"),
-            "output": result.get("output"),
+            "decoder": decoder.get("name"),
+            "rule_id": rule.get("id"),
+            "rule_description": rule.get("description"),
+            "rule_level": rule.get("level"),
+            "output": output,
         }
 
     def check_vulnerability_detection(self):
