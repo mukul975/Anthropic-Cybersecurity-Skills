@@ -28,6 +28,23 @@ token = resp.json()["data"]["token"]
 headers = {"Authorization": f"Bearer {token}"}
 ```
 
+## Helper password input
+
+The helper accepts `WAZUH_API_PASSWORD` for automated runs. Set it through your
+normal secret management process rather than putting a password into a command
+or a committed file. If that variable is absent, the helper requests a password
+through a hidden terminal prompt:
+
+```sh
+python skills/implementing-endpoint-detection-with-wazuh/scripts/agent.py https://wazuh:55000 --username wazuh-wui
+```
+
+An empty password or a terminal that cannot hide input stops the command before
+authentication. Cancelling the prompt exits 130. The existing `--password` option
+is retained for compatibility and takes precedence over the environment, but it
+can expose the value in shell history and process arguments. Environment variables
+also need appropriate handling on the host; this option isn't a secret vault.
+
 ## Custom Rule XML Syntax
 
 ```xml

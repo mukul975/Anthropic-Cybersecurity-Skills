@@ -7,8 +7,10 @@ Wazuh REST API.
 """
 
 import argparse
+import getpass
 import json
 import os
+import warnings
 from datetime import datetime
 from pathlib import Path
 
@@ -172,18 +174,50 @@ class WazuhDetectionAgent:
         return report
 
 
-def main():
+def read_password(argument):
+    """Prefer the environment or a hidden prompt over a command argument."""
+    if argument is not None:
+        password = argument
+    elif "WAZUH_API_PASSWORD" in os.environ:
+        password = os.environ["WAZUH_API_PASSWORD"]
+    else:
+        try:
+            # Refuse getpass's echoed fallback when no private terminal exists.
+            with warnings.catch_warnings():
+                warnings.simplefilter("error", getpass.GetPassWarning)
+                password = getpass.getpass("Wazuh API password: ")
+        except (EOFError, OSError, getpass.GetPassWarning):
+            raise ValueError(
+                "Cannot read a hidden password; set WAZUH_API_PASSWORD "
+                "through your secret management process."
+            ) from None
+    if not password:
+        raise ValueError("Wazuh API password must not be empty.")
+    return password
+
+
+def main(argv=None):
     parser = argparse.ArgumentParser(
         description="Manage Wazuh endpoint detection and query alerts"
     )
     parser.add_argument("wazuh_url", help="Wazuh API URL (e.g. https://wazuh:55000)")
     parser.add_argument("--username", default="wazuh-wui", help="API username")
-    parser.add_argument("--password", required=True, help="API password")
+    parser.add_argument(
+        "--password", help="Legacy API password argument; prefer WAZUH_API_PASSWORD "
+        "or the hidden prompt to avoid exposing the password in process arguments"
+    )
     parser.add_argument("--output-dir", default="./wazuh_detection")
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
+
+    try:
+        password = read_password(args.password)
+    except ValueError as exc:
+        parser.error(str(exc))
+    except KeyboardInterrupt:
+        parser.exit(130, "Password entry cancelled.\n")
 
     os.makedirs(args.output_dir, exist_ok=True)
-    agent = WazuhDetectionAgent(args.wazuh_url, args.username, args.password,
+    agent = WazuhDetectionAgent(args.wazuh_url, args.username, password,
                                 output_dir=args.output_dir)
     agent.generate_report()
 
