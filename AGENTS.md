@@ -27,9 +27,10 @@ python tools/validate-agentskills.py --strict
 python tools/generate-index.py          # regenerate index.json
 python tools/lint-descriptions.py --all
 python tools/detect-collisions.py
+python tools/check-scripts.py           # compile every scripts/*.py
 ```
 
-All five run in CI. `index.json` is generated — never edit it by hand.
+All of these run in CI. `index.json` is generated — never edit it by hand.
 
 ## Writing a description
 

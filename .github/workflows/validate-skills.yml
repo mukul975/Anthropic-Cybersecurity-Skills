@@ -65,6 +65,12 @@ jobs:
       - name: Detect skill collisions
         run: python3 tools/detect-collisions.py --max-unreviewed 55
 
+      # SCOPE.md requires every script to run. compile() each scripts/*.py
+      # (and *.ps1 when pwsh is present) so a script that does not even parse
+      # cannot merge -- without importing, executing, or writing bytecode.
+      - name: Compile-check helper scripts
+        run: python3 tools/check-scripts.py
+
       - name: Check for duplicate skill names
         run: |
           python3 << 'EOF'
