@@ -1,11 +1,6 @@
 ---
 name: implementing-identity-verification-for-zero-trust
-description: Implements continuous, risk-adaptive identity verification for zero trust
-  using phishing-resistant MFA (FIDO2/WebAuthn), risk-based conditional access, and
-  identity governance aligned with NIST SP 800-207 and the CISA Zero Trust Maturity
-  Model Identity Pillar. Use when designing zero trust identity controls, deploying
-  phishing-resistant MFA, or building conditional access policies based on device
-  posture, behavior, and location.
+description: "Implements continuous, risk-adaptive identity verification for zero trust using phishing-resistant MFA (FIDO2/WebAuthn), risk-based conditional access, and identity governance aligned with NIST SP 800-207 and the CISA Identity Pillar. Use when designing zero trust identity controls or deploying phishing-resistant MFA and conditional access. Keywords: FIDO2, WebAuthn, phishing-resistant MFA, risk-based conditional access, identity governance. Do not use for the device pillar with endpoint posture signals - use implementing-device-posture-assessment-in-zero-trust; for the overall maturity roadmap - use implementing-cisa-zero-trust-maturity-model."
 domain: cybersecurity
 subdomain: zero-trust-architecture
 tags:

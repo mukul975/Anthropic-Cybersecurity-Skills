@@ -1,6 +1,6 @@
 ---
 name: implementing-zero-trust-with-hashicorp-boundary
-description: Installs and configures HashiCorp Boundary as a default-deny, identity-aware proxy for infrastructure access, including controller/worker setup, Vault-backed credential brokering, session recording, and OIDC/LDAP auth across an org/project scope hierarchy. Use when replacing VPN or direct network access with just-in-time, credential-less Boundary sessions, or standing up Boundary controllers and workers.
+description: "Installs and configures HashiCorp Boundary as a default-deny, identity-aware proxy for infrastructure access, including controller and worker setup, Vault-backed credential brokering, session recording, and OIDC/LDAP auth across an org and project scope hierarchy. Use when replacing VPN or direct network access with just-in-time, credential-less Boundary sessions. Keywords: HashiCorp Boundary, Vault credential brokering, session recording, OIDC, just-in-time access. Do not use for a SaaS ZTNA broker to web apps - use configuring-zscaler-private-access-for-ztna; for a WireGuard mesh VPN - use deploying-tailscale-for-zero-trust-vpn."
 domain: cybersecurity
 subdomain: zero-trust-architecture
 tags:

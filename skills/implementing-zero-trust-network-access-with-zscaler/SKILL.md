@@ -1,6 +1,6 @@
 ---
 name: implementing-zero-trust-network-access-with-zscaler
-description: Configures Zero Trust Network Access using Zscaler Private Access (ZPA) to broker identity-based, context-aware connections between authenticated users and internal applications through the Zscaler Zero Trust Exchange, without placing users on the corporate network. Use when replacing traditional VPN architectures with ZTNA, or when brokering secure per-application access for remote and hybrid users via Zscaler.
+description: "Designs Zero Trust Network Access using Zscaler Private Access (ZPA) to broker identity-based, context-aware connections through the Zscaler Zero Trust Exchange, keeping users off the corporate network. Use for the ZTNA architecture decision of choosing and framing Zscaler brokering for per-application access, rather than the hands-on connector setup. Keywords: Zscaler Zero Trust Exchange, ZPA, ZTNA architecture, per-application access, user brokering. Do not use for the hands-on ZPA App Connector and application-segment configuration - use configuring-zscaler-private-access-for-ztna; for SASE with SWG, CASB, and FWaaS - use deploying-palo-alto-prisma-access-zero-trust."
 domain: cybersecurity
 subdomain: zero-trust-architecture
 tags:

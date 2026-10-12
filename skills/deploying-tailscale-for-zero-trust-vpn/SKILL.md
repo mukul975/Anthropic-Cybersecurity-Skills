@@ -1,6 +1,6 @@
 ---
 name: deploying-tailscale-for-zero-trust-vpn
-description: Deploys and configures Tailscale (or self-hosted Headscale) as a WireGuard-based zero trust mesh VPN, setting up identity-aware ACLs, exit nodes, subnet routers, and MagicDNS for encrypted peer-to-peer connectivity. Use when replacing traditional VPN servers with an identity-authenticated mesh network or enforcing granular per-device access control lists.
+description: "Deploys Tailscale (or self-hosted Headscale) as a WireGuard-based zero trust mesh VPN, setting up identity-aware ACLs, exit nodes, subnet routers, and MagicDNS for encrypted peer-to-peer connectivity. Use when replacing VPN servers with an identity-authenticated mesh network or enforcing per-device ACLs. Keywords: Tailscale, Headscale, WireGuard, mesh VPN, exit node, MagicDNS. Do not use for a reverse-proxy ZTNA broker to internal apps - use configuring-zscaler-private-access-for-ztna; for Cloudflare Tunnel - use deploying-cloudflare-access-for-zero-trust."
 domain: cybersecurity
 subdomain: zero-trust-architecture
 tags:

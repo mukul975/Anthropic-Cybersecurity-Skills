@@ -1,11 +1,6 @@
 ---
 name: configuring-aws-verified-access-for-ztna
-description: Configure AWS Verified Access to provide VPN-less zero trust network
-  access to internal apps, combining identity trust providers (IAM Identity Center,
-  Okta/OIDC), device posture providers (CrowdStrike, Jamf), Cedar policy authoring, and
-  Terraform deployment. Use when replacing VPN access with ZTNA, writing Cedar access
-  policies, or deploying Verified Access instances, groups, and endpoints across AWS
-  accounts.
+description: "Configure AWS Verified Access for VPN-less zero trust access to internal apps, combining identity trust providers (IAM Identity Center, Okta/OIDC), device-posture providers (CrowdStrike, Jamf), Cedar policy authoring, and Terraform deployment. Use when deploying Verified Access instances, groups, and endpoints across AWS accounts, or writing Cedar access policies. Keywords: AWS Verified Access, Cedar policy, IAM Identity Center, device trust provider, Terraform. Do not use for ZTNA on Google Cloud - use implementing-beyondcorp-zero-trust-access-model; for a vendor-agnostic SDP - use deploying-software-defined-perimeter."
 domain: cybersecurity
 subdomain: zero-trust-architecture
 tags:

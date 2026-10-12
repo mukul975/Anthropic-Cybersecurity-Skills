@@ -1,6 +1,6 @@
 ---
 name: implementing-zero-trust-dns-with-nextdns
-description: Configure NextDNS as an encrypted (DoH/DoT) zero trust DNS resolver that blocks malicious, phishing, and cryptojacking domains via real-time threat intelligence, detects DNS rebinding and CNAME cloaking, and enforces organizational DNS policy across endpoints. Use when deploying DNS-layer threat blocking and acceptable-use enforcement, or when extending zero trust controls (including Windows 11 Zero Trust DNS) to the DNS resolution path.
+description: "Configure NextDNS as an encrypted (DoH/DoT) zero trust DNS resolver that blocks malicious, phishing, and cryptojacking domains via real-time threat intelligence, detects DNS rebinding and CNAME cloaking, and enforces organizational DNS policy across endpoints. Use when deploying DNS-layer threat blocking and acceptable-use enforcement, including Windows 11 Zero Trust DNS. Keywords: NextDNS, DoH, DoT, DNS rebinding, CNAME cloaking, Windows 11 Zero Trust DNS. Do not use for network microsegmentation - use configuring-microsegmentation-for-zero-trust; for SaaS access control - use implementing-zero-trust-for-saas-applications."
 domain: cybersecurity
 subdomain: zero-trust-architecture
 tags:

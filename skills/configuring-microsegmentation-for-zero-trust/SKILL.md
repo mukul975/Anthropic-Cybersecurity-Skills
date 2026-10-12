@@ -1,9 +1,6 @@
 ---
 name: configuring-microsegmentation-for-zero-trust
-description: Configures microsegmentation policies to enforce least-privilege workload-to-workload
-  access using tools such as VMware NSX, Illumio, and Calico, preventing lateral
-  movement in zero trust architectures. Use when designing or implementing network
-  microsegmentation as part of a zero trust architecture aligned with NIST SP 800-207.
+description: "Configures microsegmentation policies to enforce least-privilege workload-to-workload access using tools such as VMware NSX, Illumio, and Calico, preventing lateral movement in zero trust architectures aligned with NIST SP 800-207. Use when designing or implementing network microsegmentation across a mixed VMware and Kubernetes estate. Keywords: microsegmentation, VMware NSX, Illumio, Calico, lateral movement, NIST SP 800-207. Do not use for Akamai Guardicore specifically - use implementing-microsegmentation-with-guardicore."
 domain: cybersecurity
 subdomain: zero-trust-architecture
 tags:

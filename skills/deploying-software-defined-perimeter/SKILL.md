@@ -1,6 +1,6 @@
 ---
 name: deploying-software-defined-perimeter
-description: Deploys a Software-Defined Perimeter per the CSA v2.0 specification, configuring Single Packet Authorization, mutual TLS, and SDP controller/gateway components to enforce zero trust network access. Use when building or hardening zero trust network architecture, implementing SPA-based "invisible" infrastructure that cloaks services from unauthenticated scanning, or meeting compliance requirements for zero trust network access.
+description: "Deploys a Software-Defined Perimeter per the CSA v2.0 specification, configuring Single Packet Authorization (SPA), mutual TLS, and SDP controller and gateway components to enforce zero trust network access. Use when building SPA-based invisible infrastructure that cloaks services from unauthenticated scanning, or meeting compliance requirements for ZTNA. Keywords: Software-Defined Perimeter, SDP, CSA v2.0, Single Packet Authorization, mutual TLS, service cloaking. Do not use for a managed ZTNA product - use configuring-zscaler-private-access-for-ztna; for a WireGuard mesh VPN - use deploying-tailscale-for-zero-trust-vpn."
 domain: cybersecurity
 subdomain: zero-trust-architecture
 tags:

@@ -1,12 +1,6 @@
 ---
 name: implementing-microsegmentation-with-guardicore
-description: 'Implements microsegmentation with Akamai Guardicore Segmentation to map
-  application dependencies, visualize east-west traffic flows, and create granular,
-  least-privilege network policies across VMs, containers, bare metal, and cloud.
-  Use when blocking lateral movement in a data center or when PCI DSS/HIPAA
-  compliance requires validated network segmentation.
-
-  '
+description: "Implements microsegmentation with Akamai Guardicore Segmentation to map application dependencies, visualize east-west traffic flows, and create granular least-privilege network policies across VMs, containers, bare metal, and cloud. Use when blocking lateral movement in a data center or when PCI DSS or HIPAA requires validated segmentation. Keywords: Akamai Guardicore, dependency mapping, east-west traffic, PCI DSS, HIPAA segmentation. Do not use for VMware NSX, Illumio, or Calico microsegmentation - use configuring-microsegmentation-for-zero-trust."
 domain: cybersecurity
 subdomain: zero-trust-architecture
 tags:

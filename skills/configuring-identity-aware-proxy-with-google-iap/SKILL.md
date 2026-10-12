@@ -1,13 +1,6 @@
 ---
 name: configuring-identity-aware-proxy-with-google-iap
-description: 'Configures Google Cloud Identity-Aware Proxy (IAP) via gcloud to enforce
-  per-request identity verification on Compute Engine, App Engine, Cloud Run, and
-  GKE, including IAM bindings, Access Context Manager access levels, session/reauth
-  settings, and service-account programmatic access. Use when replacing VPN access
-  with identity-based access to GCP backends or configuring context-aware, zero-trust
-  policies for Google Cloud services.
-
-  '
+description: "Configures Google Cloud Identity-Aware Proxy (IAP) via gcloud to enforce per-request identity verification on Compute Engine, App Engine, Cloud Run, and GKE, including IAM bindings, Access Context Manager access levels, session/reauth settings, and service-account programmatic access. Use when configuring IAP resources and context-aware access policies for specific Google Cloud backends. Keywords: Google Cloud IAP, gcloud, Access Context Manager, IAM binding, Cloud Run, GKE. Do not use for the broader BeyondCorp Enterprise model with Endpoint Verification and Chrome Enterprise Premium - use implementing-beyondcorp-zero-trust-access-model."
 domain: cybersecurity
 subdomain: zero-trust-architecture
 tags:

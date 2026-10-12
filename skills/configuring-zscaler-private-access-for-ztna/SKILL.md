@@ -1,12 +1,6 @@
 ---
 name: configuring-zscaler-private-access-for-ztna
-description: 'Configures Zscaler Private Access (ZPA) to replace traditional VPN
-  with zero trust network access by deploying App Connectors, defining application
-  segments, configuring identity- and device-posture-based access policies, and
-  integrating with IdPs. Use when replacing VPN concentrators with ZTNA or providing
-  remote users secure access to internal applications without network-level connectivity.
-
-  '
+description: "Configures Zscaler Private Access (ZPA) to replace VPN with zero trust access by deploying App Connectors, defining application segments, setting identity- and device-posture-based access policies, and integrating identity providers. Use for the hands-on ZPA deployment: App Connectors, application segments, access policy, and SAML/SCIM IdP integration. Keywords: Zscaler Private Access, ZPA, App Connector, application segment, SAML, SCIM. Do not use for the higher-level ZTNA design of brokering via the Zscaler Zero Trust Exchange - use implementing-zero-trust-network-access-with-zscaler."
 domain: cybersecurity
 subdomain: zero-trust-architecture
 tags:
