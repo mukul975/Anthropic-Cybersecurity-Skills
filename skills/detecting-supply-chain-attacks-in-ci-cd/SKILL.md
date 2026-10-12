@@ -7,7 +7,7 @@ description: 'Scans GitHub Actions workflows and CI/CD pipeline configurations f
 
   '
 domain: cybersecurity
-subdomain: security-operations
+subdomain: soc-operations
 tags:
 - supply-chain-security
 - ci-cd-security

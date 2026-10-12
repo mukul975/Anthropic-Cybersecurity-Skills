@@ -9,7 +9,7 @@ description: 'Implements eBPF-based security monitoring using Cilium Tetragon fo
 
   '
 domain: cybersecurity
-subdomain: security-operations
+subdomain: soc-operations
 tags:
 - ebpf
 - tetragon

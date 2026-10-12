@@ -7,7 +7,7 @@ description: 'Uses Rekall memory forensics framework to analyze memory dumps for
 
   '
 domain: cybersecurity
-subdomain: security-operations
+subdomain: soc-operations
 tags:
 - memory-forensics
 - rekall

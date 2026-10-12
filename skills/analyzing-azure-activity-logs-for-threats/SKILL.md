@@ -7,7 +7,7 @@ description: 'Queries Azure Monitor activity logs and sign-in logs via azure-mon
 
   '
 domain: cybersecurity
-subdomain: security-operations
+subdomain: soc-operations
 tags:
 - azure
 - cloud-security

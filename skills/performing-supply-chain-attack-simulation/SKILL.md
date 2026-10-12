@@ -8,7 +8,7 @@ description: >-
   a project's dependencies for malicious or confused packages, or when
   assessing package-registry supply-chain risk.
 domain: cybersecurity
-subdomain: application-security
+subdomain: web-application-security
 tags:
 - supply-chain
 - typosquatting

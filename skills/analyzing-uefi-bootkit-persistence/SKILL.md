@@ -8,7 +8,7 @@ description: 'Analyzes UEFI bootkit persistence (SPI flash implants, ESP modific
 
   '
 domain: cybersecurity
-subdomain: firmware-security
+subdomain: hardware-firmware-security
 tags:
 - UEFI
 - bootkit

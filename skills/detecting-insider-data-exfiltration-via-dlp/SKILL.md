@@ -8,7 +8,7 @@ description: 'Detects insider data exfiltration by analyzing DLP policy violatio
 
   '
 domain: cybersecurity
-subdomain: security-operations
+subdomain: soc-operations
 tags:
 - insider-threat
 - data-loss-prevention

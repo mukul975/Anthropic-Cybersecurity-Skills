@@ -8,7 +8,7 @@ description: 'Detects credential stuffing attacks by analyzing authentication lo
 
   '
 domain: cybersecurity
-subdomain: security-operations
+subdomain: soc-operations
 tags:
 - credential-stuffing
 - authentication-logs

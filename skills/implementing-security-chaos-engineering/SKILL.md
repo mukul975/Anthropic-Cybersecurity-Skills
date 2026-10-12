@@ -8,7 +8,7 @@ description: 'Implements security chaos engineering experiments that deliberatel
 
   '
 domain: cybersecurity
-subdomain: security-operations
+subdomain: soc-operations
 tags:
 - security-chaos-engineering
 - detection-validation

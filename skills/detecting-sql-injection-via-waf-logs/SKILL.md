@@ -6,7 +6,7 @@ description: Analyze WAF (ModSecurity/AWS WAF/Cloudflare) logs to detect SQL inj
   correlates multi-stage injection attempts, and generates incident reports with OWASP
   classification.
 domain: cybersecurity
-subdomain: security-operations
+subdomain: soc-operations
 tags:
 - waf-log-analysis
 - sql-injection-detection

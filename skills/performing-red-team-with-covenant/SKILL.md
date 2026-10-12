@@ -5,7 +5,7 @@ description: Conducts red team operations using the Covenant C2 framework for au
   and lateral movement tracking. Use when standing up or operating a Covenant command-and-control
   server for an authorized red team engagement.
 domain: cybersecurity
-subdomain: red-team
+subdomain: red-teaming
 tags:
 - red-team
 - c2

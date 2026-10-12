@@ -10,7 +10,7 @@ description: 'Performs firmware image extraction and analysis using binwalk to i
 
   '
 domain: cybersecurity
-subdomain: firmware-analysis
+subdomain: hardware-firmware-security
 tags:
 - firmware
 - binwalk

@@ -8,7 +8,7 @@ description: >-
   timestamping services. Use for tamper-evident log storage for compliance or
   forensics, or to verify whether log entries were altered.
 domain: cybersecurity
-subdomain: security-operations
+subdomain: soc-operations
 tags:
 - log-integrity
 - tamper-detection

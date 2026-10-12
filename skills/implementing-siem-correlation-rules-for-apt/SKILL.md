@@ -7,7 +7,7 @@ description: Write multi-event correlation rules in Splunk SPL and Sigma format 
   to surface multi-stage attack sequences that single-event detections miss, such
   as pass-the-hash or lateral movement chains.
 domain: cybersecurity
-subdomain: security-operations
+subdomain: soc-operations
 tags:
 - siem
 - correlation-rules

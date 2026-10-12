@@ -10,7 +10,7 @@ description: 'Automates SOC 2 Type II audit preparation including gap assessment
 
   '
 domain: cybersecurity
-subdomain: governance-risk-compliance
+subdomain: compliance-governance
 tags:
 - soc2
 - compliance

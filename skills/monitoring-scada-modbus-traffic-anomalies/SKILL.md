@@ -11,7 +11,7 @@ description: 'Monitors Modbus TCP traffic on SCADA and ICS networks to detect an
 
   '
 domain: cybersecurity
-subdomain: ot-security
+subdomain: ot-ics-security
 tags:
 - Modbus-TCP
 - SCADA

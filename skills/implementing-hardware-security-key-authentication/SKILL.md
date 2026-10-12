@@ -9,7 +9,7 @@ description: 'Builds a FIDO2/WebAuthn relying party server with the python-fido2
 
   '
 domain: cybersecurity
-subdomain: identity-and-access-management
+subdomain: identity-access-management
 tags:
 - FIDO2
 - WebAuthn

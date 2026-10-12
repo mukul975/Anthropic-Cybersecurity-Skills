@@ -8,7 +8,7 @@ description: 'Performs coverage-guided fuzzing of compiled binaries with AFL++, 
 
   '
 domain: cybersecurity
-subdomain: application-security
+subdomain: web-application-security
 tags:
 - fuzzing
 - aflplusplus

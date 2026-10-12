@@ -8,7 +8,7 @@ description: 'Performs statistical analysis of Zeek conn.log connection interval
 
   '
 domain: cybersecurity
-subdomain: security-operations
+subdomain: soc-operations
 tags:
 - network-security
 - zeek

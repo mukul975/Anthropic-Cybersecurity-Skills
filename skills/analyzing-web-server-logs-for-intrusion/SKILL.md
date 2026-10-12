@@ -6,7 +6,7 @@ description: Parse Apache and Nginx access logs to detect SQL injection attempts
   enrichment for source attribution, and statistical anomaly detection for request
   frequency and response size outliers.
 domain: cybersecurity
-subdomain: security-operations
+subdomain: soc-operations
 tags:
 - web-log-analysis
 - apache-logs

@@ -6,7 +6,7 @@ description: Parse Windows PowerShell Script Block Logs (Event ID 4104) from EVT
   analysis and pattern matching for Base64-encoded commands, Invoke-Expression abuse,
   download cradles, and AMSI bypass attempts.
 domain: cybersecurity
-subdomain: security-operations
+subdomain: soc-operations
 tags:
 - powershell
 - script-block-logging

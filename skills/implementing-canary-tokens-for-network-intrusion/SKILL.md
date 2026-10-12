@@ -9,7 +9,7 @@ description: 'Deploys DNS, HTTP, and AWS API key canary tokens across network in
 
   '
 domain: cybersecurity
-subdomain: security-operations
+subdomain: soc-operations
 tags:
 - canary-tokens
 - intrusion-detection
