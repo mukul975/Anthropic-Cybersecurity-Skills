@@ -1,12 +1,6 @@
 ---
 name: implementing-ransomware-kill-switch-detection
-description: 'Analyzes ransomware kill switch mechanisms, including mutex-based execution
-  guards, domain-based kill switches (e.g. WannaCry-style), and registry termination
-  checks, then implements mutex vaccination and kill switch domain monitoring to stop
-  ransomware before it runs. Use when analyzing a sample''s execution guards or deploying
-  vaccination/monitoring as a defensive control.
-
-  '
+description: "Analyzes ransomware kill switch mechanisms, including mutex-based execution guards, domain-based kill switches (WannaCry-style), and registry termination checks, then implements mutex vaccination and kill switch domain monitoring to stop ransomware before it runs. Use when analyzing a sample's execution guards or deploying vaccination or monitoring as a defensive control. Keywords: kill switch, mutex vaccination, WannaCry, execution guard, domain sinkhole, registry check. Do not use for full dynamic malware sandbox analysis - use analyzing-malware-behavior-with-cuckoo-sandbox; for sandbox evasion technique analysis - use analyzing-malware-sandbox-evasion-techniques."
 domain: cybersecurity
 subdomain: ransomware-defense
 tags:

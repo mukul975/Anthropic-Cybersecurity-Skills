@@ -1,13 +1,6 @@
 ---
 name: deploying-decoy-files-for-ransomware-detection
-description: 'Deploys canary files (honeytokens) across file systems to detect ransomware
-  encryption activity in real time. Uses strategically placed decoy documents monitored
-  via file integrity monitoring or OS-level watchdogs to trigger alerts when ransomware
-  modifies or encrypts them. Activates for requests involving ransomware canary deployment,
-  honeyfile setup, deception-based ransomware detection, or file integrity monitoring
-  for encryption.
-
-  '
+description: "Deploys canary files (honeytokens) across file systems to detect ransomware encryption in real time, using strategically placed decoy documents monitored via file integrity monitoring or OS-level watchdogs to alert when ransomware modifies or encrypts them. Use when deploying ransomware canary files via FIM, setting up honeyfiles, or adding deception-based encryption detection. Keywords: canary files, honeyfiles, file integrity monitoring, OS watchdog, decoy documents, deception. Do not use for the Python watchdog implementation with email/Slack/syslog alerting - use deploying-ransomware-canary-files; for honeypot shares or Thinkst Canary appliances - use implementing-honeypot-for-ransomware-detection."
 domain: cybersecurity
 subdomain: ransomware-defense
 tags:

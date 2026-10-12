@@ -1,13 +1,6 @@
 ---
 name: recovering-from-ransomware-attack
-description: 'Executes structured ransomware incident recovery following NIST/CISA
-  frameworks: environment isolation, forensic evidence preservation, clean infrastructure
-  rebuild, prioritized restoration from verified backups, credential reset, and
-  Active Directory/database recovery in dependency order. Use when recovering from
-  a ransomware attack, performing post-encryption restoration, or executing disaster
-  recovery after ransomware encryption.
-
-  '
+description: "Executes structured ransomware incident recovery following NIST/CISA frameworks: environment isolation, forensic evidence preservation, clean infrastructure rebuild, prioritized restoration from verified backups, credential reset, and Active Directory/database recovery in dependency order. Use when recovering from a ransomware attack, performing post-encryption restoration, or executing disaster recovery after ransomware encryption. Keywords: incident recovery, isolation, evidence preservation, clean rebuild, backup restoration, credential reset, Active Directory recovery. Do not use for pre-incident playbook authoring - use building-ransomware-playbook-with-cisa-framework; for restoring from immutable backups configured with restic - use implementing-immutable-backup-with-restic."
 domain: cybersecurity
 subdomain: ransomware-defense
 tags:

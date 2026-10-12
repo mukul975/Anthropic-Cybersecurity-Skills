@@ -1,12 +1,6 @@
 ---
 name: implementing-ransomware-backup-strategy
-description: 'Designs a ransomware-resilient backup strategy using the 3-2-1-1-0
-  methodology (3 copies, 2 media types, 1 offsite, 1 immutable/air-gapped, 0 restore
-  errors), configuring RPO/RTO-aligned schedules, isolating backup credentials, and
-  automating restore testing. Use when planning ransomware backup resilience or air-gapped/immutable
-  backup architecture.
-
-  '
+description: "Designs a ransomware-resilient backup strategy using the 3-2-1-1-0 methodology (3 copies, 2 media types, 1 offsite, 1 immutable/air-gapped, 0 restore errors), configuring RPO/RTO-aligned schedules, isolating backup credentials, and automating restore testing. Use when planning ransomware backup resilience or air-gapped/immutable backup architecture. Keywords: 3-2-1-1-0, RPO, RTO, air-gapped, immutable, offsite, restore testing, backup credential isolation. Do not use for the restic or Object Lock implementation itself - use implementing-immutable-backup-with-restic; for executing restores after an attack - use recovering-from-ransomware-attack."
 domain: cybersecurity
 subdomain: ransomware-defense
 tags:

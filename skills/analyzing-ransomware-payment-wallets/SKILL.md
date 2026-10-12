@@ -1,8 +1,6 @@
 ---
 name: analyzing-ransomware-payment-wallets
-description: 'Traces ransomware cryptocurrency payment flows using blockchain analysis tools such as Chainalysis Reactor, WalletExplorer, and blockchain.com APIs, identifying wallet clusters and tracking fund movement through mixers and exchanges to support law enforcement attribution. Use when tracing ransomware bitcoin payments, performing cryptocurrency wallet forensics, or gathering blockchain threat intelligence on extortion payments.
-
-  '
+description: "Traces ransomware cryptocurrency payment flows using blockchain analysis tools such as Chainalysis Reactor, WalletExplorer, and blockchain.com APIs, identifying wallet clusters and tracking fund movement through mixers and exchanges to support law enforcement attribution. Use when tracing ransomware bitcoin payments, performing cryptocurrency wallet forensics, or gathering blockchain threat intelligence on extortion payments. Keywords: Chainalysis Reactor, WalletExplorer, bitcoin tracing, wallet clustering, mixer, exchange attribution, blockchain forensics. Do not use for host or network ransomware recovery - use recovering-from-ransomware-attack; for actor attribution from non-blockchain evidence - use analyzing-campaign-attribution-evidence."
 domain: cybersecurity
 subdomain: ransomware-defense
 tags:

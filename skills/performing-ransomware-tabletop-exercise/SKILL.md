@@ -1,12 +1,6 @@
 ---
 name: performing-ransomware-tabletop-exercise
-description: 'Plans and facilitates tabletop exercises simulating ransomware incidents,
-  using realistic scenarios based on threat actors like LockBit and ALPHV/BlackCat
-  with injects covering double extortion and backup destruction, then evaluates responses
-  against NIST CSF and CISA guidelines. Use when planning or running a ransomware
-  tabletop exercise or incident response readiness drill.
-
-  '
+description: "Plans and facilitates tabletop exercises simulating ransomware incidents, using realistic scenarios based on threat actors like LockBit and ALPHV/BlackCat with injects covering double extortion and backup destruction, then evaluates responses against NIST CSF and CISA guidelines. Use when planning or running a ransomware tabletop exercise or incident response readiness drill. Keywords: tabletop exercise, LockBit, ALPHV, BlackCat, double extortion, injects, NIST CSF, CISA. Do not use for authoring the playbook the exercise tests - use building-ransomware-playbook-with-cisa-framework; for executing live recovery after a real attack - use recovering-from-ransomware-attack."
 domain: cybersecurity
 subdomain: ransomware-defense
 tags:
