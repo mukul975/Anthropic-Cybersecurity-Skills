@@ -1,13 +1,6 @@
 ---
 name: configuring-windows-event-logging-for-detection
-description: 'Configures Windows Event Logging with advanced audit policies to generate
-  high-fidelity security events for threat detection and forensic investigation. Use
-  when enabling audit policies for logon events, process creation, privilege use,
-  and object access to feed SIEM detection rules. Activates for requests involving
-  Windows audit policy, event log configuration, security logging, or detection-oriented
-  logging.
-
-  '
+description: "Configures Windows Event Logging with advanced audit policies to generate high-fidelity security events for threat detection and forensic investigation. Use when enabling audit policies for logon events, process creation, privilege use, and object access to feed SIEM detection rules. Keywords: Windows audit policy, Event Logging, Sysmon, process creation 4688, logon 4624, object access, SIEM feed. Do not use for writing the detection logic these events feed - use building-detection-rules-with-sigma; for detecting evasion in the resulting logs - use detecting-evasion-techniques-in-endpoint-logs."
 domain: cybersecurity
 subdomain: endpoint-security
 tags:

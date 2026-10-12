@@ -1,13 +1,6 @@
 ---
 name: implementing-endpoint-dlp-controls
-description: 'Implements endpoint Data Loss Prevention (DLP) controls to detect and
-  prevent sensitive data exfiltration through email, USB, cloud storage, and printing.
-  Use when deploying DLP agents, creating content inspection policies, or preventing
-  unauthorized data movement from endpoints. Activates for requests involving DLP,
-  data exfiltration prevention, content inspection, or sensitive data protection on
-  endpoints.
-
-  '
+description: "Implements endpoint Data Loss Prevention (DLP) controls to detect and prevent sensitive data exfiltration through email, USB, cloud storage, and printing. Use when deploying DLP agents, creating content inspection policies, or preventing unauthorized data movement from endpoints. Keywords: DLP, data exfiltration, content inspection, email/USB/cloud/print channels, sensitive data classification, endpoint agent. Do not use for USB device control alone - use implementing-usb-device-control-policy; for encrypting data at rest rather than controlling its movement - use implementing-disk-encryption-with-bitlocker."
 domain: cybersecurity
 subdomain: endpoint-security
 tags:

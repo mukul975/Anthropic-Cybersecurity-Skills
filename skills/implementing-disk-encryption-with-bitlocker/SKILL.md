@@ -1,13 +1,6 @@
 ---
 name: implementing-disk-encryption-with-bitlocker
-description: 'Implements full disk encryption using Microsoft BitLocker on Windows
-  endpoints to protect data at rest from unauthorized access in case of device loss
-  or theft. Use when deploying encryption for compliance requirements, securing mobile
-  workstations, or implementing data protection controls across the enterprise. Activates
-  for requests involving BitLocker encryption, disk encryption, TPM configuration,
-  or data-at-rest protection.
-
-  '
+description: "Implements full disk encryption using Microsoft BitLocker on Windows endpoints to protect data at rest from unauthorized access in case of device loss or theft. Use when deploying encryption for compliance requirements, securing mobile workstations, or implementing data-at-rest protection across the enterprise. Keywords: BitLocker, full disk encryption, TPM, data at rest, recovery key, device loss, Windows encryption. Do not use for preventing data movement off endpoints rather than encrypting it - use implementing-endpoint-dlp-controls; for restricting removable media - use implementing-usb-device-control-policy."
 domain: cybersecurity
 subdomain: endpoint-security
 tags:

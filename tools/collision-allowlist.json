@@ -20,6 +20,13 @@
         "hardening-windows-endpoint-with-cis-benchmark"
       ],
       "reason": "Same CIS Benchmark methodology, different operating systems. The controls, tooling and audit commands do not overlap, so both must exist; each description must name the OS explicitly and point at the other."
+    },
+    {
+      "pair": [
+        "configuring-host-based-intrusion-detection",
+        "implementing-file-integrity-monitoring-with-aide"
+      ],
+      "reason": "Both do file integrity monitoring, but one is a multi-tool HIDS procedure (OSSEC, Wazuh, AIDE; FIM plus syscall/config auditing across platforms) and the other is the AIDE-only Linux FIM workflow (baseline DB, cron checks). Each description names its scope and points at the other."
     }
   ]
 }

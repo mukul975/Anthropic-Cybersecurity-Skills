@@ -1,12 +1,6 @@
 ---
 name: performing-endpoint-forensics-investigation
-description: 'Performs digital forensics investigation on compromised endpoints including
-  memory acquisition, disk imaging, artifact analysis, and timeline reconstruction.
-  Use when investigating security incidents, collecting evidence for legal proceedings,
-  or analyzing endpoint compromise scope. Activates for requests involving endpoint
-  forensics, memory analysis, disk forensics, or incident investigation.
-
-  '
+description: "Performs digital forensics investigation on compromised endpoints including memory acquisition, live-response triage, endpoint artifact analysis, and timeline reconstruction. Use when investigating security incidents, collecting evidence for legal proceedings, or analyzing endpoint compromise scope. Keywords: endpoint forensics, memory acquisition, live-response triage, endpoint artifacts, compromise scoping, chain of custody. Do not use for deep memory-dump analysis with Volatility - use performing-memory-forensics-with-volatility3; for storage-only disk forensics with FTK Imager, Autopsy, or The Sleuth Kit - use performing-disk-forensics-investigation."
 domain: cybersecurity
 subdomain: endpoint-security
 tags:

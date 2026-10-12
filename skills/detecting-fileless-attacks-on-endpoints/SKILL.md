@@ -1,13 +1,6 @@
 ---
 name: detecting-fileless-attacks-on-endpoints
-description: 'Detects fileless malware and in-memory attacks that execute entirely
-  in RAM without writing persistent files to disk, evading traditional antivirus.
-  Use when building detections for PowerShell-based attacks, reflective DLL injection,
-  WMI persistence, and registry-resident malware. Activates for requests involving
-  fileless malware detection, in-memory attacks, PowerShell exploitation, or living-off-the-land
-  techniques.
-
-  '
+description: "Detects fileless malware and in-memory attacks that execute entirely in RAM without writing persistent files to disk, evading traditional antivirus. Use when building detections for PowerShell-based attacks, reflective DLL injection, WMI persistence, and registry-resident malware. Keywords: fileless malware, in-memory, PowerShell, reflective DLL injection, WMI persistence, living-off-the-land, LOLBins. Do not use for general defense-evasion log analysis - use detecting-evasion-techniques-in-endpoint-logs; for process-injection detection specifically via Sysmon - use detecting-t1055-process-injection-with-sysmon."
 domain: cybersecurity
 subdomain: endpoint-security
 tags:

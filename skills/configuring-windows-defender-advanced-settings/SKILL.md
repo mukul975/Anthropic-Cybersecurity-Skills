@@ -1,13 +1,6 @@
 ---
 name: configuring-windows-defender-advanced-settings
-description: 'Configures Microsoft Defender for Endpoint (MDE) advanced protection
-  settings including attack surface reduction rules, controlled folder access, network
-  protection, and exploit protection. Use when hardening Windows endpoints beyond
-  default Defender settings, deploying enterprise-grade endpoint protection, or meeting
-  compliance requirements for advanced malware defense. Activates for requests involving
-  Windows Defender configuration, ASR rules, MDE tuning, or Microsoft endpoint security.
-
-  '
+description: "Configures Microsoft Defender for Endpoint (MDE) advanced protection settings including attack surface reduction rules, controlled folder access, network protection, and exploit protection. Use when hardening Windows endpoints beyond default Defender settings, deploying enterprise-grade endpoint protection, or meeting compliance requirements for advanced malware defense. Keywords: Microsoft Defender for Endpoint, MDE, ASR rules, controlled folder access, network protection, exploit protection. Do not use for the same controls delivered as anti-ransomware GPO - use implementing-anti-ransomware-group-policy; for AppLocker application control - use implementing-application-whitelisting-with-applocker."
 domain: cybersecurity
 subdomain: endpoint-security
 tags:

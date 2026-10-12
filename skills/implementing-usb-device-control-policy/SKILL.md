@@ -1,12 +1,6 @@
 ---
 name: implementing-usb-device-control-policy
-description: 'Implements USB device control policies to restrict unauthorized removable
-  media access on endpoints, preventing data exfiltration and malware introduction
-  via USB devices. Use when deploying device control via Group Policy, Intune, or
-  EDR platforms to enforce USB restrictions. Activates for requests involving USB
-  control, removable media policy, device control, or data loss prevention via USB.
-
-  '
+description: "Implements USB device control policies to restrict unauthorized removable media access on endpoints, preventing data exfiltration and malware introduction via USB devices. Use when deploying device control via Group Policy, Intune, or EDR platforms to enforce USB restrictions. Keywords: USB control, removable media policy, device control, Group Policy, Intune, data exfiltration via USB, device whitelisting. Do not use for full content-inspection DLP across email, cloud, and print - use implementing-endpoint-dlp-controls; for encrypting the data itself at rest - use implementing-disk-encryption-with-bitlocker."
 domain: cybersecurity
 subdomain: endpoint-security
 tags:

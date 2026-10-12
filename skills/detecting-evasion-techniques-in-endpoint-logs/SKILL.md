@@ -1,13 +1,6 @@
 ---
 name: detecting-evasion-techniques-in-endpoint-logs
-description: 'Detects defense evasion techniques used by adversaries in endpoint logs
-  including log tampering, timestomping, process injection, and security tool disabling.
-  Use when investigating suspicious endpoint behavior, building detection rules for
-  evasion tactics, or conducting threat hunting for stealthy adversary activity. Activates
-  for requests involving evasion detection, defense evasion analysis, log tampering
-  detection, or MITRE ATT&CK TA0005.
-
-  '
+description: "Detects defense evasion techniques in endpoint logs including log tampering, timestomping, process injection, and security tool disabling (MITRE ATT&CK TA0005). Use when investigating suspicious endpoint behavior, building detection rules for evasion tactics, or threat hunting for stealthy adversary activity. Keywords: defense evasion, TA0005, timestomping, log tampering, process injection, security tool disabling, event log clearing 1102. Do not use for fileless or in-memory execution detection - use detecting-fileless-attacks-on-endpoints; for configuring the audit logs first - use configuring-windows-event-logging-for-detection."
 domain: cybersecurity
 subdomain: endpoint-security
 tags:

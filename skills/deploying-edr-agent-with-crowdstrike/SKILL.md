@@ -1,13 +1,6 @@
 ---
 name: deploying-edr-agent-with-crowdstrike
-description: 'Deploys and configures CrowdStrike Falcon EDR agents across enterprise
-  endpoints to enable real-time threat detection, behavioral analysis, and automated
-  response. Use when onboarding endpoints to EDR coverage, configuring detection policies,
-  or integrating Falcon telemetry with SIEM platforms. Activates for requests involving
-  CrowdStrike deployment, Falcon sensor installation, EDR policy configuration, or
-  endpoint detection and response.
-
-  '
+description: "Deploys and configures CrowdStrike Falcon EDR agents across enterprise endpoints to enable real-time threat detection, behavioral analysis, and automated response. Use when onboarding endpoints to EDR coverage, configuring detection policies, or integrating Falcon telemetry with SIEM platforms. Keywords: CrowdStrike Falcon, EDR sensor, behavioral detection, automated response, telemetry, SIEM integration. Do not use for open-source EDR with Wazuh - use implementing-endpoint-detection-with-wazuh; for agentless SQL-based endpoint visibility - use deploying-osquery-for-endpoint-monitoring."
 domain: cybersecurity
 subdomain: endpoint-security
 tags:
