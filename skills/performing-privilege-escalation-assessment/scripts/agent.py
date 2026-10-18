@@ -6,6 +6,7 @@ including SUID binaries, sudo misconfigurations, writable cron jobs,
 capabilities, and kernel version checks.
 """
 
+import os
 import subprocess
 import shlex
 import json
