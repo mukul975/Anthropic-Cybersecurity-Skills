@@ -100,6 +100,28 @@ This skill uses MITRE ATLAS technique IDs.
    scoring_target = OpenAIChatTarget(model_name="gpt-4o")
    ```
 
+   For MiniMax, `OpenAIChatTarget` can use the OpenAI-compatible endpoint by
+   supplying the key and base URL explicitly. The global endpoint is
+   `https://api.minimax.io/v1`; China-region deployments use
+   `https://api.minimaxi.com/v1`. Supported model IDs are `MiniMax-M3.1-Flash`
+   (1M-token context, adaptive reasoning) and `MiniMax-M3` (1M-token context,
+   adaptive or disabled reasoning). Keep the key in an environment variable:
+
+   ```python
+   import os
+   from pyrit.prompt_target import OpenAIChatTarget
+
+   minimax_target = OpenAIChatTarget(
+       endpoint="https://api.minimax.io/v1/chat/completions",
+       model_name="MiniMax-M3.1-Flash",
+       api_key=os.environ["MINIMAX_API_KEY"],
+   )
+   ```
+
+   The corresponding Anthropic-compatible base URLs are
+   `https://api.minimax.io/anthropic` (global) and
+   `https://api.minimaxi.com/anthropic` (China region).
+
 ### Phase 3: Generic Adversarial Chat (RedTeamingOrchestrator)
 1. Run a multi-turn loop driven by a true/false objective scorer:
    ```python
