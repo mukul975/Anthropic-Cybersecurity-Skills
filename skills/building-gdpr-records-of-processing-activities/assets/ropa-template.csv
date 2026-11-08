@@ -1,0 +1,3 @@
+activity,controller,purposes,data_subjects,data_categories,recipients,retention,security_measures,third_country,transfer_safeguard
+Payroll administration,"Example Ltd, privacy@example.com",Administering staff salary and statutory deductions,Employees,"Name, bank details, national insurance number, salary",Payroll processor; HMRC,Duration of employment + 6 years,"Access control, encryption at rest, audited change management",,
+Customer CRM,"Example Ltd, privacy@example.com",Managing customer relationships and support,Customers,"Name, email, phone, purchase history",Email provider; cloud CRM (US),Duration of contract + 2 years,"MFA, role-based access, TLS in transit",United States,EU Standard Contractual Clauses (2021)
