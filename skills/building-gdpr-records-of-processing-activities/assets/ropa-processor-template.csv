@@ -1,0 +1,3 @@
+activity,processor,controller,processing_categories,security_measures,third_country,transfer_safeguard
+Managed email hosting,"HostCo Ltd, dpo@hostco.example","Example Ltd, privacy@example.com","Storage, transmission, backup of mailbox contents","Encryption at rest and in transit, access logging, ISO 27001 controls",,
+Analytics processing,"HostCo Ltd, dpo@hostco.example","Example Ltd, privacy@example.com","Aggregation and reporting of usage events","Pseudonymisation, regional data residency",United States,EU Standard Contractual Clauses (2021)
