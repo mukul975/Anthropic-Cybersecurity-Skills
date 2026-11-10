@@ -47,7 +47,7 @@ jobs:
         run: python3 tools/validate-agentskills.py --strict
 
       # index.json is generated; a PR that changes a description must regenerate it.
-      # Pull requests only: on a push to main, update-index.yml regenerates
+      # Pull requests only: on a push to main, sync-generated.yml regenerates
       # index.json in parallel with this job, so checking here would race and go
       # red on every merge that adds a skill before self-healing seconds later.
       - name: Check index.json is current

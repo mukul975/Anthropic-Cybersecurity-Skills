@@ -30,3 +30,13 @@ python tools/validate-skill.py --all
 Python 3.8+ and PyYAML (`pip install pyyaml`).
 
 All frontmatter is parsed by `skill_frontmatter.py`, the single PyYAML-backed loader. It replaced three hand-rolled regex parsers that silently truncated multi-line descriptions to their first line — that bug shipped 604 of 817 descriptions broken in `index.json`. Do not reintroduce regex frontmatter parsing; CI fails the build if it detects any.
+
+## Generated files
+
+`index.json`, the skill count in `README.md` and the plugin manifests, and the contributor wall in `README.md` are all generated. Never edit them by hand. `.github/workflows/sync-generated.yml` regenerates all three on every push to `main` (and weekly) and pushes the result in a single commit, so no two writers race on `README.md`.
+
+| Script | Writes | Run it yourself when |
+|---|---|---|
+| `generate-index.py` | `index.json` (`--check` verifies it; CI runs that on PRs) | your PR adds or changes a skill |
+| `sync-skill-count.py` | the skill count in `README.md`, `.claude-plugin/*.json` | never needed in a PR; CI does it on merge |
+| `update-contributors.py` | the block between `<!-- contributors:start -->` and `<!-- contributors:end -->` in `README.md`, from the GitHub API | never needed; set `GITHUB_TOKEN` to avoid rate limits if you do |

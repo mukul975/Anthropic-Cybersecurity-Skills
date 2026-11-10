@@ -1,0 +1,63 @@
+name: Sync generated files
+
+# One job owns every generated file on main: index.json, the skill count in
+# README.md and the plugin manifests, and the contributor wall in README.md.
+# They used to be two workflows that both rewrote README.md and pushed, which
+# raced on every merge that added a skill. One job means one commit, one push.
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    # Reconciles contributor counts: /contributors is cached and can lag a
+    # merge by about a day. New people already show up via /commits on the
+    # push-triggered run; this pass corrects their counts once it catches up.
+    - cron: '17 4 * * 1'
+  workflow_dispatch:
+
+# Shared with sync-marketplace-version.yml, the other workflow that pushes to main.
+concurrency:
+  group: sync-generated
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      # Rewrites index.json only when a skill changed, so pushes that touch
+      # nothing under skills/ produce no diff here.
+      - name: Regenerate index.json
+        run: python3 tools/generate-index.py
+
+      - name: Sync skill count into README and plugin manifests
+        run: python3 tools/sync-skill-count.py
+
+      # Depends on the GitHub API. If it is down, still commit the index.
+      - name: Regenerate the contributor wall
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 tools/update-contributors.py
+
+      - name: Commit and push if anything changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.json README.md .claude-plugin/marketplace.json .claude-plugin/plugin.json
+          if git diff --staged --quiet; then
+            echo "Generated files are current."
+            exit 0
+          fi
+          git commit -m "chore: sync generated files"
+          # A human merge can land while this runs.
+          git pull --rebase origin main
+          git push

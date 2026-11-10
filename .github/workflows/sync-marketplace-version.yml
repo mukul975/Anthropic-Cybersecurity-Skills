@@ -4,6 +4,11 @@ on:
   release:
     types: [published]
 
+# Shared with sync-generated.yml: both push to main and must not race.
+concurrency:
+  group: sync-generated
+  cancel-in-progress: false
+
 jobs:
   sync-version:
     runs-on: ubuntu-latest
@@ -36,8 +41,8 @@ jobs:
 
       - name: Commit and push
         run: |
-          git config user.name "mukul975"
-          git config user.email "mukuljangra5@gmail.com"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add .claude-plugin/marketplace.json .claude-plugin/plugin.json
           git diff --staged --quiet || git commit -m "chore: bump plugin version to ${{ steps.version.outputs.tag }}"
           git push origin HEAD:main

@@ -86,17 +86,22 @@ def main() -> int:
         print(f"\n{len(errors)} skill(s) could not be indexed.")
         return 1
 
-    if args.check:
-        if not os.path.isfile(args.out):
-            print(f"ERROR: {args.out} is missing. Run: python tools/generate-index.py")
-            return 1
+    current = None
+    if os.path.isfile(args.out):
         with open(args.out, encoding="utf-8") as handle:
             current = json.load(handle)
-        if _comparable(current) != _comparable(index):
-            print(f"ERROR: {args.out} is out of date. Run: python tools/generate-index.py")
-            return 1
+    up_to_date = current is not None and _comparable(current) == _comparable(index)
+
+    if up_to_date:
+        # Leave the file alone: rewriting only generated_at would produce a
+        # no-op commit on every run of the sync workflow.
         print(f"OK: {args.out} is up to date ({index['total_skills']} skills)")
         return 0
+
+    if args.check:
+        state = "missing" if current is None else "out of date"
+        print(f"ERROR: {args.out} is {state}. Run: python tools/generate-index.py")
+        return 1
 
     with open(args.out, "w", encoding="utf-8") as handle:
         json.dump(index, handle, separators=(",", ":"))
