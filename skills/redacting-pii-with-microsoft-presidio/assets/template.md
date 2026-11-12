@@ -72,5 +72,5 @@
 ## Sign-Off and Approval
 
 - **Privacy Officer Approval**: Approved
-- **Data Protection Officer (DPO) Signature**: Ayush Kumar (`ayuuXploits`)
+- **Data Protection Officer (DPO) Signature**: Ayush Kumar (`ayuxploits`)
 - **Date**: 2026-10-01
